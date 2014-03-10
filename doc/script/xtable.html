@@ -81,7 +81,7 @@ jui.ready(function(ui, uix, _) {
 
 function xtableRun(type) {
 	var result = [], 
-		dataSize = 500000,
+		dataSize = 1000000,
 		nStart = new Date().getTime();
 	
 	for(var i = 0; i < dataSize; i++) {
@@ -109,7 +109,7 @@ function xtableRun(type) {
 	var nEnd2 = new Date().getTime(); 
 	
 	alert(
-		"임의의 데이터 " + (dataSize / 10000) + "만개를 생성합니다.\n\n" +
+		"임의의 데이터 " + (dataSize / 10000) + "만건을 생성합니다.\n\n" +
 		"데이터 생성시간 : " + ((nEnd - nStart) / 1000) + "sec\n" +
 		"테이블 갱신시간 : " + ((nEnd2 - nEnd) / 1000) + "sec"
 	);
@@ -162,7 +162,7 @@ function xtableFilterCustom() {
 	<h2>Scroll (+Dropdown, +Loading)</h2>
 	<p>
 		<a class="btn btn-gray btn-mini" href="javascript:xtableRun(1)">Run</a> - 
-		50만건의 데이터를 추가하는 데모이며, 스크롤이 맨 밑으로 내려갔을 경우에 로우를 추가적으로 렌더링합니다.
+		100만건의 데이터를 추가하는 데모이며, 스크롤이 맨 밑으로 내려갔을 경우에 로우를 추가적으로 렌더링합니다.
 		
 		<div id="xtable_1" class="xtable xtable-rect">
 			<table class="table table-simple table-headline">
@@ -242,7 +242,7 @@ function xtableFilterCustom() {
 	<h2>Page</h2>
 	<p>
 		<a class="btn btn-gray btn-mini" href="javascript:xtableRun(2)">Run</a> - 
-		50만건의 데이터를 추가하는 데모이며, 스크롤이 없는 페이징 형태로 추가 데이터를 렌더링합니다.
+		100만건의 데이터를 추가하는 데모이며, 스크롤이 없는 페이징 형태로 추가 데이터를 렌더링합니다.
 		
 		<div id="xtable_2" class="xtable xtable-rect">
 			<table class="table table-simple table-headline">
@@ -293,7 +293,7 @@ function xtableFilterCustom() {
 	<h2>Page-Scroll</h2>
 	<p>
 		<a class="btn btn-gray btn-mini" href="javascript:xtableRun(3)">Run</a> - 
-		50만건의 데이터를 추가하는 데모이며, 스크롤이 있는 페이징 형태로 추가 데이터를 렌더링합니다.
+		100만건의 데이터를 추가하는 데모이며, 스크롤이 있는 페이징 형태로 추가 데이터를 렌더링합니다.
 		
 		<div id="xtable_3" class="xtable xtable-rect">
 			<table class="table table-simple table-headline">
