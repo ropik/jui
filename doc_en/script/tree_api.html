@@ -1,0 +1,228 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<META charset="UTF-8">
+<title>[JUI Library] - JavaScript/Tree/API</title>
+	
+<link rel="stylesheet" href="../../lib/jui.min.css" />
+<script src="../../lib/jquery-2.0.3.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui.min.js"></script>
+<script src="../../lib/jui.mng.js"></script>
+
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="api_core.js"></script>
+<script src="../../res/manual.js"></script>
+
+<script>
+var uiApi = {
+	prop: {
+		uit: {
+			detail: "트리 데이터를 핸들링하는 클래스의 인스턴스입니다."
+		}
+	},
+	method: {
+		update: {
+			param: "index, data",
+			ret: "none",
+			detail: "해당 인덱스의 노드를 변경합니다."
+		},
+		append: {
+			param: "data or index, data",
+			ret: "none",
+			detail: "해당 인덱스의 자식 노드로 추가합니다."
+		},
+		insert: {
+			param: "index, data",
+			ret: "none",
+			detail: "해당 인덱스의 노드를 추가합니다."
+		},
+		select: {
+			param: "index",
+			ret: "UINode",
+			detail: "해당 인덱스의 노드에 선택 효과를 주고, 해당 노드를 반환합니다."
+		},
+		remove: {
+			param: "index",
+			ret: "none",
+			detail: "해당 인덱스의 노드를 삭제합니다."
+		},
+		reset: {
+			param: "none",
+			ret: "none",
+			detail: "루트를 제외한 모든 자식 노드를 삭제합니다."
+		},
+		move: {
+			param: "index, targetIndex",
+			ret: "none",
+			detail: "해당 인덱스의 노드를 타겟 인덱스로 이동합니다."
+		},
+		list: {
+			param: "none",
+			ret: "array",
+			detail: "해당 인덱스의 노드를 반환합니다."
+		},
+		listAll: {
+			param: "none",
+			ret: "array",
+			detail: "해당 인덱스의 모든 자식 노드를 포함하여 반환합니다."
+		},
+		listParents: {
+			param: "index",
+			ret: "array",
+			detail: "해당 인덱스의 모든 부모 노드를 반환합니다."
+		},
+		get: {
+			param: "index",
+			ret: "UINode",
+			detail: "해당 인덱스의 노드를 가져옵니다."
+		},
+		getAll: {
+			param: "index",
+			ret: "array",
+			detail: "해당 인덱스의 노드의 자식을 포함한 모든 노드를 가져옵니다."
+		},
+		open: {
+			param: "index",
+			ret: "none",
+			detail: "해당 인덱스의 자식 노드를 보여줍니다."
+		},
+		openAll: {
+			param: "index",
+			ret: "none",
+			detail: "해당 인덱스의 모든 자식 노드를 보여줍니다."
+		},
+		fold: {
+			param: "index",
+			ret: "none",
+			detail: "해당 인덱스의 자식 노드를 접습니다."
+		},
+		foldAll: {
+			param: "index",
+			ret: "none",
+			detail: "해당 인덱스의 모든 자식 노드를 접습니다."
+		}
+	},
+	event: {
+		select: {
+			detail: "노드가 선택될 때, 발생하는 이벤트입니다."
+		},
+		open: {
+			detail: "노드가 보여질 때, 발생하는 이벤트입니다."
+		},
+		fold: {
+			detail: "노드가 숨겨질 때, 발생하는 이벤트입니다."
+		}
+	},
+	tpl: {
+		node: {
+			detail: "노드의 템플릿 마트업니다."
+		}
+	},
+	opt: {
+		root: {
+			detail: "루트 노드를 추가합니다. (Required)"
+		},
+		rootHide: {
+			detail: "루트 노드를 숨깁니다."
+		},
+		rootFold: {
+			detail: "루트 노드를 접습니다."
+		},
+		drag: {
+			detail: "노드 이동을 드래그로 할 수 있습니다."
+		},
+		dragChild: {
+			detail: "노드 이동을 드래그로 할 수 있지만 대상 노드의 자식 노드로 변경되지 않습니다."
+		}
+	}
+};
+
+jui.ready(function(ui, uix, _) {
+	var ui = uix.tree("#ui", {
+		root: { title: "C:\\" },
+		event: {
+			select: function() {},
+			open: function() {},
+			fold: function() {}
+		},
+		tpl: {
+			node: ""
+		}
+	});
+	
+	juiApi(ui, uiApi, _.template, function() {
+
+	});
+});
+
+</script>
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>UINode</h1>
+</div>
+
+<section>
+	<h2>Properties</h2>
+	<p>
+		<table width="100%" class="table_s" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="120px">Name</td>
+				<td>Description</td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>자식 노드가 보여지는지 숨겨져 있는지에 대한 상태 값입니다.</td>
+			</tr>		
+			<tr>
+				<td>data</td>
+				<td>해당 노드의 데이터입니다.</td>
+			</tr>	
+			<tr>
+				<td>element</td>
+				<td>해당 노드의 LI 엘리먼트입니다.</td>
+			</tr>	
+			<tr>
+				<td>index</td>
+				<td>해당 노드의 인덱스입니다.</td>
+			</tr>	
+			<tr>
+				<td>nodenum</td>
+				<td>해당 노드의 현재 뎁스에서의 고유 번호입니다.</td>
+			</tr>	
+			<tr>
+				<td>parent</td>
+				<td>해당 노드의 부모를 참조하는 변수입니다.</td>
+			</tr>	
+			<tr>
+				<td>childrens</td>
+				<td>해당 노드의 자식 노드 목록입니다.</td>
+			</tr>	
+			<tr>
+				<td>depth</td>
+				<td>해당 노드의 깊이입니다.</td>
+			</tr>	
+		</table>
+	</p>
+</section>
+
+<div class="page-header" style="margin-top: 60px;">
+	<h1>Tree</h1>
+</div>
+
+<div class="hidden">
+	<ul id="ui" class="tree tree-arrow"></ul>
+	
+	<script data-jui="#ui" data-tpl="node" type="text/template">
+		<li>
+			<div><i></i> <!= title !></div>
+			<ul></ul>
+		</li>
+	</script>
+</div>
+
+</body>
+</html>

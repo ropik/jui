@@ -1,0 +1,194 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<META charset="UTF-8">
+<title>[JUI Library] - JavaScript/Tab</title>
+
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+
+<script src="../../lib/jquery-2.0.3.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui.min.js"></script>
+<script src="../../lib/jui.mng.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+
+<script>
+jui.ready(function(ui, uix, _) {
+	// 6-1. 탭, tab-top
+	tab_1 = uix.tab("#tab_1", {
+		event: {
+			change: function(data) {
+				alert(data.text);
+			},
+			changeMenu: function(data) {
+				alert(data.text);
+			}
+		},
+		target: "#tab_contents_1",
+		index: 2
+	});
+
+	// 6-2. 탭, tab-bottom
+	pill_1 = uix.tab("#pill_1", {
+		event: {
+			change: function(data) {
+				alert(data.text);
+			},
+			changeMenu: function(data) {
+				alert(data.text);
+			}
+		},
+		target: "#pill_contents_1"
+	});
+});
+
+</script>
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Tab</h1>
+</div>
+	
+<section>
+	<h2>Tab, top</h2>
+	<p>
+		탭 컨텐츠는 이벤트를 통해서 처리할 수 있지만 아래와 같이 객체 생성시 옵션으로 탭 컨텐츠를 설정할 수도 있습니다.<BR/>
+		또한 메뉴 탭 설정도 할 수 있으며, 관련된 마크업은 드롭다운과 동일합니다.
+		
+		<ul id="tab_1" class="tab tab-top">
+			<li>
+				<a href="#home">Home</a>
+			</li>
+			<li><a href="#css">CSS</a></li>
+			<li><a href="#script">Script</a></li>
+			<li class="menu">
+				<a href="#">Menu <i class="icon-arrow1"></i></a>
+			</li>
+		</ul>
+		
+		<div id="tab_contents_1" class="tab-contents" style="background: #dcdcdc;">
+			<div id="home">home</div>
+			<div id="css">css</div>
+			<div id="script">script</div>
+		</div>
+		
+		<script data-jui="#tab_1" data-tpl="menu" type="text/template">
+			<div class="dropdown">
+				<div class="anchor"></div>
+				
+				<ul style="width: 120px;">
+					<li>Dropdown 1</li>
+					<li class="divider"></li>
+					<li>Dropdown 2</li>
+					<li>Dropdown 3</li>
+					<li>Dropdown 4</li>
+				</ul>
+			</div>
+		</script>
+	</p>
+	<p class="br">
+<pre><code class="language-javascript">tab_1 = uix.tab("#tab_1", {
+	event: {
+		change: function(data) {
+			alert(data.text);
+		},
+		changeMenu: function(data) {
+			alert(data.text);
+		}
+	},
+	target: "#tab_contents_1",
+	index: 2
+});</code></pre>
+
+<pre><code class="language-markup">&lt;ul id="tab_1" class="tab tab-top"&gt;
+	&lt;li>
+		&lt;a href="#home">Home&lt;/a>
+	&lt;/li>
+	&lt;li>&lt;a href="#css">CSS&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#script">Script&lt;/a>&lt;/li>
+	&lt;li class="menu">
+		&lt;a href="#">Menu &lt;i class="icon-arrow1">&lt;/i>&lt;/a>
+	&lt;/li>
+&lt;/ul&gt;
+
+&lt;div id="tab_contents_1" class="tab-contents" style="background: #dcdcdc;"&gt;
+	&lt;div id="home"&gt;home&lt;/div&gt;
+	&lt;div id="css"&gt;css&lt;/div&gt;
+	&lt;div id="script"&gt;script&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script data-jui="#tab_1" data-tpl="menu" type="text/template"&gt;
+	&lt;div class="dropdown"&gt;
+		&lt;div class="anchor"&gt;&lt;/div&gt;
+		
+		&lt;ul style="width: 120px;"&gt;
+			&lt;li&gt;Dropdown 1&lt;/li&gt;
+			&lt;li class="divider"&gt;&lt;/li&gt;
+			&lt;li&gt;Dropdown 2&lt;/li&gt;
+			&lt;li&gt;Dropdown 3&lt;/li&gt;
+			&lt;li&gt;Dropdown 4&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/script&gt;</code></pre>
+
+	</p>
+</section>
+
+<section>
+	<h2>Pill, bottom</h2>
+	<p>
+		탭과 필은 동일한 규칙으로 사용할 수 있으며, 아래는 <strong>pill-bottom</strong> 유형입니다.
+		
+		<div id="pill_contents_1" class="pill-contents" style="background: #dcdcdc;">
+			<div id="home">home</div>
+			<div id="css">css</div>
+			<div id="script">script</div>
+		</div>
+		
+		<ul id="pill_1" class="pill pill-bottom">
+			<li>
+				<a href="#home">Home</a>
+			</li>
+			<li class="active"><a href="#css">CSS</a></li>
+			<li><a href="#script">Script</a></li>
+			<li class="menu">
+				<a href="#">Menu <i class="icon-arrow1"></i></a>
+			</li>
+		</ul>
+		
+		<script data-jui="#pill_1" data-tpl="menu" type="text/template">
+			<div class="dropdown">
+				<div class="anchor"></div>
+				
+				<ul style="width: 120px;">
+					<li>Dropdown 1</li>
+					<li class="divider"></li>
+					<li>Dropdown 2</li>
+					<li>Dropdown 3</li>
+					<li>Dropdown 4</li>
+				</ul>
+			</div>
+		</script>
+	</p>
+	<p class="br">
+<pre><code class="language-javascript">pill_1 = uix.tab("#pill_1", {
+	event: {
+		change: function(data) {
+			alert(data.text);
+		},
+		changeMenu: function(data) {
+			alert(data.text);
+		}
+	},
+	target: "#pill_contents_1"
+});</code></pre>
+	</p>
+</section>
+
+</body>
+</html>

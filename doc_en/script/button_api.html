@@ -1,0 +1,97 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<META charset="UTF-8">
+<title>[JUI Library] - JavaScript/Button/API</title>
+
+<link rel="stylesheet" href="../../lib/jui.min.css" />
+<script src="../../lib/jquery-2.0.3.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui.min.js"></script>
+<script src="../../lib/jui.mng.js"></script>
+
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="api_core.js"></script>
+<script src="../../res/manual.js"></script>
+
+<script>
+var uiApi = {
+	method: {
+		setIndex: {
+			param: "index",
+			ret: "none",
+			detail: "해당 인덱스의 버튼을 선택합니다."
+		},
+		setValue: {
+			param: "value",
+			ret: "none",
+			detail: "해당 값을 가지는 버튼을 선택합니다."
+		},
+		getData: {
+			param: "none",
+			ret: "object",
+			detail: "현재 선택된 버튼의 데이터를 가져옵니다."
+		},
+		getValue: {
+			param: "none",
+			ret: "string",
+			detail: "현재 선택된 버튼의 값을 가져옵니다."
+		},
+		reload: {
+			param: "none",
+			ret: "none",
+			detail: "버튼 UI를 다시 정의합니다."
+		}
+	},
+	opt: {
+		type: {
+			detail: "라디오/체크 버튼 유무를 정합니다."
+		},
+		index: {
+			detail: "초기 선택 버튼을 해당 인덱스로 설정합니다."
+		}, 
+		value: {
+			detail: "초기 선택 버튼을 해당 값으로 설정합니다."
+		}
+	},
+	event: {
+		change: {
+			detail: "버튼이 클릭되면 발생하는 이벤트입니다."
+		}
+	},
+	tpl: {
+	},
+	prop: {
+	}
+};
+
+jui.ready(function(ui, uix, _) {
+	var ui = ui.button("#ui", {
+		event: {
+			change: function() {},
+		}
+	});
+	
+	juiApi(ui, uiApi, _.template, function() {
+		$("#api_tpl").hide();
+	});
+});
+
+</script>
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Button</h1>
+</div>
+
+<div class="hidden">
+	<div id="ui" class="group">
+		<a class="btn btn-small btn-gray-purple" value="true">On</a>
+		<a class="btn btn-small btn-gray-purple" value="false">Off</a>
+	</div>
+</div>
+
+</body>
+</html>

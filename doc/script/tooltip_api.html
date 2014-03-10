@@ -1,0 +1,82 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<META charset="UTF-8">
+<title>[JUI Library] - JavaScript/Tooltip/API</title>
+	
+<link rel="stylesheet" href="../../lib/jui.min.css" />
+<script src="../../lib/jquery-2.0.3.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui.min.js"></script>
+<script src="../../lib/jui.mng.js"></script>
+
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="api_core.js"></script>
+<script src="../../res/manual.js"></script>
+
+<script>
+var uiApi = {
+	prop: {},
+	method: {
+		show: {
+			param: "none",
+			ret: "none",
+			detail: "툴팁을 보이게 합니다."
+		},
+		hide: {
+			param: "none",
+			ret: "none",
+			detail: "보이는 툴팁을 숨깁니다."
+		}
+	},
+	event: {},
+	tpl: {},
+	opt: {
+		color: {
+			detail: "툴팁의 색상을 설정합니다. (black / gray)"
+		},
+		position: {
+			detail: "툴팁이 보여지는 위치를 설정합니다. (left / right / top / bottom)"
+		},
+		width: {
+			detail: "툴팁의 가로 크기를 설정합니다."
+		},
+		align: {
+			detail: "툴팁 안의 정렬 상태를 설정합니다."
+		},
+		delay: {
+			detail: "툴팁이 보여지기까지의 딜레이 시간을 설정합니다."
+		},
+		type: {
+			detail: "툴팁이 보여지는 이벤트 타입을 설정합니다."
+		},
+		title: {
+			detail: "툴탭의 내용을 설정합니다. (기본적으로 마크업의 title 속성을 참조)"
+		}
+	}
+};
+
+jui.ready(function(ui, uix, _) {
+	var ui = ui.tooltip("#ui");
+	
+	juiApi(ui, uiApi, _.template, function() {
+		$("#api_event").hide();
+		$("#api_tpl").hide();
+	});
+});
+
+</script>
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Tooltip</h1>
+</div>
+
+<div class="hidden">
+	<span id="ui" title="Tooltip left">Run</span>
+</div>
+
+</body>
+</html>
