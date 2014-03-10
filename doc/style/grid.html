@@ -10,6 +10,24 @@
 <script src="../../lib/jquery-2.0.3.min.js"></script>
 <script src="../../lib/prism.js"></script>
 <script src="../../res/manual.js"></script>
+
+<style>
+	.row .col {
+		background: #dcdcdc;
+		text-align: center;
+		border-right: 1px solid #a9a9a9;
+		border-bottom: 1px solid #a9a9a9;
+		padding: 7px;
+	}
+	
+	.row.first .col {
+		border-top: 1px solid #a9a9a9;
+	}
+	
+	.row .col:first-child {
+		border-left: 1px solid #a9a9a9;
+	}
+</style>
 </head>
 <body class="jui">
 
@@ -36,7 +54,7 @@
 	<p class="br">
 		하나의 로우에는 컬럼 합이 12가 되도록 컬럼을 조합해서 배치하면 됩니다.
 		
-		<div class="row">
+		<div class="row first">
 			<div class="col col-1">col-1</div>
 			<div class="col col-1">col-1</div>
 			<div class="col col-1">col-1</div>
