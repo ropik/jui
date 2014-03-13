@@ -220,6 +220,7 @@ jui.ready(function(ui, uix, _) {
 	table_20 = uix.table("#table_20", {
 		fields: [ "name", "age", "location" ],
 		csv: [ "name", "age" ],
+		csvNames: [ "이름", "나이" ],
 		rows: _.clone(table_data_big),
 		resize: true,
 		sort: true,
@@ -1129,6 +1130,7 @@ function table10Run() {
 <pre><code class="language-javascript">table_20 = uix.table("#table_20", {
 	fields: [ "name", "age", "location" ],
 	csv: [ "name", "age" ],
+	csvNames: [ "이름", "나이" ],
 	rows: _.clone(table_data_big),
 	resize: true,
 	sort: true,
