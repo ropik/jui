@@ -299,6 +299,7 @@ footer .center .logo {
 	height: 31px;
 	position: absolute;
 	top: 7px;
+	cursor: pointer;
 }
 
 .img-logo-bottom {
