@@ -39,17 +39,22 @@ var uiApi = {
 		update: {
 			param: "html",
 			ret: "none",
-			detail: "윈도우의 바디 영역에 마크업을 대체합니다."
+			detail: "윈도우의 바디 영역의 마크업을 변경합니다."
 		},
 		setTitle: {
 			param: "text",
 			ret: "none",
-			detail: "윈도우의 헤더 영역에 타이틀 명을 변경합니다."
+			detail: "윈도우의 헤더 영역에 title 태그의 마크업을 변경합니다."
 		},
 		setSize: {
 			param: "width, height",
 			ret: "none",
 			detail: "윈도우의 가로/세로 크기를 변경합니다."
+		},
+		resize: {
+			param: "none",
+			ret: "none",
+			detail: "윈도우 body 영역의 컨텐츠가 많을 경우, 스크롤 영역을 설정해줍니다."
 		}
 	},
 	event: {
@@ -79,6 +84,12 @@ var uiApi = {
 		},
 		top: {
 			detail: "윈도우의 Y 좌표를 설정합니다."
+		},
+		right: {
+			detail: "윈도우의 우측 기준에서 X 좌표를 설정합니다."
+		},
+		bottom: {
+			detail: "윈도우의 하단 기준에서 Y 좌표를 설정합니다."
 		},
 		modal: {
 			detail: "윈도우에 모달 UI를 적용합니다."

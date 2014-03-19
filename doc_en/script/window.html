@@ -49,6 +49,13 @@ jui.ready(function(ui, uix, _) {
 		modal: true,
         animate: true
 	});
+
+	win_3 = uix.window("#win_3", { 
+		width: 350, 
+		height: 150, 
+		top: 1274,
+        animate: true
+	});
 });
 
 function winTest(modal, type) {
@@ -228,5 +235,37 @@ win_2 = uix.window("#win_2", {
 	</div>
 </section>
 
+<section style="position: relative">
+	<h2>Markup Rule</h2>
+	<p>
+		<button class="btn btn-gray btn-mini" onclick="win_3.show();">Run</button> - 
+		기존의 메시지박스 스타일에도 적용할 수 있으며, <strong>head</strong>와 <strong>body</strong> 그리고 <strong>foot</strong> 태그로 구성된 마크업에서 동작합니다. 
+
+		<div id="win_3" class="msgbox msgbox-detail">
+			<div class="head">
+				[Title] Detail Message
+				
+				<div class="detail">2014.02.25 17:18:38</div>
+				<a href="#" class='close'><i class='icon-exit icon-gray'></i></a>
+		    </div>
+			<div class="body">
+				Contents...<br/>
+			</div>
+		</div>
+	</p>
+	<p>
+<pre><code class="language-markup">&lt;div id="win_3" class="msgbox msgbox-detail">
+	&lt;div class="head">
+		[Title] Detail Message
+		
+		&lt;div class="detail">2014.02.25 17:18:38&lt;/div>
+		&lt;a href="#" class='close'>&lt;i class='icon-exit icon-gray'>&lt;/i>&lt;/a>
+    &lt;/div>
+	&lt;div class="body">
+		Contents...&lt;br/>
+	&lt;/div>
+&lt;/div></code></pre>
+	</p>
+</section>
 </body>
 </html>
