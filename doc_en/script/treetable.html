@@ -16,16 +16,6 @@
 <script src="../../res/manual.js"></script>
 
 <style>
-	.depth1 { padding-left: 20px !important; }
-	.depth2 { padding-left: 40px !important; }
-	.depth3 { padding-left: 60px !important; }
-	.depth4 { padding-left: 80px !important; }
-	.depth5 { padding-left: 100px !important; }
-	.depth6 { padding-left: 120px !important; }
-	.depth7 { padding-left: 140px !important; }
-	.depth8 { padding-left: 160px !important; }
-	.depth9 { padding-left: 180px !important; }
-	.depth10 { padding-left: 200px !important; }
 	#table_2 tbody > tr { cursor: pointer; }
 </style>
 
@@ -63,6 +53,11 @@ jui.ready(function(ui, uix, _) {
 	
 	table_tree_2 = uix.table("#table_tree_2", {
 		rows: _.clone(table_data_big),
+        animate: true
+	});
+
+	table_tree_3 = uix.table("#table_tree_3", {
+        resize: true,
         animate: true
 	});
 	
@@ -106,6 +101,17 @@ function tableTree2RunC() {
 	table_tree_2.update("2", { name: "AAA" });
 }
 
+function tableTree3Run(count) {
+	var key = "0",
+		rows = [];
+	
+	for(var i = 0; i < count; i++) {
+		rows.push({ index: key, data: { name: "Hong" + i, age: Math.floor(Math.random() * 100) } });
+		key += ".0";
+	}
+	
+	table_tree_3.updateTree(rows);
+}
 </script>
 </head>
 <body class="jui">
@@ -137,7 +143,7 @@ function tableTree2RunC() {
 		<script data-jui="#table_tree_1" data-tpl="row" type="text/template">
 			<tr>
 				<td><!= row.index !></td>
-				<td class="depth<!= row.depth !>">
+				<td style="padding-left: <!= row.depth * 20 !>px">
 					<! if(row.depth > 0) { !>
 						<i class="icon-left"></i>&nbsp;
 					<! } !>
@@ -164,7 +170,7 @@ function tableTree2RunC() {
 	</p>
 	
 	<p class="br">
-		append 메소드는 해당 키 값의 자식으로 로우를 추가하며, insert 메소드는 해당 키 값과 동일 선상의 위치에 로우를 추가합니다.
+		<strong>append</strong> 메소드는 해당 키 값의 자식으로 로우를 추가하며, <strong>insert</strong> 메소드는 해당 키 값과 동일 선상의 위치에 로우를 추가합니다.
 		
 <pre><code class="language-javascript">function tableTree1Run() {
 	table_tree_1.append("1", { name: "Kang", age: "21" });
@@ -179,11 +185,13 @@ function tableTree2RunC() {
 	
 	table_tree_1.scroll();
 }</code></pre>
-	
+	</p>
+	<p>
+		그리고 <strong>depth</strong>에 맞는 트리 로우를 보여주기 위해 <strong>padding-left</strong> 스타일을 적용하였습니다.
 <pre><code class="language-markup">&lt;script data-jui="#table_tree_1" data-tpl="row" type="text/template"&gt;
 	&lt;tr&gt;
 		&lt;td&gt;&lt;!= row.index !&gt;&lt;/td&gt;
-		&lt;td class="depth&lt;!= row.depth !&gt;"&gt;
+		&lt;td style="padding-left: &lt;!= row.depth * 20 !&gt;px"&gt;
 			&lt;! if(row.depth &gt; 0) { !&gt;
 				&lt;i class="icon-left"&gt;&lt;/i&gt;&nbsp;
 			&lt;! } !&gt;
@@ -217,7 +225,7 @@ function tableTree2RunC() {
 		<script data-jui="#table_tree_2" data-tpl="row" type="text/template">
 			<tr>
 				<td><!= row.index !></td>
-				<td class="depth<!= row.depth !>">
+				<td style="padding-left: <!= row.depth * 20 !>px">
 					<! if(row.depth > 0) { !>
 						<i class="icon-left"></i>&nbsp;
 					<! } !>
@@ -249,14 +257,58 @@ function tableTree2RunC() {
 	alert("2번 로우의 데이터를 변경합니다.");
 	table_tree_2.update("2", { name: "AAA" });
 }</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>UpdateTree</h2>
+	<p>
+		<a class="btn btn-gray btn-mini" href="javascript:tableTree3Run(10)">Run</a>
+		다수의 트리 로우를 한번에 추가할 수 있는 기능을 제공합니다.
 			
-		<script data-jui="#table_11" data-tpl="row" type="text/template">
+		<table id="table_tree_3" class="table table-classic table-nowrap">
+			<thead>
+				<tr>
+					<th style="width: 200px;">Index</th>
+					<th>Column. Name</th>
+					<th style="width: 100px;">Column. Age</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+		
+		<script data-jui="#table_tree_3" data-tpl="row" type="text/template">
 			<tr>
-				<td><!= name !></td>
+				<td><!= row.index !></td>
+				<td style="padding-left: <!= row.depth * 20 !>px">
+					<! if(row.depth > 0) { !>
+						<i class="icon-left"></i>&nbsp;
+					<! } !>
+					<!= name !>
+				</td>
 				<td><!= age !></td>
-				<td><!= location !></td>
 			</tr>
 		</script>
+	</p>
+	
+	<p class="br">
+		아래는 트리 로우 배열을 생성한 후에 <strong>updateTree</strong> 메소드를 실행하는 코드입니다.
+		
+<pre><code class="language-javascript">table_tree_3 = uix.table("#table_tree_3", {
+    resize: true
+});
+		
+function tableTree3Run(count) {
+	var key = "0",
+		rows = [];
+	
+	for(var i = 0; i < count; i++) {
+		rows.push({ index: key, data: { name: "Hong" + i, age: Math.floor(Math.random() * 100) } });
+		key += ".0";
+	}
+	
+	table_tree_3.updateTree(rows);
+}</code></pre>
 	</p>
 </section>
 
