@@ -97,17 +97,13 @@ function initMenuUrl(hash) {
 	
 	// 타이틀 & 메시지 처리
 	if(hash != "home") {
-		$("nav:first").removeClass("main");
+		$("nav.main, nav.download").hide();
+		$("nav.sub").show();
 		$("nav .title").html(menuInfo[hash[0]].title);
 		$("nav .msg").html(menuInfo[hash[0]].msg);
-		$("nav .headline").show();
-		$("nav .container").hide();
-		$("#footer-bg").addClass("bg-sub").removeClass("bg");
 	} else {
-		$("nav:first").addClass("main");
-		$("nav .headline").hide();
-		$("nav .container").show();
-		$("#footer-bg").addClass("bg").removeClass("bg-sub");
+		$("nav.main, nav.download").show();
+		$("nav.sub").hide();
 	}
 	
 	// 영역 보이기 및 숨기기
@@ -206,27 +202,28 @@ function setIFrameHeight(obj, id) {
 	iframe.height = obj.height;
 }
 
-function about() {
-	var $layer = $("#about");
-	
-	if($layer.css("display") == "none") {
-		$layer.show();
-		$("#btn_about").addClass("active");
-	} else {
-		$layer.hide();
-		$("#btn_about").removeClass("active");
-	}
-}
-
 $(function() {
 	initHashEvent();
 	
 	$("body").on("click", function(e) {
 		if(e.target.tagName == "A") return;
+		
+		if($("#about").css("display") != "none") {
+			$("#btn_about").trigger("click");
+		}
+	});
+	
+	$("#btn_about").on("click", function(e) {
 		var $layer = $("#about");
 		
-		if($layer.css("display") != "none") {
-			about();
+		if($layer.css("display") == "none") {
+			$layer.show();
+			$("#btn_about").addClass("active");
+		} else {
+			$layer.hide();
+			$("#btn_about").removeClass("active");
 		}
+		
+		return false;
 	});
 });

@@ -34,18 +34,18 @@ div.hidden {
 
 /* Header */
 h1 { 
-	font-size: 3em;
+	font-size: 32px;
 	margin-top: -10px;
 	margin-bottom: 0;
-	color: #2f353e;
+	color: #8772bf;
 	font-weight: 500;
 	border-bottom: 1px solid #eee;
 	padding-bottom: 9px;
 }
 
 h2 {
-	font-size: 2em;
-	color: #2f353e;
+	font-size: 24px;
+	color: #2b3340;
 	margin-top: 30px;
 	font-weight: 400;
 }

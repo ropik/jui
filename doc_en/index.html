@@ -16,76 +16,47 @@
 	<div class="center" style="position: relative;">
 		<span class="img img-logo-top" onclick="location.href = 'index.html';"></span>
 		
-		<span class="menu">
+		<span class="menu menu-right">
 			<a href="#install">Install</a>
 			<a href="#core">Core</a>
 			<a href="#script">JavaScript</a>
 			<a href="#style">CSS</a>
 		</span>
-
-		<span class="menu menu-right">
-			<a id="btn_about" href="javascript:about(this);">About</a>
-		</span>
-		
-		<div id="about">
-			<div class="row row-alvin">
-				<div class="col col-6 pic">
-					<img src="../res/img/alvin.jpg"/>
-				</div>
-				<div class="col col-6">
-					<div class="name alvin">Alvin</div>
-					<div class="team">
-						JenniferSoft R&D Team<br/>
-						UI Developer
-					</div>
-					<div class="info">
-						<a href="mailto:alvin@jennifersoft.com">Send to Mail</a>
-						<a href="https://www.facebook.com/seogi1004" target="_blank">Facebook</a>
-						<a href="http://youngman.kr" target="_blank">Blog</a>
-					</div>
-				</div>
-			</div>
-			<div class="row row-yoha">
-				<div class="col col-6 pic">
-					<img src="../res/img/yoha.jpg"/>
-				</div>
-				<div class="col col-6">
-					<div class="name yoha">Yoha</div>
-					<div class="team">
-						JenniferSoft R&D Team<br/>
-						UI Designer
-					</div>
-					<div class="info">
-						<a href="mailto:yoha@jennifersoft.com">Send to Mail</a>
-						<!--
-						<a href="#" target="_blank">Facebook</a>
-						<a href="#" target="_blank">Blog</a>
-						-->
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
 	
 </header>
 
-<nav class="navbar navbar-fixed-top">
+<nav class="navbar navbar-fixed-top main">
 	<div class="center">
-		<div class="headline">
-			<div class="title"></div>
-			<div class="msg"></div>
-		</div>
 		<div class="container">
 			<div class="img img-logo"></div>
 			
 			<div class="detail">
-				JUI는 제니퍼소프트의 차기작인 HTML5 기반의 APM 솔루션인<br/>
-				제니퍼5에서 사용되는 UI 컴포넌트를 정리한 라이브러리입니다.
+				JUI는 제니퍼소프트의 차기작인 HTML5 기반의 APM 솔루션인 제니퍼5에서 <br/>
+				사용되는 UI 컴포넌트를 정리한 라이브러리입니다.
 			</div>
-			
+	  	</div>
+	</div>
+</nav>
+
+<nav class="navbar navbar-fixed-top download">
+	<div class="center row">
+		<div class="col col-6 msg-list">
+			<div class="msg1">JUI 라이브러리를 다운로드 받으세요.</div>
+			<div class="msg2">지금 GitHub를 통해 오픈소스 프로젝트에 참여해주세요.</div>
+			<div class="msg2">단순하고 편리한 UI로 Front-End 개발자에게 새로운 가능성을 제시합니다.</div>
+		</div>
+		<div class="col col-6 btn-list">
 			<a href="https://github.com/seogi1004/jui/archive/master.zip"><div class="img img-download1"></div></a>&nbsp;
 			<a href="https://github.com/seogi1004/jui" target="_blank"><div class="img img-download2"></div></a>
-	  	</div>
+		</div>
+	</div>
+</nav>
+
+<nav class="navbar navbar-fixed-top sub">
+	<div class="center">
+		<span class="title"></span>
+		<span class="msg"></span>
 	</div>
 </nav>
 
@@ -193,57 +164,82 @@
 </article>
 <!-- CSS, End -->
 
-<!-- 공백
-<div style="height: 200px;">&nbsp;</div>
- -->
- 
-<!--
-<nav class="navbar navbar-fixed-top info">
+<nav class="navbar navbar-fixed-top bg-sub">
 	<div class="center">
-		
-	</div>
-</nav>
--->
-<nav id="footer-bg" class="navbar navbar-fixed-top bg">
-	<div class="center-bg">
-		<div class="msg">
-JUI는 제니퍼소프트 R&D팀 UI파트에서 개발되었으며,<br/>
-디자이너 요하와 프로그래머 엘빈이 참여하여 개발한 UI 라이브러리입니다.<br/>
-개발의 즐거움으로 시작한 이 프로젝트는 상업적인 용도와는 무관하며,<br/>
-그 즐거움이 뿌듯함이 될 때까지 우리는 계속 달릴 것 입니다.<br/>
-이 프로젝트를 위해 협력해주신 모든 분들께 감사드립니다.
-		</div>
-		<div class="info">
-			<div class="bs-social">
-				<ul class="bs-social-buttons">
-					<!--
-					<li style="width: 145px;">
-						&nbsp;
-					</li>
-					-->
-					<li>
-						<iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=seogi1004&amp;repo=jui&amp;type=watch&amp;count=true" width="80" height="20" title="Star on GitHub"></iframe>
-					</li>
-					<li>
-						<iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=seogi1004&amp;repo=jui&amp;type=fork&amp;count=true" width="80" height="20" title="Fork on GitHub"></iframe>
-					</li>
-					<li>
-						<iframe name="f21c4ad0c4" width="1000px" height="1000px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:like Facebook Social Plugin" src="http://www.facebook.com/plugins/like.php?action=like&amp;app_id=672755082759473&amp;channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2F63KoCqPoniC.js%3Fversion%3D40%23cb%3Df1db58d3a%26domain%3Ddoc.youngman.kr%26origin%3Dhttp%253A%252F%252Fdoc.youngman.kr%252Ff2aaeeff2c%26relation%3Dparent.parent&amp;href=http%3A%2F%2Fseogi1004.github.io%2Fjui%2F&amp;layout=button_count&amp;locale=ko_KR&amp;sdk=joey&amp;share=true&amp;show_faces=false" class="" style="border: none; visibility: visible; width: 152px; height: 20px;"></iframe>
-					</li>
-				</ul>
-			</div>
+		<div class="bs-social">
+			<ul class="bs-social-buttons">
+				<li>
+					<iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=seogi1004&amp;repo=jui&amp;type=watch&amp;count=true" width="80" height="20" title="Star on GitHub"></iframe>
+				</li>
+				<li>
+					<iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=seogi1004&amp;repo=jui&amp;type=fork&amp;count=true" width="80" height="20" title="Fork on GitHub"></iframe>
+				</li>
+				<li>
+					<iframe name="f21c4ad0c4" width="1000px" height="1000px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:like Facebook Social Plugin" src="http://www.facebook.com/plugins/like.php?action=like&amp;app_id=672755082759473&amp;channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2F63KoCqPoniC.js%3Fversion%3D40%23cb%3Df1db58d3a%26domain%3Ddoc.youngman.kr%26origin%3Dhttp%253A%252F%252Fdoc.youngman.kr%252Ff2aaeeff2c%26relation%3Dparent.parent&amp;href=http%3A%2F%2Fseogi1004.github.io%2Fjui%2F&amp;layout=button_count&amp;locale=ko_KR&amp;sdk=joey&amp;share=true&amp;show_faces=false" class="" style="border: none; visibility: visible; width: 152px; height: 20px;"></iframe>
+				</li>
+			</ul>
 		</div>
 	</div>
 </nav>
 
 <footer class="navbar navbar-fixed-bottom" style="position: relative;">
-	<div class="center">
-		<div class="footline">
-			<p>Code licensed under MIT License.</p>
-			<p>Copyright © 2013 JenniferSoft Inc. All rights reserved.</p>
+	<div class="center row" style="position: relative;">
+		<div class="col col-8 msg">
+			JUI는 제니퍼소프트 R&D팀 UI파트에서 개발되었으며, 디자이너 요하와 프로그래머 엘빈이 참여하여<br/>
+			개발한 UI 라이브러리입니다. 이 프로젝트는 상업적인 용도와는 무관합니다.
+		</div>
+		<div class="col col-4 link">
+			<span id="btn_about">ABOUT US</span> | 
+			<span onclick="window.open('https://github.com/seogi1004/jui');">Github</span>
+		</div>
+		<div id="about" class="row">
+			<div class="col col-6 col-alvin">
+				<div class="row pic">
+					<img src="../res/img2/alvin.png"/>
+				</div>
+				<div class="row">
+					<div class="name alvin">Alvin</div>
+					<div class="team">
+						JenniferSoft R&D Team<br/>
+						UI Developer
+					</div>
+					<div class="info">
+						<a href="mailto:alvin@jennifersoft.com">Send to Mail</a>
+						<a href="https://www.facebook.com/seogi1004" target="_blank">Facebook</a>
+						<a href="http://youngman.kr" target="_blank">Blog</a>
+					</div>
+				</div>
+			</div>
+			<div class="col col-6 col-yoha">
+				<div class="row pic">
+					<img src="../res/img2/yoha.png"/>
+				</div>
+				<div class="row">
+					<div class="name yoha">Yoha</div>
+					<div class="team">
+						JenniferSoft R&D Team<br/>
+						UI Designer
+					</div>
+					<div class="info">
+						<a href="mailto:yoha@jennifersoft.com">Send to Mail</a>
+						<!--
+						<a href="#" target="_blank">Facebook</a>
+						<a href="#" target="_blank">Blog</a>
+						-->
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
+	
+	<div class="center line"></div>
+	
+	<div class="center msg">
+		Code licensed under MIT License.<br/>
+		Copyright © 2013 JenniferSoft Inc. All rights reserved.
+	</div>
 </footer>
+
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
