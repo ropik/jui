@@ -202,8 +202,15 @@ function setIFrameHeight(obj, id) {
 	iframe.height = obj.height;
 }
 
+function checkIeVersion() {
+	if(document.all && !document.addEventListener) {
+	    alert('JUI 메뉴얼 페이지는 IE 9+ 이상의 브라우저에서만 동작합니다.');
+	}
+}
+
 $(function() {
 	initHashEvent();
+	checkIeVersion();
 	
 	$("body").on("click", function(e) {
 		if(e.target.tagName == "A") return;
