@@ -158,12 +158,14 @@ jui.ready(function(ui, uix, _) {
 	<p class="br">
 		JUI 라이브러리는 UI 컴포넌트 개발 및 사용하는 경우에 필요한 다양한 유틸리티 함수와 프로퍼티를 제공합니다.
 		
-<pre><code class="language-javascript">// UI 컴포넌트 정의할 때, 가져오는 유틸리티 객체
+<pre><code class="language-javascript">/* UI 컴포넌트 정의할 때, 가져오는 유틸리티 객체 */
 jui.define('ui.test', [ 'util' ], function(_) {
+	//...
 });
 
-// UI 컴포넌트를 사용할 때, 가져오는 유틸리티 객체
+/* UI 컴포넌트를 사용할 때, 가져오는 유틸리티 객체 */
 jui.ready([ "util" ], function(_) {
+	//...
 });
 </code></pre>
 	</p>
