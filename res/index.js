@@ -18,7 +18,8 @@ var menuInfo = {
             common: "core/common",
             api: "core/api",
             log: "core/log",
-            custom: "core/custom"
+            custom: "core/custom",
+            util: "core/utility",
         }
     },
     script: {

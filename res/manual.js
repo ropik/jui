@@ -72,7 +72,7 @@
 	// 디스커스 댓글 추가
 	$(function() {
 		var url = location.href;
-		if(url.indexOf("_api") != -1 || url.indexOf("custom.html") != -1) return;
+		if(url.indexOf("_api") != -1 || url.indexOf("custom.html") != -1 || url.indexOf("utility.html") != -1) return;
 		
 		url = (url.indexOf("install.html") == -1) ? "../../res/disqus.tpl" : "../res/disqus.tpl";
 		loadDisqus(url);
