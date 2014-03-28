@@ -144,18 +144,20 @@ jui.ready(function(ui, uix, _) {
 &lt;/div&gt;
 
 ...</code></pre>
-<pre><code class="language-javascript">var btn_radio_options = {
-	type: "radio",
-	event: {
-		change: function(data) {
-			alert("index(" + data.index + "), value(" + data.value + ")");
+<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
+	var btn_radio_options = {
+		type: "radio",
+		event: {
+			change: function(data) {
+				alert("index(" + data.index + "), value(" + data.value + ")");
+			}
 		}
-	}
-};
-
-btn_radio_1 = ui.button("#btn_radio_1", btn_radio_options);
-btn_radio_2 = ui.button("#btn_radio_2", btn_radio_options);
-btn_radio_3 = ui.button("#btn_radio_3", btn_radio_options);</code></pre>
+	};
+	
+	btn_radio_1 = ui.button("#btn_radio_1", btn_radio_options);
+	btn_radio_2 = ui.button("#btn_radio_2", btn_radio_options);
+	btn_radio_3 = ui.button("#btn_radio_3", btn_radio_options);
+});</code></pre>
 	</p>
 </section>
 <section>

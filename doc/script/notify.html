@@ -184,21 +184,23 @@ function notifyTest(type, color) {
 	<p class="br">
 		객체 생성시에 설정한 셀렉터에 알림 메시지를 추가할 수 있습니다.
 		
-<pre><code class="language-javascript">notify = ui.notify("body", {
-    position: "top-right",
-    timeout: 2000,
-    padding: 20,
-    event: {
-    	show: function(data) {
-    		console.log("show : " + JSON.stringify(data));
-    	}, 
-    	hide: function(data) {
-    		console.log("hide : " + JSON.stringify(data));
-    	},
-    	click: function(data) {
-    		console.log("click : " + JSON.stringify(data));
-    	}
-    }
+<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
+	notify = ui.notify("body", {
+	    position: "top-right",
+	    timeout: 2000,
+	    padding: 20,
+	    event: {
+	    	show: function(data) {
+	    		console.log("show : " + JSON.stringify(data));
+	    	}, 
+	    	hide: function(data) {
+	    		console.log("hide : " + JSON.stringify(data));
+	    	},
+	    	click: function(data) {
+	    		console.log("click : " + JSON.stringify(data));
+	    	}
+	    }
+	});
 });</code></pre>
 	</p>
 

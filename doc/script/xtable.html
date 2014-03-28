@@ -211,20 +211,22 @@ function xtableFilterCustom() {
 	</p>
 	
 	<p class="br">
-<pre><code class="language-javascript">xtable_1 = uix.xtable("#xtable_1", {
-	fields: [ "name", "age", "location" ],
-	expand: true,
-	resize: true,
-	colshow: true,
-	sort: true,
-	sortLoading: true,
-	buffer: "scroll", // scroll, page, s-page
-	bufferCount: 20,
-	event: {
-		colmenu: function(column, e) {
-			this.columnMenu(e.pageX - 25);
+<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
+	xtable_1 = uix.xtable("#xtable_1", {
+		fields: [ "name", "age", "location" ],
+		expand: true,
+		resize: true,
+		colshow: true,
+		sort: true,
+		sortLoading: true,
+		buffer: "scroll", // scroll, page, s-page
+		bufferCount: 20,
+		event: {
+			colmenu: function(column, e) {
+				this.columnMenu(e.pageX - 25);
+			}
 		}
-	}
+	});
 });</code></pre>
 
 <pre><code class="language-markup">&lt;div id="xtable_1" class="xtable xtable-rect" style="width: 600px;"&gt;

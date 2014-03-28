@@ -157,26 +157,28 @@ function tableTree3Run(count) {
 	<p class="br">
 		트리 테이블을 생성하는 방법은 기존의 테이블 생성 방법과 동일합니다.
 		
-<pre><code class="language-javascript">var table_data_big = [
-	{ name: "Hong", age: "20", location: "Ilsan" },
-	{ name: "Jung", age: "30", location: "Seoul" },
-	{ name: "Park", age: "15", location: "Yeosu" },
-	{ name: "Kang", age: "32", location: "Seoul" },
-	{ name: "Song", age: "12", location: "Gwangju" },
-	{ name: "Yoon", age: "22", location: "Damyang" },
-	{ name: "Kim", age: "33", location: "Busan" },
-	{ name: "Hwang", age: "21", location: "Seoul" }
-];
-	
-table_tree_1 = uix.table("#table_tree_1", {
-	rows: _.clone(table_data_big),
-	scroll: true,
-	resize: true,
-	event: {
-		select: function(row) {
-			alert("index(" + row.index + "), name(" + row.data.name + ")");
+<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
+	var table_data_big = [
+		{ name: "Hong", age: "20", location: "Ilsan" },
+		{ name: "Jung", age: "30", location: "Seoul" },
+		{ name: "Park", age: "15", location: "Yeosu" },
+		{ name: "Kang", age: "32", location: "Seoul" },
+		{ name: "Song", age: "12", location: "Gwangju" },
+		{ name: "Yoon", age: "22", location: "Damyang" },
+		{ name: "Kim", age: "33", location: "Busan" },
+		{ name: "Hwang", age: "21", location: "Seoul" }
+	];
+		
+	table_tree_1 = uix.table("#table_tree_1", {
+		rows: _.clone(table_data_big),
+		scroll: true,
+		resize: true,
+		event: {
+			select: function(row) {
+				alert("index(" + row.index + "), name(" + row.data.name + ")");
+			}
 		}
-	}
+	});
 });</code></pre>
 	</p>
 	

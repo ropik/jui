@@ -389,15 +389,17 @@ function table14RunB() {
 	<p>
 		아래는 테이블 UI를 실행하는 간단한 스크립트 코드입니다.
 		
-<pre><code class="language-javascript">var table_data = [
-	{ name: "Hong", age: "20", location: "Ilsan" },
-	{ name: "Jung", age: "30", location: "Seoul" },
-	{ name: "Park", age: "10", location: "Dangjin" }
-];
-
-table_1 = uix.table("#table_1", {
-	rows: table_data,
-	animate: true
+<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
+	var table_data = [
+		{ name: "Hong", age: "20", location: "Ilsan" },
+		{ name: "Jung", age: "30", location: "Seoul" },
+		{ name: "Park", age: "10", location: "Dangjin" }
+	];
+	
+	table_1 = uix.table("#table_1", {
+		rows: table_data,
+		animate: true
+	});
 });</code></pre>
 	</p>
 </section>

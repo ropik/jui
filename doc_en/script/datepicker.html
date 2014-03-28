@@ -126,20 +126,22 @@ jui.ready(function(ui, uix, _) {
 	<p class="br">
 		아래는 달력 객체를 생성하는 코드입니다. 타이틀과 날짜 클릭시 발생되는 포맷을 옵션으로 설정할 수 있습니다.
 		
-<pre><code class="language-javascript">datepicker1 = ui.datepicker("#datepicker1", {
-    titleFormat: "yyyy년 MM월",
-    format: "yyyy/MM/dd",
-    event: {
-       select: function(date, e) {
-           alert(date);
-       },
-       prev: function(e) {
-           alert("prev");
-       },
-       next: function(e) {
-           alert("next");
-       }
-    }
+<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
+	datepicker1 = ui.datepicker("#datepicker1", {
+	    titleFormat: "yyyy년 MM월",
+	    format: "yyyy/MM/dd",
+	    event: {
+	       select: function(date, e) {
+	           alert(date);
+	       },
+	       prev: function(e) {
+	           alert("prev");
+	       },
+	       next: function(e) {
+	           alert("next");
+	       }
+	    }
+	});
 });</code></pre>
 	</p>
 </section>

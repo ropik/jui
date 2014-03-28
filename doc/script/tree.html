@@ -134,17 +134,19 @@ function tree2RunC() {
 	&lt;/li&gt;
 &lt;/script&gt;</code></pre>
 		
-<pre><code class="language-javascript">tree_1 = uix.tree(".tree", {
-	root: { title: "C:\\" },
-	event: {
-		select: function(node) {
-			this.select(node.index); // 선택 효과
-			alert("index(" + node.index + "), title(" + node.data.title + ")");
+<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
+	tree_1 = uix.tree(".tree", {
+		root: { title: "C:\\" },
+		event: {
+			select: function(node) {
+				this.select(node.index); // 선택 효과
+				alert("index(" + node.index + "), title(" + node.data.title + ")");
+			}
+		},
+		tpl: {
+			node: $("#tpl_tree").html()
 		}
-	},
-	tpl: {
-		node: $("#tpl_tree").html()
-	}
+	});
 });
 
 function addTreeData(tree) {

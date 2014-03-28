@@ -128,15 +128,17 @@ function xtableRun(type) {
 		총 세개의 옵션을 정할 수 있으며, <strong>count</strong>는 페이징 처리 대상 데이터의 총 개수입니다.<br />
 		그리고 <strong>pageCount</strong>는 한 페이지당 데이터 개수이고, <strong>screenCount</strong>는 페이징 UI에 보이는 페이지 개수를 말합니다.
 		
-<pre><code class="language-javascript">paging_1 = jui.ui.paging("#paging_1", {
-	count: 1000,
-	pageCount: 10,
-	screenCount: 7, 
-	event: {
-		page: function(pNo) {
-			alert(pNo);
+<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
+	paging_1 = jui.ui.paging("#paging_1", {
+		count: 1000,
+		pageCount: 10,
+		screenCount: 7, 
+		event: {
+			page: function(pNo) {
+				alert(pNo);
+			}
 		}
-	}
+	});
 });</code></pre>
 	</p>
 </section>

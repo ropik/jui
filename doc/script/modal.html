@@ -45,8 +45,10 @@ jui.ready(function(ui, uix, _) {
 		<a class="btn btn-gray btn-mini" href="javascript:modal_1.show();">Run</a> - 
 		전체 화면의 중앙에 위치하는 글로벌 모달 기능을 제공합니다.
 		
-<pre><code class="language-javascript">modal_1 = ui.modal("#modal_1", {
-	color: "black"
+<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
+	modal_1 = ui.modal("#modal_1", {
+		color: "black"
+	});
 });</code></pre>
 		
 		<div id="modal_1" class="msgbox" style="display: none;">

@@ -90,17 +90,19 @@ jui.ready(function(ui, uix, _) {
 		</script>
 	</p>
 	<p class="br">
-<pre><code class="language-javascript">tab_1 = uix.tab("#tab_1", {
-	event: {
-		change: function(data) {
-			alert(data.text);
+<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
+	tab_1 = uix.tab("#tab_1", {
+		event: {
+			change: function(data) {
+				alert(data.text);
+			},
+			changeMenu: function(data) {
+				alert(data.text);
+			}
 		},
-		changeMenu: function(data) {
-			alert(data.text);
-		}
-	},
-	target: "#tab_contents_1",
-	index: 2
+		target: "#tab_contents_1",
+		index: 2
+	});
 });</code></pre>
 
 <pre><code class="language-markup">&lt;ul id="tab_1" class="tab tab-top"&gt;

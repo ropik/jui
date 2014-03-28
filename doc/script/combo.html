@@ -140,25 +140,27 @@ jui.ready(function(ui, uix, _) {
 	&lt;/ul&gt;
 &lt;/div&gt;</code></pre>
 
-<pre><code class="language-javascript">combo_1 = ui.combo("#combo_1", {
-	//"width": 200,
-	event: {
-		change: function(data) {
-			alert("text(" + data.text + "), value(" + data.value + ")");
+<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
+	combo_1 = ui.combo("#combo_1", {
+		//"width": 200,
+		event: {
+			change: function(data) {
+				alert("text(" + data.text + "), value(" + data.value + ")");
+			}
+		},
+		position: "top"
+	});
+	
+	combo_2 = ui.combo("#combo_2", {
+		index: 3,
+		width: 200,
+		scroll: false,
+		event: {
+			change: function(data) {
+				alert("text(" + data.text + "), value(" + data.value + ")");
+			}
 		}
-	},
-	position: "top"
-});
-
-combo_2 = ui.combo("#combo_2", {
-	index: 3,
-	width: 200,
-	scroll: false,
-	event: {
-		change: function(data) {
-			alert("text(" + data.text + "), value(" + data.value + ")");
-		}
-	}
+	});
 });</code></pre>
 	</p>
 </section>

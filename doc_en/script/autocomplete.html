@@ -87,14 +87,16 @@ jui.ready(function(ui, uix, _) {
   "Python", "Ruby", "Scala", "Scheme"
 ];
 
-ac_1 = uix.autocomplete(".ac", {
-	target: "input[type=text]",
-	words: ac_words,
-	event: {
-		change: function(text) {
-			alert(text);
+jui.ready(function(ui, uix, _) {
+	ac_1 = uix.autocomplete(".ac", {
+		target: "input[type=text]",
+		words: ac_words,
+		event: {
+			change: function(text) {
+				alert(text);
+			}
 		}
-	}
+	});
 });</code></pre>
 	</p>
 	<p class="br">
