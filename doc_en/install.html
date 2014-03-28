@@ -25,15 +25,18 @@
 	<h2>Minify</h2>
 	
 	<p>
-		JUI 라이브러리는 스타일만 별도로 사용할 수 있으며, 하나의 패키징된 파일만 로드하면 됩니다.<br/>
-		참고로 컴포넌트의 애니메이션 효과를 발생시키기 위해서는 <a href="http://daneden.github.io/animate.css/" target="_blank">Animate.css</a>를 로드해야 하며, 관련해서는 차후에 별도로 구현할 예정입니다.
+		JUI 라이브러리는 스타일 UI만 별도로 사용할 수 있으며 하나의 패키징된 파일만 로드하면 됩니다.<br/>
+		그리고 <strong>jui</strong> 클래스가 설정되어 있는 마크업의 하위에서만 사용할 수 있으니 이점 참고하시기 바랍니다.
 		
 		<pre><code class="language-markup">&lt;link rel="stylesheet" href="jui.min.css" />
 &lt;link rel="stylesheet" href="animate.css" /></code></pre>
+		<pre><code class="language-markup">&lt;body class="jui">
+	...
+&lt;/body></code></pre>
 	</p>
 	
 	<p class="br">
-		JUI 라이브러리의 스크립트는 <strong>jQuery</strong> 기반이므로 관련 관련 파일을 먼저 로드해야 합니다.
+		스크립트 UI는 <strong>jQuery</strong> 기반이므로 관련 파일을 먼저 로드해야 합니다.
 		
 		<pre><code class="language-markup">&lt;script src="jquery.min.js">&lt;/script>
 &lt;script src="jui.min.js">&lt;/script></code></pre>
@@ -44,14 +47,14 @@
 	<h2>Debug</h2>
 	
 	<p>
-		JUI 자바스크립트 라이브러리는 디버깅 용도로 각각 별도로 로드할 수 있으며, <strong>base</strong>와 <strong>core</strong>는 필수 로드 파일입니다.
+		스크립트 UI는 디버깅 용도로 각각 별도로 로드할 수 있으며 <strong>base</strong>와 <strong>core</strong>는 필수 로드 파일입니다.
 		
 		<pre><code class="language-markup">&lt;script src="js/base.js"&gt;&lt;/script&gt;
 &lt;script src="js/core.js"&gt;&lt;/script&gt;</code></pre>
 	</p>
 
 	<p class="br">
-		다음으로는 <strong>ui</strong> 폴더 안의 파일들을 먼저 로드해야 하고, <strong>uix</strong>의 파일들은 맨 마지막에 로드합니다.
+		다음으로는 <strong>ui</strong> 폴더 안의 파일들을 먼저 로드해야 하며 <strong>uix</strong>의 파일들은 맨 마지막에 로드합니다.
 		
 		<pre><code class="language-markup">&lt;script src="js/base.js"&gt;&lt;/script&gt;
 &lt;script src="js/core.js"&gt;&lt;/script&gt;
@@ -72,7 +75,7 @@
 	</p>
 	
 	<p class="br">
-		필요에 따라 사용하지 않는 UI 파일을 로드하지 않아도 되며, <strong>uix</strong> 폴더의 UI는 <strong>ui</strong> 폴더의 UI를 사용하기 때문에 주의하시기 바랍니다.
+		필요에 따라 사용하지 않는 UI 파일을 로드하지 않아도 되며 <strong>uix</strong> 폴더의 UI는 <strong>ui</strong> 폴더의 UI를 사용하기 때문에 주의하시기 바랍니다.
 	</p>
 </section>
 
