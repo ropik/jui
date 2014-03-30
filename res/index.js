@@ -19,7 +19,7 @@ var menuInfo = {
             api: "core/api",
             log: "core/log",
             custom: "core/custom",
-            util: "core/utility",
+            util: "core/utility"
         }
     },
     script: {
