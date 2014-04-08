@@ -167,30 +167,35 @@
 		
 		<div style="height: 190px;"></div>
 
-<pre><code class="language-markup">&lt;li class="submenu"&gt;<b>
-    &lt;a href="#"&gt;More options&lt;/a&gt;
-    &lt;ul  style="width: 150px"&gt;
-		&lt;li&gt;Second level link&lt;/li&gt;
-		&lt;li&gt;Second level link&lt;/li&gt;
-		&lt;li&gt;Second level link&lt;/li&gt;
-		&lt;li&gt;Second level link&lt;/li&gt;
-		&lt;li&gt;Second level link&lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/li&gt;</code></pre>
+<pre><code class="language-markup">&lt;div class="dropdown dropdown-black">
+	&lt;ul style="width: 150px;">
+		&lt;li>&lt;a href="#">Today&lt;/a>&lt;/li>
+		&lt;li class="divider">&lt;/li>
+		&lt;li>&lt;a href="#">Yesterday&lt;/a>&lt;/li>
+		&lt;li class="divider">&lt;/li>
+		&lt;li>&lt;a href="#">Last 7 day&lt;/a>&lt;/li>
+		&lt;li class="divider">&lt;/li>
+		&lt;li>&lt;a href="#">Calendar&lt;/a>&lt;/li>
+		&lt;li class="divider">&lt;/li>
+		&lt;li class="submenu">
+			&lt;a href="#">More options&lt;/a>
+			&lt;ul style="width: 150px">
+				&lt;li>Second level link&lt;/li>
+				&lt;li>Second level link&lt;/li>
+				&lt;li>Second level link&lt;/li>
+				&lt;li>Second level link&lt;/li>
+				&lt;li>Second level link&lt;/li>
+			&lt;/ul>
+		&lt;/li>
+	&lt;/ul>
+&lt;/div></code></pre>
 
 <pre><code class="language-markup">&lt;li class="submenu pull-left"&gt;
-    &lt;a href="#"&gt;More options&lt;/a&gt;
-    &lt;ul  style="width: 150px"&gt;
-		&lt;li&gt;Second level link&lt;/li&gt;
-		&lt;li&gt;Second level link&lt;/li&gt;
-		&lt;li&gt;Second level link&lt;/li&gt;
-		&lt;li&gt;Second level link&lt;/li&gt;
-		&lt;li&gt;Second level link&lt;/li&gt;
-    &lt;/ul&gt;
+	...
 &lt;/li&gt;</code></pre>
 
-<pre><code class="language-markup">&lt;div class="dropup" style="left: 580px"&gt;
-&lt;!-- 위와 동일 --&gt;
+<pre><code class="language-markup">&lt;div class="dropup"&gt;
+	...
 &lt;/div&gt;</code></pre>
 	</p>
 </section>
