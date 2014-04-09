@@ -6,6 +6,17 @@
 <link rel="stylesheet" href="../../../lib/animate.min.css" />
 <script src="../../../lib/jquery-2.0.3.min.js"></script>
 <script src="../../../lib/jui.min.js"></script>
+
+<style>
+.input-cell {
+	width: 100% !important;
+}
+
+tbody tr {
+	cursor: pointer;
+}
+</style>
+
 <script>
 jui.ready(function(ui, uix, _) {
 	var table_data = [
@@ -14,27 +25,38 @@ jui.ready(function(ui, uix, _) {
 		{ name: "Park", age: "10", location: "Dangjin" }
 	];
 	
-	table_1 = uix.table("#table_1", {
+	table_19 = uix.table("#table_19", {
+		fields: [ null, "name", "age", "location" ],
 		rows: table_data,
-		animate: true
+		editRow: [ 1, 2, 3 ],
+		resize: true,
+		sort: true,
+		event: {
+			editrow: function(row, e) {
+				console.log(row);
+			}
+		},
+        animate: true
 	});
 });
 </script>
 </head>
 <body>
-<table id="table_1" class="table">
+<table id="table_19" class="table">
 	<thead>
 		<tr>
-			<th data-tag="name">Name</th>
-			<th data-bind="age">Age</th>
+			<th width="50px">No</th>
+			<th>Name</th>
+			<th>Age</th>
 			<th>Location</th>
 		</tr>
 	</thead>
 	<tbody></tbody>
 </table>
 
-<script data-jui="#table_1" data-tpl="row" type="text/template">
-	<tr>
+<script data-jui="#table_19" data-tpl="row" type="text/template">
+	<tr class="<! if(parseInt(row.index) % 2 == 0) { !>warning<! } !>">
+		<td><!= row.index !></td>
 		<td><!= name !></td>
 		<td><!= age !></td>
 		<td><!= location !></td>

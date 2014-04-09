@@ -17,6 +17,11 @@
 
 <style>
 	#table_2 tbody > tr { cursor: pointer; }
+	  
+	::-webkit-scrollbar { // Webkit Scroll Size
+		width: 10px;
+		height: 10px;
+	}
 </style>
 
 <script>
@@ -143,7 +148,7 @@ function tableTree3Run(count) {
 		<script data-jui="#table_tree_1" data-tpl="row" type="text/template">
 			<tr>
 				<td><!= row.index !></td>
-				<td style="padding-left: <!= row.depth * 20 !>px">
+				<td style="padding-left: <!= 5 + (5 + (row.depth * 20)) !>px">
 					<! if(row.depth > 0) { !>
 						<i class="icon-left"></i>&nbsp;
 					<! } !>
@@ -204,7 +209,7 @@ function tableTree3Run(count) {
 <pre><code class="language-markup">&lt;script data-jui="#table_tree_1" data-tpl="row" type="text/template"&gt;
 	&lt;tr&gt;
 		&lt;td&gt;&lt;!= row.index !&gt;&lt;/td&gt;
-		&lt;td style="padding-left: &lt;!= row.depth * 20 !&gt;px"&gt;
+		&lt;td style="padding-left: &lt;!= 5 + (5 + (row.depth * 20)) !&gt;px"&gt;
 			&lt;! if(row.depth &gt; 0) { !&gt;
 				&lt;i class="icon-left"&gt;&lt;/i&gt;&nbsp;
 			&lt;! } !&gt;
@@ -238,7 +243,7 @@ function tableTree3Run(count) {
 		<script data-jui="#table_tree_2" data-tpl="row" type="text/template">
 			<tr>
 				<td><!= row.index !></td>
-				<td style="padding-left: <!= row.depth * 20 !>px">
+				<td style="padding-left: <!= 5 + (row.depth * 20) !>px">
 					<! if(row.depth > 0) { !>
 						<i class="icon-left"></i>&nbsp;
 					<! } !>
@@ -293,7 +298,7 @@ function tableTree2RunC() {
 		<script data-jui="#table_tree_3" data-tpl="row" type="text/template">
 			<tr>
 				<td><!= row.index !></td>
-				<td style="padding-left: <!= row.depth * 20 !>px">
+				<td style="padding-left: <!= 5 + (row.depth * 20) !>px">
 					<! if(row.depth > 0) { !>
 						<i class="icon-left"></i>&nbsp;
 					<! } !>

@@ -2,13 +2,25 @@
 <html>
 <head>
 <META charset="UTF-8">
-<link rel="stylesheet" href="../../../lib/bootstrap.min.css" />
+<link rel="stylesheet" href="../../../lib/pure-min.css" />
 <link rel="stylesheet" href="../../../lib/animate.min.css" />
 <script src="../../../lib/jquery-2.0.3.min.js"></script>
 <script src="../../../lib/jui.min.js"></script>
 
+<style>
+#table_3 {
+	width: 800px;
+}
+</style>
+
 <script>
 jui.ready(function(ui, uix, _) {
+	var table_data = [
+		{ name: "Hong", age: "20", location: "Ilsan" },
+		{ name: "Jung", age: "30", location: "Seoul" },
+		{ name: "Park", age: "10", location: "Dangjin" }
+	];
+	
 	var table_data_big = [
 		{ name: "Hong", age: "20", location: "Ilsan" },
 		{ name: "Jung", age: "30", location: "Seoul" },
@@ -21,7 +33,7 @@ jui.ready(function(ui, uix, _) {
 	];
 	
 	table_3 = uix.table("#table_3", {
-		rows: table_data_big,
+		rows: _.clone(table_data_big),
 		scroll: true,
 		scrollHeight: 150,
         animate: true
@@ -30,7 +42,7 @@ jui.ready(function(ui, uix, _) {
 </script>
 </head>
 <body>
-<table id="table_3" class="table table-striped">
+<table id="table_3" class="pure-table pure-table-bordered">
 	<thead>
 		<tr>
 			<th>Name</th>

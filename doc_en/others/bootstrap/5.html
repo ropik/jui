@@ -6,6 +6,13 @@
 <link rel="stylesheet" href="../../../lib/animate.min.css" />
 <script src="../../../lib/jquery-2.0.3.min.js"></script>
 <script src="../../../lib/jui.min.js"></script>
+
+<style>
+thead tr {
+	cursor: pointer;
+}
+</style>
+
 <script>
 jui.ready(function(ui, uix, _) {
 	var table_data = [
@@ -14,26 +21,31 @@ jui.ready(function(ui, uix, _) {
 		{ name: "Park", age: "10", location: "Dangjin" }
 	];
 	
-	table_1 = uix.table("#table_1", {
+	table_5 = uix.table("#table_5", {
+		fields: [ "name", "age", "location" ],
 		rows: table_data,
-		animate: true
+		resize: true,
+		sort: [ 0, 1, 2 ],
+        animate: true
 	});
+	
+	table_5.resize();
 });
 </script>
 </head>
 <body>
-<table id="table_1" class="table">
+<table id="table_5" class="table table-condensed table-bordered table-hover">
 	<thead>
 		<tr>
-			<th data-tag="name">Name</th>
-			<th data-bind="age">Age</th>
+			<th>Name</th>
+			<th>Age</th>
 			<th>Location</th>
 		</tr>
 	</thead>
 	<tbody></tbody>
 </table>
 
-<script data-jui="#table_1" data-tpl="row" type="text/template">
+<script data-jui="#table_5" data-tpl="row" type="text/template">
 	<tr>
 		<td><!= name !></td>
 		<td><!= age !></td>
