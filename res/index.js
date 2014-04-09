@@ -69,6 +69,15 @@ var menuInfo = {
             datepicker: "style/datepicker",
             notify: "style/notify"
         }
+    },
+    others: {
+    	title: "Others",
+    	msg: "How to take advantage of other css library.",
+    	menu: {
+    		common: "others/common",
+    		bootstrap: "others/bootstrap",
+			pure: "others/pure"
+    	}
     }
 };
 
@@ -115,7 +124,7 @@ function initMenuUrl(hash) {
 	$("[href*=" + hash[0] + "]").addClass("active");
 	
 	// 자바스크립트 및 스타일 처리
-	if(hash[0] == "core" || hash[0] == "script" || hash[0]  == "style") {
+	if(hash[0] == "core" || hash[0] == "script" || hash[0]  == "style" || hash[0]  == "others") {
 		for(var key in menuInfo[hash[0]].menu) {
 			initSubMenuUrl(hash);
 			break;

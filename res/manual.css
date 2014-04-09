@@ -50,6 +50,12 @@ h2 {
 	font-weight: 400;
 }
 
+/* Iframe */
+iframe {
+	display: block;
+	width: 100%;
+}
+
 /* Tables */
 .table_s {
 	margin: 0px;

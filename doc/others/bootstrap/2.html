@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<META charset="UTF-8">
+<link rel="stylesheet" href="../../../lib/bootstrap.min.css" />
+<link rel="stylesheet" href="../../../lib/animate.min.css" />
+<script src="../../../lib/jquery-2.0.3.min.js"></script>
+<script src="../../../lib/jui.min.js"></script>
+
+<style>
+.col-lg-3 {
+	float: left;
+	width: 25% !important;
+}
+
+tbody tr {
+	cursor: pointer;
+}
+</style>
+
+<script>
+jui.ready(function(ui, uix, _) {
+	var table_data = [
+		{ name: "Hong", age: "20", location: "Ilsan" },
+		{ name: "Jung", age: "30", location: "Seoul" },
+		{ name: "Park", age: "10", location: "Dangjin" }
+	];
+	
+	var table_data_big = [
+		{ name: "Hong", age: "20", location: "Ilsan" },
+		{ name: "Jung", age: "30", location: "Seoul" },
+		{ name: "Park", age: "15", location: "Yeosu" },
+		{ name: "Kang", age: "32", location: "Seoul" },
+		{ name: "Song", age: "12", location: "Gwangju" },
+		{ name: "Yoon", age: "22", location: "Damyang" },
+		{ name: "Kim", age: "33", location: "Busan" },
+		{ name: "Hwang", age: "21", location: "Seoul" }
+	];
+	
+	table_2 = uix.table("#table_2", {
+		rows: _.clone(table_data),
+		expand: "auto",
+        animate: true
+	});
+	table_2.update(_.clone(table_data_big));
+	
+	table_2.on("expand", function(row) {
+		$(row.list[0]).html("<i class='icon-right'></i>");
+	});
+	table_2.on("expandend", function(row) {
+		$(row.list[0]).html("<i class='icon-left'></i>");
+	});
+});
+
+function table2Submit(index) {
+	var name = $("#table_2_name").val(),
+		age = $("#table_2_age").val(),
+		location = $("#table_2_location").val();
+		
+	table_2.update(index, { name: name, age: age, location: location });
+	table_2.hideExpand();
+}
+</script>
+</head>
+<body>
+<table id="table_2" class="table table-hover">
+	<thead>
+		<tr>
+			<th style="width: 30px"></th>
+			<th>Name</th>
+			<th>Age</th>
+			<th>Location</th>
+		</tr>
+	</thead>
+	<tbody></tbody>
+</table>
+
+<script data-jui="#table_2" data-tpl="row" type="text/template">
+	<tr>
+		<td><i class='icon-left'></i></td>
+		<td><!= name !></td>
+		<td><!= age !></td>
+		<td><!= location !></td>
+	</tr>
+</script>
+
+<script data-jui="#table_2" data-tpl="expand" type="text/template">
+	<div class="row">
+		<div class="col-lg-3">
+			<div class="input-group">
+				<span class="input-group-addon">Name</span>
+				<input id="table_2_name" type="text" class="form-control" value="<!= name !>">
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="input-group">
+				<span class="input-group-addon">Age</span>
+				<input id="table_2_age" type="text" class="form-control" value="<!= age !>">
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="input-group">
+				<span class="input-group-addon">Location</span>
+				<input id="table_2_location" type="text" class="form-control" value="<!= location !>">
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="btn-group">
+				<button onclick="table2Submit(<!= row.index !>)" type="button" class="btn btn-default">Submit</button>
+				<button onclick="table_2.remove(<!= row.index !>); table_2.hideExpand();" type="button" class="btn btn-default">Delete</button>
+			</div>	
+		</div>
+	</div>
+</script>
+</body>
+</html>
