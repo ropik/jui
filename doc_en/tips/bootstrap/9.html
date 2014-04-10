@@ -8,7 +8,7 @@
 <script src="../../../lib/jui.min.js"></script>
 
 <style>
-tbody tr {
+thead tr {
 	cursor: pointer;
 }
 </style>
@@ -26,57 +26,54 @@ jui.ready(function(ui, uix, _) {
 		{ name: "Hwang", age: "21", location: "Seoul" }
 	];
 	
-	table_tree_1 = uix.table("#table_tree_1", {
+	table_9 = uix.table("#table_9", {
+		fields: [ "name", "age", "location" ],
 		rows: table_data_big,
-		scroll: true,
+		colshow: true,
+		sort: true,
 		resize: true,
 		event: {
-			select: function(row) {
-				alert("index(" + row.index + "), name(" + row.data.name + ")");
+			colmenu: function(column, e) {
+				this.columnMenu(e.pageX - 25);
 			}
 		},
         animate: true
 	});
-});
-
-function tableTree1Run() {
-	table_tree_1.append("1", { name: "Kang", age: "21" });
-	table_tree_1.append("1", { name: "Jung", age: "33" });
-	table_tree_1.insert("1.2", { name: "Park", age: "45" } );
-	table_tree_1.insert("1.3", { name: "Hwang", age: "12" } );
-	table_tree_1.insert("1.2.0", { name: "Roo", age: "32" } );
-	table_tree_1.insert("1.2.1", { name: "Jung", age: "14" } );
-	table_tree_1.insert("3.0", { name: "Yoon", age: "17" } );
-	table_tree_1.insert("3.1", { name: "Kim", age: "21" } );
-	table_tree_1.insert("3.2", { name: "Kim", age: "28" } );
 	
-	table_tree_1.scroll();
-}
+	table_9.resize();
+});
 </script>
 </head>
 <body>
-<table id="table_tree_1" class="table table-striped table-condensed">
+<table id="table_9" class="table table-condensed table-bordered table-hover">
 	<thead>
 		<tr>
-			<th style="width: 200px;">Index</th>
-			<th>Column. Name</th>
-			<th style="width: 100px;">Column. Age</th>
+			<th>Name</th>
+			<th>Age</th>
+			<th>Location</th>
 		</tr>
 	</thead>
 	<tbody></tbody>
 </table>
 
-<script data-jui="#table_tree_1" data-tpl="row" type="text/template">
+<script data-jui="#table_9" data-tpl="row" type="text/template">
 	<tr>
-		<td><!= row.index !></td>
-		<td style="padding-left: <!= 5 + (5 + (row.depth * 20)) !>px">
-			<! if(row.depth > 0) { !>
-				L&nbsp;
-			<! } !>
-			<!= name !>
-		</td>
+		<td><!= name !></td>
 		<td><!= age !></td>
+		<td><!= location !></td>
 	</tr>
+</script>
+
+<script data-jui="#table_9" data-tpl="menu" type="text/template">
+	<div>
+		<ul class="dropdown-menu">
+		<! for(var i = 0; i < columns.length; i++) { !>
+			<li>
+				<a href="#"><input type="checkbox" />&nbsp; <!= columns[i] !></a>
+			</li>
+		<! } !>
+		</ul>
+	</div>
 </script>
 </body>
 </html>

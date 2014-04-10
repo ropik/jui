@@ -20,7 +20,7 @@ jui.ready(function(ui, uix, _) {
 		{ name: "Hwang", age: "21", location: "Seoul" }
 	];
 	
-	table_9 = uix.table("#table_9", {
+	table_7 = uix.table("#table_7", {
 		fields: [ null, "name", "age", "location" ],
 		rows: _.clone(table_data_big),
 		scroll: true,
@@ -37,7 +37,7 @@ function table9Run() {
 		rows.push({ name: "Alvin" + i, age: i, location: "LA" });
 	}
 	
-	table_9.append(rows);
+	table_7.append(rows);
 	var nEnd = new Date().getTime(); 
 	
 	alert("실행시간 : " + (nEnd - nStart) + "ms");
@@ -45,7 +45,7 @@ function table9Run() {
 </script>
 </head>
 <body>
-<table id="table_9" class="table table-striped table-condensed">
+<table id="table_7" class="table table-striped table-condensed">
 	<thead>
 		<tr>
 			<th>No</th>
@@ -57,7 +57,7 @@ function table9Run() {
 	<tbody></tbody>
 </table>
 
-<script data-jui="#table_9" data-tpl="row" type="text/template">
+<script data-jui="#table_7" data-tpl="row" type="text/template">
 	<tr>
 		<td><!= row.index !></td>
 		<td><!= name !></td>

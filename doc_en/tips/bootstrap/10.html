@@ -26,8 +26,9 @@ jui.ready(function(ui, uix, _) {
 		{ name: "Hwang", age: "21", location: "Seoul" }
 	];
 	
-	table_tree_2 = uix.table("#table_tree_2", {
+	table_tree_1 = uix.table("#table_tree_1", {
 		rows: table_data_big,
+		scroll: true,
 		resize: true,
 		event: {
 			select: function(row) {
@@ -36,49 +37,36 @@ jui.ready(function(ui, uix, _) {
 		},
         animate: true
 	});
-
-	table_tree_2.append("1", { name: "Kang", age: "21" });
-	table_tree_2.append("1", { name: "Jung", age: "33" });
-	table_tree_2.insert("1.2", { name: "Park", age: "45" } );
-	table_tree_2.insert("1.3", { name: "Hwang", age: "12" } );
-	table_tree_2.insert("1.2.0", { name: "Roo", age: "32" } );
-	table_tree_2.insert("1.2.1", { name: "Jung", age: "14" } );
-	table_tree_2.insert("3.0", { name: "Yoon", age: "17" } );
-	table_tree_2.insert("3.1", { name: "Kim", age: "21" } );
-	table_tree_2.insert("3.2", { name: "Kim", age: "28" } );
-	
-	table_tree_2.resize();
 });
 
-function tableTree2RunA() {
-	alert("3번 로우를 4.0번으로 이동합니다.");
-	table_tree_2.move("3", "4.0");
-}
-
-function tableTree2RunB() {
-	alert("1번 로우를 삭제합니다.");
-	table_tree_2.remove("1");
-}
-			
-function tableTree2RunC() {
-	alert("2번 로우의 데이터를 변경합니다.");
-	table_tree_2.update("2", { name: "AAA" });
+function tableTree1Run() {
+	table_tree_1.append("1", { name: "Kang", age: "21" });
+	table_tree_1.append("1", { name: "Jung", age: "33" });
+	table_tree_1.insert("1.2", { name: "Park", age: "45" } );
+	table_tree_1.insert("1.3", { name: "Hwang", age: "12" } );
+	table_tree_1.insert("1.2.0", { name: "Roo", age: "32" } );
+	table_tree_1.insert("1.2.1", { name: "Jung", age: "14" } );
+	table_tree_1.insert("3.0", { name: "Yoon", age: "17" } );
+	table_tree_1.insert("3.1", { name: "Kim", age: "21" } );
+	table_tree_1.insert("3.2", { name: "Kim", age: "28" } );
+	
+	table_tree_1.scroll();
 }
 </script>
 </head>
 <body>
-<table id="table_tree_2" class="table table-condensed table-bordered table-hover">
+<table id="table_tree_1" class="table table-striped table-condensed">
 	<thead>
 		<tr>
-			<th>Name</th>
-			<th>Age</th>
-			<th>Location</th>
+			<th style="width: 200px;">Index</th>
+			<th>Column. Name</th>
+			<th style="width: 100px;">Column. Age</th>
 		</tr>
 	</thead>
 	<tbody></tbody>
 </table>
 
-<script data-jui="#table_tree_2" data-tpl="row" type="text/template">
+<script data-jui="#table_tree_1" data-tpl="row" type="text/template">
 	<tr>
 		<td><!= row.index !></td>
 		<td style="padding-left: <!= 5 + (5 + (row.depth * 20)) !>px">
