@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<META charset="UTF-8">
+<link rel="stylesheet" href="../../../lib/bootstrap.min.css" />
+<link rel="stylesheet" href="../../../lib/animate.min.css" />
+<script src="../../../lib/jquery-2.0.3.min.js"></script>
+<script src="../../../lib/jui.min.js"></script>
+
+<style>
+.btn-group {
+	margin-top: 5px;
+}
+
+#xtable_3 {
+	border-bottom: 1px solid #ddd;
+}
+
+#xtable_3 .none {
+	border-bottom-width: 0px;
+	font-size: 16px;
+	height: 186px;
+	line-height: 186px;
+	text-align: center;
+}
+
+#xtable_3 .loading {
+	display: none;
+	width: 32px;
+	height: 25px;
+	background-repeat: no-repeat;
+	background-image: url(http://seogi1004.github.io/jui/lib/img/xtable-loading.gif);
+}
+</style>
+
+<script>
+var xtable_3_page = null;
+
+jui.ready(function(ui, uix, _) {
+	xtable_3 = uix.xtable("#xtable_3", {
+		fields: [ "name", "age", "location" ],
+		resize: true,
+		colshow: true,
+		sort: true,
+		sortLoading: true,
+		buffer: "s-page", // scroll, page, s-page
+		bufferCount: 20,
+		event: {
+			sortend: function() {
+				xtable_3_page = 1;
+			}
+		},
+        animate: true
+	});
+	
+	xtable_3.resize();
+});
+
+function run() {
+	var result = [], 
+		dataSize = 1000000,
+		nStart = new Date().getTime();
+	
+	for(var i = 0; i < dataSize; i++) {
+		result.push({ name: "Alvin" + (dataSize - i), age: i, location: "LA" });
+	}
+	
+	var nEnd = new Date().getTime(); 
+		xtable_3.update(result);
+		xtable_3.resize();
+		xtable_3_page = 1;
+	var nEnd2 = new Date().getTime(); 
+	
+	alert(
+		"임의의 데이터 " + (dataSize / 10000) + "만건을 생성합니다.\n\n" +
+		"데이터 생성시간 : " + ((nEnd - nStart) / 1000) + "sec\n" +
+		"테이블 갱신시간 : " + ((nEnd2 - nEnd) / 1000) + "sec"
+	);
+}
+
+function xtable3Page(no) {
+	if(xtable_3_page == null) return;
+	
+	xtable_3_page += no;
+	xtable_3_page = (xtable_3_page < 1) ? 1 : xtable_3_page;
+	xtable_3.page(xtable_3_page);
+}
+</script>
+</head>
+<body>
+	
+<div id="xtable_3">
+	<table class="table table-condensed table-bordered ">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Location</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+</div>
+<div class="btn-group">
+	<button type="button" class="btn btn-default" onclick="xtable3Page(-1)">Prev</button>
+	<button type="button" class="btn btn-default" onclick="xtable3Page(1)">Next</button>
+</div>
+	
+<script data-jui="#xtable_3" data-tpl="row" type="text/template">
+	<tr>
+		<td><!= name !></td>
+		<td><!= age !></td>
+		<td><!= location !></td>
+	</tr>
+</script>
+
+<script data-jui="#xtable_3" data-tpl="none" type="text/template">
+	<tr>
+		<td colspan="3" class="none">테이블에 데이터가 존재하지 않습니다.</td>
+	</tr>
+</script>
+
+<script data-jui="#xtable_3" data-tpl="loading" type="text/template">
+	<div class="loading"></div>		
+</script>
+</body>
+</html>

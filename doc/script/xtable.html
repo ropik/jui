@@ -85,7 +85,7 @@ function xtableRun(type) {
 		nStart = new Date().getTime();
 	
 	for(var i = 0; i < dataSize; i++) {
-		result.push({ name: "Alvin" + i, age: dataSize - i, location: "LA" });
+		result.push({ name: "Alvin" + (dataSize - i), age: i, location: "LA" });
 	}
 	
 	var nEnd = new Date().getTime(); 
