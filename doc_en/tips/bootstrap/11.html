@@ -50,6 +50,16 @@ jui.ready(function(ui, uix, _) {
 	table_tree_2.resize();
 });
 
+function run(type) {
+	if(type == 1) {
+		tableTree2RunA();
+	} else if(type == 2) {
+		tableTree2RunB();
+	} else {
+		tableTree2RunC();
+	}
+}
+
 function tableTree2RunA() {
 	alert("3번 로우를 4.0번으로 이동합니다.");
 	table_tree_2.move("3", "4.0");

@@ -69,7 +69,7 @@ jui.ready(function(ui, uix, _) {
 </div>
 
 <script data-jui="#table_4" data-tpl="row" type="text/template">
-	<tr>
+	<tr class="<! if(parseInt(row.index) % 2 == 0) { !>info<! } !>">
 		<td><!= name !></td>
 		<td><!= age !></td>
 		<td><!= location !></td>

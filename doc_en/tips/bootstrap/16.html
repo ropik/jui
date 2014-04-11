@@ -8,18 +8,26 @@
 <script src="../../../lib/jui.min.js"></script>
 
 <style>
-#xtable_1 {
+.row {
+	text-align: center;
+}
+
+#paging_2 {
+	margin-top: 5px;
+}
+
+#paging_2_xtable {
 	border-bottom: 1px solid #ddd;
 }
 
-#xtable_1 .none {
+#paging_2_xtable .none {
 	font-size: 16px;
 	height: 187px;
 	line-height: 187px;
 	text-align: center;
 }
 
-#xtable_1 .loading {
+#paging_2_xtable .loading {
 	display: none;
 	width: 32px;
 	height: 25px;
@@ -30,21 +38,38 @@
 
 <script>
 jui.ready(function(ui, uix, _) {
-	xtable_1 = uix.xtable("#xtable_1", {
-		fields: [ "name", "age", "location" ],
-		resize: true,
-		colshow: true,
-		sort: true,
-		sortLoading: true,
-		buffer: "scroll", // scroll, page, s-page
-		bufferCount: 20,
-        animate: true
+	paging_2 = ui.paging("#paging_2", {
+		pageCount: 100, 
+		screenCount: 9,
+		event: {
+			page: function(pNo) {
+				paging_2_xtable.page(pNo);
+			}
+		}
 	});
 	
-	xtable_1.resize();
+	paging_2_xtable = uix.xtable("#paging_2_xtable", {
+		fields: [ "name", "age", "location" ],
+		resize: true,
+		sort: true,
+		sortLoading: true,
+		buffer: "s-page", // scroll, page, s-page
+		bufferCount: 100,
+		event: {
+			sortend: function(data, e) {
+				paging_2.first();
+			}
+		},
+        animate: true
+	});
 });
 
 function run() {
+	xtableRun();
+	paging_2.reload(paging_2_xtable.count());
+}
+
+function xtableRun() {
 	var result = [], 
 		dataSize = 1000000,
 		nStart = new Date().getTime();
@@ -54,11 +79,12 @@ function run() {
 	}
 	
 	var nEnd = new Date().getTime(); 
-		xtable_1.update(result);
+	paging_2_xtable.update(result);
+	paging_2_xtable.resize();
 	var nEnd2 = new Date().getTime(); 
 	
 	alert(
-		"임의의 데이터 " + (dataSize / 10000) + "만건을 생성합니다.\n\n" +
+		"임의의 데이터 " + (dataSize / 10000) + "만개를 생성합니다.\n\n" +
 		"데이터 생성시간 : " + ((nEnd - nStart) / 1000) + "sec\n" +
 		"테이블 갱신시간 : " + ((nEnd2 - nEnd) / 1000) + "sec"
 	);
@@ -66,7 +92,7 @@ function run() {
 </script>
 </head>
 <body>
-<div id="xtable_1">
+<div id="paging_2_xtable">
 	<table class="table table-condensed table-bordered">
 		<thead>
 			<tr>
@@ -78,8 +104,11 @@ function run() {
 		<tbody></tbody>
 	</table>
 </div>
-	
-<script data-jui="#xtable_1" data-tpl="row" type="text/template">
+<div class="row">
+	<ul id="paging_2" class="pagination pagination-sm"></ul>
+</div>
+
+<script data-jui="#paging_2_xtable" data-tpl="row" type="text/template">
 	<tr>
 		<td><!= name !></td>
 		<td><!= age !></td>
@@ -87,14 +116,22 @@ function run() {
 	</tr>
 </script>
 
-<script data-jui="#xtable_1" data-tpl="none" type="text/template">
+<script data-jui="#paging_2_xtable" data-tpl="none" type="text/template">
 	<tr>
 		<td colspan="3" class="none">Data does not exist.</td>
 	</tr>
 </script>
 
-<script data-jui="#xtable_1" data-tpl="loading" type="text/template">
+<script data-jui="#paging_2_xtable" data-tpl="loading" type="text/template">
 	<div class="loading"></div>		
+</script>
+
+<script data-jui="#paging_2" data-tpl="pages" type="text/template">
+	<li class="prev"><a href="#">&laquo;</a></li>
+	<! for(var i = 0; i < pages.length; i++) { !>
+		<li class="page"><a href="#"><!= pages[i] !></a></li>
+	<! } !>
+	<li class="next"><a href="#">&raquo;</a></li>
 </script>
 </body>
 </html>

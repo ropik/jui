@@ -45,7 +45,7 @@ jui.ready(function(ui, uix, _) {
 </script>
 </head>
 <body>
-<table id="table_9" class="table table-condensed table-bordered table-hover">
+<table id="table_9" class="table table-condensed table-bordered">
 	<thead>
 		<tr>
 			<th>Name</th>
@@ -57,7 +57,7 @@ jui.ready(function(ui, uix, _) {
 </table>
 
 <script data-jui="#table_9" data-tpl="row" type="text/template">
-	<tr>
+	<tr class="<! if(parseInt(row.index) % 2 == 0) { !>success<! } !>">
 		<td><!= name !></td>
 		<td><!= age !></td>
 		<td><!= location !></td>

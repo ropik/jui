@@ -9,12 +9,34 @@
 <link rel="stylesheet" href="../../lib/prism.css" />
 <script src="../../lib/jquery-2.0.3.min.js"></script>
 <script src="../../lib/prism.js"></script>
+<script src="../../lib/jui.min.js"></script>
 <script src="../../res/manual.js"></script>
 
+<style>
+.link {
+	cursor: pointer;
+}
+</style>
+
 <script>
-	function run(selector, type) {
-		return $(selector).get(0).contentWindow.window.run(type);
-	}
+jui.ready([ "ui.tooltip"], function(tooltip) {
+	$(".link").each(function(i) {
+		$(this).attr("title", "클릭하면 예제 페이지로 이동합니다.")
+	});
+	
+	$(".link").on("click", function(e) {
+		window.open("bootstrap/" + $(this).data("no") + ".html");
+	});
+	
+	tooltip(".link", {
+		position: "right",
+		width: 200
+	});
+});
+
+function run(selector, type) {
+	return $(selector).get(0).contentWindow.window.run(type);
+}
 </script>
 
 </head>
@@ -27,60 +49,60 @@
 <section>
 	<h2>Table</h2>
 		
-	<h3>Default</h3>
+	<h3><span class="link" data-no="1">Default</span></h3>
 	<p>
 		데이터 목록을 템플릿을 활용하여 적용한 기본적인 테이블 예제입니다.
 	</p>
 	<iframe src="bootstrap/1.html" frameborder="0" scrolling="no" height="150"></iframe>
 	
-	<h3>Expand (+Update)</h3>
+	<h3><span class="link" data-no="2">Expand (+Update)</span></h3>
 	<p>
 		확장 영역을 사용하고 관련된 값을 데이터 바인딩을 통해 변경하는 예제입니다.
 	</p>
 	<iframe src="bootstrap/2.html" frameborder="0" scrolling="no" height="333"></iframe>
 	
-	<h3>Scroll</h3>
+	<h3><span class="link" data-no="3">Scroll</span></h3>
 	<p>
 		테이블 내부에서 스크롤 기능을 사용하는 예제입니다.
 	</p>
 	<iframe src="bootstrap/3.html" frameborder="0" scrolling="no" height="200"></iframe>
 
-	<h3>Mouse Right-Click (+Resize)</h3>
+	<h3><span class="link" data-no="4">Mouse Right-Click (+Resize)</span></h3>
 	<p>
 		로우를 마우스 오른쪽 클릭하면 rowmenu 이벤트가 발생합니다.<br/>
 		이 이벤트를 활용하면 로우를 컨트롤할 수 있는 메뉴 등을 구현하는데 활용할 수 있습니다.
 	</p>
 	<iframe src="bootstrap/4.html" frameborder="0" scrolling="no" height="281"></iframe>
 
-	<h3>Sorting (+Resize)</h3>
+	<h3><span class="link" data-no="5">Sorting (+Resize)</span></h3>
 	<p>
 		정렬 기능을 사용하기 위해서는 <strong>th</strong> 태그 순서대로 데이터 키 값을 넣어주고, 정렬 대상이 아닐 경우에는 <strong>null</strong>로 대체하면 됩니다.<br/>
 		또한 정렬 중임을 보여주는 UI는 별도로 구현할 수 있도록 관련된 인터페이스를 제공합니다.
 	</p>
 	<iframe src="bootstrap/5.html" frameborder="0" scrolling="no" height="126"></iframe>
 	
-	<h3>Edit Row (+Sorting)</h3>
+	<h3><span class="link" data-no="6">Edit Row (+Sorting)</span></h3>
 	<p>
 		특정 로우를 더블클릭하면 모든 셀의 값을 수정할 수 있습니다. <br/>
 		참고로 <strong>rowEdit</strong> 옵션의 값이 true가 아니고, 컬럼 인덱스 배열이라면 목록의 컬럼들만 수정할 수 있습니다.
 	</p>
 	<iframe src="bootstrap/6.html" frameborder="0" scrolling="no" height="150"></iframe>
 	
-	<h3>Append Data (+Scroll)</h3>
+	<h3><span class="link" data-no="7">Append Data (+Scroll)</span></h3>
 	<p>
 		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_7');">Run</a> - 
 		좌측의 버튼을 클릭하면, 1000개의 로우를 추가합니다. 
 	</p>
 	<iframe id="iframe_7" src="bootstrap/7.html" frameborder="0" scrolling="no" height="238"></iframe>
 
-	<h3>Insert Data (+Scroll)</h3>
+	<h3><span class="link" data-no="8">Insert Data (+Scroll)</span></h3>
 	<p>
 		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_8');">Run</a> - 
 		좌측의 버튼을 클릭하면, 3번째 인덱스에 100개의 로우를 추가합니다. 
 	</p>
 	<iframe id="iframe_8" src="bootstrap/8.html" frameborder="0" scrolling="no" height="238"></iframe>
 
-	<h3>Hide/Show Column (+Resize)</h3>
+	<h3><span class="link" data-no="9">Hide/Show Column (+Resize)</span></h3>
 	<p>
 		컬럼에 마우스 오른쪽을 클릭하면 숨기기/보이기 기능을 제공하는 메뉴가 보여집니다.
 	</p>
@@ -90,14 +112,14 @@
 <section>
 	<h2>Tree Table</h2>
 		
-	<h3>Append/Insert Data</h3>
+	<h3><span class="link" data-no="10">Append/Insert Data</span></h3>
 	<p>
 		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_10');">Run</a> - 
 		뎁스 구조의 키 값으로 데이터를 입력 및 특정 인덱스에 추가할 수 있습니다.
 	</p>
 	<iframe id="iframe_10" src="bootstrap/10.html" frameborder="0" scrolling="no" height="238"></iframe>
 
-	<h3>Move/Remove/Update Row</h3>
+	<h3><span class="link" data-no="11">Move/Remove/Update Row</span></h3>
 	<p>
 		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_11', 1);">Move</a>
 		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_11', 2);">Remove</a>
@@ -110,26 +132,43 @@
 <section>
 	<h2>X Table</h2>
 		
-	<h3>Scroll (+Loading)</h3>
+	<h3><span class="link" data-no="12">Scroll (+Loading)</span></h3>
 	<p>
 		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_12');">Run</a> - 
 		100만건의 데이터를 추가하는 데모이며, 스크롤이 맨 밑으로 내려갔을 경우에 로우를 추가적으로 렌더링합니다.
 	</p>
 	<iframe id="iframe_12" src="bootstrap/12.html" frameborder="0" scrolling="no" height="232"></iframe>
 
-	<h3>Page</h3>
+	<h3><span class="link" data-no="13">Page</span></h3>
 	<p>
 		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_13');">Run</a> - 
 		100만건의 데이터를 추가하는 데모이며, 스크롤이 없는 페이징 형태로 추가 데이터를 렌더링합니다.
 	</p>
 	<iframe id="iframe_13" src="bootstrap/13.html" frameborder="0" scrolling="no" height="230"></iframe>
 
-	<h3>Page-Scroll</h3>
+	<h3><span class="link" data-no="14">Page-Scroll</span></h3>
 	<p>
 		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_14');">Run</a> - 
 		100만건의 데이터를 추가하는 데모이며, 스크롤이 없는 페이징 형태로 추가 데이터를 렌더링합니다.
 	</p>
 	<iframe id="iframe_14" src="bootstrap/14.html" frameborder="0" scrolling="no" height="272"></iframe>
+</section>
+
+<section>
+	<h2>Paging</h2>
+		
+	<h3><span class="link" data-no="15">Default</span></h3>
+	<p>
+		페이징 UI를 사용하는 가장 기본적인 방법입니다.
+	</p>
+	<iframe id="iframe_15" src="bootstrap/15.html" frameborder="0" scrolling="no" height="48"></iframe>
+
+	<h3><span class="link" data-no="16">Table & Paging</span></h3>
+	<p>
+		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_16');">Run</a> - 
+		좌측 버튼을 클릭하면 100만 건의 데이터를 테이블에 입력합니다.
+	</p>
+	<iframe id="iframe_16" src="bootstrap/16.html" frameborder="0" scrolling="no" height="270"></iframe>
 </section>
 </body>
 </html>

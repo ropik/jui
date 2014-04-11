@@ -15,6 +15,11 @@
 <script src="../../lib/prism.js"></script>
 <script src="../../res/manual.js"></script>
 
+<style>
+.xtable .none {
+	text-align: center;
+}
+</style>
 <script>
 jui.ready(function(ui, uix, _) {
 	// 페이징
@@ -43,6 +48,7 @@ jui.ready(function(ui, uix, _) {
 		fields: [ "name", "age", "location" ],
 		resize: true,
 		sort: true,
+		sortLoading: true,
 		buffer: "s-page", // scroll, page, s-page
 		bufferCount: 100,
 		event: {
@@ -129,7 +135,7 @@ function xtableRun(type) {
 		그리고 <strong>pageCount</strong>는 한 페이지당 데이터 개수이고, <strong>screenCount</strong>는 페이징 UI에 보이는 페이지 개수를 말합니다.
 		
 <pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
-	paging_1 = jui.ui.paging("#paging_1", {
+	paging_1 = ui.paging("#paging_1", {
 		count: 1000,
 		pageCount: 10,
 		screenCount: 7, 
@@ -172,7 +178,7 @@ function xtableRun(type) {
 
 		<script data-jui="#paging_2_xtable" data-tpl="none" type="text/template">
 			<tr>
-				<td colspan="3">테이블에 데이터가 존재하지 않습니다.</td>
+				<td colspan="3" class="none">Data does not exist.</td>
 			</tr>
 		</script>
 		
@@ -191,7 +197,7 @@ function xtableRun(type) {
 		<p class="br">
 			페이지 버튼을 클릭하면 <strong>page</strong> 커스텀 이벤트가 발생하는데, 이 때 테이블의 페이지를 변경합니다.
 			
-<pre><code class="language-javascript">paging_2 = jui.ui.paging("#paging_2", {
+<pre><code class="language-javascript">paging_2 = ui.paging("#paging_2", {
 	pageCount: 100, 
 	event: {
 		page: function(pNo) {
@@ -212,10 +218,11 @@ function xtableRun(type) {
 		<p class="br">
 			그리고 테이블의 정렬 기능을 사용하였을 경우, 페이지 번호를 맨 처음으로 변경하기 위해 <strong>first</strong> 메소드를 호출해줍니다.
 			
-<pre><code class="language-javascript">paging_2_xtable = jui.uix.xtable("#paging_2_xtable", {
+<pre><code class="language-javascript">paging_2_xtable = uix.xtable("#paging_2_xtable", {
 	fields: [ "name", "age", "location" ],
 	resize: true,
 	sort: true,
+	sortLoading: true,
 	buffer: "s-page", // scroll, page, s-page
 	bufferCount: 100,
 	event: {

@@ -15,6 +15,11 @@
 <script src="../../lib/prism.js"></script>
 <script src="../../res/manual.js"></script>
 
+<style>
+.xtable .none {
+	text-align: center;
+}
+</style>
 <script>
 jui.ready(function(ui, uix, _) {
 	xtable_3_page = 1;
@@ -85,7 +90,7 @@ function xtableRun(type) {
 		nStart = new Date().getTime();
 	
 	for(var i = 0; i < dataSize; i++) {
-		result.push({ name: "Alvin" + i, age: dataSize - i, location: "LA" });
+		result.push({ name: "Alvin" + i, age: Math.floor(Math.random() * 100) + 1, location: "LA" });
 	}
 	
 	var nEnd = new Date().getTime(); 
@@ -187,7 +192,7 @@ function xtableFilterCustom() {
 
 		<script data-jui="#xtable_1" data-tpl="none" type="text/template">
 			<tr>
-				<td colspan="3">테이블에 데이터가 존재하지 않습니다.</td>
+				<td colspan="3" class="none">Data does not exist.</td>
 			</tr>
 		</script>
 		
@@ -284,7 +289,7 @@ function xtableFilterCustom() {
 
 		<script data-jui="#xtable_2" data-tpl="none" type="text/template">
 			<tr>
-				<td colspan="3">테이블에 데이터가 존재하지 않습니다.</td>
+				<td colspan="3" class="none">Data does not exist.</td>
 			</tr>
 		</script>
 	</p>
@@ -335,7 +340,7 @@ function xtableFilterCustom() {
 
 		<script data-jui="#xtable_3" data-tpl="none" type="text/template">
 			<tr>
-				<td colspan="3">테이블에 데이터가 존재하지 않습니다.</td>
+				<td colspan="3" class="none">Data does not exist.</td>
 			</tr>
 		</script>
 	</p>	
@@ -381,7 +386,7 @@ function xtableFilterCustom() {
 
 		<script data-jui="#xtable_4" data-tpl="none" type="text/template">
 			<tr>
-				<td colspan="3">테이블에 데이터가 존재하지 않습니다.</td>
+				<td colspan="3" class="none">Data does not exist.</td>
 			</tr>
 		</script>
 	</p>	
