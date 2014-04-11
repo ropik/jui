@@ -65,15 +65,13 @@ jui.ready(function(ui, uix, _) {
 </script>
 
 <script data-jui="#table_9" data-tpl="menu" type="text/template">
-	<div>
-		<ul class="dropdown-menu">
-		<! for(var i = 0; i < columns.length; i++) { !>
-			<li>
-				<a href="#"><input type="checkbox" />&nbsp; <!= columns[i] !></a>
-			</li>
-		<! } !>
-		</ul>
-	</div>
+	<ul class="dropdown-menu">
+	<! for(var i = 0; i < columns.length; i++) { !>
+		<li>
+			<a href="#"><input type="checkbox" />&nbsp; <!= columns[i] !></a>
+		</li>
+	<! } !>
+	</ul>
 </script>
 </body>
 </html>
