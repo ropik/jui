@@ -71,8 +71,8 @@ var menuInfo = {
         }
     },
     tips: {
-    	title: "Tips",
-    	msg: "How to take advantage of other css library.",
+    	title: "+Bootstrap",
+    	msg: "JUI library can be used with the Bootstrap.",
     	menu: {
     		common: "tips/common",
     		bootstrap: "tips/bootstrap",
@@ -80,6 +80,8 @@ var menuInfo = {
     	}
     }
 };
+
+var loading = null;
 
 function initHashEvent() {
 	$(window).hashchange(function() {
@@ -130,7 +132,7 @@ function initMenuUrl(hash) {
 			break;
 		}
 	} else {
-		$("#" + hash[0]).find("iframe").attr("src", src);
+		loadIframe($("#" + hash[0]).find("iframe"), src);
 	}
 }
 
@@ -143,8 +145,9 @@ function initSubMenuUrl(hash) {
 		$menu = $target.find(".vmenu a[href='#" + hash[0] + "/" + hash[1] + "']");
 		
 	$target.find("a").removeClass("active");
-	$target.find("iframe").attr("src", src + ".html");
 	$menu.addClass("active");
+	
+	loadIframe($target.find("iframe"), src);
 	
 	if(hash[0] == "script") {
 		initLeafMenuUrl(hash, src, $target, $menu);
@@ -173,7 +176,7 @@ function initLeafMenuUrl(hash, src, $target, $menu) {
 		$submenu.find("li").removeClass("active");
 		$(this).addClass("active");	
 		
-		$target.find("iframe").attr("src", src + subkey + ".html");
+		loadIframe($target.find("iframe"), src + subkey);
 	});
 }
 
@@ -218,7 +221,22 @@ function checkIeVersion() {
 	}
 }
 
-$(function() {
+function loadIframe($iframe, src) {
+	loading.show();
+	
+	$iframe.attr("src", src + ((src.indexOf(".html") != -1) ? "" : ".html"));
+	$iframe.unbind("load");
+	
+	$iframe.on("load", function(e) {
+		loading.hide();
+	});
+}
+
+jui.ready(function(ui, uix, _) {
+	loading = ui.modal("#floatingBarsG", {
+		color: "black"
+	});
+	
 	initHashEvent();
 	checkIeVersion();
 	

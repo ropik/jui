@@ -13,15 +13,15 @@ jui.ready(function(ui, uix, _) {
 		type: "check",
 		event: {
 			change: function(data, e) {
-				var result = "";
+				var words = [];
 				
 				for(var i = 0; i < data.length; i++) {
 					if(data[i] != null) {
-						result += "index(" + data[i].index + "), text(" + data[i].text + ")" + "\n";
+						words.push(data[i].text);
 					}
 				}
 				
-				alert(result);
+				alert(words.join(", "));
 			}
 		}
 	});
