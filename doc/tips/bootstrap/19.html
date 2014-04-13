@@ -11,8 +11,8 @@
 jui.ready(function(ui, uix, _) {
 	dd_1 = ui.dropdown("#dd_1", {
 		event: {
-			change: function(data) {
-				alert(data.value + ", " + data.text);
+			change: function(data, e) {
+				alert(data.text);
 			},
 			hide: function() {
 				$(".btn-group").removeClass("active");

@@ -12,8 +12,8 @@ jui.ready(function(ui, uix, _) {
 	dd_2 = ui.dropdown("#dd_2", {
 		keydown: true,
 		event: {
-			change: function(data) {
-				alert(data.value + ", " + data.text);
+			change: function(data, e) {
+				alert(data.text);
 			},
 			hide: function() {
 				$(".dropdown-toggle").removeClass("active");
@@ -70,7 +70,7 @@ jui.ready(function(ui, uix, _) {
 </div>
 
 <ul id="dd_2" class="dropdown-menu">
-	<li><a href="#">Action</a></li>
+	<li><a href="#" value="100">Action</a></li>
 	<li><a href="#">Another action</a></li>
 	<li><a href="#">Something else here</a></li>
 	<li class="divider"></li>
