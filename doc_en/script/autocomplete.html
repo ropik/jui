@@ -109,7 +109,11 @@ jui.ready(function(ui, uix, _) {
 
 &lt;script data-jui=".ac" data-tpl="words" type="text/template"&gt;
 	&lt;div class="dropdown"&gt;
-		&lt;ul style="width: 134px;"&gt;&lt;/ul&gt;
+		&lt;ul&gt;
+		&lt;! for(var i = 0; i &lt; words.length; i++) { !>
+			&lt;li>&lt;!= words[i] !>&lt;/li>
+		&lt;! } !>
+		&lt;/ul&gt;
 	&lt;/div&gt;
 &lt;/script&gt;</code></pre>
 	</p>
@@ -137,7 +141,11 @@ ac_1[1].update(ac_words_hangul);</code></pre>
 	
 	<script data-jui=".ac" data-tpl="words" type="text/template">
 		<div class="dropdown">
-			<ul style="width: 134px;"></ul>
+			<ul>
+			<! for(var i = 0; i < words.length; i++) { !>
+				<li><!= words[i] !></li>
+			<! } !>
+			</ul>
 		</div>
 	</script>
 </section>

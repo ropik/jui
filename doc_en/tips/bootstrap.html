@@ -16,6 +16,14 @@
 .link {
 	cursor: pointer;
 }
+
+section {
+	margin-bottom: 100px;
+}
+
+section.not_bottom {
+	margin-bottom: 0px;
+}
 </style>
 
 <script>
@@ -45,6 +53,112 @@ function run(selector, type) {
 <div class="page-header">
 	<h1>Bootstrap</h1>
 </div>
+
+<section>
+	<h2>Button</h2>
+		
+	<h3><span class="link" data-no="21">Raido</span></h3>
+	<p>
+		버튼 컴포넌트는 하나만 선택할 수 있는 라디오 타입을 제공합니다.
+	</p>
+	<iframe id="iframe_21" src="bootstrap/21.html" frameborder="0" scrolling="no" height="50"></iframe>
+
+	<h3><span class="link" data-no="22">Check</span></h3>
+	<p>
+		버튼 컴포넌트는 다수를 선택할 수 있는 체크 타입을 제공합니다.
+	</p>
+	<iframe id="iframe_22" src="bootstrap/22.html" frameborder="0" scrolling="no" height="50"></iframe>
+</section>
+
+<section>
+	<h2>Paging</h2>
+		
+	<h3><span class="link" data-no="15">Default</span></h3>
+	<p>
+		페이징 UI를 사용하는 가장 기본적인 방법입니다.
+	</p>
+	<iframe id="iframe_15" src="bootstrap/15.html" frameborder="0" scrolling="no" height="48"></iframe>
+
+	<h3><span class="link" data-no="16">Table & Paging</span></h3>
+	<p>
+		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_16');">Run</a> - 
+		좌측 버튼을 클릭하면 100만 건의 데이터를 테이블에 입력합니다.
+	</p>
+	<iframe id="iframe_16" src="bootstrap/16.html" frameborder="0" scrolling="no" height="270"></iframe>
+</section>
+
+<section class="not_bottom">
+	<h2>Dropdown</h2>
+		
+	<h3><span class="link" data-no="19">Default</span></h3>
+	<p>
+		드롭다운 컴포넌트의 기본이며, 각각의 요소에는 <strong>value</strong>를 지정할 수 있습니다. (숫자 형태만 가능)
+	</p>
+	<iframe id="iframe_19" src="bootstrap/19.html" frameborder="0" scrolling="no" height="173"></iframe>
+
+	<h3 style="margin-top: 0px;"><span class="link" data-no="20">Keydown</span></h3>
+	<p>
+		<strong>keydown</strong> 옵션을 <strong>true</strong>로 주면 키보드 방향키를 통해서도 리스트를 선택할 수 있습니다.
+	</p>
+	<iframe id="iframe_20" src="bootstrap/20.html" frameborder="0" scrolling="no" height="173"></iframe>
+</section>
+
+<section class="not_bottom">
+	<h2>Auto Complete</h2>
+		
+	<h3><span class="link" data-no="17">Default</span></h3>
+	<p>
+		아래 키워드 중에 입력한 문자가 포함되어 있으면, 드롭다운 메뉴에 키워드 목록이 나타납니다.
+		<span class="label label-gray label-small" style="width: 100%; margin-top: 5px;">
+			<i>BASIC, JavaScript, Python, 자바의 정석, 열혈강의 C++</i>
+		</span>
+	</p>
+	<iframe id="iframe_17" src="bootstrap/17.html" frameborder="0" scrolling="no" height="100"></iframe>
+
+	<h3><span class="link" data-no="18">Input Group</span></h3>
+	<p>
+		그룹 형태의 스타일에서도 자동 완성 기능을 사용할 수 있습니다.
+		<span class="label label-gray label-small" style="width: 100%; margin-top: 5px;">
+			<i>BASIC, JavaScript, Python, 자바의 정석, 열혈강의 C++</i>
+		</span>
+	</p>
+	<iframe id="iframe_18" src="bootstrap/18.html" frameborder="0" scrolling="no" height="100"></iframe>
+</section>
+
+<section class="not_bottom">
+	<h2>Tab</h2>
+		
+	<h3><span class="link" data-no="25">Default</span></h3>
+	<p>
+		탭 컨텐츠 영역은 이벤트를 통해서 설정할 수 있으며 관련된 옵션도 제공합니다.
+	</p>
+	<iframe id="iframe_25" src="bootstrap/25.html" frameborder="0" scrolling="no" height="40"></iframe>
+
+	<h3><span class="link" data-no="24">Menu</span></h3>
+	<p>
+		메뉴 탭 설정을 할 수 있으며 관련된 마크업은 드롭다운과 동일합니다.
+	</p>
+	<iframe id="iframe_24" src="bootstrap/24.html" frameborder="0" scrolling="no" height="180"></iframe>
+</section>
+
+<section>
+	<h2>Modal & Notify</h2>
+		
+	<h3><span class="link" data-no="23">Modal</span></h3>
+	<p>
+		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_23', 1);">Run</a> - 
+		전체 화면의 중앙에 위치하는 글로벌 모달 기능을 제공합니다.
+	</p>
+
+	<h3><span class="link" data-no="23">Notify</span></h3>
+	<p>
+		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_23', 2);">Run</a> - 
+		심각한 문제가 발생하거나 이벤트 등이 발생하였을 때, 알림 메시지를 보여줄 수 있습니다.
+	</p>
+	
+	<br/>
+	<iframe id="iframe_23" src="bootstrap/23.html" frameborder="0" scrolling="no" height="400"></iframe>
+</section>
 
 <section>
 	<h2>Table</h2>
@@ -154,21 +268,5 @@ function run(selector, type) {
 	<iframe id="iframe_14" src="bootstrap/14.html" frameborder="0" scrolling="no" height="272"></iframe>
 </section>
 
-<section>
-	<h2>Paging</h2>
-		
-	<h3><span class="link" data-no="15">Default</span></h3>
-	<p>
-		페이징 UI를 사용하는 가장 기본적인 방법입니다.
-	</p>
-	<iframe id="iframe_15" src="bootstrap/15.html" frameborder="0" scrolling="no" height="48"></iframe>
-
-	<h3><span class="link" data-no="16">Table & Paging</span></h3>
-	<p>
-		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_16');">Run</a> - 
-		좌측 버튼을 클릭하면 100만 건의 데이터를 테이블에 입력합니다.
-	</p>
-	<iframe id="iframe_16" src="bootstrap/16.html" frameborder="0" scrolling="no" height="270"></iframe>
-</section>
 </body>
 </html>

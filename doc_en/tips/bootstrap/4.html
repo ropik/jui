@@ -38,8 +38,8 @@ jui.ready(function(ui, uix, _) {
 	
 	table_4_dd = ui.dropdown("#table_4_dd", {
  		event: {
- 			change: function(data) {
- 				alert(data.value);
+ 			change: function(data, e) {
+ 				alert(data.text);
  			}
  		}
  	});
@@ -58,15 +58,13 @@ jui.ready(function(ui, uix, _) {
 	<tbody></tbody>
 </table>
 
-<div id="table_4_dd">
-	<ul class="dropdown-menu">
-	    <li value="1"><a href="#">Action</a></li>
-	    <li value="2"><a href="#">Another action</a></li>
-	    <li value="3"><a href="#">Something else here</a></li>
-	    <li class="divider"></li>
-	    <li value="4"><a href="#">Separated link</a></li>
-	</ul>
-</div>
+<ul id="table_4_dd" class="dropdown-menu">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+</ul>
 
 <script data-jui="#table_4" data-tpl="row" type="text/template">
 	<tr class="<! if(parseInt(row.index) % 2 == 0) { !>info<! } !>">

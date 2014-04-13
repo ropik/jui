@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<META charset="UTF-8">
+<link rel="stylesheet" href="../../../lib/bootstrap.min.css" />
+<link rel="stylesheet" href="../../../lib/animate.min.css" />
+<script src="../../../lib/jquery-2.0.3.min.js"></script>
+<script src="../../../lib/jui.min.js"></script>
+
+<script>
+jui.ready(function(ui, uix, _) {
+	btn_2 = ui.button("#btn_2", {
+		type: "check",
+		event: {
+			change: function(data, e) {
+				var words = [];
+				
+				for(var i = 0; i < data.length; i++) {
+					if(data[i] != null) {
+						words.push(data[i].text);
+					}
+				}
+				
+				alert(words.join(", "));
+			}
+		}
+	});
+});
+</script>
+</head>
+<body>
+<div id="btn_2" class="btn-group btn-group-lg">
+	<button type="button" class="btn btn-info">Java</button>
+	<button type="button" class="btn btn-info">.NET</button>
+	<button type="button" class="btn btn-info">C++</button>
+	<button type="button" class="btn btn-info">JSP</button>
+	<button type="button" class="btn btn-info">PHP</button>
+	<button type="button" class="btn btn-info">ASP</button>
+	<button type="button" class="btn btn-info">Ruby</button>
+	<button type="button" class="btn btn-info">Python</button>
+</div>
+</div>
+</body>
+</html>
