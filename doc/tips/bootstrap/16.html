@@ -26,14 +26,6 @@
 	line-height: 187px;
 	text-align: center;
 }
-
-#paging_2_xtable .loading {
-	display: none;
-	width: 32px;
-	height: 25px;
-	background-repeat: no-repeat;
-	background-image: url(http://seogi1004.github.io/jui/lib/img/xtable-loading.gif);
-}
 </style>
 
 <script>
@@ -51,8 +43,6 @@ jui.ready(function(ui, uix, _) {
 	paging_2_xtable = uix.xtable("#paging_2_xtable", {
 		fields: [ "name", "age", "location" ],
 		resize: true,
-		sort: true,
-		sortLoading: true,
 		buffer: "s-page", // scroll, page, s-page
 		bufferCount: 100,
 		event: {
@@ -120,10 +110,6 @@ function xtableRun() {
 	<tr>
 		<td colspan="3" class="none">Data does not exist.</td>
 	</tr>
-</script>
-
-<script data-jui="#paging_2_xtable" data-tpl="loading" type="text/template">
-	<div class="loading"></div>		
 </script>
 
 <script data-jui="#paging_2" data-tpl="pages" type="text/template">
