@@ -225,11 +225,11 @@ var uiApi = {
 		colresize: {
 			detail: "컬럼 리사이징 상태가 되었을 때, 발생하는 이벤트입니다."
 		},
-		editcell: {
-			detail: "셀 수정 상태가 되었을 때, 발생하는 이벤트입니다."
+		editstart: {
+			detail: "로우가 수정 상태가 되었을 때, 발생하는 이벤트입니다."
 		},
-		editrow: {
-			detail: "로우 수정 상태가 되었을 때, 발생하는 이벤트입니다."
+		editend: {
+			detail: "로우가 수정이 완료되었을 때, 발생하는 이벤트입니다."
 		},
 		expand: {
 			detail: "로우 확장 영역이 활성화 되었을 때, 발생하는 이벤트입니다."
@@ -330,8 +330,8 @@ jui.ready(function(ui, uix, _) {
 			colshow: function() {},
 			colhide: function() {},
 			colresize: function() {},
-			editcell: function() {},
-			editrow: function() {},
+			editstart: function() {},
+			editend: function() {},
 			expand: function() {},
 			expandend: function() {},
 			open: function() {},

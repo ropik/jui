@@ -195,10 +195,10 @@ function run(selector, type) {
 	</p>
 	<iframe src="bootstrap/5.html" frameborder="0" scrolling="no" height="126"></iframe>
 	
-	<h3><span class="link" data-no="6">Edit Row (+Sorting)</span></h3>
+	<h3><span class="link" data-no="6">Edit Row (+Resize, +Sort)</span></h3>
 	<p>
 		특정 로우를 더블클릭하면 모든 셀의 값을 수정할 수 있습니다. <br/>
-		참고로 <strong>rowEdit</strong> 옵션의 값이 true가 아니고, 컬럼 인덱스 배열이라면 목록의 컬럼들만 수정할 수 있습니다.
+		수정이 완료되면 <strong>editend</strong> 이벤트가 발생하는데, 이 때 <strong>false</strong>를 리턴하면 수정된 값이 반영되지 않습니다.
 	</p>
 	<iframe src="bootstrap/6.html" frameborder="0" scrolling="no" height="150"></iframe>
 	

@@ -24,12 +24,20 @@ jui.ready(function(ui, uix, _) {
 	table_6 = uix.table("#table_6", {
 		fields: [ null, "name", "age", "location" ],
 		rows: table_data,
-		editRow: [ 1, 2, 3 ],
+		editRow: true,
 		resize: true,
 		sort: true,
 		event: {
-			editrow: function(row, e) {
+			editstart: function(row, e) {
 				console.log(row);
+			},
+			editend: function(data) {
+				for(var key in data) {
+					if(key == "age" && isNaN(data[key])) {
+						alert("나이는 숫자만 입력할 수 있습니다.");
+						return false;
+					}
+				}
 			}
 		},
         animate: true
