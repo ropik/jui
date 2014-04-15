@@ -154,6 +154,39 @@ jui.ready(function(ui, uix, _) {
         animate: true
 	});
 
+	// 4-22. 로우 에디트 기능 + 드롭다운 메뉴
+	table_22 = uix.table("#table_22", {
+		fields: [ null, "name", "age", "location" ],
+		rows: _.clone(table_data_big),
+		editRow: true,
+		editEvent: false,
+		event: {
+			rowmenu: function(row, e) {
+				this.select(row.index);
+				
+			 	table_22_dd.move(e.pageX, e.pageY);
+			 	table_22_dd.show();
+			} 
+		},
+        animate: true
+	});
+	
+	table_22_dd = ui.dropdown("#table_22_dd", {
+ 		event: {
+ 			change: function(data) {
+ 				if(data.index == 0) {
+ 					var index = table_22.activeIndex();
+ 					
+ 					if(index != null) {
+	 					table_22.showEditRow(index);
+ 					}
+ 				}
+ 				
+ 				table_22.unselect();
+ 			}
+ 		}
+ 	});
+
 	// 4-16. 로우 삭제 기능
 	table_16 = uix.table("#table_16", {
 		fields: [ null, "name", "age", "location" ],
@@ -733,6 +766,75 @@ table_5.on("sort", function(column, e) {
 		}
 	},
     animate: true
+});</code></pre>
+	</p>
+</section>	
+
+<section>
+	<h2>Edit Row (+Dropdown)</h2>
+	<p>
+		로우를 마우스 오른쪽 클릭하면 <strong>rowmenu</strong> 이벤트가 발생하며, 첫번째 메뉴를 클릭하면 로우의 모든 셀을 수정할 수 있습니다.
+		
+		<table id="table_22" class="table table-simple table-headline">
+			<thead>
+				<tr>
+					<th width="50px">No</th>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Location</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+		
+		<div id="table_22_dd" class="dropdown dropdown-large">
+			<ul style="width: 150px;">
+				<li>Edit</li>
+				<li>Close</li>
+			</ul>
+		</div>
+		
+		<script data-jui="#table_22" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= row.index !></td>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+	</p>
+	
+	<p class="br">
+<pre><code class="language-javascript">table_22 = uix.table("#table_22", {
+	fields: [ null, "name", "age", "location" ],
+	rows: _.clone(table_data_big),
+	editRow: true,
+	editEvent: false,
+	event: {
+		rowmenu: function(row, e) {
+			this.select(row.index);
+			
+		 	table_22_dd.move(e.pageX, e.pageY);
+		 	table_22_dd.show();
+		} 
+	},
+    animate: true
+});
+
+table_22_dd = ui.dropdown("#table_22_dd", {
+	event: {
+		change: function(data) {
+			if(data.index == 0) {
+				var index = table_22.activeIndex();
+				
+				if(index != null) {
+ 					table_22.showEditRow(index);
+				}
+			}
+			
+			table_22.unselect();
+		}
+	}
 });</code></pre>
 	</p>
 </section>	

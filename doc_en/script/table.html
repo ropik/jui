@@ -54,10 +54,10 @@ jui.ready(function(ui, uix, _) {
 	});
 	table_2.update(_.clone(table_data_big));
 	
-	table_2.on("expand", function(row) {
+	table_2.on("expand", function(row, e) {
 		$(row.list[0]).html("<i class='icon-right'></i>");
 	});
-	table_2.on("expandend", function(row) {
+	table_2.on("expandend", function(row, e) {
 		$(row.list[0]).html("<i class='icon-left'></i>");
 	});
 	
@@ -125,10 +125,10 @@ jui.ready(function(ui, uix, _) {
 	table_18 = uix.table("#table_18", {
 		fields: [ null, "name", "age", "location" ],
 		rows: _.clone(table_data_big),
-		editCell: true,
+		editCell: [ 1, 3 ],
 		event: {
-			editcell: function(obj, e) {
-				console.log(obj);
+			editstart: function(row, e) {
+				console.log(row);
 			}
 		},
         animate: true
@@ -138,16 +138,54 @@ jui.ready(function(ui, uix, _) {
 	table_19 = uix.table("#table_19", {
 		fields: [ null, "name", "age", "location" ],
 		rows: _.clone(table_data_big),
-		editRow: [ 1, 3 ],
+		editRow: true,
 		resize: true,
 		sort: true,
 		event: {
-			editrow: function(row, e) {
-				console.log(row);
+			editend: function(data) {
+				for(var key in data) {
+					if(key == "age" && isNaN(data[key])) {
+						alert("나이는 숫자만 입력할 수 있습니다.");
+						return false;
+					}
+				}
 			}
 		},
         animate: true
 	});
+
+	// 4-22. 로우 에디트 기능 + 드롭다운 메뉴
+	table_22 = uix.table("#table_22", {
+		fields: [ null, "name", "age", "location" ],
+		rows: _.clone(table_data_big),
+		editRow: true,
+		editEvent: false,
+		event: {
+			rowmenu: function(row, e) {
+				this.select(row.index);
+				
+			 	table_22_dd.move(e.pageX, e.pageY);
+			 	table_22_dd.show();
+			} 
+		},
+        animate: true
+	});
+	
+	table_22_dd = ui.dropdown("#table_22_dd", {
+ 		event: {
+ 			change: function(data) {
+ 				if(data.index == 0) {
+ 					var index = table_22.activeIndex();
+ 					
+ 					if(index != null) {
+	 					table_22.showEditRow(index);
+ 					}
+ 				}
+ 				
+ 				table_22.unselect();
+ 			}
+ 		}
+ 	});
 
 	// 4-16. 로우 삭제 기능
 	table_16 = uix.table("#table_16", {
@@ -225,7 +263,7 @@ jui.ready(function(ui, uix, _) {
 		resize: true,
 		sort: true,
 		event: {
-			sort: function(data, e) {
+			sort: function(column, e) {
 				$("#table_20_btn").attr("href", table_20.getCsvBase64());
 			}
 		},
@@ -483,10 +521,10 @@ function table14RunB() {
 	animate: true
 });
 
-table_2.on("expand", function(row) {
+table_2.on("expand", function(row, e) {
 	$(row.list[0]).html("&lt;i class='icon-right'>&lt;/i>");
 });
-table_2.on("expandend", function(row) {
+table_2.on("expandend", function(row, e) {
 	$(row.list[0]).html("&lt;i class='icon-left'>&lt;/i>");
 });</code></pre>
 	</p>
@@ -683,9 +721,129 @@ table_5.on("sort", function(column, e) {
 </section>
 
 <section>
+	<h2>Edit Row (+Resize, +Sort)</h2>
+	<p>
+		특정 로우를 더블클릭하면 모든 셀의 값을 수정할 수 있습니다. <br/>
+		수정이 완료되면 <strong>editend</strong> 이벤트가 발생하는데, 이 때 <strong>false</strong>를 리턴하면 수정된 값이 반영되지 않습니다.
+		
+		<table id="table_19" class="table table-classic">
+			<thead>
+				<tr>
+					<th width="50px">No</th>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Location</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+		
+		<script data-jui="#table_19" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= row.index !></td>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+	</p>
+	
+	<p class="br">
+<pre><code class="language-javascript">table_19 = uix.table("#table_19", {
+	fields: [ null, "name", "age", "location" ],
+	rows: _.clone(table_data_big),
+	editRow: true,
+	resize: true,
+	sort: true,
+	event: {
+		editend: function(data) {
+			for(var key in data) {
+				if(key == "age" && isNaN(data[key])) {
+					alert("나이는 숫자만 입력할 수 있습니다.");
+					return false;
+				}
+			}
+		}
+	},
+    animate: true
+});</code></pre>
+	</p>
+</section>	
+
+<section>
+	<h2>Edit Row (+Dropdown)</h2>
+	<p>
+		로우를 마우스 오른쪽 클릭하면 <strong>rowmenu</strong> 이벤트가 발생하며, 첫번째 메뉴를 클릭하면 로우의 모든 셀을 수정할 수 있습니다.
+		
+		<table id="table_22" class="table table-simple table-headline">
+			<thead>
+				<tr>
+					<th width="50px">No</th>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Location</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+		
+		<div id="table_22_dd" class="dropdown dropdown-large">
+			<ul style="width: 150px;">
+				<li>Edit</li>
+				<li>Close</li>
+			</ul>
+		</div>
+		
+		<script data-jui="#table_22" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= row.index !></td>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+	</p>
+	
+	<p class="br">
+<pre><code class="language-javascript">table_22 = uix.table("#table_22", {
+	fields: [ null, "name", "age", "location" ],
+	rows: _.clone(table_data_big),
+	editRow: true,
+	editEvent: false,
+	event: {
+		rowmenu: function(row, e) {
+			this.select(row.index);
+			
+		 	table_22_dd.move(e.pageX, e.pageY);
+		 	table_22_dd.show();
+		} 
+	},
+    animate: true
+});
+
+table_22_dd = ui.dropdown("#table_22_dd", {
+	event: {
+		change: function(data) {
+			if(data.index == 0) {
+				var index = table_22.activeIndex();
+				
+				if(index != null) {
+ 					table_22.showEditRow(index);
+				}
+			}
+			
+			table_22.unselect();
+		}
+	}
+});</code></pre>
+	</p>
+</section>	
+
+<section>
 	<h2>Edit Cell</h2>
 	<p>
-		특정 셀을 더블클릭하면 해당 값을 수정할 수 있습니다.
+		특정 셀을 더블클릭하면 해당 값을 수정할 수 있습니다.<br/>
+		참고로 <strong>rowCell</strong> 옵션의 값이 <strong>true</strong>가 아니고, 컬럼 인덱스 배열이라면 목록의 컬럼들만 수정할 수 있습니다.
 		
 		<table id="table_18" class="table table-classic">
 			<thead>
@@ -711,12 +869,12 @@ table_5.on("sort", function(column, e) {
 	
 	<p class="br">
 <pre><code class="language-javascript">table_18 = jui.uix.table("#table_18", {
-	"fields": [ null, "name", "age", "location" ],
-	"rows": _.clone(table_data_big),
-	"editCell": true,
-	"event": {
-		"editCell": function(obj, e) {
-			console.log(obj);
+	fields: [ null, "name", "age", "location" ],
+	rows: _.clone(table_data_big),
+	editCell: [ 1, 3 ],
+	event: {
+		editstart: function(row, e) {
+			console.log(row);
 		}
 	},
 	animate: true
@@ -724,51 +882,6 @@ table_5.on("sort", function(column, e) {
 	</p>
 </section>
 	
-<section>
-	<h2>Edit Row (+Sorting)</h2>
-	<p>
-		특정 로우를 더블클릭하면 모든 셀의 값을 수정할 수 있습니다. <br/>
-		참고로 <strong>rowEdit</strong> 옵션의 값이 true가 아니고, 컬럼 인덱스 배열이라면 목록의 컬럼들만 수정할 수 있습니다.
-		
-		<table id="table_19" class="table table-classic">
-			<thead>
-				<tr>
-					<th width="50px">No</th>
-					<th>Name</th>
-					<th>Age</th>
-					<th>Location</th>
-				</tr>
-			</thead>
-			<tbody></tbody>
-		</table>
-		
-		<script data-jui="#table_19" data-tpl="row" type="text/template">
-			<tr>
-				<td><!= row.index !></td>
-				<td><!= name !></td>
-				<td><!= age !></td>
-				<td><!= location !></td>
-			</tr>
-		</script>
-	</p>
-	
-	<p class="br">
-<pre><code class="language-javascript">table_19 = jui.uix.table("#table_19", {
-	"fields": [ null, "name", "age", "location" ],
-	"rows": _.clone(table_data_big),
-	"editRow": [ 1, 3 ],
-	"resize": true,
-	"sort": true,
-	"event": {
-		"editRow": function(row, e) {
-			console.log(row);
-		}
-	},
-	animate: true
-});</code></pre>
-	</p>
-</section>	
-
 <section>
 	<h2>Remove Row</h2>
 	<p>
@@ -1137,7 +1250,7 @@ function table10Run() {
 	resize: true,
 	sort: true,
 	event: {
-		sort: function(data, e) {
+		sort: function(column, e) {
 			$("#table_20_btn").attr("href", table_20.getCsvBase64());
 		}
 	},
