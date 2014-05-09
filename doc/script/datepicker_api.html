@@ -34,9 +34,14 @@ var uiApi = {
 			detail: "다음 년/월에 맞는 달력을 출력합니다."
 		},
 		select: {
-			param: "year, month, day",
+			param: "none | year, month, day | timestamp",
 			ret: "none",
-			detail: "해당 년/월/일에 맞는 날짜를 선택합니다.",
+			detail: "값이 없으면 오늘을 선택하고, 타임스탬프나 년/월/일에 해당하는 날짜를 선택합니다. ",
+		},
+		addTime: {
+			param: "time",
+			ret: "none",
+			detail: "현재 선택된 날짜에 추가한 시간에 해당하는 날짜를 선택합니다."
 		},
 		getDate: {
 			param: "none",
