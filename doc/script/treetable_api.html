@@ -3,7 +3,7 @@
 <html>
 <head>
 <META charset="UTF-8">
-<title>[JUI Library] - JavaScript/TreeTable/API</title>
+<title>[JUI Library] - JavaScript/Table/API</title>
 	
 <link rel="stylesheet" href="../../lib/jui.min.css" />
 <script src="../../lib/jquery-2.0.3.min.js"></script>
@@ -47,12 +47,27 @@ var uiApi = {
 		select: {
 			param: "index",
 			ret: "UIRow",
-			detail: "해당 인덱스의 로우에 선택 효과를 주고, 해당 로우의 인스턴스를 가져옵니다."
+			detail: "해당 인덱스의 로우에 'selected' 클래스를 추가하고, 해당 로우의 인스턴스를 가져옵니다."
 		},
 		unselect: {
 			param: "none",
 			ret: "UIRow",
-			detail: "해당 인덱스의 로우에 선택 효과를 없애고, 해당 로우의 인스턴스를 가져옵니다."
+			detail: "해당 인덱스의 로우에 'selected' 클래스를 제거하고, 해당 로우의 인스턴스를 가져옵니다."
+		},
+		check: {
+			param: "index",
+			ret: "none",
+			detail: "해당 인덱스의 로우에 'checked' 클래스를 추가합니다."
+		},
+		uncheck: {
+			param: "index",
+			ret: "none",
+			detail: "해당 인덱스의 로우에 'checked' 클래스를 제거합니다."
+		},
+		uncheckAll: {
+			param: "none",
+			ret: "none",
+			detail: "모든 로우에 'checked' 클래스를 제거합니다."
 		},
 		remove: {
 			param: "index",
@@ -128,6 +143,11 @@ var uiApi = {
 			param: "none",
 			ret: "array",
 			detail: "자식 로우를 포함한 테이블의 전체 로우를 가져옵니다."
+		},
+		listChecked: {
+			param: "none",
+			ret: "array",
+			detail: "체크 상태의 모든 로우를 가져옵니다."
 		},
 		listColumn: {
 			param: "none",
@@ -227,7 +247,13 @@ var uiApi = {
 	},
 	event: {
 		select: {
-			detail: "로우가 선택되었을 때, 발생하는 이벤트입니다."
+			detail: "로우가 선택되었을 때, 발생하는 이벤트입니다. (@Deprecated)"
+		},
+		click: {
+			detail: "로우가 클릭되었을 때, 발생하는 이벤트입니다."
+		},
+		dbclick: {
+			detail: "로우가 더블클릭되었을 때, 발생하는 이벤트입니다."
 		},
 		sort: {
 			detail: "테이블이 정렬되었을 때, 발생하는 이벤트입니다."
@@ -294,7 +320,7 @@ var uiApi = {
 			detail: "테이블 화면에 보이는 순서대로 컬럼 이름을 설정합니다."
 		},
 		csv: {
-			detail: "CSV 문자열로 변환시에 보여지는 컬럼을 설정합니다."
+			detail: "CSV 문자열로 변환시에 보여지는 컬럼 키를 설정합니다."
 		},
 		csvNames: {
 			detail: "CSV 문자열로 변환시에 보여지는 컬럼 이름을 설정하며, csv 옵션과 동일한 순서로 정의해야합니다."
@@ -326,6 +352,9 @@ var uiApi = {
 		editEvent: {
 			detail: "로우 더블클릭시 로우/셀 수정 영역의 보이기/숨기기 상태를 설정합니다."
 		},
+		resize: {
+			detail: "컬럼 리사이징 기능의 사용 유무를 설정합니다."
+		},
 		sort: {
 			detail: "테이블 정렬 기능의 사용 유무를 설정합니다."
 		},
@@ -334,9 +363,6 @@ var uiApi = {
 		},
 		sortOrder: {
 			detail: "테이블이 갱신될 때, 자동으로 정렬할 컬럼 인덱스를 설정합니다."
-		},
-		resize: {
-			detail: "컬럼 리사이징 기능의 사용 유무를 설정합니다."
 		},
 		vo: {
 			detail: "테이블에 데이터 바인딩을 사용합니다."
@@ -354,6 +380,8 @@ jui.ready(function(ui, uix, _) {
 		},
 		event: {
 			select: function() {},
+			click: function() {},
+			dblclick: function() {},
 			sort: function() {},
 			scroll: function() {},
 			rowmenu: function() {},
@@ -394,11 +422,11 @@ jui.ready(function(ui, uix, _) {
 			<tr>
 				<td width="120px">Name</td>
 				<td>Description</td>
-			</tr>
+			</tr>	
 			<tr>
 				<td>type</td>
 				<td>자식 로우가 보여지는지 숨겨져 있는지에 대한 상태 값입니다.</td>
-			</tr>
+			</tr>	
 			<tr>
 				<td>data</td>
 				<td>해당 로우의 데이터입니다.</td>
@@ -480,7 +508,7 @@ jui.ready(function(ui, uix, _) {
 </section>
 
 <div class="page-header" style="margin-top: 100px;">
-	<h1>Tree Table</h1>
+	<h1>Table</h1>
 </div>
 
 <div class="hidden">
