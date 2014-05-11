@@ -49,7 +49,7 @@ jui.ready(function(ui, uix, _) {
 	// 4-2-1. 확장 영역 + 데이터 바인딩
 	table_2 = uix.table("#table_2", {
 		rows: _.clone(table_data),
-		expand: "auto",
+		expand: true,
         animate: true
 	});
 	table_2.update(_.clone(table_data_big));
@@ -66,6 +66,21 @@ jui.ready(function(ui, uix, _) {
 		rows: _.clone(table_data_big),
 		scroll: true,
 		scrollHeight: 150,
+        animate: true
+	});
+
+	// 4-11. 로우 체크
+	table_11 = uix.table("#table_11", {
+		rows: _.clone(table_data_big),
+		event: {
+			click: function(row, e) {
+				if($(row.element).hasClass("checked")) {
+					this.uncheck(row.index);
+				} else {
+					this.check(row.index);
+				}
+			}
+		},
         animate: true
 	});
 	
@@ -366,6 +381,9 @@ function table14RunB() {
 	table_14.uit.appendColumn("column2", rows);
 }
 
+function table11Run() {
+	alert("선택된 로우 개수 : " + table_11.listChecked().length);
+}
 </script>
 </head>
 <body class="jui">
@@ -517,7 +535,7 @@ function table14RunB() {
 		
 <pre><code class="language-javascript">table_2 = uix.table("#table_2", {
 	rows: table_data,
-	expand: "auto",
+	expand: true,
 	animate: true
 });
 
@@ -575,7 +593,53 @@ table_2.on("expandend", function(row, e) {
 	animate: true
 });</code></pre>
 	</p>
+</section>
 
+<section>
+	<h2>Checked Rows</h2>
+	<p>
+		<a class="btn btn-gray btn-mini" href="javascript:table11Run()">Run</a> - 
+		다수의 로우를 선택할 수 있는 기능을 제공합니다.
+		
+		<table id="table_11" class="table table-classic table-borderless">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Location</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+		
+		<script data-jui="#table_11" data-tpl="row" type="text/template">
+			<tr style="cursor: pointer;">
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+	</p>
+	
+	<p class="br">
+		선택된 로우 목록은 <strong>listChecked</strong> 메소드를 통해 가져올 수 있습니다.
+<pre><code class="language-javascript">table_11 = uix.table("#table_11", {
+	rows: _.clone(table_data_big),
+	event: {
+		click: function(row, e) {
+			if($(row.element).hasClass("checked")) {
+				this.uncheck(row.index);
+			} else {
+				this.check(row.index);
+			}
+		}
+	},
+    animate: true
+});</code></pre>
+	</p>
+</section>
+
+<section>
 	<h2>Mouse Right-Click (+Resize)</h2>
 	<p>
 		로우를 마우스 오른쪽 클릭하면 <strong>rowmenu</strong> 이벤트가 발생합니다. <br/>
