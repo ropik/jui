@@ -41,6 +41,11 @@ window.coreApi = {
             ret: "none",
             detail: "DOM 엘리먼트의 브라우저 이벤트를 정의합니다."
         },
+        addTrigger: {
+        	param: "selector, domEventType",
+        	ret: "none",
+        	detail: "DOM 엘리먼트에 해당 이벤트를 발생시킵니다."
+        },
         addValid: {
             param: "methodName, typeList",
             ret: "none",
