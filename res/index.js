@@ -31,7 +31,6 @@ var menuInfo = {
             combo: "script/combo",
             window: "script/window",
             table: "script/table",
-            treetable: "script/treetable",
             xtable: "script/xtable",
             dropdown: "script/dropdown",
             tab: "script/tab",
@@ -41,7 +40,8 @@ var menuInfo = {
             paging: "script/paging",
             autocomplete: "script/autocomplete",
             datepicker: "script/datepicker",
-            notify: "script/notify"
+            notify: "script/notify",
+            layout: "script/layout"
         }
     },
     style: {
