@@ -18,13 +18,13 @@
 jui.ready(function(ui, uix, _) {
 	// 2-1. 콤보박스
 	combo_1 = ui.combo("#combo_1", {
-		//"width": 200,
+		index: 2,
+		position: "top",
 		event: {
 			change: function(data) {
 				alert("text(" + data.text + "), value(" + data.value + ")");
 			}
-		},
-		position: "top"
+		}
 	});
 	
 	combo_1.setIndex(2);
@@ -142,12 +142,13 @@ jui.ready(function(ui, uix, _) {
 
 <pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
 	combo_1 = ui.combo("#combo_1", {
+		index: 2,
+		position: "top",
 		event: {
 			change: function(data) {
 				alert("text(" + data.text + "), value(" + data.value + ")");
 			}
-		},
-		position: "top"
+		}
 	});
 	
 	combo_2 = ui.combo("#combo_2", {
