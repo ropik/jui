@@ -1,0 +1,112 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<META charset="UTF-8">
+<title>[JUI Library] - JavaScript/Paging/API</title>
+	
+<link rel="stylesheet" href="https://rawgit.com/seogi1004/jui/master/jui.min.css" />
+<script src="../../lib/jquery-2.0.3.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="https://rawgit.com/seogi1004/jui/master/jui.min.js"></script>
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="api_core.js"></script>
+<script src="../../res/manual.js"></script>
+
+<script>
+var uiApi = {
+	prop: {},
+	method: {
+		reload: {
+			param: "count or none",
+			ret: "none",
+			detail: "해당 데이터 개수를 기준으로 리로드하고, 매개변수가 없다면 최초에 설정된 데이터 개수로 리로드합니다."
+		},
+		page: {
+			param: "pNo or none",
+			ret: "none",
+			detail: "해당 페이지 번호로 변경하고, 매개변수가 없다면 현재 활성화된 페이지 번호를 가져옵니다."
+		},
+		next: {
+			param: "none",
+			ret: "none",
+			detail: "다음 페이지로 변경합니다."
+		},
+		prev: {
+			param: "none",
+			ret: "none",
+			detail: "이전 페이지로 변경합니다."
+		},
+		first: {
+			param: "none",
+			ret: "none",
+			detail: "첫번째 페이지로 변경합니다."
+		},
+		last: {
+			param: "none",
+			ret: "none",
+			detail: "마지막 페이지로 변경합니다."
+		}
+	},
+	event: {
+		page: {
+			detail: "페이지가 변경될 때, 발생하는 이벤트입니다."
+		},
+		reload: {
+			detail: "페이징이 리로드 되었을 때, 발생하는 이벤트입니다."
+		}
+	},
+	tpl: {
+		pages: {
+			detail: "페이지 구성에 대한 템플릿입니다."
+		}
+	},
+	opt: {
+		count: {
+			detail: "페이징 대상의 데이터 전체 개수입니다. (예: 전체 로우 개수)"
+		},
+		pageCount: {
+			detail: "한 페이지 당 데이터 개수입니다."
+		},
+		screenCount: {
+			detail: "페이징 화면에 보여지는 페이지 개수입니다."
+		}
+	}
+};
+
+jui.ready(function(ui, uix, _) {
+	var ui = ui.paging("#ui", {
+		event: {
+			page: function() {}
+		}
+	});
+	
+	juiApi(ui, uiApi, _.template, function() {
+
+	});
+});
+
+</script>
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Paging</h1>
+</div>
+
+<div class="hidden">
+	<div id="ui" class="paging" style="width: 100%; margin-top: 3px;">
+		<a href="#" class="prev">Previous</a>
+		<div class="list"></div>
+		<a href="#" class="next">Next</a>
+	</div>
+	
+	<script data-jui="#ui" data-tpl="pages" type="text/template">
+		<! for(var i = 0; i < pages.length; i++) { !>
+			<a href="#" class="page"><!= pages[i] !></a>
+		<! } !>
+	</script>
+</div>
+
+</body>
+</html>
