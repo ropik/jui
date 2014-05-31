@@ -501,7 +501,7 @@ function tableTree3Run(count) {
 	</p>
 	
 	<p class="br">
-		먼저 데이터가 동적으로 변경될 부분인 <strong>tbody</strong> 태그의 <strong>data-tpl</strong> 속성 값을 <strong>rows</strong>로 지정합니다.
+		아래는 기본적인 테이블 마크업 코드입니다. <strong>tbody</strong> 영역에 데이터가 동적으로 추가됩니다.
 <pre><code class="language-markup">&lt;table id="table_1" class="table table-classic" style="width: 100%;"&gt;
 	&lt;thead&gt;
 		&lt;tr&gt;
@@ -514,8 +514,7 @@ function tableTree3Run(count) {
 &lt;/table&gt;</code></pre>
 	</p>
 	<p>
-		아래는 <strong>tbody</strong>에 데이터가 동적으로 입력되는 템플릿입니다.<BR/>
-		<strong>data-jui</strong> 속성 값에 해당 테이블의 셀렉터를 지정하며, <strong>data-tpl</strong> 속성 값은 <strong>rows</strong>로 지정합니다.
+		<strong>data-jui</strong> 속성 값에 해당 테이블의 셀렉터를 지정하며, <strong>data-tpl</strong> 속성 값은 <strong>row</strong>로 지정합니다.
 
 <pre><code class="language-markup">&lt;script data-jui="#table_1" data-tpl="row" type="text/template"&gt;
 		&lt;tr&gt;

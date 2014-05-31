@@ -238,6 +238,13 @@ function dd_4_update() {
 	</p>
 	
 	<p class="br">
+		아래는 <strong>ul</strong> 태그에 리스트가 동적으로 추가되는 템플릿입니다.<BR/>
+		<strong>data-tpl</strong> 속성 값을 <strong>node</strong>로 지정합니다.
+<pre><code class="language-markup">&lt;script data-jui="#dd_4" data-tpl="node" type="text/template"&gt;
+	&lt;li value="&lt;!= value !&gt;"&gt;&lt;!= text !&gt;&lt;/li&gt;
+&lt;/script&gt;</code></pre>
+	</p>
+	<p>
 <pre><code class="language-javascript">dd_4 = ui.dropdown("#dd_4", {
 	list: [
 		{ value: 1, text: "text1" },
