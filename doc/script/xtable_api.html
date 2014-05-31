@@ -25,12 +25,12 @@ var uiApi = {
 	},
 	method: {
 		update: {
-			param: "dataList or index, data",
+			param: "dataList | index, data",
 			ret: "none",
 			detail: "로우 목록을 갱신하거나 해당 인덱스의 로우를 수정합니다."
 		},
 		append: {
-			param: "data or index, data",
+			param: "data | index, data",
 			ret: "none",
 			detail: "로우를 추가하거나 해당 인덱스의 자식 로우로 추가합니다."
 		},
@@ -60,7 +60,7 @@ var uiApi = {
 			detail: "해당 인덱스의 로우를 타겟 인덱스로 이동시킵니다."
 		},
 		sort: {
-			param: "columnIndex or columnName, order",
+			param: "columnIndex | columnName, order",
 			ret: "none",
 			detail: "해당 컬럼 인덱스(or 컬럼 이름)를 기준으로 정렬합니다."
 		},
@@ -110,22 +110,22 @@ var uiApi = {
 			detail: "해당 인덱스의 로우의 자식을 포함한 모든 로우를 가져옵니다."
 		},
 		getColumn: {
-			param: "columnIndex or columnName",
+			param: "columnIndex | columnName",
 			ret: "UIColumn",
 			detail: "해당 인덱스의 컬럼을 가져옵니다."
 		},
 		showColumn: {
-			param: "columnIndex or columnName",
+			param: "columnIndex | columnName",
 			ret: "none",
 			detail: "해당 컬럼 인덱스(or 컬럼 이름)을 보이게 합니다."
 		},
 		hideColumn: {
-			param: "columnIndex or columnName",
+			param: "columnIndex | columnName",
 			ret: "none",
 			detail: "해당 컬럼 인덱스(or 컬럼 이름)을 숨깁니다."
 		},
 		initColumns: {
-			param: "columnIndexes or columnNames",
+			param: "columnIndexes | columnNames",
 			ret: "none",
 			detail: "보여질 컬럼의 인덱스나 이름을 배열 형태로 정할 수 있습니다."
 		},

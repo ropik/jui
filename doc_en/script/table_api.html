@@ -25,7 +25,7 @@ var uiApi = {
 	},
 	method: {
 		update: {
-			param: "dataList or index, data",
+			param: "dataList | index, data",
 			ret: "none",
 			detail: "로우 목록을 갱신하거나 해당 인덱스의 로우를 수정합니다."
 		},
@@ -35,7 +35,7 @@ var uiApi = {
 			detail: "index와 data 프로퍼티를 가지는 객체 배열을 통해 트리 테이블을 구성할 수 있습니다."
 		},
 		append: {
-			param: "data or index, data",
+			param: "data | index, data",
 			ret: "none",
 			detail: "로우를 추가하거나 해당 인덱스의 자식 로우로 추가합니다."
 		},
@@ -47,12 +47,27 @@ var uiApi = {
 		select: {
 			param: "index",
 			ret: "UIRow",
-			detail: "해당 인덱스의 로우에 선택 효과를 주고, 해당 로우의 인스턴스를 가져옵니다."
+			detail: "해당 인덱스의 로우에 'selected' 클래스를 추가하고, 해당 로우의 인스턴스를 가져옵니다."
 		},
 		unselect: {
 			param: "none",
 			ret: "UIRow",
-			detail: "해당 인덱스의 로우에 선택 효과를 없애고, 해당 로우의 인스턴스를 가져옵니다."
+			detail: "해당 인덱스의 로우에 'selected' 클래스를 제거하고, 해당 로우의 인스턴스를 가져옵니다."
+		},
+		check: {
+			param: "index",
+			ret: "none",
+			detail: "해당 인덱스의 로우에 'checked' 클래스를 추가합니다."
+		},
+		uncheck: {
+			param: "index",
+			ret: "none",
+			detail: "해당 인덱스의 로우에 'checked' 클래스를 제거합니다."
+		},
+		uncheckAll: {
+			param: "none",
+			ret: "none",
+			detail: "모든 로우에 'checked' 클래스를 제거합니다."
 		},
 		remove: {
 			param: "index",
@@ -70,7 +85,7 @@ var uiApi = {
 			detail: "해당 인덱스의 로우를 타겟 인덱스로 이동시킵니다."
 		},
 		sort: {
-			param: "columnIndex or columnName, order",
+			param: "columnIndex | columnName, order",
 			ret: "none",
 			detail: "해당 컬럼 인덱스(or 컬럼 이름)를 기준으로 정렬합니다."
 		},
@@ -129,6 +144,11 @@ var uiApi = {
 			ret: "array",
 			detail: "자식 로우를 포함한 테이블의 전체 로우를 가져옵니다."
 		},
+		listChecked: {
+			param: "none",
+			ret: "array",
+			detail: "체크 상태의 모든 로우를 가져옵니다."
+		},
 		listColumn: {
 			param: "none",
 			ret: "array",
@@ -145,22 +165,22 @@ var uiApi = {
 			detail: "해당 인덱스의 로우의 자식을 포함한 모든 로우를 가져옵니다."
 		},
 		getColumn: {
-			param: "columnIndex or columnName",
+			param: "columnIndex | columnName",
 			ret: "UIColumn",
 			detail: "해당 인덱스의 컬럼을 가져옵니다."
 		},
 		showColumn: {
-			param: "columnIndex or columnName",
+			param: "columnIndex | columnName",
 			ret: "none",
 			detail: "해당 컬럼 인덱스(or 컬럼 이름)을 보이게 합니다."
 		},
 		hideColumn: {
-			param: "columnIndex or columnName",
+			param: "columnIndex | columnName",
 			ret: "none",
 			detail: "해당 컬럼 인덱스(or 컬럼 이름)을 숨깁니다."
 		},
 		initColumns: {
-			param: "columnIndexes or columnNames",
+			param: "columnIndexes | columnNames",
 			ret: "none",
 			detail: "보여질 컬럼의 인덱스나 이름을 배열 형태로 정할 수 있습니다."
 		},
@@ -227,7 +247,13 @@ var uiApi = {
 	},
 	event: {
 		select: {
-			detail: "로우가 선택되었을 때, 발생하는 이벤트입니다."
+			detail: "로우가 선택되었을 때, 발생하는 이벤트입니다. (@Deprecated)"
+		},
+		click: {
+			detail: "로우가 클릭되었을 때, 발생하는 이벤트입니다."
+		},
+		dblclick: {
+			detail: "로우가 더블클릭되었을 때, 발생하는 이벤트입니다."
 		},
 		sort: {
 			detail: "테이블이 정렬되었을 때, 발생하는 이벤트입니다."
@@ -354,6 +380,8 @@ jui.ready(function(ui, uix, _) {
 		},
 		event: {
 			select: function() {},
+			click: function() {},
+			dblclick: function() {},
 			sort: function() {},
 			scroll: function() {},
 			rowmenu: function() {},
