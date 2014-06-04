@@ -17,6 +17,31 @@
 var uiApi = {
 	prop: {},
 	method: {
+		update: {
+			param: "nodes",
+			ret: "none",
+			detail: "탭 리스트를 변경합니다. "
+		},
+		insert: {
+			param: "index, node",
+			ret: "none",
+			detail: "해당 인덱스에 탭을 추가합니다."
+		},
+		append: {
+			param: "node",
+			ret: "none",
+			detail: "마지막 노드로 탭을 추가합니다."
+		},
+		prepend: {
+			param: "node",
+			ret: "none",
+			detail: "첫번째 노드로 탭을 추가합니다."
+		},
+		remove: {
+			param: "index",
+			ret: "none",
+			detail: "해당 인덱스의 탭을 제거합니다."
+		},
 		show: {
 			param: "index",
 			ret: "none",
@@ -36,7 +61,7 @@ var uiApi = {
 			detail: "탭을 클릭하여 변경하였을 때, 발생하는 이벤트입니다.",
 		},
 		changeMenu: {
-			detail: "드롭다운 리스트가 선택될 때, 발생하는 이벤트입니다.",
+			detail: "드롭다운이 선택될 때, 발생하는 이벤트입니다.",
 		}
 	},
 	tpl: {
@@ -50,6 +75,9 @@ var uiApi = {
 		},
 		index: {
 			detail: "활성화 탭을 설정합니다.",
+		},
+		nodes: {
+			detail: "탭 리스트를 마크업이 아닌 데이터로 설정합니다."
 		}
 	}
 };
