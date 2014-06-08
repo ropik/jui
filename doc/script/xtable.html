@@ -433,7 +433,7 @@ function xtableFilterCustom() {
 <section>
 	<h2>Horizontal Scroll</h2>
 	<p>
-		컬럼 개수가 많거나 테이블의 넓이가 클 경우에 가로 스크롤 옵션을 사용할 수 있습니다.
+		컬럼 개수가 많거나 테이블 넓이가 클 경우에 <strong>scrollWidth</strong> 옵션을 사용하면 테이블 가독성을 높일 수 있습니다.
 		
 		<div id="xtable_5" class="xtable xtable-rect">
 			<table class="table table-simple table-headline">
@@ -464,6 +464,9 @@ function xtableFilterCustom() {
 	</p>	
 	
 	<p class="br">
+		테이블의 실제 넓이가 <strong>scrollWidth</strong> 옵션 값보다 클 경우에 가로 스크를이 보여집니다.<br/>
+		참고로 테이블의 실제 넓이는 <strong>width</strong> 옵션을 사용하거나 마크업의 스타일로도 설정할 수 있습니다.
+		
 <pre><code class="language-javascript">xtable_5 = uix.xtable("#xtable_5", {
 	fields: [ "name", "age", "location" ],
 	rows: table_data,
