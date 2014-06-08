@@ -21,7 +21,19 @@
 }
 </style>
 <script>
+var table_data = [
+	{ name: "Hong", age: "20", location: "Ilsan" },
+	{ name: "Jung", age: "30", location: "Seoul" },
+	{ name: "Park", age: "15", location: "Yeosu" },
+	{ name: "Kang", age: "32", location: "Seoul" },
+	{ name: "Song", age: "12", location: "Gwangju" },
+	{ name: "Yoon", age: "22", location: "Damyang" },
+	{ name: "Kim", age: "33", location: "Busan" },
+	{ name: "Hwang", age: "21", location: "Seoul" }
+];
+
 jui.ready(function(ui, uix, _) {
+	
 	xtable_3_page = 1;
 	
 	// X-Table, scroll
@@ -65,6 +77,7 @@ jui.ready(function(ui, uix, _) {
 	// X-Table, filter
 	xtable_4 = uix.xtable("#xtable_4", {
 		fields: [ "name", "age", "location" ],
+		rows: table_data,
 		resize: true,
 		sort: true,
 		buffer: "s-page", // scroll, page, s-page
@@ -72,16 +85,16 @@ jui.ready(function(ui, uix, _) {
         animate: true
 	});
 	
-	xtable_4.update([
-		{ name: "Hong", age: "20", location: "Ilsan" },
-		{ name: "Jung", age: "30", location: "Seoul" },
-		{ name: "Park", age: "15", location: "Yeosu" },
-		{ name: "Kang", age: "32", location: "Seoul" },
-		{ name: "Song", age: "12", location: "Gwangju" },
-		{ name: "Yoon", age: "22", location: "Damyang" },
-		{ name: "Kim", age: "33", location: "Busan" },
-		{ name: "Hwang", age: "21", location: "Seoul" }
-	]);
+	// X-Table, scrollWidth
+	xtable_5 = uix.xtable("#xtable_5", {
+		fields: [ "name", "age", "location" ],
+		rows: table_data,
+		resize: true,
+		sort: true,
+		width: 1000,
+		scrollWidth: 727,
+        animate: true
+	});
 });
 
 function xtableRun(type) {
@@ -110,6 +123,9 @@ function xtableRun(type) {
 	if(type == 4) {
 		paging_2_xtable.update(result);
 		paging_2_xtable.resize();
+	}
+	if(type == 5) { 
+		xtable_5.update(result);
 	}
 	var nEnd2 = new Date().getTime(); 
 	
@@ -151,6 +167,15 @@ function xtableFilterCustom() {
 	});
 }
 
+function getTableData() {
+	var result = [];
+	
+	for(var i = 0; i < 1000; i++) {
+		result.push({ name: "Alvin" + i, age: Math.floor(Math.random() * 100) + 1, location: "LA" });
+	}
+	
+	return result;
+}
 </script>
 </head>
 <body class="jui">
@@ -402,6 +427,52 @@ function xtableFilterCustom() {
 		if(target > keyword) return true;
 	});
 }</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Horizontal Scroll</h2>
+	<p>
+		컬럼 개수가 많거나 테이블의 넓이가 클 경우에 가로 스크롤 옵션을 사용할 수 있습니다.
+		
+		<div id="xtable_5" class="xtable xtable-rect">
+			<table class="table table-simple table-headline">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Location</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+			
+		<script data-jui="#xtable_5" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+
+		<script data-jui="#xtable_5" data-tpl="none" type="text/template">
+			<tr>
+				<td colspan="3" class="none">Data does not exist.</td>
+			</tr>
+		</script>
+	</p>	
+	
+	<p class="br">
+<pre><code class="language-javascript">xtable_5 = uix.xtable("#xtable_5", {
+	fields: [ "name", "age", "location" ],
+	rows: table_data,
+	resize: true,
+	sort: true,
+	width: 1000,
+	scrollWidth: 727,
+    animate: true
+});</code></pre>
 	</p>
 </section>
 
