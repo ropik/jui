@@ -40,7 +40,7 @@ jui.ready(function(ui, uix, _) {
 
 	// 5-4. 드롭다운, 업데이트
 	dd_4 = ui.dropdown("#dd_4", {
-		list: [
+		nodes: [
 			{ value: 1, text: "text1" },
 			{ value: 2, text: "text2" },
 			{ value: 3, text: "text3" }
@@ -238,15 +238,17 @@ function dd_4_update() {
 	</p>
 	
 	<p class="br">
-		아래는 <strong>ul</strong> 태그에 리스트가 동적으로 추가되는 템플릿입니다.<BR/>
-		<strong>data-tpl</strong> 속성 값을 <strong>node</strong>로 지정합니다.
+		<strong>data-jui</strong> 속성 값에 해당 드롭다운의 셀렉터를 지정하며, <strong>data-tpl</strong> 속성 값은 <strong>node</strong>로 지정합니다.
+
 <pre><code class="language-markup">&lt;script data-jui="#dd_4" data-tpl="node" type="text/template"&gt;
 	&lt;li value="&lt;!= value !&gt;"&gt;&lt;!= text !&gt;&lt;/li&gt;
 &lt;/script&gt;</code></pre>
 	</p>
 	<p>
+		<strong>node</strong> 템플릿이 설정되어 있다면 아래와 같이 옵션으로 데이터를 설정할 수 있습니다.
+		
 <pre><code class="language-javascript">dd_4 = ui.dropdown("#dd_4", {
-	list: [
+	nodes: [
 		{ value: 1, text: "text1" },
 		{ value: 2, text: "text2" },
 		{ value: 3, text: "text3" }
@@ -254,7 +256,7 @@ function dd_4_update() {
 });</code></pre>
 	</p>
 	<p>
-		Update 버튼을 클릭하면 드롭다운 목록을 변경할 수 있습니다.
+		Update 버튼을 클릭하면 드롭다운 리스트를 변경할 수 있습니다.
 		
 <pre><code class="language-javascript">dd_4.update([
 	{ value: 4, text: "text4" },

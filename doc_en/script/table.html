@@ -17,6 +17,10 @@
 
 <style>
 	#table_2 tbody > tr { cursor: pointer; }
+	
+	.table .none {
+		text-align: center;
+	}
 </style>
 
 <script>
@@ -298,6 +302,41 @@ jui.ready(function(ui, uix, _) {
 	$("#table_21_btn").change(function(e) {
 		table_21.setCsvFile(e.target.files[0]);
 	});
+	
+	
+	/****************************** Tree Table ******************************/
+	
+	table_tree_1 = uix.table("#table_tree_1", {
+		rows: _.clone(table_data_big),
+		scroll: true,
+		resize: true,
+		event: {
+			select: function(row) {
+				alert("index(" + row.index + "), name(" + row.data.name + ")");
+			}
+		},
+        animate: true
+	});
+	
+	table_tree_2 = uix.table("#table_tree_2", {
+		rows: _.clone(table_data_big),
+        animate: true
+	});
+
+	table_tree_3 = uix.table("#table_tree_3", {
+        resize: true,
+        animate: true
+	});
+	
+	table_tree_2.append("1", { name: "Kang", age: "21" });
+	table_tree_2.append("1", { name: "Jung", age: "33" });
+	table_tree_2.insert("1.2", { name: "Park", age: "45" } );
+	table_tree_2.insert("1.3", { name: "Hwang", age: "12" } );
+	table_tree_2.insert("1.2.0", { name: "Roo", age: "32" } );
+	table_tree_2.insert("1.2.1", { name: "Jung", age: "14" } );
+	table_tree_2.insert("3.0", { name: "Yoon", age: "17" } );
+	table_tree_2.insert("3.1", { name: "Kim", age: "21" } );
+	table_tree_2.insert("3.2", { name: "Kim", age: "28" } );
 });
 
 function table2Submit(index) {
@@ -383,6 +422,50 @@ function table14RunB() {
 
 function table11Run() {
 	alert("선택된 로우 개수 : " + table_11.listChecked().length);
+}
+
+
+/****************************** Tree Table ******************************/
+
+function tableTree1Run() {
+	table_tree_1.append("1", { name: "Kang", age: "21" });
+	table_tree_1.append("1", { name: "Jung", age: "33" });
+	table_tree_1.insert("1.2", { name: "Park", age: "45" } );
+	table_tree_1.insert("1.3", { name: "Hwang", age: "12" } );
+	table_tree_1.insert("1.2.0", { name: "Roo", age: "32" } );
+	table_tree_1.insert("1.2.1", { name: "Jung", age: "14" } );
+	table_tree_1.insert("3.0", { name: "Yoon", age: "17" } );
+	table_tree_1.insert("3.1", { name: "Kim", age: "21" } );
+	table_tree_1.insert("3.2", { name: "Kim", age: "28" } );
+	
+	table_tree_1.scroll();
+}
+
+function tableTree2RunA() {
+	alert("3번 로우를 4.0번으로 이동합니다.");
+	table_tree_2.move("3", "4.0");
+}
+
+function tableTree2RunB() {
+	alert("1번 로우를 삭제합니다.");
+	table_tree_2.remove("1");
+}
+			
+function tableTree2RunC() {
+	alert("2번 로우의 데이터를 변경합니다.");
+	table_tree_2.update("2", { name: "AAA" });
+}
+
+function tableTree3Run(count) {
+	var key = "0",
+		rows = [];
+	
+	for(var i = 0; i < count; i++) {
+		rows.push({ index: key, data: { name: "Hong" + i, age: Math.floor(Math.random() * 100) } });
+		key += ".0";
+	}
+	
+	table_tree_3.updateTree(rows);
 }
 </script>
 </head>
@@ -1347,6 +1430,12 @@ $("#table_20_btn").attr("href", table_20.getCsvBase64());</code></pre>
 				<td><!= age !></td>
 			</tr>
 		</script>
+		
+		<script data-jui="#table_21" data-tpl="none" type="text/template">
+			<tr>
+				<td colspan="2" class="none">Data does not exist.</td>
+			</tr>
+		</script>
 	</p>
 	
 	<p class="br">
@@ -1360,6 +1449,217 @@ $("#table_20_btn").attr("href", table_20.getCsvBase64());</code></pre>
 $("#table_21_btn").change(function(e) {
 	table_21.setCsvFile(e.target.files[0]);
 });</code></pre>
+	</p>
+</section>
+
+
+<!-- Tree Table -->
+
+<section>
+	<h2>Append/Insert Tree</h2>
+	<p>
+		<a class="btn btn-gray btn-mini" href="javascript:tableTree1Run()">Run</a> - 
+		뎁스 구조의 키 값으로 데이터를 입력 및 특정 인덱스에 추가할 수 있습니다.
+		
+		<table id="table_tree_1" class="table table-classic">
+			<thead>
+				<tr>
+					<th style="width: 200px;">Index</th>
+					<th>Column. Name</th>
+					<th style="width: 100px;">Column. Age</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+		
+		<script data-jui="#table_tree_1" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= row.index !></td>
+				<td style="padding-left: <!= 5 + (5 + (row.depth * 20)) !>px">
+					<! if(row.depth > 0) { !>
+						<i class="icon-left"></i>&nbsp;
+					<! } !>
+					<!= name !>
+				</td>
+				<td><!= age !></td>
+			</tr>
+		</script>
+	</p>
+	
+	<p class="br">
+		트리 테이블을 생성하는 방법은 기존의 테이블 생성 방법과 동일합니다.
+		
+<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
+	var table_data_big = [
+		{ name: "Hong", age: "20", location: "Ilsan" },
+		{ name: "Jung", age: "30", location: "Seoul" },
+		{ name: "Park", age: "15", location: "Yeosu" },
+		{ name: "Kang", age: "32", location: "Seoul" },
+		{ name: "Song", age: "12", location: "Gwangju" },
+		{ name: "Yoon", age: "22", location: "Damyang" },
+		{ name: "Kim", age: "33", location: "Busan" },
+		{ name: "Hwang", age: "21", location: "Seoul" }
+	];
+		
+	table_tree_1 = uix.table("#table_tree_1", {
+		rows: _.clone(table_data_big),
+		scroll: true,
+		resize: true,
+		event: {
+			select: function(row) {
+				alert("index(" + row.index + "), name(" + row.data.name + ")");
+			}
+		}
+	});
+});</code></pre>
+	</p>
+	
+	<p class="br">
+		<strong>append</strong> 메소드는 해당 키 값의 자식으로 로우를 추가하며, <strong>insert</strong> 메소드는 해당 키 값과 동일 선상의 위치에 로우를 추가합니다.
+		
+<pre><code class="language-javascript">function tableTree1Run() {
+	table_tree_1.append("1", { name: "Kang", age: "21" });
+	table_tree_1.append("1", { name: "Jung", age: "33" });
+	table_tree_1.insert("1.2", { name: "Park", age: "45" } );
+	table_tree_1.insert("1.3", { name: "Hwang", age: "12" } );
+	table_tree_1.insert("1.2.0", { name: "Roo", age: "32" } );
+	table_tree_1.insert("1.2.1", { name: "Jung", age: "14" } );
+	table_tree_1.insert("3.0", { name: "Yoon", age: "17" } );
+	table_tree_1.insert("3.1", { name: "Kim", age: "21" } );
+	table_tree_1.insert("3.2", { name: "Kim", age: "28" } );
+	
+	table_tree_1.scroll();
+}</code></pre>
+	</p>
+	<p>
+		그리고 <strong>depth</strong>에 맞는 트리 로우를 보여주기 위해 <strong>padding-left</strong> 스타일을 적용하였습니다.
+<pre><code class="language-markup">&lt;script data-jui="#table_tree_1" data-tpl="row" type="text/template"&gt;
+	&lt;tr&gt;
+		&lt;td&gt;&lt;!= row.index !&gt;&lt;/td&gt;
+		&lt;td style="padding-left: &lt;!= 5 + (5 + (row.depth * 20)) !&gt;px"&gt;
+			&lt;! if(row.depth &gt; 0) { !&gt;
+				&lt;i class="icon-left"&gt;&lt;/i&gt;&nbsp;
+			&lt;! } !&gt;
+			&lt;!= name !&gt;
+		&lt;/td&gt;
+		&lt;td&gt;&lt;!= age !&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/script&gt;</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Move/Remove/Update Tree</h2>
+	<p>
+		<a class="btn btn-gray btn-mini" href="javascript:tableTree2RunA()">Move</a>
+		<a class="btn btn-gray btn-mini" href="javascript:tableTree2RunB()">Remove</a>
+		<a class="btn btn-gray btn-mini" href="javascript:tableTree2RunC()">Update</a> - 
+		트리 형태의 로우를 조작할 수 있은 기능을 제공합니다. 
+			
+		<table id="table_tree_2" class="table table-classic">
+			<thead>
+				<tr>
+					<th style="width: 200px;">Index</th>
+					<th>Column. Name</th>
+					<th style="width: 100px;">Column. Age</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+		
+		<script data-jui="#table_tree_2" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= row.index !></td>
+				<td style="padding-left: <!= 5 + (row.depth * 20) !>px">
+					<! if(row.depth > 0) { !>
+						<i class="icon-left"></i>&nbsp;
+					<! } !>
+					<!= name !>
+				</td>
+				<td><!= age !></td>
+			</tr>
+		</script>
+	</p>
+	
+	<p class="br">
+		로우를 조작하는 메소드는 아래와 같으며, 자세한 사항은 API 문서를 참고하시기 바랍니다.
+		
+<pre><code class="language-javascript">table_tree_2 = jui.uix.table("#table_tree_2", {
+	rows: _.clone(table_data_big)
+});
+			
+function tableTree2RunA() {
+	alert("3번 로우를 4.0번으로 이동합니다.");
+	table_tree_2.move("3", "4.0");
+}
+
+function tableTree2RunB() {
+	alert("1번 로우를 삭제합니다.");
+	table_tree_2.remove("1");
+}
+			
+function tableTree2RunC() {
+	alert("2번 로우의 데이터를 변경합니다.");
+	table_tree_2.update("2", { name: "AAA" });
+}</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Update Tree</h2>
+	<p>
+		<a class="btn btn-gray btn-mini" href="javascript:tableTree3Run(10)">Run</a>
+		다수의 트리 로우를 한번에 추가할 수 있는 기능을 제공합니다.
+			
+		<table id="table_tree_3" class="table table-classic table-nowrap">
+			<thead>
+				<tr>
+					<th style="width: 200px;">Index</th>
+					<th>Column. Name</th>
+					<th style="width: 100px;">Column. Age</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+		
+		<script data-jui="#table_tree_3" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= row.index !></td>
+				<td style="padding-left: <!= 5 + (row.depth * 20) !>px">
+					<! if(row.depth > 0) { !>
+						<i class="icon-left"></i>&nbsp;
+					<! } !>
+					<!= name !>
+				</td>
+				<td><!= age !></td>
+			</tr>
+		</script>
+		
+		<script data-jui="#table_tree_3" data-tpl="none" type="text/template">
+			<tr>
+				<td colspan="3" class="none">Data does not exist.</td>
+			</tr>
+		</script>
+	</p>
+	
+	<p class="br">
+		아래는 트리 로우 배열을 생성한 후에 <strong>updateTree</strong> 메소드를 실행하는 코드입니다.
+		
+<pre><code class="language-javascript">table_tree_3 = uix.table("#table_tree_3", {
+    resize: true
+});
+		
+function tableTree3Run(count) {
+	var key = "0",
+		rows = [];
+	
+	for(var i = 0; i < count; i++) {
+		rows.push({ index: key, data: { name: "Hong" + i, age: Math.floor(Math.random() * 100) } });
+		key += ".0";
+	}
+	
+	table_tree_3.updateTree(rows);
+}</code></pre>
 	</p>
 </section>
 
