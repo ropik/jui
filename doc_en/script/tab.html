@@ -88,6 +88,11 @@ function tab2Run(type) {
 
 			alert("0번 탭을 삭제합니다.");
 			break;
+		case 5:
+			tab_2.move(0, 2);
+			
+			alert("0번 탭을 2번 탭 위치로 변경합니다.");
+			break;
 	}
 }
 </script>
@@ -243,7 +248,8 @@ function tab2Run(type) {
 		<a class="btn btn-gray btn-mini" href="javascript:tab2Run(1)">Append</a>
 		<a class="btn btn-gray btn-mini" href="javascript:tab2Run(2)">Prepend</a>
 		<a class="btn btn-gray btn-mini" href="javascript:tab2Run(3)">Insert</a>
-		<a class="btn btn-gray btn-mini" href="javascript:tab2Run(4)">Remove</a> - 
+		<a class="btn btn-gray btn-mini" href="javascript:tab2Run(4)">Remove</a> 
+		<a class="btn btn-gray btn-mini" href="javascript:tab2Run(5)">Move</a> - 
 		
 		<strong>node</strong> 템플릿이 설정되어 있다면 좌측 버튼 기능을 사용할 수 있습니다.<br/>
 	</p>
@@ -304,6 +310,11 @@ function tab2Run(type) {
 			tab_2.remove(0);
 
 			alert("0번 탭을 삭제합니다.");
+			break;
+		case 5:
+			tab_2.move(0, 2);
+			
+			alert("0번 탭을 2번 탭 위치로 변경합니다.");
 			break;
 	}
 }
