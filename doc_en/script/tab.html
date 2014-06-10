@@ -61,6 +61,17 @@ jui.ready(function(ui, uix, _) {
 			node: "<li><a href='#'><!= text !></a></li>"
 		}
 	});
+	
+	// 6-1. 탭, tab-top
+	tab_3 = uix.tab("#tab_3", {
+		event: {
+			change: function(data) {
+				alert(data.text);
+			}
+		},
+		drag: true,
+		target: "#tab_contents_3"
+	});
 });
 
 function tab2Run(type) {
@@ -319,6 +330,38 @@ function tab2Run(type) {
 	}
 }
 </code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Drag Move</h2>
+	<p>
+		<strong>drag</strong> 옵션을 사용하면 탭의 위치를 드래그를 통해 변경할 수 있습니다.
+		
+		<ul id="tab_3" class="tab tab-top">
+			<li>
+				<a href="#home">Home</a>
+			</li>
+			<li><a href="#css">CSS</a></li>
+			<li><a href="#script">Script</a></li>
+		</ul>
+		
+		<div id="tab_contents_3" class="tab-contents" style="background: #dcdcdc;">
+			<div id="home">home</div>
+			<div id="css">css</div>
+			<div id="script">script</div>
+		</div>
+	</p>
+	<p class="br">
+<pre><code class="language-javascript">tab_3 = uix.tab("#tab_3", {
+	event: {
+		change: function(data) {
+			alert(data.text);
+		}
+	},
+	drag: true,
+	target: "#tab_contents_3"
+});</code></pre>
 	</p>
 </section>
 
