@@ -49,6 +49,7 @@ var menuInfo = {
         msg: "Fundamental HTML Elements styled and enhanced with extensible classes.",
         menu: {
             common: "style/common",
+            typography: "style/typography",
             form: "style/form",
             icon: "style/icon",
             button: "style/button",
