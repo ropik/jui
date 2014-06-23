@@ -111,6 +111,12 @@ var uiApi = {
 		},
 		fold: {
 			detail: "노드가 숨겨질 때, 발생하는 이벤트입니다."
+		},
+		dragstart: {
+			detail: "노드 이동이 시작되었을 때, 발생하는 이벤트입니다.",
+		},
+		dragend: {
+			detail: "노드 이동이 완료되었을 때, 발생하는 이벤트입니다.",
 		}
 	},
 	tpl: {
@@ -143,7 +149,9 @@ jui.ready(function(ui, uix, _) {
 		event: {
 			select: function() {},
 			open: function() {},
-			fold: function() {}
+			fold: function() {},
+			dragstart: function() {},
+			dragend: function() {}
 		},
 		tpl: {
 			node: ""
