@@ -19,7 +19,7 @@
 
 <section>
 	<p>
-		JUI 라이브러리의 스타일은 <strong>jui</strong> 클래스가 설정되어 있는 마크업의 하위에서만 사용할 수 있습니다. 
+		JUI 라이브러리의 스타일은 <strong>jui</strong> 클래스가 설정되어 있는 마크업의 하위에서만 사용할 수 있으며, 문서 최상단에 <strong>&lt;!DOCTYPE HTML></strong>가 선언되어 있어야 합니다.
 		
 		<pre><code class="language-markup">&lt;body class="jui"&gt;
 	...
@@ -28,8 +28,8 @@
 	<p class="br">
 		참고로 UI 애니메이션 효과를 발생시키기 위해서는 <a href="http://daneden.github.io/animate.css/" target="_blank">Animate.css</a>를 로드해야 하며 관련해서는 차후에 별도로 구현할 예정입니다.
 
-		<pre><code class="language-markup">&lt;link rel="stylesheet" href="animate.css" /></code></pre>
-	</p>
+        <pre><code class="language-markup">&lt;link rel="stylesheet" href="animate.css" /></code></pre>
+    </p>
 </section>
 
 </body>
