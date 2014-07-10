@@ -24,7 +24,7 @@ var uiApi = {
 	opt: {}
 };
 
-jui.define('ui.test', [], function() {
+jui.defineUI('ui.test', [], function() {
 	var UI = function() {
 		this.setting = function() {
 			return {};
@@ -36,7 +36,7 @@ jui.define('ui.test', [], function() {
 	}
 	
 	return UI;
-});
+}, 'core');
 
 jui.ready(function(ui, uix, _) {
 	var ui = ui.test("#ui");
@@ -100,13 +100,13 @@ jui.ready(function(ui, uix, _) {
 		이 두 메소드는 UI 컴포넌트를 새로 추가할 때, 필수적으로 정의해야만 합니다.<br/><br/>
 		
 		만약에 <strong>dropdown</strong> 컴포넌트를 사용하는 <strong>uix</strong> 컴포넌트를 새로 추가하고 싶다면, 아래와 같이 사용할 컴포넌트를 설정해주면 됩니다.
-		<pre><code class="language-javascript">jui.define('uix.test', [ 'ui.dropdown', 'util' ], function(dropdown, _) {
+		<pre><code class="language-javascript">jui.defineUI('uix.test', [ 'ui.dropdown', 'util' ], function(dropdown, _) {
 	var UI = function() {
 		// 위와 동일
 	}
 	
 	return UI;
-});</code></pre>
+}, 'core');</code></pre>
 	</p>
 </section>
 
