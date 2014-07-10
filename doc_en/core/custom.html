@@ -64,7 +64,7 @@ jui.ready(function(ui, uix, _) {
 	<h2>Define</h2>
 	<p>
 		<strong>js/ui</strong>나 <strong>js/uix</strong> 폴더에 신규 컴포넌트 파일을 생성하였다면 해당 스크립트 파일에서 아래와 같이 함수를 사용합니다.
-		<pre><code class="language-javascript">jui.define('ui.test', [ 'util' ], function(_) {
+		<pre><code class="language-javascript">jui.defineUI('ui.test', [ 'util' ], function(_) {
 	var UI = function() {
 		this.setting = function() {
 			return {
@@ -92,7 +92,7 @@ jui.ready(function(ui, uix, _) {
 	}
 	
 	return UI;
-});</code></pre>
+}, 'core');</code></pre>
 	</p>
 	
 	<p class="br">
