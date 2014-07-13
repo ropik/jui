@@ -66,30 +66,28 @@ jui.ready(function(ui, uix, _) {
 		<strong>js/ui</strong>나 <strong>js/uix</strong> 폴더에 신규 컴포넌트 파일을 생성하였다면 해당 스크립트 파일에서 아래와 같이 함수를 사용합니다.
 		<pre><code class="language-javascript">jui.defineUI('ui.test', [ 'util' ], function(_) {
 	var UI = function() {
-		this.setting = function() {
-			return {
-				options: {
-					// UI 옵션 기본값 설정
-				},
-				valid: {
-					// 타입 체크 대상 메소드 설정
-				},
-				animate: {
-					// 애니메이션 대상 메소드 설정
-				}
-			}
-		}
-		
 		this.init = function() {
 			// 초기 구현부
-			
-			return this;
 		}
 		
 		this.func1 = function(val) {
 			// 공개 메소드 1
 		}
 	}
+
+    UI.setting = function() {
+        return {
+            options: {
+                // UI 옵션 기본값 설정
+            },
+            valid: {
+                // 타입 체크 대상 메소드 설정
+            },
+            animate: {
+                // 애니메이션 대상 메소드 설정
+            }
+        }
+    }
 	
 	return UI;
 }, 'core');</code></pre>
