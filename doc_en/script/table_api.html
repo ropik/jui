@@ -264,6 +264,12 @@ var uiApi = {
 		rowmenu: {
 			detail: "로우에 마우스 우클릭 되었을 때, 발생하는 이벤트입니다."
 		},
+        colclick: {
+            detail: "컬럼에 마우스 클릭 되었을 때, 발생하는 이벤트입니다."
+        },
+        coldblclick: {
+            detail: "컬럼에 마우스 더블클릭 되었을 때, 발생하는 이벤트입니다."
+        },
 		colmenu: {
 			detail: "컬럼에 마우스 우클릭 되었을 때, 발생하는 이벤트입니다. "
 		},
@@ -367,6 +373,9 @@ var uiApi = {
 		sortOrder: {
 			detail: "테이블이 갱신될 때, 자동으로 정렬할 컬럼 인덱스를 설정합니다."
 		},
+        sortEvent: {
+            detail: "컬럼 클릭시 정렬 기능 사용 유무를 설정합니다."
+        },
 		vo: {
 			detail: "테이블에 데이터 바인딩을 사용합니다."
 		}
@@ -388,6 +397,8 @@ jui.ready(function(ui, uix, _) {
 			sort: function() {},
 			scroll: function() {},
 			rowmenu: function() {},
+            colclick: function() {},
+            coldblclick: function() {},
 			colmenu: function() {},
 			colshow: function() {},
 			colhide: function() {},
