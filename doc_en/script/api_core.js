@@ -23,6 +23,9 @@ window.coreApi = {
         },
         index: {
         	detail: "UI 객체가 배열일 경우, 각각의 UI에 대한 인덱스 값입니다."
+        },
+        parent: {
+            detail: "부모 객체를 참조할 수 있는 프로퍼티입니다."
         }
     },
     method: {
