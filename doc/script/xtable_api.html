@@ -169,7 +169,11 @@ var uiApi = {
 			ret: "base64",
 			detail: "테이블의 데이터를 Base64로 인코딩된 CSV 문자열을 가져옵니다."
 		},
-		
+        downloadCsv: {
+            param: "fileName",
+            ret: "none",
+            detail: "테이블의 데이터를 CSV 파일로 다운로드합니다."
+        },
 		next: {
 			param: "none",
 			ret: "none",
