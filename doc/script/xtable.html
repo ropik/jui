@@ -47,7 +47,7 @@ jui.ready(function(ui, uix, _) {
 		bufferCount: 20,
 		event: {
 			colmenu: function(column, e) {
-				this.columnMenu(e.pageX - 25);
+				this.showColumnMenu(e.pageX - 25);
 			}
 		},
         animate: true
@@ -251,7 +251,7 @@ function getTableData() {
 		bufferCount: 20,
 		event: {
 			colmenu: function(column, e) {
-				this.columnMenu(e.pageX - 25);
+				this.showColumnMenu(e.pageX - 25);
 			}
 		}
 	});
