@@ -16,20 +16,20 @@
 <script>
 var uiApi = {
 	prop: {},
-	method: {
-		show: {
-			param: "none",
-			ret: "none",
-			detail: "툴팁을 보이게 합니다."
-		},
-		hide: {
-			param: "none",
-			ret: "none",
-			detail: "보이는 툴팁을 숨깁니다."
-		}
-	},
-	event: {},
-	tpl: {},
+	method: {},
+	event: {
+        show: {
+            detail: "툴팁이 보여질 때, 발생하는 이벤트입니다."
+        },
+        hide: {
+            detail: "툴팁이 숨겨질 때, 발생하는 이벤트입니다."
+        }
+    },
+	tpl: {
+        message: {
+            detail: "툴팁의 템플릿 마크업입니다."
+        }
+    },
 	opt: {
 		color: {
 			detail: "툴팁의 색상을 설정합니다. (black / gray)"
@@ -46,9 +46,12 @@ var uiApi = {
 		delay: {
 			detail: "툴팁이 보여지기까지의 딜레이 시간을 설정합니다."
 		},
-		type: {
+		showType: {
 			detail: "툴팁이 보여지는 이벤트 타입을 설정합니다."
 		},
+        hideType: {
+            detail: "툴팁이 숨겨지는 이벤트 타입을 설정합니다."
+        },
 		title: {
 			detail: "툴탭의 내용을 설정합니다. (기본적으로 마크업의 title 속성을 참조)"
 		}
@@ -56,11 +59,17 @@ var uiApi = {
 };
 
 jui.ready(function(ui, uix, _) {
-	var ui = ui.tooltip("#ui");
+	var ui = ui.tooltip("#ui", {
+        event: {
+            show: function() {},
+            hide: function() {}
+        },
+        tpl: {
+            message: "."
+        }
+    });
 	
 	juiApi(ui, uiApi, _.template, function() {
-		$("#api_event").hide();
-		$("#api_tpl").hide();
 	});
 });
 
