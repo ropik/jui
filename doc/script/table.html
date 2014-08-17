@@ -46,13 +46,13 @@ var table_data_big = [
 jui.ready(function(ui, uix, _) {
 	// 4-1. 기본
 	table_1 = uix.table("#table_1", {
-		rows: _.clone(table_data),
+		data: _.clone(table_data),
         animate: true
 	});
 	
 	// 4-2-1. 확장 영역 + 데이터 바인딩
 	table_2 = uix.table("#table_2", {
-		rows: _.clone(table_data),
+		data: _.clone(table_data),
 		expand: true,
         animate: true
 	});
@@ -67,7 +67,7 @@ jui.ready(function(ui, uix, _) {
 	
 	// 4-3. 스크롤 + 높이 설정
 	table_3 = uix.table("#table_3", {
-		rows: _.clone(table_data_big),
+		data: _.clone(table_data_big),
 		scroll: true,
 		scrollHeight: 150,
         animate: true
@@ -75,7 +75,7 @@ jui.ready(function(ui, uix, _) {
 
 	// 4-11. 로우 체크
 	table_11 = uix.table("#table_11", {
-		rows: _.clone(table_data_big),
+		data: _.clone(table_data_big),
 		event: {
 			click: function(row, e) {
 				if($(row.element).hasClass("checked")) {
@@ -90,7 +90,7 @@ jui.ready(function(ui, uix, _) {
 	
 	// 4-4. 싱글 로우 선택
 	table_4 = uix.table("#table_4", {
-		rows: _.clone(table_data_big),
+		data: _.clone(table_data_big),
 		resize: true,
 		event: {
 			rowmenu: function(row, e) {
@@ -113,7 +113,7 @@ jui.ready(function(ui, uix, _) {
 	// 4-5. 정렬 기능
 	table_5 = uix.table("#table_5", {
 		fields: [ "name", "age", "location" ],
-		rows: _.clone(table_data_big),
+		data: _.clone(table_data_big),
 		resize: true,
 		sort: [ 0, 1, 2 ],
         animate: true
@@ -132,7 +132,7 @@ jui.ready(function(ui, uix, _) {
 	// 4-6. 정렬 기능 + 스크롤
 	table_6 = uix.table("#table_6", {
 		fields: [ "name", "age", "location" ],
-		rows: _.clone(table_data_big),
+		data: _.clone(table_data_big),
 		sort: true,
 		resize: true,
 		scroll: true,
@@ -143,7 +143,7 @@ jui.ready(function(ui, uix, _) {
 	// 4-18. 셀 에디트 기능
 	table_18 = uix.table("#table_18", {
 		fields: [ null, "name", "age", "location" ],
-		rows: _.clone(table_data_big),
+		data: _.clone(table_data_big),
 		editCell: [ 1, 3 ],
 		event: {
 			editstart: function(row, e) {
@@ -156,7 +156,7 @@ jui.ready(function(ui, uix, _) {
 	// 4-19. 로우 에디트 기능
 	table_19 = uix.table("#table_19", {
 		fields: [ null, "name", "age", "location" ],
-		rows: _.clone(table_data_big),
+		data: _.clone(table_data_big),
 		editRow: true,
 		resize: true,
 		sort: true,
@@ -176,7 +176,7 @@ jui.ready(function(ui, uix, _) {
 	// 4-22. 로우 에디트 기능 + 드롭다운 메뉴
 	table_22 = uix.table("#table_22", {
 		fields: [ null, "name", "age", "location" ],
-		rows: _.clone(table_data_big),
+		data: _.clone(table_data_big),
 		editRow: true,
 		editEvent: false,
 		event: {
@@ -209,7 +209,7 @@ jui.ready(function(ui, uix, _) {
 	// 4-16. 로우 삭제 기능
 	table_16 = uix.table("#table_16", {
 		fields: [ null, "name", "age", "location" ],
-		rows: _.clone(table_data_big),
+		data: _.clone(table_data_big),
         animate: true
 	});
 
@@ -239,7 +239,7 @@ jui.ready(function(ui, uix, _) {
 	
 	table_9 = uix.table("#table_9", {
 		fields: [ null, "name", "age", "location" ],
-		rows: _.clone(table_data_big),
+		data: _.clone(table_data_big),
 		scroll: true,
 		resize: true,
         animate: true
@@ -247,7 +247,7 @@ jui.ready(function(ui, uix, _) {
 	
 	table_10 = uix.table("#table_10", {
 		fields: [ "name", "age", "location" ],
-		rows: _.clone(table_data_big),
+		data: _.clone(table_data_big),
 		sort: [ 0, 1, 2 ],
 		scroll: true,
 		resize: true,
@@ -261,7 +261,7 @@ jui.ready(function(ui, uix, _) {
 	
 	table_15 = uix.table("#table_15", {
 		fields: [ "name", "age", "location" ],
-		rows: _.clone(table_data),
+		data: _.clone(table_data),
 		colshow: true,
 		sort: true,
 		resize: true,
@@ -278,7 +278,7 @@ jui.ready(function(ui, uix, _) {
 		fields: [ "name", "age", "location" ],
 		csv: [ "name", "age" ],
 		csvNames: [ "이름", "나이" ],
-		rows: _.clone(table_data_big),
+		data: _.clone(table_data_big),
 		resize: true,
 		sort: true,
 		event: {
@@ -307,7 +307,7 @@ jui.ready(function(ui, uix, _) {
 	/****************************** Tree Table ******************************/
 	
 	table_tree_1 = uix.table("#table_tree_1", {
-		rows: _.clone(table_data_big),
+		data: _.clone(table_data_big),
 		scroll: true,
 		resize: true,
 		event: {
@@ -319,7 +319,7 @@ jui.ready(function(ui, uix, _) {
 	});
 	
 	table_tree_2 = uix.table("#table_tree_2", {
-		rows: _.clone(table_data_big),
+		data: _.clone(table_data_big),
         animate: true
 	});
 
@@ -535,7 +535,7 @@ function tableTree3Run(count) {
 	];
 	
 	table_1 = uix.table("#table_1", {
-		rows: table_data,
+		data: table_data,
 		animate: true
 	});
 });</code></pre>
@@ -616,7 +616,7 @@ function tableTree3Run(count) {
 		그리고 확장 영역을 사용하기 위해서는 아래와 같이 스크립트에 옵션을 추가해야 합니다.
 		
 <pre><code class="language-javascript">table_2 = uix.table("#table_2", {
-	rows: table_data,
+	data: table_data,
 	expand: true,
 	animate: true
 });
@@ -669,7 +669,7 @@ table_2.on("expandend", function(row, e) {
 	
 	<p class="br">
 <pre><code class="language-javascript">table_3 = uix.table("#table_3", {
-	rows: _.clone(table_data_big),
+	data: _.clone(table_data_big),
 	scroll: true,
 	scrollHeight: 150,
 	animate: true
@@ -706,7 +706,7 @@ table_2.on("expandend", function(row, e) {
 	<p class="br">
 		선택된 로우 목록은 <strong>listChecked</strong> 메소드를 통해 가져올 수 있습니다.
 <pre><code class="language-javascript">table_11 = uix.table("#table_11", {
-	rows: _.clone(table_data_big),
+	data: _.clone(table_data_big),
 	event: {
 		click: function(row, e) {
 			if($(row.element).hasClass("checked")) {
@@ -759,7 +759,7 @@ table_2.on("expandend", function(row, e) {
 	
 	<p class="br">
 <pre><code class="language-javascript">table_4 = uix.table("#table_4", {
-	rows: _.clone(table_data_big),
+	data: _.clone(table_data_big),
 	resize: true,
 	event: {
 		rowmenu: function(row, e) {
@@ -811,7 +811,7 @@ table_4_dd = ui.dropdown("#table_4_dd", {
 		
 <pre><code class="language-javascript">table_5 = uix.table("#table_5", {
 	fields: [ "name", "age", "location" ],
-	rows: _.clone(table_data_big),
+	data: _.clone(table_data_big),
 	resize: true,
 	sort: [ 0, 1, 2 ],
 	animate: true
@@ -856,7 +856,7 @@ table_5.on("sort", function(column, e) {
 	<p class="br">
 <pre><code class="language-javascript">table_6 = uix.table("#table_6", {
 	fields: [ "name", "age", "location" ],
-	rows: _.clone(table_data_big),
+	data: _.clone(table_data_big),
 	sort: true,
 	resize: true,
 	scroll: true,
@@ -897,7 +897,7 @@ table_5.on("sort", function(column, e) {
 	<p class="br">
 <pre><code class="language-javascript">table_19 = uix.table("#table_19", {
 	fields: [ null, "name", "age", "location" ],
-	rows: _.clone(table_data_big),
+	data: _.clone(table_data_big),
 	editRow: true,
 	resize: true,
 	sort: true,
@@ -953,7 +953,7 @@ table_5.on("sort", function(column, e) {
 	<p class="br">
 <pre><code class="language-javascript">table_22 = uix.table("#table_22", {
 	fields: [ null, "name", "age", "location" ],
-	rows: _.clone(table_data_big),
+	data: _.clone(table_data_big),
 	editRow: true,
 	editEvent: false,
 	event: {
@@ -1016,7 +1016,7 @@ table_22_dd = ui.dropdown("#table_22_dd", {
 	<p class="br">
 <pre><code class="language-javascript">table_18 = jui.uix.table("#table_18", {
 	fields: [ null, "name", "age", "location" ],
-	rows: _.clone(table_data_big),
+	data: _.clone(table_data_big),
 	editCell: [ 1, 3 ],
 	event: {
 		editstart: function(row, e) {
@@ -1059,7 +1059,7 @@ table_22_dd = ui.dropdown("#table_22_dd", {
 	<p class="br">
 <pre><code class="language-javascript">table_16 = uix.table("#table_16", {
 	fields: [ null, "name", "age", "location" ],
-	rows: _.clone(table_data_big),
+	data: _.clone(table_data_big),
     animate: true
 });</code></pre>
 <pre><code class="language-markup">&lt;a class="btn btn-gray btn-mini" href="javascript:table_16.remove(1)"&gt;Run&lt;/a&gt;</code></pre>
@@ -1215,7 +1215,7 @@ function table8Color(bind, key) {
 	<p class="br">
 <pre><code class="language-javascript">table_9 = uix.table("#table_9", {
 	fields: [ null, "name", "age", "location" ],
-	rows: _.clone(table_data_big),
+	data: _.clone(table_data_big),
 	scroll: true,
 	resize: true,
 	animate: true
@@ -1263,7 +1263,7 @@ function table9Run() {
 	<p class="br">
 <pre><code class="language-javascript">table_10 = uix.table("#table_10", {
 	fields: [ "name", "age", "location" ],
-	rows: _.clone(table_data_big),
+	data: _.clone(table_data_big),
 	sort: [ 0, 1, 2 ],
 	scroll: true,
 	resize: true,
@@ -1332,7 +1332,7 @@ function table10Run() {
 	<p class="br">
 <pre><code class="language-javascript">table_15 = uix.table("#table_15", {
 	fields: [ "name", "age", "location" ],
-	rows: _.clone(table_data),
+	data: _.clone(table_data),
 	colshow: true,
 	sort: true,
 	resize: true,
@@ -1392,7 +1392,7 @@ function table10Run() {
 	fields: [ "name", "age", "location" ],
 	csv: [ "name", "age" ],
 	csvNames: [ "이름", "나이" ],
-	rows: _.clone(table_data_big),
+	data: _.clone(table_data_big),
 	resize: true,
 	sort: true,
 	event: {
@@ -1502,7 +1502,7 @@ $("#table_21_btn").change(function(e) {
 	];
 		
 	table_tree_1 = uix.table("#table_tree_1", {
-		rows: _.clone(table_data_big),
+		data: _.clone(table_data_big),
 		scroll: true,
 		resize: true,
 		event: {
@@ -1585,7 +1585,7 @@ $("#table_21_btn").change(function(e) {
 		로우를 조작하는 메소드는 아래와 같으며, 자세한 사항은 API 문서를 참고하시기 바랍니다.
 		
 <pre><code class="language-javascript">table_tree_2 = jui.uix.table("#table_tree_2", {
-	rows: _.clone(table_data_big)
+	data: _.clone(table_data_big)
 });
 			
 function tableTree2RunA() {

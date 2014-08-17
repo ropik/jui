@@ -76,7 +76,7 @@ jui.ready(function(ui, uix, _) {
 	// X-Table, filter
 	xtable_4 = uix.xtable("#xtable_4", {
 		fields: [ "name", "age", "location" ],
-		rows: table_data,
+		data: table_data,
 		resize: true,
 		sort: true,
 		buffer: "s-page", // scroll, page, s-page
@@ -87,7 +87,7 @@ jui.ready(function(ui, uix, _) {
 	// X-Table, scrollWidth
 	xtable_5 = uix.xtable("#xtable_5", {
 		fields: [ "name", "age", "location" ],
-		rows: table_data,
+		data: table_data,
 		resize: true,
 		sort: true,
 		width: 1000,
@@ -467,7 +467,7 @@ function xtableFilterCustom() {
 		
 <pre><code class="language-javascript">xtable_5 = uix.xtable("#xtable_5", {
 	fields: [ "name", "age", "location" ],
-	rows: table_data,
+	data: table_data,
 	resize: true,
 	sort: true,
 	width: 1000,
