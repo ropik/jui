@@ -270,10 +270,37 @@ function getTableData() {
 	&lt;/table>
 &lt;/div&gt;
 
-&lt;!-- 정렬 기능 사용시, 보여지는 로딩 템플릿 --&gt;
-&lt;script data-jui="#xtable_1" data-tpl="loading" type="text/template"&gt;
-	&lt;div class="loading">&lt;/div&gt;
-&lt;/script&gt;</code></pre>
+&lt;script data-jui="#xtable_1" data-tpl="row" type="text/template">
+&lt;tr>
+    &lt;td>&lt;!= name !>&lt;/td>
+    &lt;td>&lt;!= age !>&lt;/td>
+    &lt;td>&lt;!= location !>&lt;/td>
+&lt;/tr>
+&lt;/script>
+
+&lt;script data-jui="#xtable_1" data-tpl="none" type="text/template">
+&lt;tr>
+    &lt;td colspan="3" class="none">Data does not exist.&lt;/td>
+&lt;/tr>
+&lt;/script>
+
+&lt;script data-jui="#xtable_1" data-tpl="menu" type="text/template">
+&lt;div class="dropdown">
+    &lt;div class="anchor">&lt;/div>
+
+    &lt;ul style="width: 150px">
+        &lt;! for(var i = 0; i &lt; columns.length; i++) { !>
+        &lt;li>
+            &lt;input type="checkbox" />&nbsp; &lt;!= columns[i] !>
+        &lt;/li>
+        &lt;! } !>
+    &lt;/ul>
+&lt;/div>
+&lt;/script>
+
+&lt;script data-jui="#xtable_1" data-tpl="loading" type="text/template">
+    &lt;div class="loading">&lt;/div>
+&lt;/script></code></pre>
 	</p>
 </section>
 
