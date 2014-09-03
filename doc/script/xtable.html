@@ -154,16 +154,21 @@ function xtable3Page(no) {
 function xtableFilter() {
 	alert("테이블의 'location' 컬럼의 값에 문자열 'eo'가 포함된 로우를 반환합니다.");
 	
-	xtable_4.filter("location", "eo");
-	// or, xtable_4.filter(2, "eo");
+    xtable_4.filter(function(row) {
+        if(row.location.indexOf("eo") != -1) {
+            return true;
+        }
+    });
 }
 
-function xtableFilterCustom() {
-	alert("테이블의 'age' 컬럼의 값이 '30' 보다 큰 로우를 반환합니다.");
+function xtableFilterMulti() {
+	alert("테이블의 'age' 컬럼 값이 '30'보다 크거나 'name'컬럼 값에 'ng'가 포함된 로우를 반환합니다.");
 	
-	xtable_4.filter("age", 30, function(target, keyword) {
-		if(target > keyword) return true;
-	});
+    xtable_4.filter(function(row) {
+       if(row.age >= 30 || row.name.indexOf("ng") != -1) {
+           return true;
+       }
+    });
 }
 
 function getTableData() {
@@ -410,7 +415,7 @@ function getTableData() {
 	<h2>Filter</h2>
 	<p>
 		<a class="btn btn-gray btn-mini" href="javascript:xtableFilter()">Filter</a>
-		<a class="btn btn-gray btn-mini" href="javascript:xtableFilterCustom()">Filter Custom</a> - 
+		<a class="btn btn-gray btn-mini" href="javascript:xtableFilterMulti()">Multiple Filter</a> -
 		좌측에 버튼을 클릭하면 특정 기준에 맞게 테이블의 로우가 필터링 됩니다.
 		
 		<div id="xtable_4" class="xtable xtable-rect">
@@ -443,14 +448,19 @@ function getTableData() {
 	
 	<p class="br">
 <pre><code class="language-javascript">function xtableFilter() {
-	xtable_4.filter("location", "eo");
-	// or, xtable_4.filter(2, "eo");
+    xtable_4.filter(function(row) {
+        if(row.location.indexOf("eo") != -1) {
+            return true;
+        }
+    });
 }
 
-function xtableFilterCustom() {
-	xtable_4.filter("age", 30, function(target, keyword) {
-		if(target > keyword) return true;
-	});
+function xtableFilterMulti() {
+    xtable_4.filter(function(row) {
+        if(row.age >= 30 || row.name.indexOf("ng") != -1) {
+            return true;
+        }
+    });
 }</code></pre>
 	</p>
 </section>
