@@ -71,6 +71,11 @@ var menuInfo = {
             notify: "style/notify"
         }
     },
+    chart: {
+        title: "Chart",
+        msg: "Chart! Really? Wow!",
+        src : "chart/common.html"
+    },
     tips: {
     	title: "+Bootstrap",
     	msg: "JUI library can be used with the Bootstrap.",
@@ -88,8 +93,10 @@ function initHashEvent() {
 	$(window).hashchange(function() {
 		if(location.hash.indexOf("#") != -1) {
 			hash = location.hash.substring(1).split("/");
+			
 			initMenuUrl(hash);
-			initIFrameResize();
+			initIFrameResize();				
+
 		} else {
 			initMenuUrl([ "home" ]);
 		}
@@ -132,8 +139,15 @@ function initMenuUrl(hash) {
 			initSubMenuUrl(hash);
 			break;
 		}
+	} else if (hash[0] == 'chart') {
+		if (src) {
+			loadPage(hash, src);
+		}
 	} else {
-		loadIframe($("#" + hash[0]).find("iframe"), src);
+		if (src) {
+			loadIframe($("#" + hash[0]).find("iframe"), src);	
+		}
+		
 	}
 }
 
@@ -148,7 +162,16 @@ function initSubMenuUrl(hash) {
 	$target.find("a").removeClass("active");
 	$menu.addClass("active");
 	
-	loadIframe($target.find("iframe"), src);
+	if (src) {
+		
+		if (hash[0] == 'chart') {
+			loadPage(hash, src);			
+		} else {
+			loadIframe($target.find("iframe"), src);			
+		}
+	
+	}
+	
 	
 	if(hash[0] == "script") {
 		initLeafMenuUrl(hash, src, $target, $menu);
@@ -231,6 +254,10 @@ function loadIframe($iframe, src) {
 	$iframe.on("load", function(e) {
 		loading.hide();
 	});
+}
+
+function loadPage(hash, src) {
+	$("#chart .center").load(src);
 }
 
 jui.ready(function(ui, uix, _) {

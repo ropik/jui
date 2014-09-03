@@ -1,0 +1,189 @@
+<!-- Create a simple CodeMirror instance -->
+<link rel="stylesheet" href="../lib/codemirror-4.5/lib/codemirror.css">
+<link rel="stylesheet" href="../lib/codemirror-4.5/theme/twilight.css">
+<link rel="stylesheet" href="../lib/codemirror-4.5/theme/eclipse.css">
+<link rel="stylesheet" href="../lib/codemirror-4.5/theme/neo.css">
+<script src="../lib/codemirror-4.5/lib/codemirror.js"></script>
+<script src="../lib/codemirror-4.5/mode/javascript/javascript.js"></script>
+
+<style>
+	.col {
+		padding: 10px;
+	}
+	
+	.panel .head {
+		font-weight: bold;
+	}
+	
+	.panel .body img {
+		max-width: 100%;
+	}
+	
+	.panel .body img:hover {
+		border-radius: 5px;
+		box-shadow: 2px 2px 5px #888888;
+		cursor : pointer;
+	}
+	
+	.CodeMirror {
+	  font-size: 16px;
+	  font-family : "Helvetica", "Trebuchet MS", Dotum, Verdana, AppleGothic, sans-serif;
+	  height: 470px;
+	}
+	.CodeMirror-scroll {
+	  overflow: auto;
+	}
+	
+	.row.gallery { 
+		margin-top: 30px;	
+	}
+</style>
+
+<div class='row gallery'>
+	
+</div>
+
+<script>
+	var editor;
+	var charts = [
+		{ type : 'bar', title : 'Bar Chart', description : '바 바바바바바바' },
+		{ type : 'column', title : 'Column Chart', description : '컬럼이라오' },
+		{ type : 'pie', title : 'Pie Chart', description : '파이' },
+		{ type : 'donut', title : 'Donut Chart', description : '도넛이라오' },
+		{ type : 'scatter', title : 'Bubble & Scatter', description : '버블과 점들' },
+		{ type : 'area', title : 'Area Chart', description : '영역표시' },
+		{ type : 'radar', title : 'Radar Chart', description : '원형 좌표' },
+		{ type : 'line', title : 'Line Chart', description : '선' },
+		{ type : 'gauge', title : 'Gauge Chart', description : '게이지' },
+		{ type : 'stock', title : 'Candle Stick Chart', description : '주식 차트 ' },
+	];
+	
+	function viewCodeEditor(type, title, index) {
+		$("#modal_1").find(".title").html(title)
+		
+		$("#modal_1").width($(window).width()-100).height($(window).height() - 200);
+		
+		modal_1.show();
+
+	  if (!editor) {
+		  editor = CodeMirror.fromTextArea($("#chart-code-text")[0], {
+		    mode: "javascript",
+		    lineNumbers: true,
+		    styleActiveLine: true,
+		    matchBrackets: true,
+		    theme : 'neo'
+		  });
+		  
+		  editor.on('change', function(cm, change) {
+		  	try {
+		  		$("#chart-content").empty();
+		  		$.globalEval(cm.getValue());	
+		  	} catch(e) {
+		  		console.log(e);
+		  	}
+		  	
+		  })
+	  }
+
+		index = index  || 0;
+		$.ajax({
+			url : 'chart/json/' + type + "." + index + ".js",
+			dataType : 'text',
+			success : function (data) {
+				editor.setValue(data);
+			},
+			error : function(data, error) {
+				console.log(error);
+			}
+		})
+		
+	}
+	
+	$(function() {
+		var $row = $(".row.gallery");
+		var $dom = $("#tpl_col").html();
+		for(var i = 0, len = charts.length; i <len; i++ ) {
+			var $el = $($dom);
+			var chart = charts[i];
+			
+			$el.find(".head").html(chart.title);
+			$el.find(".body img").attr({
+				'src' : 'chart/img/' + chart.type + '.svg',
+				'type' : chart.type,
+				title : chart.title	
+			}).on('click', function(e) {
+				var type = $(this).attr('type');
+				var title = $(this).attr('title');
+				
+				viewCodeEditor(type, title);				
+				
+			});
+			
+			$row.append($el);
+		}
+	})
+	
+	jui.ready(function(ui, uix, _) {
+		
+		modal_1 = ui.modal("#modal_1", {
+			color: "black"
+		});
+		
+		tab_1 = uix.tab("#tab_1", {
+			event: {
+				change: function(data) {
+					alert(data.text);
+				},
+				changemenu: function(data) {
+					alert(data.text);
+				}
+			},
+			target: "#tab_contents_1",
+			index: 2
+		});
+		
+	})
+</script>
+
+<script type="text/template" id="tpl_col">
+	<div class='col col-3'>
+		<div class='panel'>
+			<div class='head'></div>
+			<div class='body'>
+				<img src="" />
+			</div>
+		</div>
+	</div>	
+</script>
+
+
+<div id="modal_1" class="msgbox msgbox-white" style="display:none;width:100%;height:1000px">
+	<div class="head">
+		<span class='title'></span>
+    </div>
+	<div class="body">
+		<div class='row'>
+			<div class='col col-6'>
+				<div style="border:1px solid white;height:520px;width:100%;background:white;text-align:center;">
+					<div id="chart-content"></div>
+				</div>
+			</div>
+			<div class='col col-6'>
+				
+				<ul id="tab_1" class="tab tab-top" style='margin-top:0px;'>
+					<li>
+						<a href="#chart-code">Code</a>
+					</li>
+				</ul>
+				
+				<div id="tab_contents_1" class="tab-contents" style="background: #dcdcdc;">
+					<div id="chart-code">
+						<textarea id="chart-code-text" style="height:100%;">test</textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	
+	
+
