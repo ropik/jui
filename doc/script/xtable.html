@@ -154,8 +154,8 @@ function xtable3Page(no) {
 function xtableFilter() {
 	alert("테이블의 'location' 컬럼의 값에 문자열 'eo'가 포함된 로우를 반환합니다.");
 	
-    xtable_4.filter(function(row) {
-        if(row.location.indexOf("eo") != -1) {
+    xtable_4.filter(function(data) {
+        if(data.location.indexOf("eo") != -1) {
             return true;
         }
     });
@@ -164,8 +164,8 @@ function xtableFilter() {
 function xtableFilterMulti() {
 	alert("테이블의 'age' 컬럼 값이 '30'보다 크거나 'name'컬럼 값에 'ng'가 포함된 로우를 반환합니다.");
 	
-    xtable_4.filter(function(row) {
-       if(row.age >= 30 || row.name.indexOf("ng") != -1) {
+    xtable_4.filter(function(data) {
+       if(data.age >= 30 || data.name.indexOf("ng") != -1) {
            return true;
        }
     });
@@ -448,16 +448,16 @@ function getTableData() {
 	
 	<p class="br">
 <pre><code class="language-javascript">function xtableFilter() {
-    xtable_4.filter(function(row) {
-        if(row.location.indexOf("eo") != -1) {
+    xtable_4.filter(function(data) {
+        if(data.location.indexOf("eo") != -1) {
             return true;
         }
     });
 }
 
 function xtableFilterMulti() {
-    xtable_4.filter(function(row) {
-        if(row.age >= 30 || row.name.indexOf("ng") != -1) {
+    xtable_4.filter(function(data) {
+        if(data.age >= 30 || data.name.indexOf("ng") != -1) {
             return true;
         }
     });
