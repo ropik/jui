@@ -28,10 +28,10 @@
 	.CodeMirror {
 	  font-size: 16px;
 	  font-family : "Helvetica", "Trebuchet MS", Dotum, Verdana, AppleGothic, sans-serif;
-	  height: 470px;
+	  height: 400px;
 	}
 	.CodeMirror-scroll {
-	  overflow: auto;
+	  overflow:auto;
 	}
 	
 	.row.gallery { 
@@ -45,23 +45,159 @@
 
 <script>
 	var editor;
+	var currentChartIndex  = 0;
 	var charts = [
-		{ type : 'bar', title : 'Bar Chart', description : '바 바바바바바바' },
-		{ type : 'column', title : 'Column Chart', description : '컬럼이라오' },
-		{ type : 'pie', title : 'Pie Chart', description : '파이' },
-		{ type : 'donut', title : 'Donut Chart', description : '도넛이라오' },
-		{ type : 'scatter', title : 'Bubble & Scatter', description : '버블과 점들' },
-		{ type : 'area', title : 'Area Chart', description : '영역표시' },
-		{ type : 'radar', title : 'Radar Chart', description : '원형 좌표' },
-		{ type : 'line', title : 'Line Chart', description : '선' },
-		{ type : 'gauge', title : 'Gauge Chart', description : '게이지' },
-		{ type : 'stock', title : 'Candle Stick Chart', description : '주식 차트 ' },
+		{ type : 'bar', title : 'Bar Chart', start : 0 },
+		{ type : 'column', title : 'Column Chart', start : 3 },
+		{ type : 'pie', title : 'Pie Chart', start : 7},
+		{ type : 'donut', title : 'Donut Chart', start : 8},
+		{ type : 'scatter', title : 'Bubble & Scatter', start : 9},
+		{ type : 'area', title : 'Area Chart', start : 14 },
+		{ type : 'radar', title : 'Radar Chart', start : 20 },
+		{ type : 'line', title : 'Line Chart', start : 22},
+		{ type : 'gauge', title : 'Gauge Chart', start : 29},
+		{ type : 'stock', title : 'Candle Stick Chart', start : 35},
 	];
 	
-	function viewCodeEditor(type, title, index) {
-		$("#modal_1").find(".title").html(title)
+	var code_list = [
+	
+		// bar 
+		{ title : "Bar Chart", description : "", code : "bar.js" },
+		{ title : "Bar Chart", description : "", code : "stack_bar.js" },		
+		{ title : "Bar Chart", description : "", code : "mini_bar.js" },
 		
-		$("#modal_1").width($(window).width()-100).height($(window).height() - 200);
+		// column 
+		{ title : "Column Chart", description : "", code : "column.js" },		
+		{ title : "Column Chart", description : "", code : "stack_column.js" },
+		{ title : "Column Chart", description : "", code : "fullstack.js" },
+		{ title : "Column Chart", description : "", code : "equalizer.js" },
+								
+		// pie 
+		{ title : "Pie Chart", description : "", code : "pie.js" },
+		
+		// donut 
+		{ title : "Donut Chart", description : "", code : "donut.js" },
+				
+		// scatter
+		{ title : "Bubble Chart", description : "", code : "bubble.js" }, 
+		{ title : "Bubble Chart", description : "", code : "range_bubble.js" },
+		{ title : "Scatter Chart", description : "", code : "range_scatter.js" },
+		{ title : "Scatter Chart", description : "", code : "scatter.js" },
+		{ title : "Scatter Chart", description : "", code : "stack_scatter.js" },
+		
+		//area
+		{ title : "Area Chart", description : "", code : "area.js" },
+		{ title : "Area Chart", description : "", code : "curve_area.js" },		
+		{ title : "Area Chart", description : "", code : "stack_area.js" },
+		{ title : "Area Chart", description : "", code : "stack_curve_area.js" },		
+		{ title : "Area Chart", description : "", code : "stack_step_area.js" },
+		{ title : "Area Chart", description : "", code : "step_area.js" },		
+		
+		
+		// radar
+		{ title : "Radar Chart", description : "", code : "radar.js" },
+		{ title : "Radar Chart", description : "", code : "circle_radar.js" },
+				
+		// line
+
+		{ title : "Line Chart", description : "", code : "curve_line.js" },
+		{ title : "Line Chart", description : "", code : "line.js" },
+		{ title : "Line Chart", description : "", code : "line2.js" },
+		{ title : "Line Chart", description : "", code : "mini_line.js" },
+		{ title : "Line Chart", description : "", code : "range_line.js" },
+		{ title : "Line Chart", description : "", code : "stack_line.js" },
+		{ title : "Line Chart", description : "", code : "step_line.js" },
+		
+		// gauge 
+		
+		
+		{ title : "Gauge Chart", description : "", code : "circle_gauge.js" },
+		{ title : "Gauge Chart", description : "", code : "fill_custom_gauge.js" },
+		{ title : "Gauge Chart", description : "", code : "fill_gauge.js" },
+		{ title : "Gauge Chart", description : "", code : "full_gauge.js" },
+		{ title : "Gauge Chart", description : "", code : "gauge.js" },
+		{ title : "Gauge Chart", description : "", code : "stack_gauge.js" },
+
+		// candle stick 
+		{ title : "CandleStick Chart", description : "", code : "candlestick.js" },
+	];
+	
+	function createTable () {
+	    var chart = jui.get('chart.basic').pop();
+	    var data = chart.options.data;
+	    var obj = data[0];
+	    
+	    var fields = [];
+	    for(var key in obj) {
+	        if (typeof obj[key] == 'function') continue;
+	        fields.push(key);
+	    }
+	    
+	    window.fields = fields; 
+	    
+	    var $head = $('#table_1 thead tr');
+	    // create thead
+	    $head.empty();
+
+	    for(var i = 0; i < fields.length; i++) {
+	        $head.append("<th>" + fields[i] + "</th>");
+	    }
+	    
+	    // create template 
+	    var list = [];
+        for(var i = 0; i < fields.length; i++) {
+            list.push("<td><!= " + fields[i] + " !></td>");
+        }
+	    
+	    var tpl = ["<tr>", list.join("") ,"</tr>"].join("")
+	    
+	    table_1.setTpl('row', tpl);
+	    table_1.options.data = data;
+	    table_1.options.editRow = true; 
+	    table_1.options.fields = window.fields;
+	    
+	    table_1.init();
+	    
+	    chart.list[chart.list.length-1].bind(table_1);
+	    
+	    var enableAddRow = code_list[currentChartIndex].add || false ;
+	    if (enableAddRow) {
+	        $(".add-row-btn").show();
+	    } else {
+	        $(".add-row-btn").hide();
+	    }
+	    
+	}
+	
+	function addRow() {
+	    
+	    var obj = code_list[currentChartIndex].obj;
+	    
+	    table_1.append(obj)
+	    
+	}
+	
+	function nextChart() {
+		currentChartIndex = (++currentChartIndex) % code_list.length;
+		viewCodeEditor(); 
+	}
+	
+	function prevChart() {
+		--currentChartIndex;
+		
+		if (currentChartIndex < 0) {
+			currentChartIndex = code_list.length - 1; 
+		}
+		
+		viewCodeEditor(); 
+	}
+	
+	function viewCodeEditor() {
+		var code = code_list[currentChartIndex];
+		
+		$("#modal_1").find(".title").html([code.title, "(", code.code ,")"].join(""))
+		
+		$("#modal_1").width(1024).height(500);
 		
 		modal_1.show();
 
@@ -85,12 +221,16 @@
 		  })
 	  }
 
-		index = index  || 0;
-		$.ajax({
-			url : 'chart/json/' + type + "." + index + ".js",
+		$.ajax({ 
+			url : 'chart/json/' + code.code,
 			dataType : 'text',
 			success : function (data) {
-				editor.setValue(data);
+				
+				if (data.indexOf("#chart-content") > -1) {
+					editor.setValue(data);
+				} else if (data.indexOf("#chart") > -1) {
+					editor.setValue(data.replace("#chart", "#chart-content"));	
+				}
 			},
 			error : function(data, error) {
 				console.log(error);
@@ -109,18 +249,16 @@
 			$el.find(".head").html(chart.title);
 			$el.find(".body img").attr({
 				'src' : 'chart/img/' + chart.type + '.svg',
-				'type' : chart.type,
-				title : chart.title	
-			}).on('click', function(e) {
-				var type = $(this).attr('type');
-				var title = $(this).attr('title');
-				
-				viewCodeEditor(type, title);				
-				
+			}).data('obj', chart).on('click', function(e) {
+				var obj = $(this).data('obj');
+				currentChartIndex = obj.start; 
+				viewCodeEditor();				
 			});
 			
 			$row.append($el);
 		}
+		
+		editor = null;
 	})
 	
 	jui.ready(function(ui, uix, _) {
@@ -132,15 +270,18 @@
 		tab_1 = uix.tab("#tab_1", {
 			event: {
 				change: function(data) {
-					alert(data.text);
-				},
-				changemenu: function(data) {
-					alert(data.text);
+					if (data.index == 1) {
+					    createTable();
+					}
 				}
 			},
 			target: "#tab_contents_1",
 			index: 2
 		});
+		
+		table_1 = uix.table("#table_1", {
+		    fields : []
+		})
 		
 	})
 </script>
@@ -156,29 +297,64 @@
 	</div>	
 </script>
 
+<script data-jui="#table_1" data-tpl="row" type="text/template">
 
-<div id="modal_1" class="msgbox msgbox-white" style="display:none;width:100%;height:1000px">
-	<div class="head">
-		<span class='title'></span>
+</script>
+
+
+<div id="modal_1" class="msgbox msgbox-white" style="display:none;">
+	<div class="head" style="overflow:auto">
+		<h2 class='title'></h2>
+		<span style='float:right'>
+			<a class='btn btn-gray btn-flat btn-rect' href="javascript:void(prevChart())"><i class='icon-chevron-left'></i></a>
+			<a class='btn btn-gray btn-flat btn-rect' href="javascript:void(nextChart())"><i class='icon-chevron-right'></i></a>
+		</span>
     </div>
-	<div class="body">
+	<div class="body" style="padding:0px !important;">
 		<div class='row'>
-			<div class='col col-6'>
-				<div style="border:1px solid white;height:520px;width:100%;background:white;text-align:center;">
+			<div class='col col-5'>
+				<div style="border:1px solid white;height:100%;width:100%;background:white;text-align:center;overflow: scroll;">
 					<div id="chart-content"></div>
 				</div>
 			</div>
-			<div class='col col-6'>
+			<div class='col col-7' style='border-left:1px solid #ebebeb'>
 				
 				<ul id="tab_1" class="tab tab-top" style='margin-top:0px;'>
 					<li>
 						<a href="#chart-code">Code</a>
 					</li>
+					<li>
+						<a href="#chart-data">Data</a>
+					</li>
 				</ul>
 				
 				<div id="tab_contents_1" class="tab-contents" style="background: #dcdcdc;">
 					<div id="chart-code">
-						<textarea id="chart-code-text" style="height:100%;">test</textarea>
+						<textarea id="chart-code-text">test</textarea>
+					</div>
+					<div id="chart-data">
+						
+						<div class="panel" style="height:400px;">
+							<div class="head">
+								<strong>Data Binding</strong>
+								<div style="float:right">
+									<a class='btn btn-gray btn-flat btn-rect btn-small add-row-btn' href="javascript:void(addRow())">추가</a>	
+								</div>
+								
+							</div>
+							<table id="table_1" class="table table-classic table-hover" style="width: 100%;">
+								<thead>
+									<tr>
+										<td>name</td>
+										<td>value</td>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+
+						</div>
 					</div>
 				</div>
 			</div>

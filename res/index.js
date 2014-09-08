@@ -94,6 +94,10 @@ function initHashEvent() {
 		if(location.hash.indexOf("#") != -1) {
 			hash = location.hash.substring(1).split("/");
 			
+			if (hash[0].indexOf("chart-") > -1) {
+			    return;
+			}
+			
 			initMenuUrl(hash);
 			initIFrameResize();				
 
