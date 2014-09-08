@@ -1,0 +1,23 @@
+var chart = jui.include('chart.basic');
+
+var c = chart("#chart", {
+    width: 400,
+    height : 400,
+    data : [
+        { title : "OPTION 1", value : 75 },
+        { title : "OPTION 2", value : 68 },
+        { title : "OPTION 3", value : 60 },
+        { title : "OPTION 4", value : 70 },
+        { title : "OPTION 5", value : 20 },
+        { title : "OPTION 6", value : 20 },
+    ],
+    brush : [{
+        type : 'stackgauge',
+        target : "value",
+        size : 18
+        // title : "title"  생략 가능
+
+    }]
+});
+
+c.render();

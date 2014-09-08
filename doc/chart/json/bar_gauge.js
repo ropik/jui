@@ -1,0 +1,24 @@
+var chart = jui.include('chart.basic');
+
+chart("#chart", {
+    width: 400,
+    height : 400,
+    widget : {
+        top : { size : 0}
+    },
+    data : [
+        { title : "OPTION 1", value : 75 },
+        { title : "OPTION 2", value : 68 },
+        { title : "OPTION 3", value : 60 },
+        { title : "OPTION 4", value : 70 },
+        { title : "OPTION 5", value : 20 },
+        { title : "OPTION 6", value : 20 },
+    ],
+    brush : {
+        type : 'bargauge',
+        target : "value",
+        size : 18
+        //split : true
+        // title : "title"  생략 가능
+    }
+}).render();

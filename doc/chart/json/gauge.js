@@ -1,0 +1,17 @@
+var chart = jui.include('chart.basic');
+
+chart("#chart", {
+    width: 400,
+    height : 400,
+    brush : {
+        type : 'gauge',
+        value : 200,
+        min : 10,
+        max : 700,
+        startAngle : -90,
+        endAngle : 180,
+        empty : 50,
+        arrow : true,
+        unitText : "feeds"
+    }
+}).render();
