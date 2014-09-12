@@ -123,8 +123,8 @@
 	];
 	
 	function createTable () {
-	    var chart = jui.get('chart.basic').pop();
-	    var data = chart.options.data;
+	    var chart = window.currentChart;
+	    var data = chart.data();
 	    var obj = data[0];
 	    
 	    var fields = [];
@@ -158,7 +158,8 @@
 	    
 	    table_1.init();
 	    
-	    chart.list[chart.list.length-1].bind(table_1);
+	    
+	    window.currentChart.bind(table_1);
 	    
 	    var enableAddRow = code_list[currentChartIndex].add || false ;
 	    if (enableAddRow) {
@@ -214,6 +215,11 @@
 		  	try {
 		  		$("#chart-content").empty();
 		  		$.globalEval(cm.getValue());	
+		  		
+		  		var chart = jui.get('chart.basic').pop();
+		  		
+		  		window.currentChart = chart.list[chart.list.length -1];
+		  		
 		  	} catch(e) {
 		  		console.log(e);
 		  	}
@@ -270,15 +276,16 @@
 		tab_1 = uix.tab("#tab_1", {
 			event: {
 				change: function(data) {
+					
 					if (data.index == 1) {
 					    createTable();
 					}
 				}
 			},
 			target: "#tab_contents_1",
-			index: 2
+			index: 0
 		});
-		
+		 
 		table_1 = uix.table("#table_1", {
 		    fields : []
 		})
@@ -326,6 +333,15 @@
 					<li>
 						<a href="#chart-data">Data</a>
 					</li>
+					<li>
+						<a href="#chart-grid">Chart</a>
+					</li>
+					<li>
+						<a href="#chart-grid">Grid</a>
+					</li>
+					<li>
+						<a href="#chart-brush">Brush</a>
+					</li>
 				</ul>
 				
 				<div id="tab_contents_1" class="tab-contents" style="background: #dcdcdc;">
@@ -356,6 +372,15 @@
 
 						</div>
 					</div>
+                    <div id="chart-grid">
+                        chart
+                    </div>
+                    <div id="chart-grid">
+                        grid
+                    </div>
+                    <div id="chart-brush">
+                        brush
+                    </div>					
 				</div>
 			</div>
 		</div>

@@ -3,12 +3,6 @@ var chart = jui.include('chart.basic');
 chart("#chart", {
     width: 400,
     height : 400,
-    widget : {
-        left : { title : 'yellow', size : 50 },
-        right : { title : 'right', size : 50 },
-        top : { title : "top", size : 50 },
-        bottom : { title : "bottom", size : 50 }
-    },
     data : [
         { name : 2, value : 15 },
         { name : -15, value : 6 },

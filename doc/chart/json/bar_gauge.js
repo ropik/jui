@@ -3,8 +3,8 @@ var chart = jui.include('chart.basic');
 chart("#chart", {
     width: 400,
     height : 400,
-    widget : {
-        top : { size : 0}
+    padding : {
+        top : 0
     },
     data : [
         { title : "OPTION 1", value : 75 },

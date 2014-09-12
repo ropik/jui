@@ -3,7 +3,7 @@ var chart = jui.include('chart.basic');
 var c = chart("#chart", {
     width: 150,
     height : 330,
-    widget : 'empty',
+    padding : 'empty',
     brush : {
         type : 'fillgauge',
         shape : 'custom', // default circle

@@ -3,7 +3,7 @@ var chart = jui.include('chart.basic');
 chart("#chart", {
     width: 100,
     height :50,
-    widget : 'empty',
+    padding : 'empty',
     data : [
         { name : 2, value : 15 },
         { name : -15, value : 6 },
