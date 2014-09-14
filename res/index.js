@@ -68,7 +68,8 @@ var menuInfo = {
             panel: "style/panel",
             bargraph: "style/bargraph",
             datepicker: "style/datepicker",
-            notify: "style/notify"
+            notify: "style/notify",
+            tooltip: "style/tooltip"
         }
     },
     tips: {
