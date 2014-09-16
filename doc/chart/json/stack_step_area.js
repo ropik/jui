@@ -1,38 +1,37 @@
 var chart = jui.include('chart.basic');
 
-chart("#chart", {
-    width: 400,
+chart("#chart-content", {
+    width : 400,
     height : 400,
     data : [
-        { name : 2, value : 6, test : 5 },
-        { name : 5, value : 6, test : 2 },
-        { name : 8, value : 4, test : 5 },
-        { name : 10, value : 5, test : 12 }
+        { sales : 2, profit : 6, dept : 7 },
+        { sales : 5, profit : 6, dept : 2 },
+        { sales : 8, profit : 4, dept : 5 },
+        { sales : 10, profit : 5, dept : 12 }
     ],
     grid : {
         x : {
-            domain : [ "week1", "week2", "week3", "week4" ],
-            full: true,
+            domain : [ "Q1", "Q2", "Q3", "Q4" ],
+            full : true,
             line : true
         },
         y : {
-            type : 'range',
-            target : function(data) {
-                return data.name + data.value + data.test + 10;
+            type: "range",
+            target: function(data) {
+                return data.sales + data.profit + data.dept;
             },
-            step : 10
+            step: 10
         }
     },
-
     brush : [{
-        type : 'stackarea',
-        symbol: "step"
+        type : "stackarea",
+        symbol : "step"
     }, {
         type : "stackline",
-        symbol: "step"
+        symbol : "step"
     }, {
         type : "stackscatter",
-        symbol : "circle",
-        size: 8
+        size : 10,
+        symbol : "circle"
     }]
 }).render();

@@ -35,21 +35,29 @@
 	}
 	
 	.CodeMirror {
-	  /*font-size: 10pt;*/
-	  font-family : "Helvetica", "Trebuchet MS", Dotum, Verdana, AppleGothic, sans-serif;
-	  height: 400px;
+        /*font-size: 10pt;*/
+        font-family : "Helvetica", "Trebuchet MS", Dotum, Verdana, AppleGothic, sans-serif;
+        height: 400px;
 	}
 	.CodeMirror-scroll {
-	  overflow:auto;
+        overflow:auto;
 	}
 	
 	.row.gallery { 
 		margin-top: 30px;	
 	}
+
+    .chart-main {
+        border: 1px solid white;
+        height: 100%;
+        width: 100%;
+        background: white;
+        text-align: center;
+        overflow: auto;
+    }
 </style>
 
 <div class='row gallery'>
-	
 </div>
 
 <script>
@@ -69,7 +77,7 @@
 		{ type : 'radar', title : 'Radar Chart', start : 20 },
 		{ type : 'line', title : 'Line Chart', start : 22},
 		{ type : 'gauge', title : 'Gauge Chart', start : 29},
-		{ type : 'stock', title : 'Candle Stick Chart', start : 35},
+		{ type : 'stock', title : 'Candle Stick Chart', start : 35}
 	];
 	
 	var code_list = [
@@ -132,7 +140,7 @@
 		{ title : "Gauge Chart", description : "", code : "stack_gauge.js" },
 
 		// candle stick 
-		{ title : "CandleStick Chart", description : "", code : "candlestick.js" },
+		{ title : "CandleStick Chart", description : "", code : "candlestick.js" }
 	];
 	
 	function changeTheme(theme) {
@@ -173,10 +181,13 @@
             fields: fields,
             data: data,
             editRow: true,
+            resize: true,
             tpl: {
                 row: tpl
             }
         });
+
+        table_1.resize();
 
 	    window.currentChart.bind(table_1);
 	    
@@ -254,7 +265,7 @@
 	function viewCodeEditor() {
 		var code = code_list[currentChartIndex];
 		
-		$("#modal_1").find(".title").html([code.title, "(", code.code ,")"].join(""));
+		$("#modal_1").find(".title").html([code.title, " (", code.code ,")"].join(""));
 		$("#modal_1").width(1024).height(500);
 		
 		modal_1.show();
@@ -434,6 +445,9 @@
 			index: 0
 		});
 	});
+
+    // 디스커스 댓글 로드
+    loadIframe($("#chart").find("iframe"), "chart/disqus.html");
 </script>
 
 <script type="text/template" id="tpl_col">
@@ -485,10 +499,10 @@
             </div>
         </span>
     </div>
-	<div class="body" style="padding:0px !important;">
+	<div class="body" style="padding: 0px !important;">
 		<div class='row'>
 			<div class='col col-5'>
-				<div style="border:1px solid white;height:100%;width:100%;background:white;text-align:center;overflow: scroll;">
+				<div class="chart-main">
 					<div id="chart-content"></div>
 				</div>
 			</div>
@@ -508,16 +522,11 @@
 						<textarea id="chart-code-text">test</textarea>
 					</div>
 					<div id="chart-data">
-						
 						<div class="panel" style="height: 400px; background: white;">
 							<div class="head">
 								<strong>Data Binding</strong>
-								<div style="float:right">
-									<a class='btn btn-gray btn-flat btn-rect btn-small add-row-btn' href="javascript:void(addRow())">추가</a>	
-								</div>
-								
 							</div>
-							<table id="table_1" class="table table-classic table-hover" style="width: 100%;">
+							<table id="table_1" class="table table-classic table-hover table-nowrap" style="margin-bottom: 20px;">
 								<thead>
 									<tr>
 										<td>name</td>
@@ -525,16 +534,15 @@
 									</tr>
 								</thead>
 								<tbody>
-									
+
 								</tbody>
 							</table>
-
 						</div>
 					</div>					
 				</div>
 			</div>
 		</div>
 	</div>
-</div>	
-	
+</div>
 
+<iframe frameborder="0" scrolling="no" onload="setIFrameHeight(this, 'chart')"></iframe>

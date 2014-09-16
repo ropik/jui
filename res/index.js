@@ -8,11 +8,11 @@ var menuInfo = {
     },
     install: {
         src: "install.html",
-        title: "Install",
+        title: "Getting Started",
         msg: "JUI library is very easy to install and use."
     },
     core: {
-        title: "Core",
+        title: "Framework",
         msg: "To make it easier to develop a user interface provides many core functions.",
         menu: {
             common: "core/common",
@@ -23,7 +23,7 @@ var menuInfo = {
         }
     },
     script: {
-        title: "JavaScript",
+        title: "Components",
         msg: "To represent data provides a variety of UI components.",
         menu: {
             common: "script/common",
@@ -72,7 +72,7 @@ var menuInfo = {
         }
     },
     chart: {
-        title: "Chart",
+        title: "Charts",
         msg: "Chart! Really? Wow!",
         src : "chart/common.html"
     },
@@ -149,7 +149,7 @@ function initMenuUrl(hash) {
 		}
 	} else {
 		if (src) {
-			loadIframe($("#" + hash[0]).find("iframe"), src);	
+			loadIframe($("#" + hash[0]).find("iframe"), src);
 		}
 		
 	}
@@ -167,9 +167,9 @@ function initSubMenuUrl(hash) {
 	$menu.addClass("active");
 	
 	if (src) {
-		
+
 		if (hash[0] == 'chart') {
-			loadPage(hash, src);			
+			loadPage(hash, src);
 		} else {
 			loadIframe($target.find("iframe"), src);			
 		}
