@@ -25,6 +25,7 @@
 	
 	.panel .body img {
 		max-width: 100%;
+		max-height:188px;
 	}
 	
 	.panel .body img:hover {
@@ -224,6 +225,25 @@
         return null;
 	}
 	
+	function createRangeSlider() {
+		$("input[type=range]").rangeslider('destroy');
+		$("input[type=range]").rangeslider().off().on('change', function(e) {
+		    var value = $(this).val();
+
+            if (window.token) {
+                   editor.replaceRange(value + "", {
+                       line : editor.getCursor().line,
+                       ch : window.token.start
+                   },  {
+                       line : editor.getCursor().line,
+                       ch : window.token.end
+                   })
+                   
+                   $(".widget").hide();
+               }
+		});
+	}
+	
 	function viewCodeEditor() {
 		var code = code_list[currentChartIndex];
 		
@@ -280,7 +300,18 @@
                 
                 $("#color_picker").hide();
                 $("#range_slider").show();
-				$("input[type=range]").val(parseFloat(token.string));
+                
+                var value = parseFloat(token.string);
+				$("input[type=range]").val(value).attr({
+					min : value - 100,
+					max : value + 100
+				});
+				
+				$(".min_value").html(value-100);
+				$(".max_value").html(value+100);
+				
+				createRangeSlider();
+				
 				cm.addWidget({line : pos.line, ch : token.start - 10}, $("#range_slider")[0], true);
                 window.token = token;
 				return;  
@@ -294,9 +325,9 @@
 					
 					var count = cm.lineCount();
 					
-					if (pos.line > count - 20) {
+					if (pos.line > count - 10) {
 					   cm.addWidget({
-					       line : count - 20,
+					       line : count - 10,
 					       ch : pos.ch
 					   }, $("#color_picker")[0], true); 
 					} else {
@@ -374,19 +405,7 @@
  		    }
 		})
 		
-		$("input[type=range]").rangeslider().on('change', function(e) {
-		    var value = $(this).val();
-
-            if (window.token) {
-                   editor.replaceRange(value + "", {
-                       line : editor.getCursor().line,
-                       ch : window.token.start
-                   },  {
-                       line : editor.getCursor().line,
-                       ch : window.token.end
-                   })
-               }
-		});
+		createRangeSlider();
 	})
 	
 	jui.ready(function(ui, uix, _) {
@@ -436,10 +455,10 @@
 
 <span id="range_slider" class='widget' style="display:none;border:1px solid black;background:white;z-index:99999999;">
     
--100 
+<span class='min_value'>-100</span> 
 <input type="range" min="-100" max="100" step="10" value="0" style="z-index:99999999;" /> 
-100
-  
+<span class='max_value'>100</span>
+
 </span>
 
 <div id="modal_1" class="msgbox msgbox-white" style="display:none;">
