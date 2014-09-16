@@ -180,10 +180,13 @@
             fields: fields,
             data: data,
             editRow: true,
+            resize: true,
             tpl: {
                 row: tpl
             }
         });
+
+        table_1.resize();
 
 	    window.currentChart.bind(table_1);
 	    
@@ -477,7 +480,7 @@
             </div>
         </span>
     </div>
-	<div class="body" style="padding:0px !important;">
+	<div class="body" style="padding: 0px !important;">
 		<div class='row'>
 			<div class='col col-5'>
 				<div class="chart-main">
@@ -500,12 +503,11 @@
 						<textarea id="chart-code-text">test</textarea>
 					</div>
 					<div id="chart-data">
-						
 						<div class="panel" style="height: 400px; background: white;">
 							<div class="head">
 								<strong>Data Binding</strong>
 							</div>
-							<table id="table_1" class="table table-classic table-hover" style="width: 100%;">
+							<table id="table_1" class="table table-classic table-hover table-nowrap" style="margin-bottom: 20px;">
 								<thead>
 									<tr>
 										<td>name</td>
@@ -516,7 +518,6 @@
 
 								</tbody>
 							</table>
-
 						</div>
 					</div>					
 				</div>
