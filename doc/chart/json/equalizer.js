@@ -5,29 +5,33 @@ chart("#chart", {
     width: 400,
     height : 400,
     data : [
-        { name : 2, value : 15 },
-        { name : -32, value : 6 },
-        { name : 8, value : 10 },
-        { name : 18, value : 5 },
+        { server : "W1", cpu : 10 },
+        { server : "W2", cpu : 2 },
+        { server : "W3", cpu : 12 },
+        { server : "W4", cpu : 22 },
+        { server : "W5", cpu : 15 },
+        { server : "W6", cpu : 11 },
+        { server : "W7", cpu : 5 },
+        { server : "W8", cpu : 3 }
     ],
     grid : {
         x : {
-            domain : [ "week1", "week2", "week3", "week4" ],
+            target : "server",
             line : true
         },
         y : {
-            type : 'range',
-            target : ['name', 'value'],
+            type : "range",
+            target : "cpu",
             step : 10,
             line : true
         }
     },
     brush : {
-        type : 'equalizer',
-        target : ['name'],
+        type : "equalizer",
+        target : "cpu",
         innerPadding : 1,
         outerPadding : 3,
         gap : 5,
-        unit : 6
+        unit : 10
     }
 }).render();

@@ -1,34 +1,30 @@
 var chart = jui.include('chart.basic');
 
 chart("#chart", {
-    width: 100,
+    width : 100,
     height : 50,
-    padding : 'empty',
+    padding : "empty",
     data : [
-        { name : 2, value : 15 },
-        { name : -15, value : 6 },
-        { name : 8, value : 10 },
-        { name : 18, value : 5 },
+        { quarter : "1Q", sales : 50, profit : 35 },
+        { quarter : "2Q", sales : -20, profit : -30 },
+        { quarter : "3Q", sales : 10, profit : -5 },
+        { quarter : "4Q", sales : 30, profit : 25 }
     ],
     grid : {
-
         x : {
-            domain : [ "week1", "week2", "week3", "week4" ],
+            target : "quarter",
             line : true,
             hide : true
         },
         y : {
-            type : 'range',
-            target : [ "name", "value" ],
+            type : "range",
+            target : "sales",
             step : 10,
             hide : true
         }
     },
-    series : {
-        name : { text : "test" },
-        value : { text : "test" }
-    },
-    brush : [
-        { type : 'line' , target : [ 'name', 'value'] }
-    ]
-}).render()
+    brush : {
+        type : "line",
+        target : [ "sales", "profit" ]
+    }
+}).render();

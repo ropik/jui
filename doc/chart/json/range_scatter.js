@@ -1,48 +1,51 @@
 var chart = jui.include('chart.basic');
 var time = jui.include('util.time');
 
-    function getDate() {
-        return Math.round((Math.random()*1000) % 300)
-    }
+function getNumber() {
+    return Math.round(Math.random() * 30  % 20);
+}
 
-    function getNumber() {
-        return Math.round(Math.random() * 1000  % 500);
-    }
+var start = new Date(),
+    end = time.add(start, time.hours, 5),
+    data = [];
 
-
-            var start = new Date();
-            var end = time.add(start, time.hours, 5);
-            
-            var data = [];
-            for(var i = 0; i < 30; i++) {
-                data.push({ name : getNumber(), name2 : getNumber(), value : time.add(start, time.minutes, i*10)} )
-            }
+for(var i = 0; i < 30; i++) {
+    data.push({
+        time : time.add(start, time.minutes, i*10),
+        sales : getNumber(),
+        profit : getNumber() * 0.75,
+        total : getNumber() * 1.5
+    });
+}
 
 chart("#chart", {
-    width: 400,
+    width : 400,
     height : 400,
-   
     data : data,
+    series : {
+        sales : { symbol : "rectangle" },
+        profit : { symbol : "cross" },
+        total : { symbol : "triangle" }
+    },
     grid : {
-        
-        x : { 
-            type : "date",  // default type is block 
+        x : {
+            type : "date",
             domain : [ start, end ],
-            step : [time.hours, 1],
+            step : [ time.hours, 1 ],
             format : "hh:mm",
-            key: "value",
-            line : true 
+            key: "time",
+            line : true
         },
-        y : { 
-            type : 'range', 
-            target : ["name", "name2"], 
-            step : 10
+        y : {
+            type : "range",
+            target : "total",
+            step : 10,
+            line : true
         }
     },
-    brush : {  
-        type : 'scatter',
-        size : 10,
-        //smooth : true, 
-        invert : true
+    brush : {
+        type : "scatter",
+        size : 7,
+        target : [ "sales", "profit", "total" ]
     }
 }).render();

@@ -1,16 +1,17 @@
 var chart = jui.include('chart.basic');
 
 chart("#chart", {
-    width: 400,
+    width : 400,
     height : 400,
     data : [
-        { key : 'yellow', 	name : 46, 	value : 15 },
-        { key : 'red',		name : 25, 	value : 6 },
-        { key : 'black',	name : 18, 	value : 10 },
-        { key : 'blue',		name : 10, 	value : 5 }
+        { browser : "IE", share : 70 },
+        { browser : "Firefox", share : 11 },
+        { browser : "Chrome", share : 9 },
+        { browser : "Safari", share : 6 },
+        { browser : "Other", share : 4 }
     ],
-    brush : [{
-        type : 'donut',
-        target : 'name'
-        }]
+    brush : {
+        type : "donut",
+        target : "share"
+    }
 }).render();

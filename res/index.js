@@ -8,7 +8,7 @@ var menuInfo = {
     },
     install: {
         src: "install.html",
-        title: "Get Started",
+        title: "Getting Started",
         msg: "JUI library is very easy to install and use."
     },
     core: {

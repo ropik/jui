@@ -1,49 +1,49 @@
 var chart = jui.include('chart.basic');
 var time = jui.include('util.time');
 
-function getDate() {
-    return Math.round((Math.random()*100) % 30)
-}
-
 function getNumber() {
     return Math.round(Math.random() * 30  % 20);
 }
 
+var start = new Date(),
+    end = time.add(start, time.hours, 5),
+    data = [];
 
-    var start = new Date();
-    var end = time.add(start, time.hours, 5);
-
-    var data = [];
-    for(var i = 0; i < 30; i++) {
-        data.push({ name : getNumber(), name2 : getNumber(), value : time.add(start, time.minutes, i*10)} )
-    }
+for(var i = 0; i < 30; i++) {
+    data.push({
+        time : time.add(start, time.minutes, i*10),
+        v1 : getNumber(),
+        v2 : getNumber(),
+        v3 : getNumber(),
+        v4 : getNumber(),
+        v5 : getNumber()
+    });
+}
     
-    chart("#chart", {
-    width: 400,
+chart("#chart", {
+    width : 400,
     height : 400,
     data : data,
     grid : {
-
         x : {
-            type : "date",  // default type is block
+            type : "date",
             domain : [ start, end ],
-            step : [time.hours, 1],
+            step : [ time.hours, 1 ],
             format : "hh:mm",
-            key: "value",
+            key: "time",
             line : true
         },
         y : {
-            type : 'range',
-            target : ["name"],
+            type : "range",
+            target : "v1",
             step : 10,
             line : true
         }
     },
     brush : {
-        type : 'bubble',
-        //smooth : true,
+        type : "bubble",
         min : 1,
         max : 50,
-        target : ["name", "name2"]
+        target : [ "v1", "v2", "v3", "v4", "v5" ]
     }
 }).render();

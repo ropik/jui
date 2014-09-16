@@ -4,24 +4,25 @@ chart("#chart", {
     width: 400,
     height : 400,
     data : [
-        { name : 2, value : 15 },
-        { name : -15, value : 6 },
-        { name : 8, value : 10 },
-        { name : 18, value : 5 },
+        { apple : 26.1, microsoft : 24.86, oracle : 22.08 },
+        { apple : 43.83, microsoft : 25.14, oracle : 30.15 },
+        { apple : 55.03, microsoft : 24, oracle : 24.88 },
+        { apple : 72.95, microsoft : 25.39, oracle : 32.78 }
     ],
     grid : {
-
         x : {
-            domain : [ "week1", "week2", "week3", "week4" ],
-            line : true
+            domain : [ "2010", "2011", "2012", "2013" ],
+            line : true,
+            full : true
         },
         y : {
-            type : 'range',
-            target : [ "name", "value" ],
+            type : "range",
+            target : [ "apple", "microsoft", "oracle" ],
             step : 10
         }
     },
-    brush : [
-          { type : 'line', symbol: "curve" }
-    ]
+    brush : {
+        type : "line",
+        symbol : "curve"
+    }
 }).render();

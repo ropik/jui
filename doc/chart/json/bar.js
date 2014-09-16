@@ -4,25 +4,25 @@ chart("#chart-content", {
     width: 400,
     height : 400,
     data : [
-        { name : 2, value : 15 },
-        { name : -15, value : 6 },
-        { name : 8, value : 10 },
-        { name : 18, value : 5 },
+        { quarter : "1Q", sales : 50, profit : 35 },
+        { quarter : "2Q", sales : -20, profit : -30 },
+        { quarter : "3Q", sales : 10, profit : -5 },
+        { quarter : "4Q", sales : 30, profit : 25 }
     ],
     grid : {
         y : {
-            domain : [ "week1", "week2", "week3", "week4" ],
+            target : "quarter",
             line : true 
         },
         x : {
-            type : 'range',
-            target : ["name", "value"],
+            type : "range",
+            target : "sales",
             step : 10,
       		line : true 
         }
     },
     brush : {
         type : 'bar',
-        target : ['name', 'value']
+        target : [ "sales", "profit"]
     }
 }).render();
