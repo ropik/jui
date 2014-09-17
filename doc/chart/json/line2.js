@@ -2,8 +2,8 @@ var chart = jui.include('chart.basic');
 var time = jui.include('util.time');
 
 var stocks = {
-    visitor : [ 47, 41, 38, 1, 1, 1, 3, 8, 14, 1, 2, 10, 32, 48 ],
-    unique : [ 12, 7, 8, 1, 1, 1, 3, 2, 4, 1, 2, 3, 9, 14 ]
+    visitor : [ 47, 41, 38, 0, 0, 0, 3, 8, 14, 1, 2, 10, 32, 48 ],
+    unique : [ 12, 7, 8, 0, 0, 0, 3, 2, 4, 1, 2, 3, 9, 14 ]
 };
 var start = new Date("2014/09/03"); // ~2012-12-31
 var end = new Date("2014/09/16");
