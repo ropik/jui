@@ -15,446 +15,454 @@
 <script src="../lib/rangeslider.js-0.3.3/rangeslider.js"></script>
 
 <style>
-	.col {
-		padding: 10px;
-	}
-	
-	.panel .head {
-		font-weight: bold;
-	}
-	
-	.panel .body img {
-		max-width: 100%;
-		max-height:188px;
-	}
-	
-	.panel .body img:hover {
-		border-radius: 5px;
-		box-shadow: 2px 2px 5px #888888;
-		cursor : pointer;
-	}
-	
-	.CodeMirror {
-	  /*font-size: 10pt;*/
-	  font-family : "Helvetica", "Trebuchet MS", Dotum, Verdana, AppleGothic, sans-serif;
-	  height: 400px;
-	}
-	.CodeMirror-scroll {
-	  overflow:auto;
-	}
-	
-	.row.gallery { 
-		margin-top: 30px;	
-	}
+    .col {
+        padding: 10px;
+    }
+
+    .panel .head {
+        font-weight: bold;
+    }
+
+    .panel .body img {
+        max-width: 100%;
+        max-height:188px;
+    }
+
+    .panel .body img:hover {
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px #888888;
+        cursor : pointer;
+    }
+
+    .CodeMirror {
+        /*font-size: 10pt;*/
+        font-family : "Helvetica", "Trebuchet MS", Dotum, Verdana, AppleGothic, sans-serif;
+        height: 400px;
+    }
+    .CodeMirror-scroll {
+        overflow:auto;
+    }
+
+    .row.gallery {
+        margin-top: 30px;
+    }
+
+    .chart-main {
+        border: 1px solid white;
+        height: 100%;
+        width: 100%;
+        background: white;
+        text-align: center;
+        overflow: auto;
+    }
 </style>
 
 <div class='row gallery'>
-	
 </div>
 
 <script>
-    var colors = {
-        "aliceblue":"#f0f8ff","antiquewhite":"#faebd7","aqua":"#00ffff","aquamarine":"#7fffd4","azure":"#f0ffff","beige":"#f5f5dc","bisque":"#ffe4c4","black":"#000000","blanchedalmond":"#ffebcd","blue":"#0000ff","blueviolet":"#8a2be2","brown":"#a52a2a","burlywood":"#deb887","cadetblue":"#5f9ea0","chartreuse":"#7fff00","chocolate":"#d2691e","coral":"#ff7f50","cornflowerblue":"#6495ed","cornsilk":"#fff8dc","crimson":"#dc143c","cyan":"#00ffff","darkblue":"#00008b","darkcyan":"#008b8b","darkgoldenrod":"#b8860b","darkgray":"#a9a9a9","darkgreen":"#006400","darkkhaki":"#bdb76b","darkmagenta":"#8b008b","darkolivegreen":"#556b2f","darkorange":"#ff8c00","darkorchid":"#9932cc","darkred":"#8b0000","darksalmon":"#e9967a","darkseagreen":"#8fbc8f","darkslateblue":"#483d8b","darkslategray":"#2f4f4f","darkturquoise":"#00ced1","darkviolet":"#9400d3","deeppink":"#ff1493","deepskyblue":"#00bfff","dimgray":"#696969","dodgerblue":"#1e90ff","firebrick":"#b22222","floralwhite":"#fffaf0","forestgreen":"#228b22","fuchsia":"#ff00ff","gainsboro":"#dcdcdc","ghostwhite":"#f8f8ff","gold":"#ffd700","goldenrod":"#daa520","gray":"#808080","green":"#008000","greenyellow":"#adff2f","honeydew":"#f0fff0","hotpink":"#ff69b4","indianred":"#cd5c5c","indigo":"#4b0082","ivory":"#fffff0","khaki":"#f0e68c","lavender":"#e6e6fa","lavenderblush":"#fff0f5","lawngreen":"#7cfc00","lemonchiffon":"#fffacd","lightblue":"#add8e6","lightcoral":"#f08080","lightcyan":"#e0ffff","lightgoldenrodyellow":"#fafad2","lightgrey":"#d3d3d3","lightgreen":"#90ee90","lightpink":"#ffb6c1","lightsalmon":"#ffa07a","lightseagreen":"#20b2aa","lightskyblue":"#87cefa","lightslategray":"#778899","lightsteelblue":"#b0c4de","lightyellow":"#ffffe0","lime":"#00ff00","limegreen":"#32cd32","linen":"#faf0e6","magenta":"#ff00ff","maroon":"#800000","mediumaquamarine":"#66cdaa","mediumblue":"#0000cd","mediumorchid":"#ba55d3","mediumpurple":"#9370d8","mediumseagreen":"#3cb371","mediumslateblue":"#7b68ee","mediumspringgreen":"#00fa9a","mediumturquoise":"#48d1cc","mediumvioletred":"#c71585","midnightblue":"#191970","mintcream":"#f5fffa","mistyrose":"#ffe4e1","moccasin":"#ffe4b5","navajowhite":"#ffdead","navy":"#000080","oldlace":"#fdf5e6","olive":"#808000","olivedrab":"#6b8e23","orange":"#ffa500","orangered":"#ff4500","orchid":"#da70d6","palegoldenrod":"#eee8aa","palegreen":"#98fb98","paleturquoise":"#afeeee","palevioletred":"#d87093","papayawhip":"#ffefd5","peachpuff":"#ffdab9","peru":"#cd853f","pink":"#ffc0cb","plum":"#dda0dd","powderblue":"#b0e0e6","purple":"#800080","red":"#ff0000","rosybrown":"#bc8f8f","royalblue":"#4169e1","saddlebrown":"#8b4513","salmon":"#fa8072","sandybrown":"#f4a460","seagreen":"#2e8b57","seashell":"#fff5ee","sienna":"#a0522d","silver":"#c0c0c0","skyblue":"#87ceeb","slateblue":"#6a5acd","slategray":"#708090","snow":"#fffafa","springgreen":"#00ff7f","steelblue":"#4682b4","tan":"#d2b48c","teal":"#008080","thistle":"#d8bfd8","tomato":"#ff6347","turquoise":"#40e0d0","violet":"#ee82ee","wheat":"#f5deb3","white":"#ffffff","whitesmoke":"#f5f5f5","yellow":"#ffff00","yellowgreen":"#9acd32"
-    };
+var colors = {
+    "aliceblue":"#f0f8ff","antiquewhite":"#faebd7","aqua":"#00ffff","aquamarine":"#7fffd4","azure":"#f0ffff","beige":"#f5f5dc","bisque":"#ffe4c4","black":"#000000","blanchedalmond":"#ffebcd","blue":"#0000ff","blueviolet":"#8a2be2","brown":"#a52a2a","burlywood":"#deb887","cadetblue":"#5f9ea0","chartreuse":"#7fff00","chocolate":"#d2691e","coral":"#ff7f50","cornflowerblue":"#6495ed","cornsilk":"#fff8dc","crimson":"#dc143c","cyan":"#00ffff","darkblue":"#00008b","darkcyan":"#008b8b","darkgoldenrod":"#b8860b","darkgray":"#a9a9a9","darkgreen":"#006400","darkkhaki":"#bdb76b","darkmagenta":"#8b008b","darkolivegreen":"#556b2f","darkorange":"#ff8c00","darkorchid":"#9932cc","darkred":"#8b0000","darksalmon":"#e9967a","darkseagreen":"#8fbc8f","darkslateblue":"#483d8b","darkslategray":"#2f4f4f","darkturquoise":"#00ced1","darkviolet":"#9400d3","deeppink":"#ff1493","deepskyblue":"#00bfff","dimgray":"#696969","dodgerblue":"#1e90ff","firebrick":"#b22222","floralwhite":"#fffaf0","forestgreen":"#228b22","fuchsia":"#ff00ff","gainsboro":"#dcdcdc","ghostwhite":"#f8f8ff","gold":"#ffd700","goldenrod":"#daa520","gray":"#808080","green":"#008000","greenyellow":"#adff2f","honeydew":"#f0fff0","hotpink":"#ff69b4","indianred":"#cd5c5c","indigo":"#4b0082","ivory":"#fffff0","khaki":"#f0e68c","lavender":"#e6e6fa","lavenderblush":"#fff0f5","lawngreen":"#7cfc00","lemonchiffon":"#fffacd","lightblue":"#add8e6","lightcoral":"#f08080","lightcyan":"#e0ffff","lightgoldenrodyellow":"#fafad2","lightgrey":"#d3d3d3","lightgreen":"#90ee90","lightpink":"#ffb6c1","lightsalmon":"#ffa07a","lightseagreen":"#20b2aa","lightskyblue":"#87cefa","lightslategray":"#778899","lightsteelblue":"#b0c4de","lightyellow":"#ffffe0","lime":"#00ff00","limegreen":"#32cd32","linen":"#faf0e6","magenta":"#ff00ff","maroon":"#800000","mediumaquamarine":"#66cdaa","mediumblue":"#0000cd","mediumorchid":"#ba55d3","mediumpurple":"#9370d8","mediumseagreen":"#3cb371","mediumslateblue":"#7b68ee","mediumspringgreen":"#00fa9a","mediumturquoise":"#48d1cc","mediumvioletred":"#c71585","midnightblue":"#191970","mintcream":"#f5fffa","mistyrose":"#ffe4e1","moccasin":"#ffe4b5","navajowhite":"#ffdead","navy":"#000080","oldlace":"#fdf5e6","olive":"#808000","olivedrab":"#6b8e23","orange":"#ffa500","orangered":"#ff4500","orchid":"#da70d6","palegoldenrod":"#eee8aa","palegreen":"#98fb98","paleturquoise":"#afeeee","palevioletred":"#d87093","papayawhip":"#ffefd5","peachpuff":"#ffdab9","peru":"#cd853f","pink":"#ffc0cb","plum":"#dda0dd","powderblue":"#b0e0e6","purple":"#800080","red":"#ff0000","rosybrown":"#bc8f8f","royalblue":"#4169e1","saddlebrown":"#8b4513","salmon":"#fa8072","sandybrown":"#f4a460","seagreen":"#2e8b57","seashell":"#fff5ee","sienna":"#a0522d","silver":"#c0c0c0","skyblue":"#87ceeb","slateblue":"#6a5acd","slategray":"#708090","snow":"#fffafa","springgreen":"#00ff7f","steelblue":"#4682b4","tan":"#d2b48c","teal":"#008080","thistle":"#d8bfd8","tomato":"#ff6347","turquoise":"#40e0d0","violet":"#ee82ee","wheat":"#f5deb3","white":"#ffffff","whitesmoke":"#f5f5f5","yellow":"#ffff00","yellowgreen":"#9acd32"
+};
 
-	var editor;
-	var currentChartIndex  = 0;
-	var charts = [
-		{ type : 'bar', title : 'Bar Chart', start : 0 },
-		{ type : 'column', title : 'Column Chart', start : 3 },
-		{ type : 'pie', title : 'Pie Chart', start : 7},
-		{ type : 'donut', title : 'Donut Chart', start : 8},
-		{ type : 'scatter', title : 'Bubble & Scatter', start : 9},
-		{ type : 'area', title : 'Area Chart', start : 14 },
-		{ type : 'radar', title : 'Radar Chart', start : 20 },
-		{ type : 'line', title : 'Line Chart', start : 22},
-		{ type : 'gauge', title : 'Gauge Chart', start : 29},
-		{ type : 'stock', title : 'Candle Stick Chart', start : 35},
-		{ type : 'mixed', title : 'Combination Chart', start : 36} 
-	];
-	
-	var code_list = [
-	
-		// bar 
-		{ title : "Bar Chart", description : "", code : "bar.js" },
-		{ title : "Bar Chart", description : "", code : "stack_bar.js" },		
-		{ title : "Bar Chart", description : "", code : "mini_bar.js" },
-		
-		// column 
-		{ title : "Column Chart", description : "", code : "column.js" },		
-		{ title : "Column Chart", description : "", code : "stack_column.js" },
-		{ title : "Column Chart", description : "", code : "fullstack.js" },
-		{ title : "Column Chart", description : "", code : "equalizer.js" },
-								
-		// pie 
-		{ title : "Pie Chart", description : "", code : "pie.js" },
-		
-		// donut 
-		{ title : "Donut Chart", description : "", code : "donut.js" },
-				
-		// scatter
-		{ title : "Bubble Chart", description : "", code : "bubble.js" }, 
-		{ title : "Bubble Chart", description : "", code : "range_bubble.js" },
-		{ title : "Scatter Chart", description : "", code : "range_scatter.js" },
-		{ title : "Scatter Chart", description : "", code : "scatter.js" },
-		{ title : "Scatter Chart", description : "", code : "stack_scatter.js" },
-		
-		//area
-		{ title : "Area Chart", description : "", code : "area.js" },
-		{ title : "Area Chart", description : "", code : "curve_area.js" },		
-		{ title : "Area Chart", description : "", code : "stack_area.js" },
-		{ title : "Area Chart", description : "", code : "stack_curve_area.js" },		
-		{ title : "Area Chart", description : "", code : "stack_step_area.js" },
-		{ title : "Area Chart", description : "", code : "step_area.js" },		
-		
-		
-		// radar
-		{ title : "Radar Chart", description : "", code : "radar.js" },
-		{ title : "Radar Chart", description : "", code : "circle_radar.js" },
-				
-		// line
+var editor;
+var currentChartIndex  = 0;
+var charts = [
+    { type : 'bar', title : 'Bar Chart', start : 0 },
+    { type : 'column', title : 'Column Chart', start : 3 },
+    { type : 'pie', title : 'Pie Chart', start : 7 },
+    { type : 'donut', title : 'Donut Chart', start : 8 },
+    { type : 'scatter', title : 'Bubble & Scatter', start : 9 },
+    { type : 'area', title : 'Area Chart', start : 14 },
+    { type : 'radar', title : 'Radar Chart', start : 20 },
+    { type : 'line', title : 'Line Chart', start : 22 },
+    { type : 'gauge', title : 'Gauge Chart', start : 29 },
+    { type : 'stock', title : 'Candle Stick Chart', start : 35 },
+    { type : 'mixed', title : 'Combination Chart', start : 36 }
+];
 
-		{ title : "Line Chart", description : "", code : "curve_line.js" },
-		{ title : "Line Chart", description : "", code : "line.js" },
-		{ title : "Line Chart", description : "", code : "line2.js" },
-		{ title : "Line Chart", description : "", code : "mini_line.js" },
-		{ title : "Line Chart", description : "", code : "range_line.js" },
-		{ title : "Line Chart", description : "", code : "stack_line.js" },
-		{ title : "Line Chart", description : "", code : "step_line.js" },
-		
-		// gauge 
-		
-		
-		{ title : "Gauge Chart", description : "", code : "circle_gauge.js" },
-		{ title : "Gauge Chart", description : "", code : "fill_custom_gauge.js" },
-		{ title : "Gauge Chart", description : "", code : "fill_gauge.js" },
-		{ title : "Gauge Chart", description : "", code : "full_gauge.js" },
-		{ title : "Gauge Chart", description : "", code : "gauge.js" },
-		{ title : "Gauge Chart", description : "", code : "stack_gauge.js" },
+var code_list = [
 
-		// candle stick 
-		{ title : "CandleStick Chart", description : "", code : "candlestick.js" },
-		
-		// combination chart
-		{ title : "Mixed Chart", description : "", code : "mixed1.js" },
-	];
-	
-	function changeTheme(theme) {
-		var chart = jui.get('chart.basic').pop();
-		
-		chart.list[chart.list.length-1].setTheme(theme);
-		chart.list[chart.list.length-1].render();
-	}
-	
-	function createTable () {
-	    var chart = window.currentChart;
-	    var data = chart.data();
-	    var obj = data[0];
-	    
-	    var fields = [];
-	    for(var key in obj) {
-	        if (typeof obj[key] == 'function') continue;
-	        fields.push(key);
-	    }
-	    
-	    window.fields = fields; 
-	    
-	    var $head = $('#table_1 thead tr');
-	    // create thead
-	    $head.empty();
+    // bar
+    { title : "Bar Chart", description : "", code : "bar.js" },
+    { title : "Bar Chart", description : "", code : "stack_bar.js" },
+    { title : "Bar Chart", description : "", code : "mini_bar.js" },
 
-	    for(var i = 0; i < fields.length; i++) {
-	        $head.append("<th>" + fields[i] + "</th>");
-	    }
-	    
-	    // create template 
-	    var list = [];
-        for(var i = 0; i < fields.length; i++) {
-            list.push("<td><!= " + fields[i] + " !></td>");
+    // column
+    { title : "Column Chart", description : "", code : "column.js" },
+    { title : "Column Chart", description : "", code : "stack_column.js" },
+    { title : "Column Chart", description : "", code : "fullstack.js" },
+    { title : "Column Chart", description : "", code : "equalizer.js" },
+
+    // pie
+    { title : "Pie Chart", description : "", code : "pie.js" },
+
+    // donut
+    { title : "Donut Chart", description : "", code : "donut.js" },
+
+    // scatter
+    { title : "Bubble Chart", description : "", code : "bubble.js" },
+    { title : "Bubble Chart", description : "", code : "range_bubble.js" },
+    { title : "Scatter Chart", description : "", code : "range_scatter.js" },
+    { title : "Scatter Chart", description : "", code : "scatter.js" },
+    { title : "Scatter Chart", description : "", code : "stack_scatter.js" },
+
+    //area
+    { title : "Area Chart", description : "", code : "area.js" },
+    { title : "Area Chart", description : "", code : "curve_area.js" },
+    { title : "Area Chart", description : "", code : "stack_area.js" },
+    { title : "Area Chart", description : "", code : "stack_curve_area.js" },
+    { title : "Area Chart", description : "", code : "stack_step_area.js" },
+    { title : "Area Chart", description : "", code : "step_area.js" },
+
+    // radar
+    { title : "Radar Chart", description : "", code : "radar.js" },
+    { title : "Radar Chart", description : "", code : "circle_radar.js" },
+
+    // line
+    { title : "Line Chart", description : "", code : "curve_line.js" },
+    { title : "Line Chart", description : "", code : "line.js" },
+    { title : "Line Chart", description : "", code : "line2.js" },
+    { title : "Line Chart", description : "", code : "mini_line.js" },
+    { title : "Line Chart", description : "", code : "range_line.js" },
+    { title : "Line Chart", description : "", code : "stack_line.js" },
+    { title : "Line Chart", description : "", code : "step_line.js" },
+
+    // gauge
+    { title : "Gauge Chart", description : "", code : "circle_gauge.js" },
+    { title : "Gauge Chart", description : "", code : "fill_custom_gauge.js" },
+    { title : "Gauge Chart", description : "", code : "fill_gauge.js" },
+    { title : "Gauge Chart", description : "", code : "full_gauge.js" },
+    { title : "Gauge Chart", description : "", code : "gauge.js" },
+    { title : "Gauge Chart", description : "", code : "stack_gauge.js" },
+
+    // candle stick
+    { title : "CandleStick Chart", description : "", code : "candlestick.js" },
+
+    // combination chart
+    { title : "Mixed Chart", description : "", code : "mixed1.js" }
+];
+
+function changeTheme(theme) {
+    var chart = jui.get('chart.basic').pop();
+
+    chart.list[chart.list.length-1].setTheme(theme);
+    chart.list[chart.list.length-1].render();
+}
+
+function createTable () {
+    var chart = window.currentChart;
+    var data = chart.data();
+    var obj = data[0];
+
+    var fields = [];
+    for(var key in obj) {
+        if (typeof obj[key] == 'function') continue;
+        fields.push(key);
+    }
+
+    var $head = $('#table_1 thead tr');
+    // create thead
+    $head.empty();
+
+    for(var i = 0; i < fields.length; i++) {
+        $head.append("<th>" + fields[i] + "</th>");
+    }
+
+    // create template
+    var list = [];
+    for(var i = 0; i < fields.length; i++) {
+        list.push("<td><!= " + fields[i] + " !></td>");
+    }
+
+    var tpl = ["<tr>", list.join("") ,"</tr>"].join("");
+
+    table_1 = jui.create("uix.table", "#table_1", {
+        fields: fields,
+        data: data,
+        editRow: true,
+        resize: true,
+        tpl: {
+            row: tpl
         }
-	    
-	    var tpl = ["<tr>", list.join("") ,"</tr>"].join("")
-	    
-	    table_1.setTpl('row', tpl);
-	    table_1.options.data = data;
-	    table_1.options.editRow = true; 
-	    table_1.options.fields = window.fields;
-	    
-	    table_1.init();
-	    
-	    
-	    window.currentChart.bind(table_1);
-	    
-	    var enableAddRow = code_list[currentChartIndex].add || false ;
-	    if (enableAddRow) {
-	        $(".add-row-btn").show();
-	    } else {
-	        $(".add-row-btn").hide();
-	    }
-	    
-	}
-	
-	function addRow() {
-	    
-	    var obj = code_list[currentChartIndex].obj;
-	    
-	    table_1.append(obj)
-	    
-	}
-	
-	function nextChart() {
-		currentChartIndex = (++currentChartIndex) % code_list.length;
-		viewCodeEditor(); 
-	}
-	
-	function prevChart() {
-		--currentChartIndex;
-		
-		if (currentChartIndex < 0) {
-			currentChartIndex = code_list.length - 1; 
-		}
-		
-		viewCodeEditor(); 
-	}
-	
-	function checkColor(color) {
-        if (typeof colors[color.toLowerCase()] != 'undefined')
-            return colors[color.toLowerCase()];
+    });
 
-        
-        if (/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(color)) {
-            return color; 
+    table_1.resize();
+
+    window.currentChart.bind(table_1);
+
+    var enableAddRow = code_list[currentChartIndex].add || false ;
+    if (enableAddRow) {
+        $(".add-row-btn").show();
+    } else {
+        $(".add-row-btn").hide();
+    }
+}
+
+function addRow() {
+    var obj = code_list[currentChartIndex].obj;
+
+    table_1.append(obj)
+}
+
+function nextChart() {
+    currentChartIndex = (++currentChartIndex) % code_list.length;
+    viewCodeEditor();
+}
+
+function prevChart() {
+    --currentChartIndex;
+
+    if (currentChartIndex < 0) {
+        currentChartIndex = code_list.length - 1;
+    }
+
+    viewCodeEditor();
+}
+
+function resetChart() {
+    var charts = jui.getAll();
+
+    for(var i = 0; i < charts.length; i++) {
+        if(charts[i].type == "chart.basic") {
+            var obj = jui.remove(i);
+            obj.destroy();
         }
+    }
+}
 
-        return null;
-	}
-	
-	function createRangeSlider() {
-		$("input[type=range]").rangeslider('destroy');
-		$("input[type=range]").rangeslider().off().on('change', function(e) {
-		    var value = $(this).val();
+function checkColor(color) {
+    if (typeof colors[color.toLowerCase()] != 'undefined')
+        return colors[color.toLowerCase()];
 
-            if (window.token) {
-                   editor.replaceRange(value + "", {
-                       line : editor.getCursor().line,
-                       ch : window.token.start
-                   },  {
-                       line : editor.getCursor().line,
-                       ch : window.token.end
-                   })
-                   
-                   $(".widget").hide();
-               }
-		});
-	}
-	
-	function viewCodeEditor() {
-		var code = code_list[currentChartIndex];
-		
-		$("#modal_1").find(".title").html([code.title, "(", code.code ,")"].join(""))
-		
-		$("#modal_1").width(1024).height(500);
-		
-		modal_1.show();
 
-	  if (!editor) {
-		  editor = CodeMirror.fromTextArea($("#chart-code-text")[0], {
-		    mode: "javascript",
-		    lineNumbers: true,
-		    styleActiveLine: true,
-		    matchBrackets: true,
-		    theme : 'neo'
-		  });
-		  
-		  editor.on('change', function(cm, change) {
-		  	try {
-		  		$("#chart-content").empty();
-		  		$.globalEval(cm.getValue());	
-		  		
-		  		var chart = jui.get('chart.basic').pop();
-		  		
-		  		window.currentChart = chart.list[chart.list.length -1];
-		  		
-		  	} catch(e) {
-		  		console.log(e);
-		  	}
-		  	
-		  })
-		  
-		  editor.on('cursorActivity', function(cm) {
-		  	var pos = cm.getCursor();
-		  	
-			var token = editor.getTokenAt(editor.getCursor());
-			
-			if (token.type == 'number') {
-				// show number slider
-				
-				var sub = editor.getRange({
-				    line : editor.getCursor().line, 
-				    ch : token.start-1
-				}, {
-                    line : editor.getCursor().line, 
-                    ch : token.end				    
-				})
-				
-				if (sub.indexOf("-") == 0) {
-			 	   token.string = sub;  
-			 	   token.start--;  
-				}
-                
+    if (/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(color)) {
+        return color;
+    }
+
+    return null;
+}
+
+function createRangeSlider() {
+    $("input[type=range]").rangeslider('destroy');
+    $("input[type=range]").rangeslider().off().on('change', function(e) {
+        var value = $(this).val();
+
+        if (window.token) {
+            editor.replaceRange(value + "", {
+                line : editor.getCursor().line,
+                ch : window.token.start
+            },  {
+                line : editor.getCursor().line,
+                ch : window.token.end
+            })
+
+            $(".widget").hide();
+        }
+    });
+}
+
+function viewCodeEditor() {
+    var code = code_list[currentChartIndex];
+
+    $("#modal_1").find(".title").html([code.title, " (", code.code ,")"].join(""));
+    $("#modal_1").width(1024).height(500);
+
+    modal_1.show();
+
+    if (!editor) {
+        editor = CodeMirror.fromTextArea($("#chart-code-text")[0], {
+            mode: "javascript",
+            lineNumbers: true,
+            styleActiveLine: true,
+            matchBrackets: true,
+            theme : 'neo'
+        });
+
+        editor.on('change', function(cm, change) {
+            try {
+                $("#chart-content").empty();
+
+                resetChart();
+                $.globalEval(cm.getValue());
+
+                var chart = jui.get('chart.basic').pop();
+                window.currentChart = chart.list[chart.list.length -1];
+            } catch(e) {
+                console.log(e);
+            }
+        })
+
+        editor.on('cursorActivity', function(cm) {
+            var pos = cm.getCursor();
+
+            var token = editor.getTokenAt(editor.getCursor());
+
+            if (token.type == 'number') {
+                // show number slider
+
+                var sub = editor.getRange({
+                    line : editor.getCursor().line,
+                    ch : token.start-1
+                }, {
+                    line : editor.getCursor().line,
+                    ch : token.end
+                })
+
+                if (sub.indexOf("-") == 0) {
+                    token.string = sub;
+                    token.start--;
+                }
+
                 $("#color_picker").hide();
                 $("#range_slider").show();
-                
-                var value = parseFloat(token.string);
-				$("input[type=range]").val(value).attr({
-					min : value - 100,
-					max : value + 100
-				});
-				
-				$(".min_value").html(value-100);
-				$(".max_value").html(value+100);
-				
-				createRangeSlider();
-				
-				cm.addWidget({line : pos.line, ch : token.start - 10}, $("#range_slider")[0], true);
-                window.token = token;
-				return;  
-			} else if (token.type == 'string') {
-			    var color = checkColor(token.string.replace(/(\'|\")/g, ""));
-				if (color) {
-					// show color picker
-					$("#range_slider").hide();
-					$("#color_picker").show();
-					$("#picker").colpickSetColor(color.replace("#", ""), true);
-					
-					var count = cm.lineCount();
-					
-					if (pos.line > count - 10) {
-					   cm.addWidget({
-					       line : count - 10,
-					       ch : pos.ch
-					   }, $("#color_picker")[0], true); 
-					} else {
-					   cm.addWidget(pos, $("#color_picker")[0], true);    
-					}
-					
-		  			
-		  			window.token = token;
-		  			
-		  			return ; 
-				}
-			} 
-			
-			$(".widget").hide();
-			window.token = null;
-		  	
-		  })
-	  }
 
-		$.ajax({ 
-			url : 'chart/json/' + code.code,
-			dataType : 'text',
-			success : function (data) {
-				
-				if (data.indexOf("#chart-content") > -1) {
-					editor.setValue(data);
-				} else if (data.indexOf("#chart") > -1) {
-					editor.setValue(data.replace("#chart", "#chart-content"));	
-				}
-			},
-			error : function(data, error) {
-				console.log(error);
-			}
-		})
-		
-	}
-	
-	$(function() {
-		var $row = $(".row.gallery");
-		var $dom = $("#tpl_col").html();
-		for(var i = 0, len = charts.length; i <len; i++ ) {
-			var $el = $($dom);
-			var chart = charts[i];
-			
-			$el.find(".head").html(chart.title);
-			$el.find(".body img").attr({
-				'src' : 'chart/img/' + chart.type + '.svg',
-			}).data('obj', chart).on('click', function(e) {
-				var obj = $(this).data('obj');
-				currentChartIndex = obj.start; 
-				viewCodeEditor();				
-			});
-			
-			$row.append($el);
-		}
-		
-		editor = null;
-		
-		$("#picker").colpick({
-		    flat: true,
-		    layout : 'hex',
-		    submit : 0,
-		    onChange : function(hbs, hex, rgb, el, bySetColor) {
-		        if (!bySetColor) {
-		           if (window.token) {
-		               editor.replaceRange('"#' + hex + '"', {
-		                   line : editor.getCursor().line,
-		                   ch : window.token.start
-		               },  {
-                           line : editor.getCursor().line,
-                           ch : window.token.end
-                       })
-		           }
-		        }
- 		    }
-		})
-		
-		createRangeSlider();
-	})
-	
-	jui.ready(function(ui, uix, _) {
-		
-		modal_1 = ui.modal("#modal_1", {
-			color: "black"
-		});
-		
-		tab_1 = uix.tab("#tab_1", {
-			event: {
-				change: function(data) {
-					
-					if (data.index == 1) {
-					    createTable();
-					}
-				}
-			},
-			target: "#tab_contents_1",
-			index: 0
-		});
-		 
-		table_1 = uix.table("#table_1", {
-		    fields : []
-		})
-		
-	})
+                var value = parseFloat(token.string);
+                $("input[type=range]").val(value).attr({
+                    min : value - 100,
+                    max : value + 100
+                });
+
+                $(".min_value").html(value-100);
+                $(".max_value").html(value+100);
+
+                createRangeSlider();
+
+                cm.addWidget({line : pos.line, ch : token.start - 10}, $("#range_slider")[0], true);
+                window.token = token;
+                return;
+            } else if (token.type == 'string') {
+                var color = checkColor(token.string.replace(/(\'|\")/g, ""));
+                if (color) {
+                    // show color picker
+                    $("#range_slider").hide();
+                    $("#color_picker").show();
+                    $("#picker").colpickSetColor(color.replace("#", ""), true);
+
+                    var count = cm.lineCount();
+
+                    if (pos.line > count - 10) {
+                        cm.addWidget({
+                            line : count - 10,
+                            ch : pos.ch
+                        }, $("#color_picker")[0], true);
+                    } else {
+                        cm.addWidget(pos, $("#color_picker")[0], true);
+                    }
+
+
+                    window.token = token;
+
+                    return ;
+                }
+            }
+
+            $(".widget").hide();
+            window.token = null;
+
+        })
+    }
+
+    $.ajax({
+        url : 'chart/json/' + code.code,
+        dataType : 'text',
+        success : function (data) {
+
+            if (data.indexOf("#chart-content") > -1) {
+                editor.setValue(data);
+            } else if (data.indexOf("#chart") > -1) {
+                editor.setValue(data.replace("#chart", "#chart-content"));
+            }
+
+            if(tab_1.activeIndex() == 1) { // 활성화 탭이 테이블일 경우...
+                createTable();
+            }
+        },
+        error : function(data, error) {
+            console.log(error);
+        }
+    })
+}
+
+$(function() {
+    var $row = $(".row.gallery");
+    var $dom = $("#tpl_col").html();
+    for(var i = 0, len = charts.length; i <len; i++ ) {
+        var $el = $($dom);
+        var chart = charts[i];
+
+        $el.find(".head").html(chart.title);
+        $el.find(".body img").attr({
+            'src' : 'chart/img/' + chart.type + '.svg',
+        }).data('obj', chart).on('click', function(e) {
+            var obj = $(this).data('obj');
+            currentChartIndex = obj.start;
+            viewCodeEditor();
+        });
+
+        $row.append($el);
+    }
+
+    editor = null;
+
+    $("#picker").colpick({
+        flat: true,
+        layout : 'hex',
+        submit : 0,
+        onChange : function(hbs, hex, rgb, el, bySetColor) {
+            if (!bySetColor) {
+                if (window.token) {
+                    editor.replaceRange('"#' + hex + '"', {
+                        line : editor.getCursor().line,
+                        ch : window.token.start
+                    },  {
+                        line : editor.getCursor().line,
+                        ch : window.token.end
+                    })
+                }
+            }
+        }
+    })
+
+    createRangeSlider();
+})
+
+jui.ready(function(ui, uix, _) {
+    modal_1 = ui.modal("#modal_1", {
+        color: "black"
+    });
+
+    tab_1 = uix.tab("#tab_1", {
+        event: {
+            change: function(data) {
+
+                if (data.index == 1) {
+                    createTable();
+                }
+            }
+        },
+        target: "#tab_contents_1",
+        index: 0
+    });
+});
+
+// 디스커스 댓글 로드
+loadIframe($("#chart").find("iframe"), "chart/disqus.html");
 </script>
 
 <script type="text/template" id="tpl_col">
-	<div class='col col-3'>
-		<div class='panel'>
-			<div class='head'></div>
-			<div class='body'>
-				<img src="" />
-			</div>
-		</div>
-	</div>	
-</script>
-
-<script data-jui="#table_1" data-tpl="row" type="text/template">
-
+    <div class='col col-3'>
+        <div class='panel'>
+            <div class='head'></div>
+            <div class='body'>
+                <img src="" />
+            </div>
+        </div>
+    </div>
 </script>
 
 <div id="color_picker" class='widget' style="display:none;border:1px solid #ececec;background:white;z-index:99999999;">
-<div id="picker"></div>  
+    <div id="picker"></div>
 </div>
 
 <span id="range_slider" class='widget' style="display:none;border:1px solid black;background:white;z-index:99999999;">
@@ -466,80 +474,75 @@
 </span>
 
 <div id="modal_1" class="msgbox msgbox-white" style="display:none;">
-	<div class="head" style="overflow:auto">
-		<h2 class='title'></h2>
+    <div class="head" style="overflow:auto">
+        <h2 class='title'></h2>
 		<span style='float:right;margin-top:10px;'>
 			Themes  
 			<select onchange="changeTheme(this.value)" style="padding:5px;">
-				<option value="jennifer">Jennifer</option>
-				<option value="dark">Dark</option>
-				<option value="light">Light</option>				
-				<option value="d3">D3</option>
-				<option value="d20">D20</option>
-				<option value="flat">Flat</option>
-				<option value="flat2">Flat 2</option>
-				<option value="seoul">Seoul</option>								
-				<option value="candy">Candy</option>								
-				<option value="holo">Holo</option>								
-				<option value="sns">SNS</option>								
-				<option value="google">Google</option>								
-				<option value="korea">Korea</option>								
-								
-			</select>
-			<a class='btn btn-gray btn-flat btn-rect' href="javascript:void(prevChart())"><i class='icon-chevron-left'></i></a>
-			<a class='btn btn-gray btn-flat btn-rect' href="javascript:void(nextChart())"><i class='icon-chevron-right'></i></a>
-		</span>
+                <option value="jennifer">Jennifer</option>
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+                <option value="d3">D3</option>
+                <option value="d20">D20</option>
+                <option value="flat">Flat</option>
+                <option value="flat2">Flat 2</option>
+                <option value="seoul">Seoul</option>
+                <option value="candy">Candy</option>
+                <option value="holo">Holo</option>
+                <option value="sns">SNS</option>
+                <option value="google">Google</option>
+                <option value="korea">Korea</option>
+            </select>
+            <div class="group">
+                <a class='btn btn-gray btn-flat btn-rect' href="javascript:void(prevChart())"><i class='icon-chevron-left'></i></a>
+                <a class='btn btn-gray btn-flat btn-rect' href="javascript:void(nextChart())"><i class='icon-chevron-right'></i></a>
+            </div>
+        </span>
     </div>
-	<div class="body" style="padding:0px !important;">
-		<div class='row'>
-			<div class='col col-5'>
-				<div style="border:1px solid white;height:100%;width:100%;background:white;text-align:center;overflow: scroll;">
-					<div id="chart-content"></div>
-				</div>
-			</div>
-			<div class='col col-7' style='border-left:1px solid #ebebeb'>
-				
-				<ul id="tab_1" class="tab tab-top" style='margin-top:0px;'>
-					<li>
-						<a href="#chart-code">Code</a>
-					</li>
-					<li>
-						<a href="#chart-data">Data</a>
-					</li>
-				</ul>
-				
-				<div id="tab_contents_1" class="tab-contents" style="background: #dcdcdc;">
-					<div id="chart-code">
-						<textarea id="chart-code-text">test</textarea>
-					</div>
-					<div id="chart-data">
-						
-						<div class="panel" style="height:400px;">
-							<div class="head">
-								<strong>Data Binding</strong>
-								<div style="float:right">
-									<a class='btn btn-gray btn-flat btn-rect btn-small add-row-btn' href="javascript:void(addRow())">추가</a>	
-								</div>
-								
-							</div>
-							<table id="table_1" class="table table-classic table-hover" style="width: 100%;">
-								<thead>
-									<tr>
-										<td>name</td>
-										<td>value</td>
-									</tr>
-								</thead>
-								<tbody>
-									
-								</tbody>
-							</table>
+    <div class="body" style="padding: 0px !important;">
+        <div class='row'>
+            <div class='col col-5'>
+                <div class="chart-main">
+                    <div id="chart-content"></div>
+                </div>
+            </div>
+            <div class='col col-7' style='border-left:1px solid #ebebeb'>
 
-						</div>
-					</div>					
-				</div>
-			</div>
-		</div>
-	</div>
-</div>	
-	
+                <ul id="tab_1" class="tab tab-top" style='margin-top:0px;'>
+                    <li>
+                        <a href="#chart-code">Code</a>
+                    </li>
+                    <li>
+                        <a href="#chart-data">Data</a>
+                    </li>
+                </ul>
 
+                <div id="tab_contents_1" class="tab-contents" style="background: #dcdcdc;">
+                    <div id="chart-code">
+                        <textarea id="chart-code-text">test</textarea>
+                    </div>
+                    <div id="chart-data">
+                        <div class="panel" style="height: 400px; background: white;">
+                            <div class="head">
+                                <strong>Data Binding</strong>
+                            </div>
+                            <table id="table_1" class="table table-classic table-hover table-nowrap" style="margin-bottom: 20px;">
+                                <thead>
+                                <tr>
+                                    <td>name</td>
+                                    <td>value</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<iframe frameborder="0" scrolling="no" onload="setIFrameHeight(this, 'chart')"></iframe>
