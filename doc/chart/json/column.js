@@ -24,5 +24,9 @@ chart("#chart", {
     brush : {
         type : "column",
         target : [ "sales", "profit" ]
+    },
+    widget : {
+        type : "tooltip",
+        brush : 0
     }
 }).render();

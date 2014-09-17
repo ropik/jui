@@ -33,5 +33,9 @@ chart("#chart-content", {
         type : "stackscatter",
         size : 10,
         symbol : "circle"
-    }]
+    }],
+    widget : {
+        type : "tooltip",
+        brush : 2
+    }
 }).render();
