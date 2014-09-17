@@ -35,29 +35,21 @@
 	}
 	
 	.CodeMirror {
-        /*font-size: 10pt;*/
-        font-family : "Helvetica", "Trebuchet MS", Dotum, Verdana, AppleGothic, sans-serif;
-        height: 400px;
+	  /*font-size: 10pt;*/
+	  font-family : "Helvetica", "Trebuchet MS", Dotum, Verdana, AppleGothic, sans-serif;
+	  height: 400px;
 	}
 	.CodeMirror-scroll {
-        overflow:auto;
+	  overflow:auto;
 	}
 	
 	.row.gallery { 
 		margin-top: 30px;	
 	}
-
-    .chart-main {
-        border: 1px solid white;
-        height: 100%;
-        width: 100%;
-        background: white;
-        text-align: center;
-        overflow: auto;
-    }
 </style>
 
 <div class='row gallery'>
+	
 </div>
 
 <script>
@@ -77,7 +69,8 @@
 		{ type : 'radar', title : 'Radar Chart', start : 20 },
 		{ type : 'line', title : 'Line Chart', start : 22},
 		{ type : 'gauge', title : 'Gauge Chart', start : 29},
-		{ type : 'stock', title : 'Candle Stick Chart', start : 35}
+		{ type : 'stock', title : 'Candle Stick Chart', start : 35},
+		{ type : 'mixed', title : 'Combination Chart', start : 36} 
 	];
 	
 	var code_list = [
@@ -140,7 +133,10 @@
 		{ title : "Gauge Chart", description : "", code : "stack_gauge.js" },
 
 		// candle stick 
-		{ title : "CandleStick Chart", description : "", code : "candlestick.js" }
+		{ title : "CandleStick Chart", description : "", code : "candlestick.js" },
+		
+		// combination chart
+		{ title : "Mixed Chart", description : "", code : "mixed1.js" },
 	];
 	
 	function changeTheme(theme) {
@@ -161,6 +157,8 @@
 	        fields.push(key);
 	    }
 	    
+	    window.fields = fields; 
+	    
 	    var $head = $('#table_1 thead tr');
 	    // create thead
 	    $head.empty();
@@ -175,20 +173,16 @@
             list.push("<td><!= " + fields[i] + " !></td>");
         }
 	    
-	    var tpl = ["<tr>", list.join("") ,"</tr>"].join("");
-
-        table_1 = jui.create("uix.table", "#table_1", {
-            fields: fields,
-            data: data,
-            editRow: true,
-            resize: true,
-            tpl: {
-                row: tpl
-            }
-        });
-
-        table_1.resize();
-
+	    var tpl = ["<tr>", list.join("") ,"</tr>"].join("")
+	    
+	    table_1.setTpl('row', tpl);
+	    table_1.options.data = data;
+	    table_1.options.editRow = true; 
+	    table_1.options.fields = window.fields;
+	    
+	    table_1.init();
+	    
+	    
 	    window.currentChart.bind(table_1);
 	    
 	    var enableAddRow = code_list[currentChartIndex].add || false ;
@@ -197,12 +191,15 @@
 	    } else {
 	        $(".add-row-btn").hide();
 	    }
+	    
 	}
 	
 	function addRow() {
+	    
 	    var obj = code_list[currentChartIndex].obj;
 	    
 	    table_1.append(obj)
+	    
 	}
 	
 	function nextChart() {
@@ -219,17 +216,6 @@
 		
 		viewCodeEditor(); 
 	}
-
-    function resetChart() {
-        var charts = jui.getAll();
-
-        for(var i = 0; i < charts.length; i++) {
-            if(charts[i].type == "chart.basic") {
-                var obj = jui.remove(i);
-                obj.destroy();
-            }
-        }
-    }
 	
 	function checkColor(color) {
         if (typeof colors[color.toLowerCase()] != 'undefined')
@@ -265,12 +251,13 @@
 	function viewCodeEditor() {
 		var code = code_list[currentChartIndex];
 		
-		$("#modal_1").find(".title").html([code.title, " (", code.code ,")"].join(""));
+		$("#modal_1").find(".title").html([code.title, "(", code.code ,")"].join(""))
+		
 		$("#modal_1").width(1024).height(500);
 		
 		modal_1.show();
 
-        if (!editor) {
+	  if (!editor) {
 		  editor = CodeMirror.fromTextArea($("#chart-code-text")[0], {
 		    mode: "javascript",
 		    lineNumbers: true,
@@ -282,15 +269,16 @@
 		  editor.on('change', function(cm, change) {
 		  	try {
 		  		$("#chart-content").empty();
-
-                resetChart();
-		  		$.globalEval(cm.getValue());
-
+		  		$.globalEval(cm.getValue());	
+		  		
 		  		var chart = jui.get('chart.basic').pop();
+		  		
 		  		window.currentChart = chart.list[chart.list.length -1];
+		  		
 		  	} catch(e) {
 		  		console.log(e);
 		  	}
+		  	
 		  })
 		  
 		  editor.on('cursorActivity', function(cm) {
@@ -361,7 +349,7 @@
 			window.token = null;
 		  	
 		  })
-        }
+	  }
 
 		$.ajax({ 
 			url : 'chart/json/' + code.code,
@@ -373,15 +361,12 @@
 				} else if (data.indexOf("#chart") > -1) {
 					editor.setValue(data.replace("#chart", "#chart-content"));	
 				}
-
-                if(tab_1.activeIndex() == 1) { // 활성화 탭이 테이블일 경우...
-                    createTable();
-                }
 			},
 			error : function(data, error) {
 				console.log(error);
 			}
 		})
+		
 	}
 	
 	$(function() {
@@ -428,6 +413,7 @@
 	})
 	
 	jui.ready(function(ui, uix, _) {
+		
 		modal_1 = ui.modal("#modal_1", {
 			color: "black"
 		});
@@ -444,10 +430,12 @@
 			target: "#tab_contents_1",
 			index: 0
 		});
-	});
-
-    // 디스커스 댓글 로드
-    loadIframe($("#chart").find("iframe"), "chart/disqus.html");
+		 
+		table_1 = uix.table("#table_1", {
+		    fields : []
+		})
+		
+	})
 </script>
 
 <script type="text/template" id="tpl_col">
@@ -459,6 +447,10 @@
 			</div>
 		</div>
 	</div>	
+</script>
+
+<script data-jui="#table_1" data-tpl="row" type="text/template">
+
 </script>
 
 <div id="color_picker" class='widget' style="display:none;border:1px solid #ececec;background:white;z-index:99999999;">
@@ -492,17 +484,16 @@
 				<option value="sns">SNS</option>								
 				<option value="google">Google</option>								
 				<option value="korea">Korea</option>								
+								
 			</select>
-            <div class="group">
-                <a class='btn btn-gray btn-flat btn-rect' href="javascript:void(prevChart())"><i class='icon-chevron-left'></i></a>
-                <a class='btn btn-gray btn-flat btn-rect' href="javascript:void(nextChart())"><i class='icon-chevron-right'></i></a>
-            </div>
-        </span>
+			<a class='btn btn-gray btn-flat btn-rect' href="javascript:void(prevChart())"><i class='icon-chevron-left'></i></a>
+			<a class='btn btn-gray btn-flat btn-rect' href="javascript:void(nextChart())"><i class='icon-chevron-right'></i></a>
+		</span>
     </div>
-	<div class="body" style="padding: 0px !important;">
+	<div class="body" style="padding:0px !important;">
 		<div class='row'>
 			<div class='col col-5'>
-				<div class="chart-main">
+				<div style="border:1px solid white;height:100%;width:100%;background:white;text-align:center;overflow: scroll;">
 					<div id="chart-content"></div>
 				</div>
 			</div>
@@ -522,11 +513,16 @@
 						<textarea id="chart-code-text">test</textarea>
 					</div>
 					<div id="chart-data">
-						<div class="panel" style="height: 400px; background: white;">
+						
+						<div class="panel" style="height:400px;">
 							<div class="head">
 								<strong>Data Binding</strong>
+								<div style="float:right">
+									<a class='btn btn-gray btn-flat btn-rect btn-small add-row-btn' href="javascript:void(addRow())">추가</a>	
+								</div>
+								
 							</div>
-							<table id="table_1" class="table table-classic table-hover table-nowrap" style="margin-bottom: 20px;">
+							<table id="table_1" class="table table-classic table-hover" style="width: 100%;">
 								<thead>
 									<tr>
 										<td>name</td>
@@ -534,15 +530,16 @@
 									</tr>
 								</thead>
 								<tbody>
-
+									
 								</tbody>
 							</table>
+
 						</div>
 					</div>					
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+</div>	
+	
 
-<iframe frameborder="0" scrolling="no" onload="setIFrameHeight(this, 'chart')"></iframe>
