@@ -1,4 +1,4 @@
-var chart = jui.include('chart.basic');
+var chart = jui.include("chart.builder");
 
 chart("#chart-content", {
     width : 400,

@@ -1,4 +1,4 @@
-var chart = jui.include('chart.basic');
+var chart = jui.include("chart.builder");
 var time = jui.include('util.time');
 
 var stocks = {
