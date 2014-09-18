@@ -146,7 +146,7 @@ var code_list = [
 ];
 
 function changeTheme(theme) {
-    var chart = jui.get('chart.basic').pop();
+    var chart = jui.get("chart.builder").pop();
 
     chart.list[chart.list.length-1].setTheme(theme);
     chart.list[chart.list.length-1].render();
@@ -226,7 +226,7 @@ function resetChart() {
     var charts = jui.getAll();
 
     for(var i = 0; i < charts.length; i++) {
-        if(charts[i].type == "chart.basic") {
+        if(charts[i].type == "chart.builder") {
             var obj = jui.remove(i);
             obj.destroy();
         }
@@ -288,7 +288,7 @@ function viewCodeEditor() {
                 resetChart();
                 $.globalEval(cm.getValue());
 
-                var chart = jui.get('chart.basic').pop();
+                var chart = jui.get("chart.builder").pop();
                 window.currentChart = chart.list[chart.list.length -1];
             } catch(e) {
                 console.log(e);
