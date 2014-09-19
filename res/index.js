@@ -116,7 +116,7 @@ function initHashEvent() {
 }
 
 function initMenuUrl(hash) {
-	if(hash[0] != "home" && hash[0] != "about") {
+	if(hash[0] != "home") {
 		$("header .menu").find("a").removeClass("active");
 	}
 	
@@ -132,8 +132,8 @@ function initMenuUrl(hash) {
     } else {
 		$("nav.main, nav.download, nav.about").hide();
 		$("nav.sub").show();
-		$("nav .title").html(menuInfo[hash[0]].title);
-		$("nav .msg").html(menuInfo[hash[0]].msg);
+		$("nav.sub .title").html(menuInfo[hash[0]].title);
+		$("nav.sub .msg").html(menuInfo[hash[0]].msg);
 	}
 	
 	// 영역 보이기 및 숨기기
