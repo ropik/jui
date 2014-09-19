@@ -1,8 +1,6 @@
 var chart = jui.include("chart.builder");
 
 chart("#chart", {
-    width: 400,
-    height : 400,
     data : [
         { type : "STR", warrior : 100, wizard : 30, archer : 35 },
         { type : "VIT", warrior : 80, wizard : 50, archer : 70 },

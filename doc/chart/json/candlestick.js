@@ -28,8 +28,6 @@ var dataSource = [
 ];
 
 chart("#chart", {
-    width: 1200,
-    height : 400,
     data : dataSource,
     grid : {
         x : {

@@ -1,8 +1,6 @@
 var chart = jui.include("chart.builder");
 
 chart("#chart-content", {
-    width : 400,
-    height : 400,
     data : [
         { sales: 2, profit: 15, dept: 7 },
         { sales: -15, profit: 6, dept: 2 },

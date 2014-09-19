@@ -1,8 +1,6 @@
 var chart = jui.include("chart.builder");
 
 chart("#chart", {
-    width : 400,
-    height : 400,
     data : [
         { browser : "IE", share : 70 },
         { browser : "Firefox", share : 11 },

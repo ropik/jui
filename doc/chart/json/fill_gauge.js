@@ -1,8 +1,6 @@
 var chart = jui.include("chart.builder");
 
 var c = chart("#chart", {
-    width: 400,
-    height : 400,
     grid : {
         y : {
            type : 'range',

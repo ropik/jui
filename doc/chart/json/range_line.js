@@ -20,8 +20,6 @@ for(var i = 0; i < stocks.apple.length; i++) {
 }
 
 chart("#chart", {
-	width: 400,
-	height : 400,
 	data : data,
 	grid : {
 		x : {

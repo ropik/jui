@@ -1,8 +1,6 @@
 var chart = jui.include("chart.builder");
 
 chart("#chart", {
-    width: 800,
-    height : 400,
     padding : {right : 120 },
     data : [
     { month : 'Jan', rainfall : 49.9, sealevel : 1016, temperature  : 7.0}, 

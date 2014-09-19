@@ -18,8 +18,6 @@ for(var i = 0; i < stocks.visitor.length; i++) {
 }
 
 chart("#chart", {
-    width: 900,
-    height : 300,
     data : data,
     grid : {
         x : {

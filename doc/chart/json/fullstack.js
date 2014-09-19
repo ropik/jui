@@ -2,8 +2,6 @@ var chart = jui.include("chart.builder");
 
 
 chart("#chart", {
-    width: 400,
-    height : 400,
     data : [
         { quarter : "1Q", samsung : 50, lg : 35, sony: 10 },
         { quarter : "2Q", samsung : 20, lg : 30, sony: 5 },

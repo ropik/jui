@@ -2,7 +2,7 @@ var chart = jui.include("chart.builder");
 
 chart("#chart", {
     width : 100,
-    height : 50,
+    height : 50,	
     padding : "empty",
     data : [
         { quarter : "1Q", sales : 50, profit : 35 },

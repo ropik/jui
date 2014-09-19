@@ -1,8 +1,6 @@
 var chart = jui.include("chart.builder");
 
 chart("#chart", {
-    width: 400,
-    height : 400,
     brush : {
         type : 'gauge',
         value : 200,

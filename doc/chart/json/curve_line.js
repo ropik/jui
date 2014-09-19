@@ -1,8 +1,6 @@
 var chart = jui.include("chart.builder");
 
 chart("#chart", {
-    width: 400,
-    height : 400,
     data : [
         { apple : 26.1, microsoft : 24.86, oracle : 22.08 },
         { apple : 43.83, microsoft : 25.14, oracle : 30.15 },

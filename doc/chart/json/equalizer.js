@@ -2,8 +2,6 @@ var chart = jui.include("chart.builder");
 
 
 chart("#chart", {
-    width: 400,
-    height : 400,
     data : [
         { server : "W1", cpu : 10 },
         { server : "W2", cpu : 2 },

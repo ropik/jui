@@ -19,8 +19,6 @@ for(var i = 0; i < 30; i++) {
 }
 
 chart("#chart", {
-    width : 400,
-    height : 400,
     data : data,
     series : {
         sales : { symbol : "rectangle" },

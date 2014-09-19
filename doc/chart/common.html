@@ -37,7 +37,8 @@
     .CodeMirror {
         /*font-size: 10pt;*/
         font-family : "Helvetica", "Trebuchet MS", Dotum, Verdana, AppleGothic, sans-serif;
-        height: 400px;
+        max-height: 100%;
+        height:100%;
     }
     .CodeMirror-scroll {
         overflow:auto;
@@ -84,65 +85,66 @@ var charts = [
 var code_list = [
 
     // bar
-    { title : "Bar Chart", description : "", code : "bar.js" },
-    { title : "Bar Chart", description : "", code : "stack_bar.js" },
-    { title : "Bar Chart", description : "", code : "mini_bar.js" },
+    { type : 'bar', title : "Basic Bar Chart", description : "", code : "bar.js" },
+    { type : 'bar', title : "Stack Bar Chart", description : "", code : "stack_bar.js" },
+    { type : 'bar', title : "Mini Bar Chart", description : "", code : "mini_bar.js" },
 
     // column
-    { title : "Column Chart", description : "", code : "column.js" },
-    { title : "Column Chart", description : "", code : "stack_column.js" },
-    { title : "Column Chart", description : "", code : "fullstack.js" },
-    { title : "Column Chart", description : "", code : "equalizer.js" },
+    { type : 'column', title : "Basic Column Chart", description : "", code : "column.js" },
+    { type : 'column', title : "Stack Column Chart", description : "", code : "stack_column.js" },
+    { type : 'column', title : "Full Stack Column Chart", description : "", code : "fullstack.js" },
+    { type : 'column', title : "Equalizer Chart", description : "", code : "equalizer.js" },
 
     // pie
-    { title : "Pie Chart", description : "", code : "pie.js" },
+    { type : 'pie', title : "Pie Chart", description : "", code : "pie.js" },
 
     // donut
-    { title : "Donut Chart", description : "", code : "donut.js" },
+    { type : 'donut', title : "Donut Chart", description : "", code : "donut.js" },
 
     // scatter
-    { title : "Bubble Chart", description : "", code : "bubble.js" },
-    { title : "Bubble Chart", description : "", code : "range_bubble.js" },
-    { title : "Scatter Chart", description : "", code : "range_scatter.js" },
-    { title : "Scatter Chart", description : "", code : "scatter.js" },
-    { title : "Scatter Chart", description : "", code : "stack_scatter.js" },
+    { type : 'scatter', title : "Basic Bubble Chart", description : "", code : "bubble.js" },
+    { type : 'scatter', title : "Range Bubble Chart", description : "", code : "range_bubble.js" },
+    { type : 'scatter', title : "Basic Scatter Chart", description : "", code : "scatter.js" },
+    { type : 'scatter', title : "Range Scatter Chart", description : "", code : "range_scatter.js" },    
+    { type : 'scatter', title : "Stack Scatter Chart", description : "", code : "stack_scatter.js" },
 
     //area
-    { title : "Area Chart", description : "", code : "area.js" },
-    { title : "Area Chart", description : "", code : "curve_area.js" },
-    { title : "Area Chart", description : "", code : "stack_area.js" },
-    { title : "Area Chart", description : "", code : "stack_curve_area.js" },
-    { title : "Area Chart", description : "", code : "stack_step_area.js" },
-    { title : "Area Chart", description : "", code : "step_area.js" },
+    { type : 'area', title : "Basic Area Chart", description : "", code : "area.js" },
+    { type : 'area', title : "Curve Area Chart", description : "", code : "curve_area.js" },
+    { type : 'area', title : "Stack Area Chart", description : "", code : "stack_area.js" },
+    { type : 'area', title : "Stack Curve Area Chart", description : "", code : "stack_curve_area.js" },
+    { type : 'area', title : "Step Area Chart", description : "", code : "step_area.js" },    
+    { type : 'area', title : "Stack Step Area Chart", description : "", code : "stack_step_area.js" },
+
 
     // radar
-    { title : "Radar Chart", description : "", code : "radar.js" },
-    { title : "Radar Chart", description : "", code : "circle_radar.js" },
+    { type : 'radar', title : "Basic Radar Chart", description : "", code : "radar.js" },
+    { type : 'radar', title : "Circle Radar Chart", description : "", code : "circle_radar.js" },
 
     // line
-    { title : "Line Chart", description : "", code : "curve_line.js" },
-    { title : "Line Chart", description : "", code : "line.js" },
-    { title : "Line Chart", description : "", code : "line2.js" },
-    { title : "Line Chart", description : "", code : "mini_line.js" },
-    { title : "Line Chart", description : "", code : "range_line.js" },
-    { title : "Line Chart", description : "", code : "stack_line.js" },
-    { title : "Line Chart", description : "", code : "step_line.js" },
+    { type : 'line', title : "Basic Line Chart", description : "", code : "line.js" },
+    { type : 'line', title : "Basic Line2 Chart", description : "", code : "line2.js" },    
+    { type : 'line', title : "Curve Line Chart", description : "", code : "curve_line.js" },
+    { type : 'line', title : "Mini Line Chart", description : "", code : "mini_line.js" },
+    { type : 'line', title : "Range Line Chart", description : "", code : "range_line.js" },
+    { type : 'line', title : "Stack Line Chart", description : "", code : "stack_line.js" },
+    { type : 'line', title : "Step Line Chart", description : "", code : "step_line.js" },
 
     // gauge
-    { title : "Gauge Chart", description : "", code : "circle_gauge.js" },
-    { title : "Gauge Chart", description : "", code : "fill_custom_gauge.js" },
-    { title : "Gauge Chart", description : "", code : "fill_gauge.js" },
-    { title : "Gauge Chart", description : "", code : "full_gauge.js" },
-    { title : "Gauge Chart", description : "", code : "gauge.js" },
-    { title : "Gauge Chart", description : "", code : "stack_gauge.js" },
-    { title : "Gauge Chart", description : "", code : "bar_gauge.js" },
+    { type : 'gauge', title : "Basic Gauge Chart", description : "", code : "gauge.js" },    
+    { type : 'gauge', title : "Circle Gauge Chart", description : "", code : "circle_gauge.js" },
+    { type : 'gauge', title : "Fill Gauge Chart", description : "", code : "fill_gauge.js" },
+    { type : 'gauge', title : "Full Gauge Chart", description : "", code : "full_gauge.js" },
+    { type : 'gauge', title : "Stack Gauge Chart", description : "", code : "stack_gauge.js" },
+    { type : 'gauge', title : "Bar Gauge Chart", description : "", code : "bar_gauge.js" },
+    { type : 'gauge', title : "Fill Custom Gauge Chart", description : "", code : "fill_custom_gauge.js" },    
 
     // candle stick
-    { title : "CandleStick Chart", description : "", code : "candlestick.js" },
+    { type : 'stock', title : "CandleStick Chart", description : "", code : "candlestick.js" },
 
     // combination chart
-    { title : "Mixed Chart", description : "", code : "mixed1.js" },
-    { title : "Mixed Chart", description : "", code : "mixed2_multi_axis.js" },
+    { type : 'mixed', title : "Basic Combination Chart", description : "", code : "mixed1.js" },
+    { type : 'mixed', title : "Multi Axis Chart", description : "", code : "mixed2_multi_axis.js" },
 ];
 
 function changeTheme(theme) {
@@ -264,13 +266,79 @@ function createRangeSlider() {
     });
 }
 
+function modal_show() {
+	var padding = 10; 
+	$("#modal_1").css({
+		position : 'fixed',
+		'width' : $(window).width() - padding*2,
+		'height' : $(window).height() - padding*2,
+		left : padding,
+		top : padding
+	}).show().appendTo("body");
+	
+	$(window).resize(function ChartResize() {
+		var padding = 10; 
+		$("#modal_1").css({
+			position : 'fixed',
+			'width' : $(window).width() - padding*2,
+			'height' : $(window).height() - padding*2,
+			left : padding,
+			top : padding
+		})
+		
+		//viewCodeEditor();
+	})
+}
+
+function modal_hide() {
+	$("#modal_1").hide();
+	
+	$(window).off('resize', ChartResize);
+}
+
+function loadChartList() {
+	
+	var $tree = $("<ul class='tree tree-line' />");
+	
+	for(var  i = 0; i < charts.length; i++) {
+		var chart = charts[i];
+		var $el = $("<li />").addClass("open root");
+		var $list = $("<ul />");
+		$el.append($("<div />").html($("<strong />").html(chart.title)))
+		$el.append($list)
+		
+		$tree.append($el);
+		
+		var $c;
+		for (var index = chart.start; index < code_list.length; index++) {
+			var code = code_list[index];
+			
+			if (chart.type != code.type) {
+				$c.addClass('last');
+				break;
+			}
+			
+			var $a = $("<a />").attr('href', '#').data('index', index).on('click', function() { 
+				var index = $(this).data('index');
+				currentChartIndex = index; 
+				
+				viewCodeEditor();
+			}).html(code.title)
+			$c = $("<li />").addClass('leaf').html($("<span />").html($a));
+			$list.append($c);
+			
+		}
+	}
+	
+	$(".chart_list").html($tree);
+}
+
 function viewCodeEditor() {
     var code = code_list[currentChartIndex];
 
-    $("#modal_1").find(".title").html([code.title, " (", code.code ,")"].join(""));
-    $("#modal_1").width(1024).height(500);
+    //$("#modal_1").find(".title").html([code.title, " (", code.code ,")"].join(""));
 
-    modal_1.show();
+    modal_show();
 
     if (!editor) {
         editor = CodeMirror.fromTextArea($("#chart-code-text")[0], {
@@ -427,12 +495,16 @@ $(function() {
     })
 
     createRangeSlider();
+    
+    loadChartList();
 })
 
 jui.ready(function(ui, uix, _) {
+	/*
     modal_1 = ui.modal("#modal_1", {
         color: "black"
     });
+    */
 
     tab_1 = uix.tab("#tab_1", {
         event: {
@@ -475,32 +547,35 @@ loadIframe($("#chart").find("iframe"), "chart/disqus.html");
 
 </span>
 
-<div id="modal_1" class="msgbox msgbox-white" style="display:none;">
-    <div class="head" style="overflow:auto">
-        <h2 class='title'></h2>
-		<span style='float:right;margin-top:10px;'>
+<div id="modal_1" class="msgbox msgbox-white" style="display:none;position:absolute;left:0px;top:0px;right:0px;bottom:0px;z-index:999999999;">
+    <div class="head" style="position:absolute;left:0px;top:0px;right:0px;height:60px;">
+        <h2 class='title'>Chart Play</h2>
+		<span style='margin-top:10px;margin-left:150px;'>
 			Themes  
 			<select onchange="changeTheme(this.value)" style="padding:5px;">
                 <option value="jennifer">Jennifer</option>
                 <option value="dark">Dark</option>
                 <option value="seoul">Seoul</option>
             </select>
+            <!--
             <div class="group">
                 <a class='btn btn-gray btn-flat btn-rect' href="javascript:void(prevChart())"><i class='icon-chevron-left'></i></a>
                 <a class='btn btn-gray btn-flat btn-rect' href="javascript:void(nextChart())"><i class='icon-chevron-right'></i></a>
             </div>
+            -->
         </span>
     </div>
-    <div class="body" style="padding: 0px !important;">
-        <div class='row'>
-            <div class='col col-5'>
-                <div class="chart-main">
-                    <div id="chart-content"></div>
-                </div>
-            </div>
-            <div class='col col-7' style='border-left:1px solid #ebebeb'>
+    <div class="body" style="position:absolute;left:0px;right:0px;top:60px;bottom:0px;padding: 0px !important;">
+    		<div style="position:relative;width:100%;height:99%;">
+    		<div class="chart_list" style="position:absolute;left:0px;top:0px;bottom:10px;width:250px;overflow:auto;">
+    			
+    		</div>
+    	
+            <div class='chart_data' style='position:absolute;left:250px;top:0px;bottom:10px;width:450px;overflow-y:auto;'>
 
-                <ul id="tab_1" class="tab tab-top" style='margin-top:0px;'>
+				<div style="border-right:1px solid #ebebeb;border-left:1px solid #ebebeb;height:98%;width:99%;">
+
+                <ul id="tab_1" class="tab tab-top" style="margin-top:0px;">
                     <li>
                         <a href="#chart-code">Code</a>
                     </li>
@@ -532,8 +607,18 @@ loadIframe($("#chart").find("iframe"), "chart/disqus.html");
                         </div>
                     </div>
                 </div>
+				</div>
+
             </div>
-        </div>
+            
+            <div class='chart_view' style="position:absolute;left:700px;top:0px;bottom:10px;right:10px;">
+                <div class="chart-main" style="position:relative;height:100%;width:100%;">
+                    <div id="chart-content" style="position: absolute;left:100px;right:100px;top:100px;bottom:100px;"></div>
+                </div>
+            </div>      
+    		</div>
+      
+            
     </div>
 </div>
 
