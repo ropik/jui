@@ -56,6 +56,18 @@
         text-align: center;
         overflow: auto;
     }
+    
+    .jui .vmenu>:first-child {
+    	border-top-right-radius: 0px;
+    	border-top-left-radius: 0px;
+    	border-top: 0px;
+    }
+    
+    .jui .vmenu>:last-child {
+    	border-bottom-right-radius: 0px;
+    	border-bottom-left-radius: 0px;
+    	border-bottom: 1px;
+    }
 </style>
 
 <div class='row gallery'>
@@ -298,39 +310,54 @@ function modal_hide() {
 
 function loadChartList() {
 	
-	var $tree = $("<ul class='tree tree-line' />");
+	var $menu = $("<div class='vmenu' />");
 	
 	for(var  i = 0; i < charts.length; i++) {
 		var chart = charts[i];
-		var $el = $("<li />").addClass("open root");
-		var $list = $("<ul />");
-		$el.append($("<div />").html($("<strong />").html(chart.title)))
-		$el.append($list)
+		var $el = $("<a />").addClass('chart-' + chart.type);
+		$el.append(chart.title)
 		
-		$tree.append($el);
+		var $icon = $("<i class='icon-gear icon-edge' />");
+		//$el.append($icon)
 		
-		var $c;
+		$menu.append($el);
+		
+		var $submenu = $("<ul class='submenu' />");
+		
 		for (var index = chart.start; index < code_list.length; index++) {
 			var code = code_list[index];
 			
 			if (chart.type != code.type) {
-				$c.addClass('last');
 				break;
 			}
 			
-			var $a = $("<a />").attr('href', 'javascript:void(0)').data('index', index).on('click', function() { 
+			var $a = $("<a />").attr('href', 'javascript:void(0)').data({
+					'index': index,
+					type : code.type
+				}).on('click', function() { 
 				var index = $(this).data('index');
+				var type = $(this).data('type');
 				currentChartIndex = index; 
 				
 				viewCodeEditor();
+				
+				$(".vmenu .active").removeClass("active");
+				
+				$(this).parent().addClass('active');
+				$(".vmenu .chart-" + type).addClass('active');
+				
+				
 			}).html(code.title)
-			$c = $("<li />").addClass('leaf').html($("<span />").html($a));
-			$list.append($c);
+			
+			$c = $("<li />").html($a);
+			$submenu.append($c);
 			
 		}
+		
+		$menu.append($submenu);
 	}
 	
-	$(".chart_list").html($tree);
+	$(".chart_list").html($menu);
 }
 
 function viewCodeEditor() {
@@ -547,7 +574,7 @@ loadIframe($("#chart").find("iframe"), "chart/disqus.html");
 
 </span>
 
-<div id="modal_1" class="msgbox msgbox-white" style="display:none;position:absolute;left:0px;top:0px;right:0px;bottom:0px;z-index:999999999;">
+<div id="modal_1" class="msgbox msgbox-white window-white" style="display:none;position:absolute;left:0px;top:0px;right:0px;bottom:0px;z-index:999999999;">
     <div class="head" style="position:absolute;left:0px;top:0px;right:0px;height:60px;">
         <h2 class='title'>Chart Play</h2>
 		<span style='margin-top:10px;margin-left:150px;'>
@@ -565,7 +592,7 @@ loadIframe($("#chart").find("iframe"), "chart/disqus.html");
             -->
         </span>
     </div>
-    <div class="body" style="position:absolute;left:0px;right:0px;top:60px;bottom:0px;padding: 0px !important;">
+    <div class="body" style="border-top:1px solid #ebebeb; position:absolute;left:0px;right:0px;top:60px;bottom:0px;padding: 0px !important;">
     		<div style="position:relative;width:100%;height:99%;">
     		<div class="chart_list" style="position:absolute;left:0px;top:0px;bottom:10px;width:250px;overflow:auto;">
     			
@@ -573,18 +600,18 @@ loadIframe($("#chart").find("iframe"), "chart/disqus.html");
     	
             <div class='chart_data' style='position:absolute;left:250px;top:0px;bottom:10px;width:450px;overflow-y:auto;'>
 
-				<div style="border-right:1px solid #ebebeb;border-left:1px solid #ebebeb;height:98%;width:99%;">
+				<div style="height:98%;width:99%;">
 
-                <ul id="tab_1" class="tab tab-top" style="margin-top:0px;">
+                <ul id="tab_1" class="tab tab-top">
                     <li>
-                        <a href="#chart-code" style="padding: 15px 25px;">Code</a>
+                        <a href="#chart-code" style="padding: 10px 25px;">Code</a>
                     </li>
                     <li>
-                        <a href="#chart-data" style="padding: 15px 25px;">Data</a>
+                        <a href="#chart-data" style="padding: 10px 25px;">Data</a>
                     </li>
                 </ul>
 
-                <div id="tab_contents_1" class="tab-contents" style="background: #dcdcdc;">
+                <div id="tab_contents_1" class="tab-contents" style="background: #ddd;">
                     <div id="chart-code">
                         <textarea id="chart-code-text">test</textarea>
                     </div>
@@ -613,7 +640,7 @@ loadIframe($("#chart").find("iframe"), "chart/disqus.html");
             
             <div class='chart_view' style="position:absolute;left:700px;top:0px;bottom:10px;right:10px;">
                 <div class="chart-main" style="position:relative;height:100%;width:100%;">
-                	<div id="chart-content-title" style="position: absolute;left:0px;right:0px;top:0px;height:48px;border-bottom: 1px solid #ebebeb;">
+                	<div id="chart-content-title" style="position: absolute;left:0px;right:0px;top:0px;height:48px;border-bottom: 1px solid #ddd;">
                 		<h2 style='text-align:left;margin-left:20px;'>Result</h2>
                 	</div>
                     <div id="chart-content" style="position: absolute;left:50px;right:50px;top:100px;bottom:50px;"></div>
