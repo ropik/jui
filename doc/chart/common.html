@@ -411,9 +411,9 @@ function viewCodeEditor() {
 
                     var count = cm.lineCount();
 
-                    if (pos.line > count - 10) {
+                    if (pos.line > count) {
                         cm.addWidget({
-                            line : count - 10,
+                            line : count,
                             ch : pos.ch
                         }, $("#color_picker")[0], true);
                     } else {
