@@ -25,8 +25,9 @@ chart("#chart", {
         max: 50,
         target : [ "sales", "profit" ]
     },
-    widget : {
-        type : "tooltip",
-        brush : 0
-    }
+    widget : [
+    	{ type : "tooltip", brush : 0 },
+    	{ type : 'title', text : 'Donut Sample'},
+    	{ type : 'legend' }
+    ]
 }).render();

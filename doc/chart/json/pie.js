@@ -10,6 +10,11 @@ chart("#chart", {
     ],
     brush : {
         type : "pie",
-        target : "share"
-    }
+        target : "share",
+        legend : 'browser'
+    },
+    widget : [
+    	{ type : 'title', text : 'Pie Chart' },
+    	{ type : 'legend' }
+    ]
 }).render();

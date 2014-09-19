@@ -23,8 +23,9 @@ chart("#chart", {
         type : "column",
         target : [ "sales", "profit" ]
     },
-    widget : {
-        type : "tooltip",
-        brush : 0
-    }
+    widget : [
+    	{ type : 'title', text : 'Stack Bar' },
+    	{ type : 'legend' },
+     	{ type : "tooltip", brush : 0 }
+    ] 
 }).render();

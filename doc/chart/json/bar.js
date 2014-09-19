@@ -15,11 +15,15 @@ chart("#chart-content", {
         },
         x : {
             type : "range",
-            target : "sales",
+            target : ["sales", 'profit'],
             step : 10,
       		line : true 
         }
     },
+    widget : [
+    	{ type : 'title', text : 'Bar Sample' },
+    	{ type : 'legend' }
+    ],
     brush : {
         type : 'bar',
         target : [ "sales", "profit"]

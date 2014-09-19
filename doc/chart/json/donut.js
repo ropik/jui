@@ -10,6 +10,12 @@ chart("#chart", {
     ],
     brush : {
         type : "donut",
-        target : "share"
-    }
+        target : "share",
+        legend : 'browser',
+        size : 100
+    },
+    widget : [
+    	{ type : 'title', text : 'Donut Sample'},
+    	{ type : 'legend' }
+    ]
 }).render();

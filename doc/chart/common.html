@@ -258,10 +258,10 @@ function createRangeSlider() {
                 ch : window.token.start
             },  {
                 line : editor.getCursor().line,
-                ch : window.token.end
+                ch : window.token.start + value.length
             })
 
-            $(".widget").hide();
+            $(".EditorWidget").hide();
         }
     });
 }
@@ -318,7 +318,7 @@ function loadChartList() {
 				break;
 			}
 			
-			var $a = $("<a />").attr('href', '#').data('index', index).on('click', function() { 
+			var $a = $("<a />").attr('href', 'javascript:void(0)').data('index', index).on('click', function() { 
 				var index = $(this).data('index');
 				currentChartIndex = index; 
 				
@@ -427,7 +427,7 @@ function viewCodeEditor() {
                 }
             }
 
-            $(".widget").hide();
+            $(".EditorWidget").hide();
             window.token = null;
 
         })
@@ -535,11 +535,11 @@ loadIframe($("#chart").find("iframe"), "chart/disqus.html");
     </div>
 </script>
 
-<div id="color_picker" class='widget' style="display:none;border:1px solid #ececec;background:white;z-index:99999999;">
+<div id="color_picker" class='EditorWidget' style="display:none;border:1px solid #ececec;background:white;z-index:99999999;">
     <div id="picker"></div>
 </div>
 
-<span id="range_slider" class='widget' style="display:none;border:1px solid black;background:white;z-index:99999999;">
+<span id="range_slider" class='EditorWidget' style="display:none;border:1px solid black;background:white;z-index:99999999;">
     
 <span class='min_value'>-100</span> 
 <input type="range" min="-100" max="100" step="10" value="0" style="z-index:99999999;" /> 
@@ -577,10 +577,10 @@ loadIframe($("#chart").find("iframe"), "chart/disqus.html");
 
                 <ul id="tab_1" class="tab tab-top" style="margin-top:0px;">
                     <li>
-                        <a href="#chart-code">Code</a>
+                        <a href="#chart-code" style="padding: 15px 25px;">Code</a>
                     </li>
                     <li>
-                        <a href="#chart-data">Data</a>
+                        <a href="#chart-data" style="padding: 15px 25px;">Data</a>
                     </li>
                 </ul>
 
@@ -613,7 +613,10 @@ loadIframe($("#chart").find("iframe"), "chart/disqus.html");
             
             <div class='chart_view' style="position:absolute;left:700px;top:0px;bottom:10px;right:10px;">
                 <div class="chart-main" style="position:relative;height:100%;width:100%;">
-                    <div id="chart-content" style="position: absolute;left:100px;right:100px;top:100px;bottom:100px;"></div>
+                	<div id="chart-content-title" style="position: absolute;left:0px;right:0px;top:0px;height:48px;border-bottom: 1px solid #ebebeb;">
+                		<h2 style='text-align:left;margin-left:20px;'>Result</h2>
+                	</div>
+                    <div id="chart-content" style="position: absolute;left:50px;right:50px;top:100px;bottom:50px;"></div>
                 </div>
             </div>      
     		</div>

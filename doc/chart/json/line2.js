@@ -39,6 +39,11 @@ chart("#chart", {
             step : 4
         }
     },
+    
+    widget : [
+    	{ type : 'title', text : 'Stock Sample'},
+    	{ type : 'legend', brush : [0, 1]} 
+    ],
     brush : [{
         type : "line", target : "visitor", colors : [ "#1db34f" ]
     }, {

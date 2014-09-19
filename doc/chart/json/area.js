@@ -23,5 +23,10 @@ chart("#chart-content", {
 		type : "area"
 	}, {
 		type : "line"
-	}]
+	}],
+    widget : [
+    	{ type : 'title', text : 'Basic Area' },
+    	{ type : 'legend' },
+     	{ type : "tooltip", brush : 1 }
+    ]
 }).render();

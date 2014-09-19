@@ -30,5 +30,9 @@ chart("#chart", {
     	{ type : 'line', target : 'sealevel', y1 : 0, colors : ["#434348"], symbol : 'curve' },
     	{ type : 'line', target : 'temperature', y1 : 1, colors: ['#90ed7d'], symbol : 'curve' },
     	{ type : 'scatter', target : 'temperature', y1 : 1, colors: ['#90ed7d'], symbol : 'triangle', size : 8 },
+    ],
+    widget : [
+    	{ type : 'title', text : 'Combination Chart' },
+    	{ type : 'legend', brush : [0, 1, 2], align : 'end'}
     ]
 }).render();

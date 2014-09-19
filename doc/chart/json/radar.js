@@ -16,5 +16,10 @@ chart("#chart", {
     brush : {
         type : "path",
         target : [ "warrior", "wizard", "archer" ]
-    }
+    },
+    widget : [
+    	{type : 'tooltip', brush : 0 },
+    	{ type : 'title', text : 'My Character Info'},
+    	{ type : 'legend' }
+    ]
 }).render();

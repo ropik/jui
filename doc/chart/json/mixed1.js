@@ -22,5 +22,9 @@ chart("#chart-content", {
         { type : "column", target : "profit", colors : [ "#7977C2" ] },
         { type : "line", target : "sales", colors : [ "#7BBAE7" ], symbol: "curve" },
         { type : "scatter", target : "sales", colors : [ "#7BBAE7" ], size: 7 }
+    ],
+    widget : [
+    	{ type : 'title', text : 'Combination Chart' },
+    	{ type : 'legend', brush : [0, 1]}
     ]
 }).render();

@@ -21,5 +21,9 @@ chart("#chart", {
     },
     brush : {
         type : "line"
-    }
+    },
+    widget : [
+    	{ type : 'title', text : 'Stock Sample'},
+    	{ type : 'legend'} 
+    ],
 }).render();
