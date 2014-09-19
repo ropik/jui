@@ -18,7 +18,7 @@ chart("#chart", {
         },
         x : {
             type : "range",
-            target : "sales",
+            target : ["sales", "profit" ],
             step : 10,
             hide : true
         }

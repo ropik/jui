@@ -14,7 +14,7 @@ chart("#chart", {
         },
         y : {
             type : "range",
-            target : "sales",
+            target : ["sales", "profit"],
             step : 10,
             line : true
         }
