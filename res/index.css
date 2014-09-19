@@ -33,6 +33,14 @@ nav.main {
 	background-repeat: repeat-x !important;
 }
 
+nav.about {
+    margin-top: 74px;
+    height: 524px;
+    border-bottom-width: 0px !important;
+    background-color: #2f353e !important;
+    display: none;
+}
+
 nav.download, nav.sub {
 	margin-top: 0px;
 	background-color: #2f353e !important;
@@ -48,12 +56,30 @@ nav.sub {
 	line-height: 91px;
 }
 
-nav.sub .title {
+nav.sub .title, nav.about .title {
 	font-size: 32px;
 	color: #e0e0e2;
 	text-shadow: 0px 1px #1d232c;
 	margin-right: 30px;
 	vertical-align: middle;
+}
+
+nav.about .notice {
+    height: 196px;
+    max-height: 196px;
+}
+
+nav.about .title {
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+nav.about .msg {
+    color: #e0e1e1;
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: normal;
+    letter-spacing: 1px;
 }
 
 nav.sub .msg {

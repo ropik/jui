@@ -6,6 +6,9 @@ var menuInfo = {
         title: "Home",
         msg: "JUI is html5-based user interface library."
     },
+    about: {
+        src: "about.html"
+    },
     install: {
         src: "install.html",
         title: "Getting Started",
@@ -113,21 +116,24 @@ function initHashEvent() {
 }
 
 function initMenuUrl(hash) {
-	if(hash[0] != "home") {
+	if(hash[0] != "home" && hash[0] != "about") {
 		$("header .menu").find("a").removeClass("active");
 	}
 	
 	var src = menuInfo[hash[0]].src;
-	
-	// 타이틀 & 메시지 처리
-	if(hash != "home") {
-		$("nav.main, nav.download").hide();
+
+    // 타이틀 & 메시지 처리
+    if(hash == "home") {
+        $("nav.main, nav.download").show();
+        $("nav.sub").hide();
+    } else if(hash == "about") {
+        $("nav.main, nav.download, nav.sub").hide();
+        $("nav.about").show();
+    } else {
+		$("nav.main, nav.download, nav.about").hide();
 		$("nav.sub").show();
 		$("nav .title").html(menuInfo[hash[0]].title);
 		$("nav .msg").html(menuInfo[hash[0]].msg);
-	} else {
-		$("nav.main, nav.download").show();
-		$("nav.sub").hide();
 	}
 	
 	// 영역 보이기 및 숨기기
@@ -271,26 +277,9 @@ jui.ready(function(ui, uix, _) {
 	
 	initHashEvent();
 	checkIeVersion();
-	
-	$("body").on("click", function(e) {
-		if(e.target.tagName == "A") return;
-		
-		if($("#about").css("display") != "none") {
-			$("#btn_about").trigger("click");
-		}
-	});
-	
+
 	$("#btn_about").on("click", function(e) {
-		var $layer = $("#about");
-		
-		if($layer.css("display") == "none") {
-			$layer.show();
-			$("#btn_about").addClass("active");
-		} else {
-			$layer.hide();
-			$("#btn_about").removeClass("active");
-		}
-		
+		location.hash = "#about";
 		return false;
 	});
 });

@@ -43,13 +43,28 @@
 	<div class="center">
 		<div class="container">
 			<div class="img img-logo"></div>
-			
+
 			<div class="detail">
 				JUI는 제니퍼소프트의 차기작인 HTML5 기반의 APM 솔루션인 JENNIFER5에서 <br/>
 				사용되는 UI 컴포넌트를 정리한 라이브러리입니다.
 			</div>
 	  	</div>
 	</div>
+</nav>
+
+<nav class="navbar navbar-fixed-top about">
+    <div class="center">
+        <div class="notice">
+            <div class="title">About Us</div>
+            <div class="msg">
+                We are a creative agency. Our process is<br/>
+                designed to meet client objectives through<br/>
+                powerful, clearly communicated brand experiences.
+            </div>
+        </div>
+
+        <img src="../res/img4/about.png" />
+    </div>
 </nav>
 
 <nav class="navbar navbar-fixed-top download">
@@ -77,13 +92,23 @@
 <article id="home">
 	<div class="center row">
 		<div class="col col-12">
-			<iframe frameborder="0" onload="setIFrameHeight(this, 'home')" src="home.html"></iframe>
+			<iframe frameborder="0" src="home.html" height="720"></iframe>
 		</div>
 	</div>
 </article>
 <!-- Intro, End -->
 
-<!-- Concept, Start -->
+<!-- About, Start -->
+<article id="about">
+    <div class="center row">
+        <div class="col col-12">
+            <iframe frameborder="0" src="about.html" height="400"></iframe>
+        </div>
+    </div>
+</article>
+<!-- About, End -->
+
+<!-- Install, Start -->
 <article id="install">
 	<div class="center row">
 		<div class="col col-12">
@@ -91,7 +116,7 @@
 		</div>
 	</div>
 </article>
-<!-- Concept, End -->
+<!-- Install, End -->
 
 <!-- Core, Start -->
 <article id="core">
@@ -223,50 +248,12 @@
 <footer class="navbar navbar-fixed-bottom" style="position: relative;">
 	<div class="center row" style="position: relative;">
 		<div class="col col-8 msg">
-			JUI는 제니퍼소프트 R&D팀 UI파트에서 개발되었으며, 디자이너 요하와 프로그래머 엘빈이 참여하여<br/>
+			JUI는 제니퍼소프트 R&D팀 UI파트에서 개발되었으며, 디자이너 요하와 프로그래머 엘빈 그리고 제이든이 참여하여<br/>
 			개발한 UI 라이브러리입니다. 이 프로젝트는 상업적인 용도와는 무관합니다.
 		</div>
 		<div class="col col-4 link">
-			<span id="btn_about">ABOUT US</span> | 
+			<span id="btn_about">ABOUT US</span> |
 			<span onclick="window.open('https://github.com/seogi1004/jui');">GitHub</span>
-		</div>
-		<div id="about" class="row">
-			<div class="col col-6 col-alvin">
-				<div class="row pic">
-					<img src="../res/img2/alvin.png"/>
-				</div>
-				<div class="row">
-					<div class="name alvin">Alvin</div>
-					<div class="team">
-						JenniferSoft R&D Team<br/>
-						UI Developer
-					</div>
-					<div class="info">
-						<a href="mailto:alvin@jennifersoft.com">Send to Mail</a>
-						<a href="https://www.facebook.com/seogi1004" target="_blank">Facebook</a>
-						<a href="http://youngman.kr" target="_blank">Blog</a>
-					</div>
-				</div>
-			</div>
-			<div class="col col-6 col-yoha">
-				<div class="row pic">
-					<img src="../res/img2/yoha.png"/>
-				</div>
-				<div class="row">
-					<div class="name yoha">Yoha</div>
-					<div class="team">
-						JenniferSoft R&D Team<br/>
-						UI Designer
-					</div>
-					<div class="info">
-						<a href="mailto:yoha@jennifersoft.com">Send to Mail</a>
-						<!--
-						<a href="#" target="_blank">Facebook</a>
-						<a href="#" target="_blank">Blog</a>
-						-->
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 	
