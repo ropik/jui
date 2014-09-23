@@ -152,11 +152,11 @@ var code_list = [
     { type : 'gauge', title : "Fill Custom Gauge Chart", description : "", code : "fill_custom_gauge.js" },    
 
     // candle stick
-    { type : 'stock', title : "CandleStick Chart", description : "", code : "candlestick.js" },
+    { type : 'stock', title : "CandleStick Chart", description : "", code : "candlestick.js", fullscreen : true },
 
     // combination chart
     { type : 'mixed', title : "Basic Combination Chart", description : "", code : "mixed1.js" },
-    { type : 'mixed', title : "Multi Axis Chart", description : "", code : "mixed2_multi_axis.js" },
+    { type : 'mixed', title : "Multi Axis Chart", description : "", code : "mixed2_multi_axis.js", fullscreen : true },
 ];
 
 function changeTheme(theme) {
@@ -300,11 +300,15 @@ function modal_show() {
 		
 		//viewCodeEditor();
 	})
+
+
+    //setFullScreen();
 }
 
 function modal_hide() {
 	$("#modal_1").hide();
 	
+    //$(".btn-fullscreen").off("click");
 	$(window).off('resize', ChartResize);
 }
 
@@ -336,25 +340,34 @@ function loadChartList() {
 				break;
 			}
 			
-			var $a = $("<a />").attr('href', 'javascript:void(0)').html(code.title)
-			
-			$c = $("<li />").data({
+			var $a = $("<a />").data({
                     'index': index,
-                    type : code.type
-                }).attr('data-index', index).on('click', function() { 
-                var index = $(this).data('index');
-                var type = $(this).data('type');
-                currentChartIndex = index; 
-                
-                viewCodeEditor();
-                
-                $(".vmenu .active").removeClass("active");
-                
-                $(this).addClass('active');
-                $(".vmenu .chart-" + type).addClass('active');
-                
-                
-            }).html($a);
+                    type : code.type,
+                    fullscreen : code.fullscreen
+                }).attr({
+                 'data-index' :  index,
+                 id : 'chart-list-' + index  
+                }).html(code.title).on('click', function(e) {
+                    var index = $(this).data('index');
+                    var type = $(this).data('type');
+                    var fullscreen = $(this).data('fullscreen');
+                    currentChartIndex = index; 
+                    
+                    viewCodeEditor();
+                    
+                    $(".vmenu .active").removeClass("active");
+                    
+                    $(this).parent().addClass('active');
+                    $(".vmenu .chart-" + type).addClass('active');
+                    
+                    if (fullscreen) {
+                        $(".chart_view").addClass('fullscreen').css({left : '255px' });
+                    }
+
+                    return false; 
+            })
+			
+			$c = $("<li />").html($a);
 			$submenu.append($c);
 			
 		}
@@ -486,6 +499,22 @@ function viewCodeEditor() {
     })
 }
 
+function setFullScreen() {
+    var $el = $(".btn-fullscreen");
+
+    $el.on('click', function() {
+
+         var $el = $(".chart_view");
+        if ($el.hasClass('fullscreen')){
+
+            $el.removeClass('fullscreen').animate({left : '710px' }, viewCodeEditor);
+        } else {
+            $el.addClass('fullscreen').animate({left : '255px' }, viewCodeEditor);
+        }
+    });
+
+}
+
 $(function() {
     var $row = $(".row.gallery");
     var $dom = $("#tpl_col").html();
@@ -529,6 +558,8 @@ $(function() {
     createRangeSlider();
     
     loadChartList();
+
+    setFullScreen();
 })
 
 jui.ready(function(ui, uix, _) {
@@ -646,11 +677,16 @@ loadIframe($("#chart").find("iframe"), "chart/disqus.html");
 				</div>
 
             </div>
-            <div class='splitter' style="width:5px;position:absolute;background-color:#ddd;left:705px;top:0px;bottom:0px;"></div>
-            <div class='chart_view' style="position:absolute;left:710px;top:0px;bottom:0px;right:10px;">
+            <div class='splitter splitter-2' style="width:5px;position:absolute;background-color:#ddd;left:705px;top:0px;bottom:0px;"></div>
+            <div class='chart_view' style="overflow:hidden;position:absolute;left:710px;top:0px;bottom:0px;right:10px;background-color:white;z-index:10;">
                 <div class="chart-main" style="position:relative;height:100%;width:100%;">
                 	<div id="chart-content-title" style="position: absolute;left:0px;right:0px;top:0px;height:48px;border-bottom: 1px solid #ddd;">
-                		<h2 style='text-align:left;margin-left:20px;'>Result</h2>
+                		<h2 style='text-align:left;margin-left:20px;'>
+                            Result
+                            <a class='btn btn-flat btn-rect btn-fullscreen' style="float:right;margin-right:1px;" title="Full Screen"><i class='icon-new-window'></i></a>
+
+
+                        </h2>
                 	</div>
                     <div id="chart-content" style="position: absolute;left:50px;right:50px;top:100px;bottom:50px;"></div>
                 </div>
