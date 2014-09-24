@@ -76,7 +76,7 @@ var menuInfo = {
     },
     chart: {
         title: "Charts",
-        msg: "Chart! Really? Wow!",
+        msg: "Provides a variety of data visualization components.",
         src : "chart/common.html"
     },
     tips: {
