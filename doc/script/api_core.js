@@ -42,6 +42,16 @@ window.coreApi = {
             ret: "none",
             detail: "emit 메소드가 호출되면 on 메소드의 정의된 콜백 함수가 실행됩니다."
         },
+        bind: {
+            param: "eventType, callback",
+            ret: "none",
+            detail: "on 메소드와 동일하지만 이벤트를 중복으로 설정할 수 없습니다."
+        },
+        unbind: {
+            param: "eventType",
+            ret: "none",
+            detail: "bind 메소드로 설정된 이벤트를 제거합니다."
+        },
         addEvent: {
             param: "selector, domEventType, callback",
             ret: "none",
@@ -86,6 +96,11 @@ window.coreApi = {
             param: "object | optionName, optionValue",
             ret: "none",
             detail: "UI의 옵션을 동적으로 정의합니다."
+        },
+        destroy: {
+            param: "none",
+            ret: "none",
+            detail: "UI 객체와 DOM 엘리먼트에 설정된 이벤트를 모두 제거합니다."
         }
     },
     opt: {

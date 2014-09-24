@@ -55,6 +55,11 @@ var uiApi = {
 			ret: "object",
 			detail: "객체를 복사하여 반환합니다."
 		},
+        deepClone: {
+            param: "object",
+            ret: "object",
+            detail: "연결된 모든 객체를 복사하여 반환합니다."
+        },
 		sort: {
 			param: "array",
 			ret: "QuickSort",
@@ -125,6 +130,11 @@ var uiApi = {
 			ret: "array",
 			detail: "csv에서 보여지는 필드만 필터링합니다."
 		},
+        svgToBase64: {
+            param: "xml",
+            ret: "string",
+            detail: "xml 문자열을 base64 형태로 인코딩합니다."
+        },
 		dateFormat: {
 			param: "date, format, utc",
 			ret: "string",
