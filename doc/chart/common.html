@@ -348,13 +348,17 @@ function loadChartList() {
                  'data-index' :  index,
                  id : 'chart-list-' + index  
                 }).html(code.title).on('click', function(e) {
+
+                	e.preventDefault();
+                	
                     var index = $(this).data('index');
                     var type = $(this).data('type');
                     var fullscreen = $(this).data('fullscreen');
                     currentChartIndex = index; 
-                    
+                     
                     viewCodeEditor();
                     
+               
                     $(".vmenu .active").removeClass("active");
                     
                     $(this).parent().addClass('active');
@@ -383,7 +387,10 @@ function viewCodeEditor() {
 
     //$("#modal_1").find(".title").html([code.title, " (", code.code ,")"].join(""));
 
-    modal_show();
+	if ($("#modal_1").css('display') == 'none') {
+		modal_show();	
+	} 
+    
 
     if (!editor) {
         editor = CodeMirror.fromTextArea($("#chart-code-text")[0], {
