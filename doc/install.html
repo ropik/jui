@@ -18,46 +18,53 @@
 <body class="jui">
 
 <div class="page-header" style="padding-top: 50px;">
-	<h1>Common</h1>
+    <h1>Common</h1>
 </div>
 
 <section>
-	<h2>Minify</h2>
-	
-	<p>
-		JUI 라이브러리는 스타일만 별도로 사용할 수 있으며 하나의 패키징된 파일만 로드하면 됩니다.<br/>
-		그리고 <strong>jui</strong> 클래스가 설정되어 있는 마크업의 하위에서만 사용할 수 있으니 이점 참고하시기 바랍니다.
+    <h2>Minify</h2>
+
+    <p>
+        JUI 라이브러리는 스타일만 별도로 사용할 수 있으며 하나의 패키징된 파일만 로드하면 됩니다.<br/>
+        그리고 <strong>jui</strong> 클래스가 설정되어 있는 마크업의 하위에서만 사용할 수 있으니 이점 참고하시기 바랍니다.
 		
 		<pre><code class="language-markup">&lt;link rel="stylesheet" href="jui.min.css" />
-&lt;link rel="stylesheet" href="animate.css" /></code></pre>
+            &lt;link rel="stylesheet" href="animate.css" /></code></pre>
 		<pre><code class="language-markup">&lt;body class="jui">
-	...
-&lt;/body></code></pre>
-	</p>
-	
-	<p class="br">
-		스크립트는 <strong>jQuery 1.8</strong> 이상에서만 동작하므로 관련 파일을 먼저 로드해야 합니다.
+            ...
+            &lt;/body></code></pre>
+    </p>
+
+    <p class="br">
+        스크립트는 <strong>jQuery 1.8</strong> 이상에서만 동작하므로 관련 파일을 먼저 로드해야 합니다.
 		
 		<pre><code class="language-markup">&lt;script src="jquery.min.js">&lt;/script>
-&lt;script src="jui.min.js">&lt;/script></code></pre>
-	</p>
+            &lt;script src="jui.min.js">&lt;/script></code></pre>
+    </p>
 </section>
 
 <section>
-	<h2>Debug</h2>
-	
-	<p>
-		스크립트는 디버깅 용도로 각각 별도로 로드할 수 있으며 <strong>base</strong>와 <strong>core</strong>는 필수 로드 파일입니다.
-		
-		<pre><code class="language-markup">&lt;script src="js/base.js"&gt;&lt;/script&gt;
-&lt;script src="js/core.js"&gt;&lt;/script&gt;</code></pre>
-	</p>
+    <h2>Debug</h2>
 
-	<p class="br">
-		다음으로는 <strong>ui</strong> 폴더 안의 파일들을 먼저 로드해야 하며 <strong>uix</strong>의 파일들은 맨 마지막에 로드합니다.
+    <p>
+        스크립트는 디버깅 용도로 각각 별도로 로드할 수 있으며 <strong>base</strong>와 <strong>core</strong>는 필수 로드 파일입니다.
 		
 		<pre><code class="language-markup">&lt;script src="js/base.js"&gt;&lt;/script&gt;
+            &lt;script src="js/core.js"&gt;&lt;/script&gt;</code></pre>
+    </p>
+
+    <p class="br">
+        그 다음에는 <strong>util</strong>과 <strong>ui</strong> 모듈을 먼저 로드하고, 순서대로 <strong>uix</strong>와 <strong>chart</strong> 모듈을 로드하면 됩니다.
+
+		<pre><code class="language-markup">// base
+&lt;script src="js/base.js"&gt;&lt;/script&gt;
 &lt;script src="js/core.js"&gt;&lt;/script&gt;
+// util
+&lt;script src="js/util.math.js"&gt;&lt;/script&gt;
+&lt;script src="js/util.time.js"&gt;&lt;/script&gt;
+&lt;script src="js/util.scale.js"&gt;&lt;/script&gt;
+&lt;script src="js/util.svg.js"&gt;&lt;/script&gt;
+// ui
 &lt;script src="js/ui/button.js"&gt;&lt;/script&gt;
 &lt;script src="js/ui/combo.js"&gt;&lt;/script&gt;
 &lt;script src="js/ui/datepicker.js"&gt;&lt;/script&gt;
@@ -66,25 +73,69 @@
 &lt;script src="js/ui/notify.js"&gt;&lt;/script&gt;
 &lt;script src="js/ui/paging.js"&gt;&lt;/script&gt;
 &lt;script src="js/ui/tooltip.js"&gt;&lt;/script&gt;
+&lt;script src="js/ui/layout.js"&gt;&lt;/script&gt;
+// uix
 &lt;script src="js/uix/autocomplete.js"&gt;&lt;/script&gt;
 &lt;script src="js/uix/tab.js"&gt;&lt;/script&gt;
 &lt;script src="js/uix/table.js"&gt;&lt;/script&gt;
 &lt;script src="js/uix/tree.js"&gt;&lt;/script&gt;
 &lt;script src="js/uix/window.js"&gt;&lt;/script&gt;
-&lt;script src="js/uix/xtable.js"&gt;&lt;/script&gt;</code></pre>
-	</p>
-	
-	<p class="br">
-		필요에 따라 사용하지 않는 UI 파일을 로드하지 않아도 되며 <strong>uix</strong> 폴더의 UI는 <strong>ui</strong> 폴더의 UI를 사용하기 때문에 주의하시기 바랍니다.
-	</p>
+&lt;script src="js/uix/xtable.js"&gt;&lt;/script&gt;
+// chart base
+&lt;script src="js/chart/draw.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/builder.js"&gt;&lt;/script&gt;
+// chart theme
+&lt;script src="js/chart/theme/jennifer.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/theme/dark.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/theme/seoul.js"&gt;&lt;/script&gt;
+// chart grid
+&lt;script src="js/chart/grid/core.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/grid/block.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/grid/date.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/grid/radar.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/grid/range.js"&gt;&lt;/script&gt;
+// chart brush
+&lt;script src="js/chart/brush/core.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/bar.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/bubble.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/candlestick.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/column.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/donut.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/equalizer.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/fullstack.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/line.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/path.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/pie.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/scatter.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/stackbar.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/stackcolumn.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/bargauge.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/circlegauge.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/fillgauge.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/area.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/stackline.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/stackarea.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/stackscatter.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/gauge.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/fullgauge.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/brush/stackgauge.js"&gt;&lt;/script&gt;
+// chart widget
+&lt;script src="js/chart/widget/tooltip.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/widget/title.js"&gt;&lt;/script&gt;
+&lt;script src="js/chart/widget/legend.js"&gt;&lt;/script&gt;</code></pre>
+    </p>
+
+    <p class="br">
+        필요에 따라 사용하지 않는 모듈은 로드하지 않아도 되지만 종속 관계가 있는 모듈에서 에러가 발생할 수 있으니 유의하시기 바랍니다.
+    </p>
 </section>
 
 <section>
-	<h2>Build & Test</h2>
-	
-	<p>
-		테스트를 수행하고 패키지에 포함된 <strong>.less</strong>와 <strong>.js</strong> 파일을 하나의 파일로 합치기 위해서는 아래와 같은 명령어를 실행하면 됩니다.<br/>
-		참고로 빌드 도구인 <strong>Grunt</strong> 모듈은 <strong>NodeJS</strong>가 설치되어 있어야 합니다.
+    <h2>Build & Test</h2>
+
+    <p>
+        테스트를 수행하고 패키지에 포함된 <strong>.less</strong>와 <strong>.js</strong> 파일을 하나의 파일로 합치기 위해서는 아래와 같은 명령어를 실행하면 됩니다.<br/>
+        참고로 빌드 도구인 <strong>Grunt</strong> 모듈은 <strong>NodeJS</strong>가 설치되어 있어야 합니다.
 		
 		<span class="label label-gray label-small" style="width: 100%; height: 100px; margin-top: 5px;">
 			npm install grunt-cli -g<br/>
@@ -92,7 +143,7 @@
 			npm install<br/>
 			grunt
 		</span>
-	</p>
+    </p>
 </section>
 
 </body>
