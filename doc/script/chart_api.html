@@ -16,23 +16,195 @@
 <script>
 var uiApi = {
 	prop: {
-		type: {
-			detail: "모달이 보여지는지 숨겨져 있는지에 대한 상태 값입니다."
-		}
-	},
-	method: {
-        resize: {
-            param: "none",
-            ret: "none",
-            detail: "모달 위치를 다시 조정합니다."
+		svg: {
+			detail: "SVG 유틸리티 객체를 참조합니다."
+		},
+        clipId: {
+            detail: "차트의 클립 영역의 아이디를 가져옵니다."
+        },
+        defs: {
+            detail: "차트에 추가된 'defs' 엘리먼트를 가져옵니다."
         }
 	},
-	event: {},
-	tpl: {},
+	method: {
+        setPadding: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        area: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        width: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        height: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        x: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        y: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        x2: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        y2: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        bindUI: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        text: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        setTheme: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        theme: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        padding: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        data: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        series: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        grid: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        brush: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        createId: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        render: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        update: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        page: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        getPage: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        },
+        size: {
+            param: "none",
+            ret: "none",
+            detail: ""
+        }
+	},
+	event: {
+        click: {
+            detail: "브러쉬를 클릭하면 발생하는 이벤트입니다."
+        },
+        dblclick: {
+            detail: "브러쉬를 더블클릭하면 발생하는 이벤트입니다."
+        },
+        contextmenu: {
+            detail: "브러쉬에 마우스 오른쪽을 클릭하면 발생하는 이벤트입니다."
+        },
+        mouseover: {
+            detail: "브러쉬에 마우스를 올리면 발생하는 이벤트입니다."
+        },
+        mouseout: {
+            detail: "브러쉬에 마우스가 벗어나면 발생하는 이벤트입니다."
+        },
+        mousemove: {
+            detail: "브러쉬에 마우스가 이동하면 발생하는 이벤트입니다."
+        }
+    },
+	tpl: {
+        tooltip: {
+            detail: ""
+        }
+    },
 	opt: {
-		color: {
-			detail: "모달의 색상을 설정합니다. (black / white)"
-		}
+		width: {
+			detail: "차트 넓이를 정합니다."
+		},
+        height: {
+            detail: "차트 높이를 정합니다."
+        },
+        padding: {
+            detail: "차트 여백을 정합니다."
+        },
+        theme: {
+            detail: "차트 테마를 선택합니다."
+        },
+        data: {
+            detail: "차트 데이터를 설정합니다."
+        },
+        series: {
+            detail: "특정 데이터 프로퍼티의 추가 정보를 설정합니다."
+        },
+        grid: {
+            detail: "차트에서 사용할 그리드를 설정합니다."
+        },
+        brush: {
+            detail: "차트에 추가할 브러쉬를 정합니다."
+        },
+        widget: {
+            detail: "차트에 추가할 위젯을 정합니다."
+        },
+        buffer: {
+            detail: "한 페이지에 데이터 표현 타입을 설정합니다."
+        },
+        bufferCount: {
+            detail: "한 페이지에 보여줄 데이터 개수입니다."
+        },
+        bind: {
+            detail: "바인딩 할 컴포넌트 객체를 설정합니다."
+        }
 	}
 };
 
@@ -42,13 +214,17 @@ jui.ready([ "chart.builder", "util.base" ], function(builder, _) {
             tooltip: "."
         },
         event: {
-            click: function() {}
+            click: function() {},
+            dblclick: function() {},
+            contextmenu: function() {},
+            mouseover: function() {},
+            mouseout: function() {},
+            mousemove: function() {}
         }
     });
 	
 	juiApi(ui, uiApi, _.template, function() {
-		//$("#api_event").hide();
-		//$("#api_tpl").hide();
+		$("#api_tpl").hide();
 	});
 });
 
