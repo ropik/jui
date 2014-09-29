@@ -44,7 +44,8 @@ var menuInfo = {
             autocomplete: "script/autocomplete",
             datepicker: "script/datepicker",
             notify: "script/notify",
-            layout: "script/layout"
+            layout: "script/layout",
+            chart: "script/chart"
         }
     },
     style: {
@@ -179,10 +180,10 @@ function initSubMenuUrl(hash) {
 		} else {
 			loadIframe($target.find("iframe"), src);			
 		}
-	
+
 	}
-	
-	
+
+
 	if(hash[0] == "script") {
 		initLeafMenuUrl(hash, src, $target, $menu);
 	}
@@ -190,12 +191,12 @@ function initSubMenuUrl(hash) {
 
 function initLeafMenuUrl(hash, src, $target, $menu) {
 	var $submenu = $("#" + hash[0]).find(".submenu");
-	
+
 	if(hash[1] == "common") {
 		$submenu.hide();
 		return;
 	}
-	
+
 	// 서브메뉴 위치 설정
 	$submenu.insertAfter($menu);
 	$submenu.find("li").attr("data-key", hash[1]);		
