@@ -137,6 +137,17 @@ var uiApi = {
             ret: "int",
             detail: "현재 렌더링 된 데이터의 페이지를 가져옵니다."
         },
+        next: {
+            param: "none",
+            ret: "none",
+            detail: "설정된 쉬프팅 개수만큼 다음 데이터를 렌더링합니다."
+        },
+        prev: {
+            param: "none",
+            ret: "none",
+            detail: "설정된 쉬프팅 개수만큼 이전 데이터를 렌더링합니다."
+        },
+
         size: {
             param: "width, height",
             ret: "none",
@@ -196,11 +207,11 @@ var uiApi = {
         widget: {
             detail: "차트에 추가할 위젯을 정합니다."
         },
-        buffer: {
-            detail: "한 페이지에 데이터 표현 타입을 설정합니다."
-        },
         bufferCount: {
             detail: "한 페이지에 보여줄 데이터 개수입니다."
+        },
+        shiftCount: {
+            detail: "쉬프팅 데이터 개수입니다."
         },
         bind: {
             detail: "바인딩 할 컴포넌트 객체를 설정합니다."
