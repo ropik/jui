@@ -27,120 +27,120 @@ var uiApi = {
         }
 	},
 	method: {
-        setPadding: {
-            param: "none",
-            ret: "none",
-            detail: ""
-        },
         area: {
-            param: "none",
-            ret: "none",
-            detail: ""
+            param: "type",
+            ret: "int",
+            detail: "계산된 차트 영역에 대한 값을 가져옵니다."
         },
         width: {
-            param: "none",
-            ret: "none",
-            detail: ""
+            param: "width",
+            ret: "none | int",
+            detail: "차트 넓이를 가져오거나 설정합니다."
         },
         height: {
-            param: "none",
-            ret: "none",
-            detail: ""
+            param: "height",
+            ret: "none | int",
+            detail: "차트 높이를 가져오거나 설정합니다."
         },
         x: {
-            param: "none",
-            ret: "none",
-            detail: ""
+            param: "x",
+            ret: "none | int",
+            detail: "x축 좌표를 가져오거나 설정합니다."
         },
         y: {
-            param: "none",
-            ret: "none",
-            detail: ""
+            param: "y",
+            ret: "none | int",
+            detail: "y축 좌표를 가져오거나 설정합니다."
         },
         x2: {
-            param: "none",
-            ret: "none",
-            detail: ""
+            param: "x2",
+            ret: "none | int",
+            detail: "차트 우측 기준으로 x축 좌표를 가져오거나 설정합니다."
         },
         y2: {
-            param: "none",
-            ret: "none",
-            detail: ""
+            param: "y2",
+            ret: "none | int",
+            detail: "차트 상단 기준으로 y축 좌표를 가져오거나 설정하빈다."
         },
         bindUI: {
-            param: "none",
+            param: "uiObject",
             ret: "none",
-            detail: ""
+            detail: "uix.table 또는 uix.xtable에서 사용하는 데이터를 바인딩합니다."
         },
         text: {
-            param: "none",
-            ret: "none",
-            detail: ""
+            param: "attributes, text | callback",
+            ret: "object",
+            detail: "테마가 적용된 텍스트 엘리먼트를 생성합니다."
         },
         setTheme: {
-            param: "none",
+            param: "themeName",
             ret: "none",
-            detail: ""
+            detail: "차트에 적용할 테마 모듈을 설정합니다."
         },
         theme: {
-            param: "none",
-            ret: "none",
-            detail: ""
+            param: "key | isSelected, value1, value2",
+            ret: "int | string",
+            detail: "현재 차트에 적용된 테마 요소에 대한 값을 가져옵니다."
+        },
+        color: {
+            param: "index, colors",
+            ret: "string",
+            detail: "테마 또는 컬러셋에 정의된 색상을 가져옵니다."
         },
         padding: {
-            param: "none",
-            ret: "none",
-            detail: ""
+            param: "type",
+            ret: "int",
+            detail: "상/하/좌/우 여백 값을 가져옵니다."
         },
         data: {
-            param: "none",
-            ret: "none",
-            detail: ""
+            param: "index, field",
+            ret: "array | object",
+            detail: "버퍼 개수에 맞는 데이터를 가져옵니다."
         },
         series: {
-            param: "none",
-            ret: "none",
-            detail: ""
+            param: "name",
+            ret: "object",
+            detail: "해당 이름의 시리즈를 가져오거나 전체 시리즈 목록을 가져옵니다."
         },
         grid: {
-            param: "none",
-            ret: "none",
-            detail: ""
+            param: "name",
+            ret: "object",
+            detail: "해당 이름의 그리드를 가져오거나 전체 그리드 목록을 가져옵니다."
         },
         brush: {
-            param: "none",
-            ret: "none",
-            detail: ""
+            param: "name",
+            ret: "array | obejct",
+            detail: "해당 이름의 브러쉬를 가져오거나 전체 브러쉬 목록을 가져옵니다."
         },
         createId: {
-            param: "none",
-            ret: "none",
-            detail: ""
+            param: "key",
+            ret: "string",
+            detail: "차트 내에서 사용될 고유 키를 가져옵니다."
         },
         render: {
             param: "none",
             ret: "none",
-            detail: ""
+            detail: "모든 드로우 객체를 렌더링합니다."
         },
         update: {
-            param: "none",
+            param: "data",
             ret: "none",
-            detail: ""
+            detail: "새로운 데이터를 기준으로 렌더링합니다."
         },
         page: {
-            param: "none",
+            param: "index",
             ret: "none",
-            detail: ""
+            detail: "해당 페이지의 데이터를 기준으로 렌더링합니다."
         },
         getPage: {
             param: "none",
-            ret: "none",
-            detail: ""
+            ret: "int",
+            detail: "현재 렌더링 된 데이터의 페이지를 가져옵니다."
         },
         size: {
-            param: "none",
+            param: "width, height",
             ret: "none",
-            detail: ""
+            detail: "해당 넓이와 높이로 차트 크기를 변경하여 렌더링합니다."
         }
 	},
 	event: {
