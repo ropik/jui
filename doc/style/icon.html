@@ -18,18 +18,24 @@
 </div>
 
 <section>
-	<h2>Default</h2>
+    <h2>Default</h2>
+    <p>
+        아이콘은 폰트와 동일한 속성을 가지며, 아래 코드와 같이 크기와 색상을 설정할 수 있습니다. &nbsp;
+        <i class="icon-gear" style="font-size: 12px; color: red;"></i>
+        <i class="icon-gear" style="font-size: 15px; color: blue;"></i>
+        <i class="icon-gear" style="font-size: 18px; color: green;"></i>
+        <i class="icon-gear" style="font-size: 21px; color: black;"></i>
+
+        <pre><code class="language-markup">&lt;i class="icon-gear" style="font-size: 12px; color: red;"&gt;
+&lt;i class="icon-gear" style="font-size: 15px; color: blue;"&gt;
+&lt;i class="icon-gear" style="font-size: 18px; color: green;"&gt;
+&lt;i class="icon-gear" style="font-size: 21px; color: black;"&gt;</code></pre>
+    </p>
+
+	<h2>Types</h2>
 	<p>
-		아이콘 컴포넌트는 4가지의 색상과 2가지의 크기 그리고 한가지의 포지션 옵션을 제공합니다.
-		
-<pre><code class="language-markup">&lt;i class="icon-<b>name</b>"&gt;
-&lt;i class="icon-<b>name</b> icon-large"&gt;
-&lt;i class="icon-<b>name</b> icon-white"&gt;
-&lt;i class="icon-<b>name</b> icon-white icon-large"&gt;
-&lt;i class="icon-<b>name</b> icon-white icon-large icon-edge"&gt;</code></pre>
-	</p>
-	
-	<p class="br">
+        JUI 라이브러리는 매우 다양한 아이콘을 제공하며, 아래 테이블을 참고하여 사용하시면 됩니다.
+
 	<table class="table_s" width="100%" cellpadding="0" cellspacing="0">
 		<tr>
 			<td width="20%">Name</td>
@@ -849,23 +855,12 @@
 		</tr>
 	</table>
 	</p>
+
+    <h2>Deprecated</h2>
+    <p>
+        기본적으로 4가지의 색상을 옵션으로 제공하지만 최근에 아이콘 폰트로 변경되므로써 차후에는 제거될 옵션입니다.
+    </p>
 </section>
 
-<section>
-	<h2>Edge</h2>
-	<p>
-		버튼이나 라벨과 같은 컴포넌트 안에서 우측 끝에 아이콘을 보여주고 싶다면, <strong>icon-edge</strong> 옵션을 사용하면 됩니다.
-		
-		<p>
-			<a class="btn btn-gray" style="width: 200px;">Button <i class="icon-chevron-right icon-edge"></i></a> 
-			<span class="label label-purple" style="width: 200px;">Button <i class="icon-chevron-right icon-white icon-edge"></i></span> 
-		</p>
-		
-		<p class="br">
-<pre><code class="language-markup">&lt;a class="btn btn-gray" style="width: 200px;"&gt;Button &lt;i class="icon-chevron-right icon-edge"&gt;&lt;/i&gt;&lt;/a&gt;
-&lt;span class="label label-purple" style="width: 200px;"&gt;Button &lt;i class="icon-chevron-right icon-white icon-edge"&gt;&lt;/i&gt;&lt;/span&gt;</code></pre>
-		</p>
-	</p>
-</section>
 </body>
 </html>
