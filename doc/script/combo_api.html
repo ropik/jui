@@ -81,8 +81,11 @@ var uiApi = {
 		}
 	},
 	event: {
+        click: {
+            detail: "콤보박스가 클릭되면 발생하는 이벤트입니다."
+        },
 		change: {
-			detail: "콤보박스를 선택하면 발생되는 이벤트입니다."
+			detail: "콤보박스가 클릭되거나 활성화 버튼이 변경되었을 때, 발생하는 이벤트입니다."
 		}
 	},
 	tpl: {
@@ -97,7 +100,8 @@ var uiApi = {
 jui.ready(function(ui, uix, _) {
 	var ui = ui.combo("#ui", {
 		event: {
-			change: function() {},
+            click: function() {},
+			change: function() {}
 		}
 	});
 	
