@@ -26,10 +26,6 @@ var uiApi = {
 
 jui.defineUI('ui.test', [], function() {
 	var UI = function() {
-		this.setting = function() {
-			return {};
-		}
-		
 		this.init = function() {
 			return this;
 		}
@@ -75,7 +71,7 @@ jui.ready(function(ui, uix, _) {
 		}
 	}
 
-    UI.setting = function() {
+    UI.setup = function() {
         return {
             options: {
                 // UI 옵션 기본값 설정
