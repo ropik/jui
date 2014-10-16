@@ -224,13 +224,13 @@ function checkIeVersion() {
 }
 
 function loadIframe($iframe, src) {
-	loading.show();
+	//loading.show();
 	
 	$iframe.attr("src", src + ((src.indexOf(".html") != -1) ? "" : ".html"));
 	$iframe.unbind("load");
 	
 	$iframe.on("load", function(e) {
-		loading.hide();
+		//loading.hide();
 	});
 }
 
