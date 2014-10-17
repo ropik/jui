@@ -71,7 +71,7 @@
         height:100%;
     }
     .CodeMirror-scroll {
-        overflow:auto;
+        overflow: hidden;
     }
 </style>
 
@@ -91,12 +91,12 @@ var charts = [
     { type : 'pie', title : 'Pie Chart', start : 7 },
     { type : 'donut', title : 'Donut Chart', start : 8 },
     { type : 'scatter', title : 'Bubble & Scatter Chart', start : 9 },
-    { type : 'area', title : 'Area Chart', start : 14 },
-    { type : 'radar', title : 'Radar Chart', start : 20 },
-    { type : 'line', title : 'Line Chart', start : 22 },
-    { type : 'gauge', title : 'Gauge Chart', start : 29 },
-    { type : 'stock', title : 'Candle Stick Chart', start : 36 },
-    { type : 'mixed', title : 'Combination Chart', start : 39 }
+    { type : 'area', title : 'Area Chart', start : 15 },
+    { type : 'radar', title : 'Radar Chart', start : 21 },
+    { type : 'line', title : 'Line Chart', start : 23 },
+    { type : 'gauge', title : 'Gauge Chart', start : 30 },
+    { type : 'stock', title : 'Candle Stick Chart', start : 37 },
+    { type : 'mixed', title : 'Combination Chart', start : 41 }
 ];
 
 var code_list = [
@@ -123,6 +123,7 @@ var code_list = [
     { type : 'scatter', title : "Range Bubble", description : "", code : "range_bubble.js" },
     { type : 'scatter', title : "Basic Scatter", description : "", code : "scatter.js" },
     { type : 'scatter', title : "Range Scatter", description : "", code : "range_scatter.js" },
+    { type : 'scatter', title : "Range Scatter with cross", description : "", code : "range_scatter_cross.js" },
     { type : 'scatter', title : "Stack Scatter", description : "", code : "stack_scatter.js" },
 
     //area
@@ -160,6 +161,7 @@ var code_list = [
     { type : 'stock', title : "Candle Stick", description : "", code : "candlestick.js" },
     { type : 'stock', title : "Candle Stick with scroll", description : "", code : "candlestick_scroll.js" },
     { type : 'stock', title : "Candle Stick with zoom", description : "", code : "candlestick_zoom.js" },
+    { type : 'stock', title : "OHLC", description : "", code : "ohlc.js" },
 
     // combination chart
     { type : 'mixed', title : "Basic Combination",  description : "", code : "mixed1.js" },
@@ -274,7 +276,7 @@ function resetChart() {
     for(var i = 0; i < charts.length; i++) {
         if(charts[i].type == "chart.builder") {
             var obj = jui.remove(i);
-            obj.destroy();
+            //obj.destroy();
         }
     }
 }

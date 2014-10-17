@@ -94,7 +94,7 @@
 				delay: 1000
 			});
 			
-			jui.logUrl = "../../lib/jui.mng.html";
+			jui.logUrl = "../../lib/jui/jui.mng.html";
 		});
 		
 		// API 문서 관련 함수

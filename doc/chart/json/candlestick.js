@@ -61,5 +61,9 @@ chart("#chart", {
     },
     brush : {
         type : 'candlestick'
+    },
+    widget : {
+        type : "tooltip",
+        position : "bottom"
     }
 });
