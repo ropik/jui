@@ -51,4 +51,4 @@ chart("#chart", {
 	}, {
 		type : 'legend'
 	}]
-}).render();
+});

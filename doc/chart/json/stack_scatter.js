@@ -27,4 +27,4 @@ chart("#chart", {
         type: "stackscatter",
         size: 10
     }
-}).render();
+});

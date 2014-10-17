@@ -27,4 +27,4 @@ chart("#chart", {
         type : "bar",
         target : [ "sales", "profit" ]
     }
-}).render();
+});

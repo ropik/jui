@@ -26,4 +26,4 @@ chart("#chart", {
     	{ type : 'title', text : 'Stock Sample'},
     	{ type : 'legend'} 
     ],
-}).render();
+});

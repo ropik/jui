@@ -7,4 +7,4 @@ var c = chart("#chart", {
         min : 0,
         max : 100
 	}
-}).render();
+});

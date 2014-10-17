@@ -36,4 +36,4 @@ chart("#chart-content", {
         type : "tooltip",
         brush : 2
     }
-}).render();
+});

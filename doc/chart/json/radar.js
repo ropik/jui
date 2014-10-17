@@ -22,4 +22,4 @@ chart("#chart", {
     	{ type : 'title', text : 'My Character Info'},
     	{ type : 'legend' }
     ]
-}).render();
+});

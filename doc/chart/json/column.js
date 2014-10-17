@@ -28,4 +28,4 @@ chart("#chart", {
     	{ type : 'legend' },
      	{ type : "tooltip", brush : 0 }
     ] 
-}).render();
+});

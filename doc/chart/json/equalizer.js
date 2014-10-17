@@ -32,4 +32,4 @@ chart("#chart", {
         gap : 5,
         unit : 10
     }
-}).render();
+});

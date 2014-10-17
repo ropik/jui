@@ -40,4 +40,4 @@ chart("#chart", {
 		type : "line",
 		target : [ "apple", "microsoft", "oracle" ]
 	}
-}).render();
+});

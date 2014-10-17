@@ -26,4 +26,4 @@ chart("#chart-content", {
     }, {
         type : "stackline"
     }]
-}).render();
+});

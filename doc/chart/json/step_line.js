@@ -23,4 +23,4 @@ chart("#chart", {
         type : "line",
         symbol : "step"
     }
-}).render();
+});

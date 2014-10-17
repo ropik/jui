@@ -27,4 +27,4 @@ chart("#chart", {
         type: "scatter",
         size: 10
     }
-}).render();
+});

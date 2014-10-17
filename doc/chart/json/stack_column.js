@@ -24,4 +24,4 @@ var chart = jui.include("chart.builder");
         type : "stackcolumn",
         target : [ "samsung", "lg", "sony" ]
     }
-}).render();
+});

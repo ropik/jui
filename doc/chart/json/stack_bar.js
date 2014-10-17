@@ -29,4 +29,4 @@ chart("#chart", {
         type : "stackbar",
         target : [ "samsung", "lg", "sony" ]
     }
-}).render();
+});

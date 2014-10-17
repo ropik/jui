@@ -62,4 +62,4 @@ chart("#chart", {
     brush : {
         type : 'candlestick'
     }
-}).render();
+});

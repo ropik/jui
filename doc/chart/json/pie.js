@@ -17,4 +17,4 @@ chart("#chart", {
     	{ type : 'title', text : 'Pie Chart' },
     	{ type : 'legend' }
     ]
-}).render();
+});

@@ -27,4 +27,4 @@ chart("#chart", {
         type : 'fullstack',
         target : [ "samsung", "lg", "sony" ]
     }
-}).render();
+});

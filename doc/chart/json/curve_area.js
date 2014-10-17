@@ -26,4 +26,4 @@ chart("#chart-content", {
         type : "line",
         symbol : "curve"
     }]
-}).render();
+});

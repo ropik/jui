@@ -53,4 +53,4 @@ chart("#chart", {
     }, {
         type : "scatter", target : "unique", y1 : 0, colors : [ "#1d7fb3" ], symbol : "circle", size: 7
     }]
-}).render();
+});

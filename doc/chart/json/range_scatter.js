@@ -46,4 +46,4 @@ chart("#chart", {
         size : 7,
         target : [ "sales", "profit", "total" ]
     }
-}).render();
+});

@@ -19,4 +19,4 @@ chart("#chart", {
         //split : true
         // title : "title"  생략 가능
     }
-}).render();
+});

@@ -1,7 +1,6 @@
 var chart = jui.include("chart.builder");
 
 chart("#chart-content", {
-
     data : [
         { quarter : "1Q", sales : 50, profit : 35 },
         { quarter : "2Q", sales : -20, profit : -30 },
@@ -28,4 +27,4 @@ chart("#chart-content", {
         type : 'bar',
         target : [ "sales", "profit"]
     }
-}).render();
+});

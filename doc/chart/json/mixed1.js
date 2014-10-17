@@ -27,4 +27,4 @@ chart("#chart-content", {
     	{ type : 'title', text : 'Combination Chart' },
     	{ type : 'legend', brush : [0, 1]}
     ]
-}).render();
+});

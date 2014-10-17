@@ -12,4 +12,4 @@ chart("#chart", {
         arrow : true,
         unitText : "feeds"
     }
-}).render();
+});

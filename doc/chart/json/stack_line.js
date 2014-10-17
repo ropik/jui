@@ -24,4 +24,4 @@ chart("#chart", {
     brush : {
         type : "stackline"
     }
-}).render();
+});

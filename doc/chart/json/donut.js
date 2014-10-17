@@ -18,4 +18,4 @@ chart("#chart", {
     	{ type : 'title', text : 'Donut Sample'},
     	{ type : 'legend' }
     ]
-}).render();
+});
