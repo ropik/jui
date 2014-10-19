@@ -26,5 +26,9 @@ chart("#chart", {
     brush: {
         type: "scatter",
         size: 10
-    }
+    },
+    widget : [
+        { type : "title", text : "Scatter Sample"},
+        { type : "tooltip" }
+    ]
 });

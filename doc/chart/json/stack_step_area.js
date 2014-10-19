@@ -32,8 +32,8 @@ chart("#chart-content", {
         size : 10,
         symbol : "circle"
     }],
-    widget : {
-        type : "tooltip",
-        brush : 2
-    }
+    widget : [{
+        type : "title",
+        text : "Area Sample"
+    }]
 });

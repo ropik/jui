@@ -23,5 +23,9 @@ chart("#chart", {
     },
     brush : {
         type : "stackline"
-    }
+    },
+    widget : [
+        { type : "title", text : "Line Sample" },
+        { type : "legend" }
+    ]
 });

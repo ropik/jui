@@ -26,8 +26,8 @@ chart("#chart", {
         target : [ "sales", "profit" ]
     },
     widget : [
-    	{ type : "tooltip", brush : 0 },
-    	{ type : 'title', text : 'Donut Sample'},
-    	{ type : 'legend' }
+    	{ type : "title", text : "Bubble Sample"},
+        { type : "tooltip" },
+    	{ type : "legend" }
     ]
 });

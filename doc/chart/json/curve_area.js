@@ -25,5 +25,9 @@ chart("#chart-content", {
     }, {
         type : "line",
         symbol : "curve"
+    }],
+    widget : [{
+        type : "title",
+        text : "Area Sample"
     }]
 });

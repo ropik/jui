@@ -31,5 +31,8 @@ chart("#chart", {
         outerPadding : 3,
         gap : 5,
         unit : 10
-    }
+    },
+    widget : [
+        { type : "title", text : "Equalizer Sample" }
+    ]
 });

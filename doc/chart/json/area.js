@@ -24,9 +24,8 @@ chart("#chart-content", {
 	}, {
 		type : "line"
 	}],
-    widget : [
-    	{ type : 'title', text : 'Basic Area' },
-    	{ type : 'legend' },
-     	{ type : "tooltip", brush : 1 }
-    ]
+    widget : [{
+        type : "title",
+        text : "Area Sample"
+    }]
 });

@@ -1,6 +1,6 @@
 var chart = jui.include("chart.builder");
 
-var c = chart("#chart", {
+chart("#chart", {
     data : [
         { title : "OPTION 1", value : 75 },
         { title : "OPTION 2", value : 68 },
@@ -10,12 +10,8 @@ var c = chart("#chart", {
         { title : "OPTION 6", value : 20 },
     ],
     brush : [{
-        type : 'stackgauge',
+        type : "stackgauge",
         target : "value",
         size : 18
-        // title : "title"  생략 가능
-
     }]
 });
-
-c.render();

@@ -42,13 +42,18 @@ chart("#chart", {
 		max : 50,
 		target : ["v1", "v2", "v3", "v4", "v5"]
 	},
-	widget : [{
-		type : 'tooltip',
-		brush : 0
-	}, {
-		type : 'title',
-		text : 'Range Bubble Sample'
-	}, {
-		type : 'legend'
-	}]
+    widget : [
+        { type : "title", text : "Bubble Sample"},
+        { type : "tooltip" },
+        { type : "legend" },
+        { type : "cross",
+            format : function(d) {
+                if(_.typeCheck("date", d)) {
+                    return _.dateFormat(d, "hh:mm");
+                } else {
+                    return Math.round(d);
+                }
+            }
+        }
+    ]
 });

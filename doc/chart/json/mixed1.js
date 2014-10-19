@@ -24,7 +24,7 @@ chart("#chart-content", {
         { type : "scatter", target : "sales", colors : [ "#7BBAE7" ], size: 7 }
     ],
     widget : [
-    	{ type : 'title', text : 'Combination Chart' },
-    	{ type : 'legend', brush : [0, 1]}
+    	{ type : "title", text : "Combination Sample" },
+    	{ type : "legend", brush : [ 0, 1 ] }
     ]
 });

@@ -25,5 +25,9 @@ chart("#chart-content", {
         type : "stackarea"
     }, {
         type : "stackline"
+    }],
+    widget : [{
+        type : "title",
+        text : "Area Sample"
     }]
 });

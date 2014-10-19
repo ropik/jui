@@ -22,5 +22,9 @@ chart("#chart", {
     brush : {
         type : "line",
         symbol : "step"
-    }
+    },
+    widget : [
+        { type : "title", text : "Line Sample" },
+        { type : "legend" }
+    ]
 });

@@ -1,5 +1,5 @@
 var chart = jui.include("chart.builder");
-var time = jui.include('util.time');
+var time = jui.include("util.time");
 
 var dataSource = [
     { date: new Date(1994,2,1), l: 24.00, h: 25.00, o: 25.00, c: 24.875 },
@@ -32,14 +32,14 @@ chart("#chart", {
     grid : {
         x : {
             type : "block",  // default type is block
-            target : 'date',
+            target : "date",
             format: function(d) {
                 return time.format(d, "MM-dd");
             },
             line: true
         },
         y : {
-            type : 'range',
+            type : "range",
             domain: [ 20, 30 ],
             step: 5,
             line : true 
@@ -60,6 +60,6 @@ chart("#chart", {
         }
     },
     brush : {
-        type : 'ohlc'
+        type : "ohlc"
     }
 });

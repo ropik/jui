@@ -21,12 +21,12 @@ chart("#chart", {
             line : true
         }
     },
-    widget : [
-    	{ type : 'title', text : 'Stack Bar' },
-    	{ type : 'legend' }
-    ],
     brush : {
         type : "stackbar",
         target : [ "samsung", "lg", "sony" ]
-    }
+    },
+    widget : [
+        { type : "title", text : "Bar Sample" },
+        { type : "legend" }
+    ]
 });

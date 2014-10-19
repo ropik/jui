@@ -13,10 +13,8 @@ chart("#chart", {
         { title : "OPTION 6", value : 20 },
     ],
     brush : {
-        type : 'bargauge',
-        target : "value",
-        size : 18
-        //split : true
-        // title : "title"  생략 가능
+        type: "bargauge",
+        target: "value",
+        size: 18
     }
 });

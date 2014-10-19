@@ -11,11 +11,16 @@ chart("#chart", {
     brush : {
         type : "donut",
         target : "share",
-        legend : 'browser',
         size : 100
     },
+    series : {
+        share: {
+            text: "점유율(%)"
+        }
+    },
     widget : [
-    	{ type : 'title', text : 'Donut Sample'},
-    	{ type : 'legend' }
+        { type : "title", text : "Donut Sample" },
+        { type : "tooltip", position: "right" },
+        { type : "legend", key : "browser" }
     ]
 });

@@ -10,11 +10,16 @@ chart("#chart", {
     ],
     brush : {
         type : "pie",
-        target : "share",
-        legend : 'browser'
+        target : "share"
+    },
+    series : {
+        share: {
+            text: "점유율(%)"
+        }
     },
     widget : [
-    	{ type : 'title', text : 'Pie Chart' },
-    	{ type : 'legend' }
+    	{ type : "title", text : "Pie Sample" },
+        { type : "tooltip", position: "left" },
+    	{ type : "legend", key : "browser" }
     ]
 });

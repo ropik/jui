@@ -1,5 +1,5 @@
 var chart = jui.include("chart.builder");
-var time = jui.include('util.time');
+var time = jui.include("util.time");
 
 var dataSource = [
     { date: new Date(1994,2,1), l: 24.00, h: 25.00, o: 25.00, c: 24.875 },
@@ -32,14 +32,14 @@ chart("#chart", {
     grid : {
         x : {
             type : "block",  // default type is block
-            target : 'date',
+            target : "date",
             format: function(d) {
                 return time.format(d, "MM-dd");
             },
             line: true
         },
         y : {
-            type : 'range',
+            type : "range",
             domain: [ 20, 30 ],
             step: 5,
             line : true 
@@ -47,20 +47,25 @@ chart("#chart", {
     },
     series : {
         l: {
-            type: "low"
+            type: "low",
+            text: "최저"
         },
         h: {
-            type: "high"
+            type: "high",
+            text: "최고"
         },
         o: {
-            type: "open"
+            type: "open",
+            text: "시작"
         },
         c: {
-            type: "close"
+            type: "close",
+            text: "종료"
         }
     },
     brush : {
-        type : 'candlestick'
+        type : "candlestick",
+        target : [ "l", "h", "o", "c" ]
     },
     widget : {
         type : "tooltip",

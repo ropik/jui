@@ -14,17 +14,18 @@ chart("#chart-content", {
         },
         x : {
             type : "range",
-            target : ["sales", 'profit'],
+            target : ["sales", "profit"],
             step : 10,
       		line : true 
         }
     },
-    widget : [
-    	{ type : 'title', text : 'Bar Sample' },
-    	{ type : 'legend' }
-    ],
     brush : {
-        type : 'bar',
+        type : "bar",
         target : [ "sales", "profit"]
-    }
+    },
+    widget : [
+        { type : "title", text : "Bar Sample" },
+        { type : "tooltip" },
+        { type : "legend" }
+    ]
 });

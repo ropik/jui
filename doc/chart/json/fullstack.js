@@ -24,7 +24,11 @@ chart("#chart", {
         }
     },
     brush : {
-        type : 'fullstack',
+        type : "fullstack",
         target : [ "samsung", "lg", "sony" ]
-    }
+    },
+    widget : [
+        { type : "title", text : "Column Sample" },
+        { type : "legend" }
+    ]
 });

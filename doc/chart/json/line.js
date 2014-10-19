@@ -23,7 +23,7 @@ chart("#chart", {
         type : "line"
     },
     widget : [
-    	{ type : 'title', text : 'Stock Sample'},
-    	{ type : 'legend'} 
-    ],
+    	{ type : "title", text : "Line Sample" },
+    	{ type : "legend" }
+    ]
 });

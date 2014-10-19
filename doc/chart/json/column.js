@@ -14,7 +14,7 @@ chart("#chart", {
         },
         y : {
             type : "range",
-            target : ["sales", "profit"],
+            target : [ "sales", "profit" ],
             step : 10,
             line : true
         }
@@ -24,8 +24,8 @@ chart("#chart", {
         target : [ "sales", "profit" ]
     },
     widget : [
-    	{ type : 'title', text : 'Stack Bar' },
-    	{ type : 'legend' },
-     	{ type : "tooltip", brush : 0 }
-    ] 
+    	{ type : "title", text : "Column Sample" },
+        { type : "tooltip" },
+    	{ type : "legend" }
+    ]
 });

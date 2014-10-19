@@ -8,7 +8,6 @@ chart("#chart", {
         max : 700,
         startAngle : -90,
         endAngle : 180,
-        empty : 50,
         arrow : true,
         unitText : "feeds"
     }

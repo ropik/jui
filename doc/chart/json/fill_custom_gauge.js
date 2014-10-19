@@ -1,13 +1,13 @@
 var chart = jui.include("chart.builder");
 
-var c = chart("#chart", {
+chart("#chart", {
     width: 150,
     height : 330,
-    padding : 'empty',
+    padding : "empty",
     brush : {
-        type : 'fillgauge',
-        shape : 'custom', // default circle
-        direction : 'horizontal',
+        type : "fillgauge",
+        shape : "custom", // default circle
+        direction : "horizontal",
         value : 50,
         min : 0,
         max : 100,
@@ -15,5 +15,3 @@ var c = chart("#chart", {
 
     }
 });
-
-c.render();

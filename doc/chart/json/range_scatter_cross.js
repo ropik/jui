@@ -1,5 +1,5 @@
 var chart = jui.include("chart.builder");
-var _ = jui.include('util.base');
+var _ = jui.include("util.base");
 
 function getNumber() {
     return Math.round(Math.random() * 30  % 20);
@@ -47,10 +47,10 @@ chart("#chart", {
         target : [ "sales", "profit", "total" ]
     },
     widget : [{
-        type : 'title',
-        text : 'Cross Widget Sample'
+        type : "title",
+        text : "Scatter Sample"
     }, {
-        type : 'cross',
+        type : "cross",
         format : function(d) {
             if(_.typeCheck("date", d)) {
                 return _.dateFormat(d, "hh:mm");
@@ -59,6 +59,6 @@ chart("#chart", {
             }
         }
     }, {
-        type: 'tooltip'
+        type : "tooltip"
     }]
 });

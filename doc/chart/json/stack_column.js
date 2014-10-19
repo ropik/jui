@@ -23,5 +23,9 @@ var chart = jui.include("chart.builder");
     brush : {
         type : "stackcolumn",
         target : [ "samsung", "lg", "sony" ]
-    }
+    },
+     widget : [
+         { type : "title", text : "Column Sample" },
+         { type : "legend" }
+     ]
 });

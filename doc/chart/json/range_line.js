@@ -39,5 +39,9 @@ chart("#chart", {
 	brush : {  
 		type : "line",
 		target : [ "apple", "microsoft", "oracle" ]
-	}
+	},
+    widget : [
+        { type : "title", text : "Line Sample" },
+        { type : "legend" }
+    ]
 });

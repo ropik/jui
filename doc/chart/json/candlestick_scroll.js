@@ -33,14 +33,14 @@ chart("#chart", {
     grid : {
         x : {
             type : "block",  // default type is block
-            target : 'date',
+            target : "date",
             format: function(d) {
                 return time.format(d, "MM-dd");
             },
             line: true
         },
         y : {
-            type : 'range',
+            type : "range",
             domain: [ 20, 30 ],
             step: 5,
             line : true
@@ -62,13 +62,11 @@ chart("#chart", {
         c: {
             type: "close",
             text: "종료"
-        },
-        date: {
-            text: "날짜"
         }
     },
     brush : {
-        type : 'candlestick'
+        type : "candlestick",
+        target : [ "l", "h", "o", "c" ]
     },
     widget : [{
         type : "scroll"

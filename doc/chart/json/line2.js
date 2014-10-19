@@ -39,11 +39,6 @@ chart("#chart", {
             step : 4
         }
     },
-    
-    widget : [
-    	{ type : 'title', text : 'Stock Sample'},
-    	{ type : 'legend', brush : [0, 1]} 
-    ],
     brush : [{
         type : "line", target : "visitor", colors : [ "#1db34f" ]
     }, {
@@ -52,5 +47,9 @@ chart("#chart", {
         type : "scatter", target : "visitor", colors : [ "#1db34f" ], symbol : "circle", size: 7
     }, {
         type : "scatter", target : "unique", y1 : 0, colors : [ "#1d7fb3" ], symbol : "circle", size: 7
-    }]
+    }],
+    widget : [
+        { type : "title", text : "Line Sample" },
+        { type : "legend", brush : [ 0, 1 ] }
+    ]
 });
