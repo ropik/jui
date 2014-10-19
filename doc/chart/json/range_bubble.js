@@ -1,5 +1,5 @@
 var chart = jui.include("chart.builder");
-var time = jui.include('util.time');
+var time = jui.include("util.time");
 
 function getNumber() {
 	return Math.round(Math.random() * 30 % 20);
@@ -48,10 +48,10 @@ chart("#chart", {
         { type : "legend" },
         { type : "cross",
             format : function(d) {
-                if(_.typeCheck("date", d)) {
-                    return _.dateFormat(d, "hh:mm");
-                } else {
+                if(typeof(d) == "number") {
                     return Math.round(d);
+                } else {
+                    return _.format(d, "hh:mm");
                 }
             }
         }
