@@ -51,7 +51,7 @@ chart("#chart", {
                 if(typeof(d) == "number") {
                     return Math.round(d);
                 } else {
-                    return _.format(d, "hh:mm");
+                    return time.format(d, "hh:mm");
                 }
             }
         }
