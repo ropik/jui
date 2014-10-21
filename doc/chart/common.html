@@ -530,20 +530,43 @@ function viewCodeEditor() {
     })
 }
 
-function setFullScreen() {
+function setFunctions() {
     var $el = $(".btn-fullscreen");
 
     $el.on('click', function() {
+        var $el = $(".chart_view");
 
-         var $el = $(".chart_view");
-        if ($el.hasClass('fullscreen')){
-
+        if ($el.hasClass('fullscreen')) {
             $el.removeClass('fullscreen').animate({left : '710px' }, viewCodeEditor);
         } else {
             $el.addClass('fullscreen').animate({left : '255px' }, viewCodeEditor);
         }
     });
 
+    $(".btn-style").on("click", function() {
+        if(typeof(table_2) == "object") {
+            var rows = table_2.list(),
+                data = [];
+
+            for(var i = 0; i < rows.length; i++) {
+                var val = rows[i].data.value;
+
+                if(typeof(val) == "string") {
+                    data.push(rows[i].data.key + " : \"" + val + "\"");
+                } else {
+                    data.push(rows[i].data.key + " : " + val);
+                }
+            }
+
+            table_2.downloadCsv();
+            console.log(data.join("\n"));
+        }
+    });
+
+    $(".btn-image").on("click", function() {
+        var chart = window.currentChart;
+        chart.svg.downloadImage();
+    });
 }
 
 $(function() {
@@ -588,7 +611,7 @@ $(function() {
 
     createRangeSlider();
     loadChartList();
-    setFullScreen();
+    setFunctions();
 })
 
 jui.ready(function(ui, uix, _) {
@@ -720,9 +743,12 @@ loadIframe($("#chart").find("iframe"), "chart/disqus.html");
                 	<div id="chart-content-title" style="position: absolute;left:0px;right:0px;top:0px;height:48px;border-bottom: 1px solid #ddd;">
                 		<h2 style='text-align:left;margin-left:20px;'>
                             Result
-                            <a class='btn btn-flat btn-rect btn-fullscreen' style="float:right;margin-right:1px;" title="Full Screen"><i class='icon-new-window'></i></a>
 
-
+                            <div class="group" style="float: right; margin-right: 3px;">
+                                <a class='btn btn-flat btn-rect btn-style' title="Show Styles"><i class='icon-edit'></i></a>
+                                <a class='btn btn-flat btn-rect btn-image' title="Download Image"><i class='icon-image'></i></a>
+                                <a class='btn btn-flat btn-rect btn-fullscreen' title="Full Screen"><i class='icon-new-window'></i></a>
+                            </div>
                         </h2>
                 	</div>
                     <div id="chart-content" style="position: absolute;left:50px;right:50px;top:100px;bottom:50px;"></div>
