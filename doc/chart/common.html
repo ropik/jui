@@ -234,7 +234,12 @@ function createTableStyle() {
             editend: function(data, e) {
                 var chart = window.currentChart;
 
-                chart.setTheme(data.key, data.value);
+                if(data.key == "colors") {
+                    chart.setTheme(data.key, data.value.split("|"));
+                } else {
+                    chart.setTheme(data.key, data.value);
+                }
+
                 chart.render(true);
             }
         },
@@ -243,8 +248,15 @@ function createTableStyle() {
         }
     });
 
+    // 테이블 초기화
+    table_2.reset();
+
     for(var key in themes) {
-        table_2.append({ key: key, value: themes[key] });
+        if(key == "colors") {
+            table_2.append({ key: key, value: themes[key].join("|") });
+        } else {
+            table_2.append({ key: key, value: themes[key] });
+        }
     }
 }
 
@@ -666,6 +678,7 @@ loadIframe($("#chart").find("iframe"), "chart/disqus.html");
                 <option value="jennifer">Jennifer</option>
                 <option value="dark">Dark</option>
                 <option value="seoul">Seoul</option>
+                <option value="gradient">Gradient</option>
             </select>
             <!--
             <div class="group">
