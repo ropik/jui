@@ -100,7 +100,7 @@ var charts = [
     { type : 'stock', title : 'Candle Stick Chart', start : 36 },
     { type : 'mixed', title : 'Combination Chart', start : 40 },
     { type : 'realtime', title : 'Realtime Chart', start : 42 }
-    
+
 ];
 
 var code_list = [
@@ -169,9 +169,10 @@ var code_list = [
     // combination chart
     { type : 'mixed', title : "Basic Combination",  description : "", code : "mixed1.js" },
     { type : 'mixed', title : "Multi Axis", description : "", code : "mixed2_multi_axis.js" },
-    
+
     // realtime chart
-    { type : 'realtime', title : "RealTime Chart",  description : "", code : "realtime.js" }
+    { type : 'realtime', title : "Realtime Line",  description : "", code : "realtime_line.js" },
+    { type : 'realtime', title : "Realtime Area",  description : "", code : "realtime_area.js" }
 ];
 
 function changeTheme(theme) {
@@ -600,7 +601,7 @@ $(function() {
     for(var i = 0, len = charts.length; i <len; i++ ) {
         var $el = $($dom);
         var chart = charts[i];
-        
+
         if (chart.type == 'mixed' || chart.type == 'realtime') {
           $el.removeClass("col-3").addClass('col-6');
         }
