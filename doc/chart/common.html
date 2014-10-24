@@ -98,7 +98,9 @@ var charts = [
     { type : 'line', title : 'Line Chart', start : 22 },
     { type : 'gauge', title : 'Gauge Chart', start : 29 },
     { type : 'stock', title : 'Candle Stick Chart', start : 36 },
-    { type : 'mixed', title : 'Combination Chart', start : 40 }
+    { type : 'mixed', title : 'Combination Chart', start : 40 },
+    { type : 'realtime', title : 'Realtime Chart', start : 42 }
+    
 ];
 
 var code_list = [
@@ -166,7 +168,10 @@ var code_list = [
 
     // combination chart
     { type : 'mixed', title : "Basic Combination",  description : "", code : "mixed1.js" },
-    { type : 'mixed', title : "Multi Axis", description : "", code : "mixed2_multi_axis.js" }
+    { type : 'mixed', title : "Multi Axis", description : "", code : "mixed2_multi_axis.js" },
+    
+    // realtime chart
+    { type : 'realtime', title : "RealTime Chart",  description : "", code : "realtime.js" }
 ];
 
 function changeTheme(theme) {
@@ -595,10 +600,17 @@ $(function() {
     for(var i = 0, len = charts.length; i <len; i++ ) {
         var $el = $($dom);
         var chart = charts[i];
+        
+        if (chart.type == 'mixed' || chart.type == 'realtime') {
+          $el.removeClass("col-3").addClass('col-6');
+        }
 
         $el.find(".head").html(chart.title);
         $el.find(".body img").attr({
             'src' : 'chart/img/' + chart.type + '.svg',
+        }).css({
+          'max-width' : '100%',
+          height : '200px'
         }).data('obj', chart).on('click', function(e) {
             var obj = $(this).data('obj');
             currentChartIndex = obj.start;
