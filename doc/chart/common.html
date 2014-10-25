@@ -86,6 +86,8 @@ var colors = {
 var editor;
 var currentChartIndex  = 0;
 var table_1, table_2;
+var realtimeIndex = 0;
+var realtimeInterval = null;
 
 var charts = [
     { type : 'bar', title : 'Bar Chart', start : 0 },
@@ -174,6 +176,41 @@ var code_list = [
     { type : 'realtime', title : "Realtime Line",  description : "", code : "realtime_line.js" },
     { type : 'realtime', title : "Realtime Area",  description : "", code : "realtime_area.js" }
 ];
+
+function getRealtimeData(min) {
+    var start = time.add(new Date(), time.minutes, -5),
+            data = [];
+
+    for(var i = 0; i < min * 60; i++) {
+        data.push({
+            time : time.add(start, time.seconds, i + 1),
+            s1 : Math.sin(realtimeIndex / 20) - 4,
+            s2 : Math.sin(realtimeIndex / 10) * 2.5,
+            s3 : Math.sin(realtimeIndex / 15) + 5
+        });
+
+        realtimeIndex++;
+    }
+
+    return data;
+}
+
+function runRealtimeData(realtime) {
+    if(realtimeInterval != null) {
+        clearInterval(realtimeInterval);
+    }
+
+    realtimeInterval = setInterval(function() {
+        realtime.append({
+            time : new Date(),
+            s1 : Math.sin(realtimeIndex / 20) - 4,
+            s2 : Math.sin(realtimeIndex / 10) * 2.5,
+            s3 : Math.sin(realtimeIndex / 15) + 5
+        });
+
+        realtimeIndex++;
+    }, 1000);
+}
 
 function changeTheme(theme) {
     var chart = jui.get("chart.builder").pop();
@@ -297,9 +334,18 @@ function resetChart() {
     var charts = jui.getAll();
 
     for(var i = 0; i < charts.length; i++) {
-        if(charts[i].type == "chart.builder") {
-            var obj = jui.remove(i);
-            //obj.destroy();
+        if(charts[i].type == "chartx.realtime") {
+            var list = charts[i].list;
+
+            for(var j = 0; j < list.length; j++) {
+                list[j].stop();
+            }
+        }
+    }
+
+    for(var i = 0; i < charts.length; i++) {
+        if(charts[i].type == "chart.builder" || charts[i].type == "chartx.realtime") {
+            jui.remove(i);
         }
     }
 }
@@ -546,6 +592,12 @@ function viewCodeEditor() {
                 createTable();
             } else if(tab_1.activeIndex() == 2) {
                 createTableStyle();
+            }
+
+            if(code.type == "realtime") {
+                $("#tab_1").find("li:not(:first-child)").hide();
+            } else {
+                $("#tab_1").find("li").show();
             }
         },
         error : function(data, error) {
