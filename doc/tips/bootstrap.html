@@ -4,8 +4,8 @@
 <META charset="UTF-8">
 <title>[JUI Library] - Tips/Bootstrap</title>
 
-<link rel="stylesheet" href="../../res/manual.css" />
 <link rel="stylesheet" href="../../lib/bootstrap.min.css" />
+<link rel="stylesheet" href="../../res/manual.css" />
 <link rel="stylesheet" href="../../lib/prism.css" />
 <script src="../../lib/jquery-1.8.0.min.js"></script>
 <script src="../../lib/prism.js"></script>
@@ -27,11 +27,14 @@ section.not_bottom {
 
 h1 {
 	margin-top: 0px;
-	color: #8772bf;
 }
 
-table {
-	position: relative;
+h3 {
+	margin-bottom: 0px;
+}
+
+p {
+	margin-top: 12px;
 }
 
 #paging_1 {
@@ -299,8 +302,6 @@ jui.ready(function(ui, uix, _) {
 		animate: true
 	});
 
-//	table_4.resize();
-
 	table_4_dd = ui.dropdown("#table_4_dd", {
 		event: {
 			change: function(data, e) {
@@ -316,8 +317,6 @@ jui.ready(function(ui, uix, _) {
 		sort: [ 0, 1, 2 ],
 		animate: true
 	});
-
-//	table_5.resize();
 
 	table_6 = uix.table("#table_6", {
 		fields: [ null, "name", "age", "location" ],
@@ -370,8 +369,6 @@ jui.ready(function(ui, uix, _) {
 		animate: true
 	});
 
-//	table_9.resize();
-
 	table_tree_1 = uix.table("#table_tree_1", {
 		rows: _.clone(table_data_big),
 		scroll: true,
@@ -418,8 +415,6 @@ jui.ready(function(ui, uix, _) {
 		animate: true
 	});
 
-//	xtable_1.resize();
-
 	xtable_2 = uix.xtable("#xtable_2", {
 		fields: [ "name", "age", "location" ],
 		resize: true,
@@ -436,8 +431,6 @@ jui.ready(function(ui, uix, _) {
 		animate: true
 	});
 
-//	xtable_2.resize();
-
 	xtable_3 = uix.xtable("#xtable_3", {
 		fields: [ "name", "age", "location" ],
 		resize: true,
@@ -453,8 +446,6 @@ jui.ready(function(ui, uix, _) {
 		},
 		animate: true
 	});
-
-//	xtable_3.resize();
 });
 
 function pagingRun() {
@@ -652,7 +643,7 @@ function xtable3Page(no) {
 	<p>
 		버튼 컴포넌트는 하나만 선택할 수 있는 라디오 타입을 제공합니다.
 	</p>
-	<p class="br">
+	<div>
 		<div id="btn_1" class="btn-group btn-group-lg">
 			<button type="button" class="btn btn-success">Java</button>
 			<button type="button" class="btn btn-success">.NET</button>
@@ -678,7 +669,7 @@ function xtable3Page(no) {
 			<button type="button" class="btn btn-info">Ruby</button>
 			<button type="button" class="btn btn-info">Python</button>
 		</div>
-	</p>
+	</div>
 </section>
 
 <section>
@@ -688,7 +679,7 @@ function xtable3Page(no) {
 	<p>
 		페이징 UI를 사용하는 가장 기본적인 방법입니다.
 	</p>
-	<p class="br">
+	<div>
 		<ul id="paging_1" class="pagination pagination-lg"></ul>
 
 		<script data-jui="#paging_1" data-tpl="pages" type="text/template">
@@ -717,7 +708,7 @@ function xtable3Page(no) {
 			</table>
 		</div>
 
-		<ul id="paging_2" class="pagination pagination-sm"></ul>
+		<ul id="paging_2" class="pagination pagination-sm" style="margin-top: 5px"></ul>
 
 		<script data-jui="#paging_2_xtable" data-tpl="row" type="text/template">
 			<tr>
@@ -740,7 +731,7 @@ function xtable3Page(no) {
 			<! } !>
 			<li class="next"><a href="#">&raquo;</a></li>
 		</script>
-	</p>
+	</div>
 </section>
 
 <section>
@@ -750,7 +741,7 @@ function xtable3Page(no) {
 	<p>
 		드롭다운 컴포넌트의 기본이며, 각각의 요소에는 <strong>value</strong>를 지정할 수 있습니다. (숫자 형태만 가능)
 	</p>
-	<p class="br">
+	<div>
 		<div class="btn-group">
 			<button type="button" class="btn btn-default dropdown-toggle">Default <span class="caret"></span></button>
 		</div>
@@ -777,13 +768,13 @@ function xtable3Page(no) {
 			<li class="divider"></li>
 			<li><a href="#">Separated link</a></li>
 		</ul>
-	</p>
+	</div>
 
 	<h3><span class="link" data-no="20">Keydown</span></h3>
 	<p>
 		<strong>keydown</strong> 옵션을 <strong>true</strong>로 주면 키보드 방향키를 통해서도 리스트를 선택할 수 있습니다.
 	</p>
-	<p class="br">
+	<div>
 		<div class="btn-group">
 			<button type="button" class="btn btn-default">Default</button>
 			<button type="button" class="btn btn-default dropdown-toggle">
@@ -828,7 +819,7 @@ function xtable3Page(no) {
 			<li class="divider"></li>
 			<li><a href="#">Separated link</a></li>
 		</ul>
-	</p>
+	</div>
 </section>
 
 <section>
@@ -841,7 +832,7 @@ function xtable3Page(no) {
 			<i>BASIC, JavaScript, Python, 자바의 정석, 열혈강의 C++</i>
 		</span>
 	</p>
-	<p class="br">
+	<div>
 		<input id="ac_1" type="text" class="form-control" placeholder="Text input">
 
 		<script data-jui="#ac_1" data-tpl="words" type="text/template">
@@ -851,7 +842,7 @@ function xtable3Page(no) {
 				<! } !>
 			</ul>
 		</script>
-	</p>
+	</div>
 
 	<h3><span class="link" data-no="18">Input Group</span></h3>
 	<p>
@@ -860,7 +851,7 @@ function xtable3Page(no) {
 			<i>BASIC, JavaScript, Python, 자바의 정석, 열혈강의 C++</i>
 		</span>
 	</p>
-	<p class="br">
+	<div>
 		<div id="ac_2" class="input-group">
 			<span class="input-group-addon">@</span>
 			<input type="text" class="form-control" placeholder="Text input">
@@ -873,7 +864,7 @@ function xtable3Page(no) {
 				<! } !>
 			</ul>
 		</script>
-	</p>
+	</div>
 </section>
 
 <section>
@@ -895,7 +886,7 @@ function xtable3Page(no) {
 	<p>
 		메뉴 탭 설정을 할 수 있으며 관련된 마크업은 드롭다운과 동일합니다.
 	</p>
-	<p class="br">
+	<div>
 		<ul id="tab_1" class="nav nav-tabs">
 			<li><a href="#">Home</a></li>
 			<li><a href="#">Profile</a></li>
@@ -918,7 +909,7 @@ function xtable3Page(no) {
 				<li><a href="#">Separated link</a></li>
 			</ul>
 		</script>
-	</p>
+	</div>
 </section>
 
 <section>
@@ -936,15 +927,13 @@ function xtable3Page(no) {
 		심각한 문제가 발생하거나 이벤트 등이 발생하였을 때, 알림 메시지를 보여줄 수 있습니다.
 	</p>
 
-	<br/>
-
-	<p>
+	<div>
 		<img id="modal" src="../../res/img3/jui_info_3.jpg" />
 
 		<script id="tpl_alarm" type="text/template">
 			<div class="alert alert-<!= color !>" style="width: 300px;"><!= msg !></div>
 		</script>
-	</p>
+	</div>
 </section>
 
 <section>
@@ -954,7 +943,7 @@ function xtable3Page(no) {
 	<p>
 		데이터 목록을 템플릿을 활용하여 적용한 기본적인 테이블 예제입니다.
 	</p>
-	<p class="br">
+	<div>
 		<table id="table_1" class="table">
 			<thead>
 			<tr>
@@ -973,13 +962,13 @@ function xtable3Page(no) {
 				<td><!= location !></td>
 			</tr>
 		</script>
-	</p>
+	</div>
 
 	<h3><span class="link" data-no="2">Expand (+Update)</span></h3>
 	<p>
 		확장 영역을 사용하고 관련된 값을 데이터 바인딩을 통해 변경하는 예제입니다.
 	</p>
-	<p class="br">
+	<div>
 		<table id="table_2" class="table table-hover">
 			<thead>
 			<tr>
@@ -1029,13 +1018,13 @@ function xtable3Page(no) {
 				</div>
 			</div>
 		</script>
-	</p>
+	</div>
 
 	<h3><span class="link" data-no="3">Scroll</span></h3>
 	<p>
 		테이블 내부에서 스크롤 기능을 사용하는 예제입니다.
 	</p>
-	<p class="br">
+	<div>
 		<table id="table_3" class="table table-striped">
 			<thead>
 			<tr>
@@ -1054,14 +1043,14 @@ function xtable3Page(no) {
 				<td><!= location !></td>
 			</tr>
 		</script>
-	</p>
+	</div>
 
 	<h3><span class="link" data-no="4">Mouse Right-Click (+Resize)</span></h3>
 	<p>
 		로우를 마우스 오른쪽 클릭하면 rowmenu 이벤트가 발생합니다.<br/>
 		이 이벤트를 활용하면 로우를 컨트롤할 수 있는 메뉴 등을 구현하는데 활용할 수 있습니다.
 	</p>
-	<p class="br">
+	<div>
 		<table id="table_4" class="table table-condensed table-bordered table-hover">
 			<thead>
 			<tr>
@@ -1088,14 +1077,14 @@ function xtable3Page(no) {
 				<td><!= location !></td>
 			</tr>
 		</script>
-	</p>
+	</div>
 
 	<h3><span class="link" data-no="5">Sorting (+Resize)</span></h3>
 	<p>
 		정렬 기능을 사용하기 위해서는 <strong>th</strong> 태그 순서대로 데이터 키 값을 넣어주고, 정렬 대상이 아닐 경우에는 <strong>null</strong>로 대체하면 됩니다.<br/>
 		또한 정렬 중임을 보여주는 UI는 별도로 구현할 수 있도록 관련된 인터페이스를 제공합니다.
 	</p>
-	<p class="br">
+	<div>
 		<table id="table_5" class="table table-condensed table-bordered table-hover">
 			<thead>
 			<tr>
@@ -1114,14 +1103,14 @@ function xtable3Page(no) {
 				<td><!= location !></td>
 			</tr>
 		</script>
-	</p>
+	</div>
 
 	<h3><span class="link" data-no="6">Edit Row (+Resize, +Sort)</span></h3>
 	<p>
 		특정 로우를 더블클릭하면 모든 셀의 값을 수정할 수 있습니다. <br/>
 		수정이 완료되면 <strong>editend</strong> 이벤트가 발생하는데, 이 때 <strong>false</strong>를 리턴하면 수정된 값이 반영되지 않습니다.
 	</p>
-	<p class="br">
+	<div>
 		<table id="table_6" class="table">
 			<thead>
 			<tr>
@@ -1142,14 +1131,14 @@ function xtable3Page(no) {
 				<td><!= location !></td>
 			</tr>
 		</script>
-	</p>
+	</div>
 
 	<h3><span class="link" data-no="7">Append Data (+Scroll)</span></h3>
 	<p>
 		<a class="btn btn-default btn-xs" href="javascript:table7Run();">Run</a> -
 		좌측의 버튼을 클릭하면, 1000개의 로우를 추가합니다.
 	</p>
-	<p class="br">
+	<div>
 		<table id="table_7" class="table table-striped table-condensed">
 			<thead>
 			<tr>
@@ -1170,14 +1159,14 @@ function xtable3Page(no) {
 				<td><!= location !></td>
 			</tr>
 		</script>
-	</p>
+	</div>
 
 	<h3><span class="link" data-no="8">Insert Data (+Scroll)</span></h3>
 	<p>
 		<a class="btn btn-default btn-xs" href="javascript:table8Run();">Run</a> -
 		좌측의 버튼을 클릭하면, 3번째 인덱스에 100개의 로우를 추가합니다.
 	</p>
-	<p class="br">
+	<div>
 		<table id="table_8" class="table table-striped table-condensed">
 			<thead>
 			<tr>
@@ -1198,13 +1187,13 @@ function xtable3Page(no) {
 				<td><!= location !></td>
 			</tr>
 		</script>
-	</p>
+	</div>
 
 	<h3><span class="link" data-no="9">Hide/Show Column (+Resize)</span></h3>
 	<p>
 		컬럼에 마우스 오른쪽을 클릭하면 숨기기/보이기 기능을 제공하는 메뉴가 보여집니다.
 	</p>
-	<p class="br">
+	<div>
 		<table id="table_9" class="table table-condensed table-bordered">
 			<thead>
 			<tr>
@@ -1233,7 +1222,7 @@ function xtable3Page(no) {
 				<! } !>
 			</ul>
 		</script>
-	</p>
+	</div>
 </section>
 
 <section>
@@ -1244,7 +1233,7 @@ function xtable3Page(no) {
 		<a class="btn btn-default btn-xs" href="javascript:table10Run();">Run</a> -
 		뎁스 구조의 키 값으로 데이터를 입력 및 특정 인덱스에 추가할 수 있습니다.
 	</p>
-	<p class="br">
+	<div>
 		<table id="table_tree_1" class="table table-striped table-condensed">
 			<thead>
 			<tr>
@@ -1268,7 +1257,7 @@ function xtable3Page(no) {
 				<td><!= age !></td>
 			</tr>
 		</script>
-	</p>
+	</div>
 
 	<h3><span class="link" data-no="11">Move/Remove/Update Row</span></h3>
 	<p>
@@ -1277,7 +1266,7 @@ function xtable3Page(no) {
 		<a class="btn btn-default btn-xs" href="javascript:table11Run(3);">Update</a> -
 		로우를 조작할 수 있은 기능을 제공합니다.
 	</p>
-	<p class="br">
+	<div>
 		<table id="table_tree_2" class="table table-condensed table-bordered table-hover">
 			<thead>
 			<tr>
@@ -1301,7 +1290,7 @@ function xtable3Page(no) {
 				<td><!= age !></td>
 			</tr>
 		</script>
-	</p>
+	</div>
 </section>
 
 <section>
@@ -1312,7 +1301,7 @@ function xtable3Page(no) {
 		<a class="btn btn-default btn-xs" href="javascript:xtableRun();">Run</a> -
 		100만건의 데이터를 추가하는 데모이며, 스크롤이 맨 밑으로 내려갔을 경우에 로우를 추가적으로 렌더링합니다.
 	</p>
-	<p class="br">
+	<div>
 		<div id="xtable_1">
 			<table class="table table-condensed table-bordered">
 				<thead>
@@ -1343,14 +1332,14 @@ function xtable3Page(no) {
 		<script data-jui="#xtable_1" data-tpl="loading" type="text/template">
 			<div class="loading"></div>
 		</script>
-	</p>
+	</div>
 
 	<h3><span class="link" data-no="13">Page</span></h3>
 	<p>
 		<a class="btn btn-default btn-xs" href="javascript:xtable2Run();">Run</a> -
 		100만건의 데이터를 추가하는 데모이며, 스크롤이 없는 페이징 형태로 추가 데이터를 렌더링합니다.
 	</p>
-	<p class="br">
+	<div>
 		<div id="xtable_2">
 			<table class="table table-condensed table-bordered ">
 				<thead>
@@ -1363,7 +1352,7 @@ function xtable3Page(no) {
 				<tbody></tbody>
 			</table>
 		</div>
-		<div class="btn-group">
+		<div class="btn-group" style="margin-top: 5px;">
 			<button type="button" class="btn btn-default" onclick="xtable2Page(-1)">Prev</button>
 			<button type="button" class="btn btn-default" onclick="xtable2Page(1)">Next</button>
 		</div>
@@ -1385,14 +1374,14 @@ function xtable3Page(no) {
 		<script data-jui="#xtable_2" data-tpl="loading" type="text/template">
 			<div class="loading"></div>
 		</script>
-	</p>
+	</div>
 
 	<h3><span class="link" data-no="14">Page-Scroll</span></h3>
 	<p>
 		<a class="btn btn-default btn-xs" href="javascript:xtable3Run();">Run</a> -
 		100만건의 데이터를 추가하는 데모이며, 스크롤이 없는 페이징 형태로 추가 데이터를 렌더링합니다.
 	</p>
-	<p class="br">
+	<div>
 		<div id="xtable_3">
 			<table class="table table-condensed table-bordered ">
 				<thead>
@@ -1405,7 +1394,7 @@ function xtable3Page(no) {
 				<tbody></tbody>
 			</table>
 		</div>
-		<div class="btn-group">
+		<div class="btn-group" style="margin-top: 5px;">
 			<button type="button" class="btn btn-default" onclick="xtable3Page(-1)">Prev</button>
 			<button type="button" class="btn btn-default" onclick="xtable3Page(1)">Next</button>
 		</div>
@@ -1427,7 +1416,7 @@ function xtable3Page(no) {
 		<script data-jui="#xtable_3" data-tpl="loading" type="text/template">
 			<div class="loading"></div>
 		</script>
-	</p>
+	</div>
 </section>
 
 </body>

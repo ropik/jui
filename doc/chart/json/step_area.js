@@ -2,10 +2,10 @@ var chart = jui.include("chart.builder");
 
 chart("#chart-content", {
     data : [
-        { sales : 2, profit : 6, dept : 7 },
-        { sales : 5, profit : 6, dept : 2 },
-        { sales : 8, profit : 4, dept : 5 },
-        { sales : 10, profit : 5, dept : 12 }
+        { sales : 4, profit : 2, dept : 0 },
+        { sales : 5, profit : 3, dept : 2 },
+        { sales : 8, profit : 4, dept : 3 },
+        { sales : 10, profit : 7, dept : 6 }
     ],
     grid : {
         x : {
@@ -15,16 +15,16 @@ chart("#chart-content", {
         },
         y : {
             type: "range",
-            target: function(data) {
-                return data.sales + data.profit + data.dept;
-            },
+            target: [ "sales", "profit", "dept" ],
             step: 10
         }
     },
     brush : [{
-        type : "stackarea"
+        type : "area",
+        symbol : "step"
     }, {
-        type : "stackline"
+        type : "line",
+        symbol : "step"
     }],
     widget : [{
         type : "title",

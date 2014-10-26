@@ -378,12 +378,7 @@ function modal_show() {
 	});
 }
 
-function modal_hide() {
-	$("#modal_1").hide();
-}
-
 function loadChartList() {
-
 	var $menu = $("<div class='vmenu' />");
 
 	for(var  i = 0; i < charts.length; i++) {
@@ -548,8 +543,7 @@ function viewCodeEditor() {
 
             $(".EditorWidget").hide();
             window.token = null;
-
-        })
+        });
     }
 
     $.ajax({
@@ -581,7 +575,7 @@ function viewCodeEditor() {
         error : function(data, error) {
             console.log(error);
         }
-    })
+    });
 }
 
 function setFunctions() {
@@ -626,27 +620,36 @@ function setFunctions() {
 }
 
 $(function() {
-    var $row = $(".row.gallery");
-    var $dom = $("#tpl_col").html();
+    var $row = $(".row.gallery"),
+        $dom = $("#tpl_col").html();
+
     for(var i = 0, len = charts.length; i <len; i++ ) {
         var $el = $($dom);
-        var chart = charts[i];
 
-        if (chart.type == 'mixed' || chart.type == 'realtime') {
-          $el.removeClass("col-3").addClass('col-6');
-        }
+        (function(chart) {
+            if (chart.type == 'mixed' || chart.type == 'realtime') {
+                $el.removeClass("col-3").addClass('col-6');
+            }
 
-        $el.find(".head").html(chart.title);
-        $el.find(".body img").attr({
-            'src' : 'chart/img/' + chart.type + '.svg',
-        }).css({
-          'max-width' : '100%',
-          height : '200px'
-        }).data('obj', chart).on('click', function(e) {
-            var obj = $(this).data('obj');
-            currentChartIndex = obj.start;
-            viewCodeEditor();
-        });
+            $el.find(".head").html(chart.title);
+            $el.find(".body img").attr({
+                'src': 'chart/img/' + chart.type + '.svg'
+            }).css({
+                'max-width': '100%',
+                height: '200px'
+            }).data('obj', chart).on('click', function (e) {
+                var obj = $(this).data('obj');
+
+                currentChartIndex = obj.start;
+                viewCodeEditor();
+
+                // 차트플레이 활성화 메뉴 설정
+                $(".vmenu .active").removeClass("active");
+                var $target = $("a[data-index=" + currentChartIndex + "]");
+                $target.parent().addClass('active');
+                $(".chart_list").scrollTop($target.offset().top - $("body").scrollTop() - 200);
+            });
+        })(charts[i]);
 
         $row.append($el);
     }
@@ -734,7 +737,7 @@ loadIframe($("#chart").find("iframe"), "chart/disqus.html");
         </span>
 
         <div style='float:right;'>
-            <a href="javascript:void(modal_hide())" class="close"><i class="icon-close"></i></a>
+            <a href="javascript:$('#modal_1').hide()" class="close"><i class="icon-close"></i></a>
         </div>
     </div>
     <div class="body" style="border-top:1px solid #ebebeb; position:absolute;left:0px;right:0px;top:60px;bottom:0px;padding: 0px !important;">
