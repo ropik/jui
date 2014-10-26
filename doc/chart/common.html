@@ -174,8 +174,8 @@ var code_list = [
 
     // realtime chart
     { type : 'realtime', title : "Realtime Line",  description : "", code : "realtime_line.js" },
-    { type : 'realtime', title : "Realtime Complex Line",  description : "", code : "realtime_line_complex.js" },
-    { type : 'realtime', title : "Realtime Area",  description : "", code : "realtime_area.js" }
+    { type : 'realtime', title : "Realtime Area",  description : "", code : "realtime_area.js" },
+    { type : 'realtime', title : "Realtime Complex Line",  description : "", code : "realtime_line_complex.js" }
 ];
 
 function getRealtimeData(min) {
@@ -204,11 +204,13 @@ function runRealtimeData(realtime) {
 }
 
 function getRealtimeRowData(time) {
+    var sin = Math.sin(realtimeIndex / 10);
+
     return {
         time : time,
-        s1 : Math.sin(realtimeIndex / 20) - 4,
-        s2 : Math.sin(realtimeIndex / 10) * 2.5,
-        s3 : Math.sin(realtimeIndex / 15) + 5
+        s1 : sin - 4,
+        s2 : sin * 2.5,
+        s3 : sin + 5
     }
 }
 

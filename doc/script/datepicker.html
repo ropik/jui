@@ -16,9 +16,9 @@
 <script src="../../res/manual.js"></script>
 
 <script>
-jui.ready(function(ui, uix, _) {
+jui.ready([ "ui.datepicker" ], function(datepicker) {
 	// 1. 달력 기본형
-	datepicker1 = ui.datepicker("#datepicker1", {
+	datepicker1 = datepicker("#datepicker1", {
         titleFormat: "yyyy년 MM월",
         format: "yyyy/MM/dd",
         event: {
@@ -36,7 +36,7 @@ jui.ready(function(ui, uix, _) {
     });
 
 	// 2. 달력 월 선택
-	datepicker2 = ui.datepicker("#datepicker2", {
+	datepicker2 = datepicker("#datepicker2", {
 		type: "monthly",
         titleFormat: "yyyy년",
         format: "yyyy/MM",
@@ -49,7 +49,7 @@ jui.ready(function(ui, uix, _) {
     });
 
 	// 3. 달력 월 선택
-	datepicker3 = ui.datepicker("#datepicker3", {
+	datepicker3 = datepicker("#datepicker3", {
 		type: "yearly",
         titleFormat: "연도 선택",
         format: "yyyy",
@@ -126,8 +126,8 @@ jui.ready(function(ui, uix, _) {
 	<p class="br">
 		아래는 달력 객체를 생성하는 코드입니다. 타이틀과 날짜 클릭시 발생되는 포맷을 옵션으로 설정할 수 있습니다.
 		
-<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
-	datepicker1 = ui.datepicker("#datepicker1", {
+<pre><code class="language-javascript">jui.ready([ "ui.datepicker" ], function(datepicker) {
+	datepicker1 = datepicker("#datepicker1", {
 	    titleFormat: "yyyy년 MM월",
 	    format: "yyyy/MM/dd",
 	    event: {
@@ -215,7 +215,7 @@ jui.ready(function(ui, uix, _) {
 	<p class="br">
 		달력의 타입을 변경하기 위해서는 <strong>type</strong> 옵션을 사용하면 됩니다.
 		
-<pre><code class="language-javascript">datepicker2 = ui.datepicker("#datepicker2", {
+<pre><code class="language-javascript">datepicker2 = datepicker("#datepicker2", {
 	type: "monthly",
     titleFormat: "yyyy년",
     format: "yyyy/MM",
@@ -226,7 +226,7 @@ jui.ready(function(ui, uix, _) {
     }
 });
 
-datepicker3 = ui.datepicker("#datepicker3", {
+datepicker3 = datepicker("#datepicker3", {
 	type: "yearly",
     titleFormat: "연도 선택",
     format: "yyyy",

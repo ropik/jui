@@ -17,9 +17,9 @@
 <script>
 var tab_2_count = 3;
 
-jui.ready(function(ui, uix, _) {
+jui.ready([ "uix.tab" ], function(tab) {
 	// 6-1. 탭, tab-top
-	tab_1 = uix.tab("#tab_1", {
+	tab_1 = tab("#tab_1", {
 		event: {
 			change: function(data) {
 				alert(data.text);
@@ -33,7 +33,7 @@ jui.ready(function(ui, uix, _) {
 	});
 
 	// 6-2. 탭, tab-bottom
-	pill_1 = uix.tab("#pill_1", {
+	pill_1 = tab("#pill_1", {
 		event: {
 			change: function(data) {
 				alert(data.text);
@@ -46,7 +46,7 @@ jui.ready(function(ui, uix, _) {
 	});
 	
 	// 6-3. 탭, append/prepend
-	tab_2 = uix.tab("#tab_2", {
+	tab_2 = tab("#tab_2", {
 		nodes: [
 			{ text: "Tab1" },
 			{ text: "Tab2" },
@@ -63,7 +63,7 @@ jui.ready(function(ui, uix, _) {
 	});
 	
 	// 6-1. 탭, tab-top
-	tab_3 = uix.tab("#tab_3", {
+	tab_3 = tab("#tab_3", {
 		event: {
 			change: function(data) {
 				alert(data.text);
@@ -152,8 +152,8 @@ function tab2Run(type) {
 		</script>
 	</p>
 	<p class="br">
-<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
-	tab_1 = uix.tab("#tab_1", {
+<pre><code class="language-javascript">jui.ready([ "uix.tab" ], function(tab) {
+	tab_1 = tab("#tab_1", {
 		event: {
 			change: function(data) {
 				alert(data.text);
@@ -238,7 +238,7 @@ function tab2Run(type) {
 		</script>
 	</p>
 	<p class="br">
-<pre><code class="language-javascript">pill_1 = uix.tab("#pill_1", {
+<pre><code class="language-javascript">pill_1 = tab("#pill_1", {
 	event: {
 		change: function(data) {
 			alert(data.text);
@@ -281,7 +281,7 @@ function tab2Run(type) {
 		<strong>nodes</strong> 옵션을 사용하여 탭 리스트 초기 값을 설정할 수 있습니다.<br/>
 		그리고 <strong>tab2Run</strong> 함수와 같이 탭을 동적으로 조작할 수 있는 기능을 사용할 수 있습니다.
 		
-<pre><code class="language-javascript">tab_2 = uix.tab("#tab_2", {
+<pre><code class="language-javascript">tab_2 = tab("#tab_2", {
 	nodes: [
 		{ text: "Tab1" },
 		{ text: "Tab2" },
@@ -353,7 +353,7 @@ function tab2Run(type) {
 		</div>
 	</p>
 	<p class="br">
-<pre><code class="language-javascript">tab_3 = uix.tab("#tab_3", {
+<pre><code class="language-javascript">tab_3 = tab("#tab_3", {
 	event: {
 		change: function(data) {
 			alert(data.text);

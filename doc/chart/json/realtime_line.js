@@ -1,5 +1,5 @@
 var chart = jui.include("chartx.realtime");
-var time = jui.include('util.time');
+var time = jui.include("util.time");
 
 var c = chart("#chart", {
     data : getRealtimeData(5),

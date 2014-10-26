@@ -15,10 +15,10 @@
 <script src="../../res/manual.js"></script>
 
 <script>
-jui.ready(function(ui, uix, _) {
+jui.ready([ "uix.tree" ], function(tree) {
 	
 	// 9-1. 트리 데이터 추가
-	tree_1 = uix.tree(".tree:not(.tree-etc)", {
+	tree_1 = tree(".tree:not(.tree-etc)", {
 		root: { title: "C:\\" },
 		event: {
 			select: function(node) {
@@ -35,7 +35,7 @@ jui.ready(function(ui, uix, _) {
 		addTreeData(tree_1[i]);
 	}
 	
-	tree_2 = uix.tree("#tree_2", {
+	tree_2 = tree("#tree_2", {
 		root: { title: "C:\\" },
 		drag: true,
 		tpl: {
@@ -43,7 +43,7 @@ jui.ready(function(ui, uix, _) {
 		}
 	});
 	
-	tree_3 = uix.tree("#tree_3", {
+	tree_3 = tree("#tree_3", {
 		root: { title: "C:\\" },
 		drag: true,
 		dragChild: false,
@@ -134,8 +134,8 @@ function tree2RunC() {
 	&lt;/li&gt;
 &lt;/script&gt;</code></pre>
 		
-<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
-	tree_1 = uix.tree(".tree", {
+<pre><code class="language-javascript">jui.ready([ "uix.tree" ], function(tree) {
+	tree_1 = tree(".tree", {
 		root: { title: "C:\\" },
 		event: {
 			select: function(node) {
@@ -215,7 +215,7 @@ function tree2RunC() {
 	
 	<p class="br">
 		
-<pre><code class="language-javascript">tree_2 = uix.tree("#tree_2", {
+<pre><code class="language-javascript">tree_2 = tree("#tree_2", {
 	root: { title: "C:\\" },
 	drag: true,
 	tpl: {
@@ -237,7 +237,7 @@ function tree2RunC() {
 	
 	<p class="br">
 		
-<pre><code class="language-javascript">tree_3 = uix.tree("#tree_3", {
+<pre><code class="language-javascript">tree_3 = tree("#tree_3", {
 	root: { title: "C:\\" },
 	drag: true,
 	dragChild: false,

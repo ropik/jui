@@ -15,9 +15,9 @@
 <script src="../../res/manual.js"></script>
 
 <script>
-jui.ready(function(ui, uix, _) {
+jui.ready([ "ui.combo" ], function(combo) {
 	// 2-1. 콤보박스
-	combo_1 = ui.combo("#combo_1", {
+	combo_1 = combo("#combo_1", {
 		index: 2,
 		position: "top",
 		event: {
@@ -28,7 +28,7 @@ jui.ready(function(ui, uix, _) {
 	});
 	
 	// 2-2. 콤보박스 (스크롤 + 인덱스)
-	combo_2 = ui.combo("#combo_2", {
+	combo_2 = combo("#combo_2", {
 		index: 3,
 		width: 200,
 		keydown: true,
@@ -138,8 +138,8 @@ jui.ready(function(ui, uix, _) {
 	&lt;/ul&gt;
 &lt;/div&gt;</code></pre>
 
-<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
-	combo_1 = ui.combo("#combo_1", {
+<pre><code class="language-javascript">jui.ready([ "ui.combo" ], function(combo) {
+	combo_1 = combo("#combo_1", {
 		index: 2,
 		position: "top",
 		event: {
@@ -149,7 +149,7 @@ jui.ready(function(ui, uix, _) {
 		}
 	});
 	
-	combo_2 = ui.combo("#combo_2", {
+	combo_2 = combo("#combo_2", {
 		index: 3,
 		width: 200,
 		keydown: true,

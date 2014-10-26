@@ -32,12 +32,12 @@ var table_data = [
 	{ name: "Hwang", age: "21", location: "Seoul" }
 ];
 
-jui.ready(function(ui, uix, _) {
+jui.ready([ "uix.xtable" ], function(xtable) {
 	
 	xtable_3_page = 1;
 	
 	// X-Table, scroll
-	xtable_1 = uix.xtable("#xtable_1", {
+	xtable_1 = xtable("#xtable_1", {
 		fields: [ "name", "age", "location" ],
 		resize: true,
 		colshow: true,
@@ -54,7 +54,7 @@ jui.ready(function(ui, uix, _) {
 	});
 
 	// X-Table, page
-	xtable_2 = uix.xtable("#xtable_2", {
+	xtable_2 = xtable("#xtable_2", {
 		fields: [ "name", "age", "location" ],
 		resize: true,
 		sort: true,
@@ -64,7 +64,7 @@ jui.ready(function(ui, uix, _) {
 	});
 
 	// X-Table, scroll-page
-	xtable_3 = uix.xtable("#xtable_3", {
+	xtable_3 = xtable("#xtable_3", {
 		fields: [ "name", "age", "location" ],
 		resize: true,
 		sort: true,
@@ -74,7 +74,7 @@ jui.ready(function(ui, uix, _) {
 	});
 
 	// X-Table, filter
-	xtable_4 = uix.xtable("#xtable_4", {
+	xtable_4 = xtable("#xtable_4", {
 		fields: [ "name", "age", "location" ],
 		data: table_data,
 		resize: true,
@@ -85,7 +85,7 @@ jui.ready(function(ui, uix, _) {
 	});
 	
 	// X-Table, scrollWidth
-	xtable_5 = uix.xtable("#xtable_5", {
+	xtable_5 = xtable("#xtable_5", {
 		fields: [ "name", "age", "location" ],
 		data: table_data,
 		resize: true,
@@ -245,8 +245,8 @@ function getTableData() {
 	</p>
 	
 	<p class="br">
-<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
-	xtable_1 = uix.xtable("#xtable_1", {
+<pre><code class="language-javascript">jui.ready([ "uix.xtable" ], function(xtable) {
+	xtable_1 = xtable("#xtable_1", {
 		fields: [ "name", "age", "location" ],
 		resize: true,
 		colshow: true,
@@ -350,7 +350,7 @@ function getTableData() {
 	</p>
 	
 	<p class="br">
-<pre><code class="language-javascript">xtable_2 = uix.xtable("#xtable_2", {
+<pre><code class="language-javascript">xtable_2 = xtable("#xtable_2", {
 	fields: [ "name", "age", "location" ],
 	resize: true,
 	sort: true,
@@ -401,7 +401,7 @@ function getTableData() {
 	</p>	
 	
 	<p class="br">
-<pre><code class="language-javascript">xtable_3 = uix.xtable("#xtable_3", {
+<pre><code class="language-javascript">xtable_3 = xtable("#xtable_3", {
 	fields: [ "name", "age", "location" ],
 	resize: true,
 	sort: true,
@@ -502,7 +502,7 @@ function xtableFilterMulti() {
 		테이블의 실제 넓이가 <strong>scrollWidth</strong> 옵션 값보다 클 경우에 가로 스크를이 보여집니다.<br/>
 		참고로 테이블의 실제 넓이는 <strong>width</strong> 옵션을 사용하거나 마크업의 스타일로도 설정할 수 있습니다.
 		
-<pre><code class="language-javascript">xtable_5 = uix.xtable("#xtable_5", {
+<pre><code class="language-javascript">xtable_5 = xtable("#xtable_5", {
 	fields: [ "name", "age", "location" ],
 	data: table_data,
 	resize: true,

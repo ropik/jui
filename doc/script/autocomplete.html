@@ -17,28 +17,28 @@
 <script>
 
 var ac_words = [
-  "ActionScript",
-  "AppleScript",
-  "Asp",
-  "BASIC",
-  "C",
-  "C++",
-  "Clojure",
-  "COBOL",
-  "ColdFusion",
-  "Erlang",
-  "Fortran",
-  "Groovy",
-  "Haskell",
-  "Java",
-  "JavaScript",
-  "Lisp",
-  "Perl",
-  "PHP",
-  "Python",
-  "Ruby",
-  "Scala",
-  "Scheme"
+	"ActionScript",
+	"AppleScript",
+	"Asp",
+	"BASIC",
+	"C",
+	"C++",
+	"Clojure",
+	"COBOL",
+	"ColdFusion",
+	"Erlang",
+	"Fortran",
+	"Groovy",
+	"Haskell",
+	"Java",
+	"JavaScript",
+	"Lisp",
+	"Perl",
+	"PHP",
+	"Python",
+	"Ruby",
+	"Scala",
+	"Scheme"
 ];
     
 var ac_words_hangul = [
@@ -47,9 +47,9 @@ var ac_words_hangul = [
 	"유쾌한 심리학"
 ];
 
-jui.ready(function(ui, uix, _) {
+jui.ready([ "uix.autocomplete" ], function(autocomplete) {
     // 자동완성 
-    ac_1 = uix.autocomplete(".ac", {
+    ac_1 = autocomplete(".ac", {
     	target: "input[type=text]",
     	words: ac_words,
     	event: {
@@ -87,8 +87,8 @@ jui.ready(function(ui, uix, _) {
   "Python", "Ruby", "Scala", "Scheme"
 ];
 
-jui.ready(function(ui, uix, _) {
-	ac_1 = uix.autocomplete(".ac", {
+jui.ready([ "uix.autocomplete" ], function(autocomplete) {
+	ac_1 = autocomplete(".ac", {
 		target: "input[type=text]",
 		words: ac_words,
 		event: {

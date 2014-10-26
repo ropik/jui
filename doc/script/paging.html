@@ -21,9 +21,9 @@
 }
 </style>
 <script>
-jui.ready(function(ui, uix, _) {
+jui.ready([ "ui.paging", "uix.xtable" ], function(paging, xtable) {
 	// 페이징
-	paging_1 = ui.paging("#paging_1", {
+	paging_1 = paging("#paging_1", {
 		count: 1000,
 		pageCount: 10,
 		screenCount: 7, 
@@ -35,7 +35,7 @@ jui.ready(function(ui, uix, _) {
 	});
 	
 	// 테이블 + 페이징
-	paging_2 = ui.paging("#paging_2", {
+	paging_2 = paging("#paging_2", {
 		pageCount: 100, 
 		event: {
 			page: function(pNo) {
@@ -44,7 +44,7 @@ jui.ready(function(ui, uix, _) {
 		}
 	});
 	
-	paging_2_xtable = uix.xtable("#paging_2_xtable", {
+	paging_2_xtable = xtable("#paging_2_xtable", {
 		fields: [ "name", "age", "location" ],
 		resize: true,
 		sort: true,
@@ -134,8 +134,8 @@ function xtableRun(type) {
 		총 세개의 옵션을 정할 수 있으며, <strong>count</strong>는 페이징 처리 대상 데이터의 총 개수입니다.<br />
 		그리고 <strong>pageCount</strong>는 한 페이지당 데이터 개수이고, <strong>screenCount</strong>는 페이징 UI에 보이는 페이지 개수를 말합니다.
 		
-<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
-	paging_1 = ui.paging("#paging_1", {
+<pre><code class="language-javascript">jui.ready([ "ui.paging" ], function(paging) {
+	paging_1 = paging("#paging_1", {
 		count: 1000,
 		pageCount: 10,
 		screenCount: 7, 
@@ -197,7 +197,7 @@ function xtableRun(type) {
 		<p class="br">
 			페이지 버튼을 클릭하면 <strong>page</strong> 커스텀 이벤트가 발생하는데, 이 때 테이블의 페이지를 변경합니다.
 			
-<pre><code class="language-javascript">paging_2 = ui.paging("#paging_2", {
+<pre><code class="language-javascript">paging_2 = paging("#paging_2", {
 	pageCount: 100, 
 	event: {
 		page: function(pNo) {
@@ -218,7 +218,7 @@ function xtableRun(type) {
 		<p class="br">
 			그리고 테이블의 정렬 기능을 사용하였을 경우, 페이지 번호를 맨 처음으로 변경하기 위해 <strong>first</strong> 메소드를 호출해줍니다.
 			
-<pre><code class="language-javascript">paging_2_xtable = uix.xtable("#paging_2_xtable", {
+<pre><code class="language-javascript">paging_2_xtable = xtable("#paging_2_xtable", {
 	fields: [ "name", "age", "location" ],
 	resize: true,
 	sort: true,

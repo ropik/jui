@@ -21,26 +21,26 @@
 </style>
 
 <script>
-jui.ready(function(ui, uix, _) {
+jui.ready([ "ui.tooltip" ], function(tooltip) {
 	
 	// 7-1. 툴팁 Top
-	tooltip_1 = ui.tooltip(".tooltip_1");
+	tooltip_1 = tooltip(".tooltip_1");
 	
 	// 7-2. 툴팁 Bottom
-	tooltip_2 = ui.tooltip(".tooltip_2", {
+	tooltip_2 = tooltip(".tooltip_2", {
 		position: "bottom",
 		color: "gray",
 		showType: "click"
 	});
 	
 	// 7-3. 툴팁 Left
-	tooltip_3 = ui.tooltip(".tooltip_3", {
+	tooltip_3 = tooltip(".tooltip_3", {
 		position: "left",
 		delay: 1000
 	});
 	
 	// 7-4. 툴팁 Right
-	tooltip_4 = ui.tooltip(".tooltip_4", {
+	tooltip_4 = tooltip(".tooltip_4", {
 		position: "right",
 		width: 300,
 		align: "center"
@@ -66,8 +66,8 @@ jui.ready(function(ui, uix, _) {
 		툴팁의 위치를 상단으로 설정할 수 있으며 기본적으로 마우스 오버시에 툴팁이 보여집니다. 
 		(<span class="tooltip_1" title="Tooltip Top">Over</span>)
 		
-<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
-	tooltip_1 = ui.tooltip(".tooltip_1");
+<pre><code class="language-javascript">jui.ready([ "ui.tooltip" ], function(tooltip) {
+	tooltip_1 = tooltip(".tooltip_1");
 });</code></pre>
 	</p>
 </section>
@@ -78,7 +78,7 @@ jui.ready(function(ui, uix, _) {
 		툴팁의 위치를 하단으로 설정할 수 있으며 컬러는 회색으로 툴팁은 마우스 클릭시에 보여집니다. 
 		(<span class="tooltip_2" title="Tooltip Bottom">Click</span>)
 		
-<pre><code class="language-javascript">tooltip_2 = ui.tooltip(".tooltip_2", {
+<pre><code class="language-javascript">tooltip_2 = tooltip(".tooltip_2", {
 	position: "bottom",
 	color: "gray",
     showType: "click"
@@ -92,7 +92,7 @@ jui.ready(function(ui, uix, _) {
 		툴팁의 위치를 좌측으로 설정할 수 있으며 마우스 오버시 1초 후에 툴팁이 보여집니다. 
 		(<span class="tooltip_3" title="Tooltip left">Delay</span>)
 		
-<pre><code class="language-javascript">tooltip_3 = ui.tooltip(".tooltip_3", {
+<pre><code class="language-javascript">tooltip_3 = tooltip(".tooltip_3", {
 	position: "left",
 	delay: 1000
 });</code></pre>
@@ -105,7 +105,7 @@ jui.ready(function(ui, uix, _) {
 		툴팁의 위치를 우측으로 설정할 수 있으며 <strong>max-width</strong> 값을 300px로 정합니다. 만약에 툴팁이 길어지면 자동으로 줄바꿈을 합니다.<br/>
 		그리고 툴팁은 가운데 정렬됩니다. (<span class="tooltip_4" title="Tooltip right, Tooltip right, Tooltip right, Tooltip right, Tooltip right, Tooltip right">Over</span>)
 		
-<pre><code class="language-javascript">tooltip_4 = ui.tooltip(".tooltip_4", {
+<pre><code class="language-javascript">tooltip_4 = tooltip(".tooltip_4", {
 	position: "right",
 	width: 300,
 	align: "center"

@@ -16,9 +16,9 @@
 <script src="../../res/manual.js"></script>
 
 <script>
-jui.ready(function(ui, uix, _) {
+jui.ready([ "uix.window" ], function(window) {
 	// 3-1. 일반 윈도우
-	win_1 = uix.window("#win_1", { 
+	win_1 = window("#win_1", { 
 		width: 500, 
 		height: 300, 
 		left: 100, 
@@ -26,7 +26,7 @@ jui.ready(function(ui, uix, _) {
         animate: true
 	});
 	
-	win_1_2 = uix.window("#win_1_2", { 
+	win_1_2 = window("#win_1_2", { 
 		width: 500, 
 		height: 300, 
 		left: 100, 
@@ -34,7 +34,7 @@ jui.ready(function(ui, uix, _) {
         animate: true
 	});
 	
-	win_1_3 = uix.window("#win_1_3", { 
+	win_1_3 = window("#win_1_3", { 
 		width: 500, 
 		height: 300, 
 		left: 100, 
@@ -43,14 +43,14 @@ jui.ready(function(ui, uix, _) {
 	});
 
 	// 3-2. 모달 윈도우
-	win_2 = uix.window("#win_2", { 
+	win_2 = window("#win_2", { 
 		width: 500, 
 		height: 300, 
 		modal: true,
         animate: true
 	});
 
-	win_3 = uix.window("#win_3", { 
+	win_3 = window("#win_3", { 
 		width: 350, 
 		height: 150, 
 		top: 1274,
@@ -140,29 +140,29 @@ function winTest(modal, type) {
 	</p>
 	
 	<p>
-<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
-	win_1 = uix.window("#win_1", { 
+<pre><code class="language-javascript">jui.ready([ "uix.window" ], function(window) {
+	win_1 = window("#win_1", { 
 		width: 500, 
 		height: 300, 
 		left: 100, 
 		top: 100
 	});
 	
-	win_1_2 = uix.window("#win_1_2", { 
+	win_1_2 = window("#win_1_2", { 
 		width: 500, 
 		height: 300, 
 		left: 100, 
 		top: 400
 	});
 	
-	win_1_3 = uix.window("#win_1_3", { 
+	win_1_3 = window("#win_1_3", { 
 		width: 500, 
 		height: 300, 
 		left: 100, 
 		top: 700
 	});
 	
-	win_2 = uix.window("#win_2", { 
+	win_2 = window("#win_2", { 
 		width: 500, 
 		height: 300, 
 		modal: true

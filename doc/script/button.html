@@ -15,7 +15,7 @@
 <script src="../../res/manual.js"></script>
 
 <script>
-jui.ready(function(ui, uix, _) {
+jui.ready([ "ui.button" ], function(button) {
 	var btn_radio_options = {
 		type: "radio",
 		event: {
@@ -43,13 +43,13 @@ jui.ready(function(ui, uix, _) {
 	};
 	
 	// 버튼-라디오 
-	btn_radio_1 = ui.button("#btn_radio_1", btn_radio_options);
-	btn_radio_2 = ui.button("#btn_radio_2", btn_radio_options);
-	btn_radio_3 = ui.button("#btn_radio_3", btn_radio_options);
+	btn_radio_1 = button("#btn_radio_1", btn_radio_options);
+	btn_radio_2 = button("#btn_radio_2", btn_radio_options);
+	btn_radio_3 = button("#btn_radio_3", btn_radio_options);
 	
 	// 버튼-체크 
-	btn_check = ui.button("#btn_check", btn_check_options);
-	btn_check_2 = ui.button("#btn_check_2", btn_check_options);
+	btn_check = button("#btn_check", btn_check_options);
+	btn_check_2 = button("#btn_check_2", btn_check_options);
 });
 
 </script>
@@ -144,7 +144,7 @@ jui.ready(function(ui, uix, _) {
 &lt;/div&gt;
 
 ...</code></pre>
-<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
+<pre><code class="language-javascript">jui.ready([ "ui.button" ], function(button) {
 	var btn_radio_options = {
 		type: "radio",
 		event: {
@@ -154,9 +154,9 @@ jui.ready(function(ui, uix, _) {
 		}
 	};
 	
-	btn_radio_1 = ui.button("#btn_radio_1", btn_radio_options);
-	btn_radio_2 = ui.button("#btn_radio_2", btn_radio_options);
-	btn_radio_3 = ui.button("#btn_radio_3", btn_radio_options);
+	btn_radio_1 = button("#btn_radio_1", btn_radio_options);
+	btn_radio_2 = button("#btn_radio_2", btn_radio_options);
+	btn_radio_3 = button("#btn_radio_3", btn_radio_options);
 });</code></pre>
 	</p>
 </section>
@@ -245,8 +245,8 @@ jui.ready(function(ui, uix, _) {
 	}
 };
 
-btn_check = ui.button("#btn_check", btn_check_options);
-btn_check_2 = ui.button("#btn_check_2", btn_check_options);</code></pre>
+btn_check = button("#btn_check", btn_check_options);
+btn_check_2 = button("#btn_check_2", btn_check_options);</code></pre>
 
 	</p>
 </section>
