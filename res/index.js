@@ -280,7 +280,7 @@ function initAnimation() {
 		var $prev = (index == -1) ? $($slider.get($slider.size() - 1)) : $($slider.get(index)),
 			$current = $($slider.get(index + 1));
 
-		$prev.addClass("pt-page-fade");
+		$prev.addClass("pt-page-moveToLeftFade");
 
 		$current.show().addClass("pt-page-moveFromRightFade");
 		$current.on("webkitAnimationEnd", handler);
@@ -289,7 +289,7 @@ function initAnimation() {
 		$current.on("animationend", handler);
 
 		function handler(e) {
-			$prev.removeClass("pt-page-fade").hide();
+			$prev.removeClass("pt-page-moveToLeftFade").hide();
 			$current.removeClass("pt-page-moveFromRightFade");
 		}
 
@@ -298,7 +298,7 @@ function initAnimation() {
 		} else {
 			index++;
 		}
-	}, 10000);
+	}, 3000);
 }
 
 jui.ready(function(ui, uix, _) {

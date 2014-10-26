@@ -53,9 +53,9 @@ nav {
 	display: none;
 }
 
-.pt-page-fade {
-	-webkit-animation: fade .7s ease both;
-	animation: fade .7s ease both;
+.pt-page-moveToLeftFade {
+	-webkit-animation: moveToLeftFade .7s ease both;
+	animation: moveToLeftFade .7s ease both;
 }
 
 .pt-page-moveFromRightFade {
@@ -63,13 +63,13 @@ nav {
 	animation: moveFromRightFade .7s ease both;
 }
 
-@-webkit-keyframes fade {
+@-webkit-keyframes moveToLeftFade {
 	from { }
-	to { opacity: 0.3; }
+	to { opacity: 0.3; -webkit-transform: translateX(-100%); }
 }
-@keyframes fade {
+@keyframes moveToLeftFade {
 	from { }
-	to { opacity: 0.3; }
+	to { opacity: 0.3; -webkit-transform: translateX(-100%); transform: translateX(-100%); }
 }
 
 @-webkit-keyframes moveFromRightFade {
