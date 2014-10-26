@@ -174,6 +174,7 @@ var code_list = [
 
     // realtime chart
     { type : 'realtime', title : "Realtime Line",  description : "", code : "realtime_line.js" },
+    { type : 'realtime', title : "Realtime Complex Line",  description : "", code : "realtime_line_complex.js" },
     { type : 'realtime', title : "Realtime Area",  description : "", code : "realtime_area.js" }
 ];
 
@@ -182,12 +183,7 @@ function getRealtimeData(min) {
             data = [];
 
     for(var i = 0; i < min * 60; i++) {
-        data.push({
-            time : time.add(start, time.seconds, i + 1),
-            s1 : Math.sin(realtimeIndex / 20) - 4,
-            s2 : Math.sin(realtimeIndex / 10) * 2.5,
-            s3 : Math.sin(realtimeIndex / 15) + 5
-        });
+        data.push(getRealtimeRowData(time.add(start, time.seconds, i + 1)));
 
         realtimeIndex++;
     }
@@ -201,15 +197,19 @@ function runRealtimeData(realtime) {
     }
 
     realtimeInterval = setInterval(function() {
-        realtime.append({
-            time : new Date(),
-            s1 : Math.sin(realtimeIndex / 20) - 4,
-            s2 : Math.sin(realtimeIndex / 10) * 2.5,
-            s3 : Math.sin(realtimeIndex / 15) + 5
-        });
+        realtime.append(getRealtimeRowData(new Date()));
 
         realtimeIndex++;
     }, 1000);
+}
+
+function getRealtimeRowData(time) {
+    return {
+        time : time,
+        s1 : Math.sin(realtimeIndex / 20) - 4,
+        s2 : Math.sin(realtimeIndex / 10) * 2.5,
+        s3 : Math.sin(realtimeIndex / 15) + 5
+    }
 }
 
 function changeTheme(theme) {
@@ -263,13 +263,6 @@ function createTable() {
     table_1.resize();
 
     window.currentChart.bindUI(table_1);
-
-    var enableAddRow = code_list[currentChartIndex].add || false;
-    if (enableAddRow) {
-        $(".add-row-btn").show();
-    } else {
-        $(".add-row-btn").hide();
-    }
 }
 
 function createTableStyle() {
@@ -307,27 +300,6 @@ function createTableStyle() {
             table_2.append({ key: key, value: themes[key] });
         }
     }
-}
-
-function addRow() {
-    var obj = code_list[currentChartIndex].obj;
-
-    table_1.append(obj)
-}
-
-function nextChart() {
-    currentChartIndex = (++currentChartIndex) % code_list.length;
-    viewCodeEditor();
-}
-
-function prevChart() {
-    --currentChartIndex;
-
-    if (currentChartIndex < 0) {
-        currentChartIndex = code_list.length - 1;
-    }
-
-    viewCodeEditor();
 }
 
 function resetChart() {
@@ -598,6 +570,10 @@ function viewCodeEditor() {
                 $("#tab_1").find("li:not(:first-child)").hide();
             } else {
                 $("#tab_1").find("li").show();
+
+                if(realtimeInterval != null) {
+                    clearInterval(realtimeInterval);
+                }
             }
         },
         error : function(data, error) {
@@ -753,12 +729,6 @@ loadIframe($("#chart").find("iframe"), "chart/disqus.html");
                 <option value="seoul">Seoul</option>
                 <option value="gradient">Gradient</option>
             </select>
-            <!--
-            <div class="group">
-                <a class='btn btn-gray btn-flat btn-rect' href="javascript:void(prevChart())"><i class='icon-chevron-left'></i></a>
-                <a class='btn btn-gray btn-flat btn-rect' href="javascript:void(nextChart())"><i class='icon-chevron-right'></i></a>
-            </div>
-            -->
         </span>
 
         <div style='float:right;'>

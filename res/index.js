@@ -45,7 +45,8 @@ var menuInfo = {
             datepicker: "script/datepicker",
             notify: "script/notify",
             layout: "script/layout",
-            chart: "script/chart"
+            chart: "script/chart",
+			realtime: "script/realtime"
         }
     },
     style: {
