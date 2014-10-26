@@ -25,12 +25,58 @@ nav {
 	position: relative !important;
 }
 
-nav.main {
-	margin-top: 74px;
+.main {
+	height: 480px;
+}
+
+.main > * {
+	position: absolute !important;
+	top: 74px;
 	height: 416px;
 	border-bottom-width: 0px !important;
+}
+
+.main > nav:nth-child(1) {
 	background-image: url("img2/headline.png") !important;
 	background-repeat: repeat-x !important;
+}
+
+.main > nav:nth-child(2) {
+	background-image: url("img2/headline.png") !important;
+	background-repeat: repeat-x !important;
+	display: none;
+}
+
+.main > nav:nth-child(3) {
+	background-image: url("img2/headline.png") !important;
+	background-repeat: repeat-x !important;
+	display: none;
+}
+
+.pt-page-fade {
+	-webkit-animation: fade .7s ease both;
+	animation: fade .7s ease both;
+}
+
+.pt-page-moveFromRightFade {
+	-webkit-animation: moveFromRightFade .7s ease both;
+	animation: moveFromRightFade .7s ease both;
+}
+
+@-webkit-keyframes fade {
+	from { }
+	to { opacity: 0.3; }
+}
+@keyframes fade {
+	from { }
+	to { opacity: 0.3; }
+}
+
+@-webkit-keyframes moveFromRightFade {
+	from { opacity: 0.3; -webkit-transform: translateX(100%); }
+}
+@keyframes moveFromRightFade {
+	from { opacity: 0.3; -webkit-transform: translateX(100%); transform: translateX(100%); }
 }
 
 nav.about {

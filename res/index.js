@@ -126,13 +126,13 @@ function initMenuUrl(hash) {
 
     // 타이틀 & 메시지 처리
     if(hash == "home") {
-        $("nav.main, nav.download").show();
+        $(".main, nav.download").show();
         $("nav.sub").hide();
     } else if(hash == "about") {
-        $("nav.main, nav.download, nav.sub").hide();
+        $(".main, nav.download, nav.sub").hide();
         $("nav.about").show();
     } else {
-		$("nav.main, nav.download, nav.about").hide();
+		$(".main, nav.download, nav.about").hide();
 		$("nav.sub").show();
 		$("nav.sub .title").html(menuInfo[hash[0]].title);
 		$("nav.sub .msg").html(menuInfo[hash[0]].msg);
@@ -272,12 +272,42 @@ function loadPage(hash, src) {
 	$("#chart .center").load(src);
 }
 
+function initAnimation() {
+	var $slider = $(".main").find("nav");
+	var index = 0;
+
+	setInterval(function() {
+		var $prev = (index == -1) ? $($slider.get($slider.size() - 1)) : $($slider.get(index)),
+			$current = $($slider.get(index + 1));
+
+		$prev.addClass("pt-page-fade");
+
+		$current.show().addClass("pt-page-moveFromRightFade");
+		$current.on("webkitAnimationEnd", handler);
+		$current.on("oAnimationEnd", handler);
+		$current.on("MSAnimationEnd", handler);
+		$current.on("animationend", handler);
+
+		function handler(e) {
+			$prev.removeClass("pt-page-fade").hide();
+			$current.removeClass("pt-page-moveFromRightFade");
+		}
+
+		if(index == $slider.size() - 2) {
+			index = -1;
+		} else {
+			index++;
+		}
+	}, 10000);
+}
+
 jui.ready(function(ui, uix, _) {
 	loading = ui.modal("#floatingBarsG", {
 		color: "black"
 	});
 	
 	initHashEvent();
+	initAnimation();
 	checkIeVersion();
 
 	$("#btn_about").on("click", function(e) {

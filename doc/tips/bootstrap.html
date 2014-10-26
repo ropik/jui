@@ -2,10 +2,10 @@
 <html>
 <head>
 <META charset="UTF-8">
-<title>[JUI Library] - Tips/Bootstrap</title>	
+<title>[JUI Library] - Tips/Bootstrap</title>
 
 <link rel="stylesheet" href="../../res/manual.css" />
-<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/bootstrap.min.css" />
 <link rel="stylesheet" href="../../lib/prism.css" />
 <script src="../../lib/jquery-1.8.0.min.js"></script>
 <script src="../../lib/prism.js"></script>
@@ -23,6 +23,47 @@ section {
 
 section.not_bottom {
 	margin-bottom: 0px;
+}
+
+h1 {
+	margin-top: 0px;
+	color: #8772bf;
+}
+
+table {
+	position: relative;
+}
+
+#paging_1 {
+	margin: 0;
+}
+
+.tab-contents {
+	display: none;
+	padding-top: 12px;
+}
+
+.tab-contents .msg {
+	background-color: #dcdcdc;
+}
+
+#modal {
+	display: none;
+	width: 400px;
+	height: 250px;
+}
+
+#table_2 .col-lg-3 {
+	float: left;
+	width: 25% !important;
+}
+
+#table_2 tbody tr {
+	cursor: pointer;
+}
+
+#table_5 thead tr, #table_6 thead tr {
+	cursor: pointer;
 }
 </style>
 
@@ -42,15 +83,565 @@ jui.ready([ "ui.tooltip"], function(tooltip) {
 	});
 });
 
-function run(selector, type) {
-	return $(selector).get(0).contentWindow.window.run(type);
+jui.ready(function(ui, uix, _) {
+	btn_1 = ui.button("#btn_1", {
+		type: "radio",
+		event: {
+			change: function(data, e) {
+				alert(data.text);
+			}
+		}
+	});
+
+	btn_2 = ui.button("#btn_2", {
+		type: "check",
+		event: {
+			change: function(data, e) {
+				var words = [];
+
+				for(var i = 0; i < data.length; i++) {
+					if(data[i] != null) {
+						words.push(data[i].text);
+					}
+				}
+
+				alert(words.join(", "));
+			}
+		}
+	});
+
+	paging_1 = ui.paging("#paging_1", {
+		count: 1000,
+		pageCount: 10,
+		screenCount: 9,
+		event: {
+			page: function(pNo) {
+				alert(pNo);
+			}
+		}
+	});
+
+	paging_2 = ui.paging("#paging_2", {
+		pageCount: 100,
+		screenCount: 9,
+		event: {
+			page: function(pNo) {
+				paging_2_xtable.page(pNo);
+			}
+		}
+	});
+
+	paging_2_xtable = uix.xtable("#paging_2_xtable", {
+		fields: [ "name", "age", "location" ],
+		resize: true,
+		buffer: "s-page", // scroll, page, s-page
+		bufferCount: 100,
+		event: {
+			sortend: function(data, e) {
+				paging_2.first();
+			}
+		},
+		animate: true
+	});
+
+	dd_1 = ui.dropdown("#dd_1", {
+		event: {
+			change: function(data, e) {
+				alert(data.text);
+			},
+			hide: function() {
+				$(".btn-group").removeClass("active");
+			}
+		}
+	});
+
+	$(".btn-group").on("click", function(e) {
+		var offset = $(this).offset();
+		dd_1.show(offset.left, offset.top + 33);
+
+		$(".btn-group").removeClass("active");
+		$(this).addClass("active");
+	});
+
+	dd_2 = ui.dropdown("#dd_2", {
+		keydown: true,
+		event: {
+			change: function(data, e) {
+				alert(data.text);
+			},
+			hide: function() {
+				$(".dropdown-toggle").removeClass("active");
+			}
+		}
+	});
+
+	$(".btn-group").on("click", function(e) {
+		var offset = $(this).offset();
+		dd_2.show(offset.left, offset.top + 33);
+
+		$(".dropdown-toggle").removeClass("active");
+		$(this).find(".dropdown-toggle").addClass("active");
+	});
+
+	var ac_words = [
+		"BASIC",
+		"JavaScript",
+		"Python",
+		"자바의 정석",
+		"열혈강의 C++"
+	];
+
+	ac_1 = uix.autocomplete("#ac_1", {
+		words: ac_words,
+		event: {
+			change: function(text) {
+				alert(text);
+			}
+		}
+	});
+
+	ac_2 = uix.autocomplete("#ac_2", {
+		target: "input[type=text]",
+		words: ac_words,
+		event: {
+			change: function(text) {
+				alert(text);
+			}
+		}
+	});
+
+	tab_1 = uix.tab("#tab_1", {
+		event: {
+			change: function(data, e) {
+				$(".tab-contents").hide();
+				$("[data-index=" + data.index + "]").show();
+			},
+			changeMenu: function(data, e) {
+				alert(data.text);
+			}
+		}
+	});
+
+	tab_2 = uix.tab("#tab_2", {
+		event: {
+			change: function(data) {
+				alert(data.text);
+			}
+		}
+	});
+
+	modal = ui.modal("#modal", {
+		color: "black"
+	});
+
+	notify = ui.notify("body", {
+		position: "top-right",
+		timeout: -1,
+		padding: 20,
+		tpl: {
+			alarm: $("#tpl_alarm").html()
+		}
+	});
+
+	var table_data = [
+		{ name: "Hong", age: "20", location: "Ilsan" },
+		{ name: "Jung", age: "30", location: "Seoul" },
+		{ name: "Park", age: "10", location: "Dangjin" }
+	];
+
+	var table_data_big = [
+		{ name: "Hong", age: "20", location: "Ilsan" },
+		{ name: "Jung", age: "30", location: "Seoul" },
+		{ name: "Park", age: "15", location: "Yeosu" },
+		{ name: "Kang", age: "32", location: "Seoul" },
+		{ name: "Song", age: "12", location: "Gwangju" },
+		{ name: "Yoon", age: "22", location: "Damyang" },
+		{ name: "Kim", age: "33", location: "Busan" },
+		{ name: "Hwang", age: "21", location: "Seoul" }
+	];
+
+	table_1 = uix.table("#table_1", {
+		rows: _.clone(table_data),
+		animate: true
+	});
+
+	table_2 = uix.table("#table_2", {
+		rows: _.clone(table_data_big),
+		expand: "auto",
+		animate: true
+	});
+
+	table_2.on("expand", function(row) {
+		$(row.list[0]).html("-");
+	});
+	table_2.on("expandend", function(row) {
+		$(row.list[0]).html("+");
+	});
+
+	table_3 = uix.table("#table_3", {
+		rows: _.clone(table_data_big),
+		scroll: true,
+		scrollHeight: 150,
+		animate: true
+	});
+
+	table_4 = uix.table("#table_4", {
+		rows: _.clone(table_data_big),
+		resize: true,
+		event: {
+			rowmenu: function(row, e) {
+				this.select(row.index);
+
+				table_4_dd.move(e.pageX, e.pageY);
+				table_4_dd.show();
+			}
+		},
+		animate: true
+	});
+
+//	table_4.resize();
+
+	table_4_dd = ui.dropdown("#table_4_dd", {
+		event: {
+			change: function(data, e) {
+				alert(data.text);
+			}
+		}
+	});
+
+	table_5 = uix.table("#table_5", {
+		fields: [ "name", "age", "location" ],
+		rows: _.clone(table_data),
+		resize: true,
+		sort: [ 0, 1, 2 ],
+		animate: true
+	});
+
+//	table_5.resize();
+
+	table_6 = uix.table("#table_6", {
+		fields: [ null, "name", "age", "location" ],
+		rows: _.clone(table_data),
+		editRow: true,
+		resize: true,
+		sort: true,
+		event: {
+			editstart: function(row, e) {
+				console.log(row);
+			},
+			editend: function(data) {
+				for(var key in data) {
+					if(key == "age" && isNaN(data[key])) {
+						alert("나이는 숫자만 입력할 수 있습니다.");
+						return false;
+					}
+				}
+			}
+		},
+		animate: true
+	});
+
+	table_7 = uix.table("#table_7", {
+		fields: [ null, "name", "age", "location" ],
+		rows: _.clone(table_data_big),
+		scroll: true,
+		resize: true,
+		animate: true
+	});
+
+	table_8 = uix.table("#table_8", {
+		fields: [ null, "name", "age", "location" ],
+		rows: _.clone(table_data_big),
+		scroll: true,
+		resize: true,
+		animate: true
+	});
+
+	table_9 = uix.table("#table_9", {
+		fields: [ "name", "age", "location" ],
+		rows: table_data_big,
+		colshow: true,
+		resize: true,
+		event: {
+			colmenu: function(column, e) {
+				this.columnMenu(e.pageX - 25);
+			}
+		},
+		animate: true
+	});
+
+//	table_9.resize();
+
+	table_tree_1 = uix.table("#table_tree_1", {
+		rows: _.clone(table_data_big),
+		scroll: true,
+		resize: true,
+		event: {
+			select: function(row) {
+				alert("index(" + row.index + "), name(" + row.data.name + ")");
+			}
+		},
+		animate: true
+	});
+
+	table_tree_2 = uix.table("#table_tree_2", {
+		rows: table_data_big,
+		resize: true,
+		event: {
+			select: function(row) {
+				alert("index(" + row.index + "), name(" + row.data.name + ")");
+			}
+		},
+		animate: true
+	});
+
+	table_tree_2.append("1", { name: "Kang", age: "21" });
+	table_tree_2.append("1", { name: "Jung", age: "33" });
+	table_tree_2.insert("1.2", { name: "Park", age: "45" } );
+	table_tree_2.insert("1.3", { name: "Hwang", age: "12" } );
+	table_tree_2.insert("1.2.0", { name: "Roo", age: "32" } );
+	table_tree_2.insert("1.2.1", { name: "Jung", age: "14" } );
+	table_tree_2.insert("3.0", { name: "Yoon", age: "17" } );
+	table_tree_2.insert("3.1", { name: "Kim", age: "21" } );
+	table_tree_2.insert("3.2", { name: "Kim", age: "28" } );
+
+	table_tree_2.resize();
+
+	xtable_1 = uix.xtable("#xtable_1", {
+		fields: [ "name", "age", "location" ],
+		resize: true,
+		colshow: true,
+		sort: true,
+		sortLoading: true,
+		buffer: "scroll", // scroll, page, s-page
+		bufferCount: 20,
+		animate: true
+	});
+
+//	xtable_1.resize();
+
+	xtable_2 = uix.xtable("#xtable_2", {
+		fields: [ "name", "age", "location" ],
+		resize: true,
+		colshow: true,
+		sort: true,
+		sortLoading: true,
+		buffer: "page", // scroll, page, s-page
+		bufferCount: 5,
+		event: {
+			sortend: function() {
+				xtable_2_page = 1;
+			}
+		},
+		animate: true
+	});
+
+//	xtable_2.resize();
+
+	xtable_3 = uix.xtable("#xtable_3", {
+		fields: [ "name", "age", "location" ],
+		resize: true,
+		colshow: true,
+		sort: true,
+		sortLoading: true,
+		buffer: "s-page", // scroll, page, s-page
+		bufferCount: 20,
+		event: {
+			sortend: function() {
+				xtable_3_page = 1;
+			}
+		},
+		animate: true
+	});
+
+//	xtable_3.resize();
+});
+
+function pagingRun() {
+	var result = [],
+			dataSize = 1000000,
+			nStart = new Date().getTime();
+
+	for(var i = 0; i < dataSize; i++) {
+		result.push({ name: "Alvin" + i, age: Math.floor(Math.random() * 100) + 1, location: "LA" });
+	}
+
+	var nEnd = new Date().getTime();
+	paging_2_xtable.update(result);
+	paging_2_xtable.resize();
+	var nEnd2 = new Date().getTime();
+
+	alert(
+			"임의의 데이터 " + (dataSize / 10000) + "만개를 생성합니다.\n\n" +
+			"데이터 생성시간 : " + ((nEnd - nStart) / 1000) + "sec\n" +
+			"테이블 갱신시간 : " + ((nEnd2 - nEnd) / 1000) + "sec"
+	);
+
+	paging_2.reload(paging_2_xtable.count());
+}
+
+function modalNotifyRun(type) {
+	if(type == 1) {
+		modal.show();
+	} else {
+		var data = {
+			msg: "<strong>HTTP Error</strong> 500 Internal server error.",
+			color: "danger"
+		};
+
+		notify.add(data);
+	}
+}
+
+function table2Submit(index) {
+	var name = $("#table_2_name").val(),
+		age = $("#table_2_age").val(),
+		location = $("#table_2_location").val();
+
+	table_2.update(index, { name: name, age: age, location: location });
+	table_2.hideExpand();
+}
+
+function table7Run() {
+	var rows = [];
+	var nStart = new Date().getTime();
+
+	for(var i = 0; i < 1000; i++) {
+		rows.push({ name: "Alvin" + i, age: i, location: "LA" });
+	}
+
+	table_7.append(rows);
+	var nEnd = new Date().getTime();
+
+	alert("실행시간 : " + (nEnd - nStart) + "ms");
+}
+
+function table8Run() {
+	var rows = [];
+	var nStart = new Date().getTime();
+
+	for(var i = 0; i < 100; i++) {
+		rows.push({ name: "Alvin" + i, age: i, location: "LA" });
+	}
+
+	table_8.insert(3, rows);
+	var nEnd = new Date().getTime();
+
+	alert("실행시간 : " + (nEnd - nStart) + "ms");
+}
+
+function table10Run() {
+	table_tree_1.append("1", { name: "Kang", age: "21" });
+	table_tree_1.append("1", { name: "Jung", age: "33" });
+	table_tree_1.insert("1.2", { name: "Park", age: "45" } );
+	table_tree_1.insert("1.3", { name: "Hwang", age: "12" } );
+	table_tree_1.insert("1.2.0", { name: "Roo", age: "32" } );
+	table_tree_1.insert("1.2.1", { name: "Jung", age: "14" } );
+	table_tree_1.insert("3.0", { name: "Yoon", age: "17" } );
+	table_tree_1.insert("3.1", { name: "Kim", age: "21" } );
+	table_tree_1.insert("3.2", { name: "Kim", age: "28" } );
+
+	table_tree_1.scroll();
+}
+
+function table11Run(type) {
+	if(type == 1) {
+		alert("3번 로우를 4.0번으로 이동합니다.");
+		table_tree_2.move("3", "4.0");
+	} else if(type == 2) {
+		alert("1번 로우를 삭제합니다.");
+		table_tree_2.remove("1");
+	} else {
+		alert("2번 로우의 데이터를 변경합니다.");
+		table_tree_2.update("2", { name: "AAA" });
+	}
+}
+
+function xtableRun() {
+	var result = [],
+		dataSize = 1000000,
+		nStart = new Date().getTime();
+
+	for(var i = 0; i < dataSize; i++) {
+		result.push({ name: "Alvin" + i, age: Math.floor(Math.random() * 100) + 1, location: "LA" });
+	}
+
+	var nEnd = new Date().getTime();
+	xtable_1.update(result);
+	var nEnd2 = new Date().getTime();
+
+	alert(
+			"임의의 데이터 " + (dataSize / 10000) + "만건을 생성합니다.\n\n" +
+			"데이터 생성시간 : " + ((nEnd - nStart) / 1000) + "sec\n" +
+			"테이블 갱신시간 : " + ((nEnd2 - nEnd) / 1000) + "sec"
+	);
+}
+
+function xtable2Run() {
+	var result = [],
+			dataSize = 1000000,
+			nStart = new Date().getTime();
+
+	for(var i = 0; i < dataSize; i++) {
+		result.push({ name: "Alvin" + i, age: Math.floor(Math.random() * 100) + 1, location: "LA" });
+	}
+
+	var nEnd = new Date().getTime();
+	xtable_2.update(result);
+	xtable_2.resize();
+	xtable_2_page = 1;
+	var nEnd2 = new Date().getTime();
+
+	alert(
+			"임의의 데이터 " + (dataSize / 10000) + "만건을 생성합니다.\n\n" +
+			"데이터 생성시간 : " + ((nEnd - nStart) / 1000) + "sec\n" +
+			"테이블 갱신시간 : " + ((nEnd2 - nEnd) / 1000) + "sec"
+	);
+}
+
+function xtable2Page(no) {
+	if(xtable_2_page == null) return;
+
+	xtable_2_page += no;
+	xtable_2_page = (xtable_2_page < 1) ? 1 : xtable_2_page;
+	xtable_2.page(xtable_2_page);
+}
+
+function xtable3Run() {
+	var result = [],
+			dataSize = 1000000,
+			nStart = new Date().getTime();
+
+	for(var i = 0; i < dataSize; i++) {
+		result.push({ name: "Alvin" + i, age: Math.floor(Math.random() * 100) + 1, location: "LA" });
+	}
+
+	var nEnd = new Date().getTime();
+	xtable_3.update(result);
+	xtable_3.resize();
+	xtable_3_page = 1;
+	var nEnd2 = new Date().getTime();
+
+	alert(
+			"임의의 데이터 " + (dataSize / 10000) + "만건을 생성합니다.\n\n" +
+			"데이터 생성시간 : " + ((nEnd - nStart) / 1000) + "sec\n" +
+			"테이블 갱신시간 : " + ((nEnd2 - nEnd) / 1000) + "sec"
+	);
+}
+
+function xtable3Page(no) {
+	if(xtable_3_page == null) return;
+
+	xtable_3_page += no;
+	xtable_3_page = (xtable_3_page < 1) ? 1 : xtable_3_page;
+	xtable_3.page(xtable_3_page);
 }
 </script>
 
 </head>
 <body class="jui">
 
-<div class="page-header">
+<div>
 	<h1>Bootstrap</h1>
 </div>
 
@@ -61,51 +652,188 @@ function run(selector, type) {
 	<p>
 		버튼 컴포넌트는 하나만 선택할 수 있는 라디오 타입을 제공합니다.
 	</p>
-	<iframe id="iframe_21" src="bootstrap/21.html" frameborder="0" scrolling="no" height="50"></iframe>
+	<p class="br">
+		<div id="btn_1" class="btn-group btn-group-lg">
+			<button type="button" class="btn btn-success">Java</button>
+			<button type="button" class="btn btn-success">.NET</button>
+			<button type="button" class="btn btn-success">C++</button>
+			<button type="button" class="btn btn-success">JSP</button>
+			<button type="button" class="btn btn-success">PHP</button>
+			<button type="button" class="btn btn-success">ASP</button>
+			<button type="button" class="btn btn-success">Ruby</button>
+			<button type="button" class="btn btn-success">Python</button>
+		</div>
 
-	<h3><span class="link" data-no="22">Check</span></h3>
-	<p>
-		버튼 컴포넌트는 다수를 선택할 수 있는 체크 타입을 제공합니다.
+		<h3><span class="link" data-no="22">Check</span></h3>
+		<p>
+			버튼 컴포넌트는 다수를 선택할 수 있는 체크 타입을 제공합니다.
+		</p>
+		<div id="btn_2" class="btn-group btn-group-lg">
+			<button type="button" class="btn btn-info">Java</button>
+			<button type="button" class="btn btn-info">.NET</button>
+			<button type="button" class="btn btn-info">C++</button>
+			<button type="button" class="btn btn-info">JSP</button>
+			<button type="button" class="btn btn-info">PHP</button>
+			<button type="button" class="btn btn-info">ASP</button>
+			<button type="button" class="btn btn-info">Ruby</button>
+			<button type="button" class="btn btn-info">Python</button>
+		</div>
 	</p>
-	<iframe id="iframe_22" src="bootstrap/22.html" frameborder="0" scrolling="no" height="50"></iframe>
 </section>
 
 <section>
 	<h2>Paging</h2>
-		
+
 	<h3><span class="link" data-no="15">Default</span></h3>
 	<p>
 		페이징 UI를 사용하는 가장 기본적인 방법입니다.
 	</p>
-	<iframe id="iframe_15" src="bootstrap/15.html" frameborder="0" scrolling="no" height="48"></iframe>
+	<p class="br">
+		<ul id="paging_1" class="pagination pagination-lg"></ul>
 
-	<h3><span class="link" data-no="16">Table & Paging</span></h3>
-	<p>
-		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_16');">Run</a> - 
-		좌측 버튼을 클릭하면 100만 건의 데이터를 테이블에 입력합니다.
+		<script data-jui="#paging_1" data-tpl="pages" type="text/template">
+			<li class="prev"><a href="#">&laquo;</a></li>
+			<! for(var i = 0; i < pages.length; i++) { !>
+			<li class="page"><a href="#"><!= pages[i] !></a></li>
+			<! } !>
+			<li class="next"><a href="#">&raquo;</a></li>
+		</script>
+
+		<h3><span class="link" data-no="16">Table & Paging</span></h3>
+		<p>
+			<a class="btn btn-default btn-xs" href="javascript:pagingRun();">Run</a> -
+			좌측 버튼을 클릭하면 100만 건의 데이터를 테이블에 입력합니다.
+		</p>
+		<div id="paging_2_xtable">
+			<table class="table table-condensed table-bordered">
+				<thead>
+				<tr>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Location</th>
+				</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+
+		<ul id="paging_2" class="pagination pagination-sm"></ul>
+
+		<script data-jui="#paging_2_xtable" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+
+		<script data-jui="#paging_2_xtable" data-tpl="none" type="text/template">
+			<tr>
+				<td colspan="3" class="none">Data does not exist.</td>
+			</tr>
+		</script>
+
+		<script data-jui="#paging_2" data-tpl="pages" type="text/template">
+			<li class="prev"><a href="#">&laquo;</a></li>
+			<! for(var i = 0; i < pages.length; i++) { !>
+			<li class="page"><a href="#"><!= pages[i] !></a></li>
+			<! } !>
+			<li class="next"><a href="#">&raquo;</a></li>
+		</script>
 	</p>
-	<iframe id="iframe_16" src="bootstrap/16.html" frameborder="0" scrolling="no" height="270"></iframe>
 </section>
 
-<section class="not_bottom">
+<section>
 	<h2>Dropdown</h2>
-		
+
 	<h3><span class="link" data-no="19">Default</span></h3>
 	<p>
 		드롭다운 컴포넌트의 기본이며, 각각의 요소에는 <strong>value</strong>를 지정할 수 있습니다. (숫자 형태만 가능)
 	</p>
-	<iframe id="iframe_19" src="bootstrap/19.html" frameborder="0" scrolling="no" height="173"></iframe>
+	<p class="br">
+		<div class="btn-group">
+			<button type="button" class="btn btn-default dropdown-toggle">Default <span class="caret"></span></button>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-primary dropdown-toggle">Primary <span class="caret"></span></button>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-success dropdown-toggle">Success <span class="caret"></span></button>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-info dropdown-toggle">Info <span class="caret"></span></button>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-warning dropdown-toggle">Warning <span class="caret"></span></button>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-danger dropdown-toggle">Danger <span class="caret"></span></button>
+		</div>
 
-	<h3 style="margin-top: 0px;"><span class="link" data-no="20">Keydown</span></h3>
+		<ul id="dd_1" class="dropdown-menu">
+			<li><a href="#">Action</a></li>
+			<li><a href="#">Another action</a></li>
+			<li><a href="#">Something else here</a></li>
+			<li class="divider"></li>
+			<li><a href="#">Separated link</a></li>
+		</ul>
+	</p>
+
+	<h3><span class="link" data-no="20">Keydown</span></h3>
 	<p>
 		<strong>keydown</strong> 옵션을 <strong>true</strong>로 주면 키보드 방향키를 통해서도 리스트를 선택할 수 있습니다.
 	</p>
-	<iframe id="iframe_20" src="bootstrap/20.html" frameborder="0" scrolling="no" height="173"></iframe>
+	<p class="br">
+		<div class="btn-group">
+			<button type="button" class="btn btn-default">Default</button>
+			<button type="button" class="btn btn-default dropdown-toggle">
+				<span class="caret"></span>
+			</button>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-primary">Primary</button>
+			<button type="button" class="btn btn-primary dropdown-toggle">
+				<span class="caret"></span>
+			</button>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-success">Success</button>
+			<button type="button" class="btn btn-success dropdown-toggle">
+				<span class="caret"></span>
+			</button>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-info">Info</button>
+			<button type="button" class="btn btn-info dropdown-toggle">
+				<span class="caret"></span>
+			</button>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-warning">Warning</button>
+			<button type="button" class="btn btn-warning dropdown-toggle">
+				<span class="caret"></span>
+			</button>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-danger">Danger</button>
+			<button type="button" class="btn btn-danger dropdown-toggle">
+				<span class="caret"></span>
+			</button>
+		</div>
+
+		<ul id="dd_2" class="dropdown-menu">
+			<li><a href="#" value="100">Action</a></li>
+			<li><a href="#">Another action</a></li>
+			<li><a href="#">Something else here</a></li>
+			<li class="divider"></li>
+			<li><a href="#">Separated link</a></li>
+		</ul>
+	</p>
 </section>
 
-<section class="not_bottom">
+<section>
 	<h2>Auto Complete</h2>
-		
+
 	<h3><span class="link" data-no="17">Default</span></h3>
 	<p>
 		아래 키워드 중에 입력한 문자가 포함되어 있으면, 드롭다운 메뉴에 키워드 목록이 나타납니다.
@@ -113,7 +841,17 @@ function run(selector, type) {
 			<i>BASIC, JavaScript, Python, 자바의 정석, 열혈강의 C++</i>
 		</span>
 	</p>
-	<iframe id="iframe_17" src="bootstrap/17.html" frameborder="0" scrolling="no" height="100"></iframe>
+	<p class="br">
+		<input id="ac_1" type="text" class="form-control" placeholder="Text input">
+
+		<script data-jui="#ac_1" data-tpl="words" type="text/template">
+			<ul class="dropdown-menu">
+				<! for(var i = 0; i < words.length; i++) { !>
+				<li><a href="#"><!= words[i] !></a></li>
+				<! } !>
+			</ul>
+		</script>
+	</p>
 
 	<h3><span class="link" data-no="18">Input Group</span></h3>
 	<p>
@@ -122,150 +860,574 @@ function run(selector, type) {
 			<i>BASIC, JavaScript, Python, 자바의 정석, 열혈강의 C++</i>
 		</span>
 	</p>
-	<iframe id="iframe_18" src="bootstrap/18.html" frameborder="0" scrolling="no" height="100"></iframe>
+	<p class="br">
+		<div id="ac_2" class="input-group">
+			<span class="input-group-addon">@</span>
+			<input type="text" class="form-control" placeholder="Text input">
+		</div>
+
+		<script data-jui="#ac_2" data-tpl="words" type="text/template">
+			<ul class="dropdown-menu">
+				<! for(var i = 0; i < words.length; i++) { !>
+				<li><a href="#"><!= words[i] !></a></li>
+				<! } !>
+			</ul>
+		</script>
+	</p>
 </section>
 
-<section class="not_bottom">
+<section>
 	<h2>Tab</h2>
-		
+
 	<h3><span class="link" data-no="25">Default</span></h3>
 	<p>
 		탭 컨텐츠 영역은 이벤트를 통해서 설정할 수 있으며 관련된 옵션도 제공합니다.
 	</p>
-	<iframe id="iframe_25" src="bootstrap/25.html" frameborder="0" scrolling="no" height="40"></iframe>
+	<p>
+		<ul id="tab_2" class="nav nav-pills">
+			<li class="active"><a href="#">Home</a></li>
+			<li><a href="#">Profile</a></li>
+			<li><a href="#">Messages</a></li>
+		</ul>
+	</p>
 
 	<h3><span class="link" data-no="24">Menu</span></h3>
 	<p>
 		메뉴 탭 설정을 할 수 있으며 관련된 마크업은 드롭다운과 동일합니다.
 	</p>
-	<iframe id="iframe_24" src="bootstrap/24.html" frameborder="0" scrolling="no" height="180"></iframe>
+	<p class="br">
+		<ul id="tab_1" class="nav nav-tabs">
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Profile</a></li>
+			<li><a href="#">Messages</a></li>
+			<li class="menu">
+				<a href="#">Dropdown <span class="caret"></span></a>
+			</li>
+		</ul>
+
+		<div data-index="0" class="tab-contents"><div class="msg">Home</div></div>
+		<div data-index="1" class="tab-contents"><div class="msg">Profile</div></div>
+		<div data-index="2" class="tab-contents"><div class="msg">Messages</div></div>
+
+		<script data-jui="#tab_1" data-tpl="menu" type="text/template">
+			<ul class="dropdown-menu">
+				<li><a href="#">Action</a></li>
+				<li><a href="#">Another action</a></li>
+				<li><a href="#">Something else here</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Separated link</a></li>
+			</ul>
+		</script>
+	</p>
 </section>
 
 <section>
 	<h2>Modal & Notify</h2>
-		
+
 	<h3><span class="link" data-no="23">Modal</span></h3>
 	<p>
-		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_23', 1);">Run</a> - 
+		<a class="btn btn-default btn-xs" href="javascript:modalNotifyRun(1);">Run</a> -
 		전체 화면의 중앙에 위치하는 글로벌 모달 기능을 제공합니다.
 	</p>
 
 	<h3><span class="link" data-no="23">Notify</span></h3>
 	<p>
-		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_23', 2);">Run</a> - 
+		<a class="btn btn-default btn-xs" href="javascript:modalNotifyRun(2);">Run</a> -
 		심각한 문제가 발생하거나 이벤트 등이 발생하였을 때, 알림 메시지를 보여줄 수 있습니다.
 	</p>
-	
+
 	<br/>
-	<iframe id="iframe_23" src="bootstrap/23.html" frameborder="0" scrolling="no" height="400"></iframe>
+
+	<p>
+		<img id="modal" src="../../res/img3/jui_info_3.jpg" />
+
+		<script id="tpl_alarm" type="text/template">
+			<div class="alert alert-<!= color !>" style="width: 300px;"><!= msg !></div>
+		</script>
+	</p>
 </section>
 
 <section>
 	<h2>Table</h2>
-		
+
 	<h3><span class="link" data-no="1">Default</span></h3>
 	<p>
 		데이터 목록을 템플릿을 활용하여 적용한 기본적인 테이블 예제입니다.
 	</p>
-	<iframe src="bootstrap/1.html" frameborder="0" scrolling="no" height="150"></iframe>
-	
+	<p class="br">
+		<table id="table_1" class="table">
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Location</th>
+			</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+
+		<script data-jui="#table_1" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+	</p>
+
 	<h3><span class="link" data-no="2">Expand (+Update)</span></h3>
 	<p>
 		확장 영역을 사용하고 관련된 값을 데이터 바인딩을 통해 변경하는 예제입니다.
 	</p>
-	<iframe src="bootstrap/2.html" frameborder="0" scrolling="no" height="333"></iframe>
-	
+	<p class="br">
+		<table id="table_2" class="table table-hover">
+			<thead>
+			<tr>
+				<th style="width: 20px"></th>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Location</th>
+			</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+
+		<script data-jui="#table_2" data-tpl="row" type="text/template">
+			<tr>
+				<td>+</td>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+
+		<script data-jui="#table_2" data-tpl="expand" type="text/template">
+			<div class="row">
+				<div class="col-lg-3">
+					<div class="input-group">
+						<span class="input-group-addon">Name</span>
+						<input id="table_2_name" type="text" class="form-control" value="<!= name !>">
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="input-group">
+						<span class="input-group-addon">Age</span>
+						<input id="table_2_age" type="text" class="form-control" value="<!= age !>">
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="input-group">
+						<span class="input-group-addon">Location</span>
+						<input id="table_2_location" type="text" class="form-control" value="<!= location !>">
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="btn-group">
+						<button onclick="table2Submit(<!= row.index !>)" type="button" class="btn btn-default">Submit</button>
+						<button onclick="table_2.remove(<!= row.index !>); table_2.hideExpand();" type="button" class="btn btn-default">Delete</button>
+					</div>
+				</div>
+			</div>
+		</script>
+	</p>
+
 	<h3><span class="link" data-no="3">Scroll</span></h3>
 	<p>
 		테이블 내부에서 스크롤 기능을 사용하는 예제입니다.
 	</p>
-	<iframe src="bootstrap/3.html" frameborder="0" scrolling="no" height="200"></iframe>
+	<p class="br">
+		<table id="table_3" class="table table-striped">
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Location</th>
+			</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+
+		<script data-jui="#table_3" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+	</p>
 
 	<h3><span class="link" data-no="4">Mouse Right-Click (+Resize)</span></h3>
 	<p>
 		로우를 마우스 오른쪽 클릭하면 rowmenu 이벤트가 발생합니다.<br/>
 		이 이벤트를 활용하면 로우를 컨트롤할 수 있는 메뉴 등을 구현하는데 활용할 수 있습니다.
 	</p>
-	<iframe src="bootstrap/4.html" frameborder="0" scrolling="no" height="281"></iframe>
+	<p class="br">
+		<table id="table_4" class="table table-condensed table-bordered table-hover">
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Location</th>
+			</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+
+		<ul id="table_4_dd" class="dropdown-menu">
+			<li><a href="#">Action</a></li>
+			<li><a href="#">Another action</a></li>
+			<li><a href="#">Something else here</a></li>
+			<li class="divider"></li>
+			<li><a href="#">Separated link</a></li>
+		</ul>
+
+		<script data-jui="#table_4" data-tpl="row" type="text/template">
+			<tr class="<! if(parseInt(row.index) % 2 == 0) { !>info<! } !>">
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+	</p>
 
 	<h3><span class="link" data-no="5">Sorting (+Resize)</span></h3>
 	<p>
 		정렬 기능을 사용하기 위해서는 <strong>th</strong> 태그 순서대로 데이터 키 값을 넣어주고, 정렬 대상이 아닐 경우에는 <strong>null</strong>로 대체하면 됩니다.<br/>
 		또한 정렬 중임을 보여주는 UI는 별도로 구현할 수 있도록 관련된 인터페이스를 제공합니다.
 	</p>
-	<iframe src="bootstrap/5.html" frameborder="0" scrolling="no" height="126"></iframe>
-	
+	<p class="br">
+		<table id="table_5" class="table table-condensed table-bordered table-hover">
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Location</th>
+			</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+
+		<script data-jui="#table_5" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+	</p>
+
 	<h3><span class="link" data-no="6">Edit Row (+Resize, +Sort)</span></h3>
 	<p>
 		특정 로우를 더블클릭하면 모든 셀의 값을 수정할 수 있습니다. <br/>
 		수정이 완료되면 <strong>editend</strong> 이벤트가 발생하는데, 이 때 <strong>false</strong>를 리턴하면 수정된 값이 반영되지 않습니다.
 	</p>
-	<iframe src="bootstrap/6.html" frameborder="0" scrolling="no" height="150"></iframe>
-	
+	<p class="br">
+		<table id="table_6" class="table">
+			<thead>
+			<tr>
+				<th width="50px">No</th>
+				<th>Name</th>
+				<th width="33%">Age</th>
+				<th width="33%">Location</th>
+			</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+
+		<script data-jui="#table_6" data-tpl="row" type="text/template">
+			<tr class="<! if(parseInt(row.index) % 2 == 0) { !>warning<! } !>">
+				<td><!= row.index !></td>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+	</p>
+
 	<h3><span class="link" data-no="7">Append Data (+Scroll)</span></h3>
 	<p>
-		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_7');">Run</a> - 
-		좌측의 버튼을 클릭하면, 1000개의 로우를 추가합니다. 
+		<a class="btn btn-default btn-xs" href="javascript:table7Run();">Run</a> -
+		좌측의 버튼을 클릭하면, 1000개의 로우를 추가합니다.
 	</p>
-	<iframe id="iframe_7" src="bootstrap/7.html" frameborder="0" scrolling="no" height="238"></iframe>
+	<p class="br">
+		<table id="table_7" class="table table-striped table-condensed">
+			<thead>
+			<tr>
+				<th>No</th>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Location</th>
+			</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+
+		<script data-jui="#table_7" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= row.index !></td>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+	</p>
 
 	<h3><span class="link" data-no="8">Insert Data (+Scroll)</span></h3>
 	<p>
-		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_8');">Run</a> - 
-		좌측의 버튼을 클릭하면, 3번째 인덱스에 100개의 로우를 추가합니다. 
+		<a class="btn btn-default btn-xs" href="javascript:table8Run();">Run</a> -
+		좌측의 버튼을 클릭하면, 3번째 인덱스에 100개의 로우를 추가합니다.
 	</p>
-	<iframe id="iframe_8" src="bootstrap/8.html" frameborder="0" scrolling="no" height="238"></iframe>
+	<p class="br">
+		<table id="table_8" class="table table-striped table-condensed">
+			<thead>
+			<tr>
+				<th>No</th>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Location</th>
+			</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+
+		<script data-jui="#table_8" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= row.index !></td>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+	</p>
 
 	<h3><span class="link" data-no="9">Hide/Show Column (+Resize)</span></h3>
 	<p>
 		컬럼에 마우스 오른쪽을 클릭하면 숨기기/보이기 기능을 제공하는 메뉴가 보여집니다.
 	</p>
-	<iframe src="bootstrap/9.html" frameborder="0" scrolling="no" height="281"></iframe>
+	<p class="br">
+		<table id="table_9" class="table table-condensed table-bordered">
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Location</th>
+			</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+
+		<script data-jui="#table_9" data-tpl="row" type="text/template">
+			<tr class="<! if(parseInt(row.index) % 2 == 0) { !>success<! } !>">
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+
+		<script data-jui="#table_9" data-tpl="menu" type="text/template">
+			<ul class="dropdown-menu">
+				<! for(var i = 0; i < columns.length; i++) { !>
+				<li>
+					<a href="#"><input type="checkbox" />&nbsp; <!= columns[i] !></a>
+				</li>
+				<! } !>
+			</ul>
+		</script>
+	</p>
 </section>
 
 <section>
 	<h2>Tree Table</h2>
-		
+
 	<h3><span class="link" data-no="10">Append/Insert Data</span></h3>
 	<p>
-		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_10');">Run</a> - 
+		<a class="btn btn-default btn-xs" href="javascript:table10Run();">Run</a> -
 		뎁스 구조의 키 값으로 데이터를 입력 및 특정 인덱스에 추가할 수 있습니다.
 	</p>
-	<iframe id="iframe_10" src="bootstrap/10.html" frameborder="0" scrolling="no" height="238"></iframe>
+	<p class="br">
+		<table id="table_tree_1" class="table table-striped table-condensed">
+			<thead>
+			<tr>
+				<th style="width: 200px;">Index</th>
+				<th>Column. Name</th>
+				<th style="width: 100px;">Column. Age</th>
+			</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+
+		<script data-jui="#table_tree_1" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= row.index !></td>
+				<td style="padding-left: <!= 5 + (5 + (row.depth * 20)) !>px">
+					<! if(row.depth > 0) { !>
+					L&nbsp;
+					<! } !>
+					<!= name !>
+				</td>
+				<td><!= age !></td>
+			</tr>
+		</script>
+	</p>
 
 	<h3><span class="link" data-no="11">Move/Remove/Update Row</span></h3>
 	<p>
-		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_11', 1);">Move</a>
-		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_11', 2);">Remove</a>
-		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_11', 3);">Update</a> - 
-		로우를 조작할 수 있은 기능을 제공합니다. 
+		<a class="btn btn-default btn-xs" href="javascript:table11Run(1);">Move</a>
+		<a class="btn btn-default btn-xs" href="javascript:table11Run(2);">Remove</a>
+		<a class="btn btn-default btn-xs" href="javascript:table11Run(3);">Update</a> -
+		로우를 조작할 수 있은 기능을 제공합니다.
 	</p>
-	<iframe id="iframe_11" src="bootstrap/11.html" frameborder="0" scrolling="no" height="560"></iframe>
+	<p class="br">
+		<table id="table_tree_2" class="table table-condensed table-bordered table-hover">
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Location</th>
+			</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+
+		<script data-jui="#table_tree_2" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= row.index !></td>
+				<td style="padding-left: <!= 5 + (5 + (row.depth * 20)) !>px">
+					<! if(row.depth > 0) { !>
+					L&nbsp;
+					<! } !>
+					<!= name !>
+				</td>
+				<td><!= age !></td>
+			</tr>
+		</script>
+	</p>
 </section>
 
 <section>
 	<h2>X Table</h2>
-		
+
 	<h3><span class="link" data-no="12">Scroll (+Loading)</span></h3>
 	<p>
-		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_12');">Run</a> - 
+		<a class="btn btn-default btn-xs" href="javascript:xtableRun();">Run</a> -
 		100만건의 데이터를 추가하는 데모이며, 스크롤이 맨 밑으로 내려갔을 경우에 로우를 추가적으로 렌더링합니다.
 	</p>
-	<iframe id="iframe_12" src="bootstrap/12.html" frameborder="0" scrolling="no" height="232"></iframe>
+	<p class="br">
+		<div id="xtable_1">
+			<table class="table table-condensed table-bordered">
+				<thead>
+				<tr>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Location</th>
+				</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+
+		<script data-jui="#xtable_1" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+
+		<script data-jui="#xtable_1" data-tpl="none" type="text/template">
+			<tr>
+				<td colspan="3" class="none">Data does not exist.</td>
+			</tr>
+		</script>
+
+		<script data-jui="#xtable_1" data-tpl="loading" type="text/template">
+			<div class="loading"></div>
+		</script>
+	</p>
 
 	<h3><span class="link" data-no="13">Page</span></h3>
 	<p>
-		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_13');">Run</a> - 
+		<a class="btn btn-default btn-xs" href="javascript:xtable2Run();">Run</a> -
 		100만건의 데이터를 추가하는 데모이며, 스크롤이 없는 페이징 형태로 추가 데이터를 렌더링합니다.
 	</p>
-	<iframe id="iframe_13" src="bootstrap/13.html" frameborder="0" scrolling="no" height="230"></iframe>
+	<p class="br">
+		<div id="xtable_2">
+			<table class="table table-condensed table-bordered ">
+				<thead>
+				<tr>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Location</th>
+				</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-default" onclick="xtable2Page(-1)">Prev</button>
+			<button type="button" class="btn btn-default" onclick="xtable2Page(1)">Next</button>
+		</div>
+
+		<script data-jui="#xtable_2" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+
+		<script data-jui="#xtable_2" data-tpl="none" type="text/template">
+			<tr>
+				<td colspan="3" class="none">Data does not exist.</td>
+			</tr>
+		</script>
+
+		<script data-jui="#xtable_2" data-tpl="loading" type="text/template">
+			<div class="loading"></div>
+		</script>
+	</p>
 
 	<h3><span class="link" data-no="14">Page-Scroll</span></h3>
 	<p>
-		<a class="btn btn-gray btn-mini" href="javascript:run('#iframe_14');">Run</a> - 
+		<a class="btn btn-default btn-xs" href="javascript:xtable3Run();">Run</a> -
 		100만건의 데이터를 추가하는 데모이며, 스크롤이 없는 페이징 형태로 추가 데이터를 렌더링합니다.
 	</p>
-	<iframe id="iframe_14" src="bootstrap/14.html" frameborder="0" scrolling="no" height="272"></iframe>
+	<p class="br">
+		<div id="xtable_3">
+			<table class="table table-condensed table-bordered ">
+				<thead>
+				<tr>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Location</th>
+				</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-default" onclick="xtable3Page(-1)">Prev</button>
+			<button type="button" class="btn btn-default" onclick="xtable3Page(1)">Next</button>
+		</div>
+
+		<script data-jui="#xtable_3" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+
+		<script data-jui="#xtable_3" data-tpl="none" type="text/template">
+			<tr>
+				<td colspan="3" class="none">Data does not exist.</td>
+			</tr>
+		</script>
+
+		<script data-jui="#xtable_3" data-tpl="loading" type="text/template">
+			<div class="loading"></div>
+		</script>
+	</p>
 </section>
 
 </body>
