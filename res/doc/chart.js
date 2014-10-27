@@ -137,7 +137,7 @@ function changeTheme(theme) {
     var chart = jui.get("chart.builder").pop();
 
     chart.list[chart.list.length-1].setTheme(theme);
-    chart.list[chart.list.length-1].render();
+    chart.list[chart.list.length-1].render(true);
 
     if(table_2 != null) {
         createTableStyle();
@@ -388,6 +388,7 @@ function viewCodeEditor() {
 
                 resetChart();
                 $.globalEval(cm.getValue());
+                changeTheme($("select").find("option:selected").val());
 
                 var chart = jui.get("chart.builder").pop();
                 window.currentChart = chart.list[chart.list.length -1];
