@@ -122,17 +122,6 @@ function runRealtimeData(realtime) {
     }, 1000);
 }
 
-function getRealtimeRowData(time) {
-    var sin = Math.sin(realtimeIndex / 10);
-
-    return {
-        time : time,
-        s1 : sin - 4,
-        s2 : sin * 2.5,
-        s3 : sin + 5
-    }
-}
-
 function changeTheme(theme) {
     var chart = jui.get("chart.builder").pop();
 
@@ -233,6 +222,8 @@ function resetChart() {
             for(var j = 0; j < list.length; j++) {
                 list[j].stop();
             }
+
+            realtimeIndex = 0;
         }
     }
 

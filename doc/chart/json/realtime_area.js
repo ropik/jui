@@ -18,4 +18,15 @@ var c = chart("#chart", {
     }]
 });
 
+function getRealtimeRowData(time) {
+    var sin = Math.sin(realtimeIndex / 10);
+
+    return {
+        time : time,
+        s1 : sin - 4,
+        s2 : sin * 2.5,
+        s3 : sin + 5
+    }
+}
+
 runRealtimeData(c);
