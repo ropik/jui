@@ -478,9 +478,13 @@ function viewCodeEditor() {
             if(tab_1.activeIndex() == 1) { // 활성화 탭이 테이블일 경우...
                 createTable();
             } else if(tab_1.activeIndex() == 2) {
-                createTableStyle();
+                //createTableStyle();
             }
 
+            // 현재 테마 적용
+            changeTheme($("select").find("option:selected").val());
+
+            // 리얼타임일 경우, 테마와 데이터 탭 제거
             if(code.type == "realtime") {
                 $("#tab_1").find("li:not(:first-child)").hide();
             } else {
