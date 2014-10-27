@@ -9,84 +9,13 @@
 <link rel="stylesheet" href="../../lib/jui/jui.min.css" />
 <link rel="stylesheet" href="../../lib/prism.css" />
 <link rel="stylesheet" href="../../lib/animate.min.css" />
+<link rel="stylesheet" href="../../res/doc/script.css" />
 <script src="../../lib/jquery-1.8.0.min.js"></script>
-<script src="../../lib/jquery.binder.js"></script>
 <script src="../../lib/jui/jui.min.js"></script>
 <script src="../../lib/prism.js"></script>
 <script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.ui.js"></script>
 
-<style>
-.xtable .none {
-	text-align: center;
-}
-</style>
-<script>
-jui.ready([ "ui.paging", "uix.xtable" ], function(paging, xtable) {
-	// 페이징
-	paging_1 = paging("#paging_1", {
-		count: 1000,
-		pageCount: 10,
-		screenCount: 7, 
-		event: {
-			page: function(pNo) {
-				alert(pNo);
-			}
-		}
-	});
-	
-	// 테이블 + 페이징
-	paging_2 = paging("#paging_2", {
-		pageCount: 100, 
-		event: {
-			page: function(pNo) {
-				paging_2_xtable.page(pNo);
-			}
-		}
-	});
-	
-	paging_2_xtable = xtable("#paging_2_xtable", {
-		fields: [ "name", "age", "location" ],
-		resize: true,
-		sort: true,
-		sortLoading: true,
-		buffer: "s-page", // scroll, page, s-page
-		bufferCount: 100,
-		event: {
-			sortend: function(data, e) {
-				paging_2.first();
-			}
-		},
-        animate: true
-	});
-});
-
-function paging2Run() {
-	xtableRun();
-	paging_2.reload(paging_2_xtable.count());
-}
-
-function xtableRun(type) {
-	var result = [], 
-		dataSize = 1000000,
-		nStart = new Date().getTime();
-	
-	for(var i = 0; i < dataSize; i++) {
-		result.push({ name: "Alvin" + i, age: Math.floor(Math.random() * 100) + 1, location: "LA" });
-	}
-	
-	var nEnd = new Date().getTime(); 
-	paging_2_xtable.update(result);
-	paging_2_xtable.resize();
-	var nEnd2 = new Date().getTime(); 
-	
-	alert(
-		"임의의 데이터 " + (dataSize / 10000) + "만개를 생성합니다.\n\n" +
-		"데이터 생성시간 : " + ((nEnd - nStart) / 1000) + "sec\n" +
-		"테이블 갱신시간 : " + ((nEnd2 - nEnd) / 1000) + "sec"
-	);
-}
-
-</script>
 </head>
 <body class="jui">
 

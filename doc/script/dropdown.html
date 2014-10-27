@@ -9,58 +9,12 @@
 <link rel="stylesheet" href="../../lib/jui/jui.min.css" />
 <link rel="stylesheet" href="../../lib/prism.css" />
 <script src="../../lib/jquery-1.8.0.min.js"></script>
-<script src="../../lib/jquery.binder.js"></script>
 <script src="../../lib/jui/jui.min.js"></script>
 <script src="../../lib/prism.js"></script>
 <script src="../../res/manual.js"></script>
-
-<script>
-jui.ready([ "ui.dropdown" ], function(dropdown) {
-	// 5-1. 드롭다운
-	dd_1 = dropdown("#dd_1");
-	dd_1.on("change", function(data) {
-		alert(data.value + ", " + data.text);
-	});
-
-	// 5-2. 드롭다운, 앵커
-	dd_2 = dropdown("#dd_2", {
-		close: false
-	});
-	dd_2.on("change", function(data) {
-		alert(data.value + ", " + data.text);
-	});
-
-	// 5-3. 드롭다운, 스타일
-	dd_3 = dropdown("#dd_3", {
-		keydown: true
-	});
-	dd_3.on("change", function(data) {
-		alert(data.value + ", " + data.text);
-	});
-
-	// 5-4. 드롭다운, 업데이트
-	dd_4 = dropdown("#dd_4", {
-		nodes: [
-			{ value: 1, text: "text1" },
-			{ value: 2, text: "text2" },
-			{ value: 3, text: "text3" }
-		]
-	});
-	dd_4.on("change", function(data) {
-		alert(data.value + ", " + data.text);
-	});
-});
-
-function dd_4_update() {
-	dd_4.update([
-		{ value: 4, text: "text4" },
-		{ value: 5, text: "text5" },
-		{ value: 6, text: "text6" }
-	]);
-}
-
-</script>
+<script src="../../res/doc/script.ui.js"></script>
 </head>
+
 <body class="jui">
 
 <div class="page-header">

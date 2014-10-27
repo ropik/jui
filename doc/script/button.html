@@ -9,52 +9,12 @@
 <link rel="stylesheet" href="../../lib/jui/jui.min.css" />
 <link rel="stylesheet" href="../../lib/prism.css" />
 <script src="../../lib/jquery-1.8.0.min.js"></script>
-<script src="../../lib/jquery.binder.js"></script>
 <script src="../../lib/jui/jui.min.js"></script>
 <script src="../../lib/prism.js"></script>
 <script src="../../res/manual.js"></script>
-
-<script>
-jui.ready([ "ui.button" ], function(button) {
-	var btn_radio_options = {
-		type: "radio",
-		event: {
-			change: function(data) {
-				alert("index(" + data.index + "), value(" + data.value + ")");
-			}
-		}
-	};
-	
-	var btn_check_options = {
-		type: "check",
-		event: {
-			change: function(data) {
-				var result = "";
-				
-				for(var i = 0; i < data.length; i++) {
-					if(data[i] != null) {
-						result += "index(" + data[i].index + "), value(" + data[i].value + ")" + "\n";
-					}
-				}
-				
-				alert(result);
-			}
-		}
-	};
-	
-	// 버튼-라디오 
-	btn_radio_1 = button("#btn_radio_1", btn_radio_options);
-	btn_radio_2 = button("#btn_radio_2", btn_radio_options);
-	btn_radio_3 = button("#btn_radio_3", btn_radio_options);
-	
-	// 버튼-체크 
-	btn_check = button("#btn_check", btn_check_options);
-	btn_check_2 = button("#btn_check_2", btn_check_options);
-});
-
-</script>
-
+<script src="../../res/doc/script.ui.js"></script>
 </head>
+
 <body class="jui">
 
 <div class="page-header">

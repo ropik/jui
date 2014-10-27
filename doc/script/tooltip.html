@@ -8,47 +8,14 @@
 <link rel="stylesheet" href="../../res/manual.css" />
 <link rel="stylesheet" href="../../lib/jui/jui.min.css" />
 <link rel="stylesheet" href="../../lib/prism.css" />
+<link rel="stylesheet" href="../../res/doc/script.css" />
 <script src="../../lib/jquery-1.8.0.min.js"></script>
-<script src="../../lib/jquery.binder.js"></script>
 <script src="../../lib/jui/jui.min.js"></script>
 <script src="../../lib/prism.js"></script>
 <script src="../../res/manual.js"></script>
-
-<style>
-.tooltip_1, .tooltip_2, .tooltip_3, .tooltip_4 {
-	font-weight: bold;
-}	
-</style>
-
-<script>
-jui.ready([ "ui.tooltip" ], function(tooltip) {
-	
-	// 7-1. 툴팁 Top
-	tooltip_1 = tooltip(".tooltip_1");
-	
-	// 7-2. 툴팁 Bottom
-	tooltip_2 = tooltip(".tooltip_2", {
-		position: "bottom",
-		color: "gray",
-		showType: "click"
-	});
-	
-	// 7-3. 툴팁 Left
-	tooltip_3 = tooltip(".tooltip_3", {
-		position: "left",
-		delay: 1000
-	});
-	
-	// 7-4. 툴팁 Right
-	tooltip_4 = tooltip(".tooltip_4", {
-		position: "right",
-		width: 300,
-		align: "center"
-	});
-});
-
-</script>
+<script src="../../res/doc/script.ui.js"></script>
 </head>
+
 <body class="jui">
 
 <div class="page-header">
