@@ -2,10 +2,10 @@ var chart = jui.include("chart.builder");
 
 chart("#chart", {
     data: [
-        { sales: 2, profit: 15, total: 20 },
-        { sales: 15, profit: 6, total: 20 },
-        { sales: 8, profit: 10, total: 20 },
-        { sales: 18, profit: 5, total: 20 }
+        { sales : 2, profit : 6, dept : 7 },
+        { sales : 5, profit : 6, dept : 2 },
+        { sales : 8, profit : 4, dept : 5 },
+        { sales : 10, profit : 5, dept : 12 }
     ],
     grid: {
         x: {
@@ -14,7 +14,9 @@ chart("#chart", {
         },
         y: {
             type: "range",
-            target: "total",
+            target: function(data) {
+                return data.sales + data.profit + data.dept;
+            },
             step: 10
         }
     },

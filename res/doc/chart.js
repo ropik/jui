@@ -14,13 +14,13 @@ var charts = [
     { type : 'pie', title : 'Pie Chart', start : 7 },
     { type : 'donut', title : 'Donut Chart', start : 8 },
     { type : 'scatter', title : 'Bubble & Scatter Chart', start : 9 },
-    { type : 'area', title : 'Area Chart', start : 14 },
-    { type : 'radar', title : 'Radar Chart', start : 20 },
-    { type : 'line', title : 'Line Chart', start : 22 },
-    { type : 'gauge', title : 'Gauge Chart', start : 29 },
-    { type : 'stock', title : 'Candle Stick Chart', start : 36 },
-    { type : 'mixed', title : 'Combination Chart', start : 40 },
-    { type : 'realtime', title : 'Realtime Chart', start : 42 }
+    { type : 'area', title : 'Area Chart', start : 15 },
+    { type : 'radar', title : 'Radar Chart', start : 21 },
+    { type : 'line', title : 'Line Chart', start : 23 },
+    { type : 'gauge', title : 'Gauge Chart', start : 30 },
+    { type : 'stock', title : 'Candle Stick Chart', start : 37 },
+    { type : 'mixed', title : 'Combination Chart', start : 41 },
+    { type : 'realtime', title : 'Realtime Chart', start : 43 }
 
 ];
 
@@ -49,6 +49,7 @@ var code_list = [
     { type : 'scatter', title : "Basic Scatter", description : "", code : "scatter.js" },
     { type : 'scatter', title : "Range Scatter", description : "", code : "range_scatter_cross.js" },
     { type : 'scatter', title : "Stack Scatter", description : "", code : "stack_scatter.js" },
+    { type : 'scatter', title : "Scatter Path", description : "", code : "scatterpath.js" },
 
     //area
     { type : 'area', title : "Basic Area", description : "", code : "area.js" },
@@ -125,8 +126,10 @@ function runRealtimeData(realtime) {
 function changeTheme(theme) {
     var chart = jui.get("chart.builder").pop();
 
-    chart.list[chart.list.length-1].setTheme(theme);
-    chart.list[chart.list.length-1].render(true);
+    if(typeof(chart.options.theme) != "object") {
+        chart.list[chart.list.length - 1].setTheme(theme);
+        chart.list[chart.list.length - 1].render(true);
+    }
 
     if(table_2 != null) {
         createTableStyle();
