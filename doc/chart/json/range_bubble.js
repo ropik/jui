@@ -43,10 +43,13 @@ chart("#chart", {
 		target : ["v1", "v2", "v3", "v4", "v5"]
 	},
     widget : [
-        { type : "title", text : "Bubble Sample"},
-        { type : "tooltip" },
-        { type : "legend" },
-        { type : "cross",
+        {
+			type : "title",
+			text : "Bubble Sample"
+		}, {
+			type : "legend"
+		}, {
+			type : "cross",
             format : function(d) {
                 if(typeof(d) == "number") {
                     return Math.round(d);
@@ -54,6 +57,8 @@ chart("#chart", {
                     return time.format(d, "hh:mm");
                 }
             }
-        }
+        }, {
+			type : "tooltip"
+		}
     ]
 });
