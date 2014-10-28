@@ -53,14 +53,10 @@ nav {
 	display: none;
 }
 
+/* 우측에서 좌로 이동 */
 .pt-page-moveToLeftFade {
 	-webkit-animation: moveToLeftFade .7s ease both;
 	animation: moveToLeftFade .7s ease both;
-}
-
-.pt-page-moveFromRightFade {
-	-webkit-animation: moveFromRightFade .7s ease both;
-	animation: moveFromRightFade .7s ease both;
 }
 
 @-webkit-keyframes moveToLeftFade {
@@ -72,11 +68,43 @@ nav {
 	to { opacity: 0.3; -webkit-transform: translateX(-100%); transform: translateX(-100%); }
 }
 
+.pt-page-moveFromRightFade {
+	-webkit-animation: moveFromRightFade .7s ease both;
+	animation: moveFromRightFade .7s ease both;
+}
+
 @-webkit-keyframes moveFromRightFade {
 	from { opacity: 0.3; -webkit-transform: translateX(100%); }
 }
 @keyframes moveFromRightFade {
 	from { opacity: 0.3; -webkit-transform: translateX(100%); transform: translateX(100%); }
+}
+
+/* 좌측에서 우로 이동 */
+.pt-page-moveToRightFade {
+	-webkit-animation: moveToRightFade .7s ease both;
+	animation: moveToRightFade .7s ease both;
+}
+
+@-webkit-keyframes moveToRightFade {
+	from { }
+	to { opacity: 0.3; -webkit-transform: translateX(100%); }
+}
+@keyframes moveToRightFade {
+	from { }
+	to { opacity: 0.3; -webkit-transform: translateX(100%); transform: translateX(100%); }
+}
+
+.pt-page-moveFromLeftFade {
+	-webkit-animation: moveFromLeftFade .7s ease both;
+	animation: moveFromLeftFade .7s ease both;
+}
+
+@-webkit-keyframes moveFromLeftFade {
+	from { opacity: 0.3; -webkit-transform: translateX(-100%); }
+}
+@keyframes moveFromLeftFade {
+	from { opacity: 0.3; -webkit-transform: translateX(-100%); transform: translateX(-100%); }
 }
 
 nav.about {
