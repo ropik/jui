@@ -20,6 +20,9 @@ for(var i = 0; i < 30; i++) {
 
 chart("#chart", {
     data : data,
+    padding : {
+        left : 70
+    },
     series : {
         sales : { symbol : "rectangle" },
         profit : { symbol : "cross" },

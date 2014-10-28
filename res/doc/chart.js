@@ -524,7 +524,7 @@ function setFunctions() {
                 }
             }
 
-            table_2.downloadCsv();
+            table_2.downloadCsv("jui_style");
             console.log(data.join("\n"));
         } else {
             alert("Style data is not loaded.");
@@ -533,7 +533,7 @@ function setFunctions() {
 
     $(".btn-image").on("click", function() {
         var chart = window.currentChart;
-        chart.svg.downloadImage();
+        chart.svg.downloadImage("jui_image");
     });
 }
 
