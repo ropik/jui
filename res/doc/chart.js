@@ -292,6 +292,12 @@ function modal_show() {
             top : padding
         });
     });
+
+    $("#modal_1").find(".close").on("click", function() {
+        $('#modal_1').hide();
+
+        return false;
+    });
 }
 
 function loadChartList() {
