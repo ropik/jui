@@ -13,7 +13,8 @@ var charts = [
     { type : 'column', title : 'Column Chart', start : 3 },
     { type : 'pie', title : 'Pie Chart', start : 7 },
     { type : 'donut', title : 'Donut Chart', start : 8 },
-    { type : 'scatter', title : 'Bubble & Scatter Chart', start : 9 },
+    { type : 'bubble', title : 'Bubble & Scatter Chart', start : 9 },
+    { type : 'scatter', title : 'Bubble & Scatter Chart', start : 11 },
     { type : 'area', title : 'Area Chart', start : 15 },
     { type : 'radar', title : 'Radar Chart', start : 21 },
     { type : 'line', title : 'Line Chart', start : 23 },
@@ -43,9 +44,11 @@ var code_list = [
     // donut
     { type : 'donut', title : "Donut", description : "", code : "donut.js" },
 
-    // scatter
-    { type : 'scatter', title : "Basic Bubble", description : "", code : "bubble.js" },
-    { type : 'scatter', title : "Range Bubble", description : "", code : "range_bubble.js" },
+    // bubble
+    { type : 'bubble', title : "Basic Bubble", description : "", code : "bubble.js" },
+    { type : 'bubble', title : "Range Bubble", description : "", code : "range_bubble.js" },
+    
+    // scatter 
     { type : 'scatter', title : "Basic Scatter", description : "", code : "scatter.js" },
     { type : 'scatter', title : "Range Scatter", description : "", code : "range_scatter_cross.js" },
     { type : 'scatter', title : "Stack Scatter", description : "", code : "stack_scatter.js" },
@@ -545,7 +548,7 @@ $(function() {
         var $el = $($dom);
 
         (function(chart) {
-            if (chart.type == 'mixed' || chart.type == 'realtime') {
+            if (chart.type == 'realtime') {
                 $el.removeClass("col-3").addClass('col-6');
             }
 
