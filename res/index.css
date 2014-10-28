@@ -5,6 +5,7 @@ body {
 	font-family: "Helvetica", "Trebuchet MS", Dotum, Verdana, AppleGothic, sans-serif; 
 	font-size: 14px;
 	margin: 0px;
+	overflow-x: hidden;
 }
 
 header {
@@ -48,6 +49,12 @@ nav {
 }
 
 .main > nav:nth-child(3) {
+	background-image: url("img2/headline.png") !important;
+	background-repeat: repeat-x !important;
+	display: none;
+}
+
+.main > nav:nth-child(4) {
 	background-image: url("img2/headline.png") !important;
 	background-repeat: repeat-x !important;
 	display: none;
@@ -419,7 +426,7 @@ footer #about .info a:hover {
 
 .img {
 	display: inline-block;
-	background-image: url("img2/home.png");
+	background-image: url("img/home.png");
 	background-repeat: no-repeat;
 }
 

@@ -274,14 +274,27 @@ function loadPage(hash, src) {
 
 function initAnimation() {
 	var $slider = $(".main").find("nav");
-	var index = 0;
+	var index = 0,
+		count = $slider.size(),
+		isRun = false;
 
-	setInterval(function() {
-		var $prev = (index == -1) ? $($slider.get($slider.size() - 1)) : $($slider.get(index)),
-			$current = $($slider.get(index + 1));
+	function prev() {
+		var prev = index,
+			current = index + 1;
+
+		if(current == count) {
+			current = 0;
+			index = 0;
+		} else {
+			index++;
+		}
+
+		var $prev = $($slider.get(prev)),
+			$current = $($slider.get(current));
+
+		isRun = true;
 
 		$prev.addClass("pt-page-moveToLeftFade");
-
 		$current.show().addClass("pt-page-moveFromRightFade");
 		$current.on("webkitAnimationEnd", handler);
 		$current.on("oAnimationEnd", handler);
@@ -289,16 +302,62 @@ function initAnimation() {
 		$current.on("animationend", handler);
 
 		function handler(e) {
-			$prev.removeClass("pt-page-moveToLeftFade").hide();
+			$prev.removeClass("pt-page-moveToLeftFade");
 			$current.removeClass("pt-page-moveFromRightFade");
+			show();
+		}
+	}
+
+	function next() {
+		var prev = index,
+			current = index - 1;
+
+		if(current == -1) {
+			current = count - 1;
+			index = count - 1;
+		} else {
+			index--;
 		}
 
-		if(index == $slider.size() - 2) {
-			index = -1;
-		} else {
-			index++;
+		var $prev = $($slider.get(prev)),
+			$current = $($slider.get(current));
+
+		isRun = true;
+
+		$prev.addClass("pt-page-moveToRightFade");
+		$current.show().addClass("pt-page-moveFromLeftFade");
+		$current.on("webkitAnimationEnd", handler);
+		$current.on("oAnimationEnd", handler);
+		$current.on("MSAnimationEnd", handler);
+		$current.on("animationend", handler);
+
+		function handler(e) {
+			$prev.removeClass("pt-page-moveToRightFade");
+			$current.removeClass("pt-page-moveFromLeftFade");
+			show();
 		}
-	}, 3000);
+	}
+
+	function show() {
+		$slider.each(function(i) {
+			if(i == index) {
+				$(this).show();
+			} else {
+				$(this).hide();
+			}
+		});
+
+		isRun = false;
+	}
+
+	$(window).on("keydown", function(e) {
+		if(!isRun) {
+			if (e.which == 37) prev();
+			else if (e.which == 39) next();
+		}
+
+		return false;
+	});
 }
 
 jui.ready(function(ui, uix, _) {
