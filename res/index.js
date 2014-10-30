@@ -273,10 +273,15 @@ function loadPage(hash, src) {
 }
 
 function initAnimation() {
-	var $slider = $(".main").find("nav");
+	var $slider = $(".main").find("nav"),
+		$prev = $(".img-control-left"),
+		$next = $(".img-control-right");
+
 	var index = 0,
 		count = $slider.size(),
-		isRun = false;
+		isRun = false,
+		duration = 500,
+		opacity = 1;
 
 	function prev() {
 		var prev = index,
@@ -350,13 +355,28 @@ function initAnimation() {
 		isRun = false;
 	}
 
-	$(window).on("keydown", function(e) {
-		if(!isRun) {
-			if (e.which == 37) prev();
-			else if (e.which == 39) next();
-		}
+	$prev.on("click", function(e) {
+		next();
+	}).hover(function(e) {
+		$prev.fadeTo(duration, opacity);
+	}, function(e) {
+		$prev.fadeTo(duration, opacity / 2);
+	});
 
-		return false;
+	$next.on("click", function(e) {
+		prev();
+	}).hover(function(e) {
+		$next.fadeTo(duration, opacity);
+	}, function(e) {
+		$next.fadeTo(duration, opacity / 2);
+	});
+
+	$slider.parent().hover(function(e) {
+		$prev.fadeTo(duration, opacity / 2);
+		$next.fadeTo(duration, opacity / 2);
+	}, function(e) {
+		$prev.fadeOut(duration);
+		$next.fadeOut(duration);
 	});
 }
 

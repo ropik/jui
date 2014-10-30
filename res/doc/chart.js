@@ -240,36 +240,6 @@ function resetChart() {
     }
 }
 
-function checkColor(color) {
-    if (typeof colors[color.toLowerCase()] != 'undefined')
-        return colors[color.toLowerCase()];
-
-    if (/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(color)) {
-        return color;
-    }
-
-    return null;
-}
-
-function createRangeSlider() {
-    $("input[type=range]").rangeslider('destroy');
-    $("input[type=range]").rangeslider().off().on('change', function(e) {
-        var value = $(this).val();
-
-        if (window.token) {
-            editor.replaceRange(value + "", {
-                line : editor.getCursor().line,
-                ch : window.token.start
-            },  {
-                line : editor.getCursor().line,
-                ch : window.token.start + value.length
-            })
-
-            $(".EditorWidget").hide();
-        }
-    });
-}
-
 function modal_show() {
     var padding = 10;
 
@@ -281,6 +251,12 @@ function modal_show() {
         top : padding
     }).show().appendTo("body");
 
+    $("#modal_1").find(".close").on("click", function() {
+        $('#modal_1').hide();
+
+        return false;
+    });
+
     $(window).resize(function ChartResize() {
         var padding = 10;
 
@@ -291,12 +267,6 @@ function modal_show() {
             left : padding,
             top : padding
         });
-    });
-
-    $("#modal_1").find(".close").on("click", function() {
-        $('#modal_1').hide();
-
-        return false;
     });
 }
 
@@ -311,11 +281,8 @@ function loadChartList() {
             $("[data-index=" + start + "]").click();
 
         });
+
         $el.append(chart.title)
-
-        var $icon = $("<i class='icon-gear icon-edge' />");
-        //$el.append($icon)
-
         $menu.append($el);
 
         var $submenu = $("<ul class='submenu' />");
@@ -360,7 +327,6 @@ function loadChartList() {
 
             $c = $("<li />").html($a);
             $submenu.append($c);
-
         }
 
         $menu.append($submenu);
@@ -398,74 +364,6 @@ function viewCodeEditor() {
             } catch(e) {
                 console.log(e);
             }
-        })
-
-        editor.on('cursorActivity', function(cm) {
-            var pos = cm.getCursor();
-
-            var token = editor.getTokenAt(editor.getCursor());
-
-            if (token.type == 'number') {
-                // show number slider
-
-                var sub = editor.getRange({
-                    line : editor.getCursor().line,
-                    ch : token.start-1
-                }, {
-                    line : editor.getCursor().line,
-                    ch : token.end
-                })
-
-                if (sub.indexOf("-") == 0) {
-                    token.string = sub;
-                    token.start--;
-                }
-
-                $("#color_picker").hide();
-                $("#range_slider").show();
-
-                var value = parseFloat(token.string);
-                $("input[type=range]").val(value).attr({
-                    min : value - 100,
-                    max : value + 100
-                });
-
-                $(".min_value").html(value-100);
-                $(".max_value").html(value+100);
-
-                createRangeSlider();
-
-                cm.addWidget({line : pos.line, ch : token.start - 10}, $("#range_slider")[0], true);
-                window.token = token;
-                return;
-            } else if (token.type == 'string') {
-                var color = checkColor(token.string.replace(/(\'|\")/g, ""));
-                if (color) {
-                    // show color picker
-                    $("#range_slider").hide();
-                    $("#color_picker").show();
-                    $("#picker").colpickSetColor(color.replace("#", ""), true);
-
-                    var count = cm.lineCount();
-
-                    if (pos.line > count) {
-                        cm.addWidget({
-                            line : count,
-                            ch : pos.ch
-                        }, $("#color_picker")[0], true);
-                    } else {
-                        cm.addWidget(pos, $("#color_picker")[0], true);
-                    }
-
-
-                    window.token = token;
-
-                    return ;
-                }
-            }
-
-            $(".EditorWidget").hide();
-            window.token = null;
         });
     }
 
@@ -583,26 +481,6 @@ $(function() {
 
     editor = null;
 
-    $("#picker").colpick({
-        flat: true,
-        layout : 'hex',
-        submit : 0,
-        onChange : function(hbs, hex, rgb, el, bySetColor) {
-            if (!bySetColor) {
-                if (window.token) {
-                    editor.replaceRange('"#' + hex + '"', {
-                        line : editor.getCursor().line,
-                        ch : window.token.start
-                    },  {
-                        line : editor.getCursor().line,
-                        ch : window.token.end
-                    })
-                }
-            }
-        }
-    })
-
-    createRangeSlider();
     loadChartList();
     setFunctions();
 })

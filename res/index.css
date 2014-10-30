@@ -471,3 +471,21 @@ footer .line {
 .img-download2:active {
 	background-position: -197px -244px;
 }
+
+.img-control-left, .img-control-right {
+	position: fixed;
+	width: 69px;
+	height: 68px;
+	cursor: pointer;
+	z-index: 2000;
+	top: 290px;
+	opacity: 0.5;
+}
+.img-control-left {
+	background-position: -442px -234px;
+	left: 25px;
+}
+.img-control-right {
+	background-position: -511px -234px;
+	right: 25px;
+}
