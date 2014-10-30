@@ -394,11 +394,8 @@ function viewCodeEditor() {
                 editor.setValue(data.replace("#chart", "#chart-content"));
             }
 
-            if(tab_1.activeIndex() == 1) { // 활성화 탭이 테이블일 경우...
-                createTable();
-            } else if(tab_1.activeIndex() == 2) {
-                //createTableStyle();
-            }
+            // 현재 데이터 적용
+            createTable();
 
             // 현재 테마 적용
             changeTheme($("select").find("option:selected").val());
@@ -479,7 +476,7 @@ jui.ready([ "util.base" ], function(_) {
                 'src': 'chart/img/' + chart.type + '.svg'
             }).css({
                 'max-width': '100%',
-                height: '200px'
+                'max-height': '200px'
             }).data('obj', chart).on('click', function (e) {
                 var obj = $(this).data('obj');
 
