@@ -507,7 +507,7 @@ footer .line {
 }
 
 .img-control-left, .img-control-right {
-	position: fixed;
+	position: absolute;
 	width: 69px;
 	height: 68px;
 	cursor: pointer;
