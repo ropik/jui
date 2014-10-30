@@ -136,6 +136,8 @@ function changeTheme(theme) {
 }
 
 function createTable() {
+    if(jui.include("util.base").browser.msie) return;
+
     var chart = window.currentChart;
     var data = chart.data();
     var obj = data[0];
@@ -178,6 +180,8 @@ function createTable() {
 }
 
 function createTableStyle() {
+    if(jui.include("util.base").browser.msie) return;
+
     var themes = window.currentChart.theme();
 
     table_2 = jui.create("uix.table", "#table_2", {
@@ -215,6 +219,8 @@ function createTableStyle() {
 }
 
 function createTab() {
+    if(jui.include("util.base").browser.msie) return;
+
     tab_1 = jui.create("uix.tab", "#tab_1", {
         event: {
             change: function(data) {
@@ -455,7 +461,7 @@ function setFunctions() {
     });
 }
 
-jui.ready([ "uix.tab" ], function(tab) {
+jui.ready([ "util.base" ], function(_) {
     var $row = $(".row.gallery");
 
     for(var i = 0, len = charts.length; i <len; i++ ) {
@@ -496,6 +502,13 @@ jui.ready([ "uix.tab" ], function(tab) {
     loadChartList();
     setFunctions();
     createTab();
+
+    // IE일 경우, 탭 제거
+    if(_.browser.msie) {
+        $("#tab_1").hide();
+        $("#table_1").hide();
+        $("#table_2").hide();
+    }
 });
 
 // 디스커스 댓글 로드
