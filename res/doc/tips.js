@@ -85,7 +85,7 @@ jui.ready(function(ui, uix, _) {
         }
     });
 
-    $(".btn-group").on("click", function(e) {
+    $(".dd-1").find(".btn-group").on("click", function(e) {
         var offset = $(this).offset();
         dd_1.show(offset.left, offset.top + 33);
 
@@ -105,7 +105,7 @@ jui.ready(function(ui, uix, _) {
         }
     });
 
-    $(".btn-group").on("click", function(e) {
+    $(".dd-2").find(".btn-group").on("click", function(e) {
         var offset = $(this).offset();
         dd_2.show(offset.left, offset.top + 33);
 
