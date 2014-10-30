@@ -6,108 +6,15 @@
 <title>[JUI Library] - JavaScript/Tab</title>
 
 <link rel="stylesheet" href="../../res/manual.css" />
-<link rel="stylesheet" href="https://rawgit.com/seogi1004/jui/master/jui.min.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
 <link rel="stylesheet" href="../../lib/prism.css" />
 <script src="../../lib/jquery-1.8.0.min.js"></script>
-<script src="../../lib/jquery.binder.js"></script>
-<script src="https://rawgit.com/seogi1004/jui/master/jui.min.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
 <script src="../../lib/prism.js"></script>
 <script src="../../res/manual.js"></script>
-
-<script>
-var tab_2_count = 3;
-
-jui.ready(function(ui, uix, _) {
-	// 6-1. 탭, tab-top
-	tab_1 = uix.tab("#tab_1", {
-		event: {
-			change: function(data) {
-				alert(data.text);
-			},
-			changemenu: function(data) {
-				alert(data.text);
-			}
-		},
-		target: "#tab_contents_1",
-		index: 2
-	});
-
-	// 6-2. 탭, tab-bottom
-	pill_1 = uix.tab("#pill_1", {
-		event: {
-			change: function(data) {
-				alert(data.text);
-			},
-			changemenu: function(data) {
-				alert(data.text);
-			}
-		},
-		target: "#pill_contents_1"
-	});
-	
-	// 6-3. 탭, append/prepend
-	tab_2 = uix.tab("#tab_2", {
-		nodes: [
-			{ text: "Tab1" },
-			{ text: "Tab2" },
-			{ text: "Tab3" }
-		],
-		event: {
-			change: function(data) {
-				$("#tab_2_contents").html(data.text);
-			}
-		},
-		tpl: {
-			node: "<li><a href='#'><!= text !></a></li>"
-		}
-	});
-	
-	// 6-1. 탭, tab-top
-	tab_3 = uix.tab("#tab_3", {
-		event: {
-			change: function(data) {
-				alert(data.text);
-			}
-		},
-		drag: true,
-		target: "#tab_contents_3"
-	});
-});
-
-function tab2Run(type) {
-	switch(type) {
-		case 1:
-			tab_2_count += 1;
-			tab_2.append({ text: "Tab" + tab_2_count });
-			
-			alert("탭을 마지막 위치에 추가합니다.");
-			break;
-		case 2:
-			tab_2_count += 1;
-			tab_2.prepend({ text: "Tab" + tab_2_count });
-			
-			alert("탭을 처음 위치에 추가합니다.");
-			break;
-		case 3:
-			tab_2_count += 1;
-			tab_2.insert(2, { text: "Tab" + tab_2_count });
-
-			alert("2번 탭 위치에 추가합니다.");
-			break;
-		case 4:
-			tab_2.remove(0);
-
-			alert("0번 탭을 삭제합니다.");
-			break;
-		case 5:
-			tab_2.move(0, 2);
-			
-			alert("0번 탭을 2번 탭 위치로 변경합니다.");
-			break;
-	}
-}
-</script>
+<script src="../../res/doc/script.uix.js"></script>
 </head>
+
 <body class="jui">
 
 <div class="page-header">
@@ -152,8 +59,8 @@ function tab2Run(type) {
 		</script>
 	</p>
 	<p class="br">
-<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
-	tab_1 = uix.tab("#tab_1", {
+<pre><code class="language-javascript">jui.ready([ "uix.tab" ], function(tab) {
+	tab_1 = tab("#tab_1", {
 		event: {
 			change: function(data) {
 				alert(data.text);
@@ -238,7 +145,7 @@ function tab2Run(type) {
 		</script>
 	</p>
 	<p class="br">
-<pre><code class="language-javascript">pill_1 = uix.tab("#pill_1", {
+<pre><code class="language-javascript">pill_1 = tab("#pill_1", {
 	event: {
 		change: function(data) {
 			alert(data.text);
@@ -281,7 +188,7 @@ function tab2Run(type) {
 		<strong>nodes</strong> 옵션을 사용하여 탭 리스트 초기 값을 설정할 수 있습니다.<br/>
 		그리고 <strong>tab2Run</strong> 함수와 같이 탭을 동적으로 조작할 수 있는 기능을 사용할 수 있습니다.
 		
-<pre><code class="language-javascript">tab_2 = uix.tab("#tab_2", {
+<pre><code class="language-javascript">tab_2 = tab("#tab_2", {
 	nodes: [
 		{ text: "Tab1" },
 		{ text: "Tab2" },
@@ -353,7 +260,7 @@ function tab2Run(type) {
 		</div>
 	</p>
 	<p class="br">
-<pre><code class="language-javascript">tab_3 = uix.tab("#tab_3", {
+<pre><code class="language-javascript">tab_3 = tab("#tab_3", {
 	event: {
 		change: function(data) {
 			alert(data.text);

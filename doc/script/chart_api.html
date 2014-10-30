@@ -1,0 +1,350 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<META charset="UTF-8">
+<title>[JUI Library] - JavaScript/Chart/API</title>
+	
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="api_core.js"></script>
+<script src="../../res/manual.js"></script>
+
+<script>
+var uiApi = {
+	prop: {
+		svg: {
+			detail: "SVG 유틸리티 객체를 참조합니다."
+		},
+        clipId: {
+            detail: "차트의 클립 영역의 아이디를 가져옵니다."
+        },
+        defs: {
+            detail: "차트에 추가된 'defs' 엘리먼트를 가져옵니다."
+        }
+	},
+	method: {
+        area: {
+            param: "type",
+            ret: "int",
+            detail: "계산된 차트 영역에 대한 값을 가져옵니다."
+        },
+        width: {
+            param: "width",
+            ret: "none | int",
+            detail: "차트 넓이를 가져오거나 설정합니다."
+        },
+        height: {
+            param: "height",
+            ret: "none | int",
+            detail: "차트 높이를 가져오거나 설정합니다."
+        },
+        x: {
+            param: "x",
+            ret: "none | int",
+            detail: "x축 좌표를 가져오거나 설정합니다."
+        },
+        y: {
+            param: "y",
+            ret: "none | int",
+            detail: "y축 좌표를 가져오거나 설정합니다."
+        },
+        x2: {
+            param: "x2",
+            ret: "none | int",
+            detail: "차트 우측 기준으로 x축 좌표를 가져오거나 설정합니다."
+        },
+        y2: {
+            param: "y2",
+            ret: "none | int",
+            detail: "차트 상단 기준으로 y축 좌표를 가져오거나 설정하빈다."
+        },
+        bindUI: {
+            param: "uiObject",
+            ret: "none",
+            detail: "uix.table 또는 uix.xtable에서 사용하는 데이터를 바인딩합니다."
+        },
+        text: {
+            param: "attributes, text | callback",
+            ret: "object",
+            detail: "테마가 적용된 텍스트 엘리먼트를 생성합니다."
+        },
+        setTheme: {
+            param: "themeName",
+            ret: "none",
+            detail: "차트에 적용할 테마 모듈을 설정합니다."
+        },
+        theme: {
+            param: "key | isSelected, value1, value2",
+            ret: "int | string",
+            detail: "현재 차트에 적용된 테마 요소에 대한 값을 가져옵니다."
+        },
+        color: {
+            param: "index, colors",
+            ret: "string",
+            detail: "테마 또는 컬러셋에 정의된 색상을 가져옵니다."
+        },
+        padding: {
+            param: "type",
+            ret: "int",
+            detail: "상/하/좌/우 여백 값을 가져옵니다."
+        },
+        data: {
+            param: "index, field",
+            ret: "array | object",
+            detail: "버퍼 개수에 맞는 데이터를 가져옵니다."
+        },
+        series: {
+            param: "name",
+            ret: "object",
+            detail: "해당 이름의 시리즈를 가져오거나 전체 시리즈 목록을 가져옵니다."
+        },
+        grid: {
+            param: "name",
+            ret: "object",
+            detail: "해당 이름의 그리드를 가져오거나 전체 그리드 목록을 가져옵니다."
+        },
+        brush: {
+            param: "name",
+            ret: "array | obejct",
+            detail: "해당 이름의 브러쉬를 가져오거나 전체 브러쉬 목록을 가져옵니다."
+        },
+        createId: {
+            param: "key",
+            ret: "string",
+            detail: "차트 내에서 사용될 고유 키를 가져옵니다."
+        },
+        render: {
+            param: "none",
+            ret: "none",
+            detail: "모든 드로우 객체를 렌더링합니다."
+        },
+        update: {
+            param: "data",
+            ret: "none",
+            detail: "새로운 데이터를 기준으로 렌더링합니다."
+        },
+        page: {
+            param: "index",
+            ret: "none",
+            detail: "해당 페이지의 데이터를 기준으로 렌더링합니다."
+        },
+        getPage: {
+            param: "none",
+            ret: "int",
+            detail: "현재 렌더링 된 데이터의 페이지를 가져옵니다."
+        },
+        next: {
+            param: "none",
+            ret: "none",
+            detail: "설정된 쉬프팅 개수만큼 다음 데이터를 렌더링합니다."
+        },
+        prev: {
+            param: "none",
+            ret: "none",
+            detail: "설정된 쉬프팅 개수만큼 이전 데이터를 렌더링합니다."
+        },
+        size: {
+            param: "width, height",
+            ret: "none",
+            detail: "해당 넓이와 높이로 차트 크기를 변경하여 렌더링합니다."
+        },
+        zoom: {
+            param: "start, end",
+            ret: "none",
+            detail: "해당 인덱스 범위의 데이터를 다시 렌더링합니다."
+        },
+        setCsv: {
+            param: "csv",
+            ret: "none",
+            detail: "CSV 문자열을 기반으로 차트를 업데이트합니다."
+        },
+        setCsvFile: {
+            param: "file",
+            ret: "none",
+            detail: "CSV 파일을 기반으로 차트를 업데이트합니다."
+        }
+	},
+	event: {
+        click: {
+            detail: "브러쉬를 클릭하면 발생하는 이벤트입니다."
+        },
+        dblclick: {
+            detail: "브러쉬를 더블클릭하면 발생하는 이벤트입니다."
+        },
+        rclick: {
+            detail: "브러쉬에 마우스 오른쪽을 클릭하면 발생하는 이벤트입니다."
+        },
+        mouseover: {
+            detail: "브러쉬에 마우스를 올리면 발생하는 이벤트입니다."
+        },
+        mouseout: {
+            detail: "브러쉬에 마우스가 벗어나면 발생하는 이벤트입니다."
+        },
+        mousemove: {
+            detail: "브러쉬에 마우스가 이동하면 발생하는 이벤트입니다."
+        },
+        mousedown: {
+            detail: "브러쉬에 마우스 왼쪽을 누르면 발생하는 이벤트입니다."
+        },
+        mouseup: {
+            detail: "브러쉬에 마우스 왼쪽을 누른 후에 발생하는 이벤트입니다."
+        },
+        "chart.click": {
+            detail: "차트 영역을 클릭하면 발생하는 이벤트입니다."
+        },
+        "chart.dblclick": {
+            detail: "차트 영역을 더블클릭하면 발생하는 이벤트입니다."
+        },
+        "chart.rclick": {
+            detail: "차트 영역을 마우스 오른쪽을 클릭하면 발생하는 이벤트입니다."
+        },
+        "chart.mouseover": {
+            detail: "차트 영역을 마우스를 올리면 발생하는 이벤트입니다."
+        },
+        "chart.mouseout": {
+            detail: "차트 영역을 마우스가 벗어나면 발생하는 이벤트입니다."
+        },
+        "chart.mousemove": {
+            detail: "차트 영역을 마우스가 이동하면 발생하는 이벤트입니다."
+        },
+        "chart.mousedown": {
+            detail: "차트 영역을 마우스 왼쪽을 누르면 발생하는 이벤트입니다."
+        },
+        "chart.mouseup": {
+            detail: "차트 영역을 마우스 왼쪽을 누른 후에 발생하는 이벤트입니다."
+        },
+        "bg.click": {
+            detail: "차트 여백을 클릭하면 발생하는 이벤트입니다."
+        },
+        "bg.dblclick": {
+            detail: "차트 여백을 더블클릭하면 발생하는 이벤트입니다."
+        },
+        "bg.rclick": {
+            detail: "차트 여백에 마우스 오른쪽을 클릭하면 발생하는 이벤트입니다."
+        },
+        "bg.mouseover": {
+            detail: "차트 여백에 마우스를 올리면 발생하는 이벤트입니다."
+        },
+        "bg.mouseout": {
+            detail: "차트 여백에서 마우스가 벗어나면 발생하는 이벤트입니다."
+        },
+        "bg.mousemove": {
+            detail: "차트 여백에 마우스가 이동하면 발생하는 이벤트입니다."
+        },
+        "bg.mousedown": {
+            detail: "차트 여백에 마우스 왼쪽을 누르면 발생하는 이벤트입니다."
+        },
+        "bg.mouseup": {
+            detail: "차트 여백에 마우스 왼쪽을 누른 후에 발생하는 이벤트입니다."
+        }
+    },
+	tpl: {
+        tooltip: {
+            detail: ""
+        }
+    },
+	opt: {
+		width: {
+			detail: "차트 넓이를 정합니다."
+		},
+        height: {
+            detail: "차트 높이를 정합니다."
+        },
+        padding: {
+            detail: "차트 여백을 정합니다."
+        },
+        theme: {
+            detail: "차트 테마를 선택합니다."
+        },
+        data: {
+            detail: "차트 데이터를 설정합니다."
+        },
+        series: {
+            detail: "특정 데이터 프로퍼티의 추가 정보를 설정합니다."
+        },
+        grid: {
+            detail: "차트에서 사용할 그리드를 설정합니다."
+        },
+        brush: {
+            detail: "차트에 추가할 브러쉬를 정합니다."
+        },
+        widget: {
+            detail: "차트에 추가할 위젯을 정합니다."
+        },
+        bufferCount: {
+            detail: "한 페이지에 보여줄 데이터 개수입니다."
+        },
+        shiftCount: {
+            detail: "쉬프팅 데이터 개수입니다."
+        },
+        bind: {
+            detail: "바인딩 할 컴포넌트 객체를 설정합니다."
+        },
+        style: {
+            detail: "현재 설정된 테마의 값을 임의로 설정합니다."
+        },
+        csv: {
+            detail: "CSV 문자열로 변환시에 보여지는 컬럼 키를 설정합니다."
+        },
+        csvNumber: {
+            detail: "CSV 문자열로 변환시에 숫자 타입으로 변경할 컬럼 키를 설정합니다."
+        }
+	}
+};
+
+jui.ready([ "chart.builder", "util.base" ], function(builder, _) {
+	var ui = builder("#ui", {
+        tpl: {
+            tooltip: "."
+        },
+        event: {
+            click: function() {},
+            dblclick: function() {},
+            rclick: function() {},
+            mouseover: function() {},
+            mouseout: function() {},
+            mousemove: function() {},
+            mousedown: function() {},
+            mouseup: function() {},
+            "chart.click": function() {},
+            "chart.dblclick": function() {},
+            "chart.rclick": function() {},
+            "chart.mouseover": function() {},
+            "chart.mouseout": function() {},
+            "chart.mousemove": function() {},
+            "chart.mousedown": function() {},
+            "chart.mouseup": function() {},
+            "bg.click": function() {},
+            "bg.dblclick": function() {},
+            "bg.rclick": function() {},
+            "bg.mouseover": function() {},
+            "bg.mouseout": function() {},
+            "bg.mousemove": function() {},
+            "bg.mousedown": function() {},
+            "bg.mouseup": function() {}
+        }
+    });
+	
+	juiApi(ui, uiApi, _.template, function() {
+		$("#api_tpl").hide();
+	});
+});
+
+</script>
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Chart</h1>
+</div>
+
+<div class="hidden">
+	<div id="ui"></div>
+</div>
+
+</body>
+</html>

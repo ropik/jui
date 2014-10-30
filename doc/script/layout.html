@@ -6,46 +6,16 @@
 <title>[JUI Library] - JavaScript/Modal</title>	
 
 <link rel="stylesheet" href="../../res/manual.css" />
-<link rel="stylesheet" href="https://rawgit.com/seogi1004/jui/master/jui.min.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
 <link rel="stylesheet" href="../../lib/prism.css" />
+<link rel="stylesheet" href="../../res/doc/script.css" />
 <script src="../../lib/jquery-1.8.0.min.js"></script>
-<script src="../../lib/jquery.binder.js"></script>
-<script src="https://rawgit.com/seogi1004/jui/master/jui.min.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
 <script src="../../lib/prism.js"></script>
 <script src="../../res/manual.js"></script>
-
-<style>
-	#container {
-		border: 1px solid #dcdcdc;
-	}
-	
-	#container .title {
-		position: absolute;
-		left: 40%;
-		top: 43%;
-	}
-</style>
-<script>
-jui.ready(function(ui, uix, _) {
-	ui.layout("#container", {
-		width: "auto",
-		height: 300,
-		left: { 
-			size: 100, 
-			min: 100, 
-			max: 300, 
-			resize: true 
-		},
-		right: { 
-			size: 100, 
-			min: 100, 
-			max: 300, 
-			resize: true 
-		}
-	});
-});
-</script>
+<script src="../../res/doc/script.ui.js"></script>
 </head>
+
 <body class="jui">
 	
 <div class="page-header">
@@ -66,21 +36,23 @@ jui.ready(function(ui, uix, _) {
 	<p class="br">
 		각각의 영역은 기본/최소/최대 크기를 정할 수 있는 옵션과 리사이징 옵션을 설정할 수 있습니다.
 		
-<pre><code class="language-javascript">ui.layout("#container", {
-	width: "auto",
-	height: 300,
-	left: { 
-		size: 100, 
-		min: 100, 
-		max: 300, 
-		resize: true 
-	},
-	right: { 
-		size: 100, 
-		min: 100, 
-		max: 300, 
-		resize: true 
-	}
+<pre><code class="language-javascript">jui.ready([ "ui.layout" ], function(layout) {
+	layout_1 = layout("#container", {
+		width: "auto",
+		height: 300,
+		left: {
+			size: 100,
+			min: 100,
+			max: 300,
+			resize: true
+		},
+		right: {
+			size: 100,
+			min: 100,
+			max: 300,
+			resize: true
+		}
+	});
 });</code></pre>
 
 <pre><code class="language-markup">&lt;div id="container">

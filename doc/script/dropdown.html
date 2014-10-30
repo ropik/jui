@@ -6,61 +6,15 @@
 <title>[JUI Library] - JavaScript/Dropdown</title>
 	
 <link rel="stylesheet" href="../../res/manual.css" />
-<link rel="stylesheet" href="https://rawgit.com/seogi1004/jui/master/jui.min.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
 <link rel="stylesheet" href="../../lib/prism.css" />
 <script src="../../lib/jquery-1.8.0.min.js"></script>
-<script src="../../lib/jquery.binder.js"></script>
-<script src="https://rawgit.com/seogi1004/jui/master/jui.min.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
 <script src="../../lib/prism.js"></script>
 <script src="../../res/manual.js"></script>
-
-<script>
-jui.ready(function(ui, uix, _) {
-	// 5-1. 드롭다운
-	dd_1 = ui.dropdown("#dd_1");
-	dd_1.on("change", function(data) {
-		alert(data.value + ", " + data.text);
-	});
-
-	// 5-2. 드롭다운, 앵커
-	dd_2 = ui.dropdown("#dd_2", {
-		close: false
-	});
-	dd_2.on("change", function(data) {
-		alert(data.value + ", " + data.text);
-	});
-
-	// 5-3. 드롭다운, 스타일
-	dd_3 = ui.dropdown("#dd_3", {
-		keydown: true
-	});
-	dd_3.on("change", function(data) {
-		alert(data.value + ", " + data.text);
-	});
-
-	// 5-4. 드롭다운, 업데이트
-	dd_4 = ui.dropdown("#dd_4", {
-		nodes: [
-			{ value: 1, text: "text1" },
-			{ value: 2, text: "text2" },
-			{ value: 3, text: "text3" }
-		]
-	});
-	dd_4.on("change", function(data) {
-		alert(data.value + ", " + data.text);
-	});
-});
-
-function dd_4_update() {
-	dd_4.update([
-		{ value: 4, text: "text4" },
-		{ value: 5, text: "text5" },
-		{ value: 6, text: "text6" }
-	]);
-}
-
-</script>
+<script src="../../res/doc/script.ui.js"></script>
 </head>
+
 <body class="jui">
 
 <div class="page-header">
@@ -94,8 +48,8 @@ function dd_4_update() {
 	</p>
 	
 	<p class="br">
-<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
-	dd_1 = ui.dropdown("#dd_1", {
+<pre><code class="language-javascript">jui.ready([ "ui.dropdown" ], function(dropdown) {
+	dd_1 = dropdown("#dd_1", {
 		event: {
 			change: function(data) {
 				alert(data.value + ", " + data.text);
@@ -166,7 +120,7 @@ function dd_4_update() {
 		<p>
 			그리고 <strong>close</strong> 옵션의 값을 false로 주면 리스트 클릭시 드롭다운이 닫히지 않습니다.
 
-<pre><code class="language-javascript">dd_2 = ui.dropdown("#dd_2", {
+<pre><code class="language-javascript">dd_2 = dropdown("#dd_2", {
 	close: false
 });</code></pre>
 		</p>
@@ -207,7 +161,7 @@ function dd_4_update() {
 		<p>
 			<strong>keydown</strong> 옵션을 <strong>true</strong>로 주면 키보드 방향키를 통해서도 리스트를 선택할 수 있습니다.
 			
-<pre><code class="language-javascript">dd_3 = ui.dropdown("#dd_3", {
+<pre><code class="language-javascript">dd_3 = dropdown("#dd_3", {
 	keydown: true
 });</code></pre>
 		</p>
@@ -247,7 +201,7 @@ function dd_4_update() {
 	<p>
 		<strong>node</strong> 템플릿이 설정되어 있다면 아래와 같이 옵션으로 데이터를 설정할 수 있습니다.
 		
-<pre><code class="language-javascript">dd_4 = ui.dropdown("#dd_4", {
+<pre><code class="language-javascript">dd_4 = dropdown("#dd_4", {
 	nodes: [
 		{ value: 1, text: "text1" },
 		{ value: 2, text: "text2" },

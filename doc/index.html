@@ -9,16 +9,16 @@
 <meta property="og:description" content="JUI는 제니퍼소프트의 차기작인 HTML5 기반의 APM 솔루션인 JENNIFER5에서 사용되는 UI 컴포넌트를 정리한 라이브러리입니다. 단순하고 편리한 UI로 Front-End 개발자에게 새로운 가능성을 제시합니다. 지금 GitHub를 통해 오픈소스 프로젝트에 참여해주세요." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://seogi1004.github.io/jui/doc/index.html" />
-<meta property="og:image" content="http://seogi1004.github.io/jui/res/img3/jui_link.jpg" />
+<meta property="og:image" content="http://seogi1004.github.io/jui/res/img/jui_link.jpg" />
 
-<link rel="shortcut icon" href="../res/img3/favicon.ico" type="image/x-icon">
-<link rel="icon" href="../res/img3/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../res/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="../res/img/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="../res/index.css" />
-<link rel="stylesheet" href="https://rawgit.com/seogi1004/jui/master/jui.min.css" />
+<link rel="stylesheet" href="../lib/jui/jui.min.css" />
 
 <script src="../lib/jquery-1.8.0.min.js"></script>
 <script src="../lib/jquery.ba-hashchange.min.js"></script>
-<script src="https://rawgit.com/seogi1004/jui/master/jui.min.js"></script>
+<script src="../lib/jui/jui.min.js"></script>
 <script src="../res/index.js"></script>
 </head>
 <body class="jui">
@@ -27,42 +27,106 @@
 	<div class="center" style="position: relative;">
 		<span class="img img-logo-top" onclick="location.href = 'index.html';"></span>
 		
-		<span class="menu menu-right">
-			<a href="#install">Install</a>
-			<a href="#core">Core</a>
-			<a href="#script">JavaScript</a>
+		<span class="menu menu-left">
+			<a href="#install">Getting Started</a>
 			<a href="#style">CSS</a>
+            <a href="#core">Framework</a>
+			<a href="#script">Components</a>
+			<a href="#chart">Charts</a>
 			<a href="#tips/bootstrap">+Bootstrap</a>
+		</span>
+
+		<span class="menu menu-right">
+			<a href="https://github.com/seogi1004/jui" target="_blank"><div class="img img-download1"></div></a>&nbsp;
+			<a href="https://github.com/seogi1004/jui/archive/master.zip"><div class="img img-download2"></div></a>
 		</span>
 	</div>
 	
 </header>
 
-<nav class="navbar navbar-fixed-top main">
-	<div class="center">
-		<div class="container">
-			<div class="img img-logo"></div>
-			
-			<div class="detail">
-				JUI는 제니퍼소프트의 차기작인 HTML5 기반의 APM 솔루션인 JENNIFER5에서 <br/>
-				사용되는 UI 컴포넌트를 정리한 라이브러리입니다.
-			</div>
-	  	</div>
-	</div>
-</nav>
+<div class="main">
+	<nav class="navbar navbar-fixed-top">
+		<div class="center">
+			<div class="container">
+				<div class="img img-logo"></div>
 
-<nav class="navbar navbar-fixed-top download">
-	<div class="center row">
-		<div class="col col-6 msg-list">
-			<div class="msg1">JUI 라이브러리를 다운로드 받으세요.</div>
-			<div class="msg2">지금 GitHub를 통해 오픈소스 프로젝트에 참여해주세요.</div>
-			<div class="msg2">단순하고 편리한 UI로 Front-End 개발자에게 새로운 가능성을 제시합니다.</div>
+				<div class="detail">
+					JENNIFER UI는 제니퍼소프트의 차기작인 HTML5 기반의 APM 솔루션인 JENNIFER5에서<br/>
+					사용되는 UI 컴포넌트를 정리한 라이브러리입니다.
+				</div>
+
+				<a href="https://github.com/seogi1004/jui" target="_blank"><div class="img img-download-main"></div></a>
+			</div>
 		</div>
-		<div class="col col-6 btn-list">
-			<a href="https://github.com/seogi1004/jui/archive/master.zip"><div class="img img-download1"></div></a>&nbsp;
-			<a href="https://github.com/seogi1004/jui" target="_blank"><div class="img img-download2"></div></a>
+	</nav>
+	<nav class="navbar navbar-fixed-top">
+		<div class="center">
+			<div class="container-2">
+				<div class="img img-logo"></div>
+
+				<div class="detail">
+					JENNIFER UI 차트는 다양한 브러쉬와 그리드, 위젯을 제공하며<br/>
+					이를 조합하여 간단하고 쉽게 차트를 사용할 수 있습니다.<br/>
+					또한 기존의 테이블 컴포넌트와 연동하여 데이터를 표현할 수 있습니다.
+				</div>
+			</div>
+		</div>
+	</nav>
+	<nav class="navbar navbar-fixed-top">
+		<div class="center">
+			<div class="container-3">
+				<div class="img img-logo"></div>
+
+				<div class="detail">
+					JENNIFER UI는 정말 스마트한 라이브러리라 할 수 있죠.<br/>
+					Bootstrap 스타일에 JUI 스크립트를 적용해보세요.<br/>
+					다양하고 강력한 기능의 컴포넌트를 그대로 사용할 수 있습니다.
+				</div>
+			</div>
+		</div>
+	</nav>
+	<nav class="navbar navbar-fixed-top">
+		<div class="center">
+			<div class="container-4">
+				<div class="img img-logo"></div>
+
+				<div class="detail">
+					JENNIFER UI는 총 54종의 벡터 타입 아이콘을 제공합니다.<br/>
+					크기가 고정된 이미지가 아니기에 어떠한 크기로도 유연하게 사용할 수 있으며<br/>
+					고해상도 화면의 디바이스에서 더욱 빛을 발하게 될 것입니다.
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="img img-control-left"></div>
+	<div class="img img-control-right"></div>
+
+	<div class="center">
+		<div class="dotnav">
+			<ul>
+				<li><a class="current" href="#"></a></li>
+				<li><a href="#"></a></li>
+				<li><a href="#"></a></li>
+				<li><a href="#"></a></li>
+			</ul>
 		</div>
 	</div>
+</div>
+
+<nav class="navbar navbar-fixed-top about">
+    <div class="center">
+        <div class="notice">
+            <div class="title">About Us</div>
+            <div class="msg">
+                Would you like to participate JUI project?<br/>
+                All you need is interest and passion for the project.<br/>
+                Try it now.
+            </div>
+        </div>
+
+        <img src="../res/img/about.png" />
+    </div>
 </nav>
 
 <nav class="navbar navbar-fixed-top sub">
@@ -76,21 +140,31 @@
 <article id="home">
 	<div class="center row">
 		<div class="col col-12">
-			<iframe frameborder="0" onload="setIFrameHeight(this, 'home')"></iframe>
+			<iframe frameborder="0" src="home.html" height="750"></iframe>
 		</div>
 	</div>
 </article>
 <!-- Intro, End -->
 
-<!-- Concept, Start -->
+<!-- About, Start -->
+<article id="about">
+    <div class="center row">
+        <div class="col col-12">
+            <iframe frameborder="0" src="about.html" height="400"></iframe>
+        </div>
+    </div>
+</article>
+<!-- About, End -->
+
+<!-- Install, Start -->
 <article id="install">
 	<div class="center row">
 		<div class="col col-12">
-			<iframe frameborder="0" onload="setIFrameHeight(this, 'install')"></iframe>
+			<iframe frameborder="0" scrolling="no" onload="setIFrameHeight(this, 'install')"></iframe>
 		</div>
 	</div>
 </article>
-<!-- Concept, End -->
+<!-- Install, End -->
 
 <!-- Core, Start -->
 <article id="core">
@@ -130,6 +204,8 @@
 				<a href="#script/datepicker">Date Picker</a>
 				<a href="#script/notify">Notify</a>
 				<a href="#script/layout">Layout</a>
+                <a href="#script/chart">Chart</a>
+				<a href="#script/realtime">Realtime</a>
 				<ul class="submenu" style="display: none;">
 					<li data-subkey="">Basic</li>
 					<li data-subkey="_api">API</li>
@@ -179,13 +255,20 @@
 </article>
 <!-- CSS, End -->
 
+<!-- Chart, Start -->
+<article id="chart">
+	<div class="center row">
+	</div>	
+</article>
+<!-- Chart, End -->
+
 <!-- Tips, Start -->
 <article id="tips">
 	<div class="center row">
 		<div class="col col-left">
 			<div class="vmenu vmenu-flat">
 				<a href="#tips/bootstrap">Bootstrap</a>
-				<a onclick="alert('해당 라이브러리는 차후에 지원할 예정입니다.'); return false;">Pure</a>
+				<a onclick="alert('해당 플러그인은 차후에 지원할 예정입니다.'); return false;">Editor</a>
 			</div>
 		</div>
 		<div class="col col-right">
@@ -200,10 +283,8 @@
 		<div class="bs-social">
 			<ul class="bs-social-buttons">
 				<li>
-					<iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=seogi1004&repo=jui&type=watch&count=true" width="80" height="20" title="Star on GitHub"></iframe>
-				</li>
-				<li>
-					<iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=seogi1004&repo=jui&type=fork&count=true" width="80" height="20" title="Fork on GitHub"></iframe>
+					<iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=seogi1004&repo=jui&type=watch&count=true" width="90" height="20" title="Star on GitHub"></iframe>
+					<iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=seogi1004&repo=jui&type=fork&count=true" width="90" height="20" title="Fork on GitHub"></iframe>
 				</li>
 				<li>
 					<iframe name="f22d8200d8" width="1000px" height="1000px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:like Facebook Social Plugin" src="http://www.facebook.com/plugins/like.php?action=like&amp;app_id=672755082759473&amp;channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2FwTH8U0osOYl.js%3Fversion%3D40%23cb%3Df3fcf03b1c%26domain%3Ddoc.youngman.kr%26origin%3Dhttp%253A%252F%252Fdoc.youngman.kr%252Ff2b96437fc%26relation%3Dparent.parent&amp;href=http%3A%2F%2Fseogi1004.github.io%2Fjui%2Fdoc%2Findex.html&amp;layout=button&amp;locale=ko_KR&amp;sdk=joey&amp;share=true&amp;show_faces=true" class="" style="border: none; visibility: visible; width: 124px; height: 20px;"></iframe>
@@ -216,50 +297,12 @@
 <footer class="navbar navbar-fixed-bottom" style="position: relative;">
 	<div class="center row" style="position: relative;">
 		<div class="col col-8 msg">
-			JUI는 제니퍼소프트 R&D팀 UI파트에서 개발되었으며, 디자이너 요하와 프로그래머 엘빈이 참여하여<br/>
+			JUI는 제니퍼소프트 R&D팀 UI파트에서 개발되었으며, 디자이너 요하와 프로그래머 엘빈 그리고 제이든이 참여하여<br/>
 			개발한 UI 라이브러리입니다. 이 프로젝트는 상업적인 용도와는 무관합니다.
 		</div>
 		<div class="col col-4 link">
-			<span id="btn_about">ABOUT US</span> | 
+			<span id="btn_about">ABOUT US</span> |
 			<span onclick="window.open('https://github.com/seogi1004/jui');">GitHub</span>
-		</div>
-		<div id="about" class="row">
-			<div class="col col-6 col-alvin">
-				<div class="row pic">
-					<img src="../res/img2/alvin.png"/>
-				</div>
-				<div class="row">
-					<div class="name alvin">Alvin</div>
-					<div class="team">
-						JenniferSoft R&D Team<br/>
-						UI Developer
-					</div>
-					<div class="info">
-						<a href="mailto:alvin@jennifersoft.com">Send to Mail</a>
-						<a href="https://www.facebook.com/seogi1004" target="_blank">Facebook</a>
-						<a href="http://youngman.kr" target="_blank">Blog</a>
-					</div>
-				</div>
-			</div>
-			<div class="col col-6 col-yoha">
-				<div class="row pic">
-					<img src="../res/img2/yoha.png"/>
-				</div>
-				<div class="row">
-					<div class="name yoha">Yoha</div>
-					<div class="team">
-						JenniferSoft R&D Team<br/>
-						UI Designer
-					</div>
-					<div class="info">
-						<a href="mailto:yoha@jennifersoft.com">Send to Mail</a>
-						<!--
-						<a href="#" target="_blank">Facebook</a>
-						<a href="#" target="_blank">Blog</a>
-						-->
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 	
@@ -270,17 +313,6 @@
 		Copyright © 2014 JenniferSoft Inc. All rights reserved.
 	</div>
 </footer>
-
-<div id="floatingBarsG">
-	<div class="blockG" id="rotateG_01"></div>
-	<div class="blockG" id="rotateG_02"></div>
-	<div class="blockG" id="rotateG_03"></div>
-	<div class="blockG" id="rotateG_04"></div>
-	<div class="blockG" id="rotateG_05"></div>
-	<div class="blockG" id="rotateG_06"></div>
-	<div class="blockG" id="rotateG_07"></div>
-	<div class="blockG" id="rotateG_08"></div>
-</div>
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

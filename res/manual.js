@@ -73,7 +73,7 @@
 	$(function() {
 		var url = location.href;
 		if(url.indexOf("_api") != -1 || url.indexOf("custom.html") != -1 || url.indexOf("utility.html") != -1) return;
-		
+
 		url = (url.indexOf("install.html") == -1) ? "../../res/disqus.tpl" : "../res/disqus.tpl";
 		loadDisqus(url);
 	});
@@ -94,7 +94,7 @@
 				delay: 1000
 			});
 			
-			jui.logUrl = "../../lib/jui.mng.html";
+			jui.logUrl = "../../lib/jui/jui.mng.html";
 		});
 		
 		// API 문서 관련 함수

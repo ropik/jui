@@ -6,13 +6,16 @@ var menuInfo = {
         title: "Home",
         msg: "JUI is html5-based user interface library."
     },
+    about: {
+        src: "about.html"
+    },
     install: {
         src: "install.html",
-        title: "Install",
+        title: "Getting Started",
         msg: "JUI library is very easy to install and use."
     },
     core: {
-        title: "Core",
+        title: "Framework",
         msg: "To make it easier to develop a user interface provides many core functions.",
         menu: {
             common: "core/common",
@@ -23,7 +26,7 @@ var menuInfo = {
         }
     },
     script: {
-        title: "JavaScript",
+        title: "Components",
         msg: "To represent data provides a variety of UI components.",
         menu: {
             common: "script/common",
@@ -41,7 +44,9 @@ var menuInfo = {
             autocomplete: "script/autocomplete",
             datepicker: "script/datepicker",
             notify: "script/notify",
-            layout: "script/layout"
+            layout: "script/layout",
+            chart: "script/chart",
+			realtime: "script/realtime"
         }
     },
     style: {
@@ -72,6 +77,11 @@ var menuInfo = {
             tooltip: "style/tooltip"
         }
     },
+    chart: {
+        title: "Charts",
+        msg: "Provides a variety of data visualization components.",
+        src : "chart/common.html"
+    },
     tips: {
     	title: "+Bootstrap",
     	msg: "JUI library can be used with the Bootstrap.",
@@ -89,8 +99,14 @@ function initHashEvent() {
 	$(window).hashchange(function() {
 		if(location.hash.indexOf("#") != -1) {
 			hash = location.hash.substring(1).split("/");
+			
+			if (hash[0].indexOf("chart-") > -1) {
+			    return;
+			}
+			
 			initMenuUrl(hash);
-			initIFrameResize();
+			initIFrameResize();				
+
 		} else {
 			initMenuUrl([ "home" ]);
 		}
@@ -108,16 +124,19 @@ function initMenuUrl(hash) {
 	}
 	
 	var src = menuInfo[hash[0]].src;
-	
-	// 타이틀 & 메시지 처리
-	if(hash != "home") {
-		$("nav.main, nav.download").hide();
+
+    // 타이틀 & 메시지 처리
+    if(hash == "home") {
+        $(".main, nav.download").show();
+        $("nav.sub").hide();
+    } else if(hash == "about") {
+        $(".main, nav.download, nav.sub").hide();
+        $("nav.about").show();
+    } else {
+		$(".main, nav.download, nav.about").hide();
 		$("nav.sub").show();
-		$("nav .title").html(menuInfo[hash[0]].title);
-		$("nav .msg").html(menuInfo[hash[0]].msg);
-	} else {
-		$("nav.main, nav.download").show();
-		$("nav.sub").hide();
+		$("nav.sub .title").html(menuInfo[hash[0]].title);
+		$("nav.sub .msg").html(menuInfo[hash[0]].msg);
 	}
 	
 	// 영역 보이기 및 숨기기
@@ -133,8 +152,15 @@ function initMenuUrl(hash) {
 			initSubMenuUrl(hash);
 			break;
 		}
+	} else if (hash[0] == 'chart') {
+		if (src) {
+			loadPage(hash, src);
+		}
 	} else {
-		loadIframe($("#" + hash[0]).find("iframe"), src);
+		if (src) {
+			loadIframe($("#" + hash[0]).find("iframe"), src);
+		}
+		
 	}
 }
 
@@ -149,8 +175,17 @@ function initSubMenuUrl(hash) {
 	$target.find("a").removeClass("active");
 	$menu.addClass("active");
 	
-	loadIframe($target.find("iframe"), src);
-	
+	if (src) {
+
+		if (hash[0] == 'chart') {
+			loadPage(hash, src);
+		} else {
+			loadIframe($target.find("iframe"), src);			
+		}
+
+	}
+
+
 	if(hash[0] == "script") {
 		initLeafMenuUrl(hash, src, $target, $menu);
 	}
@@ -158,12 +193,12 @@ function initSubMenuUrl(hash) {
 
 function initLeafMenuUrl(hash, src, $target, $menu) {
 	var $submenu = $("#" + hash[0]).find(".submenu");
-	
+
 	if(hash[1] == "common") {
 		$submenu.hide();
 		return;
 	}
-	
+
 	// 서브메뉴 위치 설정
 	$submenu.insertAfter($menu);
 	$submenu.find("li").attr("data-key", hash[1]);		
@@ -234,33 +269,141 @@ function loadIframe($iframe, src) {
 	});
 }
 
+function loadPage(hash, src) {
+	$("#chart .center").load(src);
+}
+
+function initAnimation() {
+	var $slider = $(".main").find("nav"),
+		$prev = $(".img-control-left"),
+		$next = $(".img-control-right"),
+		$page = $(".dotnav").find("a");
+
+	var index = 0,
+		count = $slider.size(),
+		isRun = false,
+		duration = 300,
+		opacity = 1,
+		interval = 30000;
+
+	function prev() {
+		var prev = index,
+			current = index + 1;
+
+		if(current == count) {
+			current = 0;
+			index = 0;
+		} else {
+			index++;
+		}
+
+		var $prev = $($slider.get(prev)),
+			$current = $($slider.get(current));
+
+		isRun = true;
+
+		$prev.addClass("pt-page-moveToLeftFade");
+		$current.show().addClass("pt-page-moveFromRightFade");
+		$current.on("webkitAnimationEnd", handler);
+		$current.on("oAnimationEnd", handler);
+		$current.on("MSAnimationEnd", handler);
+		$current.on("animationend", handler);
+
+		function handler(e) {
+			$prev.removeClass("pt-page-moveToLeftFade");
+			$current.removeClass("pt-page-moveFromRightFade");
+			show();
+		}
+	}
+
+	function next() {
+		var prev = index,
+			current = index - 1;
+
+		if(current == -1) {
+			current = count - 1;
+			index = count - 1;
+		} else {
+			index--;
+		}
+
+		var $prev = $($slider.get(prev)),
+			$current = $($slider.get(current));
+
+		isRun = true;
+
+		$prev.addClass("pt-page-moveToRightFade");
+		$current.show().addClass("pt-page-moveFromLeftFade");
+		$current.on("webkitAnimationEnd", handler);
+		$current.on("oAnimationEnd", handler);
+		$current.on("MSAnimationEnd", handler);
+		$current.on("animationend", handler);
+
+		function handler(e) {
+			$prev.removeClass("pt-page-moveToRightFade");
+			$current.removeClass("pt-page-moveFromLeftFade");
+			show();
+		}
+	}
+
+	function show() {
+		$page.removeClass("current");
+
+		$slider.each(function(i) {
+			if(i == index) {
+				$(this).show();
+				$($page.get(i)).addClass("current");
+			} else {
+				$(this).hide();
+			}
+		});
+
+		isRun = false;
+	}
+
+	$page.on("click", function(e) {
+		index = $page.index(this);
+		show();
+	});
+
+	$prev.on("click", function(e) {
+		next();
+	}).hover(function(e) {
+		$prev.fadeTo(duration, opacity);
+	}, function(e) {
+		$prev.fadeTo(duration, opacity / 5);
+	});
+
+	$next.on("click", function(e) {
+		prev();
+	}).hover(function(e) {
+		$next.fadeTo(duration, opacity);
+	}, function(e) {
+		$next.fadeTo(duration, opacity / 5);
+	});
+
+	$slider.parent().hover(function(e) {
+		$prev.fadeTo(duration, opacity / 5);
+		$next.fadeTo(duration, opacity / 5);
+	}, function(e) {
+		$prev.fadeTo(duration, 0);
+		$next.fadeTo(duration, 0);
+	});
+
+	setInterval(prev, interval);
+}
+
 jui.ready(function(ui, uix, _) {
 	loading = ui.modal("#floatingBarsG", {
 		color: "black"
 	});
 	
 	initHashEvent();
+	initAnimation();
 	checkIeVersion();
-	
-	$("body").on("click", function(e) {
-		if(e.target.tagName == "A") return;
-		
-		if($("#about").css("display") != "none") {
-			$("#btn_about").trigger("click");
-		}
-	});
-	
+
 	$("#btn_about").on("click", function(e) {
-		var $layer = $("#about");
-		
-		if($layer.css("display") == "none") {
-			$layer.show();
-			$("#btn_about").addClass("active");
-		} else {
-			$layer.hide();
-			$("#btn_about").removeClass("active");
-		}
-		
+		location.hash = "#about";
 		return false;
 	});
 });

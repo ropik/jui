@@ -1,0 +1,122 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<META charset="UTF-8">
+<title>[JUI Library] - JavaScript/Realtime/API</title>
+	
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="api_core.js"></script>
+<script src="../../res/manual.js"></script>
+
+<script>
+var uiApi = {
+	prop: {
+		chart: {
+			detail: "차트 빌더 객체를 참조합니다."
+		}
+	},
+	method: {
+        update: {
+            param: "data",
+            ret: "none",
+            detail: "새로운 데이터를 기준으로 렌더링합니다."
+        },
+        clear: {
+            param: "none",
+            ret: "none",
+            detail: "그려진 차트를 모두 제거합니다."
+        },
+        reset: {
+            param: "data",
+            ret: "none",
+            detail: "리얼타임 차트의 모든 데이터와 요소를 제거합니다."
+        },
+        append: {
+            param: "data",
+            ret: "none",
+            detail: "리얼타임 데이터를 추가합니다. (별도로 렌더링 하지않음)"
+        },
+        start: {
+            param: "none",
+            ret: "none",
+            detail: "리얼타임 차트를 시작합니다."
+        },
+        stop: {
+            param: "none",
+            ret: "none",
+            detail: "리얼타임 차트를 멈춥니다."
+        }
+	},
+	opt: {
+		width: {
+			detail: "차트 넓이를 정합니다."
+		},
+        height: {
+            detail: "차트 높이를 정합니다."
+        },
+        padding: {
+            detail: "차트 여백을 정합니다."
+        },
+        theme: {
+            detail: "차트 테마를 선택합니다."
+        },
+        data: {
+            detail: "차트 데이터를 설정합니다."
+        },
+        series: {
+            detail: "특정 데이터 프로퍼티의 추가 정보를 설정합니다."
+        },
+        grid: {
+            detail: "차트에서 사용할 그리드를 설정합니다."
+        },
+        brush: {
+            detail: "차트에 추가할 브러쉬를 정합니다."
+        },
+        widget: {
+            detail: "차트에 추가할 위젯을 정합니다."
+        },
+        style: {
+            detail: "현재 설정된 테마의 값을 임의로 설정합니다."
+        },
+        interval: {
+            detail: "리얼타임 차트의 갱신 주기를 설정합니다. (단위: 초)"
+        },
+        period: {
+            detail: "현재부터 설정된 값까지의 리얼타임 데이터를 표현합니다. (단위: 분)"
+        }
+	}
+};
+
+jui.ready([ "chartx.realtime", "util.base" ], function(realtime, _) {
+	var ui = realtime("#ui", {
+        brush : {
+            type : "line",
+            target : [ "s1", "s2", "s3" ]
+        }
+    });
+	
+	juiApi(ui, uiApi, _.template, function() {
+		$("#api_tpl").hide();
+        $("#api_event").hide();
+	});
+});
+
+</script>
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Realtime</h1>
+</div>
+
+<div class="hidden">
+	<div id="ui"></div>
+</div>
+
+</body>
+</html>

@@ -6,30 +6,15 @@
 <title>[JUI Library] - JavaScript/Modal</title>	
 
 <link rel="stylesheet" href="../../res/manual.css" />
-<link rel="stylesheet" href="https://rawgit.com/seogi1004/jui/master/jui.min.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
 <link rel="stylesheet" href="../../lib/prism.css" />
 <script src="../../lib/jquery-1.8.0.min.js"></script>
-<script src="../../lib/jquery.binder.js"></script>
-<script src="https://rawgit.com/seogi1004/jui/master/jui.min.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
 <script src="../../lib/prism.js"></script>
 <script src="../../res/manual.js"></script>
-
-<script>
-jui.ready(function(ui, uix, _) {
-	// 8-1. 모달 1
-	modal_1 = ui.modal("#modal_1", {
-		color: "black"
-	});
-	// 8-1. 모달 2
-	modal_2 = ui.modal("#modal_2_msg", {
-		target: "#modal_2",
-		opacity: 0.5,
-		color: 'white'
-	});
-});
-
-</script>
+<script src="../../res/doc/script.ui.js"></script>
 </head>
+
 <body class="jui">
 	
 <div class="page-header">
@@ -45,8 +30,8 @@ jui.ready(function(ui, uix, _) {
 		<a class="btn btn-gray btn-mini" href="javascript:modal_1.show();">Run</a> - 
 		전체 화면의 중앙에 위치하는 글로벌 모달 기능을 제공합니다.
 		
-<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
-	modal_1 = ui.modal("#modal_1", {
+<pre><code class="language-javascript">jui.ready([ "ui.modal" ], function(modal) {
+	modal_1 = modal("#modal_1", {
 		color: "black"
 	});
 });</code></pre>
@@ -106,7 +91,7 @@ jui.ready(function(ui, uix, _) {
 	</p>
 	
 	<p class="br">
-<pre><code class="language-javascript">modal_2 = ui.modal("#modal_2_msg", {
+<pre><code class="language-javascript">modal_2 = modal("#modal_2_msg", {
 	target: "#modal_2",
 	opacity: 0.5,
 	color: 'white'

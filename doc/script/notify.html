@@ -6,92 +6,15 @@
 <title>[JUI Library] - JavaScript/Notify</title>
 
 <link rel="stylesheet" href="../../res/manual.css" />
-<link rel="stylesheet" href="https://rawgit.com/seogi1004/jui/master/jui.min.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
 <link rel="stylesheet" href="../../lib/prism.css" />
 <script src="../../lib/jquery-1.8.0.min.js"></script>
-<script src="../../lib/jquery.binder.js"></script>
-<script src="https://rawgit.com/seogi1004/jui/master/jui.min.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
 <script src="../../lib/prism.js"></script>
 <script src="../../res/manual.js"></script>
-
-<script>
-jui.ready(function(ui, uix, _) {
-	notify1 = ui.notify("body", {
-        position: "top-right",
-        event: {
-        	show: function(data) {
-        		console.log("show : " + JSON.stringify(data));
-        	}, 
-        	hide: function(data) {
-        		console.log("hide : " + JSON.stringify(data));
-        	},
-        	click: function(data) {
-        		console.log("click : " + JSON.stringify(data));
-        	}
-        },
-        tpl: {
-            alarm: $("#tpl_alarm").html()
-        }
-    });
-
-	notify2 = ui.notify("body", {
-        position: "top-left",
-        timeout: 0,
-        tpl: {
-            alarm: $("#tpl_alarm").html()
-        }
-    });
-
-	notify3 = ui.notify("body", {
-        position: "top",
-        timeout: 2000,
-        padding: {
-        	top: 100
-        },
-        tpl: {
-            alarm: $("#tpl_alarm").html()
-        }
-    });
-    
-    notify4 = ui.notify("section:first", {
-    	position: "bottom",
-    	timeout: 0,
-    	distance: 30,
-    	tpl: {
-            alarm: $("#tpl_alarm").html()
-        }
-    });
-
-    notify5 = ui.notify("section:first", {
-    	position: "bottom-left",
-    	showDuration: 1000,
-    	hideDuration: 1000,
-    	tpl: {
-            alarm: $("#tpl_alarm").html()
-        }
-    });
-    
-    notify6 = ui.notify("section:first", {
-    	position: "bottom-right",
-    	showEasing: "linear",
-    	tpl: {
-            alarm: $("#tpl_alarm").html()
-        }
-    });
-});
-
-function notifyTest(type, color) {
-	var data = { title: "Caution message Send!!!", msg: "Feb 15, 2013-12-24 02:24:19", color: color };
-	
-	if(type == 1) notify1.add(data);
-	if(type == 2) notify2.add(data);
-	if(type == 3) notify3.add(data);
-	if(type == 4) notify4.add(data);
-	if(type == 5) notify5.add(data);
-	if(type == 6) notify6.add(data);
-}
-</script>
+<script src="../../res/doc/script.ui.js"></script>
 </head>
+
 <body class="jui">
 
 <div class="page-header">
@@ -184,8 +107,8 @@ function notifyTest(type, color) {
 	<p class="br">
 		객체 생성시에 설정한 셀렉터에 알림 메시지를 추가할 수 있습니다.
 		
-<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
-	notify1 = ui.notify("body", {
+<pre><code class="language-javascript">jui.ready([ "ui.notify" ], function(notify) {
+	notify1 = notify("body", {
         position: "top-right",
         event: {
         	show: function(data) {

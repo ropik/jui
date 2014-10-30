@@ -6,42 +6,15 @@
 <title>[JUI Library] - JavaScript/Combo</title>
 	
 <link rel="stylesheet" href="../../res/manual.css" />
-<link rel="stylesheet" href="https://rawgit.com/seogi1004/jui/master/jui.min.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
 <link rel="stylesheet" href="../../lib/prism.css" />
 <script src="../../lib/jquery-1.8.0.min.js"></script>
-<script src="../../lib/jquery.binder.js"></script>
-<script src="https://rawgit.com/seogi1004/jui/master/jui.min.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
 <script src="../../lib/prism.js"></script>
 <script src="../../res/manual.js"></script>
-
-<script>
-jui.ready(function(ui, uix, _) {
-	// 2-1. 콤보박스
-	combo_1 = ui.combo("#combo_1", {
-		index: 2,
-		position: "top",
-		event: {
-			change: function(data) {
-				alert("text(" + data.text + "), value(" + data.value + ")");
-			}
-		}
-	});
-	
-	// 2-2. 콤보박스 (스크롤 + 인덱스)
-	combo_2 = ui.combo("#combo_2", {
-		index: 3,
-		width: 195,
-		keydown: true,
-		event: {
-			change: function(data) {
-				alert("text(" + data.text + "), value(" + data.value + ")");
-			}
-		}
-	});
-});
-
-</script>
+<script src="../../res/doc/script.ui.js"></script>
 </head>
+
 <body class="jui">
 
 <div class="page-header">
@@ -138,8 +111,8 @@ jui.ready(function(ui, uix, _) {
 	&lt;/ul&gt;
 &lt;/div&gt;</code></pre>
 
-<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
-	combo_1 = ui.combo("#combo_1", {
+<pre><code class="language-javascript">jui.ready([ "ui.combo" ], function(combo) {
+	combo_1 = combo("#combo_1", {
 		index: 2,
 		position: "top",
 		event: {
@@ -149,9 +122,9 @@ jui.ready(function(ui, uix, _) {
 		}
 	});
 	
-	combo_2 = ui.combo("#combo_2", {
+	combo_2 = combo("#combo_2", {
 		index: 3,
-		width: 195,
+		width: 200,
 		keydown: true,
 		event: {
 			change: function(data) {

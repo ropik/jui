@@ -3,185 +3,20 @@
 <html>
 <head>
 <META charset="UTF-8">
-<title>[JUI Library] - JavaScript/XTable</title>	
-	
+<title>[JUI Library] - JavaScript/XTable</title>
+
 <link rel="stylesheet" href="../../res/manual.css" />
-<link rel="stylesheet" href="https://rawgit.com/seogi1004/jui/master/jui.min.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
 <link rel="stylesheet" href="../../lib/prism.css" />
 <link rel="stylesheet" href="../../lib/animate.min.css" />
+<link rel="stylesheet" href="../../res/doc/script.css" />
 <script src="../../lib/jquery-1.8.0.min.js"></script>
-<script src="../../lib/jquery.binder.js"></script>
-<script src="https://rawgit.com/seogi1004/jui/master/jui.min.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
 <script src="../../lib/prism.js"></script>
 <script src="../../res/manual.js"></script>
-
-<style>
-.xtable .none {
-	text-align: center;
-}
-</style>
-<script>
-var table_data = [
-	{ name: "Hong", age: "20", location: "Ilsan" },
-	{ name: "Jung", age: "30", location: "Seoul" },
-	{ name: "Park", age: "15", location: "Yeosu" },
-	{ name: "Kang", age: "32", location: "Seoul" },
-	{ name: "Song", age: "12", location: "Gwangju" },
-	{ name: "Yoon", age: "22", location: "Damyang" },
-	{ name: "Kim", age: "33", location: "Busan" },
-	{ name: "Hwang", age: "21", location: "Seoul" }
-];
-
-jui.ready(function(ui, uix, _) {
-	
-	xtable_3_page = 1;
-	
-	// X-Table, scroll
-	xtable_1 = uix.xtable("#xtable_1", {
-		fields: [ "name", "age", "location" ],
-		resize: true,
-		colshow: true,
-		sort: true,
-		sortLoading: true,
-		buffer: "scroll", // scroll, page, s-page
-		bufferCount: 20,
-		event: {
-			colmenu: function(column, e) {
-				this.showColumnMenu(e.pageX - 25);
-			}
-		},
-        animate: true
-	});
-
-	// X-Table, page
-	xtable_2 = uix.xtable("#xtable_2", {
-		fields: [ "name", "age", "location" ],
-		resize: true,
-		sort: true,
-		buffer: "page", // scroll, page, s-page
-		bufferCount: 20,
-        animate: true
-	});
-
-	// X-Table, scroll-page
-	xtable_3 = uix.xtable("#xtable_3", {
-		fields: [ "name", "age", "location" ],
-		resize: true,
-		sort: true,
-		buffer: "s-page", // scroll, page, s-page
-		bufferCount: 20,
-        animate: true
-	});
-
-	// X-Table, filter
-	xtable_4 = uix.xtable("#xtable_4", {
-		fields: [ "name", "age", "location" ],
-		data: table_data,
-		resize: true,
-		sort: true,
-		buffer: "s-page", // scroll, page, s-page
-		bufferCount: 20,
-        animate: true
-	});
-	
-	// X-Table, scrollWidth
-	xtable_5 = uix.xtable("#xtable_5", {
-		fields: [ "name", "age", "location" ],
-		data: table_data,
-		resize: true,
-		sort: true,
-		width: 1000,
-		scrollWidth: 727,
-        animate: true
-	});
-});
-
-function xtableRun(type) {
-	var result = [], 
-		dataSize = 1000000,
-		nStart = new Date().getTime();
-	
-	for(var i = 0; i < dataSize; i++) {
-		result.push({ name: "Alvin" + i, age: Math.floor(Math.random() * 100) + 1, location: "LA" });
-	}
-	
-	var nEnd = new Date().getTime(); 
-	if(type == 1) { 
-		xtable_1.update(result);
-	}
-	if(type == 2) {
-		xtable_2.update(result);
-		xtable_2_page = 1;
-		xtable_2.resize();
-	}
-	if(type == 3) {
-		xtable_3.update(result);
-		xtable_3_page = 1;
-		xtable_3.resize();
-	}
-	if(type == 4) {
-		paging_2_xtable.update(result);
-		paging_2_xtable.resize();
-	}
-	if(type == 5) { 
-		xtable_5.update(result);
-	}
-	var nEnd2 = new Date().getTime(); 
-	
-	alert(
-		"임의의 데이터 " + (dataSize / 10000) + "만건을 생성합니다.\n\n" +
-		"데이터 생성시간 : " + ((nEnd - nStart) / 1000) + "sec\n" +
-		"테이블 갱신시간 : " + ((nEnd2 - nEnd) / 1000) + "sec"
-	);
-}
-
-function xtable2Page(no) {
-	if(xtable_2_page == null) return;
-	
-	xtable_2_page += no;
-	xtable_2_page = (xtable_2_page < 1) ? 1 : xtable_2_page;
-	xtable_2.page(xtable_2_page);
-}
-
-function xtable3Page(no) {
-	if(xtable_3_page == null) return;
-
-	xtable_3_page += no;
-	xtable_3_page = (xtable_3_page < 1) ? 1 : xtable_3_page;
-	xtable_3.page(xtable_3_page);
-}
-
-function xtableFilter() {
-	alert("테이블의 'location' 컬럼의 값에 문자열 'eo'가 포함된 로우를 반환합니다.");
-	
-    xtable_4.filter(function(data) {
-        if(data.location.indexOf("eo") != -1) {
-            return true;
-        }
-    });
-}
-
-function xtableFilterMulti() {
-	alert("테이블의 'age' 컬럼 값이 '30'보다 크거나 'name'컬럼 값에 'ng'가 포함된 로우를 반환합니다.");
-	
-    xtable_4.filter(function(data) {
-       if(data.age >= 30 || data.name.indexOf("ng") != -1) {
-           return true;
-       }
-    });
-}
-
-function getTableData() {
-	var result = [];
-	
-	for(var i = 0; i < 1000; i++) {
-		result.push({ name: "Alvin" + i, age: Math.floor(Math.random() * 100) + 1, location: "LA" });
-	}
-	
-	return result;
-}
-</script>
+<script src="../../res/doc/script.uix.js"></script>
 </head>
+
 <body class="jui">
 	
 <div class="page-header">
@@ -245,8 +80,8 @@ function getTableData() {
 	</p>
 	
 	<p class="br">
-<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
-	xtable_1 = uix.xtable("#xtable_1", {
+<pre><code class="language-javascript">jui.ready([ "uix.xtable" ], function(xtable) {
+	xtable_1 = xtable("#xtable_1", {
 		fields: [ "name", "age", "location" ],
 		resize: true,
 		colshow: true,
@@ -350,7 +185,7 @@ function getTableData() {
 	</p>
 	
 	<p class="br">
-<pre><code class="language-javascript">xtable_2 = uix.xtable("#xtable_2", {
+<pre><code class="language-javascript">xtable_2 = xtable("#xtable_2", {
 	fields: [ "name", "age", "location" ],
 	resize: true,
 	sort: true,
@@ -401,7 +236,7 @@ function getTableData() {
 	</p>	
 	
 	<p class="br">
-<pre><code class="language-javascript">xtable_3 = uix.xtable("#xtable_3", {
+<pre><code class="language-javascript">xtable_3 = xtable("#xtable_3", {
 	fields: [ "name", "age", "location" ],
 	resize: true,
 	sort: true,
@@ -502,7 +337,7 @@ function xtableFilterMulti() {
 		테이블의 실제 넓이가 <strong>scrollWidth</strong> 옵션 값보다 클 경우에 가로 스크를이 보여집니다.<br/>
 		참고로 테이블의 실제 넓이는 <strong>width</strong> 옵션을 사용하거나 마크업의 스타일로도 설정할 수 있습니다.
 		
-<pre><code class="language-javascript">xtable_5 = uix.xtable("#xtable_5", {
+<pre><code class="language-javascript">xtable_5 = xtable("#xtable_5", {
 	fields: [ "name", "age", "location" ],
 	data: table_data,
 	resize: true,

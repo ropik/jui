@@ -6,77 +6,23 @@
 <title>[JUI Library] - JavaScript/Window</title>
 
 <link rel="stylesheet" href="../../res/manual.css" />
-<link rel="stylesheet" href="https://rawgit.com/seogi1004/jui/master/jui.min.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
 <link rel="stylesheet" href="../../lib/prism.css" />
 <link rel="stylesheet" href="../../lib/animate.min.css" />
 <script src="../../lib/jquery-1.8.0.min.js"></script>
-<script src="../../lib/jquery.binder.js"></script>
-<script src="https://rawgit.com/seogi1004/jui/master/jui.min.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
 <script src="../../lib/prism.js"></script>
 <script src="../../res/manual.js"></script>
-
-<script>
-jui.ready(function(ui, uix, _) {
-	// 3-1. 일반 윈도우
-	win_1 = uix.window("#win_1", { 
-		width: 500, 
-		height: 300, 
-		left: 100, 
-		top: 100,
-        animate: true
-	});
-	
-	win_1_2 = uix.window("#win_1_2", { 
-		width: 500, 
-		height: 300, 
-		left: 100, 
-		top: 400,
-        animate: true
-	});
-	
-	win_1_3 = uix.window("#win_1_3", { 
-		width: 500, 
-		height: 300, 
-		left: 100, 
-		top: 700,
-        animate: true
-	});
-
-	// 3-2. 모달 윈도우
-	win_2 = uix.window("#win_2", { 
-		width: 500, 
-		height: 300, 
-		modal: true,
-        animate: true
-	});
-
-	win_3 = uix.window("#win_3", { 
-		width: 350, 
-		height: 150, 
-		top: 1274,
-        animate: true
-	});
-});
-
-function winTest(modal, type) {
-	if(!modal) {
-		if(type == 1) win_1.show();
-		if(type == 2) win_1_2.show();
-		if(type == 3) win_1_3.show();
-	} else {
-		win_2.show();
-	}
-}
-
-</script>
+<script src="../../res/doc/script.uix.js"></script>
 </head>
+
 <body class="jui">
 
 <div class="page-header">
 	<h1>Window</h1>
 </div>
 
-<section style="position: relative">
+<section>
 	<h2>Default</h2>
 	<p>
 		윈도우는 팝업을 대체할 수 있는 레이어 컴포넌트입니다.
@@ -130,7 +76,7 @@ function winTest(modal, type) {
 		&lt;div class="right"&gt;
 			&lt;a href="javascript:alert('plus');"&gt;&lt;i class="icon-plus icon-white"&gt;&lt;/i&gt;&lt;/a&gt; 
 			&lt;a href="javascript:alert('search');"&gt;&lt;i class="icon-search icon-white"&gt;&lt;/i&gt;&lt;/a&gt; 
-			&lt;a href="#" class='close'&gt;&lt;i class='icon-close icon-white'&gt;&lt;/i&gt;&lt;/a&gt;
+			&lt;a href="#" class='close'&gt;&lt;i class='icon-exit icon-white'&gt;&lt;/i&gt;&lt;/a&gt;
 		&lt;/div&gt;
     &lt;/div&gt;
 	&lt;div class="body"&gt;
@@ -140,29 +86,29 @@ function winTest(modal, type) {
 	</p>
 	
 	<p>
-<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
-	win_1 = uix.window("#win_1", { 
+<pre><code class="language-javascript">jui.ready([ "uix.window" ], function(window) {
+	win_1 = window("#win_1", { 
 		width: 500, 
 		height: 300, 
 		left: 100, 
 		top: 100
 	});
 	
-	win_1_2 = uix.window("#win_1_2", { 
+	win_1_2 = window("#win_1_2", { 
 		width: 500, 
 		height: 300, 
 		left: 100, 
 		top: 400
 	});
 	
-	win_1_3 = uix.window("#win_1_3", { 
+	win_1_3 = window("#win_1_3", { 
 		width: 500, 
 		height: 300, 
 		left: 100, 
 		top: 700
 	});
 	
-	win_2 = uix.window("#win_2", { 
+	win_2 = window("#win_2", { 
 		width: 500, 
 		height: 300, 
 		modal: true
@@ -176,7 +122,7 @@ function winTest(modal, type) {
 			<div class="right">
 				<a href="javascript:alert('plus');"><i class="icon-plus icon-white"></i></a> 
 				<a href="javascript:alert('search');"><i class="icon-search icon-white"></i></a> 
-				<a href="#" class='close'><i class='icon-close icon-white'></i></a>
+				<a href="#" class='close'><i class='icon-exit icon-white'></i></a>
 			</div>
 	    </div>
 		<div class="body">
@@ -190,7 +136,7 @@ function winTest(modal, type) {
 			<div class="right">
 				<a href="javascript:alert('plus');"><i class="icon-plus"></i></a> 
 				<a href="javascript:alert('search');"><i class="icon-search"></i></a> 
-				<a href="#" class='close'><i class='icon-close'></i></a>
+				<a href="#" class='close'><i class='icon-exit'></i></a>
 			</div>
 	    </div>
 		<div class="body">
@@ -208,7 +154,7 @@ function winTest(modal, type) {
 			<div class="right">
 				<a href="javascript:alert('plus');"><i class="icon-plus icon-white"></i></a> 
 				<a href="javascript:alert('search');"><i class="icon-search icon-white"></i></a> 
-				<a href="#" class='close'><i class='icon-close icon-white'></i></a>
+				<a href="#" class='close'><i class='icon-exit icon-white'></i></a>
 			</div>
 	    </div>
 		<div class="body">
@@ -224,7 +170,7 @@ function winTest(modal, type) {
 		<div class="head">
 			<div class="left">HOME</div>
 			<div class="right">
-				<a href="#" class='close'><i class='icon-close icon-white'></i></a>
+				<a href="#" class='close'><i class='icon-exit icon-white'></i></a>
 			</div>
 	    </div>
 		<div class="body">
@@ -237,7 +183,7 @@ function winTest(modal, type) {
 	</div>
 </section>
 
-<section style="position: relative">
+<section>
 	<h2>Markup Rule</h2>
 	<p>
 		<button class="btn btn-gray btn-mini" onclick="win_3.show();">Run</button> - 

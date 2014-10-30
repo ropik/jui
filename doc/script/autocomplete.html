@@ -6,62 +6,15 @@
 <title>[JUI Library] - JavaScript/AutoComplete</title>
 
 <link rel="stylesheet" href="../../res/manual.css" />
-<link rel="stylesheet" href="https://rawgit.com/seogi1004/jui/master/jui.min.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
 <link rel="stylesheet" href="../../lib/prism.css" />
 <script src="../../lib/jquery-1.8.0.min.js"></script>
-<script src="../../lib/jquery.binder.js"></script>
-<script src="https://rawgit.com/seogi1004/jui/master/jui.min.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
 <script src="../../lib/prism.js"></script>
 <script src="../../res/manual.js"></script>
-
-<script>
-
-var ac_words = [
-  "ActionScript",
-  "AppleScript",
-  "Asp",
-  "BASIC",
-  "C",
-  "C++",
-  "Clojure",
-  "COBOL",
-  "ColdFusion",
-  "Erlang",
-  "Fortran",
-  "Groovy",
-  "Haskell",
-  "Java",
-  "JavaScript",
-  "Lisp",
-  "Perl",
-  "PHP",
-  "Python",
-  "Ruby",
-  "Scala",
-  "Scheme"
-];
-    
-var ac_words_hangul = [
-	"자바의 정석",
-	"열혈강의 C++",
-	"유쾌한 심리학"
-];
-
-jui.ready(function(ui, uix, _) {
-    // 자동완성 
-    ac_1 = uix.autocomplete(".ac", {
-    	target: "input[type=text]",
-    	words: ac_words,
-    	event: {
-    		change: function(text) {
-    			alert(text);
-    		}
-    	}
-    });
-});
-
-</script>
+<script src="../../res/doc/script.uix.js"></script>
 </head>
+
 <body class="jui">
 	
 <div class="page-header">
@@ -87,8 +40,8 @@ jui.ready(function(ui, uix, _) {
   "Python", "Ruby", "Scala", "Scheme"
 ];
 
-jui.ready(function(ui, uix, _) {
-	ac_1 = uix.autocomplete(".ac", {
+jui.ready([ "uix.autocomplete" ], function(autocomplete) {
+	ac_1 = autocomplete(".ac", {
 		target: "input[type=text]",
 		words: ac_words,
 		event: {
