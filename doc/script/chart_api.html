@@ -193,29 +193,53 @@ var uiApi = {
         mouseup: {
             detail: "브러쉬에 마우스 왼쪽을 누른 후에 발생하는 이벤트입니다."
         },
+        "chart.click": {
+            detail: "차트 영역을 클릭하면 발생하는 이벤트입니다."
+        },
+        "chart.dblclick": {
+            detail: "차트 영역을 더블클릭하면 발생하는 이벤트입니다."
+        },
+        "chart.rclick": {
+            detail: "차트 영역을 마우스 오른쪽을 클릭하면 발생하는 이벤트입니다."
+        },
+        "chart.mouseover": {
+            detail: "차트 영역을 마우스를 올리면 발생하는 이벤트입니다."
+        },
+        "chart.mouseout": {
+            detail: "차트 영역을 마우스가 벗어나면 발생하는 이벤트입니다."
+        },
+        "chart.mousemove": {
+            detail: "차트 영역을 마우스가 이동하면 발생하는 이벤트입니다."
+        },
+        "chart.mousedown": {
+            detail: "차트 영역을 마우스 왼쪽을 누르면 발생하는 이벤트입니다."
+        },
+        "chart.mouseup": {
+            detail: "차트 영역을 마우스 왼쪽을 누른 후에 발생하는 이벤트입니다."
+        },
         "bg.click": {
-            detail: "차트 배경을 클릭하면 발생하는 이벤트입니다."
+            detail: "차트 여백을 클릭하면 발생하는 이벤트입니다."
         },
         "bg.dblclick": {
-            detail: "차트 배경을 더블클릭하면 발생하는 이벤트입니다."
+            detail: "차트 여백을 더블클릭하면 발생하는 이벤트입니다."
         },
         "bg.rclick": {
-            detail: "차트 배경에 마우스 오른쪽을 클릭하면 발생하는 이벤트입니다."
+            detail: "차트 여백에 마우스 오른쪽을 클릭하면 발생하는 이벤트입니다."
         },
         "bg.mouseover": {
-            detail: "차트 배경에 마우스를 올리면 발생하는 이벤트입니다."
+            detail: "차트 여백에 마우스를 올리면 발생하는 이벤트입니다."
         },
         "bg.mouseout": {
-            detail: "차트 배경에서 마우스가 벗어나면 발생하는 이벤트입니다."
+            detail: "차트 여백에서 마우스가 벗어나면 발생하는 이벤트입니다."
         },
         "bg.mousemove": {
-            detail: "차트 배경에 마우스가 이동하면 발생하는 이벤트입니다."
+            detail: "차트 여백에 마우스가 이동하면 발생하는 이벤트입니다."
         },
         "bg.mousedown": {
-            detail: "차트 배경에 마우스 왼쪽을 누르면 발생하는 이벤트입니다."
+            detail: "차트 여백에 마우스 왼쪽을 누르면 발생하는 이벤트입니다."
         },
         "bg.mouseup": {
-            detail: "차트 배경에 마우스 왼쪽을 누른 후에 발생하는 이벤트입니다."
+            detail: "차트 여백에 마우스 왼쪽을 누른 후에 발생하는 이벤트입니다."
         }
     },
 	tpl: {
@@ -286,6 +310,14 @@ jui.ready([ "chart.builder", "util.base" ], function(builder, _) {
             mousemove: function() {},
             mousedown: function() {},
             mouseup: function() {},
+            "chart.click": function() {},
+            "chart.dblclick": function() {},
+            "chart.rclick": function() {},
+            "chart.mouseover": function() {},
+            "chart.mouseout": function() {},
+            "chart.mousemove": function() {},
+            "chart.mousedown": function() {},
+            "chart.mouseup": function() {},
             "bg.click": function() {},
             "bg.dblclick": function() {},
             "bg.rclick": function() {},
