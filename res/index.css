@@ -27,10 +27,10 @@ nav {
 
 .main {
 	position: relative;
-	height: 600px;
+	height: 534px;
 }
 
-.main > * {
+.main > nav {
 	position: absolute !important;
 	top: 74px;
 	border-bottom-width: 0px !important;
@@ -40,13 +40,13 @@ nav {
 .main > nav:nth-child(1) {
 	background-color: #64548d !important;
 	background-image: url("img/headline.png") !important;
-	background-repeat: repeat-x !important;
+	background-repeat: no-repeat !important;
 }
 
 .main > nav:nth-child(2) {
 	background-color: #dbe1ee !important;
 	background-image: url("img/headline2.png") !important;
-	background-repeat: repeat-x !important;
+	background-repeat: no-repeat !important;
 	display: none;
 }
 
@@ -64,6 +64,64 @@ nav {
 	display: none;
 }
 
+.main .dotnav {
+	position: absolute;
+	top: 540px;
+	background: transparent;
+	z-index: 3000;
+	height: 40px;
+	line-height: 40px;
+	-webkit-transition: background-color 0.15s ease-in-out;
+	transition: background-color 0.15s ease-in-out;
+	width: 100%;
+	text-align: center;
+}
+
+.main .dotnav ul {
+	display: inline-block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.main .dotnav li {
+	list-style: none;
+	margin: 0 10px;
+	width: 8px;
+	height: 8px;
+	float: left;
+	position: relative;
+}
+
+.main .dotnav a {
+	top: 0;
+	left: 0;
+	width: 8px;
+	height: 8px;
+	outline: none;
+	position: absolute;
+	border-radius: 50%;
+	background-color: #999999;
+	font: 0/0 a;
+	color: transparent;
+}
+
+.main .dotnav a:hover {
+	background-color: #fff;
+}
+
+.main .dotnav a.current {
+	top: -1px;
+	left: -1px;
+	width: 8px;
+	height: 8px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #b380ff;
+	background-color: transparent;
+	cursor: default;
+}
+
 nav .container {
 	text-align: center;
 	padding-top: 165px;
@@ -71,12 +129,10 @@ nav .container {
 
 nav .container-2 {
 	padding-top: 125px;
-	margin-left: -45px;
 }
 
 nav .container-3 {
-	padding-top: 200px;
-	padding-left: 110px;
+	padding-top: 220px;
 }
 
 nav .container-4 {
@@ -85,32 +141,36 @@ nav .container-4 {
 }
 
 nav .detail {
-	font-family: "Nanum Gothic";
-	font-size: 16px;
-	text-shadow: 0px 1px #6f5d9d;
-	line-height: 1.6em;
+	font-family: "Apple SD Gothic NEO", "Nanum Gothic", "Helvetica Neue", "Helvetica", "Dotum", "Arial", "Verdana", "sans-serif";
+	font-size: 1.3em;
+	font-weight: 400;
+	line-height: 1.75;
 }
 
 nav .container .detail {
-	padding-top: 48px;
+	padding-top: 40px;
 	color: #fff;
 	text-align: center;
+	text-shadow: 0px 1px rgba(0,0,0,0.5);
 }
 
 nav .container-2 .detail {
 	padding-top: 36px;
-	color: #333;
+	color: #666;
+	text-shadow: 0px 1px rgba(255,255,255,0.5);
 }
 
 nav .container-3 .detail {
 	padding-top: 40px;
-	color: #333;
+	color: #666;
+	text-shadow: 0px 1px rgba(255,255,255,0.5);
 }
 
 nav .container-4 .detail {
 	padding-top: 44px;
 	color: #fff;
 	text-align: center;
+	text-shadow: 0px 1px rgba(0,0,0,0.5);
 }
 
 nav .container .img-logo {
@@ -479,7 +539,7 @@ footer .line {
 	cursor: pointer;
 	z-index: 2000;
 	top: 290px;
-	opacity: 0.5;
+	opacity: 0;
 }
 .img-control-left {
 	background-position: -442px -234px;
@@ -488,4 +548,11 @@ footer .line {
 .img-control-right {
 	background-position: -511px -234px;
 	right: 25px;
+}
+
+.img-download-main {
+	background-position: -442px -314px;
+	width: 199px;
+	height: 54px;
+	margin-top: 40px;
 }
