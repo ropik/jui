@@ -121,6 +121,14 @@ iframe {
 	cursor: pointer;
 }
 
+/* Chart API Only */
+.jui.chart h1 {
+    border-bottom-width: 0;
+}
+.jui.chart .tab li {
+    float: right;
+}
+
 /* CSS Only */
 body.style { margin-top: -50px; }
 body.style .row { margin-bottom: 10px; }
