@@ -296,7 +296,19 @@ var uiApi = {
 	}
 };
 
-jui.ready([ "chart.builder", "util.base" ], function(builder, _) {
+var chartApi = {
+    bar: {
+        outerPadding: {
+            detail: ""
+        }
+    }
+};
+
+jui.ready([ "chart.builder", "uix.tab", "util.base" ], function(builder, tab, _) {
+    var tab = tab("#tab", {
+        target: "#tab_contents"
+    });
+
 	var ui = builder("#ui", {
         tpl: {
             tooltip: "."
@@ -331,7 +343,10 @@ jui.ready([ "chart.builder", "util.base" ], function(builder, _) {
 	
 	juiApi(ui, uiApi, _.template, function() {
 		$("#api_tpl").hide();
-	});
+	}, "#builder");
+
+    juiApiChart("brush", chartApi, _.template, function() {
+    }, "#brush");
 });
 
 </script>
@@ -340,6 +355,16 @@ jui.ready([ "chart.builder", "util.base" ], function(builder, _) {
 
 <div class="page-header">
 	<h1>Chart</h1>
+</div>
+
+<ul id="tab" class="tab tab-top">
+    <li><a href="#builder">Builder</a></li>
+    <li><a href="#brush">Brush</a></li>
+</ul>
+
+<div id="tab_contents" class="tab-contents">
+    <div id="builder"></div>
+    <div id="brush"></div>
 </div>
 
 <div class="hidden">

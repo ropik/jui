@@ -51,7 +51,7 @@
 							
 						uiApi.opt[k] = $.extend({ 
 							name: (coreApi.opt[k]) ? ("<i>" + k + "</i>") : k,
-							def: def,
+							def: def
 						}, coreApi.opt[k], target.opt[k]);
 					}
 				}
@@ -98,16 +98,17 @@
 		});
 		
 		// API 문서 관련 함수
-		window.juiApi = function(ui, uiApi, tplFunc, callback) {
-			var uiObj = analysis(ui, uiApi);
+		window.juiApi = function(ui, uiApi, tplFunc, callback, target) {
+			var uiObj = analysis(ui, uiApi),
+                sel = target || "body";
 			
 			$.get("../../res/manual.tpl", function(html) {
-				$("body").append(html);
-				$("#method").html(tplFunc($("#tpl_3").html(), { items: uiObj.method }));
-				$("#opt").html(tplFunc($("#tpl_4").html(), { items: uiObj.opt }));
-				$("#event").html(tplFunc($("#tpl_2").html(), { items: uiObj.event }));
-				$("#prop").html(tplFunc($("#tpl_2").html(), { items: uiObj.prop }));
-				$("#tpl").html(tplFunc($("#tpl_2").html(), { items: uiObj.tpl }));
+				$(sel).append(html);
+				$(sel).find("#method").html(tplFunc($("#tpl_3").html(), { items: uiObj.method }));
+                $(sel).find("#opt").html(tplFunc($("#tpl_4").html(), { items: uiObj.opt }));
+                $(sel).find("#event").html(tplFunc($("#tpl_2").html(), { items: uiObj.event }));
+                $(sel).find("#prop").html(tplFunc($("#tpl_2").html(), { items: uiObj.prop }));
+                $(sel).find("#tpl").html(tplFunc($("#tpl_2").html(), { items: uiObj.tpl }));
 
 				if(typeof(callback) == "function") {
 					callback();
@@ -116,5 +117,54 @@
 				loadDisqus();
 			});
 		};
+
+        window.juiApiChart = function(type, chartApi, tplFunc, callback, target) {
+            var mod = jui.include("chart." + type);
+                sel = target || "body";
+
+            $.get("../../res/manual_chart.tpl", function(html) {
+                $(sel).append(html);
+                var tpl = $("#tpl_chart").html();
+
+                for(var key in mod) {
+                    var obj = new mod[key],
+                        api = (chartApi[key]) ? chartApi[key] : {};
+
+                    if(typeof(obj.drawSetup) == "function") {
+                        var o = obj.drawSetup(),
+                            opts = null;
+
+                        for(var k in o) {
+                            var def = o[k];
+
+                            if(o[k] == null) {
+                                def = "null";
+                            } else if(typeof(o[k]) == "string") {
+                                def = "'" + o[k] + "'";
+                            } else if(typeof(o[k]) == "object") {
+                                def = ($.isArray(o[k])) ? "[]" : "{}";
+                            }
+
+                            if(opts == null) {
+                                opts = {};
+                            }
+
+                            opts[k] = $.extend({
+                                name: k,
+                                def: def
+                            }, api[k]);
+                        }
+
+                        if(opts != null) {
+                            $(sel).append(tplFunc(tpl, { key: key, items: opts }));
+                        }
+                    }
+                }
+
+                if(typeof(callback) == "function") {
+                    callback();
+                }
+            });
+        };
 	}
 })();
