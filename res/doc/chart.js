@@ -456,6 +456,15 @@ function setFunctions() {
         var chart = window.currentChart;
         chart.svg.downloadImage("jui_image");
     });
+
+    $(".btn-api").on("click", function() {
+        location.hash = "#script/chart";
+        $('#modal_1').hide();
+
+        setTimeout(function() {
+            $("li[data-subkey=_api][data-key=chart]").trigger("click");
+        }, 500);
+    });
 }
 
 jui.ready([ "util.base" ], function(_) {
