@@ -299,6 +299,227 @@ var uiApi = {
 var chartApi = {
     bar: {
         outerPadding: {
+            detail: "바의 바깥쪽 여백을 정합니다."
+        },
+        innerPadding: {
+            detail: "바의 안쪽 여백을 정합니다."
+        }
+    },
+    column: {
+        outerPadding: {
+            detail: "컬럼의 바깥쪽 여백을 정합니다."
+        },
+        innerPadding: {
+            detail: "컬럼의 바깥쪽 여백을 정합니다."
+        }
+    },
+    bubble: {
+        min: {
+            detail: "버블의 최소 크기를 정합니다."
+        },
+        max: {
+            detail: "버블의 최대 크기를 정합니다."
+        }
+    },
+    donut: {
+        size: {
+            detail: "도넛의 크기를 정합니다."
+        }
+    },
+    equalizer: {
+        outerPadding: {
+            detail: "이퀄라이저의 바깥쪽 여백을 정합니다."
+        },
+        innerPadding: {
+            detail: "이퀄라이저의 안쪽 여백을 정합니다."
+        },
+        unit: {
+            detail: ""
+        },
+        gap: {
+            detail: ""
+        }
+    },
+    fullstack: {
+        outerPadding: {
+            detail: "풀스택 바의 바깥쪽 여백을 정합니다."
+        }
+    },
+    line: {
+        symbol: {
+            detail: "라인의 모양을 설정합니다. (normal, curve, step)"
+        }
+    },
+    scatter: {
+        symbol: {
+            detail: "스카터의 모양을 설정합니다. (circle, rectangle, cross, triangle)"
+        },
+        size: {
+            detail: "스카터의 크기를 정합니다."
+        }
+    },
+    scatterpath: {
+        symbol: {
+            detail: "스카터의 모양을 설정합니다. (circle, rectangle, cross, triangle)"
+        },
+        size: {
+            detail: "스카터의 크기를 정합니다."
+        }
+    },
+    stackbar: {
+        outerPadding: {
+            detail: "스택 바의 바깥쪽 여백을 정합니다."
+        }
+    },
+    stackcolumn: {
+        outerPadding: {
+            detail: "컬럼 바의 바깥쪽 여백을 정합니다."
+        }
+    },
+    bargauge: {
+        cut: {
+            detail: ""
+        },
+        size: {
+            detail: ""
+        },
+        split: {
+            detail: ""
+        },
+        align: {
+            detail: ""
+        },
+        title: {
+            detail: ""
+        }
+    },
+    circlegauge: {
+        min: {
+            detail: "원의 최소 크기를 정합니다."
+        },
+        max: {
+            detail: "원의 최대 크기를 정합니다."
+        },
+        value: {
+            detail: "원 게이지의 값을 정합니다."
+        }
+    },
+    fillgauge: {
+        min: {
+            detail: "원의 최소 크기를 정합니다."
+        },
+        max: {
+            detail: "원의 최대 크기를 정합니다."
+        },
+        value: {
+            detail: "원 게이지의 값을 정합니다."
+        },
+        shape: {
+            detail: ""
+        },
+        direction: {
+            detail: ""
+        },
+        svg: {
+            detail: ""
+        },
+        path: {
+            detail: ""
+        }
+    },
+    area: {
+        symbol: {
+            detail: "영역의 모양을 설정합니다. (normal, curve, step)"
+        }
+    },
+    stackline: {
+        symbol: {
+            detail: "영역의 모양을 설정합니다. (normal, curve, step)"
+        }
+    },
+    stackscatter: {
+        symbol: {
+            detail: "영역의 모양을 설정합니다. (normal, curve, step)"
+        }
+    },
+    gauge: {
+        min: {
+            detail: "원의 최소 크기를 정합니다."
+        },
+        max: {
+            detail: "원의 최대 크기를 정합니다."
+        },
+        value: {
+            detail: "원 게이지의 값을 정합니다."
+        },
+        rate: {
+            detail: ""
+        },
+        size: {
+            detail: ""
+        },
+        startAngle: {
+            detail: ""
+        },
+        endAngle: {
+            detail: ""
+        },
+        arrow: {
+            detail: ""
+        },
+        unitText: {
+            detail: ""
+        }
+    },
+    fullgauge: {
+        min: {
+            detail: "원의 최소 크기를 정합니다."
+        },
+        max: {
+            detail: "원의 최대 크기를 정합니다."
+        },
+        value: {
+            detail: "원 게이지의 값을 정합니다."
+        },
+        rate: {
+            detail: ""
+        },
+        size: {
+            detail: ""
+        },
+        startAngle: {
+            detail: ""
+        },
+        endAngle: {
+            detail: ""
+        },
+        text: {
+            detail: ""
+        },
+        unitText: {
+            detail: ""
+        }
+    },
+    stackgauge: {
+        min: {
+            detail: "원의 최소 크기를 정합니다."
+        },
+        max: {
+            detail: "원의 최대 크기를 정합니다."
+        },
+        cut: {
+            detail: ""
+        },
+        size: {
+            detail: ""
+        },
+        startAngle: {
+            detail: ""
+        },
+        endAngle: {
+            detail: ""
+        },
+        title: {
             detail: ""
         }
     }
@@ -306,7 +527,14 @@ var chartApi = {
 
 jui.ready([ "chart.builder", "uix.tab", "util.base" ], function(builder, tab, _) {
     var tab = tab("#tab", {
-        target: "#tab_contents"
+        target: "#tab_contents",
+        event: {
+            change: function(data, e) {
+                if(data.index == 1 && $("#brush").html() == "") {
+                    juiApiChart("brush", chartApi, _.template, null, "#brush");
+                }
+            }
+        }
     });
 
 	var ui = builder("#ui", {
@@ -344,9 +572,6 @@ jui.ready([ "chart.builder", "uix.tab", "util.base" ], function(builder, tab, _)
 	juiApi(ui, uiApi, _.template, function() {
 		$("#api_tpl").hide();
 	}, "#builder");
-
-    juiApiChart("brush", chartApi, _.template, function() {
-    }, "#brush");
 });
 
 </script>
