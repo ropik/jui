@@ -18,7 +18,7 @@
                     </tr>
                     <! } !>
                 <! } else { !>
-                    <tr><td colspan="3" style="text-align: center;">This option does not exist.</td></tr>
+                    <tr><td colspan="3" style="text-align: center;">Option does not exist.</td></tr>
                 <! } !>
     		</table>
     	</p>
