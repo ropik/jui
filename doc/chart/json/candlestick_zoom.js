@@ -48,22 +48,22 @@ chart("#chart", {
     series : {
         l: {
             type: "low",
-            text: "최저"
+            text: "Low"
         },
         h: {
             type: "high",
-            text: "최고"
+            text: "High"
         },
         o: {
             type: "open",
-            text: "시작"
+            text: "Open"
         },
         c: {
             type: "close",
-            text: "종료"
+            text: "Close"
         },
         date: {
-            text: "날짜"
+            text: "Date"
         }
     },
     brush : {
