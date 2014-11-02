@@ -378,7 +378,7 @@ var chartApi = {
     },
     bargauge: {
         cut: {
-            detail: ""
+            detail: "바 게이지의 간격을 정합니다."
         },
         size: {
             detail: "바 게이지의 크기를 정합니다."
@@ -390,7 +390,7 @@ var chartApi = {
             detail: "바 게이지의 시작점을 설정합니다. (left, right)"
         },
         title: {
-            detail: ""
+            detail: "바 게이지의 타이틀로 설정할 데이터 키를 설정합니다."
         }
     },
     circlegauge: {
@@ -415,7 +415,7 @@ var chartApi = {
             detail: "필 게이지의 값을 정합니다."
         },
         shape: {
-            detail: "필 게이지의 모양을 설정합니다. (circle, rect)"
+            detail: "필 게이지의 모양을 설정합니다. (circle, rectangle)"
         },
         direction: {
             detail: "필 게이지가 채워지는 방향을 설정합니다. (vertical, horizontal)"
@@ -424,7 +424,7 @@ var chartApi = {
             detail: "해당 URL의 SVG 태그로 필 게이지의 모양을 설정합니다."
         },
         path: {
-            detail: ""
+            detail: "해당 패스 태그로 필 게이지의 모양을 설정합니다."
         }
     },
     area: {
@@ -437,9 +437,17 @@ var chartApi = {
             detail: "영역의 모양을 설정합니다. (normal, curve, step)"
         }
     },
+    stackarea: {
+        symbol: {
+            detail: "영역의 모양을 설정합니다. (normal, curve, step)"
+        }
+    },
     stackscatter: {
         symbol: {
             detail: "영역의 모양을 설정합니다. (normal, curve, step)"
+        },
+        size: {
+            detail: "스카터의 크기를 정합니다."
         }
     },
     gauge: {
@@ -520,7 +528,7 @@ var chartApi = {
             detail: "스택 게이지의 끝 각도를 설정합니다."
         },
         title: {
-            detail: ""
+            detail: "스택 게이지의 타이틀로 설정할 데이터 키를 설정합니다."
         }
     }
 };
