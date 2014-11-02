@@ -296,7 +296,7 @@ var uiApi = {
 	}
 };
 
-var chartApi = {
+var brushApi = {
     bar: {
         outerPadding: {
             detail: "바의 바깥쪽 여백을 정합니다."
@@ -533,13 +533,116 @@ var chartApi = {
     }
 };
 
+var widgetApi = {
+    tooltip: {
+        position: {
+            detail: "툴팁이 보여지는 방향을 설정합니다. (top, bottom, left, right)"
+        },
+        all: {
+            detail: "로우 데이터의 모든 값을 보여줄지 정합니다."
+        },
+        brush: {
+            detail: "툴팁을 적용시킬 브러쉬의 인덱스를 설정합니다."
+        },
+        key: {
+            detail: "툴팁에 보여지는 값의 키를 설정합니다."
+        }
+    },
+    title: {
+        position: {
+            detail: "타이틀이 보여지는 위치를 설정합니다. (top, bottom)"
+        },
+        align: {
+            detail: "타이틀 메시지를 정렬합니다. (center, left, right)"
+        },
+        text: {
+            detail: "타이틀 메시지를 설정합니다."
+        },
+        dx: {
+            detail: "차트가 그려진 위치에서 설정한 값만큼 x 좌표를 이동시킵니다."
+        },
+        dy: {
+            detail: "차트가 그려진 위치에서 설정한 값만큼 y 좌표를 이동시킵니다."
+        }
+    },
+    legend: {
+        position: {
+            detail: "라벨이 보여지는 위치를 설정합니다. (top, bottom)"
+        },
+        align: {
+            detail: "라벨을 정렬합니다. (center, left, right)"
+        },
+        brush: {
+            detail: "라벨에 보여지는 값의 대상 브러쉬 인덱스를 설정합니다."
+        },
+        key: {
+            detail: "데이터의 키가 아닌 데이터의 특정 키 값을 라벨로 설정합니다."
+        }
+    },
+    cross: {
+        format: {
+            detail: "툴팁에 보여지는 값에 대한 포맷을 설정합니다."
+        }
+    }
+};
+
+var gridApi = {
+    block: {
+        full: {
+            detail: "기준 좌표를 전체 범위로 사용할지 정합니다."
+        }
+    },
+    date: {
+        realtime: {
+            detail: "리얼타임 그리드로 사용할지 정합니다."
+        }
+    },
+    radar: {
+        hideText: {
+            detail: "그리드 전체에 표시되는 텍스트의 표시 여부를 정합니다."
+        },
+        extra: {
+            detail: "그리드 시작점에 어느 정도의 공백을 두고 공백만큼 라인을 표시합니다."
+        },
+        shape: {
+            detail: "그리드의 모양을 설정합니다. (radial, circle)"
+        }
+    },
+    range: {
+        hideText: {
+            detail: "축에 표시되는 텍스트의 표시 여부를 정합니다."
+        },
+        nice: {
+            detail: "특정 구간의 값을 자동으로 설정합니다."
+        }
+    },
+    rule: {
+        hideZero: {
+            detail: "축에 표시되는 '0'을 표시 여부를 정합니다."
+        },
+        hideText: {
+            detail: "축에 표시되는 텍스트의 표시 여부를 정합니다."
+        },
+        nice: {
+            detail: "특정 구간의 값을 자동으로 설정합니다."
+        },
+        center: {
+            detail: "기준 축의 위치를 가운데로 설정합니다."
+        }
+    }
+}
+
 jui.ready([ "chart.builder", "uix.tab", "util.base" ], function(builder, tab, _) {
     var tab = tab("#tab", {
         target: "#tab_contents",
         event: {
             change: function(data, e) {
                 if(data.index == 1 && $("#brush").html() == "") {
-                    juiApiChart("brush", chartApi, _.template, null, "#brush");
+                    juiApiChart("brush", brushApi, _.template, null, "#brush");
+                } else if(data.index == 2 && $("#widget").html() == "") {
+                    juiApiChart("widget", widgetApi, _.template, null, "#widget");
+                } else if(data.index == 3 && $("#grid").html() == "") {
+                    juiApiChart("grid", gridApi, _.template, null, "#grid");
                 }
             }
         }
@@ -593,11 +696,15 @@ jui.ready([ "chart.builder", "uix.tab", "util.base" ], function(builder, tab, _)
 <ul id="tab" class="tab tab-top">
     <li><a href="#builder">Builder</a></li>
     <li><a href="#brush">Brush</a></li>
+    <li><a href="#widget">Widget</a></li>
+    <li><a href="#grid">Grid</a></li>
 </ul>
 
 <div id="tab_contents" class="tab-contents">
     <div id="builder"></div>
     <div id="brush"></div>
+    <div id="widget"></div>
+    <div id="grid"></div>
 </div>
 
 <div class="hidden">

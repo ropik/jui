@@ -113,5 +113,37 @@ window.coreApi = {
         animate: {
         	detail: "UI의 애니메이션 효과를 사용유무를 설정합니다."
         }
+    },
+    grid: {
+        domain: {
+            detail: "축에 표시되는 값을 설정합니다."
+        },
+        step: {
+            detail: "축에 표시되는 값의 간격을 설정합니다."
+        },
+        min: {
+            detail: "축의 최소 값을 설정합니다."
+        },
+        max: {
+            detail: "축의 최대 값을 설정합니다."
+        },
+        reverse: {
+            detail: "축에 표시되는 값들을 반대로 보여지게 합니다."
+        },
+        key: {
+            detail: "해당 키의 값으로 실제 축의 값을 처리합니다."
+        },
+        hide: {
+            detail: "해당 축을 표시 여부를 설정합니다."
+        },
+        unit: {
+            detail: "축의 값을 해당 값의 배수로 보여지게 합니다."
+        },
+        line: {
+            detail: "그리드 배경에 라인 표시 여부를 정합니다."
+        },
+        format: {
+            detail: "축 값의 포맷을 설정합니다."
+        }
     }
 };

@@ -127,38 +127,46 @@
                 var tpl = $("#tpl_chart").html();
 
                 for(var key in mod) {
-                    var obj = new mod[key],
-                        api = (chartApi[key]) ? chartApi[key] : {};
+					var isOpt = false;
 
-                    if(typeof(obj.drawSetup) == "function") {
-                        var o = obj.drawSetup(),
-                            opts = null;
+					if(key != "core") {
+						var obj = new mod[key],
+							api = (chartApi[key]) ? chartApi[key] : {};
 
-                        for(var k in o) {
-                            var def = o[k];
+						if (typeof(obj.drawSetup) == "function") {
+							var o = obj.drawSetup(),
+								opts = null;
 
-                            if(o[k] == null) {
-                                def = "null";
-                            } else if(typeof(o[k]) == "string") {
-                                def = "'" + o[k] + "'";
-                            } else if(typeof(o[k]) == "object") {
-                                def = ($.isArray(o[k])) ? "[]" : "{}";
-                            }
+							for (var k in o) {
+								var def = o[k];
 
-                            if(opts == null) {
-                                opts = {};
-                            }
+								if (o[k] == null) {
+									def = "null";
+								} else if (typeof(o[k]) == "string") {
+									def = "'" + o[k] + "'";
+								} else if (typeof(o[k]) == "object") {
+									def = ($.isArray(o[k])) ? "[]" : "{}";
+								}
 
-                            opts[k] = $.extend({
-                                name: k,
-                                def: def
-                            }, api[k]);
-                        }
+								if (opts == null) {
+									opts = {};
+								}
 
-                        if(opts != null) {
-                            $(sel).append(tplFunc(tpl, { key: key, items: opts }));
-                        }
-                    }
+								opts[k] = $.extend({
+									name: (coreApi.grid[k]) ? ("<i>" + k + "</i>") : k,
+									def: def
+								}, coreApi.grid[k], api[k]);
+							}
+
+							if (opts != null) {
+								$(sel).append(tplFunc(tpl, { key: key, items: opts, exist: true }));
+							} else {
+								$(sel).append(tplFunc(tpl, { key: key, items: {}, exist: false }));
+							}
+						} else {
+							$(sel).append(tplFunc(tpl, { key: key, items: {}, exist: false }));
+						}
+					}
                 }
 
                 if(typeof(callback) == "function") {
