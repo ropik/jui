@@ -95,7 +95,7 @@ jui.ready([ "ui.button", "ui.combo", "ui.datepicker", "ui.dropdown", "ui.layout"
     // 콤보박스 (스크롤 + 인덱스)
     combo_2 = combo("#combo_2", {
         index: 3,
-        width: 200,
+        width: 196,
         keydown: true,
         event: {
             change: function(data) {
