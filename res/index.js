@@ -83,12 +83,12 @@ var menuInfo = {
         src : "chart/common.html"
     },
     tips: {
-    	title: "+Bootstrap",
-    	msg: "JUI library can be used with the Bootstrap.",
+    	title: "Third Party",
+    	msg: "Bootstrap support, Provides plug-in WYSIWYG editor.",
     	menu: {
     		common: "tips/common",
     		bootstrap: "tips/bootstrap",
-			pure: "tips/pure"
+			editor: "tips/editor"
     	}
     }
 };
