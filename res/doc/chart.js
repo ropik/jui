@@ -17,7 +17,7 @@ var charts = [
     { type : 'gauge', title : 'Gauge Chart', start : 30 },
     { type : 'stock', title : 'Candle Stick Chart', start : 37 },
     { type : 'mixed', title : 'Combination Chart', start : 41 },
-    { type : 'realtime', title : 'Realtime Chart', start : 43 }
+    { type : 'realtime', title : 'Realtime Chart', start : 44 }
 
 ];
 
@@ -90,6 +90,7 @@ var code_list = [
     // combination chart
     { type : 'mixed', title : "Basic Combination",  description : "", code : "mixed1.js" },
     { type : 'mixed', title : "Multi Axis", description : "", code : "mixed2_multi_axis.js" },
+    { type : 'mixed', title : "Compare Data", description : "", code : "bar_compare.js" },
 
     // realtime chart
     { type : 'realtime', title : "Realtime Line",  description : "", code : "realtime_line.js" },
@@ -368,9 +369,15 @@ function viewCodeEditor() {
             theme : 'neo'
         });
 
-        editor.on('change', function(cm, change) {
+        editor.on('change', function(cm) {
+            var code = code_list[currentChartIndex].code;
+
             try {
-                $("#chart-content").empty();
+                if(code == "bar_compare.js") {
+                    $("#chart-content").html($("#tpl_compare").html());
+                } else {
+                    $("#chart-content").empty();
+                }
 
                 resetChart();
                 $.globalEval(cm.getValue());
@@ -388,10 +395,14 @@ function viewCodeEditor() {
         url : 'chart/json/' + code.code,
         dataType : 'text',
         success : function (data) {
-            if (data.indexOf("#chart-content") > -1) {
+            if(code.code == "bar_compare.js") {
                 editor.setValue(data);
-            } else if (data.indexOf("#chart") > -1) {
-                editor.setValue(data.replace("#chart", "#chart-content"));
+            } else {
+                if (data.indexOf("#chart-content") > -1) {
+                    editor.setValue(data);
+                } else if (data.indexOf("#chart") > -1) {
+                    editor.setValue(data.replace("#chart", "#chart-content"));
+                }
             }
 
             // 현재 데이터 적용
