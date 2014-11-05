@@ -23,7 +23,10 @@ chart("#chart-content", {
 		type : "area"
 	}, {
 		type : "line"
-	}],
+	}, {
+        type : "scatter",
+        size : 10
+    }],
     widget : [{
         type : "title",
         text : "Area Sample"

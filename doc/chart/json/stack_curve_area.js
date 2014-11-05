@@ -27,10 +27,6 @@ chart("#chart-content", {
     }, {
         type : "stackline",
         symbol : "curve"
-    }, {
-        type : "stackscatter",
-        size : 10,
-        symbol : "circle"
     }],
     widget : [{
         type : "title",
