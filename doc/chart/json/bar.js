@@ -25,7 +25,7 @@ chart("#chart-content", {
     },
     widget : [
         { type : "title", text : "Bar Sample" },
-        { type : "tooltip" },
+        { type : "tooltip", position: "right" },
         { type : "legend" }
     ]
 });

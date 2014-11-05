@@ -6,39 +6,43 @@ var realtimeInterval = null;
 
 var charts = [
     { type : 'bar', title : 'Bar Chart', start : 0 },
-    { type : 'column', title : 'Column Chart', start : 3 },
-    { type : 'pie', title : 'Pie Chart', start : 7 },
-    { type : 'donut', title : 'Donut Chart', start : 8 },
-    { type : 'bubble', title : 'Bubble Chart', start : 9 },
-    { type : 'scatter', title : 'Scatter Chart', start : 11 },
-    { type : 'area', title : 'Area Chart', start : 15 },
-    { type : 'radar', title : 'Radar Chart', start : 21 },
-    { type : 'line', title : 'Line Chart', start : 23 },
-    { type : 'gauge', title : 'Gauge Chart', start : 30 },
-    { type : 'stock', title : 'Candle Stick Chart', start : 37 },
-    { type : 'mixed', title : 'Combination Chart', start : 41 },
-    { type : 'realtime', title : 'Realtime Chart', start : 44 }
+    { type : 'column', title : 'Column Chart', start : 4 },
+    { type : 'pie', title : 'Pie Chart', start : 10 },
+    { type : 'donut', title : 'Donut Chart', start : 12 },
+    { type : 'bubble', title : 'Bubble Chart', start : 14 },
+    { type : 'scatter', title : 'Scatter Chart', start : 16 },
+    { type : 'area', title : 'Area Chart', start : 20 },
+    { type : 'radar', title : 'Radar Chart', start : 26 },
+    { type : 'line', title : 'Line Chart', start : 28 },
+    { type : 'gauge', title : 'Gauge Chart', start : 35 },
+    { type : 'stock', title : 'Candle Stick Chart', start : 42 },
+    { type : 'mixed', title : 'Combination Chart', start : 46 },
+    { type : 'realtime', title : 'Realtime Chart', start : 49 }
 
 ];
 
 var code_list = [
-
     // bar
     { type : 'bar', title : "Basic Bar", description : "", code : "bar.js" },
     { type : 'bar', title : "Stack Bar", description : "", code : "stack_bar.js" },
+    { type : 'bar', title : "Overlap Bar", description : "", code : "overlap_bar.js" },
     { type : 'bar', title : "Mini Bar", description : "", code : "mini_bar.js" },
 
     // column
     { type : 'column', title : "Basic Column", description : "", code : "column.js" },
     { type : 'column', title : "Stack Column", description : "", code : "stack_column.js" },
     { type : 'column', title : "Full Stack Column", description : "", code : "fullstack.js" },
+    { type : 'column', title : "Overlap Column", description : "", code : "overlap_column.js" },
+    { type : 'column', title : "Mini Column", description : "", code : "mini_column.js" },
     { type : 'column', title : "Equalizer", description : "", code : "equalizer.js" },
 
     // pie
     { type : 'pie', title : "Pie", description : "", code : "pie.js" },
+    { type : 'pie', title : "Mini Pie", description : "", code : "mini_pie.js" },
 
     // donut
     { type : 'donut', title : "Donut", description : "", code : "donut.js" },
+    { type : 'donut', title : "Mini Donut", description : "", code : "mini_donut.js" },
 
     // bubble
     { type : 'bubble', title : "Basic Bubble", description : "", code : "bubble.js" },
@@ -57,7 +61,6 @@ var code_list = [
     { type : 'area', title : "Stack Area", description : "", code : "stack_area.js" },
     { type : 'area', title : "Stack Curve Area", description : "", code : "stack_curve_area.js" },
     { type : 'area', title : "Stack Step Area", description : "", code : "stack_step_area.js" },
-
 
     // radar
     { type : 'radar', title : "Basic Radar", description : "", code : "radar.js" },
