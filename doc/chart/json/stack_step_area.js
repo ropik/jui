@@ -27,6 +27,9 @@ chart("#chart-content", {
     }, {
         type : "stackline",
         symbol : "step"
+    }, {
+        type : "stackscatter",
+        size : 10
     }],
     widget : [{
         type : "title",
