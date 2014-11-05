@@ -12,7 +12,7 @@ var chart = jui.include("chart.builder");
             target : "quarter",
             line : true
         },
-        y : {
+        y1 : {
             type : "range",
             target : function(data) {
                 return data.samsung + data.lg + data.sony;

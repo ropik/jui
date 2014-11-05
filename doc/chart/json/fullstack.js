@@ -14,7 +14,7 @@ chart("#chart", {
             target : "quarter",
             line : true
         },
-        y : {
+        y1 : {
             type : "range",
             domain : [ 0, 100 ],
             format : function(value) {
