@@ -12,7 +12,7 @@ chart("#chart-content", {
             target : "quarter",
             line : true
         },
-        y : {
+        y1 : {
             type : "range",
             step : 10,
             line : true,
