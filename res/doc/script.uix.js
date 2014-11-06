@@ -503,7 +503,7 @@ jui.ready([ "util.base", "ui.dropdown", "uix.table", "uix.xtable", "uix.autocomp
             expand: function(row, e) {
                 $(row.list[0]).html("<i class='icon-right'></i>");
             },
-            expanded: function(row, e) {
+            expandend: function(row, e) {
                 $(row.list[0]).html("<i class='icon-left'></i>");
             }
         },
