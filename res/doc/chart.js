@@ -7,17 +7,17 @@ var realtimeInterval = null;
 var charts = [
     { type : 'bar', title : 'Bar Chart', start : 0 },
     { type : 'column', title : 'Column Chart', start : 4 },
-    { type : 'pie', title : 'Pie Chart', start : 10 },
-    { type : 'donut', title : 'Donut Chart', start : 12 },
-    { type : 'bubble', title : 'Bubble Chart', start : 14 },
-    { type : 'scatter', title : 'Scatter Chart', start : 16 },
-    { type : 'area', title : 'Area Chart', start : 20 },
-    { type : 'radar', title : 'Radar Chart', start : 26 },
-    { type : 'line', title : 'Line Chart', start : 28 },
-    { type : 'gauge', title : 'Gauge Chart', start : 35 },
-    { type : 'stock', title : 'Candle Stick Chart', start : 42 },
-    { type : 'mixed', title : 'Combination Chart', start : 46 },
-    { type : 'realtime', title : 'Realtime Chart', start : 49 }
+    { type : 'pie', title : 'Pie Chart', start : 11 },
+    { type : 'donut', title : 'Donut Chart', start : 13 },
+    { type : 'bubble', title : 'Bubble Chart', start : 15 },
+    { type : 'scatter', title : 'Scatter Chart', start : 17 },
+    { type : 'area', title : 'Area Chart', start : 21 },
+    { type : 'radar', title : 'Radar Chart', start : 28 },
+    { type : 'line', title : 'Line Chart', start : 30 },
+    { type : 'gauge', title : 'Gauge Chart', start : 38 },
+    { type : 'stock', title : 'Candle Stick Chart', start : 45 },
+    { type : 'mixed', title : 'Combination Chart', start : 49 },
+    { type : 'realtime', title : 'Realtime Chart', start : 52 }
 
 ];
 
@@ -35,6 +35,7 @@ var code_list = [
     { type : 'column', title : "Overlap Column", description : "", code : "overlap_column.js" },
     { type : 'column', title : "Mini Column", description : "", code : "mini_column.js" },
     { type : 'column', title : "Equalizer", description : "", code : "equalizer.js" },
+    { type : 'column', title : "Waterfall", description : "", code : "waterfall.js" },
 
     // pie
     { type : 'pie', title : "Pie", description : "", code : "pie.js" },
@@ -61,6 +62,7 @@ var code_list = [
     { type : 'area', title : "Stack Area", description : "", code : "stack_area.js" },
     { type : 'area', title : "Stack Curve Area", description : "", code : "stack_curve_area.js" },
     { type : 'area', title : "Stack Step Area", description : "", code : "stack_step_area.js" },
+    { type : 'area', title : "Split Area", description : "", code : "split_area.js" },
 
     // radar
     { type : 'radar', title : "Basic Radar", description : "", code : "radar.js" },
@@ -74,6 +76,7 @@ var code_list = [
     { type : 'line', title : "Range Line", description : "", code : "range_line.js" },
     { type : 'line', title : "Stack Line", description : "", code : "stack_line.js" },
     { type : 'line', title : "Multi Line", description : "", code : "line2.js" },
+    { type : 'line', title : "Split Line", description : "", code : "split_line.js" },
 
     // gauge
     { type : 'gauge', title : "Basic Gauge", description : "", code : "gauge.js" },
@@ -100,6 +103,28 @@ var code_list = [
     { type : 'realtime', title : "Realtime Area",  description : "", code : "realtime_area.js" },
     { type : 'realtime', title : "Realtime Complex Line",  description : "", code : "realtime_line_complex.js" }
 ];
+
+function getTodayData() {
+    var start = new Date(2014, 10, 7),
+        end = time.add(start, time.hours, 23);
+
+    var data = [],
+        value = 240;
+
+    for(var i = 0; i < 60 * 23; i++) {
+        if(value < 60 * 8) {
+            value += 1;
+        }
+
+        data.push({ time: time.add(start, time.minutes, i), value: value })
+    }
+
+    return {
+        start: start,
+        end: end,
+        data: data
+    };
+}
 
 function getRealtimeData(min) {
     var start = time.add(new Date(), time.minutes, -5),
