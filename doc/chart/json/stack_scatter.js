@@ -23,7 +23,7 @@ chart("#chart", {
     series: {
         sales : { symbol : "rectangle" },
         profit : { symbol : "cross" },
-        total : { symbol : "triangle" }
+        dept : { symbol : "triangle" }
     },
     brush: {
         type: "stackscatter",
