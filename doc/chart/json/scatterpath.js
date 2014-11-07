@@ -3,11 +3,13 @@ var chart = jui.include("chart.builder"),
     time = jui.include("util.time");
 
 var start = new Date(),
-    end = time.add(start, time.hours, 5);
+    end = time.add(start, time.hours, 5),
+    data = getRandomData();
 
 chart("#chart", {
     theme : theme,
-    data : getRandomData(),
+    data : data,
+    bufferCount : data.length,
     grid : {
         x : {
             type : "date",  // default type is block
@@ -28,38 +30,39 @@ chart("#chart", {
         type : 'scatterpath',
         target : "q1",
         symbol : "circle",
-        colors : [ theme.colors[0] ]
+        colors : [ theme.colors[0] ],
+        size : 3
     }, {
         type : 'scatterpath',
         target : "q2",
         symbol : "triangle",
-        colors : [ theme.colors[1] ]
+        colors : [ theme.colors[1] ],
+        size : 3
     }, {
         type : 'scatterpath',
         target : "q3",
         symbol : "rectangle",
-        colors : [ theme.colors[2] ]
+        colors : [ theme.colors[2] ],
+        size : 3
     }]
 });
 
 function getRandomData() {
     var data = [];
 
-    for(var i = 0; i < 30000; i++) {
-        data.push({
-            date : time.add(start, time.seconds, getTime()),
-            q1 : getNumber(),
-            q2 : getNumber(),
-            q3 : getNumber()
-        });
+    for(var i = 0; i < 60 * 60 * 5; i++) {
+        if(i % 10 == 0) {
+            data.push({
+                date: time.add(start, time.seconds, i),
+                q1: getNumber(),
+                q2: getNumber(),
+                q3: getNumber()
+            });
+        }
     }
 
     function getNumber() {
         return Math.floor(Math.random() * 1000) + 1;
-    }
-
-    function getTime() {
-        return Math.floor(Math.random() * 5 * 60 * 60) + 1;
     }
 
     return data;

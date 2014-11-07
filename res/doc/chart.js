@@ -6,25 +6,25 @@ var realtimeInterval = null;
 
 var charts = [
     { type : 'bar', title : 'Bar Chart', start : 0 },
-    { type : 'column', title : 'Column Chart', start : 4 },
-    { type : 'pie', title : 'Pie Chart', start : 11 },
-    { type : 'donut', title : 'Donut Chart', start : 13 },
-    { type : 'bubble', title : 'Bubble Chart', start : 15 },
-    { type : 'scatter', title : 'Scatter Chart', start : 17 },
-    { type : 'area', title : 'Area Chart', start : 21 },
-    { type : 'radar', title : 'Radar Chart', start : 28 },
-    { type : 'line', title : 'Line Chart', start : 30 },
-    { type : 'gauge', title : 'Gauge Chart', start : 38 },
-    { type : 'stock', title : 'Candle Stick Chart', start : 45 },
-    { type : 'mixed', title : 'Combination Chart', start : 49 },
-    { type : 'realtime', title : 'Realtime Chart', start : 52 }
-
+    { type : 'column', title : 'Column Chart', start : 5 },
+    { type : 'pie', title : 'Pie Chart', start : 13 },
+    { type : 'donut', title : 'Donut Chart', start : 15 },
+    { type : 'bubble', title : 'Bubble Chart', start : 18 },
+    { type : 'scatter', title : 'Scatter Chart', start : 19 },
+    { type : 'area', title : 'Area Chart', start : 23 },
+    { type : 'radar', title : 'Radar Chart', start : 30 },
+    { type : 'line', title : 'Line Chart', start : 32 },
+    { type : 'gauge', title : 'Gauge Chart', start : 40 },
+    { type : 'stock', title : 'Candle Stick Chart', start : 47 },
+    { type : 'mixed', title : 'Combination Chart', start : 51 },
+    { type : 'realtime', title : 'Realtime Chart', start : 54 }
 ];
 
 var code_list = [
     // bar
     { type : 'bar', title : "Basic Bar", description : "", code : "bar.js" },
     { type : 'bar', title : "Stack Bar", description : "", code : "stack_bar.js" },
+    { type : 'bar', title : "Inner Bar", description : "", code : "inner_bar.js" },
     { type : 'bar', title : "Overlap Bar", description : "", code : "overlap_bar.js" },
     { type : 'bar', title : "Mini Bar", description : "", code : "mini_bar.js" },
 
@@ -32,6 +32,7 @@ var code_list = [
     { type : 'column', title : "Basic Column", description : "", code : "column.js" },
     { type : 'column', title : "Stack Column", description : "", code : "stack_column.js" },
     { type : 'column', title : "Full Stack Column", description : "", code : "fullstack.js" },
+    { type : 'column', title : "Inner Column", description : "", code : "inner_column.js" },
     { type : 'column', title : "Overlap Column", description : "", code : "overlap_column.js" },
     { type : 'column', title : "Mini Column", description : "", code : "mini_column.js" },
     { type : 'column', title : "Equalizer", description : "", code : "equalizer.js" },
