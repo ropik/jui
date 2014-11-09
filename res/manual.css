@@ -129,6 +129,14 @@ iframe {
     float: right;
 }
 
+/* Utility API Only */
+.jui.utility .tab li {
+	float: right;
+}
+.jui.utility .tab {
+	margin-top: 50px;
+}
+
 /* CSS Only */
 body.style { margin-top: -50px; }
 body.style .row { margin-bottom: 10px; }

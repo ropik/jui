@@ -1,13 +1,13 @@
 (function() {
-    var uiApi = {
-        prop: {},
-        opt: {},
-        method: {},
-        event: {},
-        tpl: {}
-    };
-
 	function analysis(obj, target) {
+		var uiApi = {
+			prop: {},
+			opt: {},
+			method: {},
+			event: {},
+			tpl: {}
+		};
+
 		target.method = $.extend(target.method, coreApi.method);
 		target.prop = $.extend(target.prop, coreApi.prop);
 		
@@ -62,8 +62,10 @@
 	}
 	
 	function loadDisqus(url) {
+		if($(".disqus").size() > 0) return;
+
 		var url = (!url) ? "../../res/disqus.tpl" : url;
-		
+
 		$.get(url, function(html) {
 			$("body").append(html);
 		});
@@ -112,8 +114,24 @@
 
 				if(typeof(callback) == "function") {
 					callback();
+				} else {
+					if($(sel).find("#method tr").size() == 1) {
+						$(sel).find("#api_method").remove();
+					}
+					if($(sel).find("#opt tr").size() == 1) {
+						$(sel).find("#api_opt").remove();
+					}
+					if($(sel).find("#event tr").size() == 1) {
+						$(sel).find("#api_event").remove();
+					}
+					if($(sel).find("#tpl tr").size() == 1) {
+						$(sel).find("#api_tpl").remove();
+					}
+					if($(sel).find("#prop tr").size() == 1) {
+						$(sel).find("#api_prop").remove();
+					}
 				}
-				
+
 				loadDisqus();
 			});
 		};

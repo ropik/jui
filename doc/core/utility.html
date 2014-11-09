@@ -16,7 +16,7 @@
 <script src="../script/api_core.js"></script>
 
 <script>
-var uiApi = {
+var baseApi = {
 	prop: {
 		browser: {
 			detail: "브라우저 타입을 알 수 있습니다. (webkit | mozilla | msie)"
@@ -156,38 +156,142 @@ var uiApi = {
 	opt: {}
 };
 
-jui.ready(function(ui, uix, _) {
-	juiApi(_, uiApi, _.template, function() {
-		$("#api_event").hide();
-		$("#api_tpl").hide();
-		$("#api_opt").hide();
+var colorApi = {
+	prop: {
+		browser: {
+			detail: "브라우저 타입을 알 수 있습니다. (webkit | mozilla | msie)"
+		}
+	},
+	method: {
+		scrollWidth: {
+			param: "none",
+			ret: "integer",
+			detail: "현재 브라우저의 스크롤 가로 크기를 반환합니다."
+		}
+	}
+};
+
+var mathApi = {
+	method: {
+		scrollWidth: {
+			param: "none",
+			ret: "integer",
+			detail: "현재 브라우저의 스크롤 가로 크기를 반환합니다."
+		}
+	}
+};
+
+var scaleApi = {
+	method: {
+		scrollWidth: {
+			param: "none",
+			ret: "integer",
+			detail: "현재 브라우저의 스크롤 가로 크기를 반환합니다."
+		}
+	}
+};
+
+var timeApi = {
+	prop: {
+		browser: {
+			detail: "브라우저 타입을 알 수 있습니다. (webkit | mozilla | msie)"
+		}
+	},
+	method: {
+		scrollWidth: {
+			param: "none",
+			ret: "integer",
+			detail: "현재 브라우저의 스크롤 가로 크기를 반환합니다."
+		}
+	}
+};
+
+var svgApi = {
+	method: {
+		scrollWidth: {
+			param: "none",
+			ret: "integer",
+			detail: "현재 브라우저의 스크롤 가로 크기를 반환합니다."
+		}
+	}
+};
+
+jui.ready([ "util", "uix.tab" ], function(util, tab) {
+	var tab = tab("#tab", {
+		target: "#tab_contents",
+		event: {
+			change: function(data, e) {
+				if(data.index == 1 && $("#color").html() == "") {
+					juiApi(util.color, colorApi, util.base.template, null, "#color");
+
+				} else if(data.index == 2 && $("#math").html() == "") {
+					juiApi(util.math, mathApi, util.base.template, null, "#math");
+
+				} else if(data.index == 3 && $("#scale").html() == "") {
+					juiApi(util.scale, scaleApi, util.base.template, null, "#scale");
+
+				} else if(data.index == 4 && $("#time").html() == "") {
+					juiApi(util.time, timeApi, util.base.template, null, "#time");
+
+				} else if(data.index == 5 && $("#svg").html() == "") {
+					var svg = new util.svg($("#svgTarget").get(0), { width: 10, height: 10 });
+					juiApi(svg, svgApi, util.base.template, null, "#svg");
+
+				}
+			}
+		}
 	});
+
+	juiApi(util.base, baseApi, util.base.template, null, "#base");
 });
 </script>
 
 </head>
-<body class="jui">
+<body class="jui utility">
 
 <div class="page-header">
 	<h1>Utility</h1>
 	<p class="br">
-		JUI 라이브러리는 UI 컴포넌트 개발 및 사용하는 경우에 필요한 다양한 유틸리티 함수와 프로퍼티를 제공합니다.
+		JUI 라이브러리는 컴포넌트 개발 및 웹 개발에 필요한 다양한 유틸리티 함수와 프로퍼티를 제공합니다.
 		
-<pre><code class="language-javascript">/* UI 컴포넌트 정의할 때, 가져오는 유틸리티 객체 */
+<pre><code class="language-javascript">/* 컴포넌트 모듈을 정의할 때, 가져오는 유틸리티 모듈 */
 jui.define("ui.test", [ "util.base" ], function(_) {
 	//...
 });
 
-/* UI 컴포넌트를 사용할 때, 가져오는 유틸리티 객체 */
-jui.ready([ "util.base" ], function(_) {
+/* 컴포넌트 모듈을 사용할 때, 가져오는 유틸리티 모듈 */
+jui.ready([ "jquery", "util.base", "util.svg" ], function($, _, SVGUtil) {
+	if(_.browser.msie) return;
+
+	var elem = $("#svg").get(0),
+		svg = new SVGUtil(elem, { width: 400, height: 300 });
+
 	//...
 });
 </code></pre>
 	</p>
 </div>
 
+<ul id="tab" class="tab tab-top">
+	<li><a href="#base">base</a></li>
+	<li><a href="#color">color</a></li>
+	<li><a href="#math">math</a></li>
+	<li><a href="#scale">scale</a></li>
+	<li><a href="#time">time</a></li>
+	<li><a href="#svg">svg</a></li>
+</ul>
+
+<div id="tab_contents" class="tab-contents">
+	<div id="base"></div>
+	<div id="color"></div>
+	<div id="math"></div>
+	<div id="scale"></div>
+	<div id="time"></div>
+	<div id="svg"></div>
+</div>
+
 <div class="hidden">
-	<span id="ui"></span>
+	<span id="svgTarget"></span>
 </div>
 
 </body>
