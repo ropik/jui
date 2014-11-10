@@ -20,10 +20,10 @@ chart("#chart", {
 	],
     grid : {
         x : { target : "month", line : true },
-        y : { type : "range", domain: [0, 300], step : 6, format : function(value) { return value + " mm"} },
+        y : { type : "range", domain: [ 0, 300 ], step : 6, color : "#7cb5ec", format : function(value) { return value + " mm"} },
         y1 : [
-        	{ type : "range", domain : [1008, 1020], step : 6, dist : 50, format : function(value) { return value + " mb"} },
-        	{ type : "range", domain : [5, 35], step : 6, format : function(value) { return value + " ℃" } }
+        	{ type : "range", domain : [ 1008, 1020 ], step : 6, dist : 50, color : "#434348", format : function(value) { return value + " mb"} },
+        	{ type : "range", domain : [ 5, 35 ], step : 6, color : "#90ed7d", format : function(value) { return value + " ℃" } }
         ]
     },
     brush : [
