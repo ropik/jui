@@ -158,50 +158,146 @@ var baseApi = {
 
 var colorApi = {
 	prop: {
-		browser: {
-			detail: "브라우저 타입을 알 수 있습니다. (webkit | mozilla | msie)"
+		regex: {
+			detail: "gradient 문자열 파싱 정규식"
 		}
 	},
 	method: {
-		scrollWidth: {
-			param: "none",
-			ret: "integer",
-			detail: "현재 브라우저의 스크롤 가로 크기를 반환합니다."
+		trim: {
+			param: "string",
+			ret: "string",
+			detail: "문자열 trim "
+		},
+		parse : {
+			param : "string",
+			ret : "object | string",
+			detail : "색상 코드 파싱합니다."
+		},
+
+		parseGradient : {
+			param : "string",
+			ret : "object | string",
+			detail : "gradient 문자열을 파싱합니다. gradient 아닌 문자열은 그대로 리턴합니다."
+		},
+		parseStop : {
+			param : "string",
+			ret : "object",
+			detail : "gradient의 stops 객체를 파싱합니다."
+		},
+		parseAttr : {
+			param : "string",
+			ret : "object",
+			detail : "gradient의 속성을 파싱합니다."
 		}
+
 	}
 };
 
 var mathApi = {
 	method: {
-		scrollWidth: {
-			param: "none",
-			ret: "integer",
-			detail: "현재 브라우저의 스크롤 가로 크기를 반환합니다."
+		rotate: {
+			param: "x, y, radian",
+			ret: "object",
+			detail: "x,y 에 대한 2차원 회전 좌표를 반환합니다."
+		},
+		radian : {
+			param : "degee",
+			ret : "double",
+			detail : "radian 으로 변환합니다."
+		},
+
+		degree : {
+			param : "radian",
+			ret : "double",
+			detail : "degree 로 변환합니다."
+		},
+
+		interpolateNumber : {
+			param : "a,b",
+			ret : "function",
+			detail : "a와 b 사이의 중간값을 구하는 함수를 리턴합니다."
+		},
+
+		interpolateRound : {
+			param : "a,b",
+			ret : "function",
+			detail : "a와 b 사이의 중간값을 반올림 하는 함수를 리턴합니다."
+		},
+
+		nick : {
+			param : "min, max, ticks, isNice",
+			ret : "object",
+			detail : "min, max 사이에서 적당한 간격을 만들어줍니다."
 		}
 	}
 };
 
 var scaleApi = {
 	method: {
-		scrollWidth: {
-			param: "none",
-			ret: "integer",
-			detail: "현재 브라우저의 스크롤 가로 크기를 반환합니다."
+		circle : {
+			param : "",
+			ret : "",
+			detail : "구현중입니다."
+		},
+
+		ordinal : {
+			param : "",
+			ret : "",
+			detail : "순서가 있는 배열의 위치를 계산해줍니다."
+		},
+
+		time : {
+			param : "",
+			ret : "",
+			detail : "시간 영역에 따른 위치를 계산해줍니다."
+		},
+
+		linear : {
+			param : "",
+			ret : "",
+			detail : "길이 영역에 따른 위치를 계산해줍니다."
 		}
+
 	}
 };
 
 var timeApi = {
 	prop: {
-		browser: {
-			detail: "브라우저 타입을 알 수 있습니다. (webkit | mozilla | msie)"
+		years: {
+			detail: "년"
+		},
+		months: {
+			detail: "월"
+		},
+		days: {
+			detail: "일"
+		},
+		hours: {
+			detail: "시간"
+		},
+		minutes: {
+			detail: "분"
+		},
+		seconds: {
+			detail: "초"
+		},
+		milliseconds: {
+			detail: "밀리초"
+		},
+		weeks: {
+			detail: "주"
 		}
 	},
 	method: {
-		scrollWidth: {
-			param: "none",
-			ret: "integer",
-			detail: "현재 브라우저의 스크롤 가로 크기를 반환합니다."
+		add: {
+			param: "date [, type, step]*",
+			ret: "Date",
+			detail: "특정 시점에서 다른 시점으로 날짜를 구합니다. 예를 들어 오늘부터 하루전이라고 하면  time.add(new Date(), 'days', -1); 형태로 사용할 수 있습니다."
+		},
+		format : {
+			param : "date, format[, utc]",
+			ret : "string",
+			detail : "Date 객체를 format 에 맞는 문자열로 변환합니다."
 		}
 	}
 };
