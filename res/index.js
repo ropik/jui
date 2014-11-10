@@ -364,6 +364,8 @@ function initAnimation() {
 	$page.on("click", function(e) {
 		index = $page.index(this);
 		show();
+
+		e.preventDefault();
 	});
 
 	$prev.on("click", function(e) {
