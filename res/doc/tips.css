@@ -53,3 +53,66 @@ p {
 #table_5 thead tr, #table_6 thead tr {
     cursor: pointer;
 }
+
+
+/* Summernote Styles */
+
+.CodeMirror {
+    font-size: 11px;
+    font-family: "Helvetica", "Trebuchet MS", Dotum, Verdana, AppleGothic, sans-serif;
+    max-height: 100%;
+    height: 100%;
+}
+.CodeMirror-scroll {
+    overflow: hidden;
+}
+
+#chart-modal .modal-dialog {
+    width: 100%;
+}
+
+#chart-modal .modal-body {
+    position: relative;
+    height: 450px;
+}
+
+#chart-modal .chart_data {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 10px;
+    width: 300px;
+    overflow-y: auto;
+}
+
+#chart-modal .chart_view {
+    overflow: hidden;
+    position: absolute;
+    left: 305px;
+    top: 0px;
+    bottom: 0px;
+    right: 10px;
+    background-color: white;
+    z-index: 10;
+}
+
+#chart-modal .chart_view > #chart-content {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 10px;
+    bottom: 10px;
+}
+
+#chart-modal .modal-footer {
+    margin-top: 0px;
+}
+
+#chart-modal .splitter {
+    width: 5px;
+    position: absolute;
+    background-color: #ddd;
+    left: 300px;
+    top: 0px;
+    bottom: 0px;
+}
