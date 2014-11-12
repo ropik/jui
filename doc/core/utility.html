@@ -208,10 +208,315 @@ var timeApi = {
 
 var svgApi = {
 	method: {
-		scrollWidth: {
+		size: {
+			param: "width, height | none",
+			ret: "none | object",
+			detail: "파라메터가 존재하면 해당 값으로 크기를 설정하고, 없을 경우 SVG 태그의 넓이와 높이를 반환합니다."
+		},
+		clear: {
+			param: "isAll",
+			ret: "none",
+			detail: "'isAll'가 true일 경우에는 모든 자식 노드를 제거하고, 그렇지 않을 경우에는 메인 그룹 엘리먼트의 자식 노드만 제거합니다."
+		},
+		reset: {
+			param: "isAll",
+			ret: "none",
+			detail: "'clear'와 동일하지만 데이터까지 제거하므로 다시 렌더링 할 수 없습니다."
+		},
+		render: {
+			param: "isAll",
+			ret: "none",
+			detail: "구조화 된 데이터에 맞게 엘리먼트를 렌더링합니다."
+		},
+		download: {
+			param: "fileName",
+			ret: "none",
+			detail: "렌더링 된 SVG 태그를 해당 파일 이름으로 다운로드 합니다."
+		},
+		downloadImage: {
+			param: "fileName, fileType",
+			ret: "none",
+			detail: "렌더링 된 SVG 태그를 해당 파일 이름으로 다운로드 합니다."
+		},
+		exportCanvas: {
+			param: "canvasElement",
+			ret: "none",
+			detail: "렌더링 된 SVG 태그를 해당 캔버스 엘리먼트에 그립니다."
+		},
+		toXml: {
 			param: "none",
-			ret: "integer",
-			detail: "현재 브라우저의 스크롤 가로 크기를 반환합니다."
+			ret: "string",
+			detail: "렌더링 된 SVG 태그를 XML 문자열로 가져옵니다."
+		},
+		toDataURL: {
+			param: "none",
+			ret: "string",
+			detail: "렌더링 된 SVG 태그를 데이터 URL로 가져옵니다."
+		},
+		autoRender: {
+			param: "element, isAuto",
+			ret: "none",
+			detail: "'isAuto'가 true일 경우, 해당 엘리먼트를 렌더링을 해도 변경되지 않습니다."
+		},
+		getTextRect: {
+			param: "text",
+			ret: "object",
+			detail: "해당 텍스트의 넓이와 높이를 가져옵니다."
+		},
+		custom: {
+			param: "name, attributes, callback",
+			ret: "Element",
+			detail: "<strong>[엘리먼트 생성]</strong> 설정한 이름의 커스텀 엘리먼트를 생성하며, 콜백 함수 내부에서 엘리먼트 생성 메소드를 호출하면 해당 엘리먼트는 자식 노드가 된다."
+		},
+		defs: {
+			param: "callback",
+			ret: "Element",
+			detail: "<strong>[엘리먼트 생성]</strong> 'defs' 엘리먼트를 생성한다."
+		},
+		symbol: {
+			param: "attribute, callback",
+			ret: "Element",
+			detail: "<strong>[엘리먼트 생성]</strong> 'symbol' 엘리먼트를 생성한다."
+		},
+		g: {
+			param: "attribute, callback",
+			ret: "TransElement",
+			detail: "<strong>[엘리먼트 생성]</strong> 'g' 엘리먼트를 생성한다."
+		},
+		group: {
+			param: "attribute, callback",
+			ret: "TransElement",
+			detail: "<strong>[엘리먼트 생성]</strong> 'group' 엘리먼트를 생성한다."
+		},
+		marker: {
+			param: "attribute, callback",
+			ret: "Element",
+			detail: "<strong>[엘리먼트 생성]</strong> 'marker' 엘리먼트를 생성한다."
+		},
+		a: {
+			param: "attribute, callback",
+			ret: "TransElement",
+			detail: "<strong>[엘리먼트 생성]</strong> 'a' 엘리먼트를 생성한다."
+		},
+		switch: {
+			param: "attribute, callback",
+			ret: "Element",
+			detail: "<strong>[엘리먼트 생성]</strong> 'switch' 엘리먼트를 생성한다."
+		},
+		use: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[엘리먼트 생성]</strong> 'use' 엘리먼트를 생성한다."
+		},
+		rect: {
+			param: "attribute, callback",
+			ret: "TransElement",
+			detail: "<strong>[엘리먼트 생성]</strong> 'rect' 엘리먼트를 생성한다."
+		},
+		line: {
+			param: "attribute, callback",
+			ret: "TransElement",
+			detail: "<strong>[엘리먼트 생성]</strong> 'line' 엘리먼트를 생성한다."
+		},
+		circle: {
+			param: "attribute, callback",
+			ret: "TransElement",
+			detail: "<strong>[엘리먼트 생성]</strong> 'circle' 엘리먼트를 생성한다."
+		},
+		text: {
+			param: "attribute, textOrCallback",
+			ret: "TransElement",
+			detail: "<strong>[엘리먼트 생성]</strong> 'text' 엘리먼트를 생성하며, 기본 텍스트를 설정하거나 콜백을 통해 자식 노드를 추가할 수 있다."
+		},
+		textPath: {
+			param: "attribute, text",
+			ret: "Element",
+			detail: "<strong>[엘리먼트 생성]</strong> 'textPath' 엘리먼트를 생성하며, 기본 텍스트를 설정할 수 있다."
+		},
+		tref: {
+			param: "attribute, text",
+			ret: "Element",
+			detail: "<strong>[엘리먼트 생성]</strong> 'tref' 엘리먼트를 생성하며, 기본 텍스트를 설정할 수 있다."
+		},
+		tspan: {
+			param: "attribute, text",
+			ret: "Element",
+			detail: "<strong>[엘리먼트 생성]</strong> 'tspan' 엘리먼트를 생성하며, 기본 텍스트를 설정할 수 있다."
+		},
+		ellipse: {
+			param: "attribute, callback",
+			ret: "TransElement",
+			detail: "<strong>[엘리먼트 생성]</strong> 'ellipse' 엘리먼트를 생성한다."
+		},
+		image: {
+			param: "attribute, callback",
+			ret: "TransElement",
+			detail: "<strong>[엘리먼트 생성]</strong> 'image' 엘리먼트를 생성한다."
+		},
+		path: {
+			param: "attribute, callback",
+			ret: "PathElement",
+			detail: "<strong>[엘리먼트 생성]</strong> 'path' 엘리먼트를 생성한다."
+		},
+		polyline: {
+			param: "attribute, callback",
+			ret: "PolyElement",
+			detail: "<strong>[엘리먼트 생성]</strong> 'polyline' 엘리먼트를 생성한다."
+		},
+		polygon: {
+			param: "attribute, callback",
+			ret: "PolyElement",
+			detail: "<strong>[엘리먼트 생성]</strong> 'polygon' 엘리먼트를 생성한다."
+		},
+		pattern: {
+			param: "attribute, callback",
+			ret: "Element",
+			detail: "<strong>[엘리먼트 생성]</strong> 'pattern' 엘리먼트를 생성한다."
+		},
+		mask: {
+			param: "attribute, callback",
+			ret: "Element",
+			detail: "<strong>[엘리먼트 생성]</strong> 'mask' 엘리먼트를 생성한다."
+		},
+		clipPath: {
+			param: "attribute, callback",
+			ret: "Element",
+			detail: "<strong>[엘리먼트 생성]</strong> 'clipPath' 엘리먼트를 생성한다."
+		},
+		linearGradient: {
+			param: "attribute, callback",
+			ret: "Element",
+			detail: "<strong>[엘리먼트 생성]</strong> 'linearGradient' 엘리먼트를 생성한다."
+		},
+		radialGradient: {
+			param: "attribute, callback",
+			ret: "Element",
+			detail: "<strong>[엘리먼트 생성]</strong> 'radialGradient' 엘리먼트를 생성한다."
+		},
+		filter: {
+			param: "attribute, callback",
+			ret: "Element",
+			detail: "<strong>[엘리먼트 생성]</strong> 'filter' 엘리먼트를 생성한다."
+		},
+		stop: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[그라데이션 엘리먼트 생성]</strong> 'stop' 엘리먼트를 생성한다."
+		},
+		animate: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[애니메이션 엘리먼트 생성]</strong> 'animate' 엘리먼트를 생성한다."
+		},
+		animateColor: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[애니메이션 엘리먼트 생성]</strong> 'animateColor' 엘리먼트를 생성한다."
+		},
+		animateMotion: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[애니메이션 엘리먼트 생성]</strong> 'animateMotion' 엘리먼트를 생성한다."
+		},
+		animateTransform: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[애니메이션 엘리먼트 생성]</strong> 'animateTransform' 엘리먼트를 생성한다."
+		},
+		mpath: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[애니메이션 엘리먼트 생성]</strong> 'mpath' 엘리먼트를 생성한다."
+		},
+		set: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[애니메이션 엘리먼트 생성]</strong> 'set' 엘리먼트를 생성한다."
+		},
+		feBlend: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feBlend' 엘리먼트를 생성한다."
+		},
+		feColorMatrix: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feColorMatrix' 엘리먼트를 생성한다."
+		},
+		feComponentTransfer: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feComponentTransfer' 엘리먼트를 생성한다."
+		},
+		feComposite: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feComposite' 엘리먼트를 생성한다."
+		},
+		feConvolveMatrix: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feConvolveMatrix' 엘리먼트를 생성한다."
+		},
+		feDiffuseLighting: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feDiffuseLighting' 엘리먼트를 생성한다."
+		},
+		feDisplacementMap: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feDisplacementMap' 엘리먼트를 생성한다."
+		},
+		feFlood: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feFlood' 엘리먼트를 생성한다."
+		},
+		feGaussianBlur: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feGaussianBlur' 엘리먼트를 생성한다."
+		},
+		feImage: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feImage' 엘리먼트를 생성한다."
+		},
+		feMerge: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feMerge' 엘리먼트를 생성한다."
+		},
+		feMergeNode: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feMergeNode' 엘리먼트를 생성한다."
+		},
+		feMorphology: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feMorphology' 엘리먼트를 생성한다."
+		},
+		feOffset: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feOffset' 엘리먼트를 생성한다."
+		},
+		feSpecularLighting: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feSpecularLighting' 엘리먼트를 생성한다."
+		},
+		feTile: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feTile' 엘리먼트를 생성한다."
+		},
+		feTurbulence: {
+			param: "attribute",
+			ret: "Element",
+			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feTurbulence' 엘리먼트를 생성한다."
 		}
 	}
 };
