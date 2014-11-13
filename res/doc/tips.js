@@ -1,18 +1,3 @@
-jui.ready([ "ui.tooltip"], function(tooltip) {
-    $(".link").each(function(i) {
-        $(this).attr("title", "클릭하면 예제 페이지로 이동합니다.")
-    });
-
-    $(".link").on("click", function(e) {
-        window.open("bootstrap/" + $(this).data("no") + ".html");
-    });
-
-    tooltip(".link", {
-        position: "right",
-        width: 200
-    });
-});
-
 jui.ready(function(ui, uix, _) {
     btn_1 = ui.button("#btn_1", {
         type: "radio",
@@ -291,7 +276,7 @@ jui.ready(function(ui, uix, _) {
         resize: true,
         event: {
             colmenu: function(column, e) {
-                this.columnMenu(e.pageX - 25);
+                this.showColumnMenu(e.pageX - 25);
             }
         },
         animate: true
