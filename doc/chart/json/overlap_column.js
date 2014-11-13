@@ -27,8 +27,8 @@ chart("#chart-content", {
     brush : {
         type : "column",
         target : [ "samsung", "apple", "google", "facebook" ],
-        innerPadding : -30,
-        outerPadding : 30
+        innerPadding : -20,
+        outerPadding : 20
     },
     widget : [
         { type : "title", text : "Column Sample" },

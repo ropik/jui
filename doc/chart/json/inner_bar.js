@@ -24,12 +24,12 @@ chart("#chart-content", {
         type : "bar",
         target : "sales",
         colors : [ theme.colors[0] ],
-        outerPadding : 25
+        outerPadding : 15
     }, {
         type : "bar",
         target : "profit",
         colors : [ theme.colors[2] ],
-        outerPadding : 50
+        outerPadding : 30
     }],
     widget : [
         { type : "title", text : "Bar Sample" },

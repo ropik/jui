@@ -24,12 +24,12 @@ chart("#chart-content", {
         type : "column",
         target : "sales",
         colors : [ theme.colors[0] ],
-        outerPadding : 25
+        outerPadding : 15
     }, {
         type : "column",
         target : "profit",
         colors : [ theme.colors[2] ],
-        outerPadding : 50
+        outerPadding : 30
     }],
     widget : [
         { type : "title", text : "Column Sample" },
