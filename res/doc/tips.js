@@ -588,25 +588,33 @@ jui.ready([ "chart.builder" ], function(builder) {
                 { type : 'area' },
                 { type : 'bar' },
                 { type : 'column' },
-                { type : 'line' }
+                { type : 'bubble' },
+                { type : 'donut' },
+                { type : 'gauge' },
+                { type : 'line' },
+                { type : 'mixed', file : 'mixed2_multi_axis' },
+                { type : 'pie' },
+                { type : 'radar' },
+                { type : 'scatter' }
             ],
             dropdown : function() {
                 var $dropdown = $("<ul class='dropdown-menu' />").css({
-                    width: 210,
-                    padding: 5
+                    width: 380,
+                    padding: 5,
+                    left : -332
                 })
 
                 for(var i = 0; i < this.list.length; i++) {
                     var type = this.list[i].type;
+                    var file = this.list[i].file;
 
                     var $img = $("<img />").attr({
                         'src' : '../../doc/chart/img/' + type + ".svg",
-                        'data-value' : type
+                        'data-value' : type,
+                        'data-file' : file
                     }).css({
-                        width : 75,
-                        'max-width' : '100%',
-                        height : 68,
-                        padding: 2,
+                        'max-width' : 68,
+                        'max-height' : 68,
                         border : '1px solid #dddddd'
                     })
 
@@ -623,16 +631,16 @@ jui.ready([ "chart.builder" ], function(builder) {
 
                 return $dropdown.wrap("<div />").parent().html();
             },
-            createPopup : function(type, saveCallback) {
+            createPopup : function(type, file, saveCallback) {
                 $.ajax({
-                    url : "../../doc/chart/json/" + type + ".js",
+                    url : "../../doc/chart/json/" + (file || type) + ".js",
                     dataType : 'text',
                     success : function (data) {
                         data = data.replace(").render();", "");
                         data = data.replace("var chart = jui.include(\"chart.builder\");", "");
                         data = data.replace("chart(\"#chart-content\", ", "");
                         data = data.replace("chart(\"#chart\", ", "");
-                        data = data.replace(");", "");
+                        data = data.replace(/\)\;/g, "");
 
                         var $chart = $("#chart-modal").attr({
                             'data-value': type,
@@ -669,8 +677,9 @@ jui.ready([ "chart.builder" ], function(builder) {
             },
             createChart : function (e, editor, layout) {
                 var type = $(e.target).data('value');
+                var file = $(e.target).data('file');
 
-                this.createPopup(type, function(dom) {
+                this.createPopup(type, file, function(dom) {
                     var $editable = layout.editable();
                     $editable.trigger('focus');
 
@@ -695,6 +704,7 @@ jui.ready([ "chart.builder" ], function(builder) {
             ['height', ['height']],
             ['table', ['table']],
             ['chart', ['chart']]
+
         ]
     });
 
