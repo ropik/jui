@@ -88,7 +88,7 @@ var menuInfo = {
     	menu: {
     		common: "tips/common",
     		bootstrap: "tips/bootstrap",
-			editor: "tips/editor"
+			summernote: "tips/summernote"
     	}
     }
 };

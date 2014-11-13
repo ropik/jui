@@ -198,14 +198,15 @@ jui.ready(function(ui, uix, _) {
     table_2 = uix.table("#table_2", {
         rows: _.clone(table_data_big),
         expand: "auto",
-        animate: true
-    });
-
-    table_2.on("expand", function(row) {
-        $(row.list[0]).html("-");
-    });
-    table_2.on("expandend", function(row) {
-        $(row.list[0]).html("+");
+        animate: true,
+        event: {
+            expand: function(row) {
+                $(row.list[0]).html("-");
+            },
+            expandend: function(row) {
+                $(row.list[0]).html("+");
+            }
+        }
     });
 
     table_3 = uix.table("#table_3", {
@@ -319,17 +320,19 @@ jui.ready(function(ui, uix, _) {
         animate: true
     });
 
-    table_tree_2.append("1", { name: "Kang", age: "21" });
-    table_tree_2.append("1", { name: "Jung", age: "33" });
-    table_tree_2.insert("1.2", { name: "Park", age: "45" } );
-    table_tree_2.insert("1.3", { name: "Hwang", age: "12" } );
-    table_tree_2.insert("1.2.0", { name: "Roo", age: "32" } );
-    table_tree_2.insert("1.2.1", { name: "Jung", age: "14" } );
-    table_tree_2.insert("3.0", { name: "Yoon", age: "17" } );
-    table_tree_2.insert("3.1", { name: "Kim", age: "21" } );
-    table_tree_2.insert("3.2", { name: "Kim", age: "28" } );
+    if(table_tree_2 != null) {
+        table_tree_2.append("1", {name: "Kang", age: "21"});
+        table_tree_2.append("1", {name: "Jung", age: "33"});
+        table_tree_2.insert("1.2", {name: "Park", age: "45"});
+        table_tree_2.insert("1.3", {name: "Hwang", age: "12"});
+        table_tree_2.insert("1.2.0", {name: "Roo", age: "32"});
+        table_tree_2.insert("1.2.1", {name: "Jung", age: "14"});
+        table_tree_2.insert("3.0", {name: "Yoon", age: "17"});
+        table_tree_2.insert("3.1", {name: "Kim", age: "21"});
+        table_tree_2.insert("3.2", {name: "Kim", age: "28"});
 
-    table_tree_2.resize();
+        table_tree_2.resize();
+    }
 
     xtable_1 = uix.xtable("#xtable_1", {
         fields: [ "name", "age", "location" ],
@@ -554,3 +557,167 @@ function xtable3Page(no) {
     xtable_3_page = (xtable_3_page < 1) ? 1 : xtable_3_page;
     xtable_3.page(xtable_3_page);
 }
+
+
+/**
+ *  Summernote Codes
+ *
+ */
+
+jui.ready([ "chart.builder" ], function(builder) {
+    if(!$.summernote) return;
+
+    var editor;
+
+    function resetChart() {
+        var charts = jui.getAll();
+
+        for(var i = 0; i < charts.length; i++) {
+            if(charts[i].type == "chart.builder") {
+                var obj = jui.remove(i);
+                obj.destroy();
+            }
+        }
+    }
+
+    $.summernote.plugins = {
+        "chart" : {
+            label : 'chart',
+            icon : 'fa fa-area-chart',
+            list : [
+                { type : 'area' },
+                { type : 'bar' },
+                { type : 'column' },
+                { type : 'line' }
+            ],
+            dropdown : function() {
+                var $dropdown = $("<ul class='dropdown-menu' />").css({
+                    width: 210,
+                    padding: 5
+                })
+
+                for(var i = 0; i < this.list.length; i++) {
+                    var type = this.list[i].type;
+
+                    var $img = $("<img />").attr({
+                        'src' : '../../doc/chart/img/' + type + ".svg",
+                        'data-value' : type
+                    }).css({
+                        width : 75,
+                        'max-width' : '100%',
+                        height : 68,
+                        padding: 2,
+                        border : '1px solid #dddddd'
+                    })
+
+                    var $text = $("<p />").html(type),
+                        $li = $("<li />").addClass('btn btn-default').css({
+                            border : 0
+                        }).attr({
+                            'data-event' : 'chart',
+                            'data-value' : type
+                        }).append($img).append($text);
+
+                    $dropdown.append($li);
+                }
+
+                return $dropdown.wrap("<div />").parent().html();
+            },
+            createPopup : function(type, saveCallback) {
+                $.ajax({
+                    url : "../../doc/chart/json/" + type + ".js",
+                    dataType : 'text',
+                    success : function (data) {
+                        data = data.replace(").render();", "");
+                        data = data.replace("var chart = jui.include(\"chart.builder\");", "");
+                        data = data.replace("chart(\"#chart-content\", ", "");
+                        data = data.replace("chart(\"#chart\", ", "");
+                        data = data.replace(");", "");
+
+                        var $chart = $("#chart-modal").attr({
+                            'data-value': type,
+                            'data-code' : data
+                        });
+
+                        $chart.find(".modal-title").html(type);
+                        $chart.find(".save-btn").click(function() {
+                            var size = currentChart.svg.size();
+                            var img = $("<img />").css(size).attr('src', currentChart.svg.toDataURL())[0];
+
+                            saveCallback(img);
+                            $chart.modal('hide');
+                        });
+
+                        $chart.modal('show');
+
+                        $chart.on("show.bs.modal", function() {
+                            $("#chart-content").empty();
+                        });
+
+                        $chart.on("shown.bs.modal", function() {
+                            editor.setValue($(this).attr('data-code'));
+                        });
+
+                        $chart.on("hidden.bs.modal", function() {
+                            $chart.find(".save-btn").off();
+                        });
+                    },
+                    error : function(data, error) {
+                        console.log(error);
+                    }
+                })
+            },
+            createChart : function (e, editor, layout) {
+                var type = $(e.target).data('value');
+
+                this.createPopup(type, function(dom) {
+                    var $editable = layout.editable();
+                    $editable.trigger('focus');
+
+                    editor.insertDom($editable, dom);
+                });
+            },
+            event : function(e, editor, layout) {
+                this.createChart(e, editor, layout);
+            }
+        }
+    }
+
+    $('#summernote').summernote({
+        height: 500,
+        tabsize: 2,
+        toolbar: [
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough']],
+            ['fontsize', ['fontsize']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']],
+            ['table', ['table']],
+            ['chart', ['chart']]
+        ]
+    });
+
+    editor = CodeMirror.fromTextArea($("#chart-code-text")[0], {
+        mode: "javascript",
+        lineNumbers: true,
+        styleActiveLine: true,
+        matchBrackets: true,
+        theme : "neo"
+    });
+
+    editor.on("change", function(cm, change) {
+        try {
+            $.globalEval("var chartOptions = " + cm.getValue() + ";");
+        } catch(e) {
+            console.log(e);
+        }
+
+        resetChart();
+        $("#chart-content").empty();
+
+        window.currentChart = chart("#chart-content", chartOptions);
+    });
+
+    window.chart = builder;
+});

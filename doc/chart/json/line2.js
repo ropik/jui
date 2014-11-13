@@ -31,12 +31,14 @@ chart("#chart", {
         y : {
             type : "range",
             target : "visitor",
-            step : 2
+            step : 2,
+            color : "#1db34f"
         },
         y1 : {
             type : "range",
             target : "unique",
-            step : 4
+            step : 4,
+            color : "#1d7fb3"
         }
     },
     brush : [{
@@ -50,6 +52,7 @@ chart("#chart", {
     }],
     widget : [
         { type : "title", text : "Line Sample" },
-        { type : "legend", brush : [ 0, 1 ] }
+        { type : "legend", brush : [ 0, 1 ] },
+        { type : "tooltip", brush : [ 2, 3 ] }
     ]
 });
