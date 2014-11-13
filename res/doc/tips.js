@@ -635,10 +635,12 @@ jui.ready([ "chart.builder" ], function(builder) {
                         $chart.find(".modal-title").html(type);
                         $chart.find(".save-btn").click(function() {
                             var size = currentChart.svg.size();
-                            var img = $("<img />").css(size).attr('src', currentChart.svg.toDataURL())[0];
 
-                            saveCallback(img);
-                            $chart.modal('hide');
+                                var img = $("<img />").css(size).attr('src', currentChart.svg.toDataURL())[0];
+
+                                saveCallback(img);
+                                $chart.modal('hide');
+
                         });
 
                         $chart.modal('show');
