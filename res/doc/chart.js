@@ -159,7 +159,6 @@ function changeTheme(theme) {
 
     if(typeof(chart.options.theme) != "object") {
         chart.list[chart.list.length - 1].setTheme(theme);
-        chart.list[chart.list.length - 1].render(true);
     }
 
     if(table_2 != null) {
@@ -222,15 +221,16 @@ function createTableStyle() {
         resize: true,
         event: {
             editend: function(data, e) {
-                var chart = window.currentChart;
+                var chart = window.currentChart,
+                    theme = chart.theme();
 
                 if(data.key == "colors") {
-                    chart.setTheme(data.key, data.value.split("|"));
+                    theme[data.key] = data.value.split("|");
                 } else {
-                    chart.setTheme(data.key, data.value);
+                    theme[data.key] = data.value;
                 }
 
-                chart.render(true);
+                chart.setTheme(theme);
             }
         },
         tpl: {

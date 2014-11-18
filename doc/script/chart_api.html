@@ -72,11 +72,6 @@ var uiApi = {
             ret: "object",
             detail: "테마가 적용된 텍스트 엘리먼트를 생성합니다."
         },
-        setTheme: {
-            param: "themeName",
-            ret: "none",
-            detail: "차트에 적용할 테마 모듈을 설정합니다."
-        },
         theme: {
             param: "key | isSelected, value1, value2",
             ret: "int | string",
@@ -151,6 +146,11 @@ var uiApi = {
             param: "start, end",
             ret: "none",
             detail: "해당 인덱스 범위의 데이터를 다시 렌더링합니다."
+        },
+        setTheme: {
+            param: "themeName | themeObject",
+            ret: "none",
+            detail: "해당 테마로 변경한 후에 차트를 다시 렌더링합니다."
         },
         setSize: {
             param: "width, height",
