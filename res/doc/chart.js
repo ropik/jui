@@ -17,7 +17,8 @@ var charts = [
     { type : 'gauge', title : 'Gauge Chart', start : 42 },
     { type : 'stock', title : 'Candle Stick Chart', start : 49 },
     { type : 'mixed', title : 'Combination Chart', start : 53 },
-    { type : 'realtime', title : 'Realtime Chart', start : 56 }
+    { type : 'realtime', title : 'Realtime Chart', start : 56 },
+    { type : 'event', title : "Event Handling", start : 59 }
 ];
 
 var code_list = [
@@ -51,8 +52,8 @@ var code_list = [
     // bubble
     { type : 'bubble', title : "Basic Bubble", description : "", code : "bubble.js" },
     { type : 'bubble', title : "Range Bubble", description : "", code : "range_bubble.js" },
-    
-    // scatter 
+
+    // scatter
     { type : 'scatter', title : "Basic Scatter", description : "", code : "scatter.js" },
     { type : 'scatter', title : "Range Scatter", description : "", code : "range_scatter_cross.js" },
     { type : 'scatter', title : "Stack Scatter", description : "", code : "stack_scatter.js" },
@@ -104,7 +105,10 @@ var code_list = [
     // realtime chart
     { type : 'realtime', title : "Realtime Line",  description : "", code : "realtime_line.js" },
     { type : 'realtime', title : "Realtime Area",  description : "", code : "realtime_area.js" },
-    { type : 'realtime', title : "Realtime Complex Line",  description : "", code : "realtime_line_complex.js" }
+    { type : 'realtime', title : "Realtime Complex Line",  description : "", code : "realtime_line_complex.js" },
+
+    // event handling
+    { type : 'event', title : "Brush Event",  description : "", code : "brush_event.js" }
 ];
 
 function getTodayData() {
@@ -542,7 +546,9 @@ jui.ready([ "util.base" ], function(_) {
             });
         })(charts[i]);
 
-        $row.append($el);
+        if(charts[i].type != "event") {
+            $row.append($el);
+        }
     }
 
     editor = null;

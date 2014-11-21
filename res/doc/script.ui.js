@@ -33,7 +33,7 @@ function dd_4_update() {
 }
 
 function notifyTest(type, color) {
-    var data = { title: "Caution message Send!!!", msg: "Feb 15, 2013-12-24 02:24:19", color: color };
+    var data = { title: "Caution message Send!!!", message: "Feb 15, 2013-12-24 02:24:19", color: color };
 
     if(type == 1) notify1.add(data);
     if(type == 2) notify2.add(data);
@@ -236,7 +236,7 @@ jui.ready([ "ui.button", "ui.combo", "ui.datepicker", "ui.dropdown", "ui.layout"
             }
         },
         tpl: {
-            alarm: $("#tpl_alarm").html()
+            item: $("#tpl_alarm").html()
         }
     });
 
@@ -245,7 +245,7 @@ jui.ready([ "ui.button", "ui.combo", "ui.datepicker", "ui.dropdown", "ui.layout"
         position: "top-left",
         timeout: 0,
         tpl: {
-            alarm: $("#tpl_alarm").html()
+            item: $("#tpl_alarm").html()
         }
     });
 
@@ -257,7 +257,7 @@ jui.ready([ "ui.button", "ui.combo", "ui.datepicker", "ui.dropdown", "ui.layout"
             top: 100
         },
         tpl: {
-            alarm: $("#tpl_alarm").html()
+            item: $("#tpl_alarm").html()
         }
     });
 
@@ -267,7 +267,7 @@ jui.ready([ "ui.button", "ui.combo", "ui.datepicker", "ui.dropdown", "ui.layout"
         timeout: 0,
         distance: 30,
         tpl: {
-            alarm: $("#tpl_alarm").html()
+            item: $("#tpl_alarm").html()
         }
     });
 
@@ -277,7 +277,7 @@ jui.ready([ "ui.button", "ui.combo", "ui.datepicker", "ui.dropdown", "ui.layout"
         showDuration: 1000,
         hideDuration: 1000,
         tpl: {
-            alarm: $("#tpl_alarm").html()
+            item: $("#tpl_alarm").html()
         }
     });
 
@@ -286,7 +286,7 @@ jui.ready([ "ui.button", "ui.combo", "ui.datepicker", "ui.dropdown", "ui.layout"
         position: "bottom-right",
         showEasing: "linear",
         tpl: {
-            alarm: $("#tpl_alarm").html()
+            item: $("#tpl_alarm").html()
         }
     });
 

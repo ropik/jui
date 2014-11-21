@@ -88,7 +88,7 @@
 		<script id="tpl_alarm" type="text/template">
 		    <div class="notify notify-<!= color !>">
 		        <div class="title"><!= title !></div>
-		        <div class="msg"><!= msg !></div>
+		        <div class="message"><!= message !></div>
 		    </div>
 		</script>
 	</p>
@@ -99,7 +99,7 @@
 <pre><code class="language-markup">&lt;script id="tpl_alarm" type="text/template"&gt;
     &lt;div class="notify notify-&lt;!= color !&gt;"&gt;
         &lt;div class="title"&gt;&lt;!= title !&gt;&lt;/div&gt;
-        &lt;div class="msg"&gt;&lt;!= msg !&gt;&lt;/div&gt;
+        &lt;div class="message"&gt;&lt;!= message !&gt;&lt;/div&gt;
     &lt;/div&gt;
 &lt;/script&gt;</code></pre>
 	</p>
@@ -122,7 +122,7 @@
         	}
         },
         tpl: {
-            alarm: $("#tpl_alarm").html()
+            item: $("#tpl_alarm").html()
         }
     });
 });</code></pre>
@@ -134,7 +134,7 @@
 <pre><code class="language-javascript">function notifyTest(type, color) {
 	var data = { 
 		title: "Caution message Send!!!", 
-		msg: "Feb 15, 2013-12-24 02:24:19", 
+		message: "Feb 15, 2013-12-24 02:24:19", 
 		color: color 
 	};
 	
