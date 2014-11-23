@@ -5,14 +5,9 @@ chart("#chart", {
     height : 50,
     padding : "empty",
     data : [
-        { browser : "IE", share : 70 },
-        { browser : "Firefox", share : 11 },
-        { browser : "Chrome", share : 9 },
-        { browser : "Safari", share : 6 },
-        { browser : "Other", share : 4 }
+        { ie : 70, ff : 11, chrome : 9, safari : 6, other : 4 }
     ],
     brush : {
-        type : "pie",
-        target : "share"
+        type : "pie"
     }
 });

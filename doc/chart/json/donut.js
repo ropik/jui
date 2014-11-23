@@ -2,25 +2,21 @@ var chart = jui.include("chart.builder");
 
 chart("#chart", {
     data : [
-        { browser : "IE", share : 70 },
-        { browser : "Firefox", share : 11 },
-        { browser : "Chrome", share : 9 },
-        { browser : "Safari", share : 6 },
-        { browser : "Other", share : 4 }
+        { ie : 70, ff : 11, chrome : 9, safari : 6, other : 4 }
     ],
-    brush : {
-        type : "donut",
-        target : "share",
-        size : 100
-    },
     series : {
-        share: {
-            text: "점유율(%)"
-        }
+        ie : { text : "IE" },
+        ff : { text : "FireFox" },
+        chrome : { text : "Chrome" },
+        safari : { text : "Safari" },
+        other : { text : "Other" }
+    },
+    brush : {
+        type : "donut"
     },
     widget : [
         { type : "title", text : "Donut Sample" },
         { type : "tooltip", position: "right" },
-        { type : "legend", key : "browser" }
+        { type : "legend" }
     ]
 });

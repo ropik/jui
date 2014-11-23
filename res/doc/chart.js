@@ -9,16 +9,16 @@ var charts = [
     { type : 'column', title : 'Column Chart', start : 6 },
     { type : 'pie', title : 'Pie Chart', start : 15 },
     { type : 'donut', title : 'Donut Chart', start : 17 },
-    { type : 'bubble', title : 'Bubble Chart', start : 19 },
-    { type : 'scatter', title : 'Scatter Chart', start : 21 },
-    { type : 'area', title : 'Area Chart', start : 25 },
-    { type : 'radar', title : 'Radar Chart', start : 32 },
-    { type : 'line', title : 'Line Chart', start : 34 },
-    { type : 'gauge', title : 'Gauge Chart', start : 42 },
-    { type : 'stock', title : 'Candle Stick Chart', start : 49 },
-    { type : 'mixed', title : 'Combination Chart', start : 53 },
-    { type : 'realtime', title : 'Realtime Chart', start : 56 },
-    { type : 'event', title : "Event Handling", start : 59 }
+    { type : 'bubble', title : 'Bubble Chart', start : 18 },
+    { type : 'scatter', title : 'Scatter Chart', start : 20 },
+    { type : 'area', title : 'Area Chart', start : 24 },
+    { type : 'radar', title : 'Radar Chart', start : 31 },
+    { type : 'line', title : 'Line Chart', start : 33 },
+    { type : 'gauge', title : 'Gauge Chart', start : 41 },
+    { type : 'stock', title : 'Candle Stick Chart', start : 48 },
+    { type : 'mixed', title : 'Combination Chart', start : 52 },
+    { type : 'realtime', title : 'Realtime Chart', start : 55 },
+    { type : 'event', title : "Event Handling", start : 58 }
 ];
 
 var code_list = [
@@ -47,7 +47,6 @@ var code_list = [
 
     // donut
     { type : 'donut', title : "Donut", description : "", code : "donut.js" },
-    { type : 'donut', title : "Mini Donut", description : "", code : "mini_donut.js" },
 
     // bubble
     { type : 'bubble', title : "Basic Bubble", description : "", code : "bubble.js" },
