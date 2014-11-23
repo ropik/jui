@@ -7,7 +7,6 @@ var start = new Date(),
     data = getRandomData();
 
 chart("#chart", {
-    theme : theme,
     data : data,
     bufferCount : data.length,
     grid : {
