@@ -88,15 +88,17 @@
 				
 			if(url.indexOf("_api") != -1 || url.indexOf("_markup") != -1 || url.indexOf("script") == -1) return;
 			
-			var $icon = $('<div class="logtool" onclick="jui.log()" title="버튼을 클릭하시면 로그 툴이 실행됩니다."></div>');
+			var $icon = $('<div class="logtool" title="Click on the button to logging tool is run."></div>');
 			$("body").append($icon);
 			
 			ui.tooltip($icon, {
 				position: "left",
 				delay: 1000
 			});
-			
-			jui.logUrl = "../../lib/jui/jui.mng.html";
+
+			$icon.on("click", function(e) {
+				jui.log("../../lib/jui/tool/debug.html");
+			});
 		});
 		
 		// API 문서 관련 함수
