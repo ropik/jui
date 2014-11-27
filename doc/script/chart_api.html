@@ -152,6 +152,21 @@ var uiApi = {
             ret: "none",
             detail: "해당 넓이와 높이로 차트 크기를 변경하여 렌더링합니다."
         },
+        addBrush: {
+            param: "brush",
+            ret: "none",
+            detail: "브러쉬를 추가하고 다시 렌더링합니다.."
+        },
+        removeBrush: {
+            param: "brushIndex",
+            ret: "none",
+            detail: "해당 인덱스의 브러쉬를 삭제하고 다시 렌더링합니다."
+        },
+        updateBrush: {
+            param: "brushIndex, brush",
+            ret: "none",
+            detail: "해당 인덱스의 브러쉬를 업데이트하고 다시 렌더링합니다."
+        },
         setTheme: {
             param: "themeName | themeObject",
             ret: "none",
@@ -166,6 +181,11 @@ var uiApi = {
             param: "file",
             ret: "none",
             detail: "CSV 파일을 기반으로 차트를 업데이트합니다."
+        },
+        format: {
+            param: "value",
+            ret: "value",
+            detail: "옵션의 정의된 포맷 콜백 함수를 통해 처리된 값을 반환합니다."
         }
 	},
 	event: {
@@ -284,6 +304,9 @@ var uiApi = {
         bind: {
             detail: "바인딩 할 컴포넌트 객체를 설정합니다."
         },
+        format: {
+            detail: "그리드/브러쉬/위젯에서 기본적으로 사용하는 포맷 콜백 함수를 설정합니다."
+        },
         style: {
             detail: "현재 설정된 테마의 값을 임의로 변경합니다."
         },
@@ -356,6 +379,9 @@ var brushApi = {
         },
         size: {
             detail: "스카터의 크기를 정합니다."
+        },
+        display: {
+            detail: "최소/최대 값의 스카터만 보이게 설정합니다. (min, max)"
         }
     },
     scatterpath: {
@@ -448,6 +474,9 @@ var brushApi = {
         },
         size: {
             detail: "스카터의 크기를 정합니다."
+        },
+        display: {
+            detail: "최소/최대 값의 스카터만 보이게 설정합니다. (min, max)"
         }
     },
     gauge: {
@@ -530,6 +559,46 @@ var brushApi = {
         title: {
             detail: "스택 게이지의 타이틀로 설정할 데이터 키를 설정합니다."
         }
+    },
+    waterfall: {
+        end: {
+            detail: "워터폴의 마지막 노드 효과를 설정합니다."
+        },
+        outerPadding: {
+            detail: "워터폴의 바깥쪽 여백을 정합니다."
+        }
+    },
+    splitline: {
+        symbol: {
+            detail: "라인의 모양을 설정합니다. (normal, curve, step)"
+        },
+        split: {
+            detail: "해당 인덱스 값부터 라인의 스타일을 다르게 설정합니다."
+        }
+    },
+    splitarea: {
+        symbol: {
+            detail: "영역의 모양을 설정합니다. (normal, curve, step)"
+        },
+        split: {
+            detail: "해당 인덱스 값부터 영역의 스타일을 다르게 설정합니다."
+        }
+    },
+    rangecolumn: {
+        outerPadding: {
+            detail: "컬럼의 바깥쪽 여백을 정합니다."
+        },
+        innerPadding: {
+            detail: "컬럼의 안쪽 여백을 정합니다."
+        }
+    },
+    rangebar: {
+        outerPadding: {
+            detail: "바의 바깥쪽 여백을 정합니다."
+        },
+        innerPadding: {
+            detail: "바의 안쪽 여백을 정합니다."
+        }
     }
 };
 
@@ -546,6 +615,9 @@ var widgetApi = {
         },
         key: {
             detail: "툴팁에 보여지는 값의 키를 설정합니다."
+        },
+        format: {
+            detail: "툴팁에 보여지는 값의 포맷을 설정합니다."
         }
     },
     title: {
@@ -577,6 +649,9 @@ var widgetApi = {
         },
         key: {
             detail: "데이터의 키가 아닌 데이터의 특정 키 값을 라벨로 설정합니다."
+        },
+        filter: {
+            detail: "브러쉬에서 선택된 라벨만 보이도록 필터링합니다."
         }
     },
     cross: {
@@ -638,11 +713,11 @@ jui.ready([ "chart.builder", "uix.tab", "util.base" ], function(builder, tab, _)
         event: {
             change: function(data, e) {
                 if(data.index == 1 && $("#brush").html() == "") {
-                    juiApiChart("brush", brushApi, _.template, null, "#brush");
+                    juiApiChart("brush", brushApi, _.template, null, "#brush", "brush");
                 } else if(data.index == 2 && $("#widget").html() == "") {
-                    juiApiChart("widget", widgetApi, _.template, null, "#widget");
+                    juiApiChart("widget", widgetApi, _.template, null, "#widget", "widget");
                 } else if(data.index == 3 && $("#grid").html() == "") {
-                    juiApiChart("grid", gridApi, _.template, null, "#grid");
+                    juiApiChart("grid", gridApi, _.template, null, "#grid", "grid");
                 }
             }
         }

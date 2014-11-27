@@ -138,7 +138,7 @@
 			});
 		};
 
-        window.juiApiChart = function(type, chartApi, tplFunc, callback, target) {
+        window.juiApiChart = function(type, chartApi, tplFunc, callback, target, apiKey) {
             var mod = jui.include("chart." + type);
                 sel = target || "body";
 
@@ -173,9 +173,9 @@
 								}
 
 								opts[k] = $.extend({
-									name: (coreApi.grid[k]) ? ("<i>" + k + "</i>") : k,
+									name: (coreApi[apiKey][k]) ? ("<i>" + k + "</i>") : k,
 									def: def
-								}, coreApi.grid[k], api[k]);
+								}, coreApi[apiKey][k], api[k]);
 							}
 
 							if (opts != null) {

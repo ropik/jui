@@ -144,6 +144,29 @@ window.coreApi = {
         },
         format: {
             detail: "축 값의 포맷을 설정합니다."
+        },
+        color: {
+            detail: "축의 색상을 설정합니다."
+        },
+        title: {
+            detail: "축에 보여지는 텍스트를 설정합니다."
+        },
+        start: {
+            detail: "그리드의 시작 좌표를 설정합니다."
+        },
+        size: {
+            detail: "그리드의 넓이를 설정합니다."
         }
+    },
+    widget: {
+        brush: {
+            detail: "위젯을 사용할 브러쉬 인덱스를 설정합니다."
+        },
+        render: {
+            detail: "위젯에 렌더링 대상 여부를 정합니다."
+        }
+    },
+    brush: {
+
     }
 };
