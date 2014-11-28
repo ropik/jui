@@ -154,7 +154,7 @@ jui.ready(function(ui, uix, _) {
         timeout: -1,
         padding: 20,
         tpl: {
-            alarm: $("#tpl_alarm").html()
+            item: $("#tpl_alarm").html()
         }
     });
 
