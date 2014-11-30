@@ -28,8 +28,14 @@ chart("#chart", {
         type : "splitline",
         split : 500
     }],
-    widget : {
+    widget : [{
         type : "title",
         text : "Line Sample"
+    }, {
+        type : "pin",
+        split : 500
+    }],
+    style : {
+        lineSplitBorderColor: "#929292"
     }
 });

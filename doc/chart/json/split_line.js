@@ -21,12 +21,15 @@ chart("#chart", {
             }
         }
     },
-    brush : {
+    brush : [{
         type : "splitline",
         split : 500
-    },
-    widget : {
+    }],
+    widget : [{
         type : "title",
         text : "Line Sample"
-    }
+    }, {
+        type : "pin",
+        split : 500
+    }]
 });
