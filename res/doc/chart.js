@@ -417,7 +417,6 @@ function viewCodeEditor() {
 
                 resetChart();
                 $.globalEval(cm.getValue());
-                changeTheme($("select").find("option:selected").val());
 
                 var chart = jui.get("chart.builder").pop();
                 window.currentChart = chart.list[chart.list.length -1];

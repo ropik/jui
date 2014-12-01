@@ -21,6 +21,7 @@ chart("#chart", {
     },
     brush : {
         type : "column",
+        target : [ "sales", "profit" ],
         display : "max",
         activeEvent : "click"
     },
