@@ -7,18 +7,18 @@ var realtimeInterval = null;
 var charts = [
     { type : 'bar', title : 'Bar Chart', start : 0 },
     { type : 'column', title : 'Column Chart', start : 6 },
-    { type : 'pie', title : 'Pie Chart', start : 15 },
-    { type : 'donut', title : 'Donut Chart', start : 17 },
-    { type : 'bubble', title : 'Bubble Chart', start : 18 },
-    { type : 'scatter', title : 'Scatter Chart', start : 20 },
-    { type : 'area', title : 'Area Chart', start : 24 },
-    { type : 'radar', title : 'Radar Chart', start : 31 },
-    { type : 'line', title : 'Line Chart', start : 33 },
-    { type : 'gauge', title : 'Gauge Chart', start : 41 },
-    { type : 'stock', title : 'Candle Stick Chart', start : 48 },
-    { type : 'mixed', title : 'Combination Chart', start : 52 },
-    { type : 'realtime', title : 'Realtime Chart', start : 55 },
-    { type : 'event', title : "Event Handling", start : 58 }
+    { type : 'pie', title : 'Pie Chart', start : 16 },
+    { type : 'donut', title : 'Donut Chart', start : 18 },
+    { type : 'bubble', title : 'Bubble Chart', start : 19 },
+    { type : 'scatter', title : 'Scatter Chart', start : 21 },
+    { type : 'area', title : 'Area Chart', start : 25 },
+    { type : 'radar', title : 'Radar Chart', start : 32 },
+    { type : 'line', title : 'Line Chart', start : 34 },
+    { type : 'gauge', title : 'Gauge Chart', start : 43 },
+    { type : 'stock', title : 'Candle Stick Chart', start : 50 },
+    { type : 'mixed', title : 'Combination Chart', start : 54 },
+    { type : 'realtime', title : 'Realtime Chart', start : 57 },
+    { type : 'event', title : "Event Handling", start : 60 }
 ];
 
 var code_list = [
@@ -36,6 +36,7 @@ var code_list = [
     { type : 'column', title : "Full Stack Column", description : "", code : "fullstack.js" },
     { type : 'column', title : "Inner Column", description : "", code : "inner_column.js" },
     { type : 'column', title : "Overlap Column", description : "", code : "overlap_column.js" },
+    { type : 'column', title : "Active Column", description : "", code : "active_column.js" },
     { type : 'column', title : "Mini Column", description : "", code : "mini_column.js" },
     { type : 'column', title : "Range Column", description : "", code : "rangecolumn.js" },
     { type : 'column', title : "Equalizer", description : "", code : "equalizer.js" },
@@ -75,6 +76,7 @@ var code_list = [
     { type : 'line', title : "Basic Line", description : "", code : "line.js" },
     { type : 'line', title : "Curve Line", description : "", code : "curve_line.js" },
     { type : 'line', title : "Step Line", description : "", code : "step_line.js" },
+    { type : 'line', title : "Active Line", description : "", code : "active_line.js" },
     { type : 'line', title : "Mini Line", description : "", code : "mini_line.js" },
     { type : 'line', title : "Range Line", description : "", code : "range_line.js" },
     { type : 'line', title : "Stack Line", description : "", code : "stack_line.js" },
