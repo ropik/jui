@@ -57,8 +57,6 @@ chart("#chart-content", {
     }],
     widget : {
         type : "legend",
-        brush : [ 0, 1 ],
-        brushSync : true,
-        filter : true
+        brush : [ 0, 1 ]
     }
 });
