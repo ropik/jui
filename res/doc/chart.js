@@ -101,7 +101,7 @@ var code_list = [
     // combination chart
     { type : 'mixed', title : "Basic Combination",  description : "", code : "mixed1.js" },
     { type : 'mixed', title : "Multi Axis", description : "", code : "mixed2_multi_axis.js" },
-    { type : 'mixed', title : "Compare Data", description : "", code : "bar_compare.js" },
+    { type : 'mixed', title : "Compare Data", description : "", code : "bar_compare_layout.js" },
 
     // realtime chart
     { type : 'realtime', title : "Realtime Line",  description : "", code : "realtime_line.js" },
