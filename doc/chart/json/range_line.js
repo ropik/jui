@@ -12,15 +12,29 @@ var end = new Date("2012/12/31");
 var data = [];
 for(var i = 0; i < stocks.apple.length; i++) {
     data.push({
-        date: time.add(start, time.months, i),
-        apple: stocks.apple[i],
-        microsoft: stocks.microsoft[i],
-        oracle: stocks.oracle[i]
+        date : time.add(start, time.months, i),
+        apple : stocks.apple[i],
+        microsoft : stocks.microsoft[i],
+        oracle : stocks.oracle[i]
     });
 }
 
 chart("#chart", {
 	data : data,
+	series : {
+		apple : {
+			color : 0,
+			text : "Apple"
+		},
+		microsoft : {
+			color : 1,
+			text : "Microsoft"
+		},
+		oracle : {
+			color : 2,
+			text : "Oracle"
+		}
+	},
 	grid : {
 		x : {
 			type : "date",
@@ -42,6 +56,6 @@ chart("#chart", {
 	},
     widget : [
         { type : "title", text : "Line Sample" },
-        { type : "legend" }
+        { type : "legend", filter : true }
     ]
 });

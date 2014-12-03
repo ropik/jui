@@ -7,6 +7,20 @@ chart("#chart", {
         { quarter : "3Q", samsung : 20, lg : 5, sony: 10 },
         { quarter : "4Q", samsung : 30, lg : 25, sony: 15 }
     ],
+    series : {
+        samsung : {
+            color : 0,
+            text : "Samsung"
+        },
+        lg : {
+            color : 1,
+            text : "LG"
+        },
+        sony : {
+            color : 2,
+            text : "SONY"
+        }
+    },
     grid : {
         y : {
             target : "quarter",
@@ -27,6 +41,6 @@ chart("#chart", {
     },
     widget : [
         { type : "title", text : "Bar Sample" },
-        { type : "legend" }
+        { type : "legend", filter : true }
     ]
 });

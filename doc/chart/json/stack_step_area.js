@@ -7,6 +7,17 @@ chart("#chart-content", {
         { sales : 8, profit : 4, dept : 5 },
         { sales : 10, profit : 5, dept : 12 }
     ],
+    series : {
+        sales : {
+            color : 0
+        },
+        profit : {
+            color : 1
+        },
+        dept : {
+            color : 2
+        }
+    },
     grid : {
         x : {
             domain : [ "Q1", "Q2", "Q3", "Q4" ],
@@ -34,5 +45,10 @@ chart("#chart-content", {
     widget : [{
         type : "title",
         text : "Area Sample"
+    }, {
+        type : "legend",
+        filter : true,
+        brush : [ 0, 1, 2 ],
+        brushSync : true
     }]
 });
