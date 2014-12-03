@@ -28,7 +28,7 @@ chart("#chart", {
     },
     brush : [
     	{ type : "column", target : "rainfall", colors : [ "#7cb5ec" ], outerPadding : 5 },
-    	{ type : "line", target : "sealevel", y1 : 0, colors : [ "#434348"] , symbol : "curve" },
+    	{ type : "line", target : "sealevel", y1 : 0, colors : [ "#434348" ] , symbol : "curve" },
     	{ type : "line", target : "temperature", y1 : 1, colors: [ "#90ed7d" ], symbol : "curve" },
     	{ type : "scatter", target : "temperature", y1 : 1, colors: [ "#90ed7d" ], symbol : "triangle", size : 8 }
     ],

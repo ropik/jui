@@ -1,5 +1,4 @@
 var chart = jui.include("chart.builder"),
-    theme = jui.include("chart.theme.pastel"),
     time = jui.include("util.time");
 
 var start = new Date(),
@@ -29,19 +28,19 @@ chart("#chart", {
         type : 'scatterpath',
         target : "q1",
         symbol : "circle",
-        colors : [ theme.colors[0] ],
+        colors : [ 0 ],
         size : 3
     }, {
         type : 'scatterpath',
         target : "q2",
         symbol : "triangle",
-        colors : [ theme.colors[1] ],
+        colors : [ 1 ],
         size : 3
     }, {
         type : 'scatterpath',
         target : "q3",
         symbol : "rectangle",
-        colors : [ theme.colors[2] ],
+        colors : [ 2 ],
         size : 3
     }]
 });

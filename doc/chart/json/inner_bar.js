@@ -1,5 +1,4 @@
-var chart = jui.include("chart.builder"),
-    theme = jui.include("chart.theme.jennifer");
+var chart = jui.include("chart.builder");
 
 chart("#chart-content", {
     data : [
@@ -23,12 +22,12 @@ chart("#chart-content", {
     brush : [{
         type : "bar",
         target : "sales",
-        colors : [ theme.colors[0] ],
+        colors : [ 0 ],
         outerPadding : 15
     }, {
         type : "bar",
         target : "profit",
-        colors : [ theme.colors[2] ],
+        colors : [ 2 ],
         outerPadding : 30
     }],
     widget : [

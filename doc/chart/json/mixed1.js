@@ -1,5 +1,4 @@
-var chart = jui.include("chart.builder"),
-    theme = jui.include("chart.theme.pastel");
+var chart = jui.include("chart.builder");
 
 chart("#chart-content", {
     data : [
@@ -20,9 +19,9 @@ chart("#chart-content", {
         }
     },
     brush : [
-        { type : "column", target : "profit", colors : [ theme.colors[0] ] },
-        { type : "line", target : "sales", colors : [ theme.colors[2] ], symbol: "curve" },
-        { type : "scatter", target : "sales", colors : [ theme.colors[2] ], size: 10 }
+        { type : "column", target : "profit", colors : [ 0 ] },
+        { type : "line", target : "sales", colors : [ 2 ], symbol: "curve" },
+        { type : "scatter", target : "sales", colors : [ 2 ], size: 10 }
     ],
     widget : [
     	{ type : "title", text : "Combination Sample" },
