@@ -80,13 +80,13 @@ chart("#chart", {
                 full : true,
                 hide : true
             },
-            y : {
+            y1 : [{
                 type : "range",
                 domain : [ 20, 30 ],
                 step : 5,
                 line : false
-            },
-            size : [ "100%", "40%" ],
+            }],
+            size : [ "100%", "69%" ],
             data : dataSource
         },
         bottom : {
@@ -104,23 +104,23 @@ chart("#chart", {
             y : {
                 type : "range",
                 target : "v",
-                step: 5,
-                line : false,
-                hide : true
+                step: 5
             },
-            start : [ 0, "50%" ],
-            size : [ "100%", "50%" ],
+            start : [ 0, "70%" ],
+            size : [ "100%", "30%" ],
             data : dataSource
         }
     },
     brush : [{
         type : "area",
         target : "c",
-        axis : "top"
+        axis : "top",
+        y1 : 0
     }, {
         type : "line",
         target : "c",
-        axis : "top"
+        axis : "top",
+        y1 : 0
     }, {
         type : "column",
         target : "v",

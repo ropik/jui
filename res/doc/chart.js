@@ -102,7 +102,7 @@ var code_list = [
     { type : 'mixed', title : "Basic Combination",  description : "", code : "mixed1.js" },
     { type : 'mixed', title : "Multi Axis", description : "", code : "mixed2_multi_axis.js" },
     { type : 'mixed', title : "Compare Data", description : "", code : "bar_compare_layout.js" },
-    { type : 'mixed', title : "Stock Combination", description : "", code : "mixed3_layout.js" },
+    { type : 'mixed', title : "Stock Combination", description : "", code : "mixed3_axis.js" },
 
     // realtime chart
     { type : 'realtime', title : "Realtime Line",  description : "", code : "realtime_line.js" },
