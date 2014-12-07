@@ -77,7 +77,6 @@ chart("#chart", {
             x : {
                 type : "block",
                 target : "date",
-                full : true,
                 hide : true
             },
             y1 : {
@@ -127,13 +126,27 @@ chart("#chart", {
             data : dataSource
         }
     },
+    series : {
+        l: {
+            type: "low",
+            text: "Low"
+        },
+        h: {
+            type: "high",
+            text: "High"
+        },
+        o: {
+            type: "open",
+            text: "Open"
+        },
+        c: {
+            type: "close",
+            text: "Close"
+        }
+    },
     brush : [{
-        type : "area",
-        target : "c",
-        axis : "top"
-    }, {
-        type : "line",
-        target : "c",
+        type : "candlestick",
+        target : [ "l", "h", "o", "c" ],
         axis : "top"
     }, {
         type : "column",
