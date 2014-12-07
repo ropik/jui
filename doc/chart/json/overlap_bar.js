@@ -19,9 +19,7 @@ chart("#chart-content", {
             format : function(d) {
                 return "$" + d + "B";
             },
-            target : function(d) {
-                return 500;
-            }
+            target : function(d) {return 500;}
         }
     },
     brush : {
