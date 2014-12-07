@@ -156,6 +156,9 @@ window.coreApi = {
         },
         size: {
             detail: "그리드의 넓이를 설정합니다."
+        },
+        axis: {
+            detail: "그리드 레이아웃을 설정합니다."
         }
     },
     widget: {
@@ -167,6 +170,8 @@ window.coreApi = {
         }
     },
     brush: {
-
+        axis: {
+            detail: "브러쉬의 기준 축을 설정합니다."
+        }
     }
 };

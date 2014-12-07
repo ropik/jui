@@ -102,6 +102,11 @@ var uiApi = {
             ret: "object",
             detail: "해당 이름의 그리드를 가져오거나 전체 그리드 목록을 가져옵니다."
         },
+        axis: {
+            param: "name",
+            ret: "object",
+            detail: "해당 이름의 그리드 그룹을 가져오거나 전체 그리드 그룹 목록을 가져옵니다."
+        },
         brush: {
             param: "name",
             ret: "array | obejct",
@@ -288,6 +293,9 @@ var uiApi = {
         },
         grid: {
             detail: "차트에서 사용할 그리드를 설정합니다."
+        },
+        axis: {
+            detail: "차트에서 사용할 그리드 그룹을 설정합니다."
         },
         brush: {
             detail: "차트에 추가할 브러쉬를 정합니다."
@@ -697,11 +705,19 @@ var widgetApi = {
         },
         filter: {
             detail: "브러쉬에서 선택된 라벨만 보이도록 필터링합니다."
+        },
+        brushSync: {
+            detail: "필터 기능을 사용할 때, 모든 브러쉬를 동일하게 적용합니다."
         }
     },
     cross: {
         format: {
             detail: "툴팁에 보여지는 값에 대한 포맷을 설정합니다."
+        }
+    },
+    pin: {
+        split: {
+            detail: "핀이 보여지는 위치(데이터 인덱스)를 설정합니다."
         }
     }
 };
