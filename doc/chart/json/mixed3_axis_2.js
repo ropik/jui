@@ -72,6 +72,7 @@ var dataSource = [
 var day_cnt = 0;
 
 chart("#chart", {
+    data : dataSource,
     axis : {
         top : {
             x : {
@@ -83,7 +84,7 @@ chart("#chart", {
                 type : "range",
                 domain : [ 20, 30 ],
                 step : 5,
-                line : false
+                line : true
             },
             size : {
                 width : "100%",
@@ -152,5 +153,9 @@ chart("#chart", {
         type : "column",
         target : "v",
         axis : "bottom"
-    }]
+    }],
+    widget : {
+        type : "tooltip",
+        brush : 0
+    }
 });
