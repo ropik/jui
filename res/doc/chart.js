@@ -114,7 +114,8 @@ var code_list = [
     { type : 'dashboard', title : "Stock Chart with Candle Stick", description : "", code : "mixed3_axis_2.js" },
 
     // event handling
-    { type : 'etc', title : "Brush Event",  description : "", code : "brush_event.js" }
+    { type : 'etc', title : "Set brush events",  description : "", code : "brush_event.js" },
+    { type : 'etc', title : "Set axis values",  description : "", code : "brush_axis_value.js" }
 ];
 
 function getTodayData() {
@@ -342,7 +343,7 @@ function loadChartList() {
 
         });
 
-        $el.append(chart.title)
+        $el.append(chart.title);
         $menu.append($el);
 
         var $submenu = $("<ul />").addClass("submenu");
