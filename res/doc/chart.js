@@ -18,7 +18,8 @@ var charts = [
     { type : 'stock', title : 'Candle Stick Chart', start : 50 },
     { type : 'mixed', title : 'Combination Chart', start : 54 },
     { type : 'realtime', title : 'Realtime Chart', start : 59 },
-    { type : 'event', title : "Event Handling", start : 62 }
+    { type : 'event', title : "Event Handling", start : 62 },
+    { type : 'dashboard', title : "DashBoard", start : 63 }
 ];
 
 var code_list = [
@@ -522,7 +523,7 @@ jui.ready([ "util.base" ], function(_) {
         var $el = $("<div />").html($("#tpl_col").html());
 
         (function(chart) {
-            if (chart.type == 'realtime') {
+            if (chart.type == 'realtime' || chart.type == 'dashboard') {
                 $el.addClass('col col-6');
             } else {
                 $el.addClass("col col-3");
@@ -533,7 +534,8 @@ jui.ready([ "util.base" ], function(_) {
                 'src': 'chart/img/' + chart.type + '.svg'
             }).css({
                 'max-width': '100%',
-                'max-height': '200px'
+                'max-height': '200px',
+                'height' : '200px'
             }).data('obj', chart).on('click', function (e) {
                 var obj = $(this).data('obj');
 
