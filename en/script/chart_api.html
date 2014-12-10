@@ -158,17 +158,17 @@ var uiApi = {
             detail: "해당 넓이와 높이로 차트 크기를 변경하여 렌더링합니다."
         },
         addBrush: {
-            param: "brush",
+            param: "brush, isNotRender",
             ret: "none",
             detail: "브러쉬를 추가하고 다시 렌더링합니다.."
         },
         removeBrush: {
-            param: "brushIndex",
+            param: "brushIndex, isNotRender",
             ret: "none",
             detail: "해당 인덱스의 브러쉬를 삭제하고 다시 렌더링합니다."
         },
         updateBrush: {
-            param: "brushIndex, brush",
+            param: "brushIndex, brush, isNotRender",
             ret: "none",
             detail: "해당 인덱스의 브러쉬를 업데이트하고 다시 렌더링합니다."
         },
@@ -351,6 +351,9 @@ var brushApi = {
         },
         display: {
             detail: "최소/최대 값의 컬럼에 툴팁을 보여줍니다. (min, max)"
+        },
+        minValue: {
+            detail: "값이 0일 경우에는 컬럼을 그릴 수 없기 때문에 최소 값을 설정합니다."
         }
     },
     bubble: {

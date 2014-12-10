@@ -492,7 +492,13 @@ jui.ready([ "util.base", "ui.dropdown", "uix.table", "uix.xtable", "uix.autocomp
 
     // 4-1. 기본
     table_1 = table("#table_1", {
-        data: _.clone(table_data),
+        data: _.clone(table_data_big),
+        animate: true
+    });
+
+    // 4-1-1. 셀 병합
+    table_12 = table("#table_12", {
+        data: _.clone(table_data_big),
         animate: true
     });
 

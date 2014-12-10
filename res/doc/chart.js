@@ -17,9 +17,9 @@ var charts = [
     { type : 'gauge', title : 'Gauge Chart', start : 43 },
     { type : 'stock', title : 'Candle Stick Chart', start : 50 },
     { type : 'mixed', title : 'Combination Chart', start : 54 },
-    { type : 'realtime', title : 'Realtime Chart', start : 59 },
-    { type : 'event', title : "Event Handling", start : 62 },
-    { type : 'dashboard', title : "DashBoard", start : 63 }
+    { type : 'realtime', title : 'Realtime Chart', start : 57 },
+    { type : 'dashboard', title : "DashBoard", start : 60 },
+    { type : 'etc', title : "ETC", start : 62 }
 ];
 
 var code_list = [
@@ -103,16 +103,18 @@ var code_list = [
     { type : 'mixed', title : "Basic Combination",  description : "", code : "mixed1.js" },
     { type : 'mixed', title : "Multi Axis", description : "", code : "mixed2_multi_axis.js" },
     { type : 'mixed', title : "Compare Data", description : "", code : "bar_compare_layout.js" },
-    { type : 'mixed', title : "Stock Chart (Axis group)", description : "", code : "mixed3_axis.js" },
-    { type : 'mixed', title : "Stock Chart with Candle Stick", description : "", code : "mixed3_axis_2.js" },
 
     // realtime chart
     { type : 'realtime', title : "Realtime Line",  description : "", code : "realtime_line.js" },
     { type : 'realtime', title : "Realtime Area",  description : "", code : "realtime_area.js" },
     { type : 'realtime', title : "Realtime Complex Line",  description : "", code : "realtime_line_complex.js" },
 
+    // dashboard
+    { type : 'dashboard', title : "Stock Chart (Axis group)", description : "", code : "mixed3_axis.js" },
+    { type : 'dashboard', title : "Stock Chart with Candle Stick", description : "", code : "mixed3_axis_2.js" },
+
     // event handling
-    { type : 'event', title : "Brush Event",  description : "", code : "brush_event.js" }
+    { type : 'etc', title : "Brush Event",  description : "", code : "brush_event.js" }
 ];
 
 function getTodayData() {
@@ -524,6 +526,7 @@ jui.ready([ "util.base" ], function(_) {
 
         (function(chart) {
             if (chart.type == 'realtime' || chart.type == 'dashboard') {
+                $el.find(".body img").css("width", "428px");
                 $el.addClass('col col-6');
             } else {
                 $el.addClass("col col-3");
@@ -550,7 +553,7 @@ jui.ready([ "util.base" ], function(_) {
             });
         })(charts[i]);
 
-        if(charts[i].type != "event") {
+        if(charts[i].type != "etc") {
             $row.append($el);
         }
     }
