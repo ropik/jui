@@ -158,17 +158,17 @@ var uiApi = {
             detail: "해당 넓이와 높이로 차트 크기를 변경하여 렌더링합니다."
         },
         addBrush: {
-            param: "brush, isNotRender",
+            param: "brush, isRender",
             ret: "none",
             detail: "브러쉬를 추가하고 다시 렌더링합니다.."
         },
         removeBrush: {
-            param: "brushIndex, isNotRender",
+            param: "brushIndex, isRender",
             ret: "none",
             detail: "해당 인덱스의 브러쉬를 삭제하고 다시 렌더링합니다."
         },
         updateBrush: {
-            param: "brushIndex, brush, isNotRender",
+            param: "brushIndex, brush, isRender",
             ret: "none",
             detail: "해당 인덱스의 브러쉬를 업데이트하고 다시 렌더링합니다."
         },
@@ -265,6 +265,9 @@ var uiApi = {
         },
         "bg.mouseup": {
             detail: "차트 여백에 마우스 왼쪽을 누른 후에 발생하는 이벤트입니다."
+        },
+        "legend.filter": {
+            detail: "레전드 위젯의 필터 기능이 실행되면 발생하는 이벤트입니다."
         }
     },
 	tpl: {
@@ -426,7 +429,13 @@ var brushApi = {
     stackcolumn: {
         outerPadding: {
             detail: "컬럼 바의 바깥쪽 여백을 정합니다."
-        }
+        },
+        active: {
+            detail: "해당 인덱스의 컬럼을 활성화시킵니다."
+        },
+        activeEvent: {
+            detail: "설정된 이벤트가 발생하면 해당 컬럼을 활성화시킵니다. (click, mouseover, ...)"
+        },
     },
     bargauge: {
         cut: {
@@ -768,6 +777,17 @@ var gridApi = {
         center: {
             detail: "기준 축의 위치를 가운데로 설정합니다."
         }
+    },
+    table: {
+        outerPadding: {
+            detail: "축의 바깥쪽 여백을 설정합니다."
+        },
+        column: {
+            detail: "해당 컬럼 인덱스 위치에 축을 그립니다."
+        },
+        row: {
+            detail: "해당 로우 인덱스 위치에 축을 그립니다."
+        }
     }
 }
 
@@ -815,7 +835,8 @@ jui.ready([ "chart.builder", "uix.tab", "util.base" ], function(builder, tab, _)
             "bg.mouseout": function() {},
             "bg.mousemove": function() {},
             "bg.mousedown": function() {},
-            "bg.mouseup": function() {}
+            "bg.mouseup": function() {},
+            "legend.filter": function() {}
         }
     });
 	

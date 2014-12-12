@@ -7,19 +7,19 @@ var realtimeInterval = null;
 var charts = [
     { type : 'bar', title : 'Bar Chart', start : 0 },
     { type : 'column', title : 'Column Chart', start : 6 },
-    { type : 'pie', title : 'Pie Chart', start : 16 },
-    { type : 'donut', title : 'Donut Chart', start : 18 },
-    { type : 'bubble', title : 'Bubble Chart', start : 19 },
-    { type : 'scatter', title : 'Scatter Chart', start : 21 },
-    { type : 'area', title : 'Area Chart', start : 25 },
-    { type : 'radar', title : 'Radar Chart', start : 32 },
-    { type : 'line', title : 'Line Chart', start : 34 },
-    { type : 'gauge', title : 'Gauge Chart', start : 43 },
-    { type : 'stock', title : 'Candle Stick Chart', start : 50 },
-    { type : 'mixed', title : 'Combination Chart', start : 54 },
-    { type : 'realtime', title : 'Realtime Chart', start : 57 },
-    { type : 'dashboard', title : "DashBoard", start : 60 },
-    { type : 'etc', title : "ETC", start : 62 }
+    { type : 'pie', title : 'Pie Chart', start : 17 },
+    { type : 'donut', title : 'Donut Chart', start : 19 },
+    { type : 'bubble', title : 'Bubble Chart', start : 20 },
+    { type : 'scatter', title : 'Scatter Chart', start : 22 },
+    { type : 'area', title : 'Area Chart', start : 26 },
+    { type : 'radar', title : 'Radar Chart', start : 33 },
+    { type : 'line', title : 'Line Chart', start : 35 },
+    { type : 'gauge', title : 'Gauge Chart', start : 44 },
+    { type : 'stock', title : 'Candle Stick Chart', start : 51 },
+    { type : 'mixed', title : 'Combination Chart', start : 55 },
+    { type : 'realtime', title : 'Realtime Chart', start : 58 },
+    { type : 'dashboard', title : "DashBoard", start : 61 },
+    { type : 'etc', title : "ETC", start : 63 }
 ];
 
 var code_list = [
@@ -35,6 +35,7 @@ var code_list = [
     { type : 'column', title : "Basic Column", description : "", code : "column.js" },
     { type : 'column', title : "Stack Column", description : "", code : "stack_column.js" },
     { type : 'column', title : "Full Stack Column", description : "", code : "fullstack.js" },
+    { type : 'column', title : "Active Stack Column", description : "", code : "active_stack_column.js" },
     { type : 'column', title : "Inner Column", description : "", code : "inner_column.js" },
     { type : 'column', title : "Overlap Column", description : "", code : "overlap_column.js" },
     { type : 'column', title : "Active Column", description : "", code : "active_column.js" },

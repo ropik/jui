@@ -42,15 +42,10 @@ window.coreApi = {
             ret: "none",
             detail: "emit 메소드가 호출되면 on 메소드의 정의된 콜백 함수가 실행됩니다."
         },
-        bind: {
-            param: "eventType, callback",
+        off: {
+            param: "eventType | callback",
             ret: "none",
-            detail: "on 메소드와 동일하지만 이벤트를 중복으로 설정할 수 없습니다."
-        },
-        unbind: {
-            param: "eventType",
-            ret: "none",
-            detail: "bind 메소드로 설정된 이벤트를 제거합니다."
+            detail: "해당 타입 또는 콜백 핸들러의 커스텀 이벤트를 제거합니다."
         },
         addEvent: {
             param: "selector, domEventType, callback",
