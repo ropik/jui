@@ -5,37 +5,43 @@ var realtimeIndex = 0;
 var realtimeInterval = null;
 
 var charts = [
-    { type : 'bar', title : 'Bar Chart', start : 0 },
-    { type : 'column', title : 'Column Chart', start : 6 },
-    { type : 'pie', title : 'Pie Chart', start : 17 },
-    { type : 'donut', title : 'Donut Chart', start : 19 },
-    { type : 'bubble', title : 'Bubble Chart', start : 20 },
-    { type : 'scatter', title : 'Scatter Chart', start : 22 },
-    { type : 'area', title : 'Area Chart', start : 26 },
-    { type : 'radar', title : 'Radar Chart', start : 33 },
-    { type : 'line', title : 'Line Chart', start : 35 },
-    { type : 'gauge', title : 'Gauge Chart', start : 44 },
-    { type : 'stock', title : 'Candle Stick Chart', start : 51 },
-    { type : 'mixed', title : 'Combination Chart', start : 55 },
-    { type : 'realtime', title : 'Realtime Chart', start : 58 },
-    { type : 'dashboard', title : "DashBoard", start : 61 },
-    { type : 'etc', title : "ETC", start : 63 }
+    { type : 'etc', title : "Basic", start : 0 },
+    { type : 'bar', title : 'Bar Chart', start : 2 },
+    { type : 'column', title : 'Column Chart', start : 10 },
+    { type : 'pie', title : 'Pie Chart', start : 21 },
+    { type : 'donut', title : 'Donut Chart', start : 23 },
+    { type : 'bubble', title : 'Bubble Chart', start : 25 },
+    { type : 'scatter', title : 'Scatter Chart', start : 26 },
+    { type : 'area', title : 'Area Chart', start : 30 },
+    { type : 'radar', title : 'Radar Chart', start : 37 },
+    { type : 'line', title : 'Line Chart', start : 39 },
+    { type : 'gauge', title : 'Gauge Chart', start : 48 },
+    { type : 'stock', title : 'Candle Stick Chart', start : 55 },
+    { type : 'mixed', title : 'Combination Chart', start : 59 },
+    { type : 'realtime', title : 'Realtime Chart', start : 62 },
+    { type : 'dashboard', title : "Dashboard", start : 65 }
 ];
 
 var code_list = [
+    // event handling
+    { type : 'etc', title : "Set brush events",  description : "", code : "brush_event.js" },
+    { type : 'etc', title : "Set axis values",  description : "", code : "brush_axis_value.js" },
+
     // bar
     { type : 'bar', title : "Basic Bar", description : "", code : "bar.js" },
     { type : 'bar', title : "Stack Bar", description : "", code : "stack_bar.js" },
+    { type : 'bar', title : "Active Stack Bar", description : "", code : "active_stack_bar.js" },
     { type : 'bar', title : "Inner Bar", description : "", code : "inner_bar.js" },
     { type : 'bar', title : "Overlap Bar", description : "", code : "overlap_bar.js" },
+    { type : 'bar', title : "Active Bar", description : "", code : "active_bar.js" },
     { type : 'bar', title : "Mini Bar", description : "", code : "mini_bar.js" },
     { type : 'bar', title : "Range Bar", description : "", code : "rangebar.js" },
 
     // column
     { type : 'column', title : "Basic Column", description : "", code : "column.js" },
     { type : 'column', title : "Stack Column", description : "", code : "stack_column.js" },
-    { type : 'column', title : "Full Stack Column", description : "", code : "fullstack.js" },
     { type : 'column', title : "Active Stack Column", description : "", code : "active_stack_column.js" },
+    { type : 'column', title : "Full Stack Column", description : "", code : "fullstack.js" },
     { type : 'column', title : "Inner Column", description : "", code : "inner_column.js" },
     { type : 'column', title : "Overlap Column", description : "", code : "overlap_column.js" },
     { type : 'column', title : "Active Column", description : "", code : "active_column.js" },
@@ -112,11 +118,7 @@ var code_list = [
 
     // dashboard
     { type : 'dashboard', title : "Stock Chart (Axis group)", description : "", code : "mixed3_axis.js" },
-    { type : 'dashboard', title : "Stock Chart with Candle Stick", description : "", code : "mixed3_axis_2.js" },
-
-    // event handling
-    { type : 'etc', title : "Set brush events",  description : "", code : "brush_event.js" },
-    { type : 'etc', title : "Set axis values",  description : "", code : "brush_axis_value.js" }
+    { type : 'dashboard', title : "Stock Chart with Candle Stick", description : "", code : "mixed3_axis_2.js" }
 ];
 
 function getTodayData() {

@@ -337,6 +337,18 @@ var brushApi = {
         },
         innerPadding: {
             detail: "바의 안쪽 여백을 정합니다."
+        },
+        active: {
+            detail: "해당 인덱스의 바를 활성화시킵니다."
+        },
+        activeEvent: {
+            detail: "설정된 이벤트가 발생하면 해당 바을 활성화시킵니다. (click, mouseover, ...)"
+        },
+        display: {
+            detail: "최소/최대 값의 바에 툴팁을 보여줍니다. (min, max)"
+        },
+        minValue: {
+            detail: "값이 0일 경우에는 바를 그릴 수 없기 때문에 최소 값을 설정합니다."
         }
     },
     column: {
@@ -424,6 +436,12 @@ var brushApi = {
     stackbar: {
         outerPadding: {
             detail: "스택 바의 바깥쪽 여백을 정합니다."
+        },
+        active: {
+            detail: "해당 인덱스의 스택 바를 활성화시킵니다."
+        },
+        activeEvent: {
+            detail: "설정된 이벤트가 발생하면 해당 스택 바를 활성화시킵니다. (click, mouseover, ...)"
         }
     },
     stackcolumn: {
@@ -435,7 +453,7 @@ var brushApi = {
         },
         activeEvent: {
             detail: "설정된 이벤트가 발생하면 해당 컬럼을 활성화시킵니다. (click, mouseover, ...)"
-        },
+        }
     },
     bargauge: {
         cut: {
