@@ -41,11 +41,11 @@ chart("#chart", {
     axis : {
         top1 : {
             x : {
-                type : "block",
-                target : "date",
-                format : function(d) {
-                    return time.format(d, "MM-dd");
-                }
+                type : "date",
+                domain : [ lineData[0].date, lineData[lineData.length - 1].date ],
+                step : [ time.days, 1 ],
+                format : "MM-dd",
+                key: "date"
             },
             y : {
                 type : "range",
@@ -59,11 +59,8 @@ chart("#chart", {
         },
         top2 : {
             x : {
-                type : "block",
-                target : "date",
-                format : function(d) {
-                    return "";
-                }
+                extend : "top1",
+                hide : true
             },
             y : {
                 extend : "top1"
