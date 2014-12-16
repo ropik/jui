@@ -594,7 +594,7 @@ jui.ready([ "chart.builder" ], function(builder) {
                     var file = this.list[i].file;
 
                     var $img = $("<img />").attr({
-                        'src' : '../../doc/chart/img/' + type + ".svg",
+                        'src' : '../../res/doc/chart/img/' + type + ".svg",
                         'data-value' : type,
                         'data-file' : file
                     }).css({
@@ -618,7 +618,7 @@ jui.ready([ "chart.builder" ], function(builder) {
             },
             createPopup : function(type, file, saveCallback) {
                 $.ajax({
-                    url : "../../doc/chart/json/" + (file || type) + ".js",
+                    url : "../../res/doc/chart/json/" + (file || type) + ".js",
                     dataType : 'text',
                     success : function (data) {
                         data = data.replace(").render();", "");

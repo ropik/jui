@@ -436,7 +436,7 @@ function viewCodeEditor() {
     }
 
     $.ajax({
-        url : 'chart/json/' + code.code,
+        url : '../res/doc/chart/json/' + code.code,
         dataType : 'text',
         success : function (data) {
             if(code.code == "bar_compare.js") {
@@ -528,36 +528,36 @@ jui.ready([ "util.base" ], function(_) {
     for(var i = 0, len = charts.length; i <len; i++ ) {
         var $el = $("<div />").html($("#tpl_col").html());
 
-        (function(chart) {
-            if (chart.type == 'realtime' || chart.type == 'dashboard') {
-                $el.find(".body img").css("width", "428px");
-                $el.addClass('col col-6');
-            } else {
-                $el.addClass("col col-3");
-            }
-
-            $el.find(".head").html(chart.title);
-            $el.find(".body img").attr({
-                'src': 'chart/img/' + chart.type + '.svg'
-            }).css({
-                'max-width': '100%',
-                'max-height': '200px',
-                'height' : '200px'
-            }).data('obj', chart).on('click', function (e) {
-                var obj = $(this).data('obj');
-
-                currentChartIndex = obj.start;
-                viewCodeEditor();
-
-                // 차트플레이 활성화 메뉴 설정
-                $(".vmenu .active").removeClass("active");
-                var $target = $("a[data-index=" + currentChartIndex + "]");
-                $target.parent().addClass('active');
-                $(".chart_list").scrollTop($target.offset().top - $("body").scrollTop() - 200);
-            });
-        })(charts[i]);
-
         if(charts[i].type != "etc") {
+            (function (chart) {
+                if (chart.type == 'realtime' || chart.type == 'dashboard') {
+                    $el.find(".body img").css("width", "428px");
+                    $el.addClass('col col-6');
+                } else {
+                    $el.addClass("col col-3");
+                }
+
+                $el.find(".head").html(chart.title);
+                $el.find(".body img").attr({
+                    'src': '../res/doc/chart/img/' + chart.type + '.svg'
+                }).css({
+                    'max-width': '100%',
+                    'max-height': '200px',
+                    'height': '200px'
+                }).data('obj', chart).on('click', function (e) {
+                    var obj = $(this).data('obj');
+
+                    currentChartIndex = obj.start;
+                    viewCodeEditor();
+
+                    // 차트플레이 활성화 메뉴 설정
+                    $(".vmenu .active").removeClass("active");
+                    var $target = $("a[data-index=" + currentChartIndex + "]");
+                    $target.parent().addClass('active');
+                    $(".chart_list").scrollTop($target.offset().top - $("body").scrollTop() - 200);
+                });
+            })(charts[i]);
+
             $row.append($el);
         }
     }
