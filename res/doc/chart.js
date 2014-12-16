@@ -18,8 +18,8 @@ var charts = [
     { type : 'gauge', title : 'Gauge Chart', start : 49 },
     { type : 'stock', title : 'Candle Stick Chart', start : 56 },
     { type : 'mixed', title : 'Combination Chart', start : 60 },
-    { type : 'realtime', title : 'Realtime Chart', start : 63 },
-    { type : 'dashboard', title : "Dashboard", start : 66 }
+    { type : 'realtime', title : 'Realtime Chart', start : 64 },
+    { type : 'dashboard', title : "Dashboard", start : 67 }
 ];
 
 var code_list = [
@@ -111,6 +111,7 @@ var code_list = [
     { type : 'mixed', title : "Basic Combination",  description : "", code : "mixed1.js" },
     { type : 'mixed', title : "Multi Axis", description : "", code : "mixed2_multi_axis.js" },
     { type : 'mixed', title : "Compare Data", description : "", code : "bar_compare_layout.js" },
+    { type : 'mixed', title : "Mixed daily and intra-day", description : "", code : "mixed4_linebar.js" },
 
     // realtime chart
     { type : 'realtime', title : "Realtime Line",  description : "", code : "realtime_line.js" },

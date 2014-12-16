@@ -69,8 +69,6 @@ var dataSource = [
     { date: new Date(1994,4,28), l: 25.75, h: 28.25, o: 28.00, c: 27.25, v: 1909200 }
 ];
 
-var day_cnt = 0;
-
 chart("#chart", {
     axis : {
         top : {
@@ -96,9 +94,7 @@ chart("#chart", {
             x : {
                 type : "block",
                 target : "date",
-                format : function(d) {
-                    day_cnt++;
-
+                format : function(d, day_cnt) {
                     if(day_cnt % 7 == 0) {
                         return time.format(d, "MM-dd");
                     }
