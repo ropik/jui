@@ -22,11 +22,11 @@ chart("#chart", {
         }
     },
     grid : {
-        x : {
+        y1 : {
             target : "quarter",
             line : true
         },
-        y1 : {
+        x : {
             type : "range",
             domain : [ 0, 100 ],
             format : function(value) {
@@ -36,12 +36,12 @@ chart("#chart", {
         }
     },
     brush : {
-        type : "fullstackcolumn",
+        type : "fullstackbar",
         target : [ "samsung", "lg", "sony" ],
         showText : true
     },
     widget : [
-        { type : "title", text : "Column Sample" },
+        { type : "title", text : "Bar Sample" },
         { type : "legend", filter : true }
     ]
 });

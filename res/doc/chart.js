@@ -7,19 +7,19 @@ var realtimeInterval = null;
 var charts = [
     { type : 'etc', title : "Basic", start : 0 },
     { type : 'bar', title : 'Bar Chart', start : 2 },
-    { type : 'column', title : 'Column Chart', start : 10 },
-    { type : 'pie', title : 'Pie Chart', start : 21 },
-    { type : 'donut', title : 'Donut Chart', start : 23 },
-    { type : 'bubble', title : 'Bubble Chart', start : 25 },
-    { type : 'scatter', title : 'Scatter Chart', start : 26 },
-    { type : 'area', title : 'Area Chart', start : 30 },
-    { type : 'radar', title : 'Radar Chart', start : 37 },
-    { type : 'line', title : 'Line Chart', start : 39 },
-    { type : 'gauge', title : 'Gauge Chart', start : 48 },
-    { type : 'stock', title : 'Candle Stick Chart', start : 55 },
-    { type : 'mixed', title : 'Combination Chart', start : 59 },
-    { type : 'realtime', title : 'Realtime Chart', start : 62 },
-    { type : 'dashboard', title : "Dashboard", start : 65 }
+    { type : 'column', title : 'Column Chart', start : 11 },
+    { type : 'pie', title : 'Pie Chart', start : 22 },
+    { type : 'donut', title : 'Donut Chart', start : 24 },
+    { type : 'bubble', title : 'Bubble Chart', start : 26 },
+    { type : 'scatter', title : 'Scatter Chart', start : 27 },
+    { type : 'area', title : 'Area Chart', start : 31 },
+    { type : 'radar', title : 'Radar Chart', start : 38 },
+    { type : 'line', title : 'Line Chart', start : 40 },
+    { type : 'gauge', title : 'Gauge Chart', start : 49 },
+    { type : 'stock', title : 'Candle Stick Chart', start : 56 },
+    { type : 'mixed', title : 'Combination Chart', start : 60 },
+    { type : 'realtime', title : 'Realtime Chart', start : 63 },
+    { type : 'dashboard', title : "Dashboard", start : 66 }
 ];
 
 var code_list = [
@@ -31,6 +31,7 @@ var code_list = [
     { type : 'bar', title : "Basic Bar", description : "", code : "bar.js" },
     { type : 'bar', title : "Stack Bar", description : "", code : "stack_bar.js" },
     { type : 'bar', title : "Active Stack Bar", description : "", code : "active_stack_bar.js" },
+    { type : 'bar', title : "Full Stack Bar", description : "", code : "fullstackbar.js" },
     { type : 'bar', title : "Inner Bar", description : "", code : "inner_bar.js" },
     { type : 'bar', title : "Overlap Bar", description : "", code : "overlap_bar.js" },
     { type : 'bar', title : "Active Bar", description : "", code : "active_bar.js" },
