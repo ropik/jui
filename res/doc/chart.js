@@ -10,7 +10,7 @@ var charts = [
     { type : 'column', title : 'Column Chart', start : 11 },
     { type : 'pie', title : 'Pie Chart', start : 22 },
     { type : 'donut', title : 'Donut Chart', start : 24 },
-    { type : 'bubble', title : 'Bubble Chart', start : 26 },
+    { type : 'bubble', title : 'Bubble Chart', start : 25 },
     { type : 'scatter', title : 'Scatter Chart', start : 27 },
     { type : 'area', title : 'Area Chart', start : 31 },
     { type : 'radar', title : 'Radar Chart', start : 38 },

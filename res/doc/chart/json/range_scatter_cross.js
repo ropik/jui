@@ -54,12 +54,11 @@ chart("#chart", {
         text : "Scatter Sample"
     }, {
         type : "cross",
-        format : function(d) {
-            if(typeof(d) == "number") {
-                return Math.round(d);
-            } else {
-                return time.format(d, "hh:mm");
-            }
+        xFormat : function(d) {
+            return time.format(d, "hh:mm");
+        },
+        yFormat : function(d) {
+            return Math.round(d);
         }
     }, {
         type : "tooltip"
