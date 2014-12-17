@@ -41,11 +41,9 @@ chart("#chart", {
     axis : {
         top1 : {
             x : {
-                type : "date",
-                domain : [ lineData[0].date, lineData[lineData.length - 1].date ],
-                step : [ time.days, 1 ],
-                format : "MM-dd",
-                key: "date"
+                type : "block",
+                target : "date",
+                hide : true
             },
             y : {
                 type : "range",
@@ -59,8 +57,11 @@ chart("#chart", {
         },
         top2 : {
             x : {
-                extend : "top1",
-                hide : true
+                type : "date",
+                domain : [ lineData[0].date, lineData[lineData.length - 1].date ],
+                step : [ time.days, 1 ],
+                format : "MM-dd",
+                key: "date"
             },
             y : {
                 extend : "top1"
