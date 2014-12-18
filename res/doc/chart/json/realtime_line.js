@@ -14,12 +14,11 @@ var c = chart("#chart", {
         type : "legend"
     }, {
         type : "cross",
-        format : function(d) {
-            if(typeof(d) == "number") {
-                return Math.round(d);
-            } else {
-                return time.format(d, "hh:mm:ss");
-            }
+        xFormat : function(d) {
+            return time.format(d, "hh:mm:ss");
+        },
+        yFormat : function(d) {
+            return Math.round(d);
         }
     }, {
         type : "tooltip"
