@@ -174,7 +174,7 @@ function changeTheme(theme) {
     var chart = jui.get("chart.builder").pop();
 
     if(typeof(chart.options.theme) != "object") {
-        chart.list[chart.list.length - 1].setTheme(theme);
+        chart[chart.length - 1].setTheme(theme);
     }
 
     if(table_2 != null) {
@@ -289,7 +289,7 @@ function resetChart() {
 
     for(var i = 0; i < charts.length; i++) {
         if(charts[i].type == "chartx.realtime") {
-            var list = charts[i].list;
+            var list = charts[i];
 
             for(var j = 0; j < list.length; j++) {
                 list[j].stop();
@@ -430,7 +430,7 @@ function viewCodeEditor() {
                 $.globalEval(cm.getValue());
 
                 var chart = jui.get("chart.builder").pop();
-                window.currentChart = chart.list[chart.list.length -1];
+                window.currentChart = chart[chart.length -1];
             } catch(e) {
                 console.log(e);
             }

@@ -29,7 +29,7 @@ jui.ready(function(ui, uix, _) {
 					ui_table_info = uix.table("#mng_info_table", {
 						expand: "auto",
 						resize: true,
-						rows: p_jui.getAll()
+						data: p_jui.getAll()
 					});
 				}
 			}
@@ -69,7 +69,7 @@ function juiSetTotalCount() {
 	var o_cnt = 0, e_cnt = 0, c_cnt = 0;
 
 	for(var i = 0; i < p_jui.size(); i++) {
-		var ui_list = p_jui.get(i).list;
+		var ui_list = p_jui.get(i);
 		o_cnt += ui_list.length;
 
 		for(var j = 0; j < ui_list.length; j++) {
@@ -91,7 +91,7 @@ function juiSetTypeCount() {
 	    counts = {};
 
 	for(var i = 0; i < types.length; i++) {
-		var uiList = p_jui.get(types[i]);
+		var uiList = p_jui.get(types[i].type);
 
 		counts[types[i].type] = {
 			caller: uiList.length,
@@ -99,16 +99,10 @@ function juiSetTypeCount() {
 		}
 
 		for(var j = 0; j < uiList.length; j++) {
-			counts[types[i]].obj += uiList[j].list.length;
+			counts[types[i].type].obj += uiList[j].length;
 		}
 	}
 
-	$("#mng_sum_table_type").html(
-		template($("#tpl_sum_type").html(), { counts: counts })
-	);
-}
-
-function juiSetUiInfo() {
 	$("#mng_sum_table_type").html(
 		template($("#tpl_sum_type").html(), { counts: counts })
 	);
@@ -226,7 +220,7 @@ h3 {
 						<!= JSON.stringify(options) !>
 						<! } else { !>{}<! } !>
 					</td>
-					<td><!= list.length !></td>
+					<td><!= length !></td>
 				</tr>
 			</script>
 		</div>
@@ -301,16 +295,20 @@ h3 {
 			<thead>
 				<tr>
 					<! for(var key in counts) { !>
-					<th><!= key !></th>
+						<! if(counts[key].caller > 0) { !>
+						<th><!= key !></th>
+						<! } !>
 					<! } !>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<! for(var key in counts) { !>
-					<td>
-						<!= counts[key].caller !>, <!= counts[key].obj !>
-					</td>
+						<! if(counts[key].caller > 0) { !>
+						<td>
+							<!= counts[key].caller !>, <!= counts[key].obj !>
+						</td>
+						<! } !>
 					<! } !>
 				</tr>
 			</tbody>
