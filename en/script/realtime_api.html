@@ -8,10 +8,11 @@
 <link rel="stylesheet" href="../../lib/jui/jui.min.css" />
 <script src="../../lib/jquery-1.8.0.min.js"></script>
 <script src="../../lib/jquery.binder.js"></script>
-<script src="../../lib/jui/jui.min.js"></script>
+<script src="../../lib/jui/jui.js"></script>
 <link rel="stylesheet" href="../../res/manual.css" />
 <script src="api_core.js"></script>
 <script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
 
 <script>
 var uiApi = {
@@ -91,21 +92,6 @@ var uiApi = {
         }
 	}
 };
-
-jui.ready([ "chartx.realtime", "util.base" ], function(realtime, _) {
-	var ui = realtime("#ui", {
-        brush : {
-            type : "line",
-            target : [ "s1", "s2", "s3" ]
-        }
-    });
-	
-	juiApi(ui, uiApi, _.template, function() {
-		$("#api_tpl").hide();
-        $("#api_event").hide();
-	});
-});
-
 </script>
 </head>
 <body class="jui">
@@ -115,7 +101,7 @@ jui.ready([ "chartx.realtime", "util.base" ], function(realtime, _) {
 </div>
 
 <div class="hidden">
-	<div id="ui"></div>
+	<div id="realtime"></div>
 </div>
 
 </body>

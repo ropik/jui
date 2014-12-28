@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="../../res/manual.css" />
 <script src="api_core.js"></script>
 <script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
 
 <script>
 var uiApi = {
@@ -110,22 +111,6 @@ var uiApi = {
 		}
 	}
 };
-
-jui.ready(function(ui, uix, _) {
-	var ui = uix.window("#ui", { 
-		event: {
-			show: function() {},
-			hide: function() {},
-			resize: function() {},
-			move: function() {}
-		}
-	});
-	
-	juiApi(ui, uiApi, _.template, function() {
-		$("#api_tpl").hide();
-	});
-});
-
 </script>
 </head>
 <body class="jui">
@@ -135,7 +120,7 @@ jui.ready(function(ui, uix, _) {
 </div>
 
 <div class="hidden">
-	<div id="ui" class="window">
+	<div id="window" class="window">
 		<div class="head">
 			<div class="left">HOME</div>
 			<div class="right">

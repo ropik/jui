@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="../../res/manual.css" />
 <script src="api_core.js"></script>
 <script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
 
 <script>
 var uiApi = {
@@ -73,19 +74,6 @@ var uiApi = {
 		}
 	}
 };
-
-jui.ready(function(ui, uix, _) {
-	var ui = ui.paging("#ui", {
-		event: {
-			page: function() {}
-		}
-	});
-	
-	juiApi(ui, uiApi, _.template, function() {
-
-	});
-});
-
 </script>
 </head>
 <body class="jui">
@@ -95,13 +83,13 @@ jui.ready(function(ui, uix, _) {
 </div>
 
 <div class="hidden">
-	<div id="ui" class="paging" style="width: 100%; margin-top: 3px;">
+	<div id="paging" class="paging" style="width: 100%; margin-top: 3px;">
 		<a href="#" class="prev">Previous</a>
 		<div class="list"></div>
 		<a href="#" class="next">Next</a>
 	</div>
 	
-	<script data-jui="#ui" data-tpl="pages" type="text/template">
+	<script data-jui="#paging" data-tpl="pages" type="text/template">
 		<! for(var i = 0; i < pages.length; i++) { !>
 			<a href="#" class="page"><!= pages[i] !></a>
 		<! } !>

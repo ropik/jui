@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="../../res/manual.css" />
 <script src="api_core.js"></script>
 <script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
 
 <script>
 var uiApi = {
@@ -407,44 +408,6 @@ var uiApi = {
 		}
 	}
 };
-
-jui.ready(function(ui, uix, _) {
-	var ui = uix.table("#ui", {
-		tpl: {
-			row: ".",
-			menu: ".",
-			expand: ".",
-			none: "."
-		},
-		event: {
-			select: function() {},
-			click: function() {},
-			dblclick: function() {},
-			sort: function() {},
-			scroll: function() {},
-			rowmenu: function() {},
-            colclick: function() {},
-            coldblclick: function() {},
-			colmenu: function() {},
-			colshow: function() {},
-			colhide: function() {},
-			colresize: function() {},
-			editstart: function() {},
-			editend: function() {},
-			expand: function() {},
-			expandend: function() {},
-			open: function() {},
-			fold: function() {},
-			openall: function() {},
-			foldall: function() {}
-		}
-	});
-	
-	juiApi(ui, uiApi, _.template, function() {
-
-	});
-});
-
 </script>
 </head>
 <body class="jui">
@@ -552,7 +515,7 @@ jui.ready(function(ui, uix, _) {
 </div>
 
 <div class="hidden">
-	<table id="ui" class="table table-simple table-headline">
+	<table id="table" class="table table-simple table-headline">
 		<thead>
 			<tr>
 				<th>Name</th>
@@ -563,7 +526,7 @@ jui.ready(function(ui, uix, _) {
 		<tbody></tbody>
 	</table>
 		
-	<script data-jui="#ui" data-tpl="row" type="text/template">
+	<script data-jui="#table" data-tpl="row" type="text/template">
 		<tr>
 			<td><!= name !></td>
 			<td><!= age !></td>

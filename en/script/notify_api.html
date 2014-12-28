@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="../../res/manual.css" />
 <script src="api_core.js"></script>
 <script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
 
 <script>
 var uiApi = {
@@ -72,24 +73,6 @@ var uiApi = {
 		}
 	}
 };
-
-jui.ready(function(ui, uix, _) {
-	var ui = ui.notify("body", { 
-		event: {
-			select: function() {},
-			show: function() {},
-			hide: function() {}
-		},
-		tpl: {
-			alarm: $("#tpl_notify").html()
-		}
-	});
-	
-	juiApi(ui, uiApi, _.template, function() {
-		//$("#api_tpl").hide();
-	});
-});
-
 </script>
 </head>
 <body class="jui">
@@ -98,7 +81,7 @@ jui.ready(function(ui, uix, _) {
 	<h1>Notify</h1>
 </div>
 
-<div class="hidden">
+<div id="notify" class="hidden">
 	<script id="tpl_notify" type="text/template">
 	    <div class="notify notify-<!= color !>">
 	        <div class="title"><!= title !></div>

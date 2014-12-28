@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="../../res/manual.css" />
 <script src="api_core.js"></script>
 <script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
 
 <script>
 var uiApi = {
@@ -63,22 +64,6 @@ var uiApi = {
 		}
 	}
 };
-
-jui.ready(function(ui, uix, _) {
-	var ui = ui.tooltip("#ui", {
-        event: {
-            show: function() {},
-            hide: function() {}
-        },
-        tpl: {
-            message: "."
-        }
-    });
-	
-	juiApi(ui, uiApi, _.template, function() {
-	});
-});
-
 </script>
 </head>
 <body class="jui">
@@ -88,7 +73,7 @@ jui.ready(function(ui, uix, _) {
 </div>
 
 <div class="hidden">
-	<span id="ui" title="Tooltip left">Run</span>
+	<span id="tooltip" title="Tooltip left">Run</span>
 </div>
 
 </body>

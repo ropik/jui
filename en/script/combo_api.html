@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="../../res/manual.css" />
 <script src="api_core.js"></script>
 <script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
 
 <script>
 var uiApi = {
@@ -93,19 +94,6 @@ var uiApi = {
 		}
 	}
 };
-
-jui.ready(function(ui, uix, _) {
-	var ui = ui.combo("#ui", {
-		event: {
-			change: function() {}
-		}
-	});
-	
-	juiApi(ui, uiApi, _.template, function() {
-		$("#api_tpl").hide();
-	});
-});
-
 </script>
 </head>
 <body class="jui">
@@ -115,7 +103,7 @@ jui.ready(function(ui, uix, _) {
 </div>
 
 <div class="hidden">
-	<div id="ui" class="combo combo-black">
+	<div id="combo" class="combo combo-black">
 		<a class="btn btn-black btn-small">Select...</a>
 		<ul>
 			<li><a href="#" value="menu1">New</a></li>

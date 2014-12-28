@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="../../res/manual.css" />
 <script src="api_core.js"></script>
 <script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
 
 <script>
 var uiApi = {
@@ -100,22 +101,6 @@ var uiApi = {
 		}
 	}
 };
-
-jui.ready(function(ui, uix, _) {
-	var ui = ui.dropdown("#ui", {
-		event: {
-			change: function() {},
-			show: function() {},
-			hide: function() {},
-			reload: function() {}
-		}
-	});
-	
-	juiApi(ui, uiApi, _.template, function() {
-		
-	});
-});
-
 </script>
 </head>
 <body class="jui">
@@ -125,7 +110,7 @@ jui.ready(function(ui, uix, _) {
 </div>
 
 <div class="hidden">
-	<div id="ui" class="dropdown dropdown-large">
+	<div id="dropdown" class="dropdown dropdown-large">
 		<ul style="width: 150px;">
 			<li value="1">Dropdown 1</li>
 			<li class="divider"></li>
@@ -135,7 +120,7 @@ jui.ready(function(ui, uix, _) {
 		</ul>
 	</div>
 	
-	<script data-jui="#ui" data-tpl="node" type="text/template">
+	<script data-jui="#dropdown" data-tpl="node" type="text/template">
 		<li value='<!= value !>'><!= text !></li>
 	</script>
 </div>

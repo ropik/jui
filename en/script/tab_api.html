@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="../../res/manual.css" />
 <script src="api_core.js"></script>
 <script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
 
 <script>
 var uiApi = {
@@ -98,22 +99,6 @@ var uiApi = {
 		}
 	}
 };
-
-jui.ready(function(ui, uix, _) {
-	var ui = uix.tab("#ui", {
-		event: {
-			change: function(data) {},
-			changeMenu: function(data) {},
-			dragstart: function() {},
-			dragend: function() {}
-		}
-	});
-	
-	juiApi(ui, uiApi, _.template, function() {
-
-	});
-});
-
 </script>
 </head>
 <body class="jui">
@@ -123,7 +108,7 @@ jui.ready(function(ui, uix, _) {
 </div>
 
 <div class="hidden">
-	<ul id="ui" class="tab tab-top">
+	<ul id="tab" class="tab tab-top">
 		<li>
 			<a href="#home">Home</a>
 		</li>
@@ -140,7 +125,7 @@ jui.ready(function(ui, uix, _) {
 		<div id="script">script</div>
 	</div>
 	
-	<script data-jui="#ui" data-tpl="menu" type="text/template">
+	<script data-jui="#tab" data-tpl="menu" type="text/template">
 		<div class="dropdown">
 			<div class="anchor"></div>
 			

@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="../../res/manual.css" />
 <script src="api_core.js"></script>
 <script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
 
 <script>
 var uiApi = {
@@ -865,61 +866,6 @@ var gridApi = {
         }
     }
 }
-
-jui.ready([ "chart.builder", "uix.tab", "util.base" ], function(builder, tab, _) {
-    var tab = tab("#tab", {
-        target: "#tab_contents",
-        event: {
-            change: function(data, e) {
-                if(data.index == 1 && $("#brush").html() == "") {
-                    juiApiChart("brush", brushApi, _.template, null, "#brush", "brush");
-                } else if(data.index == 2 && $("#widget").html() == "") {
-                    juiApiChart("widget", widgetApi, _.template, null, "#widget", "widget");
-                } else if(data.index == 3 && $("#grid").html() == "") {
-                    juiApiChart("grid", gridApi, _.template, null, "#grid", "grid");
-                }
-            }
-        }
-    });
-
-	var ui = builder("#ui", {
-        tpl: {
-            tooltip: "."
-        },
-        event: {
-            click: function() {},
-            dblclick: function() {},
-            rclick: function() {},
-            mouseover: function() {},
-            mouseout: function() {},
-            mousemove: function() {},
-            mousedown: function() {},
-            mouseup: function() {},
-            "chart.click": function() {},
-            "chart.dblclick": function() {},
-            "chart.rclick": function() {},
-            "chart.mouseover": function() {},
-            "chart.mouseout": function() {},
-            "chart.mousemove": function() {},
-            "chart.mousedown": function() {},
-            "chart.mouseup": function() {},
-            "bg.click": function() {},
-            "bg.dblclick": function() {},
-            "bg.rclick": function() {},
-            "bg.mouseover": function() {},
-            "bg.mouseout": function() {},
-            "bg.mousemove": function() {},
-            "bg.mousedown": function() {},
-            "bg.mouseup": function() {},
-            "legend.filter": function() {}
-        }
-    });
-	
-	juiApi(ui, uiApi, _.template, function() {
-		$("#api_tpl").hide();
-	}, "#builder");
-});
-
 </script>
 </head>
 <body class="jui chart">
@@ -928,14 +874,14 @@ jui.ready([ "chart.builder", "uix.tab", "util.base" ], function(builder, tab, _)
 	<h1>Chart</h1>
 </div>
 
-<ul id="tab" class="tab tab-top">
+<ul id="chart_tab" class="tab tab-top">
     <li><a href="#builder">Builder</a></li>
     <li><a href="#brush">Brush</a></li>
     <li><a href="#widget">Widget</a></li>
     <li><a href="#grid">Grid</a></li>
 </ul>
 
-<div id="tab_contents" class="tab-contents">
+<div id="chart_tab_contents" class="tab-contents">
     <div id="builder"></div>
     <div id="brush"></div>
     <div id="widget"></div>
@@ -943,7 +889,7 @@ jui.ready([ "chart.builder", "uix.tab", "util.base" ], function(builder, tab, _)
 </div>
 
 <div class="hidden">
-	<div id="ui"></div>
+	<div id="chart"></div>
 </div>
 
 </body>

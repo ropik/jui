@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="../../res/manual.css" />
 <script src="api_core.js"></script>
 <script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
 
 <script>
 var uiApi = {
@@ -384,36 +385,6 @@ var uiApi = {
 		}
 	}
 };
-
-jui.ready(function(ui, uix, _) {
-	var ui = uix.xtable("#ui", {
-		tpl: {
-			row: ".",
-			menu: ".",
-			expand: ".",
-			none: "."
-		},
-		event: {
-			select: function() {},
-			sort: function() {},
-			scroll: function() {},
-			rowmenu: function() {},
-            colclick: function() {},
-            coldblclick: function() {},
-			colmenu: function() {},
-			colshow: function() {},
-			colhide: function() {},
-			colresize: function() {},
-			expand: function() {},
-			expandend: function() {}
-		}
-	});
-	
-	juiApi(ui, uiApi, _.template, function() {
-
-	});
-});
-
 </script>
 </head>
 <body class="jui">
@@ -521,7 +492,7 @@ jui.ready(function(ui, uix, _) {
 </div>
 
 <div class="hidden">
-	<div id="ui" class="xtable">
+	<div id="xtable" class="xtable">
 		<table class="table table-simple table-headline">
 			<thead>
 				<tr>
@@ -534,7 +505,7 @@ jui.ready(function(ui, uix, _) {
 		</table>
 	</div>
 	
-	<script data-jui="#ui" data-tpl="row" type="text/template">
+	<script data-jui="#xtable" data-tpl="row" type="text/template">
 		<tr>
 			<td><!= name !></td>
 			<td><!= age !></td>

@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="../../res/manual.css" />
 <script src="api_core.js"></script>
 <script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
 
 <script>
 var uiApi = {
@@ -90,21 +91,6 @@ var uiApi = {
         }
 	}
 };
-
-jui.ready(function(ui, uix, _) {
-	var ui = ui.datepicker("#ui", { 
-		event: {
-			select: function() {},
-			prev: function() {},
-			next: function() {}
-		}
-	});
-	
-	juiApi(ui, uiApi, _.template, function() {
-		//$("#api_tpl").hide();
-	});
-});
-
 </script>
 </head>
 <body class="jui">
@@ -114,7 +100,7 @@ jui.ready(function(ui, uix, _) {
 </div>
 
 <div class="hidden">
-	<div id="ui" class="datepicker">
+	<div id="datepicker" class="datepicker">
         <div class="head">
             <div class="prev"></div>
             <div class="title"></div>
@@ -126,7 +112,7 @@ jui.ready(function(ui, uix, _) {
             </tr>
         </table>
     </div>
-    <script data-jui="#ui" data-tpl="dates" type="text/template">
+    <script data-jui="#datepicker" data-tpl="dates" type="text/template">
         <tr>
             <! for(var i = 0; i < dates.length; i++) { !>
             <td><!= dates[i] !></td>

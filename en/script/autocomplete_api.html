@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="../../res/manual.css" />
 <script src="api_core.js"></script>
 <script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
 
 <script>
 var uiApi = {
@@ -47,19 +48,6 @@ var uiApi = {
 		}
 	}
 };
-
-jui.ready(function(ui, uix, _) {
-	var ui = uix.autocomplete("#ui", {
-    	event: {
-    		change: function() {}
-    	}
-    });
-	
-	juiApi(ui, uiApi, _.template, function() {
-
-	});
-});
-
 </script>
 </head>
 <body class="jui">
@@ -69,7 +57,7 @@ jui.ready(function(ui, uix, _) {
 </div>
 
 <div class="hidden">
-	<span id="ui" class="group">
+	<span id="autocomplete" class="group">
 		<label class="label label-small"><i class="icon-search"></i></label>
 		<input type="text" class="input input-small" style="width: 100px" />
 	</span>

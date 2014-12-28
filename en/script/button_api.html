@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="../../res/manual.css" />
 <script src="api_core.js"></script>
 <script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
 
 <script>
 var uiApi = {
@@ -63,19 +64,6 @@ var uiApi = {
 	prop: {
 	}
 };
-
-jui.ready(function(ui, uix, _) {
-	var ui = ui.button("#ui", {
-		event: {
-			change: function() {},
-		}
-	});
-	
-	juiApi(ui, uiApi, _.template, function() {
-		$("#api_tpl").hide();
-	});
-});
-
 </script>
 </head>
 <body class="jui">
@@ -85,7 +73,7 @@ jui.ready(function(ui, uix, _) {
 </div>
 
 <div class="hidden">
-	<div id="ui" class="group">
+	<div id="button" class="group">
 		<a class="btn btn-small btn-gray-purple" value="true">On</a>
 		<a class="btn btn-small btn-gray-purple" value="false">Off</a>
 	</div>

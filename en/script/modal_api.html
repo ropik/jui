@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="../../res/manual.css" />
 <script src="api_core.js"></script>
 <script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
 
 <script>
 var uiApi = {
@@ -60,16 +61,6 @@ var uiApi = {
 		}
 	}
 };
-
-jui.ready(function(ui, uix, _) {
-	var ui = ui.modal("#ui");
-	
-	juiApi(ui, uiApi, _.template, function() {
-		$("#api_event").hide();
-		$("#api_tpl").hide();
-	});
-});
-
 </script>
 </head>
 <body class="jui">
@@ -79,7 +70,7 @@ jui.ready(function(ui, uix, _) {
 </div>
 
 <div class="hidden">
-	<div id="ui" class="msgbox" style="display: none;">
+	<div id="modal" class="msgbox" style="display: none;">
 		<div class="head">
 			Title
 	    </div>

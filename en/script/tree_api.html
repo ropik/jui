@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="../../res/manual.css" />
 <script src="api_core.js"></script>
 <script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
 
 <script>
 var uiApi = {
@@ -147,27 +148,6 @@ var uiApi = {
 		}
 	}
 };
-
-jui.ready(function(ui, uix, _) {
-	var ui = uix.tree("#ui", {
-		root: { title: "C:\\" },
-		event: {
-			select: function() {},
-			open: function() {},
-			fold: function() {},
-			dragstart: function() {},
-			dragend: function() {}
-		},
-		tpl: {
-			node: ""
-		}
-	});
-	
-	juiApi(ui, uiApi, _.template, function() {
-
-	});
-});
-
 </script>
 </head>
 <body class="jui">
@@ -225,9 +205,9 @@ jui.ready(function(ui, uix, _) {
 </div>
 
 <div class="hidden">
-	<ul id="ui" class="tree tree-arrow"></ul>
+	<ul id="tree" class="tree tree-arrow"></ul>
 	
-	<script data-jui="#ui" data-tpl="node" type="text/template">
+	<script data-jui="#tree" data-tpl="node" type="text/template">
 		<li>
 			<div><i></i> <!= title !></div>
 			<ul></ul>
