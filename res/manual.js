@@ -147,8 +147,6 @@
                 var tpl = $("#tpl_chart").html();
 
                 for(var key in mod) {
-					var isOpt = false;
-
 					if(key != "core") {
 						var obj = new mod[key],
 							api = (chartApi[key]) ? chartApi[key] : {};

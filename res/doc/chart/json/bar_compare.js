@@ -24,19 +24,20 @@ var data = [
 
 chart("#chart-left", {
     height: height,
-    data : data,
-    grid : {
-        y : {
-            target : "age",
-            hide : true
-        },
+    axis : {
         x : {
             type : "range",
             target : "female",
             step : 10,
             line : true,
             reverse : true
-        }
+        },
+        y : {
+            type : "block",
+            target : "age",
+            hide : true
+        },
+        data : data
     },
     widget : {
         type : "legend"
@@ -50,17 +51,18 @@ chart("#chart-left", {
 
 chart("#chart-right", {
     height: height,
-    data : data,
-    grid : {
-        y : {
-            target : "age"
-        },
+    axis : {
         x : {
             type : "range",
             target : "male",
             step : 10,
             line: true
-        }
+        },
+        y : {
+            type : "block",
+            target : "age"
+        },
+        data : data
     },
     widget : {
         type : "legend"

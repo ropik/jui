@@ -20,7 +20,6 @@ for(var i = 0; i < stocks.apple.length; i++) {
 }
 
 chart("#chart", {
-	data : data,
 	series : {
 		apple : {
 			color : 0,
@@ -35,7 +34,7 @@ chart("#chart", {
 			text : "Oracle"
 		}
 	},
-	grid : {
+	axis : {
 		x : {
 			type : "date",
 			domain : [ start, end ],
@@ -48,7 +47,8 @@ chart("#chart", {
 			target : [ "apple", "microsoft", "oracle" ],
 			step : 10,
 			line : true 
-		}
+		},
+		data : data
 	},
 	brush : {  
 		type : "line",

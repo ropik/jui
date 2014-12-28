@@ -18,8 +18,7 @@ for(var i = 0; i < stocks.visitor.length; i++) {
 }
 
 chart("#chart", {
-    data : data,
-    grid : {
+    axis : [{
         x : {
             type : "date",
             domain : [ start, end ],
@@ -34,21 +33,28 @@ chart("#chart", {
             step : 2,
             color : "#1db34f"
         },
-        y1 : {
+        data : data
+    }, {
+        x : {
+            extend : 0
+        },
+        y : {
             type : "range",
             target : "unique",
             step : 4,
-            color : "#1d7fb3"
-        }
-    },
+            color : "#1d7fb3",
+            orient : "right"
+        },
+        data : data
+    }],
     brush : [{
         type : "line", target : "visitor", colors : [ "#1db34f" ]
     }, {
-        type : "line", target : "unique", y1 : 0, colors : [ "#1d7fb3" ]
+        type : "line", target : "unique", axis : 1, colors : [ "#1d7fb3" ]
     }, {
         type : "scatter", target : "visitor", colors : [ "#1db34f" ], symbol : "circle", size: 7
     }, {
-        type : "scatter", target : "unique", y1 : 0, colors : [ "#1d7fb3" ], symbol : "circle", size: 7
+        type : "scatter", target : "unique", axis : 1, colors : [ "#1d7fb3" ], symbol : "circle", size: 7
     }],
     widget : [
         { type : "title", text : "Line Sample" },

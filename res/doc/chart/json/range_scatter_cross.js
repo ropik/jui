@@ -19,7 +19,6 @@ for(var i = 0; i < 30; i++) {
 }
 
 chart("#chart", {
-    data : data,
     padding : {
         left : 70
     },
@@ -28,7 +27,7 @@ chart("#chart", {
         profit : { symbol : "cross" },
         total : { symbol : "triangle" }
     },
-    grid : {
+    axis : {
         x : {
             type : "date",
             domain : [ start, end ],
@@ -42,7 +41,8 @@ chart("#chart", {
             target : "total",
             step : 10,
             line : true
-        }
+        },
+        data : data
     },
     brush : {
         type : "scatter",

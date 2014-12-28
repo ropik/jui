@@ -1,23 +1,25 @@
 var chart = jui.include("chart.builder");
+var data = [
+    { quarter : "1Q", sales : 50, profit : 35 },
+    { quarter : "2Q", sales : -20, profit : -30 },
+    { quarter : "3Q", sales : 10, profit : -5 },
+    { quarter : "4Q", sales : 30, profit : 25 }
+];
 
 chart("#chart-content", {
-    data : [
-        { quarter : "1Q", sales : 50, profit : 35 },
-        { quarter : "2Q", sales : -20, profit : -30 },
-        { quarter : "3Q", sales : 10, profit : -5 },
-        { quarter : "4Q", sales : 30, profit : 25 }
-    ],
-    grid : {
-        y : {
-            target : "quarter",
-            line : true 
-        },
+    axis : {
         x : {
             type : "range",
             target : ["sales", "profit"],
             step : 10,
-      		line : true 
-        }
+            line : true
+        },
+        y : {
+            type : "block",
+            target : "quarter",
+            line : true 
+        },
+        data : data
     },
     brush : {
         type : "bar",
@@ -25,7 +27,7 @@ chart("#chart-content", {
     },
     widget : [
         { type : "title", text : "Bar Sample" },
-        { type : "tooltip", position: "right" },
+        { type : "tooltip", orient: "right" },
         { type : "legend" }
     ]
 });

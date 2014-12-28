@@ -73,13 +73,23 @@ var day_cnt = 0;
 
 chart("#chart", {
     data : dataSource,
-    grid : {
-        x : [{
+    axis : [{
+        x : {
             type : "block",  // default type is block
             target : "date",
             full : true,
             hide : true
-        }, {
+        },
+        y : {
+            type : "range",
+            domain : [ 20, 30 ],
+            step : 5,
+            line : false,
+            size : "69%",
+            orient : "right"
+        }
+    }, {
+        x : {
             type : "block",  // default type is block
             target : "date",
             format : function(d) {
@@ -89,14 +99,8 @@ chart("#chart", {
                     return time.format(d, "MM-dd");
                 }
             }
-        }],
-        y1 : [{
-            type : "range",
-            domain : [ 20, 30 ],
-            step : 5,
-            line : false,
-            size : "69%"
-        }, {
+        },
+        y : {
             type : "range",
             target : "v",
             step: 5,
@@ -104,26 +108,23 @@ chart("#chart", {
             start : "70%",
             size : "30%",
             hide : true
-        }]
-    },
+        }
+    }],
     brush : [{
         type : "area",
         target : "c",
-        x : 0,
-        y1 : 0
+        axis : 0
     }, {
         type : "line",
         target : "c",
-        x : 0,
-        y1 : 0
+        axis : 0
     }, {
         type : "column",
         target : "v",
-        x : 1,
-        y1 : 1
+        axis : 1
     }],
     widget : {
         type : "tooltip",
-        position : "bottom"
+        orient : "bottom"
     }
 });

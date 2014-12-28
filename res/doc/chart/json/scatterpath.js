@@ -6,9 +6,7 @@ var start = new Date(),
     data = getRandomData();
 
 chart("#chart", {
-    data : data,
-    bufferCount : data.length,
-    grid : {
+    axis : {
         x : {
             type : "date",  // default type is block
             domain : [ start, end ],
@@ -22,7 +20,9 @@ chart("#chart", {
             target : [ "q1", "q2", "q3" ],
             step : 10,
             line : true
-        }
+        },
+        data : data,
+        buffer : data.length
     },
     brush : [{
         type : 'scatterpath',

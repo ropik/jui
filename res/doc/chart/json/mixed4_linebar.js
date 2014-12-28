@@ -38,45 +38,44 @@ function generateChartData() {
 generateChartData();
 
 chart("#chart", {
-    axis : {
-        top1 : {
-            x : {
-                type : "block",
-                target : "date",
-                hide : true
-            },
-            y : {
-                type : "range",
-                target : function(d) {
-                    return d.value + 10;
-                },
-                step : 5,
-                line : true
-            },
-            data : columnData
+    axis : [{
+        x : {
+            type : "block",
+            target : "date",
+            hide : true
         },
-        top2 : {
-            x : {
-                type : "date",
-                domain : [ lineData[0].date, lineData[lineData.length - 1].date ],
-                step : [ time.days, 1 ],
-                format : "MM-dd",
-                key: "date"
+        y : {
+            type : "range",
+            target : function(d) {
+                return d.value + 10;
             },
-            y : {
-                extend : "top1"
-            },
-            data : lineData
-        }
+            step : 5,
+            line : true
+        },
+        data : columnData
     },
+    {
+        x : {
+            type : "date",
+            domain : [ lineData[0].date, lineData[lineData.length - 1].date ],
+            step : [ time.days, 1 ],
+            format : "MM-dd",
+            textRotate : -20,
+            key: "date"
+        },
+        y : {
+            extend : 0
+        },
+        data : lineData
+    }],
     brush : [{
         type : "column",
         target : "value",
-        axis : "top1"
+        axis : 0
     }, {
         type : "line",
         target : "value",
-        axis : "top2",
+        axis : 1,
         colors : [ 2 ]
     }]
 });

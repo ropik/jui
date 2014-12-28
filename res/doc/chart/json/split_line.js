@@ -3,9 +3,7 @@ var chart = jui.include("chart.builder"),
 var today = getTodayData();
 
 chart("#chart", {
-    data : today.data,
-    bufferCount : today.data.length,
-    grid : {
+    axis : {
         x : {
             type : "date",
             domain : [ today.start, today.end ],
@@ -19,17 +17,19 @@ chart("#chart", {
             target : function(d) {
                 return 600;
             }
-        }
+        },
+        data : today.data,
+        buffer : today.data.length
     },
     brush : [{
         type : "splitline",
+        split : 500
+    }, {
+        type : "pin",
         split : 500
     }],
     widget : [{
         type : "title",
         text : "Line Sample"
-    }, {
-        type : "pin",
-        split : 500
     }]
 });

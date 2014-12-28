@@ -1,7 +1,7 @@
 var chart = jui.include("chart.builder");
 
 chart("#chart", {
-    grid : {
+    axis : {
         y : {
            type : "range",
            domain : [0, 100],

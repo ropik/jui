@@ -1,7 +1,7 @@
 var chart = jui.include("chart.builder");
 var time = jui.include("util.time");
 
-var dataSource = [
+var data = [
     { date: new Date(1994,2,1), l: 24.00, h: 25.00, o: 25.00, c: 24.875, v: 2762800 },
     { date: new Date(1994,2,2), l: 23.625, h: 25.125, o: 24.00, c: 24.875, v: 1467200 },
     { date: new Date(1994,2,3), l: 26.25, h: 28.25, o: 26.75, c: 27.00, v: 2088800 },
@@ -70,70 +70,63 @@ var dataSource = [
 ];
 
 chart("#chart", {
-    axis : {
-        top : {
-            x : {
-                type : "block",
-                target : "date",
-                full : true,
-                hide : true
-            },
-            y1 : {
-                type : "range",
-                domain : [ 20, 30 ],
-                step : 5,
-                line : false
-            },
-            size : {
-                width : "100%",
-                height : "70%"
-            },
-            data : dataSource
+    axis : [{
+        x : {
+            type : "block",
+            target : "date",
+            full : true,
+            hide : true
         },
-        bottom : {
-            x : {
-                type : "block",
-                target : "date",
-                format : function(d, day_cnt) {
-                    if(day_cnt % 7 == 0) {
-                        return time.format(d, "MM-dd");
-                    }
+        y : {
+            type : "range",
+            domain : [ 20, 30 ],
+            step : 5,
+            line : false,
+            orient : "right"
+        },
+        area : {
+            x : 0, y : 0, width : "100%", height : "70%"
+        },
+        data : data
+    }, {
+        x : {
+            type : "block",
+            target : "date",
+            format : function(d, day_cnt) {
+                if(day_cnt % 7 == 0) {
+                    return time.format(d, "MM-dd");
                 }
-            },
-            y1 : {
-                type : "range",
-                target : "v",
-                step : 5,
-                format : function(d) {
-                    if(d > 10000) {
-                        return Math.floor(d / 10000) + "M"
-                    }
+            }
+        },
+        y : {
+            type : "range",
+            target : "v",
+            step : 5,
+            format : function(d) {
+                if(d > 10000) {
+                    return Math.floor(d / 10000) + "M"
+                }
 
-                    return d;
-                }
+                return d;
             },
-            start : {
-                left : 0,
-                top : "75%"
-            },
-            size : {
-                width : "100%",
-                height : "25%"
-            },
-            data : dataSource
-        }
-    },
+            orient : "right"
+        },
+        area : {
+            x : 0, y : "75%", width : "100%", height : "25%"
+        },
+        data : data
+    }],
     brush : [{
         type : "area",
         target : "c",
-        axis : "top"
+        axis : 0
     }, {
         type : "line",
         target : "c",
-        axis : "top"
+        axis : 0
     }, {
         type : "column",
         target : "v",
-        axis : "bottom"
+        axis : 1
     }]
 });

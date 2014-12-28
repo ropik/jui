@@ -21,39 +21,46 @@ var data = [
 ];
 
 chart("#chart-content", {
-    data : data,
-    grid : {
+    axis : [{
+        x : {
+            type : "range",
+            target : [ "female", "male" ],
+            step : 10,
+            line : true,
+            reverse : true
+        },
         y : {
+            type : "block",
             target : "age"
         },
-        y1 : {
-            target : "age"
+        data : data,
+        area : {
+            x : 0, y : 0, width : "50%", height : "100%"
+        }
+    }, {
+        x : {
+            extend : 0,
+            reverse : false
         },
-        x : [{
-            type : "range",
-            target : [ "female", "male" ],
-            step : 10,
-            line : true,
-            reverse : true,
-            size : "50%"
-        }, {
-            type : "range",
-            target : [ "female", "male" ],
-            step : 10,
-            line : true,
-            start : "50%",
-            size : "50%"
-        }]
-    },
+        y : {
+            extend : 0,
+            orient : "right"
+        },
+        data : data,
+        area : {
+            x : "50%", y : 0, width : "50%", height : "100%"
+        }
+    }],
     brush : [{
         type : "bar",
         target : "female",
-        colors : [ 1 ]
+        colors : [ 1 ],
+        axis : 0
     }, {
         type : "bar",
         target : "male",
         colors : [ 2 ],
-        x : 1
+        axis : 1
     }],
     widget : {
         type : "legend",

@@ -4,9 +4,11 @@ chart("#chart", {
     width : 100,
     height : 50,
     padding : "empty",
-    data : [
-        { ie : 70, ff : 11, chrome : 9, safari : 6, other : 4 }
-    ],
+    axis : {
+        data : [
+            { ie : 70, ff : 11, chrome : 9, safari : 6, other : 4 }
+        ]
+    },
     brush : {
         type : "pie"
     }

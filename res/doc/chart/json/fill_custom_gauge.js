@@ -12,6 +12,5 @@ chart("#chart", {
         min : 0,
         max : 100,
         svg : "../res/doc/chart/resource/woman.svg"
-
     }
 });

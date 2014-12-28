@@ -1,7 +1,7 @@
-var chart = jui.include("chart.builder");
-var time = jui.include("util.time");
+var chart = jui.include("chart.builder"),
+    time = jui.include("util.time");
 
-var dataSource = [
+var data = [
     { date: new Date(1994,2,1), l: 24.00, h: 25.00, o: 25.00, c: 24.875 },
     { date: new Date(1994,2,2), l: 23.625, h: 25.125, o: 24.00, c: 24.875 },
     { date: new Date(1994,2,3), l: 26.25, h: 28.25, o: 26.75, c: 27.00 },
@@ -28,8 +28,7 @@ var dataSource = [
 ];
 
 chart("#chart", {
-    data : dataSource,
-    grid : {
+    axis : {
         x : {
             type : "block",  // default type is block
             target : "date",
@@ -43,7 +42,8 @@ chart("#chart", {
             domain: [ 20, 30 ],
             step: 5,
             line : true 
-        }
+        },
+        data : data
     },
     series : {
         l: {

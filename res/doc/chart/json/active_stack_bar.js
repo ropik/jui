@@ -1,13 +1,13 @@
-var chart = jui.include("chart.builder"),
-    activeIndex = 0;
-
-chart("#chart", {
-    data : [
+var chart = jui.include("chart.builder");
+var activeIndex = 0,
+    data = [
         { quarter : "1Q", samsung : 50, lg : 35, sony: 10 },
         { quarter : "2Q", samsung : 20, lg : 30, sony: 5 },
         { quarter : "3Q", samsung : 20, lg : 5, sony: 10 },
         { quarter : "4Q", samsung : 30, lg : 25, sony: 15 }
-    ],
+    ];
+
+chart("#chart", {
     series : {
         samsung : {
             color : 0,
@@ -22,18 +22,21 @@ chart("#chart", {
             text : "SONY"
         }
     },
-    grid : {
-        y : {
-            target : "quarter",
-            line : true
-        },
-        x1 : {
+    axis : {
+        x : {
             type : "range",
             target : function(data) {
                 return data.samsung + data.lg + data.sony;
             },
+            line : true,
+            orient: "right"
+        },
+        y : {
+            type : "block",
+            target : "quarter",
             line : true
-        }
+        },
+        data : data
     },
     brush : {
         type : "stackbar",
@@ -44,7 +47,7 @@ chart("#chart", {
     widget : [{
         type : "title",
         text : "Bar Sample",
-        position : "bottom",
+        orient : "bottom",
         align : "end"
     }, {
         type : "legend",

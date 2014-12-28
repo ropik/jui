@@ -19,8 +19,7 @@ for (var i = 0; i < 30; i++) {
 }
 
 chart("#chart", {
-	data : data,
-	grid : {
+	axis : {
 		x : {
 			type : "date",
 			domain : [start, end],
@@ -34,7 +33,8 @@ chart("#chart", {
 			target : "v1",
 			step : 10,
 			line : true
-		}
+		},
+		data : data
 	},
 	brush : {
 		type : "bubble",

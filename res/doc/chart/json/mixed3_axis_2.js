@@ -70,58 +70,47 @@ var dataSource = [
 ];
 
 chart("#chart", {
-    axis : {
-        top : {
-            x : {
-                type : "block",
-                target : "date",
-                hide : true
-            },
-            y1 : {
-                type : "range",
-                domain : [ 20, 30 ],
-                step : 5,
-                line : true
-            },
-            size : {
-                width : "100%",
-                height : "70%"
-            },
-            data : dataSource
+    axis : [{
+        x : {
+            type : "block",
+            target : "date",
+            hide : true
         },
-        bottom : {
-            x : {
-                type : "block",
-                target : "date",
-                format : function(d, day_cnt) {
-                    if(day_cnt % 7 == 0) {
-                        return time.format(d, "MM-dd");
-                    }
+        y : {
+            type : "range",
+            domain : [ 20, 30 ],
+            step : 5,
+            line : true,
+            orient : "right"
+        },
+        area : { x : 0, y : 0, width : "100%", height : "70%" },
+        data : dataSource
+    }, {
+        x : {
+            type : "block",
+            target : "date",
+            format : function(d, day_cnt) {
+                if(day_cnt % 7 == 0) {
+                    return time.format(d, "MM-dd");
                 }
-            },
-            y1 : {
-                type : "range",
-                target : "v",
-                step : 5,
-                format : function(d) {
-                    if(d > 10000) {
-                        return Math.floor(d / 10000) + "M"
-                    }
+            }
+        },
+        y : {
+            type : "range",
+            target : "v",
+            step : 5,
+            format : function(d) {
+                if(d > 10000) {
+                    return Math.floor(d / 10000) + "M"
+                }
 
-                    return d;
-                }
+                return d;
             },
-            start : {
-                left : 0,
-                top : "75%"
-            },
-            size : {
-                width : "100%",
-                height : "25%"
-            },
-            data : dataSource
-        }
-    },
+            orient : "right"
+        },
+        area : { x : 0, y : "75%", width : "100%", height : "25%" },
+        data : dataSource
+    }],
     series : {
         l: {
             type: "low",
@@ -143,11 +132,11 @@ chart("#chart", {
     brush : [{
         type : "candlestick",
         target : [ "l", "h", "o", "c" ],
-        axis : "top"
+        axis : 0
     }, {
         type : "column",
         target : "v",
-        axis : "bottom"
+        axis : 1
     }],
     widget : {
         type : "tooltip",

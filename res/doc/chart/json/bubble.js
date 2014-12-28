@@ -1,14 +1,15 @@
 var chart = jui.include("chart.builder");
+var data = [
+    { quarter : "1Q", sales : 40, profit : 35 },
+    { quarter : "2Q", sales : 10, profit : 5 },
+    { quarter : "3Q", sales : 15, profit : 10 },
+    { quarter : "4Q", sales : 30, profit : 25 }
+];
 
 chart("#chart", {
-    data : [
-        { quarter : "1Q", sales : 40, profit : 35 },
-        { quarter : "2Q", sales : 10, profit : 5 },
-        { quarter : "3Q", sales : 15, profit : 10 },
-        { quarter : "4Q", sales : 30, profit : 25 }
-    ],
-    grid : {
+    axis : {
         x : {
+            type : "block",
             target : "quarter",
             line : true
         },
@@ -17,7 +18,8 @@ chart("#chart", {
             target : "sales",
             step : 10,
             line : true
-        }
+        },
+        data : data
     },
     brush : {
         type : "bubble",

@@ -1,26 +1,28 @@
 var chart = jui.include("chart.builder");
+var data = [
+    { name : "Start", value : 90 },
+    { name : "a", value : 105 },
+    { name : "b", value : 126 },
+    { name : "c", value : 89 },
+    { name : "d", value : 6 },
+    { name : "e", value : -30 },
+    { name : "f", value : 16 },
+    { name : "g", value : 107 },
+    { name : "end", value : 168 }
+];
 
 chart("#chart", {
-    data : [
-        { name : "Start", value : 90 },
-        { name : "a", value : 105 },
-        { name : "b", value : 126 },
-        { name : "c", value : 89 },
-        { name : "d", value : 6 },
-        { name : "e", value : -30 },
-        { name : "f", value : 16 },
-        { name : "g", value : 107 },
-        { name : "end", value : 168 }
-    ],
-    grid : {
+    axis : {
         x : {
+            type : "block",
             target: "name"
         },
         y : {
             type : "range",
             step : 10,
             target : "value"
-        }
+        },
+        data : data
     },
     brush : {
         type : "waterfall",
