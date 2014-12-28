@@ -29,7 +29,7 @@ chart("#chart", {
                 return data.samsung + data.lg + data.sony;
             },
             line : true,
-            orient: "right"
+            orient: "top"
         },
         y : {
             type : "block",

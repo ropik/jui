@@ -18,7 +18,7 @@ chart("#chart-content", {
             target : function(d) {
                 return 500;
             },
-            orient : "bottom"
+            orient : "top"
         },
         y : {
             type : "block",
