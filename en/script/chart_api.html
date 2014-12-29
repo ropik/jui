@@ -29,39 +29,9 @@ var uiApi = {
 	},
 	method: {
         area: {
-            param: "type",
+            param: "type | none",
             ret: "int",
-            detail: "계산된 차트 영역에 대한 값을 가져옵니다."
-        },
-        width: {
-            param: "width",
-            ret: "none | int",
-            detail: "차트 넓이를 가져오거나 설정합니다."
-        },
-        height: {
-            param: "height",
-            ret: "none | int",
-            detail: "차트 높이를 가져오거나 설정합니다."
-        },
-        x: {
-            param: "x",
-            ret: "none | int",
-            detail: "x축 좌표를 가져오거나 설정합니다."
-        },
-        y: {
-            param: "y",
-            ret: "none | int",
-            detail: "y축 좌표를 가져오거나 설정합니다."
-        },
-        x2: {
-            param: "x2",
-            ret: "none | int",
-            detail: "차트 우측 기준으로 x축 좌표를 가져오거나 설정합니다."
-        },
-        y2: {
-            param: "y2",
-            ret: "none | int",
-            detail: "차트 상단 기준으로 y축 좌표를 가져오거나 설정하빈다."
+            detail: "계산된 차트 영역에 대한 값을 가져옵니다. (type: width, height, x, y, x2, y2)"
         },
         bindUI: {
             param: "uiObject",
@@ -84,34 +54,19 @@ var uiApi = {
             detail: "테마 또는 컬러셋에 정의된 색상을 가져옵니다."
         },
         padding: {
-            param: "type",
+            param: "type | none",
             ret: "int",
             detail: "상/하/좌/우 여백 값을 가져옵니다."
-        },
-        data: {
-            param: "index, field",
-            ret: "array | object",
-            detail: "버퍼 개수에 맞는 데이터를 가져옵니다."
         },
         series: {
             param: "name",
             ret: "object",
             detail: "해당 이름의 시리즈를 가져오거나 전체 시리즈 목록을 가져옵니다."
         },
-        grid: {
-            param: "name",
-            ret: "object",
-            detail: "해당 이름의 그리드를 가져오거나 전체 그리드 목록을 가져옵니다."
-        },
-        axis: {
-            param: "name",
-            ret: "object",
-            detail: "해당 이름의 그리드 그룹을 가져오거나 전체 그리드 그룹 목록을 가져옵니다."
-        },
-        brush: {
-            param: "name",
-            ret: "array | obejct",
-            detail: "해당 이름의 브러쉬를 가져오거나 전체 브러쉬 목록을 가져옵니다."
+        get: {
+            param: "type, name | none",
+            ret: "array | object",
+            detail: "해당 이름의 엑시스나 브러쉬, 위젯을 가져옵니다. (type: axis, brush, widget)"
         },
         createId: {
             param: "key",
@@ -182,6 +137,21 @@ var uiApi = {
             param: "widgetIndex, widget",
             ret: "none",
             detail: "해당 인덱스의 위젯을 업데이트하고 다시 렌더링합니다."
+        },
+        addAxis: {
+            param: "axis",
+            ret: "none",
+            detail: "그리드 그룹을 추가하고 다시 렌더링합니다.."
+        },
+        removeAxis: {
+            param: "axisIndex",
+            ret: "none",
+            detail: "해당 인덱스의 그리드 그룹을 삭제하고 다시 렌더링합니다."
+        },
+        updateAxis: {
+            param: "axisIndex, axis",
+            ret: "none",
+            detail: "해당 인덱스의 그리드 그룹을 업데이트하고 다시 렌더링합니다."
         },
         setTheme: {
             param: "themeName | themeObject",
@@ -321,6 +291,9 @@ var uiApi = {
         axis: {
             detail: "차트에서 사용할 그리드 그룹을 설정합니다."
         },
+        axisIndex: {
+            detail: "차트에서 기본적으로 사용할 그리드 그룹의 인덱스를 설정합니다."
+        },
         brush: {
             detail: "차트에 추가할 브러쉬를 정합니다."
         },
@@ -355,6 +328,32 @@ var uiApi = {
 };
 
 var brushApi = {
+    common: {
+        type: {
+            detail: "추가할 브러쉬의 타입을 설정합니다."
+        },
+        target: {
+            detail: "브러쉬에 보여지는 데이터의 키 값을 설정합니다."
+        },
+        colors: {
+            detail: "타겟 순서에 맞게 컬러 코드를 설정할 수 있습니다. (기본은 테마의 컬러 코드 참조)"
+        },
+        axis: {
+            detail: "브러쉬의 기준 축이 되는 그리드 그룹의 인덱스를 정합니다."
+        },
+        index: {
+            detail: "[읽기전용] 브러쉬가 그려진 순서 인덱스입니다."
+        },
+        x: {
+            detail: "[읽기전용] X축 좌표를 얻어오는 함수입니다."
+        },
+        y: {
+            detail: "[읽기전용] Y축 좌표를 얻어오는 함수입니다."
+        },
+        c: {
+            detail: "[읽기전용] 커스텀 좌표를 얻어오는 함수입니다."
+        }
+    },
     bar: {
         outerPadding: {
             detail: "바의 바깥쪽 여백을 정합니다."
@@ -616,9 +615,6 @@ var brushApi = {
         value: {
             detail: "게이지의 값을 정합니다."
         },
-        rate: {
-            detail: ""
-        },
         size: {
             detail: "게이지 바의 크기를 정합니다."
         },
@@ -644,9 +640,6 @@ var brushApi = {
         },
         value: {
             detail: "풀 게이지의 값을 정합니다."
-        },
-        rate: {
-            detail: ""
         },
         size: {
             detail: "풀 게이지 바의 크기를 정합니다."
@@ -746,8 +739,19 @@ var brushApi = {
 };
 
 var widgetApi = {
+    common: {
+        type: {
+            detail: "추가할 위젯의 타입을 설정합니다."
+        },
+        brush: {
+            detail: "위젯을 사용할 브러쉬 인덱스를 설정합니다."
+        },
+        render: {
+            detail: "위젯에 렌더링 대상 여부를 정합니다."
+        }
+    },
     tooltip: {
-        position: {
+        orient: {
             detail: "툴팁이 보여지는 방향을 설정합니다. (top, bottom, left, right)"
         },
         all: {
@@ -764,7 +768,7 @@ var widgetApi = {
         }
     },
     title: {
-        position: {
+        orient: {
             detail: "타이틀이 보여지는 위치를 설정합니다. (top, bottom)"
         },
         align: {
@@ -781,7 +785,7 @@ var widgetApi = {
         }
     },
     legend: {
-        position: {
+        orient: {
             detail: "라벨이 보여지는 위치를 설정합니다. (top, bottom)"
         },
         align: {
@@ -811,6 +815,23 @@ var widgetApi = {
 };
 
 var gridApi = {
+    common: {
+        type: {
+            detail: "추가할 그리드의 타입을 설정합니다."
+        },
+        target: {
+            detail: "축의 최소/최대 값을 구하기 위한 데이터 키 값을 설정합니다."
+        },
+        extend: {
+            detail: "이미 설정된 그리드 옵션을 그대로 사용하고 싶을 경우에 해당 그리드 그룹의 인덱스를 설정합니다."
+        },
+        dist: {
+            detail: "."
+        },
+        orient: {
+            detail: "축이 보여지는 방향을 설정합니다. (top, bottom, left, right)"
+        }
+    },
     block: {
         full: {
             detail: "기준 좌표를 전체 범위로 사용할지 정합니다."
@@ -866,6 +887,41 @@ var gridApi = {
         }
     }
 }
+
+var axisApi = {
+    common: {
+        x: {
+            detail: "X축 그리드를 설정합니다. (그리드 API 참고)"
+        },
+        y: {
+            detail: "Y축 그리드를 설정합니다. (그리드 API 참고)"
+        },
+        c: {
+            detail: "커스텀 그리드를 설정합니다. (그리드 API 참고)"
+        },
+        data: {
+            detail: "차트를 구성하는 로우셋 데이터를 설정합니다."
+        },
+        buffer: {
+            detail: "차트에 보여지는 요소 개수를 제한합니다."
+        },
+        shift: {
+            detail: "차트 빌더의 'prev' 또는 'next' 메소드를 호출했을 때, 그려지는 데이터의 쉬프팅 개수입니다."
+        },
+        origin: {
+            detail: "[읽기전용] 최초에 설정된 원본 데이터입니다."
+        },
+        page: {
+            detail: "[읽기전용] 현재 그려진 데이터의 페이지 번호입니다."
+        },
+        start: {
+            detail: "[읽기전용] 현재 그려진 데이터의 시작 인덱스입니다."
+        },
+        end: {
+            detail: "[읽기전용] 현재 그려진 데이터의 끝 인덱스입니다."
+        }
+    }
+}
 </script>
 </head>
 <body class="jui chart">
@@ -876,16 +932,18 @@ var gridApi = {
 
 <ul id="chart_tab" class="tab tab-top">
     <li><a href="#builder">Builder</a></li>
+    <li><a href="#axis">Axis</a></li>
+    <li><a href="#grid">Grid</a></li>
     <li><a href="#brush">Brush</a></li>
     <li><a href="#widget">Widget</a></li>
-    <li><a href="#grid">Grid</a></li>
 </ul>
 
 <div id="chart_tab_contents" class="tab-contents">
     <div id="builder"></div>
+    <div id="axis"></div>
+    <div id="grid"></div>
     <div id="brush"></div>
     <div id="widget"></div>
-    <div id="grid"></div>
 </div>
 
 <div class="hidden">

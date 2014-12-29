@@ -135,7 +135,7 @@ window.coreApi = {
             detail: "축의 값을 해당 값의 배수로 보여지게 합니다."
         },
         line: {
-            detail: "그리드 배경에 라인 표시 여부를 정합니다."
+            detail: "축 배경에 라인 표시 여부를 정합니다."
         },
         format: {
             detail: "축 값의 포맷을 설정합니다."
@@ -146,27 +146,8 @@ window.coreApi = {
         title: {
             detail: "축에 보여지는 텍스트를 설정합니다."
         },
-        start: {
-            detail: "그리드의 시작 좌표를 설정합니다."
-        },
-        size: {
-            detail: "그리드의 넓이를 설정합니다."
-        },
-        axis: {
-            detail: "그리드 레이아웃을 설정합니다."
-        }
-    },
-    widget: {
-        brush: {
-            detail: "위젯을 사용할 브러쉬 인덱스를 설정합니다."
-        },
-        render: {
-            detail: "위젯에 렌더링 대상 여부를 정합니다."
-        }
-    },
-    brush: {
-        axis: {
-            detail: "브러쉬의 기준 축을 설정합니다."
+        textRotate: {
+            detail: "축에 표시되는 텍스트의 기울기를 설정합니다."
         }
     }
 };

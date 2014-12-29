@@ -2,11 +2,11 @@ var chart = jui.include("chartx.realtime");
 var time = jui.include('util.time');
 
 var c = chart("#chart", {
-    data : getRealtimeData(5),
     axis : {
         target: function(d) {
             return d.s20 * 2;
-        }
+        },
+        data : getRealtimeData(5)
     },
     brush : {
         type : "line",
