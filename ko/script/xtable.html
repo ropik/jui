@@ -1,0 +1,352 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<META charset="UTF-8">
+<title>[JUI Library] - JavaScript/XTable</title>
+
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<link rel="stylesheet" href="../../res/doc/script.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.uix.js"></script>
+</head>
+
+<body class="jui">
+	
+<div class="page-header">
+	<h1>X-Table</h1>
+	<p class="br">
+		수백만건의 데이터 로우를 처리할 수 있는 대용량 테이블입니다.<br/>
+		기존의 성능에 문제가 있었던 이너 스크롤 문제를 해결하였으며, 버퍼를 활용한 페이징이나 스크롤링 기능을 제공합니다.
+	</p>
+</div>
+
+<section>
+	<h2>Scroll (+Dropdown, +Loading)</h2>
+	<p>
+		<a class="btn btn-gray btn-mini" href="javascript:xtableRun(1)">Run</a> - 
+		100만건의 데이터를 추가하는 데모이며, 스크롤이 맨 밑으로 내려갔을 경우에 로우를 추가적으로 렌더링합니다.
+		
+		<div id="xtable_1" class="xtable xtable-rect">
+			<table class="table table-simple table-headline">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Location</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+			
+		<script data-jui="#xtable_1" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+
+		<script data-jui="#xtable_1" data-tpl="none" type="text/template">
+			<tr>
+				<td colspan="3" class="none">Data does not exist.</td>
+			</tr>
+		</script>
+		
+		<script data-jui="#xtable_1" data-tpl="menu" type="text/template">
+			<div class="dropdown">
+				<div class="anchor"></div>
+				
+				<ul style="width: 150px">
+				<! for(var i = 0; i < columns.length; i++) { !>
+					<li>
+						<input type="checkbox" />&nbsp; <!= columns[i] !>
+					</li>
+				<! } !>
+				</ul>
+			</div>
+		</script>
+		
+		<script data-jui="#xtable_1" data-tpl="loading" type="text/template">
+			<div class="loading"></div>		
+		</script>
+	</p>
+	
+	<p class="br">
+<pre><code class="language-javascript">jui.ready([ "uix.xtable" ], function(xtable) {
+	xtable_1 = xtable("#xtable_1", {
+		fields: [ "name", "age", "location" ],
+		resize: true,
+		colshow: true,
+		sort: true,
+		sortLoading: true,
+		buffer: "scroll", // scroll, page, s-page
+		bufferCount: 20,
+		event: {
+			colmenu: function(column, e) {
+				this.showColumnMenu(e.pageX - 25);
+			}
+		}
+	});
+});</code></pre>
+
+<pre><code class="language-markup">&lt;div id="xtable_1" class="xtable xtable-rect" style="width: 600px;"&gt;
+	&lt;table class="table table-simple table-headline">
+		&lt;thead>
+			&lt;tr>
+				&lt;th>Name&lt;/th>
+				&lt;th>Age&lt;/th>
+				&lt;th>Location&lt;/th>
+			&lt;/tr>
+		&lt;/thead>
+		&lt;tbody>&lt;/tbody>
+	&lt;/table>
+&lt;/div&gt;
+
+&lt;script data-jui="#xtable_1" data-tpl="row" type="text/template">
+&lt;tr>
+    &lt;td>&lt;!= name !>&lt;/td>
+    &lt;td>&lt;!= age !>&lt;/td>
+    &lt;td>&lt;!= location !>&lt;/td>
+&lt;/tr>
+&lt;/script>
+
+&lt;script data-jui="#xtable_1" data-tpl="none" type="text/template">
+&lt;tr>
+    &lt;td colspan="3" class="none">Data does not exist.&lt;/td>
+&lt;/tr>
+&lt;/script>
+
+&lt;script data-jui="#xtable_1" data-tpl="menu" type="text/template">
+&lt;div class="dropdown">
+    &lt;div class="anchor">&lt;/div>
+
+    &lt;ul style="width: 150px">
+        &lt;! for(var i = 0; i &lt; columns.length; i++) { !>
+        &lt;li>
+            &lt;input type="checkbox" />&nbsp; &lt;!= columns[i] !>
+        &lt;/li>
+        &lt;! } !>
+    &lt;/ul>
+&lt;/div>
+&lt;/script>
+
+&lt;script data-jui="#xtable_1" data-tpl="loading" type="text/template">
+    &lt;div class="loading">&lt;/div>
+&lt;/script></code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Page</h2>
+	<p>
+		<a class="btn btn-gray btn-mini" href="javascript:xtableRun(2)">Run</a> - 
+		100만건의 데이터를 추가하는 데모이며, 스크롤이 없는 페이징 형태로 추가 데이터를 렌더링합니다.
+		
+		<div id="xtable_2" class="xtable xtable-rect">
+			<table class="table table-simple table-headline">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Location</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+		<div class="row" align="right" style="text-align: right; margin-top: 3px;">
+			<div class="group">
+				<a href="javascript:xtable2Page(-1);" class="btn btn-black btn-mini">Prev</a>
+				<a href="javascript:xtable2Page(1);"class="btn btn-black btn-mini">Next</a>
+			</div>
+		</div>
+			
+		<script data-jui="#xtable_2" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+
+		<script data-jui="#xtable_2" data-tpl="none" type="text/template">
+			<tr>
+				<td colspan="3" class="none">Data does not exist.</td>
+			</tr>
+		</script>
+	</p>
+	
+	<p class="br">
+<pre><code class="language-javascript">xtable_2 = xtable("#xtable_2", {
+	fields: [ "name", "age", "location" ],
+	resize: true,
+	sort: true,
+	buffer: "page", // scroll, page, s-page
+	bufferCount: 20
+});</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Page-Scroll</h2>
+	<p>
+		<a class="btn btn-gray btn-mini" href="javascript:xtableRun(3)">Run</a> - 
+		100만건의 데이터를 추가하는 데모이며, 스크롤이 있는 페이징 형태로 추가 데이터를 렌더링합니다.
+		
+		<div id="xtable_3" class="xtable xtable-rect">
+			<table class="table table-simple table-headline">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Location</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+		<div class="row" align="right" style="text-align: right; margin-top: 3px;">
+			<div class="group">
+				<a href="javascript:xtable3Page(-1);" class="btn btn-black btn-mini">Prev</a>
+				<a href="javascript:xtable3Page(1);"class="btn btn-black btn-mini">Next</a>
+			</div>
+		</div>
+			
+		<script data-jui="#xtable_3" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+
+		<script data-jui="#xtable_3" data-tpl="none" type="text/template">
+			<tr>
+				<td colspan="3" class="none">Data does not exist.</td>
+			</tr>
+		</script>
+	</p>	
+	
+	<p class="br">
+<pre><code class="language-javascript">xtable_3 = xtable("#xtable_3", {
+	fields: [ "name", "age", "location" ],
+	resize: true,
+	sort: true,
+	buffer: "s-page", // scroll, page, s-page
+	bufferCount: 20
+});</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Filter</h2>
+	<p>
+		<a class="btn btn-gray btn-mini" href="javascript:xtableFilter()">Filter</a>
+		<a class="btn btn-gray btn-mini" href="javascript:xtableFilterMulti()">Multiple Filter</a> -
+		좌측에 버튼을 클릭하면 특정 기준에 맞게 테이블의 로우가 필터링 됩니다.
+		
+		<div id="xtable_4" class="xtable xtable-rect">
+			<table class="table table-simple table-headline">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Location</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+			
+		<script data-jui="#xtable_4" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+
+		<script data-jui="#xtable_4" data-tpl="none" type="text/template">
+			<tr>
+				<td colspan="3" class="none">Data does not exist.</td>
+			</tr>
+		</script>
+	</p>	
+	
+	<p class="br">
+<pre><code class="language-javascript">function xtableFilter() {
+    xtable_4.filter(function(data) {
+        if(data.location.indexOf("eo") != -1) {
+            return true;
+        }
+    });
+}
+
+function xtableFilterMulti() {
+    xtable_4.filter(function(data) {
+        if(data.age >= 30 || data.name.indexOf("ng") != -1) {
+            return true;
+        }
+    });
+}</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Horizontal Scroll</h2>
+	<p>
+		컬럼 개수가 많거나 테이블 넓이가 클 경우에 <strong>scrollWidth</strong> 옵션을 사용하면 테이블 가독성을 높일 수 있습니다.
+		
+		<div id="xtable_5" class="xtable xtable-rect">
+			<table class="table table-simple table-headline">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Location</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+			
+		<script data-jui="#xtable_5" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+
+		<script data-jui="#xtable_5" data-tpl="none" type="text/template">
+			<tr>
+				<td colspan="3" class="none">Data does not exist.</td>
+			</tr>
+		</script>
+	</p>	
+	
+	<p class="br">
+		테이블의 실제 넓이가 <strong>scrollWidth</strong> 옵션 값보다 클 경우에 가로 스크를이 보여집니다.<br/>
+		참고로 테이블의 실제 넓이는 <strong>width</strong> 옵션을 사용하거나 마크업의 스타일로도 설정할 수 있습니다.
+		
+<pre><code class="language-javascript">xtable_5 = xtable("#xtable_5", {
+	fields: [ "name", "age", "location" ],
+	data: table_data,
+	resize: true,
+	sort: true,
+	width: 1000,
+	scrollWidth: 727,
+    animate: true
+});</code></pre>
+	</p>
+</section>
+
+</body>
+</html>

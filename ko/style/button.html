@@ -1,0 +1,307 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<META charset="UTF-8">
+<title>[JUI Library] - CSS/Button</title>
+
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Button</h1>
+</div>
+
+<section>
+	<h2>Default</h2>
+	<p>
+		버튼은 기본 타입을 포함한 총 4가지의 스타일을 제공하며, 주요 특징으로는 클릭 상태의 버튼 스타일을 정할 수 있습니다.
+	</p>
+	<table class="table_s" cellpadding="0" cellspacing="0">
+		<tr>
+			<td width="150px">Button</td>
+			<td width="300px">Class</td>
+			<td width="350px">Description</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn">Default</a>
+			</td>
+			<td>
+				btn
+			</td>
+			<td>기본 버튼 (2톤)</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-gray">Gray</a>
+			</td>
+			<td>
+				btn btn-gray
+			</td>
+			<td>회색 버튼 (4톤)</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-gray-purple">Gray-Purple</a>
+			</td>
+			<td>
+				btn btn-gray-purple
+			</td>
+			<td>회색 버튼, 클릭시 보라색 (4톤)</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-gray-black">Gray-Black</a>
+			</td>
+			<td>
+				btn btn-gray-black
+			</td>
+			<td>회색 버튼, 클릭시 검정색 (4톤)</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-gray" disabled>Disabled</a>
+			</td>
+			<td>
+				btn btn-gray disabled
+			</td>
+			<td>회색 버튼, 비활성화</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-purple">Purple</a>
+			</td>
+			<td>
+				btn btn-purple
+			</td>
+			<td>보라색 버튼 (4톤)</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-purple-gray">Purple-Gray</a>
+			</td>
+			<td>
+				btn btn-purple-gray
+			</td>
+			<td>보라색 버튼, 클릭시 회색 (4톤)</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-purple-black">Purple-Black</a>
+			</td>
+			<td>
+				btn btn-purple-black
+			</td>
+			<td>보라색 버튼, 클릭시 검정색 (4톤)</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-purple" disabled>Disabled</a>
+			</td>
+			<td>
+				btn btn-purple disabled
+			</td>
+			<td>보라색 버튼, 비활성화</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-black">Black</a>
+			</td>
+			<td>
+				btn btn-black
+			</td>
+			<td>검정색 버튼 (4톤)</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-black-purple">Black-Purple</a>
+			</td>
+			<td>
+				btn btn-black-purple
+			</td>
+			<td>검정색 버튼, 클릭시 보라색 (4톤)</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-black-gray">Black-Gray</a>
+			</td>
+			<td>
+				btn btn-black-gray
+			</td>
+			<td>검정색 버튼, 클릭시 회색 (4톤)</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-black" disabled>Disabled</a>
+			</td>
+			<td>
+				btn btn-black disabled
+			</td>
+			<td>검정색 버튼, 비활성화</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<a class="btn btn-gray btn-flat btn-rect">Gray</a>
+			</td>
+			<td>
+				btn btn-gray btn-flat btn-rect
+			</td>
+			<td>회색 버튼, 직각 형태 (2톤)</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-gray-purple btn-flat btn-rect">Gray-Purple</a>
+			</td>
+			<td>
+				btn btn-gray-purple btn-flat btn-rect
+			</td>
+			<td>회색 버튼, 클릭시 보라색 / 직각 형태 (2톤)</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-gray-black btn-flat btn-rect">Gray-Black</a>
+			</td>
+			<td>
+				btn btn-gray-black btn-flat btn-rect
+			</td>
+			<td>회색 버튼, 클릭시 검정색 / 직각 형태 (2톤)</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-gray btn-flat btn-rect" disabled>Disabled</a>
+			</td>
+			<td>
+				btn btn-gray btn-flat btn-rect disabled
+			</td>
+			<td>회색 버튼, 비활성화 / 직각 형태</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-purple btn-flat btn-rect">Purple</a>
+			</td>
+			<td>
+				btn btn-gray btn-flat btn-rect
+			</td>
+			<td>보라색 버튼, 직각 형태 (2톤)</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-purple-gray btn-flat btn-rect">Purple-Gray</a>
+			</td>
+			<td>
+				btn btn-purple-gray btn-flat btn-rect
+			</td>
+			<td>보라색 버튼, 클릭시 회색 / 직각 형태 (2톤)</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-purple-black btn-flat btn-rect">Purple-Black</a>
+			</td>
+			<td>
+				btn btn-purple-black btn-flat btn-rect
+			</td>
+			<td>보라색 버튼, 클릭시 검정색 / 직각 형태 (2톤)</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-purple btn-flat btn-rect" disabled>Disabled</a>
+			</td>
+			<td>
+				btn btn-purple btn-flat btn-rect disabled
+			</td>
+			<td>보라색 버튼, 비활성화 / 직각 형태</td>
+		</tr>
+
+		<tr>
+			<td>
+				<a class="btn btn-black btn-flat btn-rect">Black</a>
+			</td>
+			<td>
+				btn btn-black btn-flat btn-rect
+			</td>
+			<td>검정색 버튼, 직각 형태 (2톤)</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-black-purple btn-flat btn-rect">Black-Purple</a>
+			</td>
+			<td>
+				btn btn-black-purple btn-flat btn-rect
+			</td>
+			<td>검정색 버튼, 클릭시 보라색 / 직각 형태 (2톤)</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-black-gray btn-flat btn-rect">Black-Gray</a>
+			</td>
+			<td>
+				btn btn-black-gray btn-flat btn-rect
+			</td>
+			<td>검정색 버튼, 클릭시 회색 / 직각 형태 (2톤)</td>
+		</tr>
+		<tr>
+			<td>
+				<a class="btn btn-black btn-flat btn-rect" disabled>Disabled</a>
+			</td>
+			<td>
+				btn btn-black btn-flat btn-rect disabled
+			</td>
+			<td>검정색 버튼, 비활성화 / 직각 형태</td>
+		</tr>
+	</table>
+</section>
+
+<section>
+	<h2>Size</h2>
+	<p>
+		버튼 크기는 아래와 같이 총 4가지를 제공합니다.
+		
+		<table class="table_s table-bordered table-striped"><tr><td>
+			<p>
+				<a class="btn btn-large btn-purple">Large button</a>
+				<a class="btn btn-large btn-gray"><i class="icon-home icon-large"></i> Large button</a>
+			</p>
+			<p>
+				<a class="btn btn-normal btn-purple">Default button</a>
+				<a class="btn btn-normal btn-gray"><i class="icon-home"></i> Default button</a>
+			</p>
+			<p>
+				<a class="btn btn-small btn-purple">Small button</a>
+				<a class="btn btn-small btn-gray"><i class="icon-home"></i> Small button</a>
+			</p>
+			<p>
+				<a class="btn btn-mini btn-purple">Mini button</a>
+				<a class="btn btn-mini btn-gray"><i class="icon-home"></i> Mini button</a>
+			</p>
+		</td></tr></table>
+	</p>
+	
+	<p class="br">
+<pre><code class="language-markup">&lt;p&gt;
+	&lt;a class="btn btn-large btn-purple"&gt;Large button&lt;/a&gt;
+	&lt;a class="btn btn-large btn-gray"&gt;Large button&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+	&lt;a class="btn btn-normal btn-purple"&gt;Default button&lt;/a&gt;
+	&lt;a class="btn btn-normal btn-gray"&gt;Default button&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+	&lt;a class="btn btn-small btn-purple"&gt;Small button&lt;/a&gt;
+	&lt;a class="btn btn-small btn-gray"&gt;Small button&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+	&lt;a class="btn btn-mini btn-purple"&gt;Mini button&lt;/a&gt;
+	&lt;a class="btn btn-mini btn-gray"&gt;Mini button&lt;/a&gt;
+&lt;/p&gt;</pre>
+	</p>
+</section>
+
+</body>
+</html>

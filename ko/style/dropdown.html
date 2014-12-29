@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<META charset="UTF-8">
+<title>[JUI Library] - CSS/Dropdown</title>
+	
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Dropdown</h1>
+</div>
+
+<section>
+	<h2>Default</h2>
+	<p>
+		드롭다운은 2가지의 색상과 크기를 제공합니다. 또한 3번째 드롭다운처럼 말풍선 효과를 추가할 수 있습니다. <br/>
+		그리고 기본 스타일인 라운드 효과를 직각으로 변경할 수 있는 옵션도 제공됩니다.
+		
+		<div class="dropdown" style="display: block;">
+			<ul style="width: 150px">
+				<li><i class="icon-refresh"></i> Combo Box1</li>
+				<li class="divider"></li>
+				<li>Combo Box2</li>
+				<li>Combo Box3</li>
+				<li>Combo Box4</li>
+			</ul>
+		</div>
+		
+		<div class="dropdown dropdown-rect" style="display: block;">
+			<ul style="width: 150px; left: 290px;">
+				<li><i class="icon-chevron-right"></i> Combo Box1</li>
+				<li class="divider"></li>
+				<li>Combo Box2</li>
+				<li>Combo Box3</li>
+				<li>Combo Box4</li>
+			</ul>
+		</div>
+		
+		<div class="dropdown dropdown-black dropdown-large" style="display: block; left: 580px;">
+			<div class="anchor"></div>
+			
+			<ul style="width: 150px;">
+				<li><i class="icon-refresh icon-white"></i> Combo Box1</li>
+				<li class="divider"></li>
+				<li>Combo Box2</li>
+				<li>Combo Box3</li>
+				<li>Combo Box4</li>
+			</ul>
+		</div>
+		
+		<div style="height: 150px;"></div>
+		
+<pre><code class="language-markup">&lt;div class="dropdown" style="display: block;"&gt;
+	&lt;ul style="width: 150px"&gt;
+		&lt;li&gt;&lt;i class="icon-refresh"&gt;&lt;/i&gt; Combo Box1&lt;/li&gt;
+		&lt;li class="divider"&gt;&lt;/li&gt;
+		&lt;li&gt;Combo Box2&lt;/li&gt;
+		&lt;li&gt;Combo Box3&lt;/li&gt;
+		&lt;li&gt;Combo Box4&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="dropdown dropdown-rect" style="display: block;"&gt;
+	&lt;ul style="display: block;width: 150px; left: 290px;"&gt;
+		&lt;li&gt;&lt;i class="icon-chevron-right "&gt;&lt;/i&gt; Combo Box1&lt;/li&gt;
+		&lt;li class="divider"&gt;&lt;/li&gt;
+		&lt;li&gt;Combo Box2&lt;/li&gt;
+		&lt;li&gt;Combo Box3&lt;/li&gt;
+		&lt;li&gt;Combo Box4&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="dropdown dropdown-black dropdown-large" style="display: block; left: 580px;"&gt;
+	&lt;div class="arrow"&gt;&lt;/div&gt;
+	
+	&lt;ul style="width: 150px;"&gt;
+		&lt;li&gt;&lt;i class="icon-refresh icon-white"&gt;&lt;/i&gt; Combo Box1&lt;/li&gt;
+		&lt;li class="divider"&gt;&lt;/li&gt;
+		&lt;li&gt;Combo Box2&lt;/li&gt;
+		&lt;li&gt;Combo Box3&lt;/li&gt;
+		&lt;li&gt;Combo Box4&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Sub-Dropdown</h2>
+	<p>
+		드롭다운은 서브 드롭다운을 지원하며 보여지는 위치를 변경할 수 있습니다.
+		
+		<div class="dropdown dropdown-black" style="display: block;">
+			<ul style="width: 150px;">
+				<li><a href="#">Today</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Yesterday</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Last 7 day</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Calendar</a></li>
+				<li class="divider"></li>
+				<li class="submenu">
+		            <a href="#">More options</a>
+		            <ul  style="width: 150px">
+						<li>Second level link</li>
+						<li>Second level link</li>
+						<li>Second level link</li>
+						<li>Second level link</li>
+						<li>Second level link</li>
+		            </ul>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="dropdown dropdown-rect" style="display: block; left: 290px">
+			<ul style="width: 150px">
+				<li><a href="#">Today</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Yesterday</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Last 7 day</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Calendar</a></li>
+				<li class="divider"></li>
+				<li class="submenu pull-left">
+		            <a href="#">More options</a>
+		            <ul  style="width: 150px">
+						<li>Second level link</a></li>
+						<li>Second level link</a></li>
+						<li>Second level link</li>
+						<li>Second level link</li>
+						<li>Second level link</li>
+		            </ul>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="dropup dropdown-large" style="display: block; left: 580px">
+			<ul style="width: 150px">
+				<li><a href="#">Today</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Yesterday</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Last 7 day</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Calendar</a></li>
+				<li class="divider"></li>
+				<li class="submenu pull-left">
+		            <a href="#">More options</a>
+		            <ul  style="width: 150px">
+						<li>Second level link</li>
+						<li>Second level link</li>
+						<li>Second level link</li>
+						<li>Second level link</li>
+						<li>Second level link</li>
+		            </ul>
+				</li>
+			</ul>
+		</div>
+		
+		<div style="height: 190px;"></div>
+
+<pre><code class="language-markup">&lt;div class="dropdown dropdown-black">
+	&lt;ul style="width: 150px;">
+		&lt;li>&lt;a href="#">Today&lt;/a>&lt;/li>
+		&lt;li class="divider">&lt;/li>
+		&lt;li>&lt;a href="#">Yesterday&lt;/a>&lt;/li>
+		&lt;li class="divider">&lt;/li>
+		&lt;li>&lt;a href="#">Last 7 day&lt;/a>&lt;/li>
+		&lt;li class="divider">&lt;/li>
+		&lt;li>&lt;a href="#">Calendar&lt;/a>&lt;/li>
+		&lt;li class="divider">&lt;/li>
+		&lt;li class="submenu">
+			&lt;a href="#">More options&lt;/a>
+			&lt;ul style="width: 150px">
+				&lt;li>Second level link&lt;/li>
+				&lt;li>Second level link&lt;/li>
+				&lt;li>Second level link&lt;/li>
+				&lt;li>Second level link&lt;/li>
+				&lt;li>Second level link&lt;/li>
+			&lt;/ul>
+		&lt;/li>
+	&lt;/ul>
+&lt;/div></code></pre>
+
+<pre><code class="language-markup">&lt;li class="submenu pull-left"&gt;
+	...
+&lt;/li&gt;</code></pre>
+
+<pre><code class="language-markup">&lt;div class="dropup"&gt;
+	...
+&lt;/div&gt;</code></pre>
+	</p>
+</section>
+</body>
+</html>

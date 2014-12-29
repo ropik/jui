@@ -1,0 +1,167 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<META charset="UTF-8">
+<title>[JUI Library] - JavaScript/Paging</title>
+
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<link rel="stylesheet" href="../../res/doc/script.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.ui.js"></script>
+
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Paging</h1>
+	<p class="br">
+		테이블이나 그외 데이터가 많은 화면에 공통적으로 적용할 수 있는 페이징 UI 컴포넌트입니다.
+	</p>
+</div>
+
+<section>
+	<h2>Default</h2>
+	<p>
+		페이징 UI를 사용하는 가장 기본적인 방법입니다.
+		
+		<div id="paging_1" class="paging" style="width: 100%; margin-top: 3px;">
+			<a href="#" class="prev">Previous</a>
+			<div class="list"></div>
+			<a href="#" class="next">Next</a>
+		</div>
+		
+		<script data-jui="#paging_1" data-tpl="pages" type="text/template">
+			<! for(var i = 0; i < pages.length; i++) { !>
+				<a href="#" class="page"><!= pages[i] !></a>
+			<! } !>
+		</script>
+	</p>
+	
+	<p class="br">
+<pre><code class="language-markup">
+&lt;div id="paging_1" class="paging" style="width: 800px; margin-top: 3px;"&gt;
+	&lt;a href="#" class="prev"&gt;Previous&lt;/a&gt;
+	&lt;div class="list"&gt;&lt;/div&gt;
+	&lt;a href="#" class="next"&gt;Next&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;script data-jui="#paging_1" data-tpl="pages" type="text/template"&gt;
+	&lt;! for(var i = 0; i &lt; pages.length; i++) { !&gt;
+		&lt;a href="#" class="page"&gt;&lt;!= pages[i] !&gt;&lt;/a&gt;
+	&lt;! } !&gt;
+&lt;/script&gt;</code></pre>
+	</p>			
+	
+	<p class="br">
+		총 세개의 옵션을 정할 수 있으며, <strong>count</strong>는 페이징 처리 대상 데이터의 총 개수입니다.<br />
+		그리고 <strong>pageCount</strong>는 한 페이지당 데이터 개수이고, <strong>screenCount</strong>는 페이징 UI에 보이는 페이지 개수를 말합니다.
+		
+<pre><code class="language-javascript">jui.ready([ "ui.paging" ], function(paging) {
+	paging_1 = paging("#paging_1", {
+		count: 1000,
+		pageCount: 10,
+		screenCount: 7, 
+		event: {
+			page: function(pNo) {
+				alert(pNo);
+			}
+		}
+	});
+});</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Table & Paging</h2>
+	<p>
+		<a class="btn btn-gray btn-mini" href="javascript:paging2Run();">Run</a> - 
+		좌측 버튼을 클릭하면 100만 건의 데이터를 테이블에 입력합니다.
+		
+		<div id="paging_2_xtable" class="xtable">
+			<table class="table table-classic">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Location</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+			
+		<script data-jui="#paging_2_xtable" data-tpl="row" type="text/template">
+			<tr>
+				<td><!= name !></td>
+				<td><!= age !></td>
+				<td><!= location !></td>
+			</tr>
+		</script>
+
+		<script data-jui="#paging_2_xtable" data-tpl="none" type="text/template">
+			<tr>
+				<td colspan="3" class="none">Data does not exist.</td>
+			</tr>
+		</script>
+		
+		<div id="paging_2" class="paging" style="margin-top: 3px;">
+			<a href="#" class="prev">Previous</a>
+			<div class="list"></div>
+			<a href="#" class="next">Next</a>
+		</div>
+		
+		<script data-jui="#paging_2" data-tpl="pages" type="text/template">
+			<! for(var i = 0; i < pages.length; i++) { !>
+				<a href="#" class="page"><!= pages[i] !></a>
+			<! } !>
+		</script>
+		
+		<p class="br">
+			페이지 버튼을 클릭하면 <strong>page</strong> 커스텀 이벤트가 발생하는데, 이 때 테이블의 페이지를 변경합니다.
+			
+<pre><code class="language-javascript">paging_2 = paging("#paging_2", {
+	pageCount: 100, 
+	event: {
+		page: function(pNo) {
+			paging_2_xtable.page(pNo);
+		}
+	}
+});</code></pre>
+		</p>
+		<p class="br">
+			테이블가 갱신되어 전체 로우 수가 변경되었다면 <strong>reload</strong> 메소드를 호출해주면 됩니다.
+			
+<pre><code class="language-javascript">function paging2Run() {
+	xtableRun();
+	paging_2.reload(paging_2_xtable.count());
+}
+</code></pre>
+		</p>
+		<p class="br">
+			그리고 테이블의 정렬 기능을 사용하였을 경우, 페이지 번호를 맨 처음으로 변경하기 위해 <strong>first</strong> 메소드를 호출해줍니다.
+			
+<pre><code class="language-javascript">paging_2_xtable = xtable("#paging_2_xtable", {
+	fields: [ "name", "age", "location" ],
+	resize: true,
+	sort: true,
+	sortLoading: true,
+	buffer: "s-page", // scroll, page, s-page
+	bufferCount: 100,
+	event: {
+		sortend: function(data, e) {
+			paging_2.first();
+		}
+	}
+});</code></pre>
+		</p>
+	</p>
+</section>
+
+</body>
+</html>

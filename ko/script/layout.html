@@ -1,0 +1,67 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<META charset="UTF-8">
+<title>[JUI Library] - JavaScript/Modal</title>	
+
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<link rel="stylesheet" href="../../res/doc/script.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.ui.js"></script>
+</head>
+
+<body class="jui">
+	
+<div class="page-header">
+	<h1>Layout</h1>
+</div>
+
+<section>
+	<h2>Default</h2>
+	<p>
+		레이아웃은 화면을 영역 별로 나눌 수 있으며 각각의 영역은 리사이징이 가능합니다.
+
+		<div id="container">
+			<div class="left"><div class="title">Left</div></div>
+			<div class="center"><div class="title">Center</div></div>
+			<div class="right"><div class="title">Right</div></div>
+		</div>
+	</p>
+	<p class="br">
+		각각의 영역은 기본/최소/최대 크기를 정할 수 있는 옵션과 리사이징 옵션을 설정할 수 있습니다.
+		
+<pre><code class="language-javascript">jui.ready([ "ui.layout" ], function(layout) {
+	layout_1 = layout("#container", {
+		width: "auto",
+		height: 300,
+		left: {
+			size: 100,
+			min: 100,
+			max: 300,
+			resize: true
+		},
+		right: {
+			size: 100,
+			min: 100,
+			max: 300,
+			resize: true
+		}
+	});
+});</code></pre>
+
+<pre><code class="language-markup">&lt;div id="container">
+	&lt;div class="left">&lt;div class="title">Left&lt;/div>&lt;/div>
+	&lt;div class="center">&lt;div class="title">Center&lt;/div>&lt;/div>
+	&lt;div class="right">&lt;div class="title">Right&lt;/div>&lt;/div>
+&lt;/div></code></pre>
+	</p>
+</section>
+
+</body>
+</html>

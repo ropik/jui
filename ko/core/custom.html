@@ -1,0 +1,116 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<META charset="UTF-8">
+<title>[JUI Library] - Core/Custom</title>
+
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../script/api_core.js"></script>
+
+<script>
+var uiApi = {
+	prop: {},
+	method: {},
+	event: {},
+	tpl: {},
+	opt: {}
+};
+
+jui.defineUI('ui.test', [], function() {
+	var UI = function() {
+		this.init = function() {
+			return this;
+		}
+	}
+	
+	return UI;
+}, 'core');
+
+jui.ready(function(ui, uix, _) {
+	var ui = ui.test("#ui");
+	
+	juiApi(ui, uiApi, _.template, function() {
+		$("#api_event").hide();
+		$("#api_tpl").hide();
+	});
+});
+</script>
+
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Custom</h1>
+	<p class="br">
+		JUI 라이브러리는 UI 컴포넌트를 쉽게 개발할 수 있도록 샌드박스 메소드를 제공합니다. 
+		추가할 수 있는 UI는 두 종류이며, 신규 컴포넌트의 특성에 맞게 <strong>js/ui</strong>나 <strong>js/uix</strong> 폴더에 파일을 생성합니다.
+		참고로 <strong>ui</strong>는 다른 컴포넌트에 종속적이지 않는 독립적인 컴포넌트이며, <strong>uix</strong>는 다른 컴포넌트와 조합하여 만들어진 복합 컴포넌트입니다.
+	</p>
+</div>
+
+<section>
+	<h2>Define</h2>
+	<p>
+		<strong>js/ui</strong>나 <strong>js/uix</strong> 폴더에 신규 컴포넌트 파일을 생성하였다면 해당 스크립트 파일에서 아래와 같이 함수를 사용합니다.
+		<pre><code class="language-javascript">jui.defineUI("ui.test", [ "util.base" ], function(_) {
+	var UI = function() {
+		this.init = function() {
+			// 초기 구현부
+		}
+		
+		this.func1 = function(val) {
+			// 공개 메소드 1
+		}
+	}
+
+    UI.setup = function() {
+        return { // UI 옵션 기본값 설정
+			option1: 1000,
+			option2: true
+        }
+    }
+	
+	return UI;
+}, "core");</code></pre>
+	</p>
+	
+	<p class="br">
+		<strong>setting</strong>은 해당 컴포넌트에서 사용할 옵션을 정의하는 메소드이며, <strong>init</strong>은 컴포넌트 객체가 생성되었을 경우에 최초로 실행되는 메소드입니다. 
+		이 두 메소드는 UI 컴포넌트를 새로 추가할 때, 필수적으로 정의해야만 합니다.<br/><br/>
+		
+		만약에 <strong>dropdown</strong> 컴포넌트를 사용하는 <strong>uix</strong> 컴포넌트를 새로 추가하고 싶다면, 아래와 같이 사용할 컴포넌트를 설정해주면 됩니다.
+		<pre><code class="language-javascript">jui.defineUI("uix.test", [ "ui.dropdown", "util.base" ], function(dropdown, _) {
+	var UI = function() {
+		// 위와 동일
+	}
+	
+	return UI;
+}, "core");</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Core</h2>
+	<p>
+		<strong>define</strong> 메소드의 리턴 클래스 내부에서는 <strong>this</strong>를 통해 UI 컴포넌트에 필요한 기본적인 메소드와 프로퍼티를 사용할 수 있습니다. 
+		예를 들어 <strong>emit</strong> 메소드를 통해 커스텀 이벤트를 발생시킬 수 있고, 해당 컴포넌트를 사용하는 유저는 <strong>on</strong> 메소드나 컴포넌트 이벤트 옵션을 통해 커스텀 이벤트를 리스닝 할 수 있습니다.<br/>
+		
+		<br/>
+		아래는 JUI 라이브러리의 <strong>Core</strong>가 제공하는 기본적인 API입니다.
+	</p>
+</section>
+
+<div class="hidden">
+	<span id="ui"></span>
+</div>
+
+</body>
+</html>

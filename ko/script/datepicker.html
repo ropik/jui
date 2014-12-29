@@ -1,0 +1,193 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<META charset="UTF-8">
+<title>[JUI Library] - JavaScript/Datepicker</title>
+
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.ui.js"></script>
+</head>
+
+<body class="jui">
+
+<div class="page-header">
+	<h1>Date Picker</h1>
+</div>
+
+<section>
+	<h2>Default</h2>
+	<p>
+		아래는 달력 컴포넌트의 기본 예제입니다.
+		
+		<div id="datepicker1" class="datepicker">
+            <div class="head">
+                <div class="prev"></div>
+                <div class="title"></div>
+                <div class="next"></div>
+            </div>
+            <table class="body">
+                <tr>
+                    <th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
+                </tr>
+            </table>
+        </div>
+        
+        <script data-jui="#datepicker1" data-tpl="dates" type="text/template">
+            <tr>
+                <! for(var i = 0; i < dates.length; i++) { !>
+                <td><!= dates[i] !></td>
+                <! } !>
+            </tr>
+        </script>
+	</p>
+	
+	<p class="br">
+		아래는 달력 컴포넌트의 템플릿이며, 요일 부분은 환경에 맞게 수정해서 사용할 수 있습니다.
+		
+<pre><code class="language-markup">&lt;div id="datepicker1" class="datepicker"&gt;
+    &lt;div class="head"&gt;
+        &lt;div class="prev"&gt;&lt;/div&gt;
+        &lt;div class="title"&gt;&lt;/div&gt;
+        &lt;div class="next"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;table class="body"&gt;
+        &lt;tr&gt;
+            &lt;th&gt;S&lt;/th&gt;&lt;th&gt;M&lt;/th&gt;&lt;th&gt;T&lt;/th&gt;&lt;th&gt;W&lt;/th&gt;&lt;th&gt;T&lt;/th&gt;&lt;th&gt;F&lt;/th&gt;&lt;th&gt;S&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+	</p>
+	<p>
+<pre><code class="language-markup">&lt;script data-jui="#datepicker1" data-tpl="dates" type="text/template"&gt;
+    &lt;tr&gt;
+        &lt;! for(var i = 0; i &lt; dates.length; i++) { !&gt;
+        &lt;td&gt;&lt;!= dates[i] !&gt;&lt;/td&gt;
+        &lt;! } !&gt;
+    &lt;/tr&gt;
+&lt;/script&gt;</code></pre>
+	</p>
+	
+	<p class="br">
+		아래는 달력 객체를 생성하는 코드입니다. 타이틀과 날짜 클릭시 발생되는 포맷을 옵션으로 설정할 수 있습니다.
+		
+<pre><code class="language-javascript">jui.ready([ "ui.datepicker" ], function(datepicker) {
+	datepicker1 = datepicker("#datepicker1", {
+	    titleFormat: "yyyy년 MM월",
+	    format: "yyyy/MM/dd",
+	    event: {
+	       select: function(date, e) {
+	           alert(date);
+	       },
+	       prev: function(e) {
+	           alert("prev");
+	       },
+	       next: function(e) {
+	           alert("next");
+	       }
+	    }
+	});
+});</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Monthly & Yearly</h2>
+	<p>
+		달력 컴포넌트는 월과 연도를 선택할 수 있는 타입도 제공합니다.
+		
+		<div class="row">
+			<div class="col col-6">
+				<div id="datepicker2" class="datepicker datepicker-large">
+		            <div class="head">
+		                <div class="prev"></div>
+		                <div class="title"></div>
+		                <div class="next"></div>
+		            </div>
+		            <table class="body">
+		            </table>
+		        </div>
+		        <script data-jui="#datepicker2" data-tpl="dates" type="text/template">
+		            <tr>
+		                <! for(var i = 0; i < dates.length; i++) { !>
+		                <td><!= dates[i] !>월</td>
+		                <! } !>
+		            </tr>
+		        </script>
+			</div>
+			<div class="col col-6">
+				<div id="datepicker3" class="datepicker datepicker-large">
+		            <div class="head">
+		                <div class="prev"></div>
+		                <div class="title"></div>
+		                <div class="next"></div>
+		            </div>
+		            <table class="body">
+		            </table>
+		        </div>
+		        <script data-jui="#datepicker3" data-tpl="dates" type="text/template">
+		            <tr>
+		                <! for(var i = 0; i < dates.length; i++) { !>
+		                <td><!= dates[i] !>년</td>
+		                <! } !>
+		            </tr>
+		        </script>
+			</div>
+		</div>
+	</p>
+	
+	<p class="br">
+		달력의 구성 요소를 템플릿으로 분리함으로써 다국어 설정이 가능하도록 하였습니다.
+		
+<pre><code class="language-markup">&lt;script data-jui="#datepicker2" data-tpl="dates" type="text/template"&gt;
+    &lt;tr&gt;
+        &lt;! for(var i = 0; i &lt; dates.length; i++) { !&gt;
+        &lt;td&gt;&lt;!= dates[i] !&gt;월&lt;/td&gt;
+        &lt;! } !&gt;
+    &lt;/tr&gt;
+&lt;/script&gt;</code></pre>
+	</p>
+	<p>
+<pre><code class="language-markup">&lt;script data-jui="#datepicker3" data-tpl="dates" type="text/template"&gt;
+    &lt;tr&gt;
+        &lt;! for(var i = 0; i &lt; dates.length; i++) { !&gt;
+        &lt;td&gt;&lt;!= dates[i] !&gt;년&lt;/td&gt;
+        &lt;! } !&gt;
+    &lt;/tr&gt;
+&lt;/script&gt;</code></pre>
+	</p>
+	
+	<p class="br">
+		달력의 타입을 변경하기 위해서는 <strong>type</strong> 옵션을 사용하면 됩니다.
+		
+<pre><code class="language-javascript">datepicker2 = datepicker("#datepicker2", {
+	type: "monthly",
+    titleFormat: "yyyy년",
+    format: "yyyy/MM",
+    event: {
+    	select: function(date, e) {
+    		alert(date);
+    	}
+    }
+});
+
+datepicker3 = datepicker("#datepicker3", {
+	type: "yearly",
+    titleFormat: "연도 선택",
+    format: "yyyy",
+    event: {
+    	select: function(date, e) {
+    		alert(date);
+    	}
+    }
+});</code></pre>
+	</p>
+</section>
+</body>
+</html>
