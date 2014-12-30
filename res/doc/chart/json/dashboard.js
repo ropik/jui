@@ -61,7 +61,7 @@ chart("#chart", {
             hide : false
         },
         area : {
-            x : 0,  y : "50%", width : "100%", height : "100%"
+            x : 0,  y : "50%", width : "100%", height : "50%"
         },
         data : data2
     }],
