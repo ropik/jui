@@ -146,15 +146,8 @@
                 $(sel).append(html);
                 var tpl = $("#tpl_chart").html();
 
-				for(var key in mod) {
-					if(key == "common") {
-						printApi(tpl, key);
-						break;
-					}
-				}
-
                 for(var key in mod) {
-					if(key != "core" && key != "common") {
+					if(key != "core") {
 						printApi(tpl, key);
 					}
                 }
@@ -165,49 +158,58 @@
             });
 
 			function printApi(tpl, key) {
-				var obj = new mod[key](null, null, {}),
-					api = (chartApi[key]) ? chartApi[key] : {};
+				var api = (chartApi[key]) ? chartApi[key] : {};
 
-				if (typeof(obj.drawSetup) == "function") {
-					var o = obj.drawSetup(),
-						opts = null;
+				var o = getDrawOptions({}, mod[key]),
+					opts = {};
 
-					for (var k in o) {
-						var def = o[k];
+				for(var k in o) {
+					var def = o[k];
 
-						if (o[k] == null) {
-							def = "null";
-						} else if (typeof(o[k]) == "string") {
-							def = "'" + o[k] + "'";
-						} else if (typeof(o[k]) == "object") {
-							def = ($.isArray(o[k])) ? "[]" : "{}";
-						}
-
-						if (opts == null) {
-							opts = {};
-						}
-
-						if(coreApi[apiKey]) {
-							opts[k] = $.extend({
-								name: (coreApi[apiKey][k]) ? ("<i>" + k + "</i>") : k,
-								def: def
-							}, coreApi[apiKey][k], api[k]);
-						} else {
-							opts[k] = $.extend({
-								name: k,
-								def: def
-							}, api[k]);
-						}
+					if (o[k] == null) {
+						def = "null";
+					} else if (typeof(o[k]) == "string") {
+						def = "'" + o[k] + "'";
+					} else if (typeof(o[k]) == "object") {
+						def = ($.isArray(o[k])) ? "[]" : "{}";
 					}
 
-					if (opts != null) {
-						$(sel).append(tplFunc(tpl, { key: key, items: opts, exist: true }));
+					if(coreApi[apiKey]) {
+						opts[k] = $.extend({
+							name: (coreApi[apiKey][k]) ? ("<i>" + k + "</i>") : k,
+							def: def
+						}, coreApi[apiKey][k], api[k]);
 					} else {
-						$(sel).append(tplFunc(tpl, { key: key, items: {}, exist: false }));
+						opts[k] = $.extend({
+							name: k,
+							def: def
+						}, api[k]);
 					}
+				}
+
+				if (opts != null) {
+					$(sel).append(tplFunc(tpl, { key: key, items: opts, exist: true }));
 				} else {
 					$(sel).append(tplFunc(tpl, { key: key, items: {}, exist: false }));
 				}
+			}
+
+			function getDrawOptions(options, Draw) {
+				if(typeof(Draw) == "function") {
+					if(typeof(Draw.setup) == "function") {
+						var opts = Draw.setup();
+
+						for(var key in opts) {
+							if(!options[key]) {
+								options[key] = opts[key];
+							}
+						}
+					}
+
+					getDrawOptions(options, Draw.parent);
+				}
+
+				return options;
 			}
         };
 	}

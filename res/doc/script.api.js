@@ -1,88 +1,27 @@
-jui.define("chart.brush.common", [], function() {
-    var CommonBrush = function() {
-        this.draw = function() {
-            return {};
-        }
-
-        this.drawSetup = function() {
-            return {
-                type: null,
-                target: null,
-                colors: null,
-                axis: 0,
-                index: 0, // 여기서부터 읽기전용
-                x: null,
-                y: null,
-                c: null
-            };
-        }
-    }
-
-    return CommonBrush;
-}, "chart.draw");
-
-jui.define("chart.grid.common", [], function() {
-    var CommonGrid = function() {
-        this.draw = function() {
-            return {};
-        }
-
-        this.drawSetup = function() {
-            return {
-                type: null,
-                target: null,
-                extend: null,
-                dist: null,
-                orient: null
-            };
-        }
-    }
-
-    return CommonGrid;
-}, "chart.draw");
-
-jui.define("chart.widget.common", [], function() {
-    var CommonWidget = function() {
-        this.draw = function() {
-            return {};
-        }
-
-        this.drawSetup = function() {
-            return {
-                type: null,
-                brush: 0,
-                render: false
-            };
-        }
-    }
-
-    return CommonWidget;
-}, "chart.draw");
-
 jui.define("chart.axis.common", [], function() {
     var CommonAxis = function() {
         this.draw = function() {
             return {};
         }
+    }
 
-        this.drawSetup = function() {
-            return {
-                x: null,
-                y: null,
-                c: null,
-                data: [],
-                buffer: 10000,
-                shift: 1,
-                origin: [], // 여기서부터 읽기전용
-                page: 1,
-                start: 0,
-                end: 0
-            };
-        }
+    CommonAxis.setup = function() {
+        return {
+            x: null,
+            y: null,
+            c: null,
+            data: [],
+            buffer: 10000,
+            shift: 1,
+            origin: [], // 여기서부터 읽기전용
+            page: 1,
+            start: 0,
+            end: 0
+        };
     }
 
     return CommonAxis;
-}, "chart.draw");
+});
 
 jui.ready([ "util.base", "ui", "uix", "chart.builder", "chartx.realtime" ], function(_, ui, uix, builder, r_builder) {
     var autocomplete = uix.autocomplete("#autocomplete", {

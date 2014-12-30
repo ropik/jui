@@ -328,32 +328,6 @@ var uiApi = {
 };
 
 var brushApi = {
-    common: {
-        type: {
-            detail: "추가할 브러쉬의 타입을 설정합니다."
-        },
-        target: {
-            detail: "브러쉬에 보여지는 데이터의 키 값을 설정합니다."
-        },
-        colors: {
-            detail: "타겟 순서에 맞게 컬러 코드를 설정할 수 있습니다. (기본은 테마의 컬러 코드 참조)"
-        },
-        axis: {
-            detail: "브러쉬의 기준 축이 되는 그리드 그룹의 인덱스를 정합니다."
-        },
-        index: {
-            detail: "[읽기전용] 브러쉬가 그려진 순서 인덱스입니다."
-        },
-        x: {
-            detail: "[읽기전용] X축 좌표를 얻어오는 함수입니다."
-        },
-        y: {
-            detail: "[읽기전용] Y축 좌표를 얻어오는 함수입니다."
-        },
-        c: {
-            detail: "[읽기전용] 커스텀 좌표를 얻어오는 함수입니다."
-        }
-    },
     bar: {
         outerPadding: {
             detail: "바의 바깥쪽 여백을 정합니다."
@@ -433,6 +407,15 @@ var brushApi = {
         },
         showText: {
             detail: "풀스택 바의 퍼센트 텍스트가 보이도록 설정합니다."
+        },
+        display: {
+            detail: "최소/최대 값의 풀스택 바에 툴팁을 보여줍니다. (min, max)"
+        },
+        minValue: {
+            detail: "값이 0일 경우에는 풀스택 바를 그릴 수 없기 때문에 최소 값을 설정합니다."
+        },
+        innerPadding: {
+            detail: "풀스택 바의 안쪽 여백을 정합니다."
         }
     },
     fullstackcolumn: {
@@ -447,6 +430,15 @@ var brushApi = {
         },
         showText: {
             detail: "풀스택 컬럼의 퍼센트 텍스트가 보이도록 설정합니다."
+        },
+        display: {
+            detail: "최소/최대 값의 풀스택 컬럼에 툴팁을 보여줍니다. (min, max)"
+        },
+        minValue: {
+            detail: "값이 0일 경우에는 풀스택 컬럼을 그릴 수 없기 때문에 최소 값을 설정합니다."
+        },
+        innerPadding: {
+            detail: "풀스택 컬럼의 안쪽 여백을 정합니다."
         }
     },
     line: {
@@ -477,6 +469,9 @@ var brushApi = {
         },
         size: {
             detail: "스카터의 크기를 정합니다."
+        },
+        strokeWidth: {
+            detail: "스카터의 라인 굵기를 설정합니다."
         }
     },
     stackbar: {
@@ -488,6 +483,15 @@ var brushApi = {
         },
         activeEvent: {
             detail: "설정된 이벤트가 발생하면 해당 스택 바를 활성화시킵니다. (click, mouseover, ...)"
+        },
+        display: {
+            detail: "최소/최대 값의 스택 바에 툴팁을 보여줍니다. (min, max)"
+        },
+        minValue: {
+            detail: "값이 0일 경우에는 스택 바를 그릴 수 없기 때문에 최소 값을 설정합니다."
+        },
+        innerPadding: {
+            detail: "스택 바의 안쪽 여백을 정합니다."
         }
     },
     stackcolumn: {
@@ -499,6 +503,15 @@ var brushApi = {
         },
         activeEvent: {
             detail: "설정된 이벤트가 발생하면 해당 컬럼을 활성화시킵니다. (click, mouseover, ...)"
+        },
+        display: {
+            detail: "최소/최대 값의 스택 컬럼에 툴팁을 보여줍니다. (min, max)"
+        },
+        minValue: {
+            detail: "값이 0일 경우에는 스택 컬럼을 그릴 수 없기 때문에 최소 값을 설정합니다."
+        },
+        innerPadding: {
+            detail: "스택 컬럼의 안쪽 여백을 정합니다."
         }
     },
     bargauge: {
@@ -739,17 +752,6 @@ var brushApi = {
 };
 
 var widgetApi = {
-    common: {
-        type: {
-            detail: "추가할 위젯의 타입을 설정합니다."
-        },
-        brush: {
-            detail: "위젯을 사용할 브러쉬 인덱스를 설정합니다."
-        },
-        render: {
-            detail: "위젯에 렌더링 대상 여부를 정합니다."
-        }
-    },
     tooltip: {
         orient: {
             detail: "툴팁이 보여지는 방향을 설정합니다. (top, bottom, left, right)"
@@ -815,23 +817,6 @@ var widgetApi = {
 };
 
 var gridApi = {
-    common: {
-        type: {
-            detail: "추가할 그리드의 타입을 설정합니다."
-        },
-        target: {
-            detail: "축의 최소/최대 값을 구하기 위한 데이터 키 값을 설정합니다."
-        },
-        extend: {
-            detail: "이미 설정된 그리드 옵션을 그대로 사용하고 싶을 경우에 해당 그리드 그룹의 인덱스를 설정합니다."
-        },
-        dist: {
-            detail: "."
-        },
-        orient: {
-            detail: "축이 보여지는 방향을 설정합니다. (top, bottom, left, right)"
-        }
-    },
     block: {
         full: {
             detail: "기준 좌표를 전체 범위로 사용할지 정합니다."
