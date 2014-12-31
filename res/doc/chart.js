@@ -187,7 +187,7 @@ function createTable() {
     if(jui.include("util.base").browser.msie) return;
 
     var chart = window.currentChart;
-    var data = chart.draw("axis", 0).data;
+    var data = chart.get("axis", 0).data;
     var obj = data[0];
 
     var fields = [];
