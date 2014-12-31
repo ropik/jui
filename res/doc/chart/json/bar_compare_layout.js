@@ -39,11 +39,15 @@ chart("#chart-content", {
         }
     }, {
         x : {
-            extend : 0,
+            type : "range",
+            target : [ "female", "male" ],
+            step : 10,
+            line : true,
             reverse : false
         },
         y : {
-            extend : 0,
+            type : "block",
+            target : "age",
             orient : "right"
         },
         data : data,
