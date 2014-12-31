@@ -395,6 +395,10 @@ function initAnimation() {
 	setInterval(prev, interval);
 }
 
+function changeLanguage(from, to) {
+	location.href = location.href.split("/" + from + "/").join("/" + to + "/");
+}
+
 jui.ready(function(ui, uix, _) {
 	loading = ui.modal("#floatingBarsG", {
 		color: "black"
