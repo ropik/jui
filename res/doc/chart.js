@@ -420,6 +420,8 @@ function viewCodeEditor() {
         editor.on('change', function(cm) {
             var code = code_list[currentChartIndex].code;
 
+            console.log(code);
+
             try {
                 if(code == "bar_compare.js") {
                     $("#chart-content").html($("#tpl_compare").html());
