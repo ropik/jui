@@ -1,10 +1,4 @@
 var chart = jui.include("chart.builder");
-var data = [
-    { apple : 26.1, microsoft : 24.86, oracle : 22.08 },
-    { apple : 43.83, microsoft : 25.14, oracle : 30.15 },
-    { apple : 55.03, microsoft : 24, oracle : 24.88 },
-    { apple : 72.95, microsoft : 25.39, oracle : 32.78 }
-];
 
 chart("#chart", {
     axis : {
@@ -19,7 +13,12 @@ chart("#chart", {
             target : [ "apple", "microsoft", "oracle" ],
             step : 10
         },
-        data : data
+        data : [
+            { apple : 26.1, microsoft : 24.86, oracle : 22.08 },
+            { apple : 43.83, microsoft : 25.14, oracle : 30.15 },
+            { apple : 55.03, microsoft : 24, oracle : 24.88 },
+            { apple : 72.95, microsoft : 25.39, oracle : 32.78 }
+        ]
     },
     brush : {
         type : "line"

@@ -1,10 +1,4 @@
 var chart = jui.include("chart.builder");
-var data = [
-    { sales: 2, profit: 15, dept: 7 },
-    { sales: -15, profit: 6, dept: 2 },
-    { sales: 8, profit: 10, dept: 5 },
-    { sales: 18, profit: 5, dept: 12 }
-];
 
 chart("#chart-content", {
     axis : {
@@ -19,7 +13,12 @@ chart("#chart-content", {
             target: [ "sales", "profit", "dept" ],
             step: 10
         },
-        data : data
+        data : [
+            { sales: 2, profit: 15, dept: 7 },
+            { sales: -15, profit: 6, dept: 2 },
+            { sales: 8, profit: 10, dept: 5 },
+            { sales: 18, profit: 5, dept: 12 }
+        ]
     },
 	brush : [{
 		type : "area"
