@@ -15,14 +15,14 @@ chart("#chart-content", {
             format : function(d) {
                 return "$" + d + "B";
             },
-            target : function(d) {
+            domain : function(d) {
                 return 500;
             },
             orient : "top"
         },
         y : {
             type : "block",
-            target : "quarter",
+            domain : "quarter",
             line : true
         },
         data : data

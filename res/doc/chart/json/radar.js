@@ -12,7 +12,7 @@ chart("#chart", {
     axis : {
         c : {
             type : "radar",
-            target : "type"
+            domain : "type"
         },
         data : data
     },

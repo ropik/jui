@@ -25,7 +25,7 @@ chart("#chart", {
     axis : {
         x : {
             type : "range",
-            target : function(data) {
+            domain : function(data) {
                 return data.samsung + data.lg + data.sony;
             },
             line : true,
@@ -33,7 +33,7 @@ chart("#chart", {
         },
         y : {
             type : "block",
-            target : "quarter",
+            domain : "quarter",
             line : true
         },
         data : data

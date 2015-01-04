@@ -13,13 +13,13 @@ chart("#chart", {
     axis : {
         x : {
             type : "range",
-            target : ["sales", "profit" ],
+            domain: function(d) { return Math.max(d.sales, d.profit); },
             step : 10,
             hide : true
         },
         y : {
             type : "block",
-            target : "quarter",
+            domain : "quarter",
             line : true,
             hide : true
         },

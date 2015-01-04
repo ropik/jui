@@ -29,7 +29,7 @@ chart("#chart", {
         },
         y : {
             type : "range",
-            target : "visitor",
+            domain : "visitor",
             step : 2,
             color : "#1db34f"
         },

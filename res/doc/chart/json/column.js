@@ -10,12 +10,12 @@ chart("#chart", {
     axis : {
         x : {
             type : "block",
-            target : "quarter",
+            domain : "quarter",
             line : true
         },
         y : {
             type : "range",
-            target : [ "sales", "profit" ],
+            domain: function(d) { return Math.max(d.sales, d.profit); },
             step : 10,
             line : true,
             orient : "right"

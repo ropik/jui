@@ -15,7 +15,7 @@ chart("#chart", {
         },
         y : {
             type : "range",
-            target : "total",
+            domain : "total",
             step : 10
         },
         data : data

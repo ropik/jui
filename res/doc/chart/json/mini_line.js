@@ -13,13 +13,13 @@ chart("#chart", {
     axis : {
         x : {
             type : "block",
-            target : "quarter",
+            domain : "quarter",
             line : true,
             hide : true
         },
         y : {
             type : "range",
-            target : "sales",
+            domain : "sales",
             step : 10,
             hide : true
         },

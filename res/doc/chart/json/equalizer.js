@@ -14,12 +14,12 @@ chart("#chart", {
     axis : {
         x : {
             type : "block",
-            target : "server",
+            domain : "server",
             line : true
         },
         y : {
             type : "range",
-            target : "cpu",
+            domain : "cpu",
             step : 10,
             line : true
         },

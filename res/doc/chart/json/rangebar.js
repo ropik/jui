@@ -16,7 +16,7 @@ chart("#chart-content", {
         },
         y : {
             type : "block",
-            target : "quarter",
+            domain : "quarter",
             line : true
         },
         data : data

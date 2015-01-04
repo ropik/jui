@@ -10,12 +10,12 @@ var c = chart("#chart", {
     axis : {
         x : {
             type : "block",
-            target : "quarter",
+            domain : "quarter",
             line : true
         },
         y : {
             type : "range",
-            target : function(d) {
+            domain : function(d) {
                 if(d.sales > 7000) return 10000;
                 else if(d.sales > 5000) return 7000;
                 else if(d.sales > 3000) return 5000;

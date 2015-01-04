@@ -10,12 +10,12 @@ chart("#chart", {
     axis : {
         x : {
             type : "block",
-            target : "quarter",
+            domain : "quarter",
             line : true
         },
         y : {
             type : "range",
-            target : "sales",
+            domain : "sales",
             step : 10,
             line : true
         },

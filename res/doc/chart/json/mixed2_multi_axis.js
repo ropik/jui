@@ -20,7 +20,7 @@ chart("#chart", {
     },
     axis : [{
         x : {
-            target : "month",
+            domain : "month",
             line : true
         },
         y : {

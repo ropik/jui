@@ -14,7 +14,7 @@ chart("#chart", {
         y : {
             type : "range",
             step : 10,
-            target : function(d) {
+            domain : function(d) {
                 return 600;
             }
         },

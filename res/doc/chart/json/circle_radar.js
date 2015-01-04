@@ -13,7 +13,7 @@ chart("#chart", {
         c : {
             type : "radar",
             shape : "circle",
-            target : "type"
+            domain : "type"
         },
         data : data
     },

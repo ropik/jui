@@ -31,7 +31,7 @@ chart("#chart", {
     axis : {
         x : {
             type : "block",  // default type is block
-            target : "date",
+            domain : "date",
             format: function(d) {
                 return time.format(d, "MM-dd");
             },

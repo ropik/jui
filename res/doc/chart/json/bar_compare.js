@@ -27,14 +27,14 @@ chart("#chart-left", {
     axis : {
         x : {
             type : "range",
-            target : "female",
+            domain : "female",
             step : 10,
             line : true,
             reverse : true
         },
         y : {
             type : "block",
-            target : "age",
+            domain : "age",
             hide : true
         },
         data : data

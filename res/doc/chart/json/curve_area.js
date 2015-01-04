@@ -16,7 +16,7 @@ chart("#chart-content", {
         },
         y : {
             type: "range",
-            target: [ "sales", "profit", "dept" ],
+            domain: function(d) { return Math.max(d.sales, d.profit, d.dept); },
             step: 10
         },
         data : data

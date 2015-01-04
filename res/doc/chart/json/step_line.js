@@ -16,7 +16,7 @@ chart("#chart", {
         },
         y : {
             type : "range",
-            target : [ "apple", "microsoft", "oracle" ],
+            domain: function(d) { return Math.max(d.apple, d.microsoft, d.oracle); },
             step : 10
         },
         data : data
