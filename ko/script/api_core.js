@@ -116,9 +116,6 @@ window.coreApi = {
         type: {
             detail: "추가할 그리드의 타입을 설정합니다."
         },
-        target: {
-            detail: "축의 최소/최대 값을 구하기 위한 데이터 키 값을 설정합니다."
-        },
         extend: {
             detail: "이미 설정된 그리드 옵션을 그대로 사용하고 싶을 경우에 해당 그리드 그룹의 인덱스를 설정합니다."
         },
@@ -128,41 +125,26 @@ window.coreApi = {
         orient: {
             detail: "축이 보여지는 방향을 설정합니다. (top, bottom, left, right)"
         },
-        domain: {
-            detail: "축에 표시되는 값을 설정합니다."
-        },
-        step: {
-            detail: "축에 표시되는 값의 간격을 설정합니다."
-        },
-        min: {
-            detail: "축의 최소 값을 설정합니다."
-        },
-        max: {
-            detail: "축의 최대 값을 설정합니다."
-        },
-        reverse: {
-            detail: "축에 표시되는 값들을 반대로 보여지게 합니다."
-        },
-        key: {
-            detail: "해당 키의 값으로 실제 축의 값을 처리합니다."
-        },
         hide: {
             detail: "해당 축을 표시 여부를 설정합니다."
-        },
-        unit: {
-            detail: "축의 값을 해당 값의 배수로 보여지게 합니다."
-        },
-        line: {
-            detail: "축 배경에 라인 표시 여부를 정합니다."
-        },
-        format: {
-            detail: "축 값의 포맷을 설정합니다."
         },
         color: {
             detail: "축의 색상을 설정합니다."
         },
         title: {
             detail: "축에 보여지는 텍스트를 설정합니다."
+        },
+        line: {
+            detail: "축 배경에 라인 표시 여부를 정합니다."
+        },
+        baseline: {
+            detail: "축 배경에 베이스 라인 표시 여부를 정합니다."
+        },
+        subline: {
+            detail: "축 배경에 서브 라인 표시 여부를 정합니다."
+        },
+        format: {
+            detail: "축 값의 포맷을 설정합니다."
         },
         textRotate: {
             detail: "축에 표시되는 텍스트의 기울기를 설정합니다."
