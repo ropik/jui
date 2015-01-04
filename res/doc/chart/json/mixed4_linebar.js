@@ -64,7 +64,8 @@ chart("#chart", {
             key: "date"
         },
         y : {
-            extend : 0
+            extend : 0,
+            hide : true
         },
         data : lineData
     }],

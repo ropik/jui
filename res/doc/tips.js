@@ -577,7 +577,7 @@ jui.ready([ "chart.builder" ], function(builder) {
                 { type : 'donut' },
                 { type : 'gauge' },
                 { type : 'line' },
-                { type : 'mixed', file : 'mixed2_multi_axis' },
+                { type : 'mixed', file : 'mixed1' },
                 { type : 'pie' },
                 { type : 'radar' },
                 { type : 'scatter' }
