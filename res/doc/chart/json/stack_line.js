@@ -17,7 +17,7 @@ chart("#chart", {
         y : {
             type : "range",
             domain : function(d) {
-                return Math.max(d.apple, d.microsoft, d.oracle);
+                return d.apple + d.microsoft + d.oracle;
             },
             step : 10
         },
