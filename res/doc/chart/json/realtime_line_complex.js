@@ -3,7 +3,7 @@ var time = jui.include('util.time');
 
 var c = chart("#chart", {
     axis : {
-        target: function(d) {
+        domain: function(d) {
             return d.s20 * 2;
         },
         data : getRealtimeData(5)

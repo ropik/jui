@@ -32,7 +32,7 @@ chart("#chart", {
         },
         y : {
             type : "block",
-            target : "quarter",
+            domain : "quarter",
             line : true,
             orient : "right"
         },

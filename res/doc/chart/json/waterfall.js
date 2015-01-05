@@ -15,12 +15,12 @@ chart("#chart", {
     axis : {
         x : {
             type : "block",
-            target: "name"
+            domain: "name"
         },
         y : {
             type : "range",
             step : 10,
-            target : "value"
+            domain : "value"
         },
         data : data
     },

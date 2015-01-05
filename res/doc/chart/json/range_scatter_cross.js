@@ -38,7 +38,7 @@ chart("#chart", {
         },
         y : {
             type : "range",
-            target : "total",
+            domain : "total",
             step : 10,
             line : true
         },

@@ -76,7 +76,7 @@ chart("#chart", {
     axis : [{
         x : {
             type : "block",  // default type is block
-            target : "date",
+            domain : "date",
             full : true,
             hide : true
         },
@@ -91,7 +91,7 @@ chart("#chart", {
     }, {
         x : {
             type : "block",  // default type is block
-            target : "date",
+            domain : "date",
             format : function(d) {
                 day_cnt++;
 
@@ -102,7 +102,7 @@ chart("#chart", {
         },
         y : {
             type : "range",
-            target : "v",
+            domain : "v",
             step: 5,
             line : false,
             start : "70%",

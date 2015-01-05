@@ -18,13 +18,13 @@ chart("#chart", {
     axis : {
         x : {
             type : "range",
-            target : "sales",
+            domain : "sales",
             step : 10,
             line : true
         },
         y : {
             type : "block",
-            target : "quarter",
+            domain : "quarter",
             line : true
         },
         data : data

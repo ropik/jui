@@ -4,13 +4,13 @@ chart("#chart-content", {
     axis : {
         x : {
             type : "range",
-            target : ["sales", "profit"],
+            domain : function(d) { return [d.sales, d.profit]; } ,
             step : 10,
             line : true
         },
         y : {
             type : "block",
-            target : "quarter",
+            domain : "quarter",
             line : true 
         },
         data : [

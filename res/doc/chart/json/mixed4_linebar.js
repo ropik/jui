@@ -41,12 +41,12 @@ chart("#chart", {
     axis : [{
         x : {
             type : "block",
-            target : "date",
+            domain : "date",
             hide : true
         },
         y : {
             type : "range",
-            target : function(d) {
+            domain : function(d) {
                 return d.value + 10;
             },
             step : 5,

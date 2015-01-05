@@ -20,7 +20,7 @@ chart("#chart", {
         },
         y : {
             type: "range",
-            target: function(data) {
+            domain: function(data) {
                 return data.sales + data.profit + data.dept;
             },
             step: 10

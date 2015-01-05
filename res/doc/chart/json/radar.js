@@ -4,7 +4,7 @@ chart("#chart", {
     axis : {
         c : {
             type : "radar",
-            target : "type"
+            domain : "type"
         },
         data : [
             { type : "STR", warrior : 100, wizard : 30, archer : 35 },

@@ -30,7 +30,7 @@ chart("#chart", {
 		},
 		y : {
 			type : "range",
-			target : "v1",
+			domain : "v1",
 			step : 10,
 			line : true
 		},

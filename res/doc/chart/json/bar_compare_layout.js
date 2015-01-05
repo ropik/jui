@@ -24,14 +24,14 @@ chart("#chart-content", {
     axis : [{
         x : {
             type : "range",
-            target : [ "female", "male" ],
+            domain : function(d) { return [d.female, d.male]; },
             step : 10,
             line : true,
             reverse : true
         },
         y : {
             type : "block",
-            target : "age"
+            domain : "age"
         },
         data : data,
         area : {

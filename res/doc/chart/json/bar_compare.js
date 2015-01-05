@@ -27,14 +27,14 @@ chart("#chart-left", {
     axis : {
         x : {
             type : "range",
-            target : "female",
+            domain : "female",
             step : 10,
             line : true,
             reverse : true
         },
         y : {
             type : "block",
-            target : "age",
+            domain : "age",
             hide : true
         },
         data : data
@@ -54,13 +54,13 @@ chart("#chart-right", {
     axis : {
         x : {
             type : "range",
-            target : "male",
+            domain : "male",
             step : 10,
             line: true
         },
         y : {
             type : "block",
-            target : "age"
+            domain : "age"
         },
         data : data
     },

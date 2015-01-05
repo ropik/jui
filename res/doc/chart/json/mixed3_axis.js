@@ -73,7 +73,7 @@ chart("#chart", {
     axis : [{
         x : {
             type : "block",
-            target : "date",
+            domain : "date",
             full : true,
             hide : true
         },
@@ -91,7 +91,7 @@ chart("#chart", {
     }, {
         x : {
             type : "block",
-            target : "date",
+            domain : "date",
             format : function(d, day_cnt) {
                 if(day_cnt % 7 == 0) {
                     return time.format(d, "MM-dd");
@@ -100,7 +100,7 @@ chart("#chart", {
         },
         y : {
             type : "range",
-            target : "v",
+            domain : "v",
             step : 5,
             format : function(d) {
                 if(d > 10000) {

@@ -23,12 +23,12 @@ chart("#chart", {
     axis : [{
         x : {
             type : "block",
-            target : "quarter",
+            domain : "quarter",
             hide : true
         },
         y : {
             type : "range",
-            target : "sales",
+            domain : "sales",
             hide : false
         },
         area : {
@@ -41,7 +41,7 @@ chart("#chart", {
         },
         y : {
             extend : 0,
-            target : "profit",
+            domain : "profit",
             hide : true
         },
         area : {
@@ -51,13 +51,13 @@ chart("#chart", {
     }, {
         x : {
             type : "block",
-            target : "name",
+            domain : "name",
             hide : false
         },
         y : {
             type : "range",
             step : 10,
-            target : "value",
+            domain : "value",
             hide : false
         },
         area : {
