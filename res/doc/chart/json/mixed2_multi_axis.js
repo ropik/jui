@@ -52,7 +52,8 @@ chart("#chart", {
         data : data
     }, {
         x : {
-            extend : 0
+            extend : 0,
+            hide : true
         },
         y : {
             type: "range",
