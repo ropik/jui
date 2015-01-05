@@ -10,7 +10,7 @@ chart("#chart-content", {
         },
         y : {
             type: "range",
-            domain: function(d) { return Math.max(d.sales, d.profit, d.dept); },
+            domain : function(d) { return [d.sales, d.profit, d.dept]; },
             step: 10
         },
         data : [

@@ -54,13 +54,13 @@ chart("#chart-right", {
     axis : {
         x : {
             type : "range",
-            target : "male",
+            domain : "male",
             step : 10,
             line: true
         },
         y : {
             type : "block",
-            target : "age"
+            domain : "age"
         },
         data : data
     },

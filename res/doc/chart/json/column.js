@@ -9,7 +9,7 @@ chart("#chart", {
         },
         y : {
             type : "range",
-            domain: function(d) { return Math.max(d.sales, d.profit); },
+            domain : function(d) { return [d.sales, d.profit ]; },
             step : 10,
             line : true,
             orient : "right"

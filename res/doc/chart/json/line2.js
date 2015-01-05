@@ -40,7 +40,7 @@ chart("#chart", {
         },
         y : {
             type : "range",
-            target : "unique",
+            domain : "unique",
             step : 4,
             color : "#1d7fb3",
             orient : "right"

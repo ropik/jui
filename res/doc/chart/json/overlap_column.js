@@ -20,7 +20,7 @@ chart("#chart-content", {
             format : function(d) {
                 return "$" + d + "B";
             },
-            target : function(d) {
+            domain : function(d) {
                 return 500;
             },
             orient : "right"

@@ -44,7 +44,7 @@ chart("#chart", {
 		},
 		y : { 
 			type : "range",
-            domain: function(d) { return Math.max(d.apple, d.microsoft, d.oracle); },
+			domain : function(d) { return [d.apple, d.microsoft, d.oracle]; },
 			step : 10,
 			line : true 
 		},
@@ -52,7 +52,7 @@ chart("#chart", {
 	},
 	brush : {  
 		type : "line",
-		target : [ "apple", "microsoft", "oracle" ]
+		target : ['apple', 'microsoft', 'oracle']
 	},
     widget : [
         { type : "title", text : "Line Sample" },

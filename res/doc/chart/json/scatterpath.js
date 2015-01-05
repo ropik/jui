@@ -17,7 +17,7 @@ chart("#chart", {
         },
         y : {
             type : "range",
-            domain: function(d) { return Math.max(d.q1, d.q2, d.q3); },
+            domain : function(d) { return [d.q1, d.q2, d.q3]; },
             step : 10,
             line : true
         },

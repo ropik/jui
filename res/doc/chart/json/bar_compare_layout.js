@@ -24,7 +24,7 @@ chart("#chart-content", {
     axis : [{
         x : {
             type : "range",
-            domain: function(d) { return Math.max(d.female, d.male); },
+            domain : function(d) { return [d.female, d.male]; },
             step : 10,
             line : true,
             reverse : true
