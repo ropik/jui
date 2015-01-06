@@ -4,7 +4,7 @@ chart("#chart-content", {
     axis : {
         x : {
             type : "range",
-            domain : function(d) { return [d.sales, d.profit]; } ,
+            domain : [ -40, 60 ],
             step : 10,
             line : true
         },
