@@ -420,8 +420,6 @@ function viewCodeEditor() {
         editor.on('change', function(cm) {
             var code = code_list[currentChartIndex].code;
 
-            console.log(code);
-
             try {
                 if(code == "bar_compare.js") {
                     $("#chart-content").html($("#tpl_compare").html());
@@ -434,6 +432,8 @@ function viewCodeEditor() {
 
                 var chart = jui.get("chart.builder").pop();
                 window.currentChart = chart[chart.length -1];
+
+                changeTheme($("select").find("option:selected").val());
             } catch(e) {
                 console.log(e);
             }
