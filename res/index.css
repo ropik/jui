@@ -148,6 +148,12 @@ nav .detail {
 	line-height: 1.75;
 }
 
+.en nav .detail {
+	font-size: 1.5em;
+	font-weight: 200;
+	line-height: 1.4;
+}
+
 nav .container .detail {
 	padding-top: 40px;
 	color: #fff;
