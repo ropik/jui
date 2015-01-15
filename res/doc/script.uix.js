@@ -614,10 +614,10 @@ jui.ready([ "util.base", "ui.dropdown", "uix.table", "uix.xtable", "uix.autocomp
         resize: true,
         sort: true,
         event: {
-            editend: function(data) {
-                for(var key in data) {
-                    if(key == "age" && isNaN(data[key])) {
-                        alert("나이는 숫자만 입력할 수 있습니다.");
+            editend: function(row) {
+                for(var key in row.data) {
+                    if(key == "age" && isNaN(row.data[key])) {s
+                        alert("Age must enter a numeric value.");
                         return false;
                     }
                 }
