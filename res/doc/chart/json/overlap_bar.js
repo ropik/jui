@@ -31,7 +31,8 @@ chart("#chart-content", {
         type : "bar",
         target : [ "samsung", "apple", "google", "facebook" ],
         innerPadding : -20,
-        outerPadding : 20
+        outerPadding : 20,
+        animate : true
     },
     widget : [
         { type : "title", text : "Bar Sample", orient: "bottom", align: "start" },

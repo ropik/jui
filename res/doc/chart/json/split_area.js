@@ -23,9 +23,11 @@ chart("#chart", {
     },
     brush : [{
         type : "splitarea",
+        target : "value",
         split : 500
     }, {
         type : "splitline",
+        target : "value",
         split : 500
     }, {
         type : "pin",

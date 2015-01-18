@@ -54,7 +54,8 @@ chart("#chart", {
 	},
 	brush : {  
 		type : "line",
-		target : ['apple', 'microsoft', 'oracle']
+		target : [ "apple", "microsoft", "oracle" ],
+		animate : true
 	},
     widget : [
         { type : "title", text : "Line Sample" },

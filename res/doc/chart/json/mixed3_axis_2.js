@@ -111,27 +111,12 @@ chart("#chart", {
         area : { x : 0, y : "75%", width : "100%", height : "25%" },
         data : dataSource
     }],
-    series : {
-        l: {
-            type: "low",
-            text: "Low"
-        },
-        h: {
-            type: "high",
-            text: "High"
-        },
-        o: {
-            type: "open",
-            text: "Open"
-        },
-        c: {
-            type: "close",
-            text: "Close"
-        }
-    },
     brush : [{
         type : "candlestick",
-        target : [ "l", "h", "o", "c" ],
+        low : "l",
+        high : "h",
+        open : "o",
+        close : "c",
         axis : 0
     }, {
         type : "column",

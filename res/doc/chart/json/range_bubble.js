@@ -40,7 +40,8 @@ chart("#chart", {
 		type : "bubble",
 		min : 1,
 		max : 50,
-		target : ["v1", "v2", "v3", "v4", "v5"]
+		target : [ "v1", "v2", "v3", "v4", "v5" ],
+		animate : true
 	},
     widget : [
         {
