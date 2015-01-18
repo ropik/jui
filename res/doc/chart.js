@@ -93,13 +93,13 @@ var code_list = [
     { type : 'line', title : "Split Line", description : "", code : "split_line.js" },
 
     // gauge
-    { type : 'gauge', title : "Basic Gauge", description : "", code : "gauge.js" },
-    { type : 'gauge', title : "Circle Gauge", description : "", code : "circle_gauge.js" },
-    { type : 'gauge', title : "Fill Gauge", description : "", code : "fill_gauge.js" },
-    { type : 'gauge', title : "Full Gauge", description : "", code : "full_gauge.js" },
-    { type : 'gauge', title : "Stack Gauge", description : "", code : "stack_gauge.js" },
+    { type : 'gauge', title : "Basic Gauge", description : "", code : "gauge.js", hide : true },
+    { type : 'gauge', title : "Circle Gauge", description : "", code : "circle_gauge.js", hide : true },
+    { type : 'gauge', title : "Fill Gauge", description : "", code : "fill_gauge.js", hide : true },
+    { type : 'gauge', title : "Full Gauge", description : "", code : "full_gauge.js", hide : true },
+    { type : 'gauge', title : "Stack Gauge", description : "", code : "stack_gauge.js", hide : true },
     { type : 'gauge', title : "Bar Gauge", description : "", code : "bar_gauge.js" },
-    { type : 'gauge', title : "Fill Custom Gauge", description : "", code : "fill_custom_gauge.js" },
+    { type : 'gauge', title : "Fill Custom Gauge", description : "", code : "fill_custom_gauge.js", hide : true },
 
     // candle stick
     { type : 'stock', title : "Candle Stick", description : "", code : "candlestick.js" },
@@ -392,8 +392,10 @@ function loadChartList() {
                 return false;
             })
 
-            $c = $("<li />").html($a);
-            $submenu.append($c);
+            if(!code.hide) {
+                $c = $("<li />").html($a);
+                $submenu.append($c);
+            }
         }
 
         $menu.append($submenu);
