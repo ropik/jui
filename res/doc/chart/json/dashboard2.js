@@ -49,7 +49,7 @@ chart("#chart", {
             type : "table",
             rows : 1,
             columns : 4,
-            outerPadding: 10
+            padding: 10
         },
         data : dataSource2,
         area : { height : '30%', y : '65%'}
@@ -90,34 +90,6 @@ chart("#chart", {
         align : "start",
         dx : -35,
         dy : 215
-    }, {
-        type : "title",
-        text : "Overall Visits",
-        align : "start",
-        dx : -10,
-        dy : 275,
-        size : 10
-    }, {
-        type : "title",
-        text : "New Visits",
-        align : "start",
-        dx : 210,
-        dy : 275,
-        size : 10
-    }, {
-        type : "title",
-        text : "Mobile Visits",
-        align : "start",
-        dx : 410,
-        dy : 275,
-        size : 10
-    }, {
-        type : "title",
-        text : "Desktop Visits",
-        align : "start",
-        dx : 615,
-        dy : 275,
-        size : 10
     }],
     style : {
         areaBackgroundOpacity : 0.85,
