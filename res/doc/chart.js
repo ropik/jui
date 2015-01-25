@@ -93,13 +93,13 @@ var code_list = [
     { type : 'line', title : "Split Line", description : "", code : "split_line.js" },
 
     // gauge
-    { type : 'gauge', title : "Basic Gauge", description : "", code : "gauge.js" },
-    { type : 'gauge', title : "Circle Gauge", description : "", code : "circle_gauge.js" },
-    { type : 'gauge', title : "Fill Gauge", description : "", code : "fill_gauge.js" },
-    { type : 'gauge', title : "Full Gauge", description : "", code : "full_gauge.js" },
-    { type : 'gauge', title : "Stack Gauge", description : "", code : "stack_gauge.js" },
+    { type : 'gauge', title : "Basic Gauge", description : "", code : "gauge.js", hide : true },
+    { type : 'gauge', title : "Circle Gauge", description : "", code : "circle_gauge.js", hide : true },
+    { type : 'gauge', title : "Fill Gauge", description : "", code : "fill_gauge.js", hide : true },
+    { type : 'gauge', title : "Full Gauge", description : "", code : "full_gauge.js", hide : true },
+    { type : 'gauge', title : "Stack Gauge", description : "", code : "stack_gauge.js", hide : true },
     { type : 'gauge', title : "Bar Gauge", description : "", code : "bar_gauge.js" },
-    { type : 'gauge', title : "Fill Custom Gauge", description : "", code : "fill_custom_gauge.js" },
+    { type : 'gauge', title : "Fill Custom Gauge", description : "", code : "fill_custom_gauge.js", hide : true },
 
     // candle stick
     { type : 'stock', title : "Candle Stick", description : "", code : "candlestick.js" },
@@ -121,7 +121,8 @@ var code_list = [
     // dashboard
     { type : 'dashboard', title : "Stock Chart (Axis group)", description : "", code : "mixed3_axis.js" },
     { type : 'dashboard', title : "Stock Chart with Candle Stick", description : "", code : "mixed3_axis_2.js" },
-    { type : 'dashboard', title : "Multi Brushes", description : "", code : "dashboard.js" }
+    { type : 'dashboard', title : "Multi Brushes", description : "", code : "dashboard.js" },
+    { type : 'dashboard', title : "Beautiful Dashboard", description : "", code : "dashboard2.js" }
 ];
 
 function getTodayData() {
@@ -391,8 +392,10 @@ function loadChartList() {
                 return false;
             })
 
-            $c = $("<li />").html($a);
-            $submenu.append($c);
+            if(!code.hide) {
+                $c = $("<li />").html($a);
+                $submenu.append($c);
+            }
         }
 
         $menu.append($submenu);
@@ -420,8 +423,6 @@ function viewCodeEditor() {
         editor.on('change', function(cm) {
             var code = code_list[currentChartIndex].code;
 
-            console.log(code);
-
             try {
                 if(code == "bar_compare.js") {
                     $("#chart-content").html($("#tpl_compare").html());
@@ -434,6 +435,8 @@ function viewCodeEditor() {
 
                 var chart = jui.get("chart.builder").pop();
                 window.currentChart = chart[chart.length -1];
+
+                changeTheme($("select").find("option:selected").val());
             } catch(e) {
                 console.log(e);
             }
@@ -484,7 +487,7 @@ function setFunctions() {
         var $el = $(".chart_view");
 
         if ($el.hasClass('fullscreen')) {
-            $el.removeClass('fullscreen').animate({left : '760px' }, viewCodeEditor);
+            $el.removeClass('fullscreen').animate({left : '710px' }, viewCodeEditor);
         } else {
             $el.addClass('fullscreen').animate({left : '255px' }, viewCodeEditor);
         }

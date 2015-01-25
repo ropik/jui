@@ -136,7 +136,7 @@ a > .icon-close {
     left: 255px;
     top: 0px;
     bottom: 10px;
-    width: 500px;
+    width: 440px;
     overflow-y: auto;
 }
 
@@ -166,7 +166,7 @@ a > .icon-close {
 #modal_1 .body .chart_view {
     overflow: hidden;
     position: absolute;
-    left: 760px;
+    left: 700px;
     top: 0px;
     bottom: 0px;
     right: 10px;

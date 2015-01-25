@@ -10,7 +10,7 @@ chart("#chart-content", {
     axis : {
         x : {
             type : "range",
-            domain : function(d) { return [d.sales, d.profit]; },
+            domain : "sales",
             step : 10,
       		line : true 
         },

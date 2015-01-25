@@ -34,7 +34,8 @@ chart("#chart", {
         target : "sales",
         display : "max",
         active : 5,
-        activeEvent : "mouseover"
+        activeEvent : "mouseover",
+        animate : true
     },
     widget : {
         type : "title",

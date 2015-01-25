@@ -27,8 +27,7 @@ chart("#chart", {
         },
         y : {
             type : "range",
-            domain : "sales",
-            hide : false
+            domain : "sales"
         },
         area : {
             x : 0,  y : 0, width : "40%", height : "40%"
@@ -40,8 +39,7 @@ chart("#chart", {
         },
         y : {
             extend : 0,
-            domain : "profit",
-            hide : false
+            domain : "profit"
         },
         area : {
             x : "50%",  y : 0, width : "50%", height : "40%"
@@ -50,14 +48,12 @@ chart("#chart", {
     }, {
         x : {
             type : "block",
-            domain : "name",
-            hide : false
+            domain : "name"
         },
         y : {
             type : "range",
             step : 10,
-            domain : "value",
-            hide : false
+            domain : "value"
         },
         area : {
             x : 0,  y : "50%", width : "100%", height : "50%"

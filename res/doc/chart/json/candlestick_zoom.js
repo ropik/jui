@@ -45,29 +45,12 @@ chart("#chart", {
         },
         data : data
     },
-    series : {
-        l: {
-            type: "low",
-            text: "Low"
-        },
-        h: {
-            type: "high",
-            text: "High"
-        },
-        o: {
-            type: "open",
-            text: "Open"
-        },
-        c: {
-            type: "close",
-            text: "Close"
-        },
-        date: {
-            text: "Date"
-        }
-    },
     brush : {
-        type : "candlestick"
+        type : "candlestick",
+        low : "l",
+        high : "h",
+        open : "o",
+        close : "c"
     },
     widget : {
         type : "zoom"

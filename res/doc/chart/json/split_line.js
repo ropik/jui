@@ -23,6 +23,7 @@ chart("#chart", {
     },
     brush : [{
         type : "splitline",
+        target : "value",
         split : 500
     }, {
         type : "pin",

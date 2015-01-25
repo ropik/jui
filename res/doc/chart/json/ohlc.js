@@ -45,21 +45,11 @@ chart("#chart", {
         },
         data : data
     },
-    series : {
-        l: {
-            type: "low"
-        },
-        h: {
-            type: "high"
-        },
-        o: {
-            type: "open"
-        },
-        c: {
-            type: "close"
-        }
-    },
     brush : {
-        type : "ohlc"
+        type : "ohlc",
+        low : "l",
+        high : "h",
+        open : "o",
+        close : "c"
     }
 });

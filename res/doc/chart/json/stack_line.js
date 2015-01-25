@@ -16,8 +16,8 @@ chart("#chart", {
         },
         y : {
             type : "range",
-            domain : function(data) {
-                return data.apple + data.microsoft + data.oracle;
+            domain : function(d) {
+                return d.apple + d.microsoft + d.oracle;
             },
             step : 10
         },

@@ -20,7 +20,7 @@ var c = chart("#chart", {
         },
         y : {
             type : "range",
-            domain : function(d) { return [d.sales, d.profit ]; } ,
+            domain : [ -40, 40 ],
             step : 10,
             line : true
         },
