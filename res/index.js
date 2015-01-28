@@ -84,10 +84,12 @@ var menuInfo = {
     },
     tips: {
     	title: "Third Party",
-    	msg: "Bootstrap support, Provides plug-in WYSIWYG editor.",
+    	msg: "Bootstrap, Pure and Skeleton support, Provides plug-in WYSIWYG editor.",
     	menu: {
     		common: "tips/common",
     		bootstrap: "tips/bootstrap",
+            pure: "tips/pure",
+            skeleton: "tips/skeleton",
 			summernote: "tips/summernote"
     	}
     }
