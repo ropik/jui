@@ -26,11 +26,14 @@ var c = chart("#chart", {
             },
             step : 4,
             line : true
-        },
-        data : data
+        }
     },
     brush : {
         type : "bubble",
         target : [ "sales", "profit" ]
     }
 });
+
+// Data updated after rendering
+var axis = c.get("axis", 0);
+axis.update(data);

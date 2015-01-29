@@ -25,7 +25,7 @@ var charts = [
 var code_list = [
     // event handling
     { type : 'etc', title : "Set brush events",  description : "", code : "brush_event.js" },
-    { type : 'etc', title : "Set axis values",  description : "", code : "brush_axis_value.js" },
+    { type : 'etc', title : "Update axis data",  description : "", code : "brush_axis_value.js" },
 
     // bar
     { type : 'bar', title : "Basic Bar", description : "", code : "bar.js" },
