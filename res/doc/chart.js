@@ -225,7 +225,7 @@ function createTable() {
 
     table_1.resize();
 
-    window.currentChart.bindUI(table_1);
+    window.currentChart.bindUI(0, table_1);
 }
 
 function createTableStyle() {
@@ -238,9 +238,10 @@ function createTableStyle() {
         editRow: [ 1 ],
         resize: true,
         event: {
-            editend: function(data, e) {
+            editend: function(row, e) {
                 var chart = window.currentChart,
-                    theme = chart.theme();
+                    theme = chart.theme(),
+                    data = row.data;
 
                 if(data.key == "colors") {
                     theme[data.key] = data.value.split("|");
