@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - Core/Custom</title>
 
 <link rel="stylesheet" href="../../lib/jui/jui.min.css" />
@@ -50,61 +51,57 @@ jui.ready(function(ui, uix, _) {
 <div class="page-header">
 	<h1>Custom</h1>
 	<p class="br">
-		JUI 라이브러리는 UI 컴포넌트를 쉽게 개발할 수 있도록 샌드박스 메소드를 제공합니다. 
-		추가할 수 있는 UI는 두 종류이며, 신규 컴포넌트의 특성에 맞게 <strong>js/ui</strong>나 <strong>js/uix</strong> 폴더에 파일을 생성합니다.
-		참고로 <strong>ui</strong>는 다른 컴포넌트에 종속적이지 않는 독립적인 컴포넌트이며, <strong>uix</strong>는 다른 컴포넌트와 조합하여 만들어진 복합 컴포넌트입니다.
+		JUI library provides a send box method that facilitates the development of UI components. There are two types of UIs that can be added. A file is created in the <strong>js/ui </strong>or <strong>js/uix</strong> folder depending on the characteristics of the new component. That is to say, a <strong>ui</strong> component is not dependent on other components, while a <strong>uix</strong> component  is created using combinations of other components.
 	</p>
 </div>
 
 <section>
 	<h2>Define</h2>
 	<p>
-		<strong>js/ui</strong>나 <strong>js/uix</strong> 폴더에 신규 컴포넌트 파일을 생성하였다면 해당 스크립트 파일에서 아래와 같이 함수를 사용합니다.
-		<pre><code class="language-javascript">jui.defineUI("ui.test", [ "util.base" ], function(_) {
+		Assuming a component file exists in the js/ui or js/ui folder, use the method as follows.
+		<pre><code class="language-javascript">jui.defineUI(&quot;ui.test&quot;, [ &quot;util.base&quot; ], function(_) {
 	var UI = function() {
 		this.init = function() {
-			// 초기 구현부
+			// initially implemented part
 		}
 		
 		this.func1 = function(val) {
-			// 공개 메소드 1
+			// open method 1
 		}
 	}
 
     UI.setup = function() {
-        return { // UI 옵션 기본값 설정
+        return { // default UI option settings
 			option1: 1000,
 			option2: true
         }
     }
 	
 	return UI;
-}, "core");</code></pre>
+}, &quot;core&quot;);</code></pre>
 	</p>
 	
 	<p class="br">
-		<strong>setting</strong>은 해당 컴포넌트에서 사용할 옵션을 정의하는 메소드이며, <strong>init</strong>은 컴포넌트 객체가 생성되었을 경우에 최초로 실행되는 메소드입니다. 
-		이 두 메소드는 UI 컴포넌트를 새로 추가할 때, 필수적으로 정의해야만 합니다.<br/><br/>
+		The setting imethod defines the option(s) to be used in connection with a component, and init is a method that is initially run when a component object is created. These two methods must be defined when adding a new UI component.<br/><br/>
 		
-		만약에 <strong>dropdown</strong> 컴포넌트를 사용하는 <strong>uix</strong> 컴포넌트를 새로 추가하고 싶다면, 아래와 같이 사용할 컴포넌트를 설정해주면 됩니다.
-		<pre><code class="language-javascript">jui.defineUI("uix.test", [ "ui.dropdown", "util.base" ], function(dropdown, _) {
+		If a user wants to add a new uix component that uses the dropdown component, configure the component as follows;
+		<pre><code class="language-javascript">jui.defineUI(&quot;uix.test&quot;, [ &quot;ui.dropdown&quot;, &quot;util.base&quot; ], function(dropdown, _) {
 	var UI = function() {
-		// 위와 동일
+		// same as above
 	}
 	
 	return UI;
-}, "core");</code></pre>
+}, &quot;core&quot;);</code></pre>
 	</p>
 </section>
 
 <section>
-	<h2>Core</h2>
+	<h2>core</h2>
 	<p>
-		<strong>define</strong> 메소드의 리턴 클래스 내부에서는 <strong>this</strong>를 통해 UI 컴포넌트에 필요한 기본적인 메소드와 프로퍼티를 사용할 수 있습니다. 
-		예를 들어 <strong>emit</strong> 메소드를 통해 커스텀 이벤트를 발생시킬 수 있고, 해당 컴포넌트를 사용하는 유저는 <strong>on</strong> 메소드나 컴포넌트 이벤트 옵션을 통해 커스텀 이벤트를 리스닝 할 수 있습니다.<br/>
+		In the class returned by the <strong>define</strong> method, the basic methods and properties required by a UI component can be called using <strong>this</strong>. For example, a custom method can be created with the <strong>edit</strong> method. If you are using the applicable component you can listen for a custom event using the <strong>on</strong> method or the component event option.<br/>
 		
-		<br/>
-		아래는 JUI 라이브러리의 <strong>Core</strong>가 제공하는 기본적인 API입니다.
+		<br/> The following is the basic API provided by the <strong>Core</strong> of the JUI library.
+
 	</p>
 </section>
 

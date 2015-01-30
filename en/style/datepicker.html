@@ -1,7 +1,8 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - CSS/Datepicker</title>
 
 <link rel="stylesheet" href="../../res/manual.css" />
@@ -22,12 +23,12 @@
     <h2>Default</h2>
 
     <p>
-        달력은 내부적으로 테이블로 구성되며, 각각의 상태에 따라 요소 별로 다른 스타일을 줄 수 있습니다.
+        Calendar is comprised of tables and the user can designate a different style for each element according to the state.
 
         <div class="datepicker">
             <div class="head">
                 <div class="prev"></div>
-                <div class="title">2013. 11</div>
+                <div class="title">November 2013</div>
                 <div class="next"></div>
             </div>
             <table class="body">
@@ -56,24 +57,24 @@
         </div>
 	</p>
 	<p class="br">
-		달력의 일자를 표시하는 <strong>td</strong> 태그는 3가지의 상태 스타일을 가지고 있습니다. (비활성화:<strong>none</strong>, 활성화:<strong>active</strong>, 현재:<strong>now</strong>)
+		<strong>td</strong> tag, which expresses the date of a calender, has 3 state styles (disabled: <strong>none</strong>, enabled: <strong>active</strong>, present: <strong>now</strong>)
 		
-<pre><code class="language-markup">&lt;div class="datepicker"&gt;
-    &lt;div class="head"&gt;
-        &lt;div class="prev"&gt;&lt;/div&gt;
-        &lt;div class="title"&gt;2013. 11&lt;/div&gt;
-        &lt;div class="next"&gt;&lt;/div&gt;
+<pre><code class="language-markup">&lt;div class=&quot;datepicker&quot;&gt;
+    &lt;div class=&quot;head&quot;&gt;
+        &lt;div class=&quot;prev&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;title&quot;&gt;2013. 11&lt;/div&gt;
+        &lt;div class=&quot;next&quot;&gt;&lt;/div&gt;
     &lt;/div&gt;
-    &lt;table class="body"&gt;
+    &lt;table class=&quot;body&quot;&gt;
         &lt;tr&gt;
             &lt;th&gt;S&lt;/th&gt;&lt;th&gt;M&lt;/th&gt;&lt;th&gt;T&lt;/th&gt;&lt;th&gt;W&lt;/th&gt;&lt;th&gt;T&lt;/th&gt;&lt;th&gt;F&lt;/th&gt;&lt;th&gt;S&lt;/th&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-        	&lt;td class="none"&gt;27&lt;/td&gt;
-        	&lt;td class="none"&gt;28&lt;/td&gt;
-        	&lt;td class="none"&gt;29&lt;/td&gt;
-        	&lt;td class="none"&gt;30&lt;/td&gt;
-        	&lt;td class="none"&gt;31&lt;/td&gt;
+        	&lt;td class=&quot;none&quot;&gt;27&lt;/td&gt;
+        	&lt;td class=&quot;none&quot;&gt;28&lt;/td&gt;
+        	&lt;td class=&quot;none&quot;&gt;29&lt;/td&gt;
+        	&lt;td class=&quot;none&quot;&gt;30&lt;/td&gt;
+        	&lt;td class=&quot;none&quot;&gt;31&lt;/td&gt;
         	&lt;td&gt;1&lt;/td&gt;
         	&lt;td&gt;2&lt;/td&gt;
         &lt;/tr&gt;
@@ -101,7 +102,7 @@
     <h2>Large</h2>
 
     <p>
-        달력 컴포넌트를 구성하는 요소들의 크기를 다르게 할 수 있으며, 다른 형태의 달력으로도 활용할 수 있습니다.
+        It is possible to set the sizes of elements constituting a calender to suit each other, providing a calender with a different appearance.
         
         <div class="datepicker datepicker-large">
             <div class="head">
@@ -126,26 +127,26 @@
         </div>
 	</p>
 	<p class="br">
-		참고로 이 옵션의 스타일은 기준 컬럼 개수가 7개가 아닌 3개입니다.
+		For reference, in this example, the number of basic columns is 3, not 7.
 		
-<pre><code class="language-markup">&lt;div class="datepicker datepicker-large"&gt;
-    &lt;div class="head"&gt;
-        &lt;div class="prev"&gt;&lt;/div&gt;
-        &lt;div class="title"&gt;2013&lt;/div&gt;
-        &lt;div class="next"&gt;&lt;/div&gt;
+<pre><code class="language-markup">&lt;div class=&quot;datepicker datepicker-large&quot;&gt;
+    &lt;div class=&quot;head&quot;&gt;
+        &lt;div class=&quot;prev&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;title&quot;&gt;2013&lt;/div&gt;
+        &lt;div class=&quot;next&quot;&gt;&lt;/div&gt;
     &lt;/div&gt;
-    &lt;table class="body"&gt;
+    &lt;table class=&quot;body&quot;&gt;
         &lt;tr&gt;
             &lt;td&gt;2004&lt;/td&gt;&lt;td&gt;2005&lt;/td&gt;&lt;td&gt;2006&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td&gt;2007&lt;/td&gt;&lt;td class="active"&gt;2008&lt;/td&gt;&lt;td&gt;2009&lt;/td&gt;
+            &lt;td&gt;2007&lt;/td&gt;&lt;td class=&quot;active&quot;&gt;2008&lt;/td&gt;&lt;td&gt;2009&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
             &lt;td&gt;2010&lt;/td&gt;&lt;td&gt;2011&lt;/td&gt;&lt;td&gt;2012&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td class="today"&gt;2013&lt;/td&gt;&lt;td&gt;2014&lt;/td&gt;&lt;td&gt;2015&lt;/td&gt;
+            &lt;td class=&quot;today&quot;&gt;2013&lt;/td&gt;&lt;td&gt;2014&lt;/td&gt;&lt;td&gt;2015&lt;/td&gt;
         &lt;/tr&gt;
     &lt;/table&gt;
 &lt;/div&gt;</code></pre>

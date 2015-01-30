@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - JavaScript/Tree/API</title>
 	
 <link rel="stylesheet" href="../../lib/jui/jui.min.css" />
@@ -18,133 +19,133 @@
 var uiApi = {
 	prop: {
 		uit: {
-			detail: "트리 데이터를 핸들링하는 클래스의 인스턴스입니다."
+			detail: "Instance of a class handling tree data"
 		}
 	},
 	method: {
 		update: {
 			param: "index, data",
 			ret: "none",
-			detail: "해당 인덱스의 노드를 변경합니다."
+			detail: "Changes to the node at a specified index."
 		},
 		append: {
 			param: "data | index, data",
 			ret: "none",
-			detail: "해당 인덱스의 자식 노드로 추가합니다."
+			detail: "Adds to a child node at a specified index."
 		},
 		insert: {
 			param: "index, data",
 			ret: "none",
-			detail: "해당 인덱스의 노드를 추가합니다."
+			detail: "Adds a node at a specified index."
 		},
 		select: {
 			param: "index",
 			ret: "UINode",
-			detail: "해당 인덱스의 노드에 선택 효과를 주고, 해당 노드를 반환합니다."
+			detail: "Applies the selection effect to the node at a specified index and returns the specified node."
 		},
 		unselect: {
 			param: "none",
 			ret: "UINode",
-			detail: "선택된 노드에 'active' 클래스를 제거하고, 해당 노드의 인스턴스를 가져옵니다."
+			detail: "Removes the 'active' class from a selected node and gets an instance of the specifiednode."
 		},
 		remove: {
 			param: "index",
 			ret: "none",
-			detail: "해당 인덱스의 노드를 삭제합니다."
+			detail: "Deletes a node at a specified index."
 		},
 		reset: {
 			param: "none",
 			ret: "none",
-			detail: "루트를 제외한 모든 자식 노드를 삭제합니다."
+			detail: "Deletes all child nodes except for a root."
 		},
 		move: {
 			param: "index, targetIndex",
 			ret: "none",
-			detail: "해당 인덱스의 노드를 타겟 인덱스로 이동합니다."
+			detail: "Moves a node at a specified index to the target index."
 		},
 		list: {
 			param: "none",
 			ret: "array",
-			detail: "해당 인덱스의 노드를 반환합니다."
+			detail: "Returns the node at a specified index."
 		},
 		listAll: {
 			param: "none",
 			ret: "array",
-			detail: "해당 인덱스의 모든 자식 노드를 포함하여 반환합니다."
+			detail: "Returns all child nodes at a specified index."
 		},
 		listParents: {
 			param: "index",
 			ret: "array",
-			detail: "해당 인덱스의 모든 부모 노드를 반환합니다."
+			detail: "Returns all parent nodes at a specified index."
 		},
 		get: {
 			param: "index",
 			ret: "UINode",
-			detail: "해당 인덱스의 노드를 가져옵니다."
+			detail: "Gets a node at a specified index."
 		},
 		getAll: {
 			param: "index",
 			ret: "array",
-			detail: "해당 인덱스의 노드의 자식을 포함한 모든 노드를 가져옵니다."
+			detail: "Gets all nodes at a specified index including child nodes."
 		},
 		open: {
 			param: "index",
 			ret: "none",
-			detail: "해당 인덱스의 자식 노드를 보여줍니다."
+			detail: "Shows a child node at a specified index."
 		},
 		openAll: {
 			param: "index",
 			ret: "none",
-			detail: "해당 인덱스의 모든 자식 노드를 보여줍니다."
+			detail: "Shows all child nodes at a specified index."
 		},
 		fold: {
 			param: "index",
 			ret: "none",
-			detail: "해당 인덱스의 자식 노드를 접습니다."
+			detail: "Folds up a child node at a specified index."
 		},
 		foldAll: {
 			param: "index",
 			ret: "none",
-			detail: "해당 인덱스의 모든 자식 노드를 접습니다."
+			detail: "Folds up all child nodes at a specified index."
 		}
 	},
 	event: {
 		select: {
-			detail: "노드가 선택될 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when a node is selected"
 		},
 		open: {
-			detail: "노드가 보여질 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when a node is shown"
 		},
 		fold: {
-			detail: "노드가 숨겨질 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when a node is hidden"
 		},
 		dragstart: {
-			detail: "노드 이동이 시작되었을 때, 발생하는 이벤트입니다.",
+			detail: "Event that occurs when a node starts to move",
 		},
 		dragend: {
-			detail: "노드 이동이 완료되었을 때, 발생하는 이벤트입니다.",
+			detail: "Event that occurs when the movement of a node is completed",
 		}
 	},
 	tpl: {
 		node: {
-			detail: "노드의 템플릿 마트업니다."
+			detail: "Template markup of a node"
 		}
 	},
 	opt: {
 		root: {
-			detail: "루트 노드를 추가합니다. (Required)"
+			detail: "Adds a root node (required)."
 		},
 		rootHide: {
-			detail: "루트 노드를 숨깁니다."
+			detail: "Hides a root node."
 		},
 		rootFold: {
-			detail: "루트 노드를 접습니다."
+			detail: "Folds up a root node."
 		},
 		drag: {
-			detail: "노드 이동을 드래그로 할 수 있습니다."
+			detail: "It is possible to drag the movement of a node."
 		},
 		dragChild: {
-			detail: "노드 이동을 드래그로 할 수 있지만 대상 노드의 자식 노드로 변경되지 않습니다."
+			detail: "It is possible to drag the node movement but the node is not changed to a child node of the target node."
 		}
 	}
 };
@@ -166,35 +167,35 @@ var uiApi = {
 			</tr>
 			<tr>
 				<td>type</td>
-				<td>자식 노드가 보여지는지 숨겨져 있는지에 대한 상태 값입니다.</td>
+				<td>State value that indicates whether a child node is shown or hidden.</td>
 			</tr>		
 			<tr>
 				<td>data</td>
-				<td>해당 노드의 데이터입니다.</td>
+				<td>Data of a specifiednode</td>
 			</tr>	
 			<tr>
 				<td>element</td>
-				<td>해당 노드의 LI 엘리먼트입니다.</td>
+				<td>LI element of a specified node</td>
 			</tr>	
 			<tr>
 				<td>index</td>
-				<td>해당 노드의 인덱스입니다.</td>
+				<td>Index of a specified node</td>
 			</tr>	
 			<tr>
 				<td>nodenum</td>
-				<td>해당 노드의 현재 뎁스에서의 고유 번호입니다.</td>
+				<td>Unique number of a specifiede node at the current depth.</td>
 			</tr>	
 			<tr>
 				<td>parent</td>
-				<td>해당 노드의 부모를 참조하는 변수입니다.</td>
+				<td>Variable that refers to the parent of the current node</td>
 			</tr>	
 			<tr>
-				<td>childrens</td>
-				<td>해당 노드의 자식 노드 목록입니다.</td>
+				<td>children</td>
+				<td>List of child nodes of a specified node</td>
 			</tr>	
 			<tr>
 				<td>depth</td>
-				<td>해당 노드의 깊이입니다.</td>
+				<td>Depth of a specified node</td>
 			</tr>	
 		</table>
 	</p>

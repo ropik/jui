@@ -1,7 +1,8 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - CSS/Panel</title>
 
 <link rel="stylesheet" href="../../res/manual.css" />
@@ -20,16 +21,14 @@
 <section>
 	<h2>Default</h2>
 	<p>
-		패널은 Vertical Menu와 마찬가지로 Vertical Group을 상속받아 구현한 스타일입니다.<br/>
-		다양한 컴포넌트들을 포함하여 화면을 구성할 수 있습니다.
+		Panel is a style that is is implemented by inheriting the vertical group, just like the vertical menu.
 		
 		<div class="panel">
 			<div class="head">
-				<i class="icon-left"></i> 
-				<strong>Panel Heading</strong>
+				<i class="icon-left"></i> <strong>Panel Heading</strong>
 			</div>
 			<div class="body">
-				The jQuery Cycle Plugin is a slideshow plugin that supports many different types of transition effects. It supports pause-on-hover, auto-stop, auto-fit, before/after callbacks, click triggers and much more. It also supports, but does not require, the Easing Plugin.
+				The jQuery Cycle Plugin is a slideshow plugin that supports many different types of transition effect. It supports pause-on-hover, auto-stop, auto-fit, before/after callbacks, click triggers and much more. It also supports, but does not require, the Easing Plugin.
 			</div>
 			<div class="foot">
 				Panel Footer
@@ -37,24 +36,24 @@
 		</div>
 	</p>
 	<p class="br">
-		<strong>head</strong>이나 <strong>foot</strong> 요소는 필요에 따라 제외하여 사용할 수도 있습니다.
+		The <strong>head</strong> or <strong>foot</strong> element may be included or excluded as necessary.
 		
-<pre><code class="language-markup">&lt;div class="panel"&gt;
-	&lt;div class="head"&gt;
-		&lt;i class="icon-left"&gt;&lt;/i&gt; 
+<pre><code class="language-markup">&lt;div class=&quot;panel&quot;&gt;
+	&lt;div class=&quot;head&quot;&gt;
+		&lt;i class=&quot;icon-left&quot;&gt;&lt;/i&gt; 
 		&lt;strong&gt;Panel Heading&lt;/strong&gt;
 	&lt;/div&gt;
-	&lt;div class="body"&gt;
+	&lt;div class=&quot;body&quot;&gt;
 		...
 	&lt;/div&gt;
-	&lt;div class="foot"&gt;
+	&lt;div class=&quot;foot&quot;&gt;
 		Panel Footer
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 	</p>
 	
 	<p class="br">
-		아래는 <strong>head</strong>와 <strong>foot</strong>을 제외하여 보다 심플하게 구현할 수 있는 예제입니다.
+		The following is an example that can be implemented more simply by excluding the <strong>head</strong> and/or the <strong>foot</strong>.
 		
 		<div class="row">
 			<div class="col col-6" style="background: white; border-right-width: 0px; padding-right: 5px;">
@@ -84,7 +83,7 @@
 <section>
 	<h2>Combine</h2>
 	<p>
-		패널은 다른 컴포넌트와 결합할 수 있는 기능을 제공하며, <strong>body</strong> 대신 사용하면 됩니다.
+		Panel provides a function that enables combination with other components. and that can be used instead of <strong>body</strong>.
 		
 		<div class="panel">
 			<div class="head">
@@ -111,11 +110,11 @@
 		</div>
 	</p>
 	<p class="br">
-<pre><code class="language-markup">&lt;div class="panel"&gt;
-	&lt;div class="head"&gt;
+<pre><code class="language-markup">&lt;div class=&quot;panel&quot;&gt;
+	&lt;div class=&quot;head&quot;&gt;
 		&lt;strong&gt;Panel Heading&lt;/strong&gt;
 	&lt;/div&gt;
-	&lt;table class="table table-classic table-hover"&gt;
+	&lt;table class=&quot;table table-classic table-hover&quot;&gt;
 		...
 	&lt;/table&gt;
 &lt;/div&gt;</code></pre>
@@ -125,12 +124,11 @@
 <section>
 	<h2>Close</h2>
 	<p>
-		패널은 닫힌 형태의 옵션을 제공하며, 아래와 같이 <strong>panel-close</strong> 클래스를 추가해주면 됩니다.
+		Panel provides a closed option. The user needs to add a panel-close class as shown below.
 		
 		<div class="panel panel-close">
 			<div class="head">
-				<i class="icon-left"></i> 
-				<strong>Panel Heading</strong>
+				<i class="icon-left"></i> <strong>Panel Heading</strong>
 			</div>
 			<div class="body">
 				Panel Body
@@ -141,12 +139,12 @@
 		</div>
 	</p>
 	<p class="br">
-<pre><code class="language-markup">&lt;div class="panel panel-close"&gt;
-	&lt;div class="head"&gt;
-		&lt;i class="icon-left"&gt;&lt;/i&gt; 
+<pre><code class="language-markup">&lt;div class=&quot;panel panel-close&quot;&gt;
+	&lt;div class=&quot;head&quot;&gt;
+		&lt;i class=&quot;icon-left&quot;&gt;&lt;/i&gt; 
 		&lt;strong&gt;Panel Heading&lt;/strong&gt;
 	&lt;/div&gt;
-	&lt;div class="body"&gt;
+	&lt;div class=&quot;body&quot;&gt;
 		...
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
@@ -156,12 +154,11 @@
 <section>
 	<h2>Fit</h2>
 	<p>
-		패널은 바디 영역의 패딩 값을 0으로 주고 싶을 때, <strong>fit</strong> 클래스를 바디에 추가하면 됩니다.
+		When you want to set the padding value in the body area to 0, add a <strong>fit </strong>class to the body.
 		
 		<div class="panel">
 			<div class="head">
-				<i class="icon-left"></i> 
-				<strong>Panel Heading</strong>
+				<i class="icon-left"></i> <strong>Panel Heading</strong>
 			</div>
 			<div class="body fit">
 				The jQuery Cycle Plugin is a slideshow plugin that supports many different types of transition effects. It supports pause-on-hover, auto-stop, auto-fit, before/after callbacks, click triggers and much more. It also supports, but does not require, the Easing Plugin.
@@ -169,7 +166,7 @@
 		</div>
 	</p>
 	<p class="br">
-<pre><code class="language-markup">&lt;div class="body fit"&gt;
+<pre><code class="language-markup">&lt;div class=&quot;body fit&quot;&gt;
 	...
 &lt;/div&gt;</code></pre>
 	</p>
@@ -178,17 +175,15 @@
 <section>
 	<h2>Include</h2>
 	<p>
-		패널은 <strong>small</strong> 사이즈의 버튼이나 라벨과 같은 컴포넌트를 헤더나 푸터에 추가하여 사용할 수 있습니다.
+		Panel can add a component such as a <strong>small</strong> button or a label to the header or the footer.
 		
 		<div class="panel">
 			<div class="head">
-				<i class="icon-left"></i> 
-				<strong>Panel Heading</strong>
+				<i class="icon-left"></i> <strong>Panel Heading</strong>
 				
 				<div style="float: right;">
 					<div class="combo">
-						<a class="btn btn-gray btn-small" style="width: 150px;">Select...</a>
-						<a class="btn btn-gray btn-small btn-toggle"><i class="icon-arrow2"></i></a>
+						<a class="btn btn-gray btn-small" style="width: 150px;">Select...</a> <a class="btn btn-gray btn-small btn-toggle"><i class="icon-arrow2"></i></a>
 					</div>
 				</div>
 			</div>
@@ -198,19 +193,19 @@
 		</div>
 	</p>
 	<p class="br">
-<pre><code class="language-markup">&lt;div class="panel"&gt;
-	&lt;div class="head"&gt;
-		&lt;i class="icon-left"&gt;&lt;/i&gt; 
+<pre><code class="language-markup">&lt;div class=&quot;panel&quot;&gt;
+	&lt;div class=&quot;head&quot;&gt;
+		&lt;i class=&quot;icon-left&quot;&gt;&lt;/i&gt; 
 		&lt;strong&gt;Panel Heading&lt;/strong&gt;
 		
-		&lt;div style="float: right;"&gt;
-			&lt;div class="combo"&gt;
-				&lt;a class="btn btn-gray btn-small" style="width: 150px;"&gt;Select...&lt;/a&gt;
-				&lt;a class="btn btn-gray btn-small btn-toggle"&gt;&lt;i class="icon-arrow2"&gt;&lt;/i&gt;&lt;/a&gt;
+		&lt;div style=&quot;float: right;&quot;&gt;
+			&lt;div class=&quot;combo&quot;&gt;
+				&lt;a class=&quot;btn btn-gray btn-small&quot; style=&quot;width: 150px;&quot;&gt;Select...&lt;/a&gt;
+				&lt;a class=&quot;btn btn-gray btn-small btn-toggle&quot;&gt;&lt;i class=&quot;icon-arrow2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-	&lt;div class="body"&gt;
+	&lt;div class=&quot;body&quot;&gt;
 		Panel Body
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
@@ -220,7 +215,7 @@
 <section>
 	<h2>Tab Header</h2>
 	<p>
-		패널은 탭 컴포넌트를 헤더에 추가하여 사용할 수 있습니다.
+		Panel can add a tab component to the header.
 
 		<div class="panel">
 			<div class="head">
@@ -241,20 +236,20 @@
 		</div>
 	</p>
 	<p class="br">
-<pre><code class="language-markup">&lt;div class="panel"&gt;
-	&lt;div class="head"&gt;
-		&lt;ul class="tab tab-top"&gt;
-			&lt;li class="active"&gt;
-				&lt;a href="#"&gt;Home&lt;/a&gt;
+<pre><code class="language-markup">&lt;div class=&quot;panel&quot;&gt;
+	&lt;div class=&quot;head&quot;&gt;
+		&lt;ul class=&quot;tab tab-top&quot;&gt;
+			&lt;li class=&quot;active&quot;&gt;
+				&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;
 			&lt;/li&gt;
-			&lt;li&gt;&lt;a href="#"&gt;CSS&lt;/a&gt;&lt;/li&gt;
-			&lt;li&gt;&lt;a href="#"&gt;Script&lt;/a&gt;&lt;/li&gt;
-			&lt;li class="menu menu-keep"&gt;
-				&lt;a href="#"&gt;Menu &lt;i class="icon-arrow1 icon-white"&gt;&lt;/i&gt;&lt;/a&gt;
+			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;CSS&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Script&lt;/a&gt;&lt;/li&gt;
+			&lt;li class=&quot;menu menu-keep&quot;&gt;
+				&lt;a href=&quot;#&quot;&gt;Menu &lt;i class=&quot;icon-arrow1 icon-white&quot;&gt;&lt;/i&gt;&lt;/a&gt;
 			&lt;/li&gt;
 		&lt;/ul&gt;
 	&lt;/div&gt;
-	&lt;div class="body"&gt;
+	&lt;div class=&quot;body&quot;&gt;
 		Panel Body
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
@@ -264,7 +259,7 @@
 <section>
 	<h2>Panel Group</h2>
 	<p>
-		패널 그룹은 여러 개의 패널을 그룹 형태로 조합하여 사용할 수 있습니다.
+		Panel Group can combine several panels as a group.
 		
 		<div class="pgroup">
 			<div class="panel" style="width: 33.3%;">
@@ -294,32 +289,32 @@
 		</div>
 	</p>
 		<p class="br">
-<pre><code class="language-markup">&lt;div class="pgroup">
-	&lt;div class="panel" style="width: 33.3%;">
-		&lt;div class="head">
-			&lt;strong>Panel Heading&lt;/strong>
-		&lt;/div>
-		&lt;div class="body">
+<pre><code class="language-markup">&lt;div class=&quot;pgroup&quot;&gt;
+	&lt;div class=&quot;panel&quot; style=&quot;width: 33.3%;&quot;&gt;
+		&lt;div class=&quot;head&quot;&gt;
+			&lt;strong&gt;Panel Heading&lt;/strong&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;body&quot;&gt;
 			Panel Body
-		&lt;/div>
-	&lt;/div>
-	&lt;div class="panel" style="width: 33.3%;">
-		&lt;div class="head">
-			&lt;strong>Panel Heading&lt;/strong>
-		&lt;/div>
-		&lt;div class="body">
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;panel&quot; style=&quot;width: 33.3%;&quot;&gt;
+		&lt;div class=&quot;head&quot;&gt;
+			&lt;strong&gt;Panel Heading&lt;/strong&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;body&quot;&gt;
 			Panel Body
-		&lt;/div>
-	&lt;/div>
-	&lt;div class="panel" style="width: 33.3%;">
-		&lt;div class="head">
-			&lt;strong>Panel Heading&lt;/strong>
-		&lt;/div>
-		&lt;div class="body">
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;panel&quot; style=&quot;width: 33.3%;&quot;&gt;
+		&lt;div class=&quot;head&quot;&gt;
+			&lt;strong&gt;Panel Heading&lt;/strong&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;body&quot;&gt;
 			Panel Body
-		&lt;/div>
-	&lt;/div>
-&lt;/div></code></pre>
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 	</p>
 </section>
 </body>

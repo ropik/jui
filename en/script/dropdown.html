@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - JavaScript/Dropdown</title>
 	
 <link rel="stylesheet" href="../../res/manual.css" />
@@ -20,14 +21,14 @@
 <div class="page-header">
 	<h1>Dropdown</h1>
 	<p class="br">
-		드롭다운은 콤보박스와 네이게이션, 테이블 등 다수의 UI 컴포넌트에서 응용해서 사용하는 활용도 높은 UI 컴포넌트입니다.
+		Drowndown is a UI component that is frequently used in multiple UI components such as combo box, navigation, table, ect.
 	</p>
 </div>
 
 <section>
 	<h2>Default</h2>
 	<p>
-		아래는 드롭다운 컴포넌트의 기본이며 각각의 요소에는 <strong>value</strong>를 지정할 수 있습니다. (숫자 형태만 가능)
+		A basic example for  the dropdown component is shown below. It is possible to specify a value for each element (only numerical characters can be entered).
 		
 		<div style="display: inline-block; position: relative;">
 			<div class="group">
@@ -48,29 +49,29 @@
 	</p>
 	
 	<p class="br">
-<pre><code class="language-javascript">jui.ready([ "ui.dropdown" ], function(dropdown) {
-	dd_1 = dropdown("#dd_1", {
+<pre><code class="language-javascript">jui.ready([ &quot;ui.dropdown&quot; ], function(dropdown) {
+	dd_1 = dropdown(&quot;#dd_1&quot;, {
 		event: {
 			change: function(data) {
-				alert(data.value + ", " + data.text);
+				alert(data.value + &quot;, &quot; + data.text);
 			}
 		}
 	});
 });</code></pre>
 		
-<pre><code class="language-markup">&lt;div style="display: inline-block; position: relative;"&gt;
-	&lt;div class="group"&gt;
-		&lt;button class="btn btn-black" onclick="dd_1.show();"&gt;Show&lt;/button&gt;
-		&lt;button class="btn btn-black" onclick="dd_1.hide();"&gt;Hide&lt;/button&gt;
+<pre><code class="language-markup">&lt;div style=&quot;display: inline-block; position: relative;&quot;&gt;
+	&lt;div class=&quot;group&quot;&gt;
+		&lt;button class=&quot;btn btn-black&quot; onclick=&quot;dd_1.show();&quot;&gt;Show&lt;/button&gt;
+		&lt;button class=&quot;btn btn-black&quot; onclick=&quot;dd_1.hide();&quot;&gt;Hide&lt;/button&gt;
 	&lt;/div&gt;
 	
-	&lt;div id="dd_1" class="dropdown dropdown-large"&gt;
-		&lt;ul style="width: 150px;"&gt;
-			&lt;li value="1"&gt;Dropdown 1&lt;/li&gt;
-			&lt;li class="divider"&gt;&lt;/li&gt;
-			&lt;li value="2"&gt;Dropdown 2&lt;/li&gt;
-			&lt;li value="3"&gt;Dropdown 3&lt;/li&gt;
-			&lt;li value="4"&gt;Dropdown 4&lt;/li&gt;
+	&lt;div id=&quot;dd_1&quot; class=&quot;dropdown dropdown-large&quot;&gt;
+		&lt;ul style=&quot;width: 150px;&quot;&gt;
+			&lt;li value=&quot;1&quot;&gt;Dropdown 1&lt;/li&gt;
+			&lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+			&lt;li value=&quot;2&quot;&gt;Dropdown 2&lt;/li&gt;
+			&lt;li value=&quot;3&quot;&gt;Dropdown 3&lt;/li&gt;
+			&lt;li value=&quot;4&quot;&gt;Dropdown 4&lt;/li&gt;
 		&lt;/ul&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
@@ -81,8 +82,7 @@
 <section>
 	<h2>Anchor + Close</h2>
 	<p>
-		만약에 드롭다운에 말풍선 효과를 주고 싶다면 <strong>dropdown</strong> 태그 안에 <strong>anchor</strong> 클래스를 가진 태그를 추가하면 됩니다.<br/>
-		그리고 말풍선 효과를 우측으로 하고 싶다면 해당 말풍선 태그에 <strong>anchor-right</strong> 클래스를 추가하면 됩니다.
+		If you want to apply a speech balloon effect to a <strong>dropdown</strong>, add a tag with an <strong>anchor</strong> class to the dropdown.<br/> In addition, if you want to place the speech balloon on the right side, add an <strong>anchor-right</strong> class to the relevant speech balloon.
 		
 		<div style="display: inline-block; position: relative;">
 			<div class="group">
@@ -105,22 +105,22 @@
 	</p>
 	
 	<p class="br">
-<pre><code class="language-markup">&lt;div style="display: inline-block; position: relative;"&gt;
-	&lt;!-- 생략 --&gt;
+<pre><code class="language-markup">&lt;div style=&quot;display: inline-block; position: relative;&quot;&gt;
+	&lt;!-- omitted --&gt;
 	
-	&lt;div id="dd_2" class="dropdown dropdown-large"&gt;
-		&lt;div class="anchor"&gt;&lt;/div&gt;
+	&lt;div id=&quot;dd_2&quot; class=&quot;dropdown dropdown-large&quot;&gt;
+		&lt;div class=&quot;anchor&quot;&gt;&lt;/div&gt;
 		
-		&lt;ul style="width: 150px;"&gt;
-			&lt;!-- 생략 --&gt;
+		&lt;ul style=&quot;width: 150px;&quot;&gt;
+			&lt;!-- omitted --&gt;
 		&lt;/ul&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 		
 		<p>
-			그리고 <strong>close</strong> 옵션의 값을 false로 주면 리스트 클릭시 드롭다운이 닫히지 않습니다.
+			If the value of the close option is set to false, the dropdown will not be closed when clicking on the list.
 
-<pre><code class="language-javascript">dd_2 = dropdown("#dd_2", {
+<pre><code class="language-javascript">dd_2 = dropdown(&quot;#dd_2&quot;, {
 	close: false
 });</code></pre>
 		</p>
@@ -130,8 +130,7 @@
 <section>
 	<h2>Style + Keydown</h2>
 	<p>
-		만약에 드롭다운을 화면 우측에서 보여주게 되면 메뉴의 일부가 가려지는 문제가 발생할 수 있습니다.<br/>
-		이럴 경우에는 <strong>margin-left</strong> 스타일 값을 음수로 주면 해결 할 수 있습니다.
+		If a dropdown is shown on the right side of the screen, a part of the menu may be blocked.<br/> To resolve this problem, set the margin-left style value to a negative number.
 		
 		<div class="navbar navbar-black" style="overflow: hidden;">
 			<div class="inline-right">
@@ -151,17 +150,17 @@
 		</div>
 		
 		<p class="br">
-			좌측 마진 값을 조정함으로써 우측 정렬시 드롭다운의 위치를 자연스럽게 맞출 수 있습니다.
+			It is possible to adjust the location of a dropdown by changing the left margin value when performing a right alignment.
 			
-<pre><code class="language-markup">&lt;div id="dd_3" class="dropdown dropdown-black" style="margin-left: -15px;"&gt;
-	&lt;!-- 생략 --&gt;
+<pre><code class="language-markup">&lt;div id=&quot;dd_3&quot; class=&quot;dropdown dropdown-black&quot; style=&quot;margin-left: -15px;&quot;&gt;
+	&lt;!-- Omitted --&gt;
 &lt;/div&gt;</code></pre>
 		</p>
 
 		<p>
-			<strong>keydown</strong> 옵션을 <strong>true</strong>로 주면 키보드 방향키를 통해서도 리스트를 선택할 수 있습니다.
+			It is possible to choose a list using the keyboard direction keys when the value of the keydown option is set to true.
 			
-<pre><code class="language-javascript">dd_3 = dropdown("#dd_3", {
+<pre><code class="language-javascript">dd_3 = dropdown(&quot;#dd_3&quot;, {
 	keydown: true
 });</code></pre>
 		</p>
@@ -171,12 +170,11 @@
 <section>
 	<h2>Update</h2>
 	<p>
-		드롭다운은 마크업 뿐만이 아니라 순수 데이터로도 리스트를 구성할 수 있습니다.
+		The list of a dropdown can be configured not only with markup but also solely with data.
 		
 		<div class="navbar navbar-black" style="overflow: hidden;">
 			<div class="inline-right">
-				<a class="btn btn-black btn-small" onclick="dd_4_update();">Update</a> 
-				<a class="btn btn-black btn-small" onclick="dd_4.show();">Menu List <i class="icon-arrow1 icon-white"></i></a> 
+				<a class="btn btn-black btn-small" onclick="dd_4_update();">Update</a> <a class="btn btn-black btn-small" onclick="dd_4.show();">Menu List <i class="icon-arrow1 icon-white"></i></a> 
 				
 				<div id="dd_4" class="dropdown dropdown-black">
 					<div class="anchor anchor-right"></div>
@@ -192,30 +190,30 @@
 	</p>
 	
 	<p class="br">
-		<strong>data-jui</strong> 속성 값에 해당 드롭다운의 셀렉터를 지정하며, <strong>data-tpl</strong> 속성 값은 <strong>node</strong>로 지정합니다.
+		Assign the selector of a specified dropdown to the <strong>data-jui</strong> property value, and assign the <strong>data-tpl </strong>property value to <strong>node</strong>.
 
-<pre><code class="language-markup">&lt;script data-jui="#dd_4" data-tpl="node" type="text/template"&gt;
-	&lt;li value="&lt;!= value !&gt;"&gt;&lt;!= text !&gt;&lt;/li&gt;
+<pre><code class="language-markup">&lt;script data-jui=&quot;#dd_4&quot; data-tpl=&quot;node&quot; type=&quot;text/template&quot;&gt;
+	&lt;li value=&quot;&lt;!= value !&gt;&quot;&gt;&lt;!= text !&gt;&lt;/li&gt;
 &lt;/script&gt;</code></pre>
 	</p>
 	<p>
-		<strong>node</strong> 템플릿이 설정되어 있다면 아래와 같이 옵션으로 데이터를 설정할 수 있습니다.
+		If a node template is configured, data can be configured with options as follows.
 		
-<pre><code class="language-javascript">dd_4 = dropdown("#dd_4", {
+<pre><code class="language-javascript">dd_4 = dropdown(&quot;#dd_4&quot;, {
 	nodes: [
-		{ value: 1, text: "text1" },
-		{ value: 2, text: "text2" },
-		{ value: 3, text: "text3" }
+		{ value: 1, text: &quot;text1&quot; },
+		{ value: 2, text: &quot;text2&quot; },
+		{ value: 3, text: &quot;text3&quot; }
 	]
 });</code></pre>
 	</p>
 	<p>
-		Update 버튼을 클릭하면 드롭다운 리스트를 변경할 수 있습니다.
+		The user can change the dropdown list by clicking the update button.
 		
 <pre><code class="language-javascript">dd_4.update([
-	{ value: 4, text: "text4" },
-	{ value: 5, text: "text5" },
-	{ value: 6, text: "text6" }
+	{ value: 4, text: &quot;text4&quot; },
+	{ value: 5, text: &quot;text5&quot; },
+	{ value: 6, text: &quot;text6&quot; }
 ]);</code></pre>
 	</p>
 </section>

@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - JavaScript/Modal/API</title>
 	
 <link rel="stylesheet" href="../../lib/jui/jui.min.css" />
@@ -18,46 +19,46 @@
 var uiApi = {
 	prop: {
 		type: {
-			detail: "모달이 보여지는지 숨겨져 있는지에 대한 상태 값입니다."
+			detail: "State value that indicate whether a modal is shown or hidden."
 		}
 	},
 	method: {
 		show: {
 			param: "none",
 			ret: "none",
-			detail: "모달을 보이게 합니다."
+			detail: "Shows a modal."
 		},
 		hide: {
 			param: "none",
 			ret: "none",
-			detail: "모달을 숨깁니다."
+			detail: "Hides a modal."
 		},
         resize: {
             param: "none",
             ret: "none",
-            detail: "모달 위치를 다시 조정합니다."
+            detail: "Re-adjust the location of a modal."
         }
 	},
 	event: {},
 	tpl: {},
 	opt: {
 		color: {
-			detail: "모달의 색상을 설정합니다. (black / white)"
+			detail: "Determines the color of a modal (black / gray)."
 		},
 		opacity: {
-			detail: "모달의 투명도를 설정합니다."
+			detail: "Sets the transparency of a modal."
 		},
 		target: {
-			detail: "모달이 보여질 셀렉터를 설정합니다."
+			detail: "Sets a selector on which a modal is shown,"
 		},
 		index: {
-			detail: "모달의 순서(인덱스)를 설정합니다."
+			detail: "Determines the sequence (index) of a modal."
 		},
 		autoHide: {
-			detail: "모달을 클릭하였을 때, 자동으로 숨겨지게 합니다."
+			detail: "Automatically hides a modal when clicking on it."
 		},
 		clone: {
-			detail: "기존의 모달을 복제해서 보여지게 합니다."
+			detail: "Copies an existing modal and shows it."
 		}
 	}
 };
@@ -78,8 +79,7 @@ var uiApi = {
 			Contents...<br/>
 			
 			<div style="text-align: center; margin-top: 45px;">
-				<a href="#" class="btn btn-purple btn-small">Save</a> 
-				<a href="#" class="btn btn-gray btn-small">Close</a>
+				<a href="#" class="btn btn-purple btn-small">Save</a> <a href="#" class="btn btn-gray btn-small">Close</a>
 			</div>
 		</div>
 	</div>

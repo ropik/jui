@@ -1,7 +1,8 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - CSS/NavBar</title>
 
 <link rel="stylesheet" href="../../res/manual.css" />
@@ -20,18 +21,16 @@
 <section>
 	<h2>Default</h2>
 	<p>
-		기본 네비게이션 바는 여러 컴포넌트를 조합할 수 있으며, 두 가지 색상을 제공합니다.
+		The basic navigation bar can combine several components. It provides 2 color options.
 		
 		<div class="navbar">
-			<a class="btn btn-gray btn-small"><i class="icon-search"></i> Mini button</a>
-			<a class="btn btn-gray btn-small"><i class="icon-search"></i> Mini button</a>
+			<a class="btn btn-gray btn-small"><i class="icon-search"></i> Mini button</a> <a class="btn btn-gray btn-small"> Mini button</a>
 		</div>
 		<br/>
 		
 		<div class="navbar navbar-black">
 			<div class="group">
-				<a class="btn btn-black btn-small">Mini button</a> 
-				<a class="btn btn-black btn-small">Mini button</a> 
+				<a class="btn btn-black btn-small">Mini button</a> <a class="btn btn-black btn-small">Mini button</a> 
 			</div>
 		</div>
 		<br/>
@@ -51,27 +50,27 @@
 	</p>
 	
 	<p class="br">
-<pre><code class="language-markup">&lt;div class="navbar"&gt;
-	&lt;a class="btn btn-gray btn-small"&gt;&lt;i class="icon-search"&gt;&lt;/i&gt; Mini button&lt;/a&gt;
-	&lt;a class="btn btn-gray btn-small"&gt;&lt;i class="icon-search"&gt;&lt;/i&gt; Mini button&lt;/a&gt;
+<pre><code class="language-markup">&lt;div class=&quot;navbar&quot;&gt;
+	&lt;a class=&quot;btn btn-gray btn-small&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt; Mini button&lt;/a&gt;
+	&lt;a class=&quot;btn btn-gray btn-small&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt; Mini button&lt;/a&gt;
 &lt;/div&gt;
 
-&lt;div class="navbar navbar-black"&gt;
-	&lt;div class="group"&gt;
-		&lt;a class="btn btn-black btn-small"&gt;Mini button&lt;/a&gt; 
-		&lt;a class="btn btn-black btn-small"&gt;Mini button&lt;/a&gt; 
+&lt;div class=&quot;navbar navbar-black&quot;&gt;
+	&lt;div class=&quot;group&quot;&gt;
+		&lt;a class=&quot;btn btn-black btn-small&quot;&gt;Mini button&lt;/a&gt; 
+		&lt;a class=&quot;btn btn-black btn-small&quot;&gt;Mini button&lt;/a&gt; 
 	&lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div class="navbar navbar-white-flat" style="overflow: hidden;"&gt;
-	&lt;div class="inline-right"&gt;
+&lt;div class=&quot;navbar navbar-white-flat&quot; style=&quot;overflow: hidden;&quot;&gt;
+	&lt;div class=&quot;inline-right&quot;&gt;
 		&lt;span&gt;Text1&lt;/span&gt; &lt;span&gt;Text2&lt;/span&gt; &lt;span&gt;Text3&lt;/span&gt;
 	&lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div class="navbar navbar-black-flat" style="overflow: hidden;"&gt;
-	&lt;div class="inline-right"&gt;
-		&lt;span style="color: white;"&gt;Text1&lt;/span&gt; &lt;span style="color: white;"&gt;Text2&lt;/span&gt;
+&lt;div class=&quot;navbar navbar-black-flat&quot; style=&quot;overflow: hidden;&quot;&gt;
+	&lt;div class=&quot;inline-right&quot;&gt;
+		&lt;span style=&quot;color: white;&quot;&gt;Text1&lt;/span&gt; &lt;span style=&quot;color: white;&quot;&gt;Text2&lt;/span&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 	</p>
@@ -80,14 +79,12 @@
 <section>
 	<h2>Inline</h2>
 	<p>
-		인라인은 네비게이션 바의 컴포넌트를 그룹 형태로 묶는 기능을 제공합니다. 또한 컴포넌트를 우측에 정렬시킬 수 있습니다.
+		Inline provides a function for grouping components for the navigation bar.
 		
 		<div class="navbar">
 			<div class="inline">
 				<div class="group">
-					<a class="btn btn-gray btn-small">Mini button</a> 
-					<a class="btn btn-gray btn-small">Mini button</a> 
-					<a class="btn btn-gray btn-small">Mini button</a> 
+					<a class="btn btn-gray btn-small">Mini button</a> <a class="btn btn-gray btn-small">Mini button</a> <a class="btn btn-gray btn-small">Mini button</a> 
 				</div>
 			</div>
 			
@@ -103,36 +100,35 @@
 						<li><a href="#" value="2">Domain</a></li>
 						<li><a href="#" value="3">Domain2</a></li>
 					</ul>
-					<a class="btn btn-small btn-toggle"><i class="icon-arrow2"></i></a>
-					<a class="btn btn-small">Select...</a>
+					<a class="btn btn-small btn-toggle"><i class="icon-arrow2"></i></a> <a class="btn btn-small">Select...</a>
 				</div>
 			</div>
 		</div>
 	</p>
 	
 	<p class="br">
-<pre><code class="language-markup">&lt;div class="inline"&gt;
-	&lt;div class="group"&gt;
-		&lt;a class="btn btn-gray btn-small"&gt;Mini button&lt;/a&gt; 
-		&lt;a class="btn btn-gray btn-small"&gt;Mini button&lt;/a&gt; 
-		&lt;a class="btn btn-gray btn-small"&gt;Mini button&lt;/a&gt; 
+<pre><code class="language-markup">&lt;div class=&quot;inline&quot;&gt;
+	&lt;div class=&quot;group&quot;&gt;
+		&lt;a class=&quot;btn btn-gray btn-small&quot;&gt;Mini button&lt;/a&gt; 
+		&lt;a class=&quot;btn btn-gray btn-small&quot;&gt;Mini button&lt;/a&gt; 
+		&lt;a class=&quot;btn btn-gray btn-small&quot;&gt;Mini button&lt;/a&gt; 
 	&lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div class="inline"&gt;
-	&lt;a class="btn btn-gray btn-small"&gt;Mini button&lt;/a&gt; 
+&lt;div class=&quot;inline&quot;&gt;
+	&lt;a class=&quot;btn btn-gray btn-small&quot;&gt;Mini button&lt;/a&gt; 
 &lt;/div&gt;
 
-&lt;div class="inline-right"&gt;
-	&lt;div class="group"&gt;
-		&lt;input id="gtest_input" type="text" class="input input-small" /&gt;
-		&lt;ul style="display: none"&gt;
-			&lt;li&gt;&lt;a id="g" href="#" value="1"&gt;MAIN&lt;/a&gt;&lt;/li&gt;
-			&lt;li&gt;&lt;a href="#" value="2"&gt;Domain&lt;/a&gt;&lt;/li&gt;
-			&lt;li&gt;&lt;a href="#" value="3"&gt;Domain2&lt;/a&gt;&lt;/li&gt;
+&lt;div class=&quot;inline-right&quot;&gt;
+	&lt;div class=&quot;group&quot;&gt;
+		&lt;input id=&quot;gtest_input&quot; type=&quot;text&quot; class=&quot;input input-small&quot; /&gt;
+		&lt;ul style=&quot;display: none&quot;&gt;
+			&lt;li&gt;&lt;a id=&quot;g&quot; href=&quot;#&quot; value=&quot;1&quot;&gt;MAIN&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;#&quot; value=&quot;2&quot;&gt;Domain&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;#&quot; value=&quot;3&quot;&gt;Domain2&lt;/a&gt;&lt;/li&gt;
 		&lt;/ul&gt;
-		&lt;a class="btn btn-small btn-toggle"&gt;&lt;i class="icon-arrow2"&gt;&lt;/i&gt;&lt;/a&gt;
-		&lt;a class="btn btn-small"&gt;Select...&lt;/a&gt;
+		&lt;a class=&quot;btn btn-small btn-toggle&quot;&gt;&lt;i class=&quot;icon-arrow2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+		&lt;a class=&quot;btn btn-small&quot;&gt;Select...&lt;/a&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 	</p>
@@ -141,17 +137,14 @@
 <section>
 	<h2>Inline-Row</h2>
 	<p>
-		인라인-로우는 네비게이션 바에서 행을 만들 수 있는 기능을 제공합니다. 해당 태그 안에서 인라인과의 조합도 가능합니다.
+		Inline-Row provides a function of creating a line in the navigation bar. It is also possible to combine it with Inline in a specified tag.
 		
 		<div class="navbar">
 			<div class="inline-row">
-				<a class="btn btn-gray btn-small">Mini button</a>
-				<a class="btn btn-gray btn-small">Mini button</a>
-				<a class="btn btn-gray btn-small">Mini button</a>
+				<a class="btn btn-gray btn-small">Mini button</a> <a class="btn btn-gray btn-small">Mini button</a> <a class="btn btn-gray btn-small">Mini button</a>
 			</div>
 			<div class="inline-row">
-				<a class="btn btn-gray btn-small">Mini button</a>
-				<a class="btn btn-gray btn-small">Mini button</a>
+				<a class="btn btn-gray btn-small">Mini button</a> <a class="btn btn-gray btn-small">Mini button</a>
 			</div>
 			<div class="inline-line"></div>
 			<div class="inline-row">
@@ -159,31 +152,30 @@
 					<a class="btn btn-gray btn-small">Mini button</a>
 				</div>
 				<div class="inline-right">
-					<a class="btn btn-gray btn-small">Mini button</a>
-					<a class="btn btn-gray btn-small">Mini button</a>
+					<a class="btn btn-gray btn-small">Mini button</a> <a class="btn btn-gray btn-small">Mini button</a>
 				</div>
 			</div>
 		</div>
 	</p>
 	
 	<p class="br">
-<pre><code class="language-markup">&lt;div class="navbar navbar-black"&gt;
-	&lt;div class="inline-row"&gt;
-		&lt;a class="btn btn-black btn-small"&gt;Mini button&lt;/a&gt;
-		&lt;a class="btn btn-black btn-small"&gt;Mini button&lt;/a&gt;
-		&lt;a class="btn btn-black btn-small"&gt;Mini button&lt;/a&gt;
+<pre><code class="language-markup">&lt;div class=&quot;navbar navbar-black&quot;&gt;
+	&lt;div class=&quot;inline-row&quot;&gt;
+		&lt;a class=&quot;btn btn-black btn-small&quot;&gt;Mini button&lt;/a&gt;
+		&lt;a class=&quot;btn btn-black btn-small&quot;&gt;Mini button&lt;/a&gt;
+		&lt;a class=&quot;btn btn-black btn-small&quot;&gt;Mini button&lt;/a&gt;
 	&lt;/div&gt;
-	&lt;div class="inline-row"&gt;
-		&lt;a class="btn btn-black btn-small"&gt;Mini button&lt;/a&gt;
-		&lt;a class="btn btn-black btn-small"&gt;Mini button&lt;/a&gt;
+	&lt;div class=&quot;inline-row&quot;&gt;
+		&lt;a class=&quot;btn btn-black btn-small&quot;&gt;Mini button&lt;/a&gt;
+		&lt;a class=&quot;btn btn-black btn-small&quot;&gt;Mini button&lt;/a&gt;
 	&lt;/div&gt;
-	&lt;div class="inline-row"&gt;
-		&lt;div class="inline"&gt;
-			&lt;a class="btn btn-black btn-small"&gt;Mini button&lt;/a&gt;
+	&lt;div class=&quot;inline-row&quot;&gt;
+		&lt;div class=&quot;inline&quot;&gt;
+			&lt;a class=&quot;btn btn-black btn-small&quot;&gt;Mini button&lt;/a&gt;
 		&lt;/div&gt;
-		&lt;div class="inline-right"&gt;
-			&lt;a class="btn btn-black btn-small"&gt;Mini button&lt;/a&gt;
-			&lt;a class="btn btn-black btn-small"&gt;Mini button&lt;/a&gt;
+		&lt;div class=&quot;inline-right&quot;&gt;
+			&lt;a class=&quot;btn btn-black btn-small&quot;&gt;Mini button&lt;/a&gt;
+			&lt;a class=&quot;btn btn-black btn-small&quot;&gt;Mini button&lt;/a&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
@@ -193,7 +185,7 @@
 <section>
 	<h2>Menu</h2>
 	<p>
-		네비게이션 바를 메뉴 형태로 사용할 수 있는 기능을 제공합니다.
+		Provides a function that changes the navigation bar into a menu form.
 		
 		<div class="navbar">
 			<ul class="nav">
@@ -214,19 +206,19 @@
 	</p>
 	
 	<p class="br">
-<pre><code class="language-markup">&lt;div class="navbar"&gt;
-	&lt;ul class="nav"&gt;
-		&lt;li&gt;&lt;a href="#"&gt;Menu1&lt;/a&gt;&lt;/li&gt;
-		&lt;li class="active"&gt;Menu2&lt;/li&gt; 
-		&lt;li&gt;&lt;a href="#"&gt;Menu3&lt;/a&gt;&lt;/li&gt;
+<pre><code class="language-markup">&lt;div class=&quot;navbar&quot;&gt;
+	&lt;ul class=&quot;nav&quot;&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu1&lt;/a&gt;&lt;/li&gt;
+		&lt;li class=&quot;active&quot;&gt;Menu2&lt;/li&gt; 
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu3&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;div class="navbar navbar-black"&gt;
-	&lt;ul class="nav-right"&gt;
-		&lt;li&gt;&lt;a href="#"&gt;Menu1&lt;/a&gt;&lt;/li&gt; 
-		&lt;li class="active"&gt;Menu2&lt;/li&gt; 
-		&lt;li&gt;&lt;a href="#"&gt;Menu3&lt;/a&gt;&lt;/li&gt;
+&lt;div class=&quot;navbar navbar-black&quot;&gt;
+	&lt;ul class=&quot;nav-right&quot;&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu1&lt;/a&gt;&lt;/li&gt; 
+		&lt;li class=&quot;active&quot;&gt;Menu2&lt;/li&gt; 
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu3&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;
 &lt;/div&gt;</code></pre>
 	</p>
@@ -235,13 +227,13 @@
 <section>
 	<h2>Fixed Top</h2>
 	<p>
-		네비게이션 바를 화면 상단에 고정시킬 수 있습니다.
+		Fixes the navigation bar at the top of the screen.
 		
-<pre><code class="language-markup">&lt;div class="navbar navbar-fixed-top"&gt;
-	&lt;ul class="nav-right"&gt;
-		&lt;li&gt;&lt;a href="#"&gt;Menu1&lt;/a&gt;&lt;/li&gt; 
-		&lt;li class="active"&gt;Menu2&lt;/li&gt; 
-		&lt;li&gt;&lt;a href="#"&gt;Menu3&lt;/a&gt;&lt;/li&gt;
+<pre><code class="language-markup">&lt;div class=&quot;navbar navbar-fixed-top&quot;&gt;
+	&lt;ul class=&quot;nav-right&quot;&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu1&lt;/a&gt;&lt;/li&gt; 
+		&lt;li class=&quot;active&quot;&gt;Menu2&lt;/li&gt; 
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu3&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;
 &lt;/div&gt;</code></pre>
 	</p>		
@@ -250,13 +242,13 @@
 <section>
 	<h2>Fixed Bottom</h2>
 	<p>
-		네비게이션 바를 화면 하단에 고정시킬 수 있습니다.
+		Fixes the navigation bar at the bottom of the screen.
 		
-<pre><code class="language-markup">&lt;div class="navbar navbar-fixed-bottom"&gt;
-	&lt;ul class="nav-right"&gt;
-		&lt;li&gt;&lt;a href="#"&gt;Menu1&lt;/a&gt;&lt;/li&gt; 
-		&lt;li class="active"&gt;Menu2&lt;/li&gt; 
-		&lt;li&gt;&lt;a href="#"&gt;Menu3&lt;/a&gt;&lt;/li&gt;
+<pre><code class="language-markup">&lt;div class=&quot;navbar navbar-fixed-bottom&quot;&gt;
+	&lt;ul class=&quot;nav-right&quot;&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu1&lt;/a&gt;&lt;/li&gt; 
+		&lt;li class=&quot;active&quot;&gt;Menu2&lt;/li&gt; 
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu3&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;
 &lt;/div&gt;</code></pre>
 	</p>		

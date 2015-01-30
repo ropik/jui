@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - JavaScript/Paging/API</title>
 	
 <link rel="stylesheet" href="../../lib/jui/jui.min.css" />
@@ -21,56 +22,56 @@ var uiApi = {
 		reload: {
 			param: "count | none",
 			ret: "none",
-			detail: "해당 데이터 개수를 기준으로 리로드하고, 매개변수가 없다면 최초에 설정된 데이터 개수로 리로드합니다."
+			detail: "Reloads the number of specified data records, or reloads the initially configured number of data records if there is no parameter."
 		},
 		page: {
 			param: "pNo | none",
 			ret: "none",
-			detail: "해당 페이지 번호로 변경하고, 매개변수가 없다면 현재 활성화된 페이지 번호를 가져옵니다."
+			detail: "Changes to a specified page number, and gets the currently enabled page number if there is no parameter."
 		},
 		next: {
 			param: "none",
 			ret: "none",
-			detail: "다음 페이지로 변경합니다."
+			detail: "Changes to the next page."
 		},
 		prev: {
 			param: "none",
 			ret: "none",
-			detail: "이전 페이지로 변경합니다."
+			detail: "Changes to the previous page."
 		},
 		first: {
 			param: "none",
 			ret: "none",
-			detail: "첫번째 페이지로 변경합니다."
+			detail: "Changes to the first page."
 		},
 		last: {
 			param: "none",
 			ret: "none",
-			detail: "마지막 페이지로 변경합니다."
+			detail: "Changes to the last page."
 		}
 	},
 	event: {
 		page: {
-			detail: "페이지가 변경될 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when the page is changed"
 		},
 		reload: {
-			detail: "페이징이 리로드 되었을 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when the paging is reloaded"
 		}
 	},
 	tpl: {
 		pages: {
-			detail: "페이지 구성에 대한 템플릿입니다."
+			detail: "Template for page configuration"
 		}
 	},
 	opt: {
 		count: {
-			detail: "페이징 대상의 데이터 전체 개수입니다. (예: 전체 로우 개수)"
+			detail: "Total number of data records subject to paging)"
 		},
 		pageCount: {
-			detail: "한 페이지 당 데이터 개수입니다."
+			detail: "Number of data records per page"
 		},
 		screenCount: {
-			detail: "페이징 화면에 보여지는 페이지 개수입니다."
+			detail: "Number of pages shown on the paging screen"
 		}
 	}
 };

@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - Core</title>
 
 <link rel="stylesheet" href="../../lib/jui/jui.min.css" />
@@ -24,7 +25,7 @@
 <section>
 	<h2>Ready</h2>
 	<p>
-		JUI 라이브러리는 <strong>ready</strong> 메소드의 콜백 내부에서 컴포넌트 모듈을 사용할 수 있습니다.
+		The JUI library can use a component module inside of the <strong>ready</strong> method callback.
 		
 		<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
 	var combo = ui.combo(selector, options),
@@ -35,7 +36,7 @@
 	</p>
 	
 	<p class="br">
-		먼저 콜백 함수의 인자로 받을 수 있는 <strong>ui</strong>와 <strong>uix</strong> 그리고 <strong>_</strong> 객체는 다음과 같은 기능을 제공합니다.
+		The ui, uix and _object, which can be received as parameters of the callback method, provide the following functions.
 	
 		<table width="100%" class="table_s" cellpadding="0" cellspacing="0">
 			<tr>
@@ -44,21 +45,21 @@
 			</tr>
 			<tr>
 				<td>ui</td>
-				<td>다른 컴포넌트에 종속적이지 않는 독립성이 보장된 컴포넌트입니다.</td>
+				<td>A component whose independence from  other components is guaranteed.</td>
 			</tr>
 			<tr>
 				<td>uix</td>
-				<td>다른 컴포넌트와 조합하여 좀 더 복합적이고 다양한 기능을 제공하는 컴포넌트입니다.</td>
+				<td>A component that provides more complex and varied functions because it is created using combinations of other components.</td>
 			</tr>
 			<tr>
 				<td>_</td>
-				<td>컴포넌트 내부와 그 밖에 외부에서도 사용할 수 있도록 정형화된 유틸 메소드를 제공합니다.</td>
+				<td>Provides a standardized utility method that can be used inside and outside the component.</td>
 			</tr>
 		</table>
 	</p>
 
 	<p class="br">
-		콜백 함수의 인자로 받을 수 있는 <strong>ui</strong>와 <strong>uix</strong> 객체는 다음과 같은 컴포넌트를 생성할 수 있습니다.
+		ui and uix objects, which can be received as parameters of the callback function, can create the following components.
 	
 		<table width="100%" class="table_s" cellpadding="0" cellspacing="0">
 			<tr>
@@ -69,81 +70,81 @@
 			<tr>
 				<td>ui</td>
 				<td>button</td>
-				<td>체크 및 라디오 버튼의 기능을 제공하는 컴포넌트입니다.</td>
+				<td>Component that provides checkbox and radio button functions.</td>
 			</tr>
 			<tr>
 				<td>ui</td>
 				<td>combo</td>
-				<td>셀렉트 박스를 좀 더 시각화하여 구현한 컴포넌트입니다.</td>
+				<td>Component that implements the select box appearance.</td>
 			</tr>
 			<tr>
 				<td>ui</td>
 				<td>dropdown</td>
-				<td>메뉴 형태의 리스트를 보여줄 수 있는 컴포넌트입니다.</td>
+				<td>Component that can display a menu-type list.</td>
 			</tr>
 			<tr>
 				<td>ui</td>
 				<td>tooltip</td>
-				<td>특정 영역에 대한 설명을 좀 더 시각화하여 보여주는 컴포넌트입니다.</td>
+				<td>A visualization component that contributes to the definition of a specific area.</td>
 			</tr>
 			<tr>
 				<td>ui</td>
 				<td>modal</td>
-				<td>특정 대상 화면을 더 뚜렷하게 보여주기 위한 컴포넌트입니다.</td>
+				<td>Component that displays the screen of a specific object more clearly.</td>
 			</tr>
 			<tr>
 				<td>ui</td>
 				<td>paging</td>
-				<td>게시판이나 방명록과 같은 서비스에서 자주 사용되는 페이징을 일반화하여 제공하는 컴포넌트입니다.</td>
+				<td>Component that generalizes and provides the paging which is frequently used in a service such as a bulletin board or a guest book.</td>
 			</tr>
 			<tr>
 				<td>ui</td>
 				<td>datepicker</td>
-				<td>일/월/년의 날짜를 선택할 수 있는 컴포넌트입니다.</td>
+				<td>Component for selecting date/month/year.</td>
 			</tr>
 			<tr>
 				<td>ui</td>
 				<td>notify</td>
-				<td>서비스에서 심각한 문제나 이벤트 등이 발생하였을 경우에 알림 메시지를 보여주는 컴포넌트입니다.</td>
+				<td>Component that shows a notice message when a significant error or event occurs in the service.</td>
 			</tr>
 			<tr>
 				<td>uix</td>
 				<td>window</td>
-				<td>일반적인 윈도우 형태의 컴포넌트입니다.</td>
+				<td>Component with a typical Windows format.</td>
 			</tr>
 			<tr>
 				<td>uix</td>
 				<td>table</td>
-				<td>데이터를 추가 및 수정, 삭제에 특화되어 있으며 트리 구조의 데이터도 표현할 수 있는 컴포넌트입니다.</td>
+				<td>Component that specializes in adding, modifying and deleting data and is able to display data in a tree structure.</td>
 			</tr>
 			<tr>
 				<td>uix</td>
 				<td>xtable</td>
-				<td>table 컴포넌트와는 달리 데이터 조회에 특화되어 있으며, 백만건 이상의 데이터를 조회할 수 있습니다.</td>
+				<td>Specializes in retrieving data, unlike the table component. It can retrieve over 1 million records.</td>
 			</tr>
 			<tr>
 				<td>uix</td>
 				<td>tab</td>
-				<td>다수의 영역을 탭으로 분리하여 표현할 수 있는 컴포넌트입니다.</td>
+				<td>Component that can display multiple sections of content using tabs.</td>
 			</tr>
 			<tr>
 				<td>uix</td>
 				<td>tree</td>
-				<td>디렉토리와 같은 계층형 데이터를 표현할 수 있는 컴포넌트입니다.</td>
+				<td>Component that can display hierarchical data such as directories.</td>
 			</tr>
 			<tr>
 				<td>uix</td>
 				<td>autocomplete</td>
-				<td>텍스트박스에 입력하였을 경우, 문장의 완성을 도와주는 컴포넌트입니다.</td>
+				<td>Component that helps with text completion when writing in a text box</td>
 			</tr>
 		</table>
 	</p>
 	
 	<p class="br">
-		그리고 첫번째 매개변수에 정의된 모듈 명을 배열 형태로 설정한다면 해당 모듈만 로드하여 사용할 수 있지만 보통 생략하여 사용합니다.
+		If a module name is supplied in thefirst parameter , it is possible to load only the module concerned. However, the module name is usually omitted.
 		
-		<pre><code class="language-javascript">jui.ready([ "ui.combo", "uix" ], function(combo, uix) {
-	var combo = combo(selector, options),
+		<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
+	var combo = ui.combo(selector, options),
 		table = uix.table(selector, options);
 		
 	//...
@@ -152,13 +153,12 @@
 </section>
 
 <section>
-	<h2>Create</h2>
+	<h2>create</h2>
 	<p>
-		<strong>ready</strong> 메소드의 콜백 외부에서도 컴포넌트 객체를 동적으로 생성할 수 있는 기능을 제공합니다. 
-		한가지 주의해야 할 사항은 <strong>create</strong> 메소드는 <strong>ready</strong> 메소드의 콜백이 실행된 이후에 사용할 수 있습니다.
+		A method for creating a component object dynamically, even outside of the callback of the <strong>ready</strong> method. OHowever, the <strong>create</strong> method can only be used once the callback of the <strong>ready</strong> method is complete.
 		
-<pre><code class="language-javascript">var combo = jui.create("combo", selector, options),
-	table = jui.create("table", selector, options);
+<pre><code class="language-javascript">var combo = jui.create(&quot;combo&quot;, selector, options),
+	table = jui.create(&quot;table&quot;, selector, options);
 	
 //...</code></pre>
 	</p>

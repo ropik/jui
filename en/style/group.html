@@ -1,7 +1,8 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - CSS/Group</title>
 
 <link rel="stylesheet" href="../../res/manual.css" />
@@ -20,7 +21,7 @@
 <section>
 	<h2>Default</h2>
 	<p>
-		그룹은 컴포넌트를 조합하여 새로운 컴포넌트를 구성할 수 있으며, 기본적으로 첫번째와 마지막 자식 엘리먼트는 라운드 효과가 들어가지만 <b>group-rect</b> 옵션을 사용하면 직각으로도 사용할 수 있습니다.
+		Group can configure a new component by composing components. The round effect is applied to the first and the last child element. It is also possible to apply the rectangular effect by using the group-rect option.
 	</p>
 </section>
 
@@ -32,71 +33,22 @@
 				<td>
 					<p>
 						<div class="group">
-							<a class="btn btn-mini">
-								<i class="icon-new-window"></i> AA
-							</a>
-							<a class="btn btn-mini">
-								<i class="icon-gear"></i> BB
-							</a>
-							<a class="btn btn-mini">
-								<i class="icon-calendar"></i> CC
-							</a>
+							<a class="btn btn-mini"><i class="icon-new-window"></i> AA</a> <a class="btn btn-mini"> BB</a> <a class="btn btn-mini"> CC</a>
 						</div>
 					</p>
 					<p>
 						<div class="group group-rect">
-							<a class="btn btn-gray btn-small">
-								A
-							</a>
-							<a class="btn btn-gray btn-small">
-								<i class="icon-gear"></i>
-							</a>
-							<a class="btn btn-gray btn-small">
-								<i class="icon-calendar"></i> C
-							</a>
-							<a class="btn btn-gray btn-small">
-								<i class="icon-download"></i> D
-							</a>
+							<a class="btn btn-gray btn-small">A</a> <a class="btn btn-gray btn-small"></a> <a class="btn btn-gray btn-small"> C</a> <a class="btn btn-gray btn-small"> D</a>
 						</div>
 					</p>
 					<p>
 						<div class="group">
-							<a class="btn btn-black">
-								A
-							</a>
-							<a class="btn btn-black">
-								B
-							</a>
-							<a class="btn btn-black">
-								<i class="icon-calendar icon-white"></i> C
-							</a>
-							<a class="btn btn-black">
-								<i class="icon-download icon-white"></i> D
-							<a class="btn btn-black">
-								<i class="icon-upload icon-white"></i> E
-							</a>
+							<a class="btn btn-black">A</a> <a class="btn btn-black">B</a> <a class="btn btn-black"> C</a> <a class="btn btn-black"> D <a class="btn btn-black"> E</a>
 						</div>
 					</p>
 					<p>
 						<div class="group group-rect">
-							<a class="btn btn-purple btn-large">
-								AA
-							</a>
-							<a class="btn btn-purple btn-large">
-								BB
-							</a>
-							<a class="btn btn-purple btn-large">
-								<i class="icon-calendar icon-large"></i> AA
-							</a>
-							<a class="btn btn-purple btn-large">
-								<i class="icon-download icon-large"></i> BB
-							</a>
-							<a class="btn btn-purple btn-large">
-								<i class="icon-upload icon-large"></i>
-							</a>
-							<a class="btn btn-purple btn-large">
-								<i class="icon-hide icon-large"></i>
-							</a>
+							<a class="btn btn-purple btn-large">AA</a> <a class="btn btn-purple btn-large">BB</a> <a class="btn btn-purple btn-large"> AA</a> <a class="btn btn-purple btn-large"> BB</a> <a class="btn btn-purple btn-large"><i class="icon-upload icon-large"></i></a> <a class="btn btn-purple btn-large"><i class="icon-hide icon-large"></i></a>
 						</div>
 					</p>
 				</td>
@@ -105,27 +57,27 @@
 	</p>
 	
 	<p class="br">
-<pre><code class="language-markup">&lt;div class="group"&gt;
-	&lt;a class="btn btn-mini"&gt;
-		&lt;i class="icon-new-window"&gt;&lt;/i&gt; AA
+<pre><code class="language-markup">&lt;div class=&quot;group&quot;&gt;
+	&lt;a class=&quot;btn btn-mini&quot;&gt;
+		&lt;i class=&quot;icon-new-window&quot;&gt;&lt;/i&gt; AA
 	&lt;/a&gt;
-	&lt;a class="btn btn-mini"&gt;
-		&lt;i class="icon-gear"&gt;&lt;/i&gt; BB
+	&lt;a class=&quot;btn btn-mini&quot;&gt;
+		&lt;i class=&quot;icon-gear&quot;&gt;&lt;/i&gt; BB
 	&lt;/a&gt;
-	&lt;a class="btn btn-mini"&gt;
-		&lt;i class="icon-calendar"&gt;&lt;/i&gt; CC
+	&lt;a class=&quot;btn btn-mini&quot;&gt;
+		&lt;i class=&quot;icon-calendar&quot;&gt;&lt;/i&gt; CC
 	&lt;/a&gt;
 &lt;/div&gt;
 
-&lt;div class="group group-rect"&gt;
-	&lt;a class="btn btn-mini"&gt;
-		&lt;i class="icon-new-window"&gt;&lt;/i&gt; AA
+&lt;div class=&quot;group group-rect&quot;&gt;
+	&lt;a class=&quot;btn btn-mini&quot;&gt;
+		&lt;i class=&quot;icon-new-window&quot;&gt;&lt;/i&gt; AA
 	&lt;/a&gt;
-	&lt;a class="btn btn-mini"&gt;
-		&lt;i class="icon-gear"&gt;&lt;/i&gt; BB
+	&lt;a class=&quot;btn btn-mini&quot;&gt;
+		&lt;i class=&quot;icon-gear&quot;&gt;&lt;/i&gt; BB
 	&lt;/a&gt;
-	&lt;a class="btn btn-mini"&gt;
-		&lt;i class="icon-calendar"&gt;&lt;/i&gt; CC
+	&lt;a class=&quot;btn btn-mini&quot;&gt;
+		&lt;i class=&quot;icon-calendar&quot;&gt;&lt;/i&gt; CC
 	&lt;/a&gt;
 &lt;/div&gt;</code></pre>
 	</p>
@@ -187,14 +139,14 @@
 	</p>
 
 	<p class="br">
-<pre><code class="language-markup">&lt;div class="group"&gt;
-	&lt;label class="text text-small"&gt;&lt;i class="icon-search"&gt;&lt;/i&gt;&lt;/label&gt;		
-	&lt;input type="text" class="input input-small" /&gt;
+<pre><code class="language-markup">&lt;div class=&quot;group&quot;&gt;
+	&lt;label class=&quot;text text-small&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt;&lt;/label&gt;		
+	&lt;input type=&quot;text&quot; class=&quot;input input-small&quot; /&gt;
 &lt;/div&gt;
 
-&lt;div class="group group-rect"&gt;
-	&lt;label class="text text-small"&gt;&lt;i class="icon-search"&gt;&lt;/i&gt;&lt;/label&gt;		
-	&lt;input type="text" class="input input-small" /&gt;
+&lt;div class=&quot;group group-rect&quot;&gt;
+	&lt;label class=&quot;text text-small&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt;&lt;/label&gt;		
+	&lt;input type=&quot;text&quot; class=&quot;input input-small&quot; /&gt;
 &lt;/div&gt;</code></pre>
 	</p>
 </section>
@@ -217,20 +169,17 @@
 					</p>
 					<p>
 						<div class="group group-rect">
-							<a class="btn btn-black">TEST</a>
-							<a class="btn btn-black btn-toggle"><i class="icon-arrow2 icon-white"></i></a>
+							<a class="btn btn-black">TEST</a> <a class="btn btn-black btn-toggle"><i class="icon-arrow2 icon-white"></i></a>
 							<input type="text" class="input input-black">
 						</div>
 						<div class="group group-rect">
 							<input type="text" class="input input-black">
-							<a class="btn btn-black btn-toggle"><i class="icon-arrow2 icon-white"></i></a>
-							<a class="btn btn-black">TEST</a>
+							<a class="btn btn-black btn-toggle"><i class="icon-arrow2 icon-white"></i></a> <a class="btn btn-black">TEST</a>
 						</div>
 					</p>
 					<p>
 						<div class="group">
-							<a class="btn btn-black btn-large">TEST</a>
-							<a class="btn btn-black btn-toggle btn-large"><i class="icon-arrow2 icon-white icon-large"></i></a>
+							<a class="btn btn-black btn-large">TEST</a> <a class="btn btn-black btn-toggle btn-large"><i class="icon-arrow2 icon-white icon-large"></i></a>
 							<input type="text" class="input input-black input-large">
 						</div>
 					</p>
@@ -240,16 +189,16 @@
 	</p>
 	
 	<p class="br">
-<pre><code class="language-markup">&lt;div class="group"&gt;
-	&lt;a class="btn btn-black" style="width: 43px;"&gt;TEST&lt;/a&gt;
-	&lt;a class="btn btn-black btn-toggle"&gt;&lt;i class="icon-arrow2 icon-white"&gt;&lt;/i&gt;&lt;/a&gt;
-	&lt;input type="text" class="input input-black"&gt;
+<pre><code class="language-markup">&lt;div class=&quot;group&quot;&gt;
+	&lt;a class=&quot;btn btn-black&quot; style=&quot;width: 43px;&quot;&gt;TEST&lt;/a&gt;
+	&lt;a class=&quot;btn btn-black btn-toggle&quot;&gt;&lt;i class=&quot;icon-arrow2 icon-white&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;input type=&quot;text&quot; class=&quot;input input-black&quot;&gt;
 &lt;/div&gt;
 
-&lt;div class="group group-rect"&gt;
-	&lt;a class="btn btn-black" style="width: 43px;"&gt;TEST&lt;/a&gt;
-	&lt;a class="btn btn-black btn-toggle"&gt;&lt;i class="icon-arrow2 icon-white"&gt;&lt;/i&gt;&lt;/a&gt;
-	&lt;input type="text" class="input input-black"&gt;
+&lt;div class=&quot;group group-rect&quot;&gt;
+	&lt;a class=&quot;btn btn-black&quot; style=&quot;width: 43px;&quot;&gt;TEST&lt;/a&gt;
+	&lt;a class=&quot;btn btn-black btn-toggle&quot;&gt;&lt;i class=&quot;icon-arrow2 icon-white&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;input type=&quot;text&quot; class=&quot;input input-black&quot;&gt;
 &lt;/div&gt;</code></pre>
 	</p>
 </section>

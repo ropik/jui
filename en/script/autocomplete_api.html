@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - JavaScript/AutoComplete/API</title>
 
 <link rel="stylesheet" href="../../lib/jui/jui.min.css" />
@@ -21,30 +22,30 @@ var uiApi = {
 		update: {
 			param: "words",
 			ret: "none",
-			detail: "자동완성 대상 단어들을 갱신합니다."
+			detail: "Updates words subject to autofill."
 		},
         list: {
             param: "none",
             ret: "array",
-            detail: "필터링된 자동완성 대상 단어들을 가져옵니다."
+            detail: "Gets filtered words subject to autofill."
         }
 	},
 	event: {
 		change: {
-			detail: "단어 목록을 보여주는 드롭다운을 클릭했을 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when you click on a dropdown that shows a word list."
 		}
 	},
 	tpl: {
 		words: {
-			detail: "자동완성에 사용되는 드롭다운 템플릿 마트업입니다."
+			detail: "Dropdown template markup used for autofill."
 		}
 	},
 	opt: {
 		target: {
-			detail: "자동완성 루트가 대상이 아닐 경우, 대상 셀렉터를 설정합니다."
+			detail: "Designates a target selector when an autofill route is not a target."
 		},
 		words: {
-			detail: "자동완성 대상 단어들을 설정합니다."
+			detail: "Designates words subject to autofill."
 		}
 	}
 };

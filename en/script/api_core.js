@@ -1,193 +1,193 @@
 window.coreApi = {
     prop: {
         selector: {
-            detail: "UI를 생성할 때의 셀렉터 문자열입니다."
+            detail: "Selector string when creating a UI."
         },
         root: {
-            detail: "UI의 대상 엘리먼트입니다."
+            detail: "Target element of a UI."
         },
         options: {
-            detail: "UI가 생성할 때의 옵션입니다."
+            detail: "Option when a UI is created."
         },
         tpl: {
-            detail: "UI가 사용하는 템플릿 함수 목록입니다."
+            detail: "List of template functions used by athe UI."
         },
         event: {
-            detail: "UI에 정의된 커스텀 이벤트 목록입니다."
+            detail: "List of custom events defined in a UI."
         },
         listen: {
-            detail: "UI에 정의된 DOM 이벤트 목록입니다."
+            detail: "List of DOM events defined in a UI."
         },
         timestamp: {
-            detail: "UI를 생성할 때의 타임스탬프 값입니다."
+            detail: "Time stamp value when creating a UI."
         },
         index: {
-        	detail: "UI 객체가 배열일 경우, 각각의 UI에 대한 인덱스 값입니다."
+        	detail: "Index value for each UI if an UI object is an arrangement."
         },
         module: {
-            detail: "UI의 생성자와 타입을 알 수 있는 객체입니다."
+            detail: "An object which shows the creator and type of a UI."
         },
         parent: {
-            detail: "부모 객체를 참조할 수 있는 프로퍼티입니다."
+            detail: "Property which can refer to the parent object."
         }
     },
     method: {
         emit: {
             param: "eventType, sendObject",
             ret: "none",
-            detail: "커스텀 이벤트를 발생시킵니다. 첫번째 파라메터가 커스텀 이벤트의 종류이며, 옵션이나 on 메소드로 정의된 함수가 호출됩니다."
+            detail: "Generates a custom event. The first parameter is the type of a custom event. A function defined as an option or on method is called."
         },
         on: {
             param: "eventType, callback",
             ret: "none",
-            detail: "emit 메소드가 호출되면 on 메소드의 정의된 콜백 함수가 실행됩니다."
+            detail: "A callback function defined as an on method is run when an emit method is called."
         },
         off: {
             param: "eventType | callback",
             ret: "none",
-            detail: "해당 타입 또는 콜백 핸들러의 커스텀 이벤트를 제거합니다."
+            detail: "Removes a custom event of an applicable type or callback handler."
         },
         addEvent: {
             param: "selector, domEventType, callback",
             ret: "none",
-            detail: "DOM 엘리먼트의 브라우저 이벤트를 정의합니다."
+            detail: "Defines a browser event of a DOM element."
         },
         addTrigger: {
         	param: "selector, domEventType",
         	ret: "none",
-        	detail: "DOM 엘리먼트에 해당 이벤트를 발생시킵니다."
+        	detail: "Generates an applicable event to a DOM element."
         },
         addValid: {
             param: "methodName, typeList",
             ret: "none",
-            detail: "UI 메소드의 파라메터 타입 체크를 하며, 잘못된 값이 들어왔을 경우에는 에러를 발생시킵니다."
+            detail: "Check the parameter type of a UI method and generates an alarm when a wrong value is entered."
         },
         callBefore: {
         	param: "methodName, callback",
         	ret: "none | object",
-        	detail: "UI 메소드가 실행되기 전에 호출되는 콜백 함수를 설정합니다."
+        	detail: "Sets a callback function that is called before a UI method is run."
         },
         callAfter: {
         	param: "methodName, callback",
         	ret: "none | object",
-        	detail: "UI 메소드가 실행된 후에 호출되는 콜백 함수를 설정합니다."
+        	detail: "Sets a callback function that is called after a UI method is run."
         },
         callDelay: {
         	param: "methodName, callObj",
         	ret: "none",
-        	detail: "UI 메소드의 실행 전후의 콜백 함수 및 지연 시간을 설정합니다."
+        	detail: "Sets a callback function and the delay time before/after a UI method is run."
         },
         setTpl: {
             param: "tplName, tplHtml",
             ret: "none",
-            detail: "UI의 템플릿 메소드를 동적으로 정의합니다."
+            detail: "Dynamically defines the template method of a UI"
         },
         setVo: {
             param: "none",
             ret: "none",
-            detail: "UI에 바인딩 라이브러리인 jBinder를 적용합니다."
+            detail: "Applies jBinder, which is a binding library, to a UI."
         },
         setOption: {
             param: "object | optionName, optionValue",
             ret: "none",
-            detail: "UI의 옵션을 동적으로 정의합니다."
+            detail: "Dynamically defines the options of a UI"
         },
         destroy: {
             param: "none",
             ret: "none",
-            detail: "UI 객체와 DOM 엘리먼트에 설정된 이벤트를 모두 제거합니다."
+            detail: "Removes all events set in a UI obejct and the DOM element."
         }
     },
     opt: {
         event: {
-            detail: "UI에서 사용할 DOM 이벤트를 정의합니다."
+            detail: "Defines a DOM event to be used in a UI."
         },
         tpl: {
-            detail: "UI에서 사용할 템플릿 마크업을 정의합니다."
+            detail: "Defines a template markup to be used in a UI."
         },
         animate: {
-        	detail: "UI의 애니메이션 효과를 사용유무를 설정합니다."
+        	detail: "Determines whether to use the amination effect of a UI."
         },
         vo: {
-            detail: "마크업 바인딩 객체를 설정합니다. (@Deprecated)"
+            detail: "Configures a binding object of a markup. (@Deprecated)"
         }
     },
     grid: {
         type: {
-            detail: "추가할 그리드의 타입을 설정합니다."
+            detail: "Specifies the type of a grid to be added."
         },
         extend: {
-            detail: "이미 설정된 그리드 옵션을 그대로 사용하고 싶을 경우에 해당 그리드 그룹의 인덱스를 설정합니다."
+            detail: "Configures the index of an applicable grid group when intending to use already configured grid options."
         },
         dist: {
-            detail: "축의 위치를 변경할 수 있습니다."
+            detail: "Able to change the locatn of an axis."
         },
         orient: {
-            detail: "축이 보여지는 방향을 설정합니다. (top, bottom, left, right)"
+            detail: "Specifies the direction in which an axis is shown (top, bottom, left or right)."
         },
         hide: {
-            detail: "해당 축을 표시 여부를 설정합니다."
+            detail: "Determines whether to display an applicable axis."
         },
         color: {
-            detail: "축의 색상을 설정합니다."
+            detail: "Specifies the color of an axis."
         },
         title: {
-            detail: "축에 보여지는 텍스트를 설정합니다."
+            detail: "Specifies the text shown on an axis."
         },
         line: {
-            detail: "축 배경에 라인 표시 여부를 정합니다."
+            detail: "Determines whether to display a line on the axis background."
         },
         baseline: {
-            detail: "축 배경에 베이스 라인 표시 여부를 정합니다."
+            detail: "Determines whether to display the base line on the axis background."
         },
         subline: {
-            detail: "축 배경에 서브 라인 표시 여부를 정합니다."
+            detail: "Determines whether to display a sub line on the axis background."
         },
         format: {
-            detail: "축 값의 포맷을 설정합니다."
+            detail: "Determines whether to format the value on an axis."
         },
         textRotate: {
-            detail: "축에 표시되는 텍스트의 기울기를 설정합니다."
+            detail: "Specifies the slope of text displayed on an axis."
         }
     },
     brush: {
         type: {
-            detail: "추가할 브러쉬의 타입을 설정합니다."
+            detail: "Specifies the type of a brush to be added."
         },
         target: {
-            detail: "브러쉬에 보여지는 데이터의 키 값을 설정합니다."
+            detail: "Specifies the key value of data displayed on a brush."
         },
         colors: {
-            detail: "타겟 순서에 맞게 컬러 코드를 설정할 수 있습니다. (기본은 테마의 컬러 코드 참조)"
+            detail: "Able to specify color codes according to the target order (basically, refers to the color codes of a theme)"
         },
         axis: {
-            detail: "브러쉬의 기준 축이 되는 그리드 그룹의 인덱스를 정합니다."
+            detail: "Specifies the index of a grid group which acts as the reference axis of a brush."
         },
         index: {
-            detail: "[읽기전용] 브러쉬가 그려진 순서 인덱스입니다."
+            detail: "[Read Only] Sequence index on which brush is drawn."
         },
         x: {
-            detail: "[읽기전용] X축 좌표를 얻어오는 함수입니다."
+            detail: "[Read Only] Function to obtain the X coordinate."
         },
         y: {
-            detail: "[읽기전용] Y축 좌표를 얻어오는 함수입니다."
+            detail: "[Read Only] Function to obtain the Y coordinate."
         },
         c: {
-            detail: "[읽기전용] 커스텀 좌표를 얻어오는 함수입니다."
+            detail: "[Read Only] Function to obtain custom coordinates."
         }
     },
     widget: {
         type: {
-            detail: "추가할 위젯의 타입을 설정합니다."
+            detail: "Specifies the type of a widget to be added."
         },
         brush: {
-            detail: "위젯을 사용할 브러쉬 인덱스를 설정합니다."
+            detail: "Specifies a brush index for which a widget is used."
         },
         render: {
-            detail: "위젯에 렌더링 대상 여부를 정합니다."
+            detail: "Determines whether a widget is to be rendered."
         },
         index: {
-            detail: "[읽기전용] 위젯이 그려진 순서 인덱스입니다."
+            detail: "[Read Only] Index which shows the sequence how a widget is drawn."
         }
     }
 };

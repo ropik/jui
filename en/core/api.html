@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - Core/API</title>
 
 <link rel="stylesheet" href="../../lib/jui/jui.min.css" />
@@ -18,15 +19,14 @@
 <div class="page-header">
 	<h1>API</h1>
 	<p class="br">
-		JUI 라이브러리는 글로벌 객체인 <strong>jui</strong>를 제공하고, 이 객체를 사용하여 각각의 컴포넌트들을 생성할 수 있습니다.
+		The JUI library provides a global object jui. Each component is created using this object.
 	</p>
 </div>
 
 <section>
-	<h2>Before ready</h2>
+	<h2>Before the ready point</h2>
 	<p>
-		JUI는 <strong>ready</strong> 시점 이전에 아래와 같은 메소드와 프로퍼티를 제공합니다.<br/>
-		JUI의 포함된 모든 컴포넌트들은 <strong>ready</strong>의 콜백 함수가 호출된 이후에 생성이 가능합니다.
+		JUI provides the following methods and properties for use prior to the <strong>ready</strong> point. <br/> All of the components in the JUI can be created once the callback function of <strong>ready</strong> has been called.
 		
 		<table width="100%" class="table_s" cellpadding="0" cellspacing="0">
 			<tr>
@@ -37,42 +37,42 @@
 			<tr>
 				<td>ready</td>
 				<td>method</td>
-				<td>컴포넌트 모듈을 사용하기 위해 준비하는 메소드입니다.</td>
+				<td>Method provided for use of a component module.</td>
 			</tr>
 			<tr>
 				<td>defineUI</td>
 				<td>method</td>
-				<td>컴포넌트 모듈을 정의하는 메소드입니다.</td>
+				<td>Method that defines a component module.</td>
 			</tr>
             <tr>
                 <td>define</td>
                 <td>method</td>
-                <td>상속이 가능한 클래스나 객체를 정의하는 메소드입니다.</td>
+                <td>Method that defines a class or object which is heritable</td>
             </tr>
 			<tr>
 				<td>defineOptions</td>
 				<td>method</td>
-				<td>상속 구조의 모듈에 정의된 옵션을 모두 가져오며 옵션에 대한 기본적인 유효성 체크를 합니다.</td>
+				<td>Gets options defined in a module in a heritable structure and checks option validity.</td>
 			</tr>
             <tr>
                 <td>include</td>
                 <td>method</td>
-                <td>'define'이나 'defineUI'로 정의된 클래스나 객체를 가져옵니다.</td>
+                <td>Gets a class or object identified as 'define' or 'defineUI'</td>
             </tr>
             <tr>
                 <td>includeAll</td>
                 <td>method</td>
-                <td>'define'이나 'defineUI'로 정의된 모든 클래스와 객체를 가져옵니다.</td>
+                <td>Gets all classes and objects that are identified as 'define' or 'defineUI'</td>
             </tr>
 			<tr>
 				<td>log</td>
 				<td>method</td>
-				<td>로그를 볼 수 있는 툴을 팝업으로 띄우는 메소드입니다.</td>
+				<td>Method that displays a pop-up on which the user can view the log.</td>
 			</tr>
 			<tr>
 				<td>setup</td>
 				<td>method</td>
-				<td>JUI 라이브러리의 기본 설정을 할 수 있으며 대표적으로 로그 URL 및 템플릿 문법 설정을 할 수 있습니다.</td>
+				<td>Configures the basic settings of the JUI library, for example the log URL and template grammar settings.</td>
 			</tr>
 		</table>
 	</p>
@@ -92,79 +92,79 @@
 				<td>add</td>
 				<td>uiObj</td>
 				<td>none</td>
-				<td>생성한 컴포넌트 객체를 추가합니다.</td>
+				<td>Adds a component object created.</td>
 			</tr>
 			<tr>
 				<td>emit</td>
 				<td>uiType | uiSelector, eventType, eventArgs</td>
 				<td>none</td>
-				<td>해당 컴포넌트에 커스텀 이벤트를 발생시킵니다.</td>
+				<td>Generates a custom event to an applicable component</td>
 			</tr>
 			<tr>
 				<td>get</td>
 				<td>index | uiType | uiSelector</td>
 				<td>object | array</td>
-				<td>현재 생성된 컴포넌트의 객체를 가져옵니다.</td>
+				<td>Brings a component currently created</td>
 			</tr>
 			<tr>
 				<td>getAll</td>
 				<td>none</td>
 				<td>array</td>
-				<td>현재 생성된 모든 컴포넌트 객체를 가져옵니다.</td>
+				<td>Brings all components currently created</td>
 			</tr>
 			<tr>
 				<td>remove</td>
 				<td>index</td>
 				<td>uiObj</td>
-				<td>해당 인덱스의 컴포넌트 객체를 리스트에서 제거합니다.</td>
+				<td>Removes a component object in an applicable index from the list</td>
 			</tr>
 			<tr>
 				<td>shift</td>
 				<td>none</td>
 				<td>uiObj</td>
-				<td>마지막 컴포넌트 객체를 리스트에서 제거합니다.</td>
+				<td>Removes the last component object from the list.</td>
 			</tr>
 			<tr>
 				<td>pop</td>
 				<td>none</td>
 				<td>uiObj</td>
-				<td>첫번째 컴포넌트 객체를 리스트에서 제거합니다.</td>
+				<td>Removes the first component object from the list.</td>
 			</tr>
 			<tr>
 				<td>size</td>
 				<td>none</td>
 				<td>int</td>
-				<td>현재 생성된 컴포넌트 객체의 개수를 가져옵니다.</td>
+				<td>Gets the number of objects currently created</td>
 			</tr>
 			<tr>
 				<td>addClass</td>
 				<td>uiCls</td>
 				<td>none</td>
-				<td>컴포넌트 클래스를 추가합니다.</td>
+				<td>Adds a component class</td>
 			</tr>
 			<tr>
 				<td>getClass</td>
 				<td>index or uiType</td>
 				<td>object or array</td>
-				<td>컴포넌트 클래스를 가져옵니다.</td>
+				<td>Gets a component class</td>
 			</tr>
 			<tr>
 				<td>getClassAll</td>
 				<td>none</td>
 				<td>array</td>
-				<td>모든 컴포넌트 클래스를 가져옵니다.</td>
+				<td>Gets all component classes</td>
 			</tr>
 			<tr>
 				<td>create</td>
 				<td>uiType, selector, options</td>
 				<td>object</td>
-				<td>ready 시점 이후에 컴포넌트를 동적으로 생성할 수 있습니다.</td>
+				<td>It is possible to create a component dynamically after the ready point.</td>
 			</tr>
 			<tr>
 				<td>debugAll</td>
 				<td>callback</td>
 				<td>none</td>
-				<td>현재 생성된 모든 컴포넌트 객체를 디버깅합니다.</td>
+				<td>debugs all component objects currently existing</td>
 			</tr>
 		</table>
 	</p>

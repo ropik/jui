@@ -1,7 +1,8 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - JavaScript</title>	
 	
 <link rel="stylesheet" href="../../res/manual.css" />
@@ -22,8 +23,7 @@
 <section>
 	<h2>Ready</h2>
 	<p>
-		JUI 라이브러리는 <strong>ready</strong> 메소드의 콜백 내부에서 컴포넌트 모듈을 사용할 수 있습니다.<br/>
-        첫번째 배열에 로드할 모듈을 설정하지 않으면 기본적으로 <strong>ui</strong>, <strong>uix</strong> 컴포넌트 그룹과 유틸 모듈을 로드합니다.
+		The JUI library can use a component module inside of the callback of the ready method.<br/> If a module to be loaded to the first array is not specified, the ui and uix component group and a utility module are loaded.
 		
 		<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
 	var combo = ui.combo(selector, options),
@@ -32,7 +32,7 @@
 	//...
 });
 
-jui.ready([ "ui", "uix", "uix.xtable" ], function(ui, uix, xtable) {
+jui.ready([ &quot;ui&quot;, &quot;uix&quot;, &quot;uix.xtable&quot; ], function(ui, uix, xtable) {
     var combo = ui.combo(selector, options),
         table = uix.table(selector, options),
         xtable = xtable(selector, options);
@@ -45,14 +45,14 @@ jui.ready([ "ui", "uix", "uix.xtable" ], function(ui, uix, xtable) {
 <section>
 	<h2>Object</h2>
 	<p>
-		컴포넌트 객체를 생성할 때, 셀렉터가 단일이 아닌 다수일 경우에는 결과 값은 객체가 아닌 배열로 가져옵니다. 
+		When creating a component object, if there are multiple selectors rather than a single selector, the result value is retrieved as an array, not an object. 
 		
 		
-<pre><code class="language-markup">&lt;span class="tooltip" title="Tooltip Message"&gt;Tooltip 1&lt;/span&gt;
-&lt;span class="tooltip" title="Tooltip Message"&gt;Tooltip 2&lt;/span&gt;</code></pre>
+<pre><code class="language-markup">&lt;span class=&quot;tooltip&quot; title=&quot;Tooltip Message&quot;&gt;Tooltip 1&lt;/span&gt;
+&lt;span class=&quot;tooltip&quot; title=&quot;Tooltip Message&quot;&gt;Tooltip 2&lt;/span&gt;</code></pre>
 
 		<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
-	var tips = ui.tooltip(".tooltip");
+	var tips = ui.tooltip(&quot;.tooltip&quot;);
 		
 	tips[0].show();
 	tips[1].show();
@@ -63,10 +63,9 @@ jui.ready([ "ui", "uix", "uix.xtable" ], function(ui, uix, xtable) {
 <section>
 	<h2>Template</h2>
 	<p>
-		JUI는 템플릿 기반의 UI 라이브러리입니다. 템플릿을 설정하는 방법은 아래와 같이 두 가지를 제공합니다.<br/>
-		먼저 템플릿 스크립트 태그에 대상 테이블의 셀렉터를 <strong>data-jui</strong> 속성에 입력하고, 추가로 템플릿 타입을 <strong>data-tpl</strong> 속성에 설정합니다.
+		JUI is a template-based UI library. To set a template, there are two methods, as follows.<br/> First, input the selector of the target table in the <strong>data-jui</strong> property of the template script tag, then configure the template type in the <strong>data-tpl</strong> property.
 		
-<pre><code class="language-markup">&lt;table id="table" class="table table-classic"&gt;
+<pre><code class="language-markup">&lt;table id=&quot;table&quot; class=&quot;table table-classic&quot;&gt;
 	&lt;thead&gt;
 		&lt;tr&gt;
 			&lt;th&gt;Name&lt;/th&gt;
@@ -77,7 +76,7 @@ jui.ready([ "ui", "uix", "uix.xtable" ], function(ui, uix, xtable) {
 	&lt;tbody&gt;&lt;/tbody&gt;
 &lt;/table&gt;</code></pre>
 
-		<pre><code class="language-markup">&lt;script data-jui="#table" data-tpl="row" type="text/template"&gt;
+		<pre><code class="language-markup">&lt;script data-jui=&quot;#table&quot; data-tpl=&quot;row&quot; type=&quot;text/template&quot;&gt;
 		&lt;tr&gt;
 			&lt;td&gt;&lt;!= name !&gt;&lt;/td&gt;
 			&lt;td&gt;&lt;!= age !&gt;&lt;/td&gt;
@@ -86,19 +85,18 @@ jui.ready([ "ui", "uix", "uix.xtable" ], function(ui, uix, xtable) {
 &lt;/script&gt;</code></pre>
 
 		<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
-	var table = uix.table("#table");
+	var table = uix.table(&quot;#table&quot;);
 	
 	table.update([
-		{ name: "Hong", age: 29, location: "Ilsan" },
-		{ name: "Jung", age: 25, location: "Dangsan" }
+		{ name: &quot;Hong&quot;, age: 29, location: &quot;Ilsan&quot; },
+		{ name: &quot;Jung&quot;, age: 25, location: &quot;Dangsan&quot; }
 	]);
 });</code></pre>
 
 		<p class="br">
-		위와 같이 <strong>data-jui</strong>와 <strong>data-tpl</strong> 속성을 설정하지 않고, 해당 템플릿 스크립트 태그의 내용을 직접 가져와서 테이블 객체 생성시에 <strong>tpl</strong> 옵션으로 추가하는 방법도 제공합니다. 
-		이와 같은 방법으로 템플릿을 설정하면 다수의 테이블 객체에서 같이 사용할 수 있기 때문에 중복 코드를 최소화 할 수 있습니다.
+		As shown above, the method of adding as a tpl option when creating a table object after getting the content of an applicable template script tag is also provided. Configuring a template using this method minimizes code redundancy as the template can be commonly used in multiple table objects.
 			
-		<pre><code class="language-markup">&lt;script id="tpl_table" type="text/template"&gt;
+		<pre><code class="language-markup">&lt;script id=&quot;tpl_table&quot; type=&quot;text/template&quot;&gt;
 		&lt;tr&gt;
 			&lt;td&gt;&lt;!= name !&gt;&lt;/td&gt;
 			&lt;td&gt;&lt;!= age !&gt;&lt;/td&gt;
@@ -107,24 +105,21 @@ jui.ready([ "ui", "uix", "uix.xtable" ], function(ui, uix, xtable) {
 &lt;/script&gt;</code></pre>
 
 		<pre><code class="language-javascript">jui.ready(function(ui, uix, _) {
-	var table = uix.table("#table", {
+	var table = uix.table(&quot;#table&quot;, {
 		tpl: {
-			row: $("#tpl_table").html();
+			row: $(&quot;#tpl_table&quot;).html();
 		}	
 	});
 	
 	table.update([
-		{ name: "Hong", age: 29, location: "Ilsan" },
-		{ name: "Jung", age: 25, location: "Dangsan" }
+		{ name: &quot;Hong&quot;, age: 29, location: &quot;Ilsan&quot; },
+		{ name: &quot;Jung&quot;, age: 25, location: &quot;Dangsan&quot; }
 	]);
 });</code></pre>
 		</p>
 		
 		<p class="br">
-			참고로 JUI 라이브러리에서 총 10종의 UI 컴포넌트가 템플릿을 사용합니다.<br/>
-			<span class="label label-gray label-small" style="width: 100%; margin-top: 5px;">
-				<i>table, xtable, tree-table, dropdown, tab, tree, paging, autocomplete, datepicker, notify</i>
-			</span>
+			In the JUI library, a total of 10 types of UI component use a template.<br/> <span class="label label-gray label-small" style="width: 100%; margin-top: 5px;"><i>table, xtable, tree-table, dropdown, tab, tree, paging, autocomplete, datepicker, notify</i></span>
 		</p>
 	</p>
 </section>

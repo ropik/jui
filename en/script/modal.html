@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - JavaScript/Modal</title>	
 
 <link rel="stylesheet" href="../../res/manual.css" />
@@ -20,19 +21,18 @@
 <div class="page-header">
 	<h1>Modal</h1>
 	<p class="br">
-		윈도우나 로딩과 같은 UI 컴포넌트에서 사용하는 모달을 좀 더 범용적으로 사용할 수 있게 별도의 컴포넌트로 개발하였습니다.
+		Developed as a separate component so that the modal, which is used in UI components such as window or loading, can be used more universally.
 	</p>
 </div>
 
 <section>
 	<h2>Global</h2>
 	<p>
-		<a class="btn btn-gray btn-mini" href="javascript:modal_1.show();">Run</a> - 
-		전체 화면의 중앙에 위치하는 글로벌 모달 기능을 제공합니다.
+		<a class="btn btn-gray btn-mini" href="javascript:modal_1.show();">Run</a> - Provides a global modal function located in the center of the screen.
 		
-<pre><code class="language-javascript">jui.ready([ "ui.modal" ], function(modal) {
-	modal_1 = modal("#modal_1", {
-		color: "black"
+<pre><code class="language-javascript">jui.ready([ &quot;ui.modal&quot; ], function(modal) {
+	modal_1 = modal(&quot;#modal_1&quot;, {
+		color: &quot;black&quot;
 	});
 });</code></pre>
 		
@@ -44,8 +44,7 @@
 				Contents...<br/>
 				
 				<div style="text-align: center; margin-top: 45px;">
-					<a href="#" class="btn btn-purple btn-small">Save</a> 
-					<a href="#" class="btn btn-gray btn-small">Close</a>
+					<a href="#" class="btn btn-purple btn-small">Save</a> <a href="#" class="btn btn-gray btn-small">Close</a>
 				</div>
 			</div>
 		</div>
@@ -55,8 +54,7 @@
 <section>
 	<h2>Inner</h2>
 	<p>
-		<a class="btn btn-gray btn-mini" href="javascript:modal_2.show()">Run</a> - 
-		전체 화면이 대상이 아닌 특정 태그 내부적으로도 모달 기능을 사용할 수 있는 기능을 제공합니다.
+		<a class="btn btn-gray btn-mini" href="javascript:modal_2.show()">Run</a> - Provides a function that enables the modal function to be used not only on the entire screen but in a specific tag internally.
 		
 		<table id="modal_2" class="table table-classic table-stripeless">
 			<thead>
@@ -91,14 +89,14 @@
 	</p>
 	
 	<p class="br">
-<pre><code class="language-javascript">modal_2 = modal("#modal_2_msg", {
-	target: "#modal_2",
+<pre><code class="language-javascript">modal_2 = modal(&quot;#modal_2_msg&quot;, {
+	target: &quot;#modal_2&quot;,
 	opacity: 0.5,
 	color: 'white'
 });</code></pre>
 
 <pre><code class="language-markup">
-&lt;div id="modal_2_msg" style="display: none; font-size: 20px; color: red;"&gt;
+&lt;div id=&quot;modal_2_msg&quot; style=&quot;display: none; font-size: 20px; color: red;&quot;&gt;
 	NOW LOADING...
 &lt;/div&gt;</code></pre>
 	</p>

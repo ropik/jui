@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - JavaScript/Table/API</title>
 	
 <link rel="stylesheet" href="../../lib/jui/jui.min.css" />
@@ -18,393 +19,393 @@
 var uiApi = {
 	prop: {
 		uit: {
-			detail: "테이블 데이터를 핸들링하는 클래스의 인스턴스입니다."
+			detail: "Instance of a class handling table data"
 		},
 		bind: {
-			detail: "데이터 바인딩 라이브러리인 jBinder의 인스턴스입니다."
+			detail: "Instance of the jBinder, which is a data binding library"
 		}
 	},
 	method: {
 		update: {
 			param: "dataList | index, data",
 			ret: "none",
-			detail: "로우 목록을 갱신하거나 해당 인덱스의 로우를 수정합니다."
+			detail: "Updates the list of rows or modifies the row at a specified index."
 		},
 		updateTree: {
 			param: "rows",
 			ret: "none",
-			detail: "index와 data 프로퍼티를 가지는 객체 배열을 통해 트리 테이블을 구성할 수 있습니다."
+			detail: "It is possible to configure a tree table using an object array with the index and data properties."
 		},
 		append: {
 			param: "data | index, data",
 			ret: "none",
-			detail: "로우를 추가하거나 해당 인덱스의 자식 로우로 추가합니다."
+			detail: "Add a row or a child row to at a specified index."
 		},
 		insert: {
 			param: "index, data",
 			ret: "none",
-			detail: "로우를 해당 인덱스에 추가합니다."
+			detail: "Adds a row at a specified index."
 		},
 		select: {
 			param: "index",
 			ret: "UIRow",
-			detail: "해당 인덱스의 로우에 'selected' 클래스를 추가하고, 해당 로우의 인스턴스를 가져옵니다."
+			detail: "Adds a selected class to a row at a specified index and gets an instance of the applicable row."
 		},
 		unselect: {
 			param: "none",
 			ret: "UIRow",
-			detail: "선택된 로우에 'selected' 클래스를 제거하고, 해당 로우의 인스턴스를 가져옵니다."
+			detail: "Removes a selected class from a selected row and gets an instance of the row in question."
 		},
 		check: {
 			param: "index",
 			ret: "none",
-			detail: "해당 인덱스의 로우에 'checked' 클래스를 추가합니다."
+			detail: "Add a checked class to a row at a specified index."
 		},
 		uncheck: {
 			param: "index",
 			ret: "none",
-			detail: "해당 인덱스의 로우에 'checked' 클래스를 제거합니다."
+			detail: "Removes a checked class from a row at a specified index."
 		},
 		uncheckAll: {
 			param: "none",
 			ret: "none",
-			detail: "모든 로우에 'checked' 클래스를 제거합니다."
+			detail: "Removes checked classes from all rows."
 		},
 		remove: {
 			param: "index",
 			ret: "none",
-			detail: "해당 인덱스의 로우를 삭제합니다."
+			detail: "Remove a row at a specified index."
 		},
 		reset: {
 			param: "none",
 			ret: "none",
-			detail: "모든 로우를 삭제합니다."
+			detail: "Removes all rows."
 		},
 		move: {
 			param: "index, targetRowIndex",
 			ret: "none",
-			detail: "해당 인덱스의 로우를 타겟 인덱스로 이동시킵니다."
+			detail: "Moves a row iat a specified index to the target index."
 		},
 		sort: {
 			param: "columnIndex | columnName, order",
 			ret: "none",
-			detail: "해당 컬럼 인덱스(or 컬럼 이름)를 기준으로 정렬합니다."
+			detail: "Sorts on the specified column index (or column name)."
 		},
 		scroll: {
 			param: "height",
 			ret: "none",
-			detail: "테이블의 height 값의 높이를 기준으로 스크롤을 설정합니다."
+			detail: "Sets the scroll based on the height of a table."
 		},
 		open: {
 			param: "index",
 			ret: "none",
-			detail: "해당 인덱스의 자식 로우를 보이게 합니다."
+			detail: "Shows a child row of a specified index."
 		},
 		fold: {
 			param: "index",
 			ret: "none",
-			detail: "해당 인덱스의 자식 로우를 숨겨지게 합니다."
+			detail: "Hides a child row of a specified index."
 		},
 		openAll: {
 			param: "index",
 			ret: "none",
-			detail: "해당 인덱스의 모든 자식 로우를 보이게 합니다."
+			detail: "Shows all child rows of a specified index."
 		},
 		foldAll: {
 			param: "index",
 			ret: "none",
-			detail: "해당 인덱스의 모든 자식 로우를 숨겨지게 합니다."
+			detail: "Hides all child rows of a specified index."
 		},
 		resize: {
 			param: "none",
 			ret: "none",
-			detail: "테이블의 이너 스크롤 및 컬럼을 다시 설정합니다."
+			detail: "Resets the inner scroll and columns of a table."
 		},
 		resizeColumns: {
 			param: "none",
 			ret: "none",
-			detail: "테이블의 모든 컬럼의 크기를 다시 설정합니다."
+			detail: "Resets the sizes of all columns of a table."
 		},
 		size: {
 			param: "none",
 			ret: "int",
-			detail: "테이블의 전체 로우 크기를 가져옵니다."
+			detail: "Gets the size of all the rows of a table."
 		},
 		count: {
 			param: "none",
 			ret: "int",
-			detail: "테이블의 전체 로우 개수를 가져옵니다."
+			detail: "Gets the number of trows of a table."
 		},
 		list: {
 			param: "none",
 			ret: "array",
-			detail: "테이블의 전체 로우를 가져옵니다."
+			detail: "Gets all the rows of a table."
 		},
 		listData: {
 			param: "none",
 			ret: "array",
-			detail: "테이블의 전체 로우 데이터를 가져옵니다."
+			detail: "Gets the data of all the rows of a table."
 		},
 		listAll: {
 			param: "none",
 			ret: "array",
-			detail: "자식 로우를 포함한 테이블의 전체 로우를 가져옵니다."
+			detail: "Gets all the rows of a table including child rows."
 		},
 		listChecked: {
 			param: "none",
 			ret: "array",
-			detail: "체크 상태의 모든 로우를 가져옵니다."
+			detail: "Gets all rows in a check state."
 		},
 		listColumn: {
 			param: "none",
 			ret: "array",
-			detail: "전체 컬럼을 가져옵니다."
+			detail: "Gets all columns."
 		},
 		get: {
 			param: "index",
 			ret: "UIRow",
-			detail: "해당 인덱스의 로우를 가져옵니다."
+			detail: "Gets the row at the specified index."
 		},
 		getAll: {
 			param: "index",
 			ret: "array",
-			detail: "해당 인덱스의 로우의 자식을 포함한 모든 로우를 가져옵니다."
+			detail: "Gets all rows of at the specified index including child rows."
 		},
 		getColumn: {
 			param: "columnIndex | columnName",
 			ret: "UIColumn",
-			detail: "해당 인덱스의 컬럼을 가져옵니다."
+			detail: "Gets the column at the specified index."
 		},
 		showColumn: {
 			param: "columnIndex | columnName",
 			ret: "none",
-			detail: "해당 컬럼 인덱스(or 컬럼 이름)을 보이게 합니다."
+			detail: "Shows the column index (or column name)."
 		},
 		hideColumn: {
 			param: "columnIndex | columnName",
 			ret: "none",
-			detail: "해당 컬럼 인덱스(or 컬럼 이름)을 숨깁니다."
+			detail: "Hides the column index (or column name)."
 		},
 		initColumns: {
 			param: "columnIndexes | columnNames",
 			ret: "none",
-			detail: "보여질 컬럼의 인덱스나 이름을 배열 형태로 정할 수 있습니다."
+			detail: "It is possible to determine the index or name of the column to be shown in an array."
 		},
 		showColumnMenu: {
 			param: "x",
 			ret: "none",
-			detail: "컬럼 보이기/숨기기 메뉴를 해당 좌표에 보여줍니다."
+			detail: "Shows the Show/Hide Column menu at specified coordinates."
 		},
         hideColumnMenu: {
             param: "none",
             ret: "none",
-            detail: "컬럼 보이기/숨기기 메뉴를 숨깁니다."
+            detail: "Hides the Show/Hide Column menu."
         },
         toggleColumnMenu: {
             param: "x",
             ret: "none",
-            detail: "컬럼 보이기/숨기기 메뉴를 보여주거나 숨깁니다."
+            detail: "Shows or hides the Show/Hide Column menu."
         },
 		showExpand: {
 			param: "index",
 			ret: "none",
-			detail: "해당 인덱스의 로우 확장 영역을 보이게 합니다."
+			detail: "Shows the extended row area of a specified index."
 		},
 		hideExpand: {
 			param: "index",
 			ret: "none",
-			detail: "해당 인덱스의 로우 확장 영역을 숨깁니다."
+			detail: "Hides the extended row area of a specified index."
 		},
 		getExpand: {
 			param: "none",
 			ret: "none",
-			detail: "현재 확장 영역을 활성화하고 있는 로우를 가져옵니다."
+			detail: "Get a row in which the extended area is currently activated."
 		},
 		showEditRow: {
 			param: "index",
 			ret: "none",
-			detail: "해당 인덱스의 로우 수정 영역을 보이게 합니다."
+			detail: "Shows the modified row area of a specified index."
 		},
 		hideEditRow: {
 			param: "index",
 			ret: "none",
-			detail: "해당 인덱스의 로우 수정 영역을 숨깁니다."
+			detail: "Hides the modified row area of a specified index."
 		},
 		getEditRow: {
 			param: "none",
 			ret: "none",
-			detail: "현재 수정 영역을 활성화하고 있는 로우를 가져옵니다."
+			detail: "Get a row in which the modified area is currently activated."
 		},
 		setCsv: {
 			param: "csv | key, csv",
 			ret: "none",
-			detail: "CSV 문자열을 기반으로 테이블을 업데이트합니다."
+			detail: "Updates a table using a CVS string."
 		},
 		setCsvFile: {
 			param: "file | key, file",
 			ret: "none",
-			detail: "CSV 파일을 기반으로 테이블을 업데이트합니다."
+			detail: "Updates a table using a CVS file."
 		},
 		getCsv: {
 			param: "isTree",
 			ret: "string",
-			detail: "테이블의 데이터를 CSV 문자열로 가져옵니다."
+			detail: "Gets the data of a table as a CSV string."
 		},
 		getCsvBase64: {
 			param: "isTree",
 			ret: "base64",
-			detail: "테이블의 데이터를 Base64로 인코딩된 CSV 문자열을 가져옵니다."
+			detail: "Gets the data of a table as a CSV string encoded as base64."
 		},
         downloadCsv: {
             param: "fileName, isTree",
             ret: "none",
-            detail: "테이블의 데이터를 CSV 파일로 다운로드합니다."
+            detail: "Downloads the data of a table as a CSV file."
         },
 		activeIndex: {
 			param: "none",
 			ret: "int",
-			detail: "활성화된 확장/수정/선택 상태의 로우 인덱스를 가져옵니다."
+			detail: "Gets the index of a row that is activated in an extended/modified/selected state."
 		}
 	},
 	event: {
 		select: {
-			detail: "로우가 선택되었을 때, 발생하는 이벤트입니다. (@Deprecated)"
+			detail: "Event that occurs when a row is selected (@Deprecated)"
 		},
 		click: {
-			detail: "로우가 클릭되었을 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when a row is clicked"
 		},
 		dblclick: {
-			detail: "로우가 더블클릭되었을 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when a row is double clicked"
 		},
 		sort: {
-			detail: "테이블이 정렬되었을 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when the table is sorted."
 		},
 		scroll: {
-			detail: "테이블의 스크롤이 최하단으로 갔을 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when the scroll of a table is located at the lowermost position."
 		},
 		rowmenu: {
-			detail: "로우에 마우스 우클릭 되었을 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when a row is right clicked."
 		},
         colclick: {
-            detail: "컬럼에 마우스 클릭 되었을 때, 발생하는 이벤트입니다."
+            detail: "Event that occurs when a column is clicked."
         },
         coldblclick: {
-            detail: "컬럼에 마우스 더블클릭 되었을 때, 발생하는 이벤트입니다."
+            detail: "Event that occurs when a column is double clicked."
         },
 		colmenu: {
-			detail: "컬럼에 마우스 우클릭 되었을 때, 발생하는 이벤트입니다. "
+			detail: "Event that occurs when a column is right clicked. "
 		},
 		colshow: {
-			detail: "컬럼 보이기 상태가 되었을 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when Show Column is selected"
 		},
 		colhide: {
-			detail: "컬럼 숨기기 상태가 되었을 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when Hide Column is selected."
 		},
 		colresize: {
-			detail: "컬럼 리사이징 상태가 되었을 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when the column resizing is activated."
 		},
 		editstart: {
-			detail: "로우가 수정 상태가 되었을 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when a row is in a modification state"
 		},
 		editend: {
-			detail: "로우가 수정이 완료되었을 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when the modification of a row is completed"
 		},
 		expand: {
-			detail: "로우 확장 영역이 활성화 되었을 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when the extended row area is enabled."
 		},
 		expandend: {
-			detail: "로우 확장 영역이 비활성화 되었을 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when the extended row area is disabled."
 		},
 		open: {
-			detail: "자식 로우가 보여질 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when a child row is shown."
 		},
 		fold: {
-			detail: "자식 로우가 숨겨질 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when a child row is hidden."
 		},
 		openall: {
-			detail: "모든 자식 로우가 보여질 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when all child rows are shown."
 		},
 		foldall: {
-			detail: "모든 자식 로우가 숨겨질 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when all child rows are hidden."
 		}
 	},
 	tpl: {
 		row: {
-			detail: "테이블의 로우 템플릿 마크업입니다."
+			detail: "Row template markup of a table."
 		},
 		menu: {
-			detail: "컬럼 보이기/숨기기 메뉴의 템플릿 마크업입니다."
+			detail: "Template markup of the Show/Hide Column menu."
 		},
 		expand: {
-			detail: "로우 확장 영역의 템플릿 마크업입니다."
+			detail: "Template markup of extended row markup"
 		},
 		none: {
-			detail: "데이터가 없을 경우에 보여지는 템플릿 마크업입니다."
+			detail: "Template markup that is shown when there is no data."
 		}
 	},
 	opt: {
 		fields: {
-			detail: "테이블 화면에 보이는 순서대로 컬럼 이름을 설정합니다."
+			detail: "Sets the name of columns in the order of being displayed on the table screen."
 		},
 		csv: {
-			detail: "CSV 문자열로 변환시에 보여지는 컬럼 키를 설정합니다."
+			detail: "Sets the column key shown when converted to a CSV string."
 		},
         csvNumber: {
-            detail: "CSV 문자열로 변환시에 숫자 타입으로 변경할 컬럼 키를 설정합니다."
+            detail: "Sets the column key to be changed to a number form when converted to a CSV string."
         },
 		csvNames: {
-			detail: "CSV 문자열로 변환시에 보여지는 컬럼 이름을 설정하며, csv 옵션과 동일한 순서로 정의해야합니다."
+			detail: "Sets the name of a column shown when converting to a CSV string, which must be defined in the same order as the CSV option."
 		},
         data: {
-            detail: "테이블의 초기 로우 목록을 설정합니다."
+            detail: "Sets the initial row list of a table."
         },
 		rows: {
-			detail: "테이블의 초기 로우 목록을 설정합니다. (@Deprecated)"
+			detail: "Sets the initial row list of a table (@Deprecated)."
 		},
 		colshow: {
-			detail: "컬럼 보이기/숨기기 메뉴가 활성화 되었을 경우, 보이는 컬럼 인덱스를 설정합니다."
+			detail: "Sets a column index shown when the Show/Hide Column menu is enabled."
 		},
 		scroll: {
-			detail: "테이블 스크롤 사용 유무를 설정합니다."
+			detail: "Determines whether to use a table scroll."
 		},
 		scrollHeight: {
-			detail: "테이블 스크롤 사용 시에 바디 영역의 기준 높이를 설정합니다."
+			detail: "Sets the reference height of a body area when using a table scroll."
 		},
 		width: {
-			detail: "테이블 넓이를 설정합니다."
+			detail: "Sets the area of a table."
 		},
 		expand: {
-			detail: "로우 확장 영역의 사용 유무를 설정합니다."
+			detail: "Determines whether to use an extended row area."
 		},
 		expandEvent: {
-			detail: "로우 클릭시 로우 확장 영역의 보이기/숨기기 상태를 설정합니다."
+			detail: "Sets the Show/Hide state of an extended row area when clicking on a row."
 		},
 		editCell: {
-			detail: "셀 수정 영역의 사용 유무를 설정합니다."
+			detail: "Determines whether to use a modified cell area."
 		},
 		editRow: {
-			detail: "로우 수정 영역의 사용 유무를 설정합니다."
+			detail: "Determines whether to use a modified row area."
 		},
 		editEvent: {
-			detail: "로우 더블클릭시 로우/셀 수정 영역의 보이기/숨기기 상태를 설정합니다."
+			detail: "Sets the Show/Hide state of an extended row area when doubleclicking on a row/cell."
 		},
 		resize: {
-			detail: "컬럼 리사이징 기능의 사용 유무를 설정합니다."
+			detail: "Determines whether to use the column resizing function."
 		},
 		sort: {
-			detail: "테이블 정렬 기능의 사용 유무를 설정합니다."
+			detail: "Determines whether to use the table sort function."
 		},
 		sortIndex: {
-			detail: "테이블이 갱신될 때, 자동으로 정렬할 컬럼 인덱스를 설정합니다."
+			detail: "Sets a column index to be automatically sorted when a table is updated."
 		},
 		sortOrder: {
-			detail: "테이블이 갱신될 때, 자동으로 정렬할 컬럼 인덱스를 설정합니다."
+			detail: "Sets a column index to be automatically sorted when a table is updated."
 		},
         sortEvent: {
-            detail: "컬럼 클릭시 정렬 기능 사용 유무를 설정합니다."
+            detail: "Determines whether to use the sort function when you click on a column."
         },
 		vo: {
-			detail: "테이블에 데이터 바인딩을 사용합니다."
+			detail: "Uses data binding on a table."
 		}
 	}
 };
@@ -419,7 +420,7 @@ var uiApi = {
 <section>
 	<h2>Properties</h2>
 	<p>
-		참고로 <strong>row</strong> 템플릿 안에서 <strong>row</strong> 객체와 <strong>row.data</strong>를 직접 참조할 수 있습니다.
+		It is possible to directly refer to a row object and row.data in a row template.
 		
 		<table width="100%" class="table_s" cellpadding="0" cellspacing="0">
 			<tr>
@@ -428,39 +429,39 @@ var uiApi = {
 			</tr>	
 			<tr>
 				<td>type</td>
-				<td>자식 로우가 보여지는지 숨겨져 있는지에 대한 상태 값입니다.</td>
+				<td>State value that indicates whether a child row is shown or hidden.</td>
 			</tr>	
 			<tr>
 				<td>data</td>
-				<td>해당 로우의 데이터입니다.</td>
+				<td>Data of a specifiedrow</td>
 			</tr>	
 			<tr>
 				<td>rownum</td>
-				<td>부모 로우가 있을 경우, 해당 부모 로우의 자식 노드 고유 번호입니다.</td>
+				<td>The unique number of a child row under the specified parent row if a parent row exists.</td>
 			</tr>	
 			<tr>
 				<td>index</td>
-				<td>해당 로우의 인덱스입니다. 트리 구조일 경우, 깊이가 존재합니다.</td>
+				<td>Index of a specified row. In the case of a tree structure, a depth is given.</td>
 			</tr>	
 			<tr>
 				<td>element</td>
-				<td>해당 로우의 TR 엘리먼트입니다.</td>
+				<td>TR element of a specified row</td>
 			</tr>	
 			<tr>
 				<td>list</td>
-				<td>해당 로우의 TD 엘리먼트 목록입니다.</td>
+				<td>List of TD elements of a specified row</td>
 			</tr>	
 			<tr>
 				<td>parent</td>
-				<td>부모 로우를 참조하는 변수입니다.</td>
+				<td>Variable that refers to the parent row</td>
 			</tr>	
 			<tr>
-				<td>childrens</td>
-				<td>자식 로우 목록입니다.</td>
+				<td>children</td>
+				<td>List of child rows.</td>
 			</tr>	
 			<tr>
 				<td>depth</td>
-				<td>트리 구조일 경우, 현재 로우의 깊이입니다.</td>
+				<td>The depth of the current row in the case of a tree structure</td>
 			</tr>	
 		</table>
 	</p>
@@ -480,31 +481,31 @@ var uiApi = {
 			</tr>	
 			<tr>
 				<td>element</td>
-				<td>해당 컬럼의 TH 엘리먼트입니다.</td>
+				<td>TH element of a specified column</td>
 			</tr>	
 			<tr>
 				<td>list</td>
-				<td>해당 컬럼에 속한 모든 로우의 TD 엘리먼트입니다.</td>
+				<td>TD element of all rows belonging to a specified column</td>
 			</tr>	
 			<tr>
 				<td>order</td>
-				<td>컬럼 정렬 상태입니다.</td>
+				<td>Column sort state</td>
 			</tr>	
 			<tr>
 				<td>name</td>
-				<td>컬럼 이름입니다.</td>
+				<td>Column name</td>
 			</tr>	
 			<tr>
 				<td>data</td>
-				<td>해당 컬럼에 속한 모든 로우의 데이터입니다.</td>
+				<td>Data from all rows belonging for a specified column</td>
 			</tr>	
 			<tr>
 				<td>index</td>
-				<td>컬럼 인덱스입니다.</td>
+				<td>Column index</td>
 			</tr>	
 			<tr>
 				<td>type</td>
-				<td>현재 컬럼의 상태입니다. (보이기/숨기기/리사이즈)</td>
+				<td>The current column state (Show/Hide/Resize)</td>
 			</tr>	
 		</table>
 	</p>

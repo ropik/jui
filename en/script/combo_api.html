@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - JavaScript/Combo/API</title>
 
 <link rel="stylesheet" href="../../lib/jui/jui.min.css" />
@@ -20,77 +21,77 @@ var uiApi = {
 		setIndex: {
 			param: "index",
 			ret: "none",
-			detail: "해당 인덱스의 버튼을 선택합니다."
+			detail: "Selects a button of a specified index."
 		},
 		setValue: {
 			param: "value",
 			ret: "none",
-			detail: "해당 값을 가지는 버튼을 선택합니다."
+			detail: "Selects a button having a specified value."
 		},
 		getData: {
 			param: "none",
 			ret: "object",
-			detail: "현재 선택된 버튼의 데이터를 가져옵니다."
+			detail: "Gets the data of the button currently selected."
 		},
 		getValue: {
 			param: "none",
 			ret: "string",
-			detail: "현재 선택된 버튼의 값을 가져옵니다."
+			detail: "Gets the value of the button currently selected."
 		},
 		getText: {
 			param: "none",
 			ret: "string",
-			detail: "현재 선택된 버튼의 마크업 텍스트를 가져옵니다."
+			detail: "Gets the markup text of the button currently selected."
 		},
 		reload: {
 			param: "none",
 			ret: "none",
-			detail: "콤보박스를 다시 정의합니다."
+			detail: "Re-defines a combo box."
 		},
 		open: {
 			param: "none",
 			ret: "none",
-			detail: "콤보박스의 요소 목록을 보입니다."
+			detail: "Shows the element list of a combo box."
 		},
 		fold: {
 			param: "none",
 			ret: "none",
-			detail: "콤보박스의 요소 목록을 숨깁니다."
+			detail: "Hides the element list of a combo box."
 		}
 	},
 	opt: {
 		index: {
-			detail: "초기 선택 버튼을 해당 인덱스로 정합니다."
+			detail: "Determines an initial selection button with a specified index."
 		}, 
 		value: {
-			detail: "초기 선택 버튼을 해당 값으로 정합니다."
+			detail: "Determines an initial selection button with a specified value."
 		},
 		width: {
-			detail: "콤보박스의 가로 크기를 정합니다."
+			detail: "Determines the horizontal size of a combo box."
 		},
 		height: {
-			detail: "초기 선택 버튼을 해당 값으로 정합니다."
+			detail: "Determines an initial selection button with a specified value."
 		},
 		scroll: {
-			detail: "초기 선택 버튼을 해당 값으로 정합니다."
+			detail: "Determines an initial selection button with a specified value."
 		},
         keydown: {
-            detail: "키보드로 노드를 선택할 수 있습니다."
+            detail: "It is possible to select a node using the keyboard."
         },
 		position: {
-			detail: "초기 선택 버튼을 해당 값으로 정할 수 있습니다."
+			detail: "It is possible to determine an initial selection button with a specified value."
 		}
 	},
 	event: {
 		change: {
-			detail: "콤보박스를 선택하면 발생되는 이벤트입니다."
+			detail: "Event which occurs when selecting a combo box."
 		}
 	},
 	tpl: {
 	},
 	prop: {
 		type: {
-			detail: "콤보박스가 열렸는지 닫혔는지에 대한 상태 값입니다."
+			detail: "State value showing whether a combo box is open or closed."
 		}
 	}
 };

@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - Core/Custom</title>
 
 <link rel="stylesheet" href="../../lib/jui/jui.min.css" />
@@ -19,13 +20,13 @@
 var baseApi = {
 	prop: {
 		browser: {
-			detail: "브라우저 타입을 알 수 있습니다. (webkit | mozilla | msie)"
+			detail: "Can report the browser type (webkit | mozilla | msie)."
 		},
 		isTouch: {
-			detail: "브라우저의 터치 이벤트 지원 유무를 확인합니다."
+			detail: "Checks whether the touch event is supported by the browser."
 		},
 		scrollSize: {
-			detail: "웹킷 기반의 브라우저일 경우에는 10, 그렇지 않을 경우에는 17을 반환합니다."
+			detail: "Returns 10 in the case of a WebKit-based browsers, otherwise, returns 17."
 		}
 		
 	},
@@ -33,122 +34,122 @@ var baseApi = {
 		scrollWidth: {
 			param: "none",
 			ret: "integer",
-			detail: "현재 브라우저의 스크롤 가로 크기를 반환합니다."
+			detail: "Returns the horizontal scroll size of the current browser."
 		},
 		inherit: {
 			param: "class, superClass",
 			ret: "none",
-			detail: "프로토타입 체인을 통해 클래스를 상속합니다."
+			detail: "Inherits the class through the prototype chain."
 		},
 		extend: {
 			param: "object, mergeObject",
 			ret: "object",
-			detail: "mergeObject의 메소드와 프로퍼티를 object에 추가합니다."
+			detail: "Adds methods and properties of mergeObject to an object."
 		},
 		pxToInt: {
 			param: "px",
 			ret: "integer",
-			detail: "픽셀 문자열을 정수형으로 반환합니다."
+			detail: "Returns a pixel string in integer form."
 		},
 		clone: {
 			param: "object",
 			ret: "object",
-			detail: "객체를 복사하여 반환합니다."
+			detail: "Copies and returns an object."
 		},
         deepClone: {
             param: "object",
             ret: "object",
-            detail: "연결된 모든 객체를 복사하여 반환합니다."
+            detail: "Copies and returns all objects connected."
         },
 		sort: {
 			param: "array",
 			ret: "QuickSort",
-			detail: "QuickSort 클래스의 객체를 가져올 수 있으며, setCompare/run 메소드를 사용하여 넘겨준 배열을 정렬합니다."
+			detail: "Getsg an object of QuickSort class, which sorts an array using the setCompare/run methods."
 		},
 		runtime: {
 			param: "name, callback",
 			ret: "none",
-			detail: "콜백 함수의 실행시간을 로그로 보여줍니다."
+			detail: "Reports the run time of the callback function from logs."
 		},
 		template: {
 			param: "html, params",
 			ret: "string",
-			detail: "underscore.js의 템플릿 함수와 동일합니다."
+			detail: "Same as the template function of underscore.js"
 		},
 		resize: {
 			param: "callback, delay",
 			ret: "none",
-			detail: "개선된 윈도우 리사이징 이벤트를 정의합니다."
+			detail: "Defines an improved window resizing event."
 		},
 		index: {
 			param: "none",
 			ret: "IndexParser",
-			detail: "IndexParser 클래스의 객체를 가져옵니다."
+			detail: "Gets an object of the IndexParser class."
 		},
 		chunk: {
 			param: "array, limit",
 			ret: "array",
-			detail: "제한된 개수만큼만 배열을 가져옵니다."
+			detail: "Gets a limited number of arrays."
 		},
 		typeCheck: {
 			param: "type, value",
 			ret: "boolean",
-			detail: "해당 값의 타입을 체크합니다. (string | integer | float | number | object | function | array | boolean | undefined | null)"
+			detail: "Checks the type of a value (string | integer | float | number | object | function | array | boolean | undefined | null)."
 		},
 		typeCheckObj: {
 			param: "objects, typeList",
 			ret: "none",
-			detail: "해당 객체들에 대한 타입을 체크합니다."
+			detail: "checks the type of an object."
 		},
 		dataToCsv: {
 			param: "keys, dataList, dataSize",
 			ret: "string",
-			detail: "해당 키를 가지는 데이터를 csv 문자열로 반환합니다."
+			detail: "Returns data associated with a particular key - provided as a csv string."
 		},
 		dataToCsv2: {
 			param: "options",
 			ret: "string",
-			detail: "해당 키를 가지는 데이터를 csv 문자열로 반환합니다."
+			detail: "Returns data associated with a particular key - provided as a csv string."
 		},
 		fileToCsv: {
 			param: "file, callback",
 			ret: "string",
-			detail: "선택된 파일의 내용을 csv 문자열로 반환합니다."
+			detail: "Returns the contents of a selected file as a csv string."
 		},
 		csvToBase64: {
 			param: "csv",
 			ret: "string",
-			detail: "csv 문자열을 base64 형태로 인코딩합니다."
+			detail: "Encodes a csv string in base64 format."
 		},
 		csvToData: {
 			param: "keys, csv",
 			ret: "array",
-			detail: "해당 키를 가지는 csv 문자열을 데이터로 반환합니다."
+			detail: "Returns a csv string associated with a particular key as data."
 		},
 		getCsvFields: {
 			param: "fields, csvFields",
 			ret: "array",
-			detail: "csv에서 보여지는 필드만 필터링합니다."
+			detail: "Filters only the specified fields from the csv."
 		},
         svgToBase64: {
             param: "xml",
             ret: "string",
-            detail: "xml 문자열을 base64 형태로 인코딩합니다."
+            detail: "Encodes an xml string in base64 format."
         },
 		dateFormat: {
 			param: "date, format, utc",
 			ret: "string",
-			detail: "날짜 객체를 정해진 포맷에 맞는 문자열로 반환합니다."
+			detail: "Returns the date object as a string that fits a predetermined format."
 		},
 		btoa: {
 			param: "string",
 			ret: "string",
-			detail: "일반 문자열을 base64 형태로 인코딩합니다. (한글 가능)"
+			detail: "Encodes a general string in base64 format (Korean supported)."
 		},
 		atob: {
 			param: "base64",
 			ret: "string",
-			detail: "base64 형태의 문자열을 디코딩합니다."
+			detail: "Decodes a string in base64 format."
 		}
 	},
 	event: {},
@@ -159,34 +160,34 @@ var baseApi = {
 var colorApi = {
 	prop: {
 		regex: {
-			detail: "gradient 문자열 파싱 정규식"
+			detail: "Regular gradient string parsing formula"
 		}
 	},
 	method: {
 		trim: {
 			param: "string",
 			ret: "string",
-			detail: "문자열 trim "
+			detail: "String trim "
 		},
 		parse : {
 			param : "color",
 			ret : "object | string",
-			detail : "색상 코드 파싱합니다."
+			detail : "Parses a color code."
 		},
 		parseGradient : {
 			param : "color",
 			ret : "object | string",
-			detail : "gradient 문자열을 파싱합니다. gradient 아닌 문자열은 그대로 리턴합니다."
+			detail : "Parses gradient string. Non-gradient string is returned as it is."
 		},
 		parseStop : {
 			param : "color",
 			ret : "object",
-			detail : "gradient의 stops 객체를 파싱합니다."
+			detail : "Parses the stops object of the gradient."
 		},
 		parseAttr : {
 			param : "color",
 			ret : "object",
-			detail : "gradient의 속성을 파싱합니다."
+			detail : "Parses the gradient properties."
 		}
 	}
 };
@@ -196,32 +197,32 @@ var mathApi = {
 		rotate: {
 			param: "x, y, radian",
 			ret: "object",
-			detail: "x,y 에 대한 2차원 회전 좌표를 반환합니다."
+			detail: "Returns the 2 dimensional rotation coordinates."
 		},
 		radian : {
-			param : "degee",
+			param : "degree",
 			ret : "double",
-			detail : "radian 으로 변환합니다."
+			detail : "Converts into radians."
 		},
 		degree : {
 			param : "radian",
 			ret : "double",
-			detail : "degree 로 변환합니다."
+			detail : "Converts into degrees."
 		},
 		interpolateNumber : {
 			param : "a, b",
 			ret : "function",
-			detail : "a와 b 사이의 중간값을 구하는 함수를 리턴합니다."
+			detail : "Returns a function that calculates the median value between a and b."
 		},
 		interpolateRound : {
 			param : "a, b",
 			ret : "function",
-			detail : "a와 b 사이의 중간값을 반올림 하는 함수를 리턴합니다."
+			detail : "Returns a function that rounds off the median value between a and b."
 		},
 		nice : {
 			param : "min, max, ticks, isNice",
 			ret : "object",
-			detail : "min, max 사이에서 적당한 간격을 만들어줍니다."
+			detail : "Secures an appropriate space between min and max."
 		}
 	}
 };
@@ -231,22 +232,22 @@ var scaleApi = {
 		circle : {
 			param : "none",
 			ret : "object",
-			detail : "원 형태의 영역 위치를 계산해줍니다."
+			detail : "Calculates the area location of a circular form."
 		},
 		ordinal : {
 			param : "none",
 			ret : "object",
-			detail : "순서가 있는 배열의 위치를 계산해줍니다."
+			detail : "Determines the position in the array."
 		},
 		time : {
 			param : "none",
 			ret : "object",
-			detail : "시간 영역에 따른 위치를 계산해줍니다."
+			detail : "Calculates the location in terms of  time zone."
 		},
 		linear : {
 			param : "none",
 			ret : "object",
-			detail : "길이 영역에 따른 위치를 계산해줍니다."
+			detail : "Calculates the location in terms of longitude."
 		}
 	}
 };
@@ -254,25 +255,25 @@ var scaleApi = {
 var timeApi = {
 	prop: {
 		years: {
-			detail: "년"
+			detail: "Year"
 		},
 		months: {
-			detail: "월"
+			detail: "Month"
 		},
 		days: {
-			detail: "일"
+			detail: "Date"
 		},
 		hours: {
-			detail: "시간"
+			detail: "Hour"
 		},
 		minutes: {
-			detail: "분"
+			detail: "Minute"
 		},
 		seconds: {
-			detail: "초"
+			detail: "Second"
 		},
 		milliseconds: {
-			detail: "밀리초"
+			detail: "Millisecond"
 		},
 		weeks: {
 			detail: "주"
@@ -282,12 +283,12 @@ var timeApi = {
 		add: {
 			param: "date [, type, step]*",
 			ret: "Date",
-			detail: "특정 시점에서 다른 시점으로 날짜를 구합니다. 예를 들어 오늘부터 하루전이라고 하면  time.add(new Date(), 'days', -1); 형태로 사용할 수 있습니다."
+			detail: "Calculates the date a specific time before or after a given date. For example, one daybefore today is queried using time.add(new Data(), 'days', -1);."
 		},
 		format : {
 			param : "date, format[, utc]",
 			ret : "string",
-			detail : "Date 객체를 format 에 맞는 문자열로 변환합니다."
+			detail : "Converts a data object into a string that fits the format."
 		}
 	}
 };
@@ -295,319 +296,319 @@ var timeApi = {
 var svgApi = {
 	prop: {
 		root: {
-			detail: "SVG 태그의 엘리먼트 객체를 가져옵니다."
+			detail: "Gets an element object of an SVG tag."
 		}
 	},
 	method: {
 		size: {
 			param: "width, height | none",
 			ret: "none | object",
-			detail: "파라메터가 존재하면 해당 값으로 크기를 설정하고, 없을 경우 SVG 태그의 넓이와 높이를 반환합니다."
+			detail: "Sets the size to the applicable value if a parameter exists, or returns the area and height of an SVG tag if a parameter does not exist."
 		},
 		clear: {
 			param: "isAll",
 			ret: "none",
-			detail: "'isAll'가 true일 경우에는 모든 자식 노드를 제거하고, 그렇지 않을 경우에는 메인 그룹 엘리먼트의 자식 노드만 제거합니다."
+			detail: "Removes all child nodes if 'isAll' is true, otherwise, removes only the child nodes of a main group element."
 		},
 		reset: {
 			param: "isAll",
 			ret: "none",
-			detail: "'clear'와 동일하지만 데이터까지 제거하므로 다시 렌더링 할 수 없습니다."
+			detail: "Same as 'clear'. However, as it even removes data, it is not possible to perform rendering again."
 		},
 		render: {
 			param: "isAll",
 			ret: "none",
-			detail: "구조화 된 데이터에 맞게 엘리먼트를 렌더링합니다."
+			detail: "Renders an element so that it fits structured data."
 		},
 		download: {
 			param: "fileName",
 			ret: "none",
-			detail: "렌더링 된 SVG 태그를 해당 파일 이름으로 다운로드 합니다."
+			detail: "Downloads an SVG tag rendered as the name of the file concerned."
 		},
 		downloadImage: {
 			param: "fileName, fileType",
 			ret: "none",
-			detail: "렌더링 된 SVG 태그를 해당 파일 이름으로 다운로드 합니다."
+			detail: "Downloads an SVG tag rendered as the name of the file concerned."
 		},
 		exportCanvas: {
 			param: "canvasElement",
 			ret: "none",
-			detail: "렌더링 된 SVG 태그를 해당 캔버스 엘리먼트에 그립니다."
+			detail: "Draws an SVG tag rendered on the canvas element."
 		},
 		toXml: {
 			param: "none",
 			ret: "string",
-			detail: "렌더링 된 SVG 태그를 XML 문자열로 가져옵니다."
+			detail: "Gets an SVG tag rendered as an XML string."
 		},
 		toDataURL: {
 			param: "none",
 			ret: "string",
-			detail: "렌더링 된 SVG 태그를 데이터 URL로 가져옵니다."
+			detail: "Gets an SVG tag rendered as a data URL."
 		},
 		autoRender: {
 			param: "element, isAuto",
 			ret: "none",
-			detail: "'isAuto'가 true일 경우, 해당 엘리먼트를 렌더링을 해도 변경되지 않습니다."
+			detail: "If 'isAuto' is true, no change is made even if the element concerned is rendered."
 		},
 		getTextRect: {
 			param: "text",
 			ret: "object",
-			detail: "해당 텍스트의 넓이와 높이를 가져옵니다."
+			detail: "Gets the area and height of a text."
 		},
 		custom: {
 			param: "name, attributes, callback",
 			ret: "Element",
-			detail: "<strong>[엘리먼트 생성]</strong> 설정한 이름의 커스텀 엘리먼트를 생성하며, 콜백 함수 내부에서 엘리먼트 생성 메소드를 호출하면 해당 엘리먼트는 자식 노드가 된다."
+			detail: "Creates a custom element with a name that is set in <strong>[create an element]</strong>. If an element creation method is called inside the callback function, the element in question becomes a child node."
 		},
 		defs: {
 			param: "callback",
 			ret: "Element",
-			detail: "<strong>[엘리먼트 생성]</strong> 'defs' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'defs' element."
 		},
 		symbol: {
 			param: "attribute, callback",
 			ret: "Element",
-			detail: "<strong>[엘리먼트 생성]</strong> 'symbol' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'symbol' element."
 		},
 		g: {
 			param: "attribute, callback",
 			ret: "TransElement",
-			detail: "<strong>[엘리먼트 생성]</strong> 'g' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'g' element."
 		},
 		group: {
 			param: "attribute, callback",
 			ret: "TransElement",
-			detail: "<strong>[엘리먼트 생성]</strong> 'group' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'group' element."
 		},
 		marker: {
 			param: "attribute, callback",
 			ret: "Element",
-			detail: "<strong>[엘리먼트 생성]</strong> 'marker' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'group' element."
 		},
 		a: {
 			param: "attribute, callback",
 			ret: "TransElement",
-			detail: "<strong>[엘리먼트 생성]</strong> 'a' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'a' element."
 		},
 		switch: {
 			param: "attribute, callback",
 			ret: "Element",
-			detail: "<strong>[엘리먼트 생성]</strong> 'switch' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'switch' element."
 		},
 		use: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[엘리먼트 생성]</strong> 'use' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'use' element."
 		},
 		rect: {
 			param: "attribute, callback",
 			ret: "TransElement",
-			detail: "<strong>[엘리먼트 생성]</strong> 'rect' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'rect' element."
 		},
 		line: {
 			param: "attribute, callback",
 			ret: "TransElement",
-			detail: "<strong>[엘리먼트 생성]</strong> 'line' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'line' element."
 		},
 		circle: {
 			param: "attribute, callback",
 			ret: "TransElement",
-			detail: "<strong>[엘리먼트 생성]</strong> 'circle' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'circle' element."
 		},
 		text: {
 			param: "attribute, textOrCallback",
 			ret: "TransElement",
-			detail: "<strong>[엘리먼트 생성]</strong> 'text' 엘리먼트를 생성하며, 기본 텍스트를 설정하거나 콜백을 통해 자식 노드를 추가할 수 있다."
+			detail: "Creates a <strong>[create an element]</strong> 'text' element. It is possible to set the basic text or add a child node through the callback."
 		},
 		textPath: {
 			param: "attribute, text",
 			ret: "Element",
-			detail: "<strong>[엘리먼트 생성]</strong> 'textPath' 엘리먼트를 생성하며, 기본 텍스트를 설정할 수 있다."
+			detail: "Creates a <strong>[create an element]</strong> 'textPath' element. It is possible to set the basic text."
 		},
 		tref: {
 			param: "attribute, text",
 			ret: "Element",
-			detail: "<strong>[엘리먼트 생성]</strong> 'tref' 엘리먼트를 생성하며, 기본 텍스트를 설정할 수 있다."
+			detail: "Creates a <strong>[create an element]</strong> 'tref' element. It is possible to set the basic text."
 		},
 		tspan: {
 			param: "attribute, text",
 			ret: "Element",
-			detail: "<strong>[엘리먼트 생성]</strong> 'tspan' 엘리먼트를 생성하며, 기본 텍스트를 설정할 수 있다."
+			detail: "Creates a <strong>[create an element]</strong> 'tspan' element. It is possible to set the basic text."
 		},
 		ellipse: {
 			param: "attribute, callback",
 			ret: "TransElement",
-			detail: "<strong>[엘리먼트 생성]</strong> 'ellipse' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'ellipse' element."
 		},
 		image: {
 			param: "attribute, callback",
 			ret: "TransElement",
-			detail: "<strong>[엘리먼트 생성]</strong> 'image' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'image' element."
 		},
 		path: {
 			param: "attribute, callback",
 			ret: "PathElement",
-			detail: "<strong>[엘리먼트 생성]</strong> 'path' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'path' element."
 		},
 		polyline: {
 			param: "attribute, callback",
 			ret: "PolyElement",
-			detail: "<strong>[엘리먼트 생성]</strong> 'polyline' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'polyline' element."
 		},
 		polygon: {
 			param: "attribute, callback",
 			ret: "PolyElement",
-			detail: "<strong>[엘리먼트 생성]</strong> 'polygon' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'polygon' element."
 		},
 		pattern: {
 			param: "attribute, callback",
 			ret: "Element",
-			detail: "<strong>[엘리먼트 생성]</strong> 'pattern' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'pattern' element."
 		},
 		mask: {
 			param: "attribute, callback",
 			ret: "Element",
-			detail: "<strong>[엘리먼트 생성]</strong> 'mask' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'mask' element."
 		},
 		clipPath: {
 			param: "attribute, callback",
 			ret: "Element",
-			detail: "<strong>[엘리먼트 생성]</strong> 'clipPath' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'clipPath' element."
 		},
 		linearGradient: {
 			param: "attribute, callback",
 			ret: "Element",
-			detail: "<strong>[엘리먼트 생성]</strong> 'linearGradient' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'linearGradient' element."
 		},
 		radialGradient: {
 			param: "attribute, callback",
 			ret: "Element",
-			detail: "<strong>[엘리먼트 생성]</strong> 'radialGradient' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'radialGradient' element."
 		},
 		filter: {
 			param: "attribute, callback",
 			ret: "Element",
-			detail: "<strong>[엘리먼트 생성]</strong> 'filter' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'filter' element."
 		},
 		stop: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[그라데이션 엘리먼트 생성]</strong> 'stop' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'stop' element."
 		},
 		animate: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[애니메이션 엘리먼트 생성]</strong> 'animate' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'animate' element."
 		},
 		animateColor: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[애니메이션 엘리먼트 생성]</strong> 'animateColor' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'animateColor' element."
 		},
 		animateMotion: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[애니메이션 엘리먼트 생성]</strong> 'animateMotion' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'animateMotion' element."
 		},
 		animateTransform: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[애니메이션 엘리먼트 생성]</strong> 'animateTransform' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'animateTransform' element."
 		},
 		mpath: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[애니메이션 엘리먼트 생성]</strong> 'mpath' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'mpath' element."
 		},
 		set: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[애니메이션 엘리먼트 생성]</strong> 'set' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'set' element."
 		},
 		feBlend: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feBlend' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'feBlend' element."
 		},
 		feColorMatrix: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feColorMatrix' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'feColorMatrix' element."
 		},
 		feComponentTransfer: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feComponentTransfer' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'feComponentTransfer' element."
 		},
 		feComposite: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feComposite' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'feComposite' element."
 		},
 		feConvolveMatrix: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feConvolveMatrix' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'feConvolveMatrix' element."
 		},
 		feDiffuseLighting: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feDiffuseLighting' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'feDiffuseLighting' element."
 		},
 		feDisplacementMap: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feDisplacementMap' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'feDisplacementMap' element."
 		},
 		feFlood: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feFlood' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'feFlood' element."
 		},
 		feGaussianBlur: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feGaussianBlur' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'feGaussianBlur' element."
 		},
 		feImage: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feImage' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'feImage' element."
 		},
 		feMerge: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feMerge' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'feMerge' element."
 		},
 		feMergeNode: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feMergeNode' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'feMergeNode' element."
 		},
 		feMorphology: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feMorphology' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'feMorphology' element."
 		},
 		feOffset: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feOffset' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'feOffset' element."
 		},
 		feSpecularLighting: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feSpecularLighting' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'feSpecularLighting' element."
 		},
 		feTile: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feTile' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'feTile' element."
 		},
 		feTurbulence: {
 			param: "attribute",
 			ret: "Element",
-			detail: "<strong>[필터 엘리먼트 생성]</strong> 'feTurbulence' 엘리먼트를 생성한다."
+			detail: "Creates a <strong>[create an element]</strong> 'feTurbulence' element."
 		}
 	}
 };
@@ -648,18 +649,18 @@ jui.ready([ "util", "uix.tab" ], function(util, tab) {
 <div class="page-header">
 	<h1>Utility</h1>
 	<p class="br">
-		JUI 라이브러리는 컴포넌트 개발 및 웹 개발에 필요한 다양한 유틸리티 함수와 프로퍼티를 제공합니다.
+		The JUI library provides various utility methods and properties necessary for component development and web development.
 		
-<pre><code class="language-javascript">/* 컴포넌트 모듈을 정의할 때, 가져오는 유틸리티 모듈 */
-jui.define("ui.test", [ "util.base" ], function(_) {
+<pre><code class="language-javascript">/* Utility module that is brought when defining a component module */
+jui.define(&quot;ui.test&quot;, [ &quot;util.base&quot; ], function(_) {
 	//...
 });
 
-/* 컴포넌트 모듈을 사용할 때, 가져오는 유틸리티 모듈 */
-jui.ready([ "jquery", "util.base", "util.svg" ], function($, _, SVGUtil) {
+/* Utility module that is brought when using a component module */
+jui.ready([ &quot;jquery&quot;, &quot;util.base&quot;, &quot;util.svg&quot; ], function($, _, SVGUtil) {
 	if(_.browser.msie) return;
 
-	var elem = $("#svg").get(0),
+	var elem = $(&quot;#svg&quot;).get(0),
 		svg = new SVGUtil(elem, { width: 400, height: 300 });
 
 	//...

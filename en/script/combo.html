@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - JavaScript/Combo</title>
 	
 <link rel="stylesheet" href="../../res/manual.css" />
@@ -24,7 +25,7 @@
 <section>
 	<h2>Default</h2>
 	<p>
-		콤보 박스는 셀렉터 태그와 같은 기능을 제공합니다.
+		The combo box provides functionality like a selector tag.
 		
 		<table class="table_s" width="100%" cellpadding="0" cellspacing="0">
 			<tr>
@@ -36,8 +37,7 @@
 			<tr>
 				<td>
 					<div id="combo_1" class="combo">
-						<a class="btn btn-gray" style="width: 175px;">Select...</a>
-						<a class="btn btn-gray btn-toggle"><i class="icon-arrow2"></i></a>
+						<a class="btn btn-gray" style="width: 175px;">Select...</a> <a class="btn btn-gray btn-toggle"><i class="icon-arrow2"></i></a>
 						<ul>
 							<li value="1">New</li>
 							<li value="2">Open</li>
@@ -58,7 +58,7 @@
 					alert(combo_1.getText());
 				</td>
 				<td>
-					현재 선택한 노드에 값을 출력
+					Outputs a value to the node currently selected.
 				</td>
 			</tr>
 			<tr>
@@ -86,49 +86,49 @@
 					combo_2.setIndex(1)
 				</td>
 				<td>
-					해당 인덱스를 가지는 노드를 선택 상태로 변경
+					Changes the node with a specified index to the selected state.
 				</td>
 			</tr>
 		</table>
 	</p>
 	
 	<p class="br">
-		아래는 콤보 박스를 생성하는 코드입니다.
+		The following is a code to create a check button.
 		
-<pre><code class="language-markup">&lt;div id="combo_1" class="combo"&gt;
-	&lt;a class="btn btn-gray"&gt;Select...&lt;/a&gt;
-	&lt;a class="btn btn-gray btn-toggle"&gt;&lt;i class="icon-arrow2"&gt;&lt;/i&gt;&lt;/a&gt;
+<pre><code class="language-markup">&lt;div id=&quot;combo_1&quot; class=&quot;combo&quot;&gt;
+	&lt;a class=&quot;btn btn-gray&quot;&gt;Select...&lt;/a&gt;
+	&lt;a class=&quot;btn btn-gray btn-toggle&quot;&gt;&lt;i class=&quot;icon-arrow2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
 	&lt;ul&gt;
-		&lt;li value="1">New&lt;/li>
-		&lt;li value="2">Open&lt;/li>
-		&lt;li value="3">Save&lt;/li>
-		&lt;li value="4">Close&lt;/li>
-		&lt;li value="5">Restart&lt;/li>
-		&lt;li class="divider">&lt;/li>
-		&lt;li value="6">Print</a>&lt;/li>
-		&lt;li class="divider">&lt;/li>
-		&lt;li value="7">Exit&lt;/li>
+		&lt;li value=&quot;1&quot;&gt;New&lt;/li&gt;
+		&lt;li value=&quot;2&quot;&gt;Open&lt;/li&gt;
+		&lt;li value=&quot;3&quot;&gt;Save&lt;/li&gt;
+		&lt;li value=&quot;4&quot;&gt;Close&lt;/li&gt;
+		&lt;li value=&quot;5&quot;&gt;Restart&lt;/li&gt;
+		&lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+		&lt;li value=&quot;6&quot;&gt;Print</a>&lt;/li&gt;
+		&lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+		&lt;li value=&quot;7&quot;&gt;Exit&lt;/li&gt;
 	&lt;/ul&gt;
 &lt;/div&gt;</code></pre>
 
-<pre><code class="language-javascript">jui.ready([ "ui.combo" ], function(combo) {
-	combo_1 = combo("#combo_1", {
+<pre><code class="language-javascript">jui.ready([ &quot;ui.combo&quot; ], function(combo) {
+	combo_1 = combo(&quot;#combo_1&quot;, {
 		index: 2,
-		position: "top",
+		position: &quot;top&quot;,
 		event: {
 			change: function(data) {
-				alert("text(" + data.text + "), value(" + data.value + ")");
+				alert(&quot;text(&quot; + data.text + &quot;), value(&quot; + data.value + &quot;)&quot;);
 			}
 		}
 	});
 	
-	combo_2 = combo("#combo_2", {
+	combo_2 = combo(&quot;#combo_2&quot;, {
 		index: 3,
 		width: 196,
 		keydown: true,
 		event: {
 			change: function(data) {
-				alert("text(" + data.text + "), value(" + data.value + ")");
+				alert(&quot;text(&quot; + data.text + &quot;), value(&quot; + data.value + &quot;)&quot;);
 			}
 		}
 	});

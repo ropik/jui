@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - JavaScript/Realtime/API</title>
 	
 <link rel="stylesheet" href="../../lib/jui/jui.min.css" />
@@ -18,80 +19,80 @@
 var uiApi = {
 	prop: {
 		chart: {
-			detail: "차트 빌더 객체를 참조합니다."
+			detail: "Refers to the chart builder object."
 		}
 	},
 	method: {
         update: {
             param: "data",
             ret: "none",
-            detail: "새로운 데이터를 기준으로 렌더링합니다."
+            detail: "Renders with the new data."
         },
         clear: {
             param: "none",
             ret: "none",
-            detail: "그려진 차트를 모두 제거합니다."
+            detail: "Removes all charts drawn."
         },
         reset: {
             param: "data",
             ret: "none",
-            detail: "리얼타임 차트의 모든 데이터와 요소를 제거합니다."
+            detail: "Removes all data and elements of a real-time chart."
         },
         append: {
             param: "data",
             ret: "none",
-            detail: "리얼타임 데이터를 추가합니다. (별도로 렌더링 하지않음)"
+            detail: "Adds a real-time data record (does not render separately)"
         },
         start: {
             param: "none",
             ret: "none",
-            detail: "리얼타임 차트를 시작합니다."
+            detail: "Starts a real-time chart."
         },
         stop: {
             param: "none",
             ret: "none",
-            detail: "리얼타임 차트를 멈춥니다."
+            detail: "Stops a real-time chart."
         }
 	},
 	opt: {
 		width: {
-			detail: "차트 넓이를 정합니다."
+			detail: "Determines the chart area."
 		},
         height: {
-            detail: "차트 높이를 정합니다."
+            detail: "Determines the chart height."
         },
         padding: {
-            detail: "차트 여백을 정합니다."
+            detail: "Determines the chart margins."
         },
         theme: {
-            detail: "차트 테마를 선택합니다."
+            detail: "Determines the chart theme."
         },
         data: {
-            detail: "차트 데이터를 설정합니다."
+            detail: "Sets the chart data."
         },
         series: {
-            detail: "특정 데이터 프로퍼티의 추가 정보를 설정합니다."
+            detail: "Sets additional information for a specific data property."
         },
         grid: {
-            detail: "차트에서 사용할 그리드를 설정합니다."
+            detail: "Sets a grid to be used in a chart."
         },
         brush: {
-            detail: "차트에 추가할 브러쉬를 정합니다."
+            detail: "Determines a brush to be added to a chart."
         },
         widget: {
-            detail: "차트에 추가할 위젯을 정합니다."
+            detail: "Determines a widget to be added to a chart."
         },
         style: {
-            detail: "현재 설정된 테마의 값을 임의로 변경합니다."
+            detail: "Randomly changes the value of the theme currently set."
         },
         interval: {
-            detail: "리얼타임 차트의 갱신 주기를 설정합니다. (단위: 초)"
+            detail: "Determines the updating interval of a real-time chart (unit: seconds)."
         },
         period: {
-            detail: "현재부터 설정된 값까지의 리얼타임 데이터를 표현합니다. (단위: 분)"
+            detail: "Displays real-time data from the present to a set value (unit: minutes)."
         },
         axis: {
-            detail: "차트에서 사용할 그리드 그룹을 설정합니다."
+            detail: "Sets a grid group to be used in a chart."
         }
 	}
 };

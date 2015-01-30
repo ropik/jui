@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - JavaScript/Tab</title>
 
 <link rel="stylesheet" href="../../res/manual.css" />
@@ -24,8 +25,7 @@
 <section>
 	<h2>Top</h2>
 	<p>
-		탭 컨텐츠 영역은 이벤트를 통해서 설정할 수 있고, <strong>target</strong> 옵션을 통해 대상 마크업을 설정할 수도 있습니다.<br/>
-		또한 드롭다운 컴포넌트를 사용하여 메뉴 탭을 설정할 수 있습니다.
+		The tab content area can be configured using events, and  target markup can be set using the <strong>target</strong> option. <br/> In addition, the menu tab can be set using a dropdown component.
 		
 		<ul id="tab_1" class="tab tab-top">
 			<li>
@@ -59,8 +59,8 @@
 		</script>
 	</p>
 	<p class="br">
-<pre><code class="language-javascript">jui.ready([ "uix.tab" ], function(tab) {
-	tab_1 = tab("#tab_1", {
+<pre><code class="language-javascript">jui.ready([ &quot;uix.tab&quot; ], function(tab) {
+	tab_1 = tab(&quot;#tab_1&quot;, {
 		event: {
 			change: function(data) {
 				alert(data.text);
@@ -69,35 +69,35 @@
 				alert(data.text);
 			}
 		},
-		target: "#tab_contents_1",
+		target: &quot;#tab_contents_1&quot;,
 		index: 2
 	});
 });</code></pre>
 
-<pre><code class="language-markup">&lt;ul id="tab_1" class="tab tab-top"&gt;
-	&lt;li>
-		&lt;a href="#home">Home&lt;/a>
-	&lt;/li>
-	&lt;li>&lt;a href="#css">CSS&lt;/a>&lt;/li>
-	&lt;li>&lt;a href="#script">Script&lt;/a>&lt;/li>
-	&lt;li class="menu">
-		&lt;a href="#">Menu &lt;i class="icon-arrow1">&lt;/i>&lt;/a>
-	&lt;/li>
+<pre><code class="language-markup">&lt;ul id=&quot;tab_1&quot; class=&quot;tab tab-top&quot;&gt;
+	&lt;li&gt;
+		&lt;a href=&quot;#home&quot;&gt;Home&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#css&quot;&gt;CSS&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#script&quot;&gt;Script&lt;/a&gt;&lt;/li&gt;
+	&lt;li class=&quot;menu&quot;&gt;
+		&lt;a href=&quot;#&quot;&gt;Menu &lt;i class=&quot;icon-arrow1&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div id="tab_contents_1" class="tab-contents" style="background: #dcdcdc;"&gt;
-	&lt;div id="home"&gt;home&lt;/div&gt;
-	&lt;div id="css"&gt;css&lt;/div&gt;
-	&lt;div id="script"&gt;script&lt;/div&gt;
+&lt;div id=&quot;tab_contents_1&quot; class=&quot;tab-contents&quot; style=&quot;background: #dcdcdc;&quot;&gt;
+	&lt;div id=&quot;home&quot;&gt;home&lt;/div&gt;
+	&lt;div id=&quot;css&quot;&gt;css&lt;/div&gt;
+	&lt;div id=&quot;script&quot;&gt;script&lt;/div&gt;
 &lt;/div&gt;
 
-&lt;script data-jui="#tab_1" data-tpl="menu" type="text/template"&gt;
-	&lt;div class="dropdown"&gt;
-		&lt;div class="anchor"&gt;&lt;/div&gt;
+&lt;script data-jui=&quot;#tab_1&quot; data-tpl=&quot;menu&quot; type=&quot;text/template&quot;&gt;
+	&lt;div class=&quot;dropdown&quot;&gt;
+		&lt;div class=&quot;anchor&quot;&gt;&lt;/div&gt;
 		
-		&lt;ul style="width: 120px;"&gt;
+		&lt;ul style=&quot;width: 120px;&quot;&gt;
 			&lt;li&gt;Dropdown 1&lt;/li&gt;
-			&lt;li class="divider"&gt;&lt;/li&gt;
+			&lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
 			&lt;li&gt;Dropdown 2&lt;/li&gt;
 			&lt;li&gt;Dropdown 3&lt;/li&gt;
 			&lt;li&gt;Dropdown 4&lt;/li&gt;
@@ -111,7 +111,7 @@
 <section>
 	<h2>Bottom</h2>
 	<p>
-		탭과 필은 동일한 규칙으로 사용할 수 있으며 아래는 <strong>pill-bottom</strong> 유형입니다.
+		The same rules apply to the tab and the fill. The <strong>pill-bottom</strong> types are as listed below.
 		
 		<div id="pill_contents_1" class="pill-contents" style="background: #dcdcdc;">
 			<div id="home">home</div>
@@ -145,7 +145,7 @@
 		</script>
 	</p>
 	<p class="br">
-<pre><code class="language-javascript">pill_1 = tab("#pill_1", {
+<pre><code class="language-javascript">pill_1 = tab(&quot;#pill_1&quot;, {
 	event: {
 		change: function(data) {
 			alert(data.text);
@@ -154,7 +154,7 @@
 			alert(data.text);
 		}
 	},
-	target: "#pill_contents_1"
+	target: &quot;#pill_contents_1&quot;
 });</code></pre>
 	</p>
 </section>
@@ -163,13 +163,9 @@
 	<h2>Manipulation</h2>
 	
 	<p>
-		<a class="btn btn-gray btn-mini" href="javascript:tab2Run(1)">Append</a>
-		<a class="btn btn-gray btn-mini" href="javascript:tab2Run(2)">Prepend</a>
-		<a class="btn btn-gray btn-mini" href="javascript:tab2Run(3)">Insert</a>
-		<a class="btn btn-gray btn-mini" href="javascript:tab2Run(4)">Remove</a> 
-		<a class="btn btn-gray btn-mini" href="javascript:tab2Run(5)">Move</a> - 
+		<a class="btn btn-gray btn-mini" href="javascript:tab2Run(1)">Append</a> <a class="btn btn-gray btn-mini" href="javascript:tab2Run(2)">Prepend</a> <a class="btn btn-gray btn-mini" href="javascript:tab2Run(3)">Insert</a> <a class="btn btn-gray btn-mini" href="javascript:tab2Run(4)">Remove</a> <a class="btn btn-gray btn-mini" href="javascript:tab2Run(5)">Move</a> - 
 		
-		<strong>node</strong> 템플릿이 설정되어 있다면 좌측 버튼 기능을 사용할 수 있습니다.<br/>
+		The left button function can be used If a <strong>node</strong> template is configured.<br/>
 	</p>
 	
 	<p class="br">
@@ -178,29 +174,28 @@
 	</p>
 	
 	<p class="br">
-		앞의 예제와 달리 탭 리스트를 동적으로 설정할 수 있으므로 관련 마크업은 생략할 수 있습니다.
-<pre><code class="language-markup">&lt;ul id="tab_2" class="tab tab-top">&lt;/ul>
-&lt;div id="tab_2_contents" style="background: #dcdcdc;">Tab1&lt;/div>
+		A tab list can also be configured dynamically, and the related markup omitted.
+<pre><code class="language-markup">&lt;ul id=&quot;tab_2&quot; class=&quot;tab tab-top&quot;&gt;&lt;/ul&gt;
+&lt;div id=&quot;tab_2_contents&quot; style=&quot;background: #dcdcdc;&quot;&gt;Tab1&lt;/div&gt;
 </code></pre>
 	</p>
 	
 	<p class="br">
-		<strong>nodes</strong> 옵션을 사용하여 탭 리스트 초기 값을 설정할 수 있습니다.<br/>
-		그리고 <strong>tab2Run</strong> 함수와 같이 탭을 동적으로 조작할 수 있는 기능을 사용할 수 있습니다.
+		It is possible to set the initial value of a tab list using the nodes option.<br/> In addition, it is possible to use a function to control the tab dynamically, such as the <strong>tab2Run</strong> function.
 		
-<pre><code class="language-javascript">tab_2 = tab("#tab_2", {
+<pre><code class="language-javascript">tab_2 = tab(&quot;#tab_2&quot;, {
 	nodes: [
-		{ text: "Tab1" },
-		{ text: "Tab2" },
-		{ text: "Tab3" }
+		{ text: &quot;Tab1&quot; },
+		{ text: &quot;Tab2&quot; },
+		{ text: &quot;Tab3&quot; }
 	],
 	event: {
 		change: function(data) {
-			$("#tab_2_contents").html(data.text);
+			$(&quot;#tab_2_contents&quot;).html(data.text);
 		}
 	},
 	tpl: {
-		node: "&lt;li>&lt;a href='#'>&lt;!= text !>&lt;/a>&lt;/li>"
+		node: &quot;&lt;li&gt;&lt;a href='#'&gt;&lt;!= text !&gt;&lt;/a&gt;&lt;/li&gt;&quot;
 	}
 });
 
@@ -208,31 +203,31 @@ function tab2Run(type) {
 	switch(type) {
 		case 1:
 			tab_2_count += 1;
-			tab_2.append({ text: "Tab" + tab_2_count });
+			tab_2.append({ text: &quot;Tab&quot; + tab_2_count });
 			
-			alert("탭을 마지막 위치에 추가합니다.");
+			alert(&quot;Adds a tab to the last position.&quot;);
 			break;
 		case 2:
 			tab_2_count += 1;
-			tab_2.prepend({ text: "Tab" + tab_2_count });
+			tab_2.prepend({ text: &quot;Tab&quot; + tab_2_count });
 			
-			alert("탭을 처음 위치에 추가합니다.");
+			alert(&quot;Adds a tab to the first position.&quot;);
 			break;
 		case 3:
 			tab_2_count += 1;
-			tab_2.insert(2, { text: "Tab" + tab_2_count });
+			tab_2.insert(2, { text: &quot;Tab&quot; + tab_2_count });
 
-			alert("2번 탭 위치에 추가합니다.");
+			alert(&quot;Adds to the Tab No. 2 position.&quot;);
 			break;
 		case 4:
 			tab_2.remove(0);
 
-			alert("0번 탭을 삭제합니다.");
+			alert(&quot;Deletes Tab No. 0.&quot;);
 			break;
 		case 5:
 			tab_2.move(0, 2);
 			
-			alert("0번 탭을 2번 탭 위치로 변경합니다.");
+			alert(&quot;Changes the position of Tab No. 0 to that of Tab No. 2.&quot;);
 			break;
 	}
 }
@@ -243,7 +238,7 @@ function tab2Run(type) {
 <section>
 	<h2>Drag Move</h2>
 	<p>
-		<strong>drag</strong> 옵션을 사용하면 탭의 위치를 드래그를 통해 변경할 수 있습니다.
+		It is possible to drag a tab using the drag option to change the location of the tab.
 		
 		<ul id="tab_3" class="tab tab-top">
 			<li>
@@ -260,14 +255,14 @@ function tab2Run(type) {
 		</div>
 	</p>
 	<p class="br">
-<pre><code class="language-javascript">tab_3 = tab("#tab_3", {
+<pre><code class="language-javascript">tab_3 = tab(&quot;#tab_3&quot;, {
 	event: {
 		change: function(data) {
 			alert(data.text);
 		}
 	},
 	drag: true,
-	target: "#tab_contents_3"
+	target: &quot;#tab_contents_3&quot;
 });</code></pre>
 	</p>
 </section>

@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - JavaScript/Datepicker/API</title>
 
 <link rel="stylesheet" href="../../lib/jui/jui.min.css" />
@@ -22,72 +23,72 @@ var uiApi = {
 		page: {
 			param: "year, month",
 			ret: "none",
-			detail: "입력한 년/월에 맞는 달력을 출력합니다."
+			detail: "Outputs a calendar that fits the year/month entered."
 		},
 		prev: {
 			param: "none",
 			ret: "none",
-			detail: "이전 년/월에 맞는 달력을 출력합니다."
+			detail: "Outputs a calendar that fits the previous year/month."
 		},
 		next: {
 			param: "none",
 			ret: "none",
-			detail: "다음 년/월에 맞는 달력을 출력합니다."
+			detail: "Outputs a calendar that fits the next year/month."
 		},
 		select: {
 			param: "none | year, month, day | timestamp",
 			ret: "none",
-			detail: "값이 없으면 오늘을 선택하고, 타임스탬프나 년/월/일에 해당하는 날짜를 선택합니다. ",
+			detail: "Selects today if there is no value, or selects a date applicable to a timestamp or year/month/date. ",
 		},
 		addTime: {
 			param: "time",
 			ret: "none",
-			detail: "현재 선택된 날짜에 추가한 시간에 해당하는 날짜를 선택합니다."
+			detail: "Selects a date corresponding to the time added to the currently selected date."
 		},
 		getDate: {
 			param: "none",
 			ret: "Date",
-			detail: "현재 선택된 날짜 객체를 가져옵니다."
+			detail: "Gets the value of the date currently selected."
 		},
 		getTime: {
 			param: "none",
 			ret: "int",
-			detail: "현재 선택된 날짜의 타임스탬프 값을 가져옵니다."
+			detail: "Gets the timestamp value of the date currently selected."
 		},
 		getFormat: {
 			param: "format",
 			ret: "string",
-			detail: "입력한 포맷에 맞는 날짜 문자열을 가져옵니다."
+			detail: "Gets a date string that fits the format entered."
 		}
 	},
 	event: {
 		select: {
-			detail: "특정 날짜를 선택했을 때, 발생하는 벤트입니다."
+			detail: "Event that occurs when selecting a specific date."
 		},
 		prev: {
-			detail: "이전 버튼을 클릭했을 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when clicking on the previous button."
 		},
 		next: {
-			detail: "다음 버튼을 클릭했을 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when clicking on the next button."
 		}
 	},
 	tpl: {
 		dates: {
-			detail: "달력의 일/월/년을 설정하는 템플릿입니다."
+			detail: "Template that sets the date/month/year of a calendar."
 		}
 	},
 	opt: {
 		type: {
-			detail: "달력의 타입을 설정합니다. (daily | monthly | yearly)"
+			detail: "Determines the type of a calendar (daily | monthly | yearly)"
 		},
         titleFormat: {
-			detail: "달력의 타이틀 포맷입니다."
+			detail: "Title format of a calendar"
 		},
         format: {
-			detail: "특정 날짜를 선택했을 경우에 넘겨받는 날짜의 포맷입니다."
+			detail: "Format of the date handed over when selecting a specific date."
 		},
         date: {
-            detail: "특정 날짜를 기본으로 선택합니다."
+            detail: "Selects a specific date as a basic."
         }
 	}
 };

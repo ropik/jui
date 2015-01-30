@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - JavaScript/Dropdown/API</title>
 
 <link rel="stylesheet" href="../../lib/jui/jui.min.css" />
@@ -18,86 +19,86 @@
 var uiApi = {
 	prop: {
 		type: {
-			detail: "드롭다운이 보여지는지 숨겨져 있는지에 대한 상태 값입니다."
+			detail: "State value that indicates whether a dropdown is shown or hidden."
 		}
 	},
 	method: {
 		update: {
 			param: "nodes",
 			ret: "none",
-			detail: "드롭다운 리스트를 변경합니다."
+			detail: "Changes the dropdown list."
 		},
 		hide: {
 			param: "none",
 			ret: "none",
-			detail: "드롭다운을 숨깁니다."
+			detail: "Hides the dropdown."
 		},
 		show: {
 			param: "x, y",
 			ret: "none",
-			detail: "드롭다운을 해당 좌표에 보이게 합니다."
+			detail: "Shows a dropdown at the specified coordinates."
 		},
 		move: {
 			param: "x, y",
 			ret: "none",
-			detail: "드롭다운을 해당 좌표로 이동시킵니다."
+			detail: "Moves a dropdown to the specified coordinates."
 		},
 		hover: {
 			param: "index",
 			ret: "none",
-			detail: "해당 인덱스의 리스트 요소에 hover 효과를 줍니다."
+			detail: "Applies a hover effect to the specified index of a list element."
 		},
 		wheel: {
 			param: "key, callback",
 			ret: "none",
-			detail: "key가 -1일 경우에는 위로 1일 경우에는 아래로 선택 노드를 변경합니다. 그리고 0일 경우에는 해당 노드를 선택합니다."
+			detail: "Changes a selected node upwards when the key is set to -1, or downwards when the key is set to 1. If the key is set to 0, the speciified node is selected."
 		},
 		reload: {
 			param: "none",
 			ret: "none",
-			detail: "드롭다운 리스트를 리로드합니다."
+			detail: "Reloads the dropdown list."
 		}
 	},
 	event: {
 		change: {
-			detail: "드롭다운 리스트 중 하나가 선택되었을 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when anything on the dropdown list is selected"
 		},
 		show: {
-			detail: "드롭다운이 보여질 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when a dropdown is shown"
 		},
 		hide: {
-			detail: "드롭다운이 숨겨질 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when a dropdown is hidden"
 		},
 		reload: {
-			detail: "드롭다운이 리로드될 때, 발생하는 이벤트입니다."
+			detail: "Event that occurs when a dropdown is reloaded"
 		}
 	},
 	tpl: {
 		node: {
-			detail: "드롭다운 리스트의 템플릿 마크업입니다."
+			detail: "Template markup for a dropdown list"
 		}
 	},
 	opt: {
 		close: {
-			detail: "드롭다운 리스트를 클릭했을 경우, 자동을 닫히게 합니다.",
+			detail: "Closes the Auto when clicking on the dropdown list.",
 		},
 		keydown: {
-			detail: "드롭다운 리스트를 키보드 방향키로도 선택할 수 있습니다.",
+			detail: "It is possible to choose anything on the dropdown list with the arrow keys on the keyboard.",
 		},
 		nodes: {
-			detail: "드롭다운 리스트를 마크업이 아닌 데이터로 설정합니다.",
+			detail: "Sets a dropdown list to data rather than markup.",
 		},
 		left: {
-			detail: "드롭다운의 x좌표 값을 설정합니다.",
+			detail: "Sets the X coordinate of the dropdown list.",
 		},
 		top: {
-			detail: "드롭다운의 y좌표 값을 설정합니다.",
+			detail: "Sets the Y coordinate of the dropdown list.",
 		},
 		width: {
-			detail: "드롭다운의 가로 크기를 설정합니다.",
+			detail: "Determines the horizontal size of a dropdown list.",
 		},
 		height: {
-			detail: "드롭다운의 세로 크기를 설정합니다."
+			detail: "Determines the vertical size of a dropdown list."
 		}
 	}
 };

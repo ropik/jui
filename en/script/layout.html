@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - JavaScript/Modal</title>	
 
 <link rel="stylesheet" href="../../res/manual.css" />
@@ -25,7 +26,7 @@
 <section>
 	<h2>Default</h2>
 	<p>
-		레이아웃은 화면을 영역 별로 나눌 수 있으며 각각의 영역은 리사이징이 가능합니다.
+		Layout can split the screen into areas and each area will be resizable.
 
 		<div id="container">
 			<div class="left"><div class="title">Left</div></div>
@@ -34,11 +35,11 @@
 		</div>
 	</p>
 	<p class="br">
-		각각의 영역은 기본/최소/최대 크기를 정할 수 있는 옵션과 리사이징 옵션을 설정할 수 있습니다.
+		Each area features an option to determine the basic/minimum/maximum size and a resizing option.
 		
-<pre><code class="language-javascript">jui.ready([ "ui.layout" ], function(layout) {
-	layout_1 = layout("#container", {
-		width: "auto",
+<pre><code class="language-javascript">jui.ready([ &quot;ui.layout&quot; ], function(layout) {
+	layout_1 = layout(&quot;#container&quot;, {
+		width: &quot;auto&quot;,
 		height: 300,
 		left: {
 			size: 100,
@@ -55,11 +56,11 @@
 	});
 });</code></pre>
 
-<pre><code class="language-markup">&lt;div id="container">
-	&lt;div class="left">&lt;div class="title">Left&lt;/div>&lt;/div>
-	&lt;div class="center">&lt;div class="title">Center&lt;/div>&lt;/div>
-	&lt;div class="right">&lt;div class="title">Right&lt;/div>&lt;/div>
-&lt;/div></code></pre>
+<pre><code class="language-markup">&lt;div id=&quot;container&quot;&gt;
+	&lt;div class=&quot;left&quot;&gt;&lt;div class=&quot;title&quot;&gt;Left&lt;/div&gt;&lt;/div&gt;
+	&lt;div class=&quot;center&quot;&gt;&lt;div class=&quot;title&quot;&gt;Center&lt;/div&gt;&lt;/div&gt;
+	&lt;div class=&quot;right&quot;&gt;&lt;div class=&quot;title&quot;&gt;Right&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 	</p>
 </section>
 

@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - JavaScript/Paging</title>
 
 <link rel="stylesheet" href="../../res/manual.css" />
@@ -21,14 +22,14 @@
 <div class="page-header">
 	<h1>Paging</h1>
 	<p class="br">
-		테이블이나 그외 데이터가 많은 화면에 공통적으로 적용할 수 있는 페이징 UI 컴포넌트입니다.
+		A paging UI component that can be applied to a screen with tables or various other data.
 	</p>
 </div>
 
 <section>
 	<h2>Default</h2>
 	<p>
-		페이징 UI를 사용하는 가장 기본적인 방법입니다.
+		The basic method of using the paging UI
 		
 		<div id="paging_1" class="paging" style="width: 100%; margin-top: 3px;">
 			<a href="#" class="prev">Previous</a>
@@ -45,25 +46,24 @@
 	
 	<p class="br">
 <pre><code class="language-markup">
-&lt;div id="paging_1" class="paging" style="width: 800px; margin-top: 3px;"&gt;
-	&lt;a href="#" class="prev"&gt;Previous&lt;/a&gt;
-	&lt;div class="list"&gt;&lt;/div&gt;
-	&lt;a href="#" class="next"&gt;Next&lt;/a&gt;
+&lt;div id=&quot;paging_1&quot; class=&quot;paging&quot; style=&quot;width: 800px; margin-top: 3px;&quot;&gt;
+	&lt;a href=&quot;#&quot; class=&quot;prev&quot;&gt;Previous&lt;/a&gt;
+	&lt;div class=&quot;list&quot;&gt;&lt;/div&gt;
+	&lt;a href=&quot;#&quot; class=&quot;next&quot;&gt;Next&lt;/a&gt;
 &lt;/div&gt;
 
-&lt;script data-jui="#paging_1" data-tpl="pages" type="text/template"&gt;
+&lt;script data-jui=&quot;#paging_1&quot; data-tpl=&quot;pages&quot; type=&quot;text/template&quot;&gt;
 	&lt;! for(var i = 0; i &lt; pages.length; i++) { !&gt;
-		&lt;a href="#" class="page"&gt;&lt;!= pages[i] !&gt;&lt;/a&gt;
+		&lt;a href=&quot;#&quot; class=&quot;page&quot;&gt;&lt;!= pages[i] !&gt;&lt;/a&gt;
 	&lt;! } !&gt;
 &lt;/script&gt;</code></pre>
 	</p>			
 	
 	<p class="br">
-		총 세개의 옵션을 정할 수 있으며, <strong>count</strong>는 페이징 처리 대상 데이터의 총 개수입니다.<br />
-		그리고 <strong>pageCount</strong>는 한 페이지당 데이터 개수이고, <strong>screenCount</strong>는 페이징 UI에 보이는 페이지 개수를 말합니다.
+		The user can select a total of 3 options. <strong>count</strong> is the total number of data subjects in a paging process.<br /> <strong>pageCount</strong> is the number of data per page. <strong>screenCount</strong> is the number of pages shown in the paging UI.
 		
-<pre><code class="language-javascript">jui.ready([ "ui.paging" ], function(paging) {
-	paging_1 = paging("#paging_1", {
+<pre><code class="language-javascript">jui.ready([ &quot;ui.paging&quot; ], function(paging) {
+	paging_1 = paging(&quot;#paging_1&quot;, {
 		count: 1000,
 		pageCount: 10,
 		screenCount: 7, 
@@ -78,10 +78,9 @@
 </section>
 
 <section>
-	<h2>Table & Paging</h2>
+	<h2>Table &amp; Paging</h2>
 	<p>
-		<a class="btn btn-gray btn-mini" href="javascript:paging2Run();">Run</a> - 
-		좌측 버튼을 클릭하면 100만 건의 데이터를 테이블에 입력합니다.
+		<a class="btn btn-gray btn-mini" href="javascript:paging2Run();">Run</a> - Inputs 1 million data records to the table when you click the left button.
 		
 		<div id="paging_2_xtable" class="xtable">
 			<table class="table table-classic">
@@ -123,9 +122,9 @@
 		</script>
 		
 		<p class="br">
-			페이지 버튼을 클릭하면 <strong>page</strong> 커스텀 이벤트가 발생하는데, 이 때 테이블의 페이지를 변경합니다.
+			A custom page event occurs when you click on the page button, and at that time, the page shown in the table changes.
 			
-<pre><code class="language-javascript">paging_2 = paging("#paging_2", {
+<pre><code class="language-javascript">paging_2 = paging(&quot;#paging_2&quot;, {
 	pageCount: 100, 
 	event: {
 		page: function(pNo) {
@@ -135,7 +134,7 @@
 });</code></pre>
 		</p>
 		<p class="br">
-			테이블가 갱신되어 전체 로우 수가 변경되었다면 <strong>reload</strong> 메소드를 호출해주면 됩니다.
+			If the total number of rows is changed as the table is updated, the user just needs to call the reload method.
 			
 <pre><code class="language-javascript">function paging2Run() {
 	xtableRun();
@@ -144,14 +143,14 @@
 </code></pre>
 		</p>
 		<p class="br">
-			그리고 테이블의 정렬 기능을 사용하였을 경우, 페이지 번호를 맨 처음으로 변경하기 위해 <strong>first</strong> 메소드를 호출해줍니다.
+			When using the sort functionality of the table, calling the first method returns the page number to the starting page number.
 			
-<pre><code class="language-javascript">paging_2_xtable = xtable("#paging_2_xtable", {
-	fields: [ "name", "age", "location" ],
+<pre><code class="language-javascript">paging_2_xtable = xtable(&quot;#paging_2_xtable&quot;, {
+	fields: [ &quot;name&quot;, &quot;age&quot;, &quot;location&quot; ],
 	resize: true,
 	sort: true,
 	sortLoading: true,
-	buffer: "s-page", // scroll, page, s-page
+	buffer: &quot;s-page&quot;, // scroll, page, s-page
 	bufferCount: 100,
 	event: {
 		sortend: function(data, e) {

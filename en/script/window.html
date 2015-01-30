@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - JavaScript/Window</title>
 
 <link rel="stylesheet" href="../../res/manual.css" />
@@ -24,7 +25,7 @@
 <section>
 	<h2>Default</h2>
 	<p>
-		윈도우는 팝업을 대체할 수 있는 레이어 컴포넌트입니다.
+		The window is a layer component that can replace pop-ups.
 		
 		<table class="table_s" width="100%"cellpadding="0" cellspacing="0">
 			<tr>
@@ -36,7 +37,7 @@
 					<button class="btn btn-gray" onclick="winTest(false, 1)"><i class="icon-play"></i> Run</button>
 				</td>
 				<td>
-					위치 변경 및 리사이징이 가능한 윈도우 (Black & White)
+					Window for which relocation and resizing is available (Black &amp; White)
 				</td>
 			</tr>
 			<tr>
@@ -44,7 +45,7 @@
 					<button class="btn btn-gray" onclick="winTest(false, 2)"><i class="icon-play"></i> Run</button>
 				</td>
 				<td>
-					위치 변경 및 리사이징이 가능한 윈도우 (White)
+					Window for which relocation and resizing is available (White)
 				</td>
 			</tr>
 			<tr>
@@ -52,7 +53,7 @@
 					<button class="btn btn-gray" onclick="winTest(false, 3)"><i class="icon-play"></i> Run</button>
 				</td>
 				<td>
-					위치 변경 및 리사이징이 가능한 윈도우 (Black)
+					Window for which relocation and resizing is available (Black)
 				</td>
 			</tr>
 			<tr>
@@ -60,54 +61,54 @@
 					<button class="btn btn-gray" onclick="winTest(true)"><i class="icon-play"></i> Run</button>
 				</td>
 				<td>
-					모달 형태로 보여지는 윈도우
+					Window that is shown in a modal form
 				</td>
 			</tr>
 		</table>
 	</p>
 	
 	<p class="br">
-		아래는 윈도우 관련 마크업 코드와 UI 생성 스크립트 코드입니다.
+		The following is window-related markup code and a script for creating a UI.
 		
-<pre><code class="language-markup">&lt;div id="win_1" class="window"&gt;
-	&lt;div class="head"&gt;
-		&lt;div class="left"&gt;HOME&lt;/div&gt;
-		&lt;div class="right"&gt;
-			&lt;a href="javascript:alert('plus');"&gt;&lt;i class="icon-plus icon-white"&gt;&lt;/i&gt;&lt;/a&gt; 
-			&lt;a href="javascript:alert('search');"&gt;&lt;i class="icon-search icon-white"&gt;&lt;/i&gt;&lt;/a&gt; 
-			&lt;a href="#" class='close'&gt;&lt;i class='icon-exit icon-white'&gt;&lt;/i&gt;&lt;/a&gt;
+<pre><code class="language-markup">&lt;div id=&quot;win_1&quot; class=&quot;window&quot;&gt;
+	&lt;div class=&quot;head&quot;&gt;
+		&lt;div class=&quot;left&quot;&gt;HOME&lt;/div&gt;
+		&lt;div class=&quot;right&quot;&gt;
+			&lt;a href=&quot;javascript:alert('plus');&quot;&gt;&lt;i class=&quot;icon-plus icon-white&quot;&gt;&lt;/i&gt;&lt;/a&gt; 
+			&lt;a href=&quot;javascript:alert('search');&quot;&gt;&lt;i class=&quot;icon-search icon-white&quot;&gt;&lt;/i&gt;&lt;/a&gt; 
+			&lt;a href=&quot;#&quot; class='close'&gt;&lt;i class='icon-exit icon-white'&gt;&lt;/i&gt;&lt;/a&gt;
 		&lt;/div&gt;
     &lt;/div&gt;
-	&lt;div class="body"&gt;
+	&lt;div class=&quot;body&quot;&gt;
 		Contents...&lt;br/&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 	</p>
 	
 	<p>
-<pre><code class="language-javascript">jui.ready([ "uix.window" ], function(window) {
-	win_1 = window("#win_1", { 
+<pre><code class="language-javascript">jui.ready([ &quot;uix.window&quot; ], function(window) {
+	win_1 = window(&quot;#win_1&quot;, { 
 		width: 500, 
 		height: 300, 
 		left: 100, 
 		top: 100
 	});
 	
-	win_1_2 = window("#win_1_2", { 
+	win_1_2 = window(&quot;#win_1_2&quot;, { 
 		width: 500, 
 		height: 300, 
 		left: 100, 
 		top: 400
 	});
 	
-	win_1_3 = window("#win_1_3", { 
+	win_1_3 = window(&quot;#win_1_3&quot;, { 
 		width: 500, 
 		height: 300, 
 		left: 100, 
 		top: 700
 	});
 	
-	win_2 = window("#win_2", { 
+	win_2 = window(&quot;#win_2&quot;, { 
 		width: 500, 
 		height: 300, 
 		modal: true
@@ -119,9 +120,7 @@
 		<div class="head">
 			<div class="left">HOME</div>
 			<div class="right">
-				<a href="javascript:alert('plus');"><i class="icon-plus icon-white"></i></a> 
-				<a href="javascript:alert('search');"><i class="icon-search icon-white"></i></a> 
-				<a href="#" class='close'><i class='icon-exit icon-white'></i></a>
+				<a href="javascript:alert('plus');"><i class="icon-plus icon-white"></i></a> <a href="javascript:alert('search');"><i class="icon-search icon-white"></i></a> <a href="#" class='close'><i class='icon-exit icon-white'></i></a>
 			</div>
 	    </div>
 		<div class="body">
@@ -133,17 +132,14 @@
 		<div class="head">
 			<div class="left">HOME</div>
 			<div class="right">
-				<a href="javascript:alert('plus');"><i class="icon-plus"></i></a> 
-				<a href="javascript:alert('search');"><i class="icon-search"></i></a> 
-				<a href="#" class='close'><i class='icon-exit'></i></a>
+				<a href="javascript:alert('plus');"><i class="icon-plus"></i></a> <a href="javascript:alert('search');"><i class="icon-search"></i></a> <a href="#" class='close'><i class='icon-exit'></i></a>
 			</div>
 	    </div>
 		<div class="body">
 			Contents...<br/>
 		</div>
 		<div class="foot" align="center">
-			<a href="#" class="btn btn-purple">Save</a> 
-			<a href="#" class="btn btn-gray">Close</a>
+			<a href="#" class="btn btn-purple">Save</a> <a href="#" class="btn btn-gray">Close</a>
 		</div>
 	</div>
 	
@@ -151,17 +147,14 @@
 		<div class="head">
 			<div class="left">HOME</div>
 			<div class="right">
-				<a href="javascript:alert('plus');"><i class="icon-plus icon-white"></i></a> 
-				<a href="javascript:alert('search');"><i class="icon-search icon-white"></i></a> 
-				<a href="#" class='close'><i class='icon-exit icon-white'></i></a>
+				<a href="javascript:alert('plus');"><i class="icon-plus icon-white"></i></a> <a href="javascript:alert('search');"><i class="icon-search icon-white"></i></a> <a href="#" class='close'><i class='icon-exit icon-white'></i></a>
 			</div>
 	    </div>
 		<div class="body">
 			Contents...<br/>
 		</div>
 		<div class="foot" align="center">
-			<a href="#" class="btn btn-black">Save</a> 
-			<a href="#" class="btn btn-black">Close</a>
+			<a href="#" class="btn btn-black">Save</a> <a href="#" class="btn btn-black">Close</a>
 		</div>
 	</div>
 	
@@ -176,8 +169,7 @@
 			Contents...<br/>
 		</div>
 		<div class="foot" align="center">
-			<a href="#" class="btn btn-purple">Save</a> 
-			<a href="#" class="btn btn-gray">Close</a>
+			<a href="#" class="btn btn-purple">Save</a> <a href="#" class="btn btn-gray">Close</a>
 		</div>
 	</div>
 </section>
@@ -185,8 +177,7 @@
 <section>
 	<h2>Markup Rule</h2>
 	<p>
-		<button class="btn btn-gray btn-mini" onclick="win_3.show();">Run</button> - 
-		기존의 메시지박스 스타일에도 적용할 수 있으며, <strong>head</strong>와 <strong>body</strong> 그리고 <strong>foot</strong> 태그로 구성된 마크업에서 동작합니다. 
+		<button class="btn btn-gray btn-mini" onclick="win_3.show();">Run</button> - It is possible to apply existing message box styles and operate on a markup consisting of a <strong>head</strong> tag, a <strong>body</strong> tag and a <strong>foot</strong> tag. 
 
 		<div id="win_3" class="msgbox msgbox-detail">
 			<div class="head">
@@ -201,17 +192,17 @@
 		</div>
 	</p>
 	<p>
-<pre><code class="language-markup">&lt;div id="win_3" class="msgbox msgbox-detail">
-	&lt;div class="head">
+<pre><code class="language-markup">&lt;div id=&quot;win_3&quot; class=&quot;msgbox msgbox-detail&quot;&gt;
+	&lt;div class=&quot;head&quot;&gt;
 		[Title] Detail Message
 		
-		&lt;div class="detail">2014.02.25 17:18:38&lt;/div>
-		&lt;a href="#" class='close'>&lt;i class='icon-exit icon-gray'>&lt;/i>&lt;/a>
-    &lt;/div>
-	&lt;div class="body">
+		&lt;div class=&quot;detail&quot;&gt;2014.02.25 17:18:38&lt;/div&gt;
+		&lt;a href=&quot;#&quot; class='close'&gt;&lt;i class='icon-exit icon-gray'&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;/div&gt;
+	&lt;div class=&quot;body&quot;&gt;
 		Contents...&lt;br/>
-	&lt;/div>
-&lt;/div></code></pre>
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 	</p>
 </section>
 </body>

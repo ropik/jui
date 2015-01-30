@@ -1,7 +1,8 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - CSS/VMenu</title>
 
 <link rel="stylesheet" href="../../res/manual.css" />
@@ -20,95 +21,86 @@
 <section>
 	<h2>Default</h2>
 	<p>
-		Vertical Menu는 앞서 설명한 Vertical Group의 속성을 상속받아 구현한 메뉴 스타일입니다.<br/>
-		색상은 화이트와 블랙 두가지를 제공하며, 크기는 노멀과 라지가 있습니다.
+		Vertical Menu is a menu style implemented by inheriting properties from Vertical Group.<br/> White and black colors are available and either a large size or a small size.
 		
 		<table class="table_s table-bordered table-striped" style="width: 100%;"><tr>
 			<td>
 				<div class="vmenu">
-					<a>Vertical Menu <i class="icon-chevron-right icon-gray icon-edge"></i></a>
-					<a class="active">Vertical Menu <i class="icon-chevron-right icon-gray icon-edge"></i></a>
+					<a>Vertical Menu </a> <a class="active">Vertical Menu <i class="icon-chevron-right icon-gray icon-edge"></i></a>
 					<ul class="submenu">
 						<li class="active"><a>Vertical Sub-Menu</a></li>
 						<li><a>Vertical Sub-Menu</a></li>
 						<li><a>Vertical Sub-Menu</a></li>
 					</ul>
-					<a>Vertical Menu <i class="icon-chevron-right icon-gray icon-edge"></i></a>
-					<a>Vertical Menu <i class="icon-chevron-right icon-gray icon-edge"></i></a>
+					<a>Vertical Menu </a> <a>Vertical Menu <i class="icon-chevron-right icon-gray icon-edge"></i></a>
 				</div>
 			</td>
 			<td>
 				<div class="vmenu vmenu-black">
-					<a>Vertical Menu <i class="icon-chevron-right icon-white icon-edge"></i></a>
-					<a class="active">Vertical Menu <i class="icon-chevron-right icon-white icon-edge"></i></a>
+					<a>Vertical Menu </a> <a class="active">Vertical Menu <i class="icon-chevron-right icon-white icon-edge"></i></a>
 					<ul class="submenu">
 						<li class="active"><a>Vertical Sub-Menu</a></li>
 						<li><a>Vertical Sub-Menu</a></li>
 						<li><a>Vertical Sub-Menu</a></li>
 					</ul>
-					<a>Vertical Menu <i class="icon-chevron-right icon-white icon-edge"></i></a>
-					<a>Vertical Menu <i class="icon-chevron-right icon-white icon-edge"></i></a>
+					<a>Vertical Menu </a> <a>Vertical Menu <i class="icon-chevron-right icon-white icon-edge"></i></a>
 				</div>
 			</td>
 			<td>
 				<div class="vmenu vmenu-flat">
-					<a>Vertical Menu</a>
-					<a class="active">Vertical Menu</a>
+					<a>Vertical Menu</a> <a class="active">Vertical Menu</a>
 					<ul class="submenu">
 						<li class="active"><a>Vertical Sub-Menu</a></li>
 						<li><a>Vertical Sub-Menu</a></li>
 						<li><a>Vertical Sub-Menu</a></li>
 					</ul>
-					<a>Vertical Menu</a>
-					<a>Vertical Menu</a>
+					<a>Vertical Menu</a> <a>Vertical Menu</a>
 				</div>
 			</td>
 			<td>
 				<div class="vmenu vmenu-black vmenu-flat">
-					<a>Vertical Menu</a>
-					<a class="active">Vertical Menu</a>
+					<a>Vertical Menu</a> <a class="active">Vertical Menu</a>
 					<ul class="submenu">
 						<li class="active"><a>Vertical Sub-Menu</a></li>
 						<li><a>Vertical Sub-Menu</a></li>
 						<li><a>Vertical Sub-Menu</a></li>
 					</ul>
-					<a>Vertical Menu</a>
-					<a>Vertical Menu</a>
+					<a>Vertical Menu</a> <a>Vertical Menu</a>
 				</div>
 			</td>
 		</table>
 	</p>
 
 	<p class="br">
-<pre><code class="language-markup">&lt;div class="vmenu"&gt;
-	&lt;a&gt;Vertical Menu &lt;i class="icon-gear icon-edge"&gt;&lt;/i&gt;&lt;/a&gt;
-	&lt;a class="active"&gt;Vertical Menu &lt;i class="icon-gear icon-edge"&gt;&lt;/i&gt;&lt;/a&gt;
-	&lt;ul class="submenu"&gt;
-		&lt;li class="active"&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
+<pre><code class="language-markup">&lt;div class=&quot;vmenu&quot;&gt;
+	&lt;a&gt;Vertical Menu &lt;i class=&quot;icon-gear icon-edge&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;a class=&quot;active&quot;&gt;Vertical Menu &lt;i class=&quot;icon-gear icon-edge&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;ul class=&quot;submenu&quot;&gt;
+		&lt;li class=&quot;active&quot;&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;
-	&lt;a&gt;Vertical Menu &lt;i class="icon-gear icon-edge"&gt;&lt;/i&gt;&lt;/a&gt;
-	&lt;a&gt;Vertical Menu &lt;i class="icon-gear icon-edge"&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;a&gt;Vertical Menu &lt;i class=&quot;icon-gear icon-edge&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;a&gt;Vertical Menu &lt;i class=&quot;icon-gear icon-edge&quot;&gt;&lt;/i&gt;&lt;/a&gt;
 &lt;/div&gt;
 
-&lt;div class="vmenu vmenu-black"&gt;
-	&lt;a&gt;Vertical Menu &lt;i class="icon-gear icon-white icon-edge"&gt;&lt;/i&gt;&lt;/a&gt;
-	&lt;a class="active"&gt;Vertical Menu &lt;i class="icon-gear icon-white icon-edge"&gt;&lt;/i&gt;&lt;/a&gt;
-	&lt;ul class="submenu"&gt;
-		&lt;li class="active"&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
+&lt;div class=&quot;vmenu vmenu-black&quot;&gt;
+	&lt;a&gt;Vertical Menu &lt;i class=&quot;icon-gear icon-white icon-edge&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;a class=&quot;active&quot;&gt;Vertical Menu &lt;i class=&quot;icon-gear icon-white icon-edge&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;ul class=&quot;submenu&quot;&gt;
+		&lt;li class=&quot;active&quot;&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;
-	&lt;a&gt;Vertical Menu &lt;i class="icon-gear icon-white icon-edge"&gt;&lt;/i&gt;&lt;/a&gt;
-	&lt;a&gt;Vertical Menu &lt;i class="icon-gear icon-white icon-edge"&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;a&gt;Vertical Menu &lt;i class=&quot;icon-gear icon-white icon-edge&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;a&gt;Vertical Menu &lt;i class=&quot;icon-gear icon-white icon-edge&quot;&gt;&lt;/i&gt;&lt;/a&gt;
 &lt;/div&gt;
 
-&lt;div class="vmenu vmenu-flat"&gt;
+&lt;div class=&quot;vmenu vmenu-flat&quot;&gt;
 	&lt;a&gt;Vertical Menu&lt;/a&gt;
-	&lt;a class="active"&gt;Vertical Menu&lt;/a&gt;
-	&lt;ul class="submenu"&gt;
-		&lt;li class="active"&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
+	&lt;a class=&quot;active&quot;&gt;Vertical Menu&lt;/a&gt;
+	&lt;ul class=&quot;submenu&quot;&gt;
+		&lt;li class=&quot;active&quot;&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;
@@ -116,11 +108,11 @@
 	&lt;a&gt;Vertical Menu&lt;/a&gt;
 &lt;/div&gt;
 
-&lt;div class="vmenu vmenu-black vmenu-flat"&gt;
+&lt;div class=&quot;vmenu vmenu-black vmenu-flat&quot;&gt;
 	&lt;a&gt;Vertical Menu&lt;/a&gt;
-	&lt;a class="active"&gt;Vertical Menu&lt;/a&gt;
-	&lt;ul class="submenu"&gt;
-		&lt;li class="active"&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
+	&lt;a class=&quot;active&quot;&gt;Vertical Menu&lt;/a&gt;
+	&lt;ul class=&quot;submenu&quot;&gt;
+		&lt;li class=&quot;active&quot;&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;
@@ -131,65 +123,57 @@
 	</p>
 	
 	<p class="br">
-		아래 예제는 위와 달리 크기가 더 크며, 직각 스타일인 <b>vmenu-rect</b>를 적용하였습니다.
+		<b>vmenu-rect</b> is an angular style and is larger than the above-mentioned one. It is applied in the example below.
 		
 		<table class="table_s table-bordered table-striped" style="width: 100%;"><tr>
 			<td>
 				<div class="vmenu vmenu-large vmenu-rect">
-					<a>Vertical Menu <i class="icon-chevron-right icon-gray icon-edge"></i></a>
-					<a class="active">Vertical Menu <i class="icon-chevron-right icon-gray icon-edge"></i></a>
+					<a>Vertical Menu </a> <a class="active">Vertical Menu <i class="icon-chevron-right icon-gray icon-edge"></i></a>
 					<ul class="submenu">
 						<li class="active"><a>Vertical Sub-Menu</a></li>
 						<li><a>Vertical Sub-Menu</a></li>
 						<li><a>Vertical Sub-Menu</a></li>
 					</ul>
-					<a>Vertical Menu <i class="icon-chevron-right icon-gray icon-edge"></i></a>
-					<a>Vertical Menu <i class="icon-chevron-right icon-gray icon-edge"></i></a>
+					<a>Vertical Menu </a> <a>Vertical Menu <i class="icon-chevron-right icon-gray icon-edge"></i></a>
 				</div>
 			</td>
 			<td>
 				<div class="vmenu vmenu-large vmenu-black vmenu-rect">
-					<a>Vertical Menu <i class="icon-chevron-right icon-white icon-edge"></i></a>
-					<a class="active">Vertical Menu <i class="icon-chevron-right icon-white icon-edge"></i></a>
+					<a>Vertical Menu </a> <a class="active">Vertical Menu <i class="icon-chevron-right icon-white icon-edge"></i></a>
 					<ul class="submenu">
 						<li class="active"><a>Vertical Sub-Menu</a></li>
 						<li><a>Vertical Sub-Menu</a></li>
 						<li><a>Vertical Sub-Menu</a></li>
 					</ul>
-					<a>Vertical Menu <i class="icon-chevron-right icon-white icon-edge"></i></a>
-					<a>Vertical Menu <i class="icon-chevron-right icon-white icon-edge"></i></a>
+					<a>Vertical Menu </a> <a>Vertical Menu <i class="icon-chevron-right icon-white icon-edge"></i></a>
 				</div>
 			</td>
 			<td>
 				<div class="vmenu vmenu-large vmenu-flat vmenu-rect">
-					<a>Vertical Menu</a>
-					<a class="active">Vertical Menu</a>
+					<a>Vertical Menu</a> <a class="active">Vertical Menu</a>
 					<ul class="submenu">
 						<li class="active"><a>Vertical Sub-Menu</a></li>
 						<li><a>Vertical Sub-Menu</a></li>
 						<li><a>Vertical Sub-Menu</a></li>
 					</ul>
-					<a>Vertical Menu</a>
-					<a>Vertical Menu</a>
+					<a>Vertical Menu</a> <a>Vertical Menu</a>
 				</div>
 			</td>
 			<td>
 				<div class="vmenu vmenu-large vmenu-black vmenu-flat vmenu-rect">
-					<a>Vertical Menu</a>
-					<a class="active">Vertical Menu</a>
+					<a>Vertical Menu</a> <a class="active">Vertical Menu</a>
 					<ul class="submenu">
 						<li class="active"><a>Vertical Sub-Menu</a></li>
 						<li><a>Vertical Sub-Menu</a></li>
 						<li><a>Vertical Sub-Menu</a></li>
 					</ul>
-					<a>Vertical Menu</a>
-					<a>Vertical Menu</a>
+					<a>Vertical Menu</a> <a>Vertical Menu</a>
 				</div>
 			</td>
 		</table>
 	</p>
 	<p class="br">
-<pre><code class="language-markup">&lt;div class="vmenu vmenu-large vmenu-rect"&gt;
+<pre><code class="language-markup">&lt;div class=&quot;vmenu vmenu-large vmenu-rect&quot;&gt;
 	&lt;...&gt;
 &lt;/div&gt;</code></pre>
 	</p>

@@ -1,8 +1,9 @@
-
+﻿
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<META charset="UTF-8">
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 <title>[JUI Library] - JavaScript/Tree</title>
 
 <link rel="stylesheet" href="../../res/manual.css" />
@@ -23,7 +24,7 @@
 
 <section>
 	<p>
-		탐색기와 같은 계층 구조의 데이터를 트리 형태로 표현할 때, 사용할 수 있는 UI 컴포넌트입니다.
+		UI component which can be used when displaying data in a hierarchical structure, as in an explorer
 		
 		<div class="row">
 			<div class="col col-3">
@@ -48,50 +49,50 @@
 		</script>
 		
 		<p class="br">
-<pre><code class="language-markup">&lt;ul class="tree_1 tree tree-arrow">&lt;/ul>
-&lt;ul class="tree_1 tree tree-line">&lt;/ul>
-&lt;ul class="tree_1 tree tree-arrow-file">&lt;/ul>
-&lt;ul class="tree_1 tree tree-line-file">&lt;/ul></code></pre>
+<pre><code class="language-markup">&lt;ul class=&quot;tree_1 tree tree-arrow&quot;&gt;&lt;/ul&gt;
+&lt;ul class=&quot;tree_1 tree tree-line&quot;&gt;&lt;/ul&gt;
+&lt;ul class=&quot;tree_1 tree tree-arrow-file&quot;&gt;&lt;/ul&gt;
+&lt;ul class=&quot;tree_1 tree tree-line-file&quot;&gt;&lt;/ul&gt;</code></pre>
 
-<pre><code class="language-markup">&lt;script id="tpl_tree" type="text/template"&gt;
+<pre><code class="language-markup">&lt;script id=&quot;tpl_tree&quot; type=&quot;text/template&quot;&gt;
 	&lt;li&gt;
 		&lt;div&gt;&lt;i&gt;&lt;/i&gt; &lt;!= title !&gt;&lt;/div&gt;
 		&lt;ul&gt;&lt;/ul&gt;
 	&lt;/li&gt;
 &lt;/script&gt;</code></pre>
 		
-<pre><code class="language-javascript">jui.ready([ "uix.tree" ], function(tree) {
-	tree_1 = tree(".tree", {
-		root: { title: "C:\\" },
+<pre><code class="language-javascript">jui.ready([ &quot;uix.tree&quot; ], function(tree) {
+	tree_1 = tree(&quot;.tree&quot;, {
+		root: { title: &quot;C:\\&quot; },
 		event: {
 			select: function(node) {
-				this.select(node.index); // 선택 효과
-				alert("index(" + node.index + "), title(" + node.data.title + ")");
+				this.select(node.index); // selection effect
+				alert(&quot;index(&quot; + node.index + &quot;), title(&quot; + node.data.title + &quot;)&quot;);
 			}
 		},
 		tpl: {
-			node: $("#tpl_tree").html()
+			node: $(&quot;#tpl_tree&quot;).html()
 		}
 	});
 });
 
 function addTreeData(tree) {
-	tree.append({ title: "Windows" });
-	tree.append({ title: "Download" });
-	tree.append({ title: "Program Files" });
-	tree.append({ title: "Apache" });
-	tree.append("0", { title: "run.exe" });
-	tree.append("0", { title: "setting.conf" });
-	tree.append("1", { title: "jui.torrrent" });
-	tree.insert("2.0", { title: "Riot Games" });
-	tree.insert("2.0.0", { title: "lol.exe" });
-	tree.append("3", { title: "startup.bat" });
-	tree.fold("0");
-	tree.fold("1");
-	tree.fold("3");
+	tree.append({ title: &quot;Windows&quot; });
+	tree.append({ title: &quot;Download&quot; });
+	tree.append({ title: &quot;Program Files&quot; });
+	tree.append({ title: &quot;Apache&quot; });
+	tree.append(&quot;0&quot;, { title: &quot;run.exe&quot; });
+	tree.append(&quot;0&quot;, { title: &quot;setting.conf&quot; });
+	tree.append(&quot;1&quot;, { title: &quot;jui.torrrent&quot; });
+	tree.insert(&quot;2.0&quot;, { title: &quot;Riot Games&quot; });
+	tree.insert(&quot;2.0.0&quot;, { title: &quot;lol.exe&quot; });
+	tree.append(&quot;3&quot;, { title: &quot;startup.bat&quot; });
+	tree.fold(&quot;0&quot;);
+	tree.fold(&quot;1&quot;);
+	tree.fold(&quot;3&quot;);
 }
 
-for(var i = 0; i < tree_1.length; i++) {
+for(var i = 0; i &lt; tree_1.length; i++) {
 	addTreeData(tree_1[i]);
 }</code></pre>
 		</p>
@@ -99,12 +100,9 @@ for(var i = 0; i < tree_1.length; i++) {
 </section>
 	
 <section>
-	<h2>Move/Remove/Update Node</h2>
+	<h2>Move/Remove/Update Tree</h2>
 	<p>
-		<a class="btn btn-gray btn-mini" href="javascript:tree2RunA()">Move</a>
-		<a class="btn btn-gray btn-mini" href="javascript:tree2RunB()">Remove</a>
-		<a class="btn btn-gray btn-mini" href="javascript:tree2RunC()">Update</a> - 
-		노드를 조작할 수 있은 기능을 제공합니다. 
+		<a class="btn btn-gray btn-mini" href="javascript:tree2RunA()">Move</a> <a class="btn btn-gray btn-mini" href="javascript:tree2RunB()">Remove</a> <a class="btn btn-gray btn-mini" href="javascript:tree2RunC()">Update</a> - Provides  methods to control a node. 
 		
 		<div class="row">
 			<ul class="tree tree-line-file"></ul>
@@ -113,18 +111,18 @@ for(var i = 0; i < tree_1.length; i++) {
 	
 	<p class="br">
 <pre><code class="language-javascript">function tree2RunA() {
-	alert("Apache 폴더를 Program File 폴더로 이동합니다.");
-	tree_1[4].move("3", "2.1");
+	alert(&quot;The Apache folder will be moved to the Program Files folder.&quot;);
+	tree_1[4].move(&quot;3&quot;, &quot;2.1&quot;);
 }
 
 function tree2RunB() {
-	alert("Download 폴더를 삭제합니다.");
-	tree_1[4].remove("1");
+	alert(&quot;The Download folder will be deleted.&quot;);
+	tree_1[4].remove(&quot;1&quot;);
 }
 			
 function tree2RunC() {
-	alert("Program Files 폴더의 이름을 변경합니다.");
-	tree_1[4].update("2", { title: "Applications" });
+	alert(&quot;The Program Files folder will be renamed.&quot;);
+	tree_1[4].update(&quot;2&quot;, { title: &quot;Applications&quot; });
 }</code></pre>
 	</p>
 </section>
@@ -132,7 +130,7 @@ function tree2RunC() {
 <section>
 	<h2>Move Node (+Drag)</h2>
 	<p>
-		각각의 노드를 마우스 드래그로 이동할 수 있는 기능을 제공합니다.
+		Provides a method for drag each node with a mouse.
 		
 		<div class="row" style="width: 150px;">
 			<ul id="tree_2" class="tree tree-line-file  tree-etc"></ul>
@@ -141,11 +139,11 @@ function tree2RunC() {
 	
 	<p class="br">
 		
-<pre><code class="language-javascript">tree_2 = tree("#tree_2", {
-	root: { title: "C:\\" },
+<pre><code class="language-javascript">tree_2 = tree(&quot;#tree_2&quot;, {ging
+	root: { title: &quot;C:\\&quot; },
 	drag: true,
 	tpl: {
-		node: $("#tpl_tree").html()
+		node: $(&quot;#tpl_tree&quot;).html()
 	}
 });</code></pre>
 	</p>
@@ -154,7 +152,7 @@ function tree2RunC() {
 <section>
 	<h2>Move Node (+Drag Child)</h2>
 	<p>
-		<strong>dragChild</strong> 옵션의 값을 false로 설정하면, 드래그 대상 노드가 상대 노드의 자식으로 변경되는 것을 막을 수 있습니다.
+		It is possible to prevent a target node being dragged from changing to a child of an opponent node if the <strong>dragChild</strong> option value is set to false.
 		
 		<div class="row" style="width: 150px;">
 			<ul id="tree_3" class="tree tree-line-file tree-etc"></ul>
@@ -163,12 +161,12 @@ function tree2RunC() {
 	
 	<p class="br">
 		
-<pre><code class="language-javascript">tree_3 = tree("#tree_3", {
-	root: { title: "C:\\" },
+<pre><code class="language-javascript">tree_3 = tree(&quot;#tree_3&quot;, {
+	root: { title: &quot;C:\\&quot; },
 	drag: true,
 	dragChild: false,
 	tpl: {
-		node: $("#tpl_tree").html()
+		node: $(&quot;#tpl_tree&quot;).html()
 	}
 });</code></pre>
 	</p>
