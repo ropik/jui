@@ -26,15 +26,20 @@ function initMetatag(grunt) {
             buffer = [];
 
         if(typeof(text) == "string") {
-            var rows = text.split("\n");
+            var rows = text.split("\n"),
+                title = "";
 
             // 메타 태그 삭제
             for(var i = 0; i < rows.length; i++) {
                 var r = rows[i];
 
-                if(r.toLowerCase().indexOf("<head>") != -1) {
-                    buffer.push(r);
-                    buffer.push(getMetatag("title", obj.all.title));
+                if(r.toLowerCase().indexOf("<title>") != -1) {
+                    var regx = new RegExp(/<title>(.*)<\/title>/g);
+                    title = regx.exec(r)[1];
+                }
+
+                if(r.toLowerCase().indexOf("</head>") != -1) {
+                    buffer.push(getMetatag("title", obj.all.title + title));
                     buffer.push(getMetatag("description", obj.all.description));
                     buffer.push(getMetatag("keywords", obj.all.keywords));
                     buffer.push(getMetatag("author", obj.all.author));
@@ -46,6 +51,8 @@ function initMetatag(grunt) {
                         buffer.push(getMetatag("url", obj.index.url, true));
                         buffer.push(getMetatag("image", obj.index.image, true));
                     }
+
+                    buffer.push(r);
                 } else {
                     if(r.toLowerCase().indexOf("<meta") == -1) {
                         buffer.push(r);
@@ -113,7 +120,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
         metatag : {
             all : {
-                title : "JENNIFER UI: HTML5 components and SVG charts",
+                title : "JENNIFER UI: ",
                 description : "JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart components.",
                 keywords : "HTML, CSS, JS, JavaScript, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT",
                 author : "Alvin, Jayden and Yoha"
