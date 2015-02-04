@@ -69,8 +69,8 @@ function xtableRun(type) {
     );
 }
 
-jui.ready([ "ui.button", "ui.combo", "ui.datepicker", "ui.dropdown", "ui.layout", "ui.modal", "ui.notify", "ui.paging", "ui.tooltip", "uix.xtable" ],
-    function(button, combo, datepicker, dropdown, layout, modal, notify, paging, tooltip, xtable) {
+jui.ready([ "ui.button", "ui.combo", "ui.datepicker", "ui.dropdown", "ui.layout", "ui.modal", "ui.notify", "ui.paging", "ui.tooltip", "uix.xtable", "ui.accordion" ],
+    function(button, combo, datepicker, dropdown, layout, modal, notify, paging, tooltip, xtable, accordion) {
 
     // 버튼-라디오
     btn_radio_1 = button("#btn_radio_1", btn_radio_options);
@@ -348,5 +348,16 @@ jui.ready([ "ui.button", "ui.combo", "ui.datepicker", "ui.dropdown", "ui.layout"
         position: "right",
         width: 300,
         align: "center"
+    });
+
+    // 아코디언
+    accordion_1 = accordion(".accordion", {
+        event: {
+            open: function(index, e) {
+                $(this.root).find("i").attr("class", "icon-arrow1");
+                $(e.target).find("i").attr("class", "icon-arrow3");
+            }
+        },
+        index: 1
     });
 });

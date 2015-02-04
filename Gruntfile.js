@@ -45,6 +45,7 @@ function initMetatag(grunt) {
                     buffer.push(getMetatag("author", obj.all.author));
 
                     if(path.indexOf("index.html") != -1) {
+                        buffer.push('<meta charset="UTF-8">');
                         buffer.push(getMetatag("title", obj.index.title, true));
                         buffer.push(getMetatag("description", obj.index.description, true));
                         buffer.push(getMetatag("type", obj.index.type, true));

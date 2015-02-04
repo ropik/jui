@@ -300,4 +300,14 @@ jui.ready([ "util.base", "ui", "uix", "chart.builder", "chartx.realtime" ], func
     if(xtable != null) {
         juiApi(xtable, uiApi, _.template);
     }
+
+    var accordion = ui.accordion("#accordion", {
+        event: {
+            open: function() {},
+            fold: function() {}
+        }
+    });
+    if(accordion != null) {
+        juiApi(accordion, uiApi, _.template);
+    }
 });
