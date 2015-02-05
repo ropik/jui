@@ -35,5 +35,4 @@ var c = chart("#chart", {
 });
 
 // Data updated after rendering
-var axis = c.get("axis", 0);
-axis.update(data);
+c.axis(0).update(data);

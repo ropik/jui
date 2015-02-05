@@ -15,7 +15,7 @@ var charts = [
     { type : 'area', title : 'Area Chart', start : 31 },
     { type : 'radar', title : 'Radar Chart', start : 38 },
     { type : 'line', title : 'Line Chart', start : 40 },
-    { type : 'gauge', title : 'Gauge Chart', start : 49 },
+    { type : 'gauge', title : 'Gauge Chart', start : 54 },
     { type : 'stock', title : 'Candle Stick Chart', start : 56 },
     { type : 'mixed', title : 'Combination Chart', start : 60 },
     { type : 'realtime', title : 'Realtime Chart', start : 64 },
