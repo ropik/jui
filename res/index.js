@@ -76,6 +76,7 @@ var menuInfo = {
             datepicker: "style/datepicker",
             notify: "style/notify",
             tooltip: "style/tooltip",
+            popover: "style/popover",
             accordion: "style/accordion"
         }
     },
