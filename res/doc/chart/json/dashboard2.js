@@ -44,7 +44,7 @@ chart("#chart", {
         },
         area : { height : "45%" },
         data : dataSource
-    },{
+    }, {
         c : {
             type : "table",
             rows : 1,
@@ -75,9 +75,10 @@ chart("#chart", {
         axis : 0,
         animate : true
     }, {
-        type : 'fullgauge',
+        type : "fullgauge",
         axis : 1,
-        size : 10
+        size : 10,
+        titleX : -47
     } ],
     widget : [{
         type : "title",

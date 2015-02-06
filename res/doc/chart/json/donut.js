@@ -1,6 +1,7 @@
 var chart = jui.include("chart.builder");
 
 chart("#chart", {
+    padding : 150,
     series : {
         ie : { text : "IE" },
         ff : { text : "FireFox" },
@@ -14,7 +15,11 @@ chart("#chart", {
         ]
     },
     brush : {
-        type : "donut"
+        type : "donut",
+        showText : true,
+        format : function(k, v) {
+            return v;
+        }
     },
     widget : [
         { type : "title", text : "Donut Sample" },

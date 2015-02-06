@@ -1,13 +1,20 @@
 var chart = jui.include("chart.builder");
 
 chart("#chart", {
+    axis : {
+        data : [{
+            title : "Overall Visits",
+            value : 192,
+            max : 200,
+            min : 0,
+            unit : "k"
+        }]
+    },
     brush : {
         type : "fullgauge",
-        value : 75,
-        startAngle : -180,
-        endAngle : 360,
-        size : 24,
-        text : true,
-        unitText : "feeds"
+        startAngle : 0,
+        size : 20,
+        titleY : 40,
+        showText : true
     }
 });

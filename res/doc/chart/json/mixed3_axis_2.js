@@ -84,7 +84,13 @@ chart("#chart", {
             orient : "right"
         },
         area : { x : 0, y : 0, width : "100%", height : "70%" },
-        data : dataSource
+        data : dataSource,
+        keymap : {
+            l : "low",
+            h : "high",
+            o : "open",
+            c : "close"
+        }
     }, {
         x : {
             type : "block",
@@ -113,10 +119,6 @@ chart("#chart", {
     }],
     brush : [{
         type : "candlestick",
-        low : "l",
-        high : "h",
-        open : "o",
-        close : "c",
         axis : 0
     }, {
         type : "column",

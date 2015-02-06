@@ -43,13 +43,15 @@ chart("#chart", {
             step: 5,
             line : true 
         },
-        data : data
+        data : data,
+        keymap : {
+            l : "low",
+            h : "high",
+            o : "open",
+            c : "close"
+        }
     },
     brush : {
-        type : "ohlc",
-        low : "l",
-        high : "h",
-        open : "o",
-        close : "c"
+        type : "ohlc"
     }
 });

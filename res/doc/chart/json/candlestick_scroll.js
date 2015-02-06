@@ -44,14 +44,16 @@ chart("#chart", {
             line : true
         },
         data : data,
-        buffer : 10
+        buffer : 10,
+        keymap : {
+            l : "low",
+            h : "high",
+            o : "open",
+            c : "close"
+        }
     },
     brush : {
-        type : "candlestick",
-        low : "l",
-        high : "h",
-        open : "o",
-        close : "c"
+        type : "candlestick"
     },
     widget : [{
         type : "scroll"
