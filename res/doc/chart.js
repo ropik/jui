@@ -13,13 +13,13 @@ var charts = [
     { type: "bubble", title : "Bubble Chart", start : 25 },
     { type: "scatter", title : "Scatter Chart", start : 27 },
     { type: "area", title : "Area Chart", start : 31 },
-    { type: "radar", title : "Radar Chart", start : 38 },
-    { type: "line", title : "Line Chart", start : 40 },
-    { type: "gauge", title : "Gauge Chart", start : 52 },
-    { type: "stock", title : "Candle Stick Chart", start : 56 },
-    { type: "mixed", title : "Combination Chart", start : 60 },
-    { type: "realtime", title : "Realtime Chart", start : 64 },
-    { type: "dashboard", title : "Dashboard", start : 67 }
+    { type: "radar", title : "Radar Chart", start : 36 },
+    { type: "line", title : "Line Chart", start : 38 },
+    { type: "gauge", title : "Gauge Chart", start : 50 },
+    { type: "stock", title : "Candle Stick Chart", start : 54 },
+    { type: "mixed", title : "Combination Chart", start : 58 },
+    { type: "realtime", title : "Realtime Chart", start : 62 },
+    { type: "dashboard", title : "Dashboard", start : 65 }
 ];
 
 var code_list = [
@@ -70,8 +70,6 @@ var code_list = [
 
     //area
     { type: "area", title : "Basic Area", description : "", code : "area.js" },
-    { type: "area", title : "Curve Area", description : "", code : "curve_area.js" },
-    { type: "area", title : "Step Area", description : "", code : "step_area.js" },
     { type: "area", title : "Stack Area", description : "", code : "stack_area.js" },
     { type: "area", title : "Stack Curve Area", description : "", code : "stack_curve_area.js" },
     { type: "area", title : "Stack Step Area", description : "", code : "stack_step_area.js" },
