@@ -80,12 +80,12 @@ window.coreApi = {
         setTpl: {
             param: "tplName, tplHtml",
             ret: "none",
-            detail: "Dynamically defines the template method of a UI"
+            detail: "Dynamically defines the template method of a UI."
         },
         setVo: {
             param: "none",
             ret: "none",
-            detail: "Applies jBinder, which is a binding library, to a UI."
+            detail: "Applies jBinder, which is a binding library to a UI."
         },
         setOption: {
             param: "object | optionName, optionValue",
@@ -96,6 +96,16 @@ window.coreApi = {
             param: "none",
             ret: "none",
             detail: "Removes all events set in a UI obejct and the DOM element."
+        },
+        find: {
+            param: "selector",
+            ret: "object",
+            detail: "Get the child element of the root element."
+        },
+        super: {
+            param: "methodName, arguments",
+            ret: "object",
+            detail: "Call the methods of the parent class."
         }
     },
     opt: {
@@ -148,6 +158,9 @@ window.coreApi = {
         },
         textRotate: {
             detail: "Specifies the slope of text displayed on an axis."
+        },
+        animate: {
+            detail: "Run the animation effect."
         }
     },
     brush: {
@@ -174,6 +187,9 @@ window.coreApi = {
         },
         c: {
             detail: "[Read Only] Function to obtain custom coordinates."
+        },
+        animate: {
+            detail: "Run the animation effect."
         }
     },
     widget: {
@@ -188,6 +204,9 @@ window.coreApi = {
         },
         index: {
             detail: "[Read Only] Index which shows the sequence how a widget is drawn."
+        },
+        animate: {
+            detail: "Run the animation effect."
         }
     }
 };

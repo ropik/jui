@@ -96,6 +96,16 @@ window.coreApi = {
             param: "none",
             ret: "none",
             detail: "UI 객체와 DOM 엘리먼트에 설정된 이벤트를 모두 제거합니다."
+        },
+        find: {
+            param: "selector",
+            ret: "object",
+            detail: "루트의 자식 엘리먼트를 가져온다."
+        },
+        super: {
+            param: "methodName, arguments",
+            ret: "object",
+            detail: "부모 클래스의 메소드를 호출한다."
         }
     },
     opt: {
@@ -148,6 +158,9 @@ window.coreApi = {
         },
         textRotate: {
             detail: "축에 표시되는 텍스트의 기울기를 설정합니다."
+        },
+        animate: {
+            detail: "애니메이션 효과를 실행합니다."
         }
     },
     brush: {
@@ -174,6 +187,9 @@ window.coreApi = {
         },
         c: {
             detail: "[읽기전용] 커스텀 좌표를 얻어오는 함수입니다."
+        },
+        animate: {
+            detail: "애니메이션 효과를 실행합니다."
         }
     },
     widget: {
@@ -188,6 +204,9 @@ window.coreApi = {
         },
         index: {
             detail: "[읽기전용] 위젯이 그려진 순서 인덱스입니다."
+        },
+        animate: {
+            detail: "애니메이션 효과를 실행합니다."
         }
     }
 };

@@ -1,29 +1,4 @@
-jui.define("chart.axis.common", [], function() {
-    var CommonAxis = function() {
-        this.draw = function() {
-            return {};
-        }
-    }
-
-    CommonAxis.setup = function() {
-        return {
-            x: null,
-            y: null,
-            c: null,
-            data: [],
-            buffer: 10000,
-            shift: 1,
-            origin: [], // 여기서부터 읽기전용
-            page: 1,
-            start: 0,
-            end: 0
-        };
-    }
-
-    return CommonAxis;
-});
-
-jui.ready([ "util.base", "ui", "uix", "chart.builder", "chartx.realtime" ], function(_, ui, uix, builder, r_builder) {
+jui.ready([ "util.base", "ui", "uix", "chart.builder", "chartx.realtime", "chart.axis" ], function(_, ui, uix, builder, r_builder, Axis) {
     var autocomplete = uix.autocomplete("#autocomplete", {
         event: {
             change: function() {}
@@ -45,9 +20,6 @@ jui.ready([ "util.base", "ui", "uix", "chart.builder", "chartx.realtime" ], func
     }
 
     var chart = builder("#chart", {
-        tpl: {
-            tooltip: "."
-        },
         event: {
             click: function() {},
             dblclick: function() {},
@@ -73,16 +45,21 @@ jui.ready([ "util.base", "ui", "uix", "chart.builder", "chartx.realtime" ], func
             "bg.mousemove": function() {},
             "bg.mousedown": function() {},
             "bg.mouseup": function() {},
-            "legend.filter": function() {}
-        }
+            "legend.filter": function() {},
+            "topology.nodeclick": function() {},
+            "topology.edgeclick": function() {}
+        },
+        axis: {}
     });
+
     if(chart != null) {
         uix.tab("#chart_tab", {
             target: "#chart_tab_contents",
             event: {
                 change: function(data, e) {
                     if(data.index == 1 && $("#axis").html() == "") {
-                        juiApiChart("axis", axisApi, _.template, null, "#axis", "axis");
+                        console.log(chart.axis(0));
+                        juiApi(chart.axis(0), axisApi, _.template, null, "#axis");
                     } else if(data.index == 3 && $("#brush").html() == "") {
                         juiApiChart("brush", brushApi, _.template, null, "#brush", "brush");
                     } else if(data.index == 4 && $("#widget").html() == "") {

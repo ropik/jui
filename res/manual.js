@@ -46,7 +46,7 @@
 						} else if(typeof(o[k]) == "string") {
 							def = "'" + o[k] + "'";
 						} else if(typeof(o[k]) == "object") {
-							def = ($.isArray(o[k])) ? "[]" : "{}";
+							def = ($.isArray(o[k])) ? "[]" : JSON.stringify(o[k]);
 						}
 							
 						uiApi.opt[k] = $.extend({ 
@@ -171,7 +171,7 @@
 					} else if (typeof(o[k]) == "string") {
 						def = "'" + o[k] + "'";
 					} else if (typeof(o[k]) == "object") {
-						def = ($.isArray(o[k])) ? "[]" : "{}";
+						def = ($.isArray(o[k])) ? "[]" : JSON.stringify(o[k]);
 					}
 
 					if(coreApi[apiKey]) {

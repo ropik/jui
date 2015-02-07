@@ -61,7 +61,27 @@ var uiApi = {
         get: {
             param: "type, name | none",
             ret: "array | object",
-            detail: "Gets a named axis, brush, widget or series (type: axis, brush, widget, series)."
+            detail: "Gets a named axis, brush, widget or series (type: axis, brush, widget, series, padding, area)"
+        },
+        axis: {
+            param: "index | none",
+            ret: "array | object",
+            detail: "Gets the axis object of that index."
+        },
+        icon: {
+            param: "alias",
+            ret: "string",
+            detail: "Gets the unicode string of the icon."
+        },
+        scale: {
+            param: "scale",
+            ret: "string",
+            detail: "Change the scale of the chart."
+        },
+        view: {
+            param: "x, y",
+            ret: "int",
+            detail: "Change the view of the chart."
         },
         createId: {
             param: "key",
@@ -181,79 +201,85 @@ var uiApi = {
 	},
 	event: {
         click: {
-            detail: "Event that occurs when clicking on the brush"
+            detail: "Event that occurs when clicking on the brush."
         },
         dblclick: {
-            detail: "Event that occurs when double clicking on the brush"
+            detail: "Event that occurs when double clicking on the brush."
         },
         rclick: {
-            detail: "Event that occurs when right clicking on the brush"
+            detail: "Event that occurs when right clicking on the brush."
         },
         mouseover: {
-            detail: "Event that occurs when placing the mouse over the brush"
+            detail: "Event that occurs when placing the mouse over the brush."
         },
         mouseout: {
-            detail: "Event that occurs when moving the mouse out of the brush"
+            detail: "Event that occurs when moving the mouse out of the brush."
         },
         mousemove: {
-            detail: "Event that occurs when moving the mouse over the brush"
+            detail: "Event that occurs when moving the mouse over the brush."
         },
         mousedown: {
-            detail: "Event that occurs when left clicking on the brush"
+            detail: "Event that occurs when left clicking on the brush."
         },
         mouseup: {
-            detail: "Event that occurs after left clicking on the brush"
+            detail: "Event that occurs after left clicking on the brush."
         },
         "chart.click": {
-            detail: "Event that occurs when clicking on the chart area"
+            detail: "Event that occurs when clicking on the chart area."
         },
         "chart.dblclick": {
-            detail: "Event that occurs when double clicking on the chart area"
+            detail: "Event that occurs when double clicking on the chart area."
         },
         "chart.rclick": {
-            detail: "Event that occurs when right clicking on the chart area"
+            detail: "Event that occurs when right clicking on the chart area."
         },
         "chart.mouseover": {
-            detail: "Event that occurs when placing the mouse over the chart area"
+            detail: "Event that occurs when placing the mouse over the chart area."
         },
         "chart.mouseout": {
-            detail: "Event that occurs when placing the mouse over the chart area"
+            detail: "Event that occurs when placing the mouse over the chart area."
         },
         "chart.mousemove": {
-            detail: "Event that occurs when moving the mouse over the chart area"
+            detail: "Event that occurs when moving the mouse over the chart area."
         },
         "chart.mousedown": {
-            detail: "Event that occurs when left clicking on the chart area"
+            detail: "Event that occurs when left clicking on the chart are.a"
         },
         "chart.mouseup": {
-            detail: "Event that occurs after left clicking on the chart area"
+            detail: "Event that occurs after left clicking on the chart area."
         },
         "bg.click": {
-            detail: "Event that occurs when clicking on the chart area"
+            detail: "Event that occurs when clicking on the chart area."
         },
         "bg.dblclick": {
-            detail: "Event that occurs when clicking on a chart margin"
+            detail: "Event that occurs when clicking on a chart margin."
         },
         "bg.rclick": {
-            detail: "Event that occurs when right clicking on a chart margin"
+            detail: "Event that occurs when right clicking on a chart margin."
         },
         "bg.mouseover": {
-            detail: "Event that occurs when placing the mouse over a chart margin"
+            detail: "Event that occurs when placing the mouse over a chart margin."
         },
         "bg.mouseout": {
-            detail: "Event that occurs when moving the mouse out of a chart margin"
+            detail: "Event that occurs when moving the mouse out of a chart margin."
         },
         "bg.mousemove": {
-            detail: "Event that occurs when moving the mouse over a chart margin"
+            detail: "Event that occurs when moving the mouse over a chart margin."
         },
         "bg.mousedown": {
-            detail: "Event that occurs when left clicking on a chart margin"
+            detail: "Event that occurs when left clicking on a chart margin."
         },
         "bg.mouseup": {
-            detail: "Event that occurs after left clicking on a chart margin"
+            detail: "Event that occurs after left clicking on a chart margin."
         },
         "legend.filter": {
-            detail: "Event that occurs when the filter function of the legend widget is activated"
+            detail: "Event that occurs when the filter function of the legend widget is activated."
+        },
+        "topology.nodeclick": {
+            detail: "Event that occurs when click on the topology node."
+        },
+        "topology.edgeclick": {
+            detail: "Event that occurs when click on the topology edge."
         }
     },
 	tpl: {
@@ -318,9 +344,47 @@ var uiApi = {
         },
         render: {
             detail: "Does not render a chart when a rendering-related method is called with false (although the render method is not included)."
+        },
+        icon: {
+            detail: "Icon-related settings available in the chart."
         }
 	}
 };
+
+var axisApi = {
+    prop: {
+        x: {
+            detail: "Sets a grid on the X axis (see the grid tab)."
+        },
+        y: {
+            detail: "Sets a grid on the Y axis (see the grid tab)."
+        },
+        c: {
+            detail: "Sets a custom grid (see the grid tab)."
+        },
+        data: {
+            detail: "Sets the row set data which constitute a chart."
+        },
+        buffer: {
+            detail: "Limits the number of elements shown on a chart."
+        },
+        shift: {
+            detail: "Data shift count for the 'prev' or 'next' method of the chart builder."
+        },
+        origin: {
+            detail: "[Fore read only] Original data initially set."
+        },
+        page: {
+            detail: "[For read only] Page number of the data currently drawn."
+        },
+        start: {
+            detail: "[For read only] Start index of the data currently drawn."
+        },
+        end: {
+            detail: "[For read only] End index of the data currently drawn."
+        }
+    }
+}
 
 var brushApi = {
     bar: {
@@ -852,6 +916,23 @@ var gridApi = {
             detail: "Determines whether to use as a real-time grid."
         }
     },
+    dateblock: {
+        domain: {
+            detail: "Sets the value displayed on an axis."
+        },
+        step: {
+            detail: "Sets the interval of the scale displayed on an axis."
+        },
+        min: {
+            detail: "Sets the minimum value of an axis."
+        },
+        max: {
+            detail: "Sets the maximum value of an axis."
+        },
+        reverse: {
+            detail: "Switches the value on the X axis with the value on the Y axis."
+        }
+    },
     radar: {
         domain: {
             detail: "Sets the value displayed on an axis."
@@ -948,41 +1029,6 @@ var gridApi = {
         },
         row: {
             detail: "Draws an axis at the index location of an applicable row."
-        }
-    }
-}
-
-var axisApi = {
-    common: {
-        x: {
-            detail: "Sets a grid on the X axis (see the grid tab)."
-        },
-        y: {
-            detail: "Sets a grid on the Y axis (see the grid tab)."
-        },
-        c: {
-            detail: "Sets a custom grid (see the grid tab)."
-        },
-        data: {
-            detail: "Sets the row set data which constitute a chart."
-        },
-        buffer: {
-            detail: "Limits the number of elements shown on a chart."
-        },
-        shift: {
-            detail: "Data shift count for the 'prev' or 'next' method of the chart builder."
-        },
-        origin: {
-            detail: "[Fore read only] Original data initially set"
-        },
-        page: {
-            detail: "[For read only] Page number of the data currently drawn"
-        },
-        start: {
-            detail: "[For read only] Start index of the data currently drawn"
-        },
-        end: {
-            detail: "[For read only] End index of the data currently drawn"
         }
     }
 }

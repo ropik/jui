@@ -16,11 +16,29 @@
 
     <script>
         var uiApi = {
-            prop: {},
-            method: {},
-            event: {},
-            tpl: {},
-            opt: {}
+            method: {
+                activeIndex: {
+                    param: "none",
+                    ret: "int",
+                    detail: "활성화 된 노드의 인덱스를 가져옵니다."
+                }
+            },
+            event: {
+                open: {
+                    detail: "노드가 열렸을 때, 발생하는 이벤트입니다."
+                },
+                fold: {
+                    detail: "노드가 닫혔을 때, 발생하는 이벤트입니다."
+                }
+            },
+            opt: {
+                index: {
+                    detail: "활성화 노드를 설정합니다."
+                },
+                autoFold: {
+                    detail: "노드를 클릭했을 때, 노드를 닫히도록 설정합니다.."
+                }
+            }
         };
     </script>
 <meta name="title" content="JENNIFER UI: JavaScript/Accordion/API" />

@@ -60,7 +60,32 @@ var uiApi = {
         get: {
             param: "type, name | none",
             ret: "array | object",
-            detail: "해당 이름의 엑시스나 브러쉬, 위젯, 시리즈를 가져옵니다. (type: axis, brush, widget, series)"
+            detail: "해당 이름의 엑시스나 브러쉬, 위젯, 시리즈를 가져옵니다. (type: axis, brush, widget, series, padding, area)"
+        },
+        axis: {
+            param: "index | none",
+            ret: "array | object",
+            detail: "해당 인덱스의 엑시스 객체를 가져옵니다."
+        },
+        icon: {
+            param: "alias",
+            ret: "string",
+            detail: "해당 아이콘의 유니코드 문자열을 가져옵니다."
+        },
+        scale: {
+            param: "scale",
+            ret: "string",
+            detail: "차트의 스케일을 변경합니다."
+        },
+        view: {
+            param: "x, y",
+            ret: "int",
+            detail: "차트가 뷰 영역을 변경합니다."
+        },
+        view: {
+            param: "x, y",
+            ret: "object",
+            detail: "해당 아이콘의 유니코드 문자열을 가져옵니다."
         },
         createId: {
             param: "key",
@@ -253,6 +278,12 @@ var uiApi = {
         },
         "legend.filter": {
             detail: "레전드 위젯의 필터 기능이 실행되면 발생하는 이벤트입니다."
+        },
+        "topology.nodeclick": {
+            detail: "토폴로지 노드를 클릭하면 발생하는 이벤트입니다."
+        },
+        "topology.edgeclick": {
+            detail: "토폴로지 연결 선을 클릭하면 발생하는 이벤트입니다."
         }
     },
 	tpl: {
@@ -317,9 +348,47 @@ var uiApi = {
         },
         render: {
             detail: "false일 경우에 렌더링 관련 메소드를 호출했을 때, 차트를 다시 렌더링하지 않습니다. (단, render 메소드는 제외)"
+        },
+        icon: {
+            detail: "차트에서 사용할 아이콘 관련 설정입니다."
         }
 	}
 };
+
+var axisApi = {
+    prop: {
+        x: {
+            detail: "X축 그리드를 설정합니다. (Grid 탭 참고)"
+        },
+        y: {
+            detail: "Y축 그리드를 설정합니다. (Grid 탭 참고)"
+        },
+        c: {
+            detail: "커스텀 그리드를 설정합니다. (Grid 탭 참고)"
+        },
+        data: {
+            detail: "차트를 구성하는 로우셋 데이터를 설정합니다."
+        },
+        buffer: {
+            detail: "차트에 보여지는 요소 개수를 제한합니다."
+        },
+        shift: {
+            detail: "차트 빌더의 'prev' 또는 'next' 메소드를 호출했을 때, 그려지는 데이터의 쉬프팅 개수입니다."
+        },
+        origin: {
+            detail: "[읽기전용] 최초에 설정된 원본 데이터입니다."
+        },
+        page: {
+            detail: "[읽기전용] 현재 그려진 데이터의 페이지 번호입니다."
+        },
+        start: {
+            detail: "[읽기전용] 현재 그려진 데이터의 시작 인덱스입니다."
+        },
+        end: {
+            detail: "[읽기전용] 현재 그려진 데이터의 끝 인덱스입니다."
+        }
+    }
+}
 
 var brushApi = {
     bar: {
@@ -851,6 +920,23 @@ var gridApi = {
             detail: "리얼타임 그리드로 사용할지 정합니다."
         }
     },
+    dateblock: {
+        domain: {
+            detail: "축에 표시되는 값을 설정합니다."
+        },
+        step: {
+            detail: "축에 표시되는 값의 간격을 설정합니다."
+        },
+        min: {
+            detail: "축의 최소 값을 설정합니다."
+        },
+        max: {
+            detail: "축의 최대 값을 설정합니다."
+        },
+        reverse: {
+            detail: "축에 표시되는 값들을 반대로 보여지게 합니다."
+        }
+    },
     radar: {
         domain: {
             detail: "축에 표시되는 값을 설정합니다."
@@ -947,41 +1033,6 @@ var gridApi = {
         },
         row: {
             detail: "해당 로우 인덱스 위치에 축을 그립니다."
-        }
-    }
-}
-
-var axisApi = {
-    common: {
-        x: {
-            detail: "X축 그리드를 설정합니다. (Grid 탭 참고)"
-        },
-        y: {
-            detail: "Y축 그리드를 설정합니다. (Grid 탭 참고)"
-        },
-        c: {
-            detail: "커스텀 그리드를 설정합니다. (Grid 탭 참고)"
-        },
-        data: {
-            detail: "차트를 구성하는 로우셋 데이터를 설정합니다."
-        },
-        buffer: {
-            detail: "차트에 보여지는 요소 개수를 제한합니다."
-        },
-        shift: {
-            detail: "차트 빌더의 'prev' 또는 'next' 메소드를 호출했을 때, 그려지는 데이터의 쉬프팅 개수입니다."
-        },
-        origin: {
-            detail: "[읽기전용] 최초에 설정된 원본 데이터입니다."
-        },
-        page: {
-            detail: "[읽기전용] 현재 그려진 데이터의 페이지 번호입니다."
-        },
-        start: {
-            detail: "[읽기전용] 현재 그려진 데이터의 시작 인덱스입니다."
-        },
-        end: {
-            detail: "[읽기전용] 현재 그려진 데이터의 끝 인덱스입니다."
         }
     }
 }
