@@ -86,10 +86,10 @@ chart("#chart", {
         area : { x : 0, y : 0, width : "100%", height : "70%" },
         data : dataSource,
         keymap : {
-            l : "low",
-            h : "high",
-            o : "open",
-            c : "close"
+            low : "l",
+            high : "h",
+            open : "o",
+            close : "c"
         }
     }, {
         x : {

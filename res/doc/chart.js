@@ -15,7 +15,7 @@ var charts = [
     { type: "area", title : "Area Chart", start : 31 },
     { type: "radar", title : "Radar Chart", start : 36 },
     { type: "line", title : "Line Chart", start : 38 },
-    { type: "gauge", title : "Gauge Chart", start : 50 },
+    { type: "gauge", title : "Gauge Chart", start : 48 },
     { type: "stock", title : "Candle Stick Chart", start : 54 },
     { type: "mixed", title : "Combination Chart", start : 58 },
     { type: "realtime", title : "Realtime Chart", start : 62 },
@@ -53,7 +53,7 @@ var code_list = [
 
     // pie
     { type: "pie", title : "Pie", description : "", code : "pie.js" },
-    { type: "pie", title : "Mini Pie", description : "", code : "mini_pie.js" },
+    { type: "pie", title : "Mini Pie", description : "", code : "mini_pie.js", hide : true },
 
     // donut
     { type: "donut", title : "Donut", description : "", code : "donut.js" },
@@ -92,7 +92,7 @@ var code_list = [
 
     // gauge
     { type: "gauge", title : "Basic Gauge", description : "", code : "gauge.js", hide : true },
-    { type: "gauge", title : "Circle Gauge", description : "", code : "circle_gauge.js", hide : true },
+    { type: "gauge", title : "Circle Gauge", description : "", code : "circle_gauge.js" },
     { type: "gauge", title : "Fill Gauge", description : "", code : "fill_gauge.js", hide : true },
     { type: "gauge", title : "Full Gauge", description : "", code : "full_gauge.js" },
     { type: "gauge", title : "Stack Gauge", description : "", code : "stack_gauge.js", hide : true },

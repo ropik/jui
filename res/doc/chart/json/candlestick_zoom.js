@@ -45,10 +45,10 @@ chart("#chart", {
         },
         data : data,
         keymap : {
-            l : "low",
-            h : "high",
-            o : "open",
-            c : "close"
+            low : "l",
+            high : "h",
+            open : "o",
+            close : "c"
         }
     },
     brush : {
