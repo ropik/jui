@@ -18,8 +18,8 @@ var charts = [
     { type: "gauge", title : "Gauge Chart", start : 48 },
     { type: "stock", title : "Candle Stick Chart", start : 54 },
     { type: "mixed", title : "Combination Chart", start : 58 },
-    { type: "realtime", title : "Realtime Chart", start : 62 },
-    { type: "dashboard", title : "Dashboard", start : 65 }
+    { type: "realtime", title : "Realtime Chart", start : 63 },
+    { type: "dashboard", title : "Dashboard", start : 66 }
 ];
 
 var code_list = [
@@ -53,7 +53,7 @@ var code_list = [
 
     // pie
     { type: "pie", title : "Pie", description : "", code : "pie.js" },
-    { type: "pie", title : "Mini Pie", description : "", code : "mini_pie.js", hide : true },
+    { type: "pie", title : "Overlap Pie", description : "", code : "mini_pie.js" },
 
     // donut
     { type: "donut", title : "Donut", description : "", code : "donut.js" },
@@ -84,7 +84,7 @@ var code_list = [
     { type: "line", title : "Curve Line", description : "", code : "curve_line.js" },
     { type: "line", title : "Step Line", description : "", code : "step_line.js" },
     { type: "line", title : "Active Line", description : "", code : "active_line.js" },
-    { type: "line", title : "Mini Line", description : "", code : "mini_line.js" },
+    { type: "line", title : "Mini Line", description : "", code : "mini_line.js", hide : true },
     { type: "line", title : "Range Line", description : "", code : "range_line.js" },
     { type: "line", title : "Stack Line", description : "", code : "stack_line.js" },
     { type: "line", title : "Multi Line", description : "", code : "line2.js" },
@@ -110,6 +110,7 @@ var code_list = [
     { type: "mixed", title : "Multi Axis", description : "", code : "mixed2_multi_axis.js" },
     { type: "mixed", title : "Compare Data", description : "", code : "bar_compare_layout.js" },
     { type: "mixed", title : "Mixed daily and intra-day", description : "", code : "mixed4_linebar.js" },
+    { type: "mixed", title : "Sales Comparison", description : "", code : "mixed5.js", hide : true },
 
     // realtime chart
     { type: "realtime", title : "Realtime Line",  description : "", code : "realtime_line.js" },
@@ -119,7 +120,7 @@ var code_list = [
     // dashboard
     { type: "dashboard", title : "Stock Chart (Axis group)", description : "", code : "mixed3_axis.js" },
     { type: "dashboard", title : "Stock Chart with Candle Stick", description : "", code : "mixed3_axis_2.js" },
-    { type: "dashboard", title : "Multi Brushes", description : "", code : "dashboard.js" },
+    { type: "dashboard", title : "Multi Brushes", description : "", code : "dashboard.js", hide : true },
     { type: "dashboard", title : "Beautiful Dashboard", description : "", code : "dashboard2.js" },
     { type: "dashboard", title : "Company Performance", description : "", code : "dashboard3.js" },
     { type: "dashboard", title : "Sales Overview", description : "", code : "dashboard4.js" }

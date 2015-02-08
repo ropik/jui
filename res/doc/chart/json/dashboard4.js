@@ -35,6 +35,9 @@ var dataSource3 = [
 ];
 
 chart("#chart", {
+    padding : {
+        left : 60
+    },
     height : 400,
     axis : [{
         data : dataSource,
@@ -98,14 +101,14 @@ chart("#chart", {
         type : "line",
         target : "profit2",
         axis : 1,
-        colors : [ 1 ],
+        colors : [ 2 ],
         animate : true
     }, {
         type : "scatter",
         target : "profit2",
         size : 10,
         axis : 1,
-        colors : [ 1 ]
+        colors : [ 2 ]
     }, {
         type : "pie",
         axis : 2
@@ -122,22 +125,36 @@ chart("#chart", {
         text : "Sales Overview",
         align : "start"
     }, {
+        type : "title",
+        text : "Net Profit",
+        align : "start",
+        orient : "center",
+        dx : -55,
+        dy : -90
+    }, {
+        type : "title",
+        text : "Sales by Employee",
+        align : "start",
+        orient : "center",
+        dx : -80,
+        dy : 90
+    }, {
         type : "tooltip",
         format : function(k, v) {
             return v;
         },
-        brush : [ 2, 3, 4 ]
+        brush : [ 0, 2, 3, 4 ]
     }],
     style : {
-        titleFontSize : "16px",
-        titleFontWeight : "bold",
-        scatterBorderWidth : 1.5
+        scatterBorderWidth : 1.5,
+        titleFontSize : "11px",
+        titleFontWeight : "bold"
     },
-    format : function(value) {
-        if(typeof(value) == "number" && value > 1000) {
-            return Math.floor(value / 1000) + "k";
+    format : function(v) {
+        if(typeof(v) == "number") {
+            return ((v > 1000) ? Math.floor(v / 1000) : v) + "k";
         }
 
-        return value;
+        return v;
     }
 });
