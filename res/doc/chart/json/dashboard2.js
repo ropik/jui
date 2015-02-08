@@ -16,20 +16,14 @@ var dataSource = [
 ];
 
 var dataSource2 = [
-    { title : 'Overall Visits', value : 192, max : 200, min : 0, unit : "k" },
-    { title : 'New Visits', value : 66, max : 100, min : 0, unit : "%" },
-    { title : 'Mobile Visits', value : 75, max : 100, min : 0, unit : "%" },
-    { title : 'Desktop Visits', value : 25, max : 100, min : 0, unit : "%" }
-]
+    { title : "Overall Visits", value : 192, max : 200, min : 0 },
+    { title : "New Visits", value : 66, max : 100, min : 0 },
+    { title : "Mobile Visits", value : 75, max : 100, min : 0 },
+    { title : "Desktop Visits", value : 25, max : 100, min : 0 }
+];
 
 chart("#chart", {
     height : 400,
-    format : function(d) {
-        if(typeof(d) == "number")
-            return (d / 1000) + "K";
-
-        return d;
-    },
     axis : [{
         x : {
             type : "block",
@@ -40,7 +34,13 @@ chart("#chart", {
             type : "range",
             domain : [ 0, 100000 ],
             step : 4,
-            line : true
+            line : true,
+            format : function(d) {
+                if(typeof(d) == "number")
+                    return (d / 1000) + "K";
+
+                return d;
+            }
         },
         area : { height : "45%" },
         data : dataSource
@@ -52,7 +52,10 @@ chart("#chart", {
             padding: 10
         },
         data : dataSource2,
-        area : { height : '30%', y : '65%'}
+        area : {
+            height : "30%",
+            y : "65%"
+        }
     }],
     series : {
         value : {
@@ -78,7 +81,14 @@ chart("#chart", {
         type : "fullgauge",
         axis : 1,
         size : 10,
-        titleX : -47
+        titleX : -47,
+        format : function(value, index) {
+            if(index == 0) {
+                return value + "k";
+            }
+
+            return value + "%";
+        }
     } ],
     widget : [{
         type : "title",

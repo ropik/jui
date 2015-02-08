@@ -28,5 +28,8 @@ chart("#chart-content", {
     widget : [{
         type : "title",
         text : "Area Sample"
-    }]
+    }],
+    style : {
+        areaBackgroundOpacity : 0.5
+    }
 });

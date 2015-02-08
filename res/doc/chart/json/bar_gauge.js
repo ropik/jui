@@ -1,9 +1,7 @@
 var chart = jui.include("chart.builder");
 
 chart("#chart", {
-    padding : {
-        top : 0
-    },
+    padding : 0,
     axis : {
         data : [
             { title : "OPTION 1", value : 75 },
@@ -16,7 +14,9 @@ chart("#chart", {
     },
     brush : {
         type: "bargauge",
-        target: "value",
-        size: 18
+        size: 18,
+        format: function(value) {
+            return value + "%";
+        }
     }
 });

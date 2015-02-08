@@ -120,7 +120,8 @@ var code_list = [
     { type: "dashboard", title : "Stock Chart (Axis group)", description : "", code : "mixed3_axis.js" },
     { type: "dashboard", title : "Stock Chart with Candle Stick", description : "", code : "mixed3_axis_2.js" },
     { type: "dashboard", title : "Multi Brushes", description : "", code : "dashboard.js" },
-    { type: "dashboard", title : "Beautiful Dashboard", description : "", code : "dashboard2.js" }
+    { type: "dashboard", title : "Beautiful Dashboard", description : "", code : "dashboard2.js" },
+    { type: "dashboard", title : "Company Performance", description : "", code : "dashboard3.js" }
 ];
 
 function getTodayData() {
