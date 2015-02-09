@@ -10,16 +10,16 @@ var charts = [
     { type: "column", title : "Column Chart", start : 11 },
     { type: "pie", title : "Pie Chart", start : 22 },
     { type: "donut", title : "Donut Chart", start : 24 },
-    { type: "bubble", title : "Bubble Chart", start : 25 },
-    { type: "scatter", title : "Scatter Chart", start : 27 },
-    { type: "area", title : "Area Chart", start : 31 },
-    { type: "radar", title : "Radar Chart", start : 36 },
-    { type: "line", title : "Line Chart", start : 38 },
-    { type: "gauge", title : "Gauge Chart", start : 48 },
-    { type: "stock", title : "Candle Stick Chart", start : 54 },
-    { type: "mixed", title : "Combination Chart", start : 59 },
-    { type: "realtime", title : "Realtime Chart", start : 63 },
-    { type: "dashboard", title : "Dashboard", start : 66 }
+    { type: "bubble", title : "Bubble Chart", start : 26 },
+    { type: "scatter", title : "Scatter Chart", start : 28 },
+    { type: "area", title : "Area Chart", start : 32 },
+    { type: "radar", title : "Radar Chart", start : 37 },
+    { type: "line", title : "Line Chart", start : 39 },
+    { type: "gauge", title : "Gauge Chart", start : 49 },
+    { type: "stock", title : "Candle Stick Chart", start : 55 },
+    { type: "mixed", title : "Combination Chart", start : 60 },
+    { type: "realtime", title : "Realtime Chart", start : 64 },
+    { type: "dashboard", title : "Dashboard", start : 67 }
 ];
 
 var code_list = [
@@ -57,6 +57,7 @@ var code_list = [
 
     // donut
     { type: "donut", title : "Donut", description : "", code : "donut.js" },
+    { type: "donut", title : "Overlap Donut", description : "", code : "mini_donut.js" },
 
     // bubble
     { type: "bubble", title : "Basic Bubble", description : "", code : "bubble.js" },
@@ -118,12 +119,13 @@ var code_list = [
     { type: "realtime", title : "Realtime Complex Line",  description : "", code : "realtime_line_complex.js" },
 
     // dashboard
-    { type: "dashboard", title : "Stock Chart (Axis group)", description : "", code : "mixed3_axis.js" },
-    { type: "dashboard", title : "Stock Chart with Candle Stick", description : "", code : "mixed3_axis_2.js" },
+    { type: "dashboard", title : "Stock Dashboard", description : "", code : "mixed3_axis.js" },
+    { type: "dashboard", title : "Candle Stick Dashboard", description : "", code : "mixed3_axis_2.js" },
     { type: "dashboard", title : "Multi Brushes", description : "", code : "dashboard.js", hide : true },
     { type: "dashboard", title : "Beautiful Dashboard", description : "", code : "dashboard2.js" },
     { type: "dashboard", title : "Company Performance", description : "", code : "dashboard3.js" },
-    { type: "dashboard", title : "Sales Overview", description : "", code : "dashboard4.js" }
+    { type: "dashboard", title : "Sales Overview", description : "", code : "dashboard4.js" },
+    { type: "dashboard", title : "Server Topologies", description : "", code : "topology.js", hide : true }
 ];
 
 function getTodayData() {
