@@ -17,7 +17,7 @@ var charts = [
     { type: "line", title : "Line Chart", start : 38 },
     { type: "gauge", title : "Gauge Chart", start : 48 },
     { type: "stock", title : "Candle Stick Chart", start : 54 },
-    { type: "mixed", title : "Combination Chart", start : 58 },
+    { type: "mixed", title : "Combination Chart", start : 59 },
     { type: "realtime", title : "Realtime Chart", start : 63 },
     { type: "dashboard", title : "Dashboard", start : 66 }
 ];
@@ -106,11 +106,11 @@ var code_list = [
     { type: "stock", title : "OHLC", description : "", code : "ohlc.js" },
 
     // combination chart
-    { type: "mixed", title : "Basic Combination",  description : "", code : "mixed1.js" },
+    { type: "mixed", title : "Basic Combination",  description : "", code : "mixed1.js", hide : true },
     { type: "mixed", title : "Multi Axis", description : "", code : "mixed2_multi_axis.js" },
     { type: "mixed", title : "Compare Data", description : "", code : "bar_compare_layout.js" },
     { type: "mixed", title : "Mixed daily and intra-day", description : "", code : "mixed4_linebar.js" },
-    { type: "mixed", title : "Sales Comparison", description : "", code : "mixed5.js", hide : true },
+    { type: "mixed", title : "Sales Comparison", description : "", code : "mixed5.js" },
 
     // realtime chart
     { type: "realtime", title : "Realtime Line",  description : "", code : "realtime_line.js" },
