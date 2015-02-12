@@ -542,8 +542,8 @@ function createRealtime() {
     chart_1 = chart(".main-chart-3 .chart", {
         axis : {
             data : getRealtimeData(5),
-            xline : true,
-            yline : false
+            xhide : true,
+            yhide : true
         },
         brush : {
             type : "line",
