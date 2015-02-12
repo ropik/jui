@@ -801,8 +801,7 @@ function createTopology() {
             },
             nodeTitle: function(data) {
                 return data.name;
-            },
-            activeEdge: "1000_2:1000_3"
+            }
         },
         widget: {
             type: "topologyctrl"
