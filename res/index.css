@@ -123,6 +123,162 @@ nav {
 	cursor: default;
 }
 
+/** Chart main pages */
+.main-chart {
+    position: relative;
+}
+.main-chart > nav {
+    position: absolute !important;
+    border-bottom-width: 0px !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    height: 100% !important;
+    box-shadow: none !important;
+}
+.main-chart > nav > .center {
+    height: 100% !important;
+}
+
+.main-chart-1 {
+    height : 670px;
+}
+.main-chart-1 > nav {
+    background-color: #2b3340 !important;
+    background-image: url("img/chart_main_1.png") !important;
+    background-repeat: no-repeat !important;
+}
+.main-chart-1 > nav > .center > .box {
+    background-color: #8772bf !important;
+    box-shadow: 15px 15px 65px rgba(0,0,0,0.8);
+    width: 877px;
+    height: 470px;
+    margin: 100px 0px 100px 41.5px;
+    text-align: center;
+}
+.main-chart-1 > nav > .center > .box > .img-logo {
+    background-position: 0 -879px;
+    width: 387px;
+    height: 121px;
+    margin: 94px 0px 40px 0px;
+}
+.main-chart-1 > nav > .center > .box > .message {
+    margin-bottom: 40px;
+    font-size: 1.4em;
+    font-weight: 400;
+    line-height: 1.75;
+    COLOR: #fff;
+}
+.main-chart-1 > nav > .center > .box > .img-play {
+    background-position: -442px -371px;
+    width: 199px;
+    height: 54px;
+    cursor: pointer;
+}
+
+.main-chart-2 {
+    height : 234px;
+}
+.main-chart-2 > nav {
+    background-color: #d0dfe2 !important;
+}
+.main-chart-2 > nav > .center {
+    background-image: url("img/chart_main_2.png") !important;
+    background-repeat: no-repeat !important;
+    height: 100% !important;
+}
+.main-chart-2 > nav > .center > .message {
+    padding: 90px 0 90px 40px;
+    font-size: 1.5em;
+    line-height: 1.75;
+    font-weight: 200;
+    color: #4d4d4d;
+}
+
+.main-chart-3 {
+    height : 623px;
+}
+.main-chart-3 > nav > .center {
+    text-align: center;
+}
+.main-chart-3 > nav > .center > .message {
+    padding-top: 22px;
+    font-size: 1.4em;
+    line-height: 1.75;
+    font-weight: 200;
+    color: #838383;
+}
+.main-chart-3 > nav > .center > .img-logo {
+    background-position: 0 -1000px;
+    width: 351px;
+    height: 41px;
+    margin-top: 100px;
+}
+.main-chart-3 > nav > .center > .chart {
+    margin-top: 100px;
+    height: 179px;
+}
+
+.main-chart-4 {
+    height : 900px;
+}
+.main-chart-4 > nav {
+    background: url("img/ripped-border.png") repeat-x left top, url("img/light-noise.png") repeat !important;
+}
+.main-chart-4 > nav > .center > .img-logo {
+    background-position: 0 -1041px;
+    width: 269px;
+    height: 41px;
+    margin-top: 100px;
+}
+.main-chart-4 > nav > .center > .message {
+    display: inline-block;
+    padding-left: 50px;
+    font-size: 1.4em;
+    line-height: 1.75;
+    font-weight: 200;
+    color: #838383;
+}
+.main-chart-4 > nav > .center > .chart {
+    margin-top: 100px;
+    height: 497px;
+}
+
+.main-chart-5 {
+    height : 686px;
+    margin-bottom : -56px;
+    background: #d0dfe2;
+}
+.main-chart-5 > nav {
+    background: url("img/chart_main_3.png") no-repeat !important;
+    background-position: center !important;
+}
+.main-chart-5 > nav > .center > .box {
+    background-color: #fff !important;
+    box-shadow: 15px 15px 65px rgba(0,0,0,0.1);
+    width: 960px;
+    height: 518px;
+    margin: 84px 0px;
+    text-align: center;
+}
+.main-chart-5 > nav > .center > .box > .img-logo {
+    background-position: 0 -1082px;
+    width: 351px;
+    height: 41px;
+    margin-top: 84px;
+}
+.main-chart-5 > nav > .center > .box > .message {
+    margin-top: 22px;
+    font-size: 1.4em;
+    font-weight: 200;
+    line-height: 1.75;
+    color: #838383;
+}
+.main-chart-5 > nav > .center > .box > .chart {
+    margin: 22px 0px 0px 40px;
+    width: 880px;
+    height: 218px;
+}
+
 nav .container {
 	text-align: center;
 	padding-top: 165px;
@@ -341,6 +497,10 @@ article {
 
 article iframe {
 	width: 100%;
+}
+
+article#chart {
+    margin-top: 74px;
 }
 
 nav .bs-social-buttons {

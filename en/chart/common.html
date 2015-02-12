@@ -1,5 +1,3 @@
-
-
 <!-- Create a simple CodeMirror instance -->
 <link rel="stylesheet" href="../lib/codemirror-4.5/lib/codemirror.css">
 <link rel="stylesheet" href="../lib/codemirror-4.5/theme/twilight.css">
@@ -8,25 +6,84 @@
 <script src="../lib/codemirror-4.5/lib/codemirror.js"></script>
 <script src="../lib/codemirror-4.5/mode/javascript/javascript.js"></script>
 
-<!-- doc -->
+<!-- resources -->
 <link rel="stylesheet" href="../res/doc/chart.css">
 <script src="../res/doc/chart.js"></script>
 
-<div class="row gallery"></div>
-
-<script type="text/template" id="tpl_col">
-    <div class='panel'>
-        <div class='head'></div>
-        <div class='body'>
-            <img src="" />
+<!-- contents -->
+<div class="main-chart main-chart-1">
+    <nav class="navbar navbar-fixed-top">
+        <div class="center">
+            <div class="box">
+                <div class="img img-logo"></div>
+                <div class="message">
+                    JUI Chart provides a variety of brushes, axis and widgets.<br/>
+                    You can represent data in conjunction with the table component.
+                </div>
+                <div class="img img-play" onclick="$('#chart-list-0').trigger('click')"></div>
+            </div>
         </div>
-    </div>
-</script>
+    </nav>
+</div>
+
+<div class="main-chart main-chart-2">
+    <nav class="navbar navbar-fixed-top">
+        <div class="center">
+            <div class="message">
+                You can use the JUI chart in server as well as client.
+                Get started right now in NodeJS.
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="main-chart main-chart-3">
+    <nav class="navbar navbar-fixed-top">
+        <div class="center">
+            <div class="img img-logo"></div>
+            <div class="title"></div>
+            <div class="message">
+                You can easily use more real-time data.<br/>
+                You can use a variety of brushes.
+            </div>
+            <div class="chart"></div>
+        </div>
+    </nav>
+</div>
+
+<div class="main-chart main-chart-4">
+    <nav class="navbar navbar-fixed-top">
+        <div class="center">
+            <div class="img img-logo"></div>
+            <div class="message">
+                Dashboard can represent different types of data in a single chart.<br/>
+                Create the dashboard right now.
+            </div>
+            <div class="chart"></div>
+        </div>
+    </nav>
+</div>
+
+<div class="main-chart main-chart-5">
+    <nav class="navbar navbar-fixed-top">
+        <div class="center">
+            <div class="box">
+                <div class="img img-logo"></div>
+                <div class="message">
+                    JUI chart can represent the topology.<br/>
+                    Create your own links.
+                </div>
+                <div class="chart"></div>
+            </div>
+        </div>
+    </nav>
+</div>
 
 <div id="modal_1" class="msgbox msgbox-white window-white" style="display: none;">
     <div class="head">
         <h2 class='title'>Chart Play</h2>
-		<span>Themes
+		<span>
+			Themes
 			<select onchange="changeTheme(this.value)">
                 <option value="jennifer">Jennifer</option>
                 <option value="dark">Dark</option>
@@ -41,8 +98,8 @@
     </div>
     <div class="body">
         <div class="contents">
-    		<div class="chart_list"></div>
-    	    <div class="splitter"></div>
+            <div class="chart_list"></div>
+            <div class="splitter"></div>
             <div class="chart_data">
                 <div class="chart_data_main">
                     <ul id="tab_1" class="tab tab-top">
@@ -64,7 +121,7 @@
                         <div id="chart-data">
                             <table id="table_1" class="table table-simple table-nowrap">
                                 <thead>
-                                    <tr></tr>
+                                <tr></tr>
                                 </thead>
                                 <tbody></tbody>
                             </table>
@@ -86,8 +143,8 @@
             <div class="splitter splitter-2"></div>
             <div class="chart_view">
                 <div class="chart-main">
-                	<div id="chart-content-title">
-                		<h2>
+                    <div id="chart-content-title">
+                        <h2>
                             Result
 
                             <div class="group">
@@ -95,18 +152,18 @@
                             </div>
 
                             <div class="group">
-                                <a class='btn btn-flat btn-rect btn-style' title="Show Styles"><i class='icon-edit'></i></a> <a class='btn btn-flat btn-rect btn-image' title="Download Image"><i class='icon-image'></i></a> <a class='btn btn-flat btn-rect btn-fullscreen' title="Full Screen"><i class='icon-new-window'></i></a>
+                                <a class='btn btn-flat btn-rect btn-style' title="Show Styles"><i class='icon-edit'></i></a>
+                                <a class='btn btn-flat btn-rect btn-image' title="Download Image"><i class='icon-image'></i></a>
+                                <a class='btn btn-flat btn-rect btn-fullscreen' title="Full Screen"><i class='icon-new-window'></i></a>
                             </div>
                         </h2>
-                	</div>
+                    </div>
                     <div id="chart-content"></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<iframe frameborder="0" scrolling="no" onload="setIFrameHeight(this, 'chart')"></iframe>
 
 <script id="tpl_compare" type="text/template">
     <div class="row" style="height: 100%;">

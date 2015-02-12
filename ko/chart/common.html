@@ -6,20 +6,78 @@
 <script src="../lib/codemirror-4.5/lib/codemirror.js"></script>
 <script src="../lib/codemirror-4.5/mode/javascript/javascript.js"></script>
 
-<!-- doc -->
+<!-- resources -->
 <link rel="stylesheet" href="../res/doc/chart.css">
 <script src="../res/doc/chart.js"></script>
 
-<div class="row gallery"></div>
-
-<script type="text/template" id="tpl_col">
-    <div class='panel'>
-        <div class='head'></div>
-        <div class='body'>
-            <img src="" />
+<!-- contents -->
+<div class="main-chart main-chart-1">
+    <nav class="navbar navbar-fixed-top">
+        <div class="center">
+            <div class="box">
+                <div class="img img-logo"></div>
+                <div class="message">
+                    JUI 차트는 다양한 브러쉬와 그리드, 위젯을 제공하며 이를 조합하여 간단하고 쉽게 차트를 사용할 수 있으며<br/>
+                    테이블 컴포넌트와 연동하여 데이터를 표현할 수도 있습니다.
+                </div>
+                <div class="img img-play" onclick="$('#chart-list-0').trigger('click')"></div>
+            </div>
         </div>
-    </div>
-</script>
+    </nav>
+</div>
+
+<div class="main-chart main-chart-2">
+    <nav class="navbar navbar-fixed-top">
+        <div class="center">
+            <div class="message">
+                클라이언트 뿐만이 아니라 서버에서도 JUI 차트를 사용할 수 있습니다.<br/>
+                지금 바로 NodeJS로 시작해보세요.
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="main-chart main-chart-3">
+    <nav class="navbar navbar-fixed-top">
+        <div class="center">
+            <div class="img img-logo"></div>
+            <div class="title"></div>
+            <div class="message">
+                JUI 차트는 리얼타임 데이터를 보다 쉽게 표현할 수 있습니다.<br/>
+                라인만이 아니라 다른 브러쉬도 사용할 수 있습니다.
+            </div>
+            <div class="chart"></div>
+        </div>
+    </nav>
+</div>
+
+<div class="main-chart main-chart-4">
+    <nav class="navbar navbar-fixed-top">
+        <div class="center">
+            <div class="img img-logo"></div>
+            <div class="message">
+                여러 종류의 데이터를 하나의 차트로 표현할 수 있습니다.<br/>
+                지금 바로 대쉬보드를 만들어보세요.
+            </div>
+            <div class="chart"></div>
+        </div>
+    </nav>
+</div>
+
+<div class="main-chart main-chart-5">
+    <nav class="navbar navbar-fixed-top">
+        <div class="center">
+            <div class="box">
+                <div class="img img-logo"></div>
+                <div class="message">
+                    JUI 차트는 토폴로지 형태의 그래프도 표현할 수 있습니다.<br/>
+                    자신만의 연결고리를 만들어보세요.
+                </div>
+                <div class="chart"></div>
+            </div>
+        </div>
+    </nav>
+</div>
 
 <div id="modal_1" class="msgbox msgbox-white window-white" style="display: none;">
     <div class="head">
@@ -106,8 +164,6 @@
         </div>
     </div>
 </div>
-
-<iframe frameborder="0" scrolling="no" onload="setIFrameHeight(this, 'chart')"></iframe>
 
 <script id="tpl_compare" type="text/template">
     <div class="row" style="height: 100%;">

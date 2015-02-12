@@ -99,6 +99,7 @@ var menuInfo = {
 };
 
 var loading = null;
+var chart_interval = null;
 
 function initHashEvent() {
 	$(window).hashchange(function() {
@@ -131,19 +132,44 @@ function initMenuUrl(hash) {
 	var src = menuInfo[hash[0]].src;
 
     // 타이틀 & 메시지 처리
-    if(hash == "home") {
-        $(".main, nav.download").show();
-        $("nav.sub").hide();
-    } else if(hash == "about") {
-        $(".main, nav.download, nav.sub").hide();
-        $("nav.about").show();
+    if(hash == "chart") {
+        $(".main, nav.download, nav.about, nav.sub").hide();
     } else {
-		$(".main, nav.download, nav.about").hide();
-		$("nav.sub").show();
-		$("nav.sub .title").html(menuInfo[hash[0]].title);
-		$("nav.sub .msg").html(menuInfo[hash[0]].msg);
-	}
-	
+        // 페이지 변경시 차트 객체 초기화
+        if(chart_interval != null) {
+            if(chart_1) {
+                chart_1.stop();
+                chart_1.destroy();
+                chart_1 = null;
+            }
+
+            if(chart_2) {
+                chart_2.destroy();
+                chart_2 = null;
+            }
+
+            if(chart_3) {
+                chart_3.destroy();
+                chart_3 = null;
+            }
+
+            clearInterval(chart_interval);
+        }
+
+        if(hash == "home") {
+            $(".main, nav.download").show();
+            $("nav.sub").hide();
+        } else if(hash == "about") {
+            $(".main, nav.download, nav.sub").hide();
+            $("nav.about").show();
+        } else {
+            $(".main, nav.download, nav.about").hide();
+            $("nav.sub").show();
+            $("nav.sub .title").html(menuInfo[hash[0]].title);
+            $("nav.sub .msg").html(menuInfo[hash[0]].msg);
+        }
+    }
+
 	// 영역 보이기 및 숨기기
 	$("article").hide();
 	$("#" + hash[0]).show();
@@ -157,15 +183,14 @@ function initMenuUrl(hash) {
 			initSubMenuUrl(hash);
 			break;
 		}
-	} else if (hash[0] == 'chart') {
-		if (src) {
-			loadPage(hash, src);
+	} else if(hash[0] == "chart") {
+		if(src) {
+			loadPage(src);
 		}
 	} else {
-		if (src) {
+		if(src) {
 			loadIframe($("#" + hash[0]).find("iframe"), src);
 		}
-		
 	}
 }
 
@@ -181,13 +206,11 @@ function initSubMenuUrl(hash) {
 	$menu.addClass("active");
 	
 	if (src) {
-
-		if (hash[0] == 'chart') {
-			loadPage(hash, src);
+		if (hash[0] == "chart") {
+			loadPage(src);
 		} else {
 			loadIframe($target.find("iframe"), src);			
 		}
-
 	}
 
 
@@ -259,7 +282,7 @@ function setIFrameHeight(obj, id) {
 
 function checkIeVersion() {
 	if(document.all && !document.addEventListener) {
-	    alert('JUI 메뉴얼 페이지는 IE 9+ 이상의 브라우저에서만 동작합니다.');
+	    alert("This page is only supported browser than IE 9+");
 	}
 }
 
@@ -274,8 +297,8 @@ function loadIframe($iframe, src) {
 	});
 }
 
-function loadPage(hash, src) {
-	$("#chart .center").load(src);
+function loadPage(src) {
+	$("#chart").load(src);
 }
 
 function initAnimation() {
@@ -404,8 +427,8 @@ function changeLanguage(from, to) {
 	location.href = location.href.split("/" + from + "/").join("/" + to + "/");
 }
 
-jui.ready(function(ui, uix, _) {
-	loading = ui.modal("#floatingBarsG", {
+jui.ready([ "ui.modal" ], function(modal) {
+	loading = modal("#floatingBarsG", {
 		color: "black"
 	});
 	
