@@ -542,7 +542,7 @@ function createRealtime() {
     chart_1 = chart(".main-chart-3 .chart", {
         axis : {
             data : getRealtimeData(5),
-            xhide : true,
+            xhide : false,
             yhide : true
         },
         brush : {
@@ -765,15 +765,6 @@ function createTopology() {
         { key: "1_2_3_4", name: "Oracle", type: "db", outgoing: [] }
     ];
 
-    var edgeData = [
-        { key: "1000_1:1000_2", count: 3, time: 1000 },
-        { key: "1000_2:1000_3", count: 3, time: 1000 },
-        { key: "1000_2:1000_4", count: 3, time: 1000 },
-        { key: "1000_3:1_2_3_4", count: 3, time: 1000 },
-        { key: "1000_3:1000_2", count: 3, time: 1000 },
-        { key: "1000_4:1_2_3_4", count: 3, time: 1000 }
-    ];
-
     chart_3 = chart(".main-chart-5 .chart", {
         padding: 5,
         axis: {
@@ -834,5 +825,8 @@ jui.ready([ "util.base" ], function(_) {
         if(chart_3 == null && top > 1950) {
             createTopology();
         }
+
+        // 메인 이미지 포지션 변경
+        $(".main-chart-1 > nav").css("background-position", "0px " + (-top) + "px");
     });
 });
