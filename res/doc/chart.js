@@ -777,19 +777,6 @@ function createTopology() {
         },
         brush: {
             type: "topologynode",
-            edgeData: edgeData,
-            edgeText: function(data, align) {
-                var text = data.time + "/" + data.count;
-
-                if(align == "end") {
-                    text = text + " →";
-                } else {
-                    text = "← " + text;
-                }
-
-                return text;
-            },
-            nodeColor: "#729ff1",
             nodeText: function(data) {
                 if(data.type == "server") {
                     return "{server}";
