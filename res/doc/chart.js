@@ -36,7 +36,7 @@ var code_list = [
     { type: "bar", title : "Inner Bar", description : "", code : "inner_bar.js" },
     { type: "bar", title : "Overlap Bar", description : "", code : "overlap_bar.js" },
     { type: "bar", title : "Active Bar", description : "", code : "active_bar.js" },
-    { type: "bar", title : "Mini Bar", description : "", code : "mini_bar.js" },
+    { type: "bar", title : "Mini Bar", description : "", code : "mini_bar.js", hide : true },
     { type: "bar", title : "Range Bar", description : "", code : "rangebar.js" },
 
     // column
