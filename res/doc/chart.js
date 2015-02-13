@@ -30,7 +30,7 @@ var code_list = [
 
     // bar
     { type: "bar", title : "Basic Bar", description : "", code : "bar.js" },
-    { type: "bar", title : "Stack Bar", description : "", code : "stack_bar.js" },
+    { type: "bar", title : "Stack Bar", description : "", code : "stack_bar.js", hide : true },
     { type: "bar", title : "Active Stack Bar", description : "", code : "active_stack_bar.js" },
     { type: "bar", title : "Full Stack Bar", description : "", code : "fullstackbar.js" },
     { type: "bar", title : "Inner Bar", description : "", code : "inner_bar.js" },
@@ -41,13 +41,13 @@ var code_list = [
 
     // column
     { type: "column", title : "Basic Column", description : "", code : "column.js" },
-    { type: "column", title : "Stack Column", description : "", code : "stack_column.js" },
+    { type: "column", title : "Stack Column", description : "", code : "stack_column.js", hide : true },
     { type: "column", title : "Active Stack Column", description : "", code : "active_stack_column.js" },
     { type: "column", title : "Full Stack Column", description : "", code : "fullstack.js" },
     { type: "column", title : "Inner Column", description : "", code : "inner_column.js" },
     { type: "column", title : "Overlap Column", description : "", code : "overlap_column.js" },
     { type: "column", title : "Active Column", description : "", code : "active_column.js" },
-    { type: "column", title : "Mini Column", description : "", code : "mini_column.js" },
+    { type: "column", title : "Mini Column", description : "", code : "mini_column.js", hide : true },
     { type: "column", title : "Range Column", description : "", code : "rangecolumn.js" },
     { type: "column", title : "Equalizer", description : "", code : "equalizer.js" },
     { type: "column", title : "Waterfall", description : "", code : "waterfall.js" },
@@ -724,6 +724,13 @@ function createDashboard() {
             orient : "center",
             dx : -80,
             dy : 110
+        }, {
+            type : "title",
+            text : "Units Sold",
+            align : "end",
+            orient : "center",
+            dx : -235,
+            dy : -125
         }, {
             type : "tooltip",
             format : function(k, v) {
