@@ -2,7 +2,7 @@
 
 /* Base */
 body {
-	font-family: "Helvetica", "Trebuchet MS", Dotum, Verdana, AppleGothic, sans-serif; 
+	font-family: "Apple SD Gothic NEO", "Nanum Gothic", "Helvetica Neue", "Helvetica", "Dotum", "Arial", "Verdana", "sans-serif";
 	font-size: 14px;
 	margin: 0px;
 	overflow-x: hidden;
@@ -146,10 +146,11 @@ nav {
     background-color: #2b3340 !important;
     background-image: url("img/chart_main_1.png") !important;
     background-repeat: no-repeat !important;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
 }
 .main-chart-1 > nav > .center > .box {
-    background-color: #8772bf !important;
-    box-shadow: 15px 15px 65px rgba(0,0,0,0.8);
     width: 877px;
     height: 470px;
     margin: 100px 0px 100px 41.5px;
@@ -187,11 +188,11 @@ nav {
     height: 100% !important;
 }
 .main-chart-2 > nav > .center > .message {
-    padding: 90px 0 90px 40px;
-    font-size: 1.5em;
-    line-height: 1.75;
-    font-weight: 200;
-    color: #4d4d4d;
+    padding: 85px 0 90px 40px;
+    font-size: 1.6em;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #666;
 }
 
 .main-chart-3 {
@@ -203,8 +204,8 @@ nav {
 .main-chart-3 > nav > .center > .message {
     padding-top: 22px;
     font-size: 1.4em;
-    line-height: 1.75;
     font-weight: 200;
+    line-height: 1.6;
     color: #838383;
 }
 .main-chart-3 > nav > .center > .img-logo {
@@ -234,8 +235,8 @@ nav {
     display: inline-block;
     padding-left: 50px;
     font-size: 1.4em;
-    line-height: 1.75;
     font-weight: 200;
+    line-height: 1.6;
     color: #838383;
 }
 .main-chart-4 > nav > .center > .chart {
@@ -270,7 +271,7 @@ nav {
     margin-top: 22px;
     font-size: 1.4em;
     font-weight: 200;
-    line-height: 1.75;
+    line-height: 1.6;
     color: #838383;
 }
 .main-chart-5 > nav > .center > .box > .chart {
@@ -527,7 +528,7 @@ nav .github-btn {
 }
 
 footer {
-	height: 153px;
+	height: 170px;
 	background-color: #2f353e !important;
 	background-image: none !important;
 }
