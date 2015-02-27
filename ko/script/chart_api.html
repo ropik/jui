@@ -127,10 +127,15 @@ var uiApi = {
             ret: "none",
             detail: "해당 넓이와 높이로 차트 크기를 변경하여 렌더링합니다."
         },
+        appendDefs: {
+            param: "element",
+            ret: "none",
+            detail: "defs 태그에 엘리먼트를 추가합니다."
+        },
         addBrush: {
             param: "brush",
             ret: "none",
-            detail: "브러쉬를 추가하고 다시 렌더링합니다.."
+            detail: "브러쉬를 추가하고 다시 렌더링합니다."
         },
         removeBrush: {
             param: "brushIndex",
@@ -842,6 +847,9 @@ var widgetApi = {
         text: {
             detail: "타이틀 메시지를 설정합니다."
         },
+        size: {
+            detail: "타이틀 메시지 크기를 설정합니다."
+        },
         dx: {
             detail: "차트가 그려진 위치에서 설정한 값만큼 x 좌표를 이동시킵니다."
         },
@@ -875,6 +883,14 @@ var widgetApi = {
         },
         yFormat: {
             detail: "툴팁에 보여지는 y축 값에 대한 포맷을 설정합니다."
+        }
+    },
+    topologyctrl: {
+        move: {
+            detail: "토폴로지 맵의 보는 관점을 이동할 수 있도록 설정합니다."
+        },
+        zoom: {
+            detail: "토폴로지 맵을 줌인/줌아웃 할 수 있도록 설정합니다."
         }
     }
 };

@@ -176,6 +176,9 @@ window.coreApi = {
         axis: {
             detail: "Specifies the index of a grid group which acts as the reference axis of a brush."
         },
+        clip: {
+            detail: "If the brush is drawn outside of the chart, cut the area."
+        },
         index: {
             detail: "[Read Only] Sequence index on which brush is drawn."
         },

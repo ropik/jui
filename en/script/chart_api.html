@@ -123,6 +123,11 @@ var uiApi = {
             ret: "none",
             detail: "Changes the size of a chart to the specified area and height then performs rendering."
         },
+        appendDefs: {
+            param: "element",
+            ret: "none",
+            detail: "Add the child element in defs tag."
+        },
         addBrush: {
             param: "brush",
             ret: "none",
@@ -838,6 +843,9 @@ var widgetApi = {
         text: {
             detail: "Sets the title message."
         },
+        size: {
+            detail: "Sets the title message size."
+        },
         dx: {
             detail: "Moves the x coordinate by a set value from the location where the chart is drawn."
         },
@@ -871,6 +879,14 @@ var widgetApi = {
         },
         yFormat: {
             detail: "Sets the format for the value on the Y axis shown on the tool tip."
+        }
+    },
+    topologyctrl: {
+        move: {
+            detail: "Set to be moved to see the point of view of the topology map."
+        },
+        zoom: {
+            detail: "Set the zoom-in / zoom-out features of the topology map."
         }
     }
 };

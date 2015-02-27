@@ -746,7 +746,7 @@ function createDashboard() {
         },
         format : function(v) {
             if(typeof(v) == "number") {
-                return ((v > 1000) ? Math.floor(v / 1000) : v) + "k";
+                return ((v > 1000) ? Math.floor(v / 1000) + "k" : v);
             }
 
             return v;
