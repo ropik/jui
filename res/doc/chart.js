@@ -1,133 +1,148 @@
 var editor;
-var currentChartIndex  = 0;
+var currentChartIndex = 0;
 var table_1, table_2;
 var chart_1, chart_2, chart_3;
 var realtimeIndex = 0;
 var realtimeInterval = null;
 
 var charts = [
-    { type: "etc", title : "Basic", start : 0 },
-    { type: "bar", title : "Bar Chart", start : 2 },
-    { type: "column", title : "Column Chart", start : 11 },
-    { type: "pie", title : "Pie Chart", start : 22 },
-    { type: "donut", title : "Donut Chart", start : 24 },
-    { type: "bubble", title : "Bubble Chart", start : 26 },
-    { type: "scatter", title : "Scatter Chart", start : 28 },
-    { type: "area", title : "Area Chart", start : 32 },
-    { type: "radar", title : "Radar Chart", start : 37 },
-    { type: "line", title : "Line Chart", start : 39 },
-    { type: "gauge", title : "Gauge Chart", start : 49 },
-    { type: "stock", title : "Candle Stick Chart", start : 55 },
-    { type: "mixed", title : "Combination Chart", start : 60 },
-    { type: "realtime", title : "Realtime Chart", start : 64 },
-    { type: "dashboard", title : "Dashboard", start : 67 }
+    { type: "etc", title : "Basic" },
+    { type: "mixed", title : "Combination Chart" },
+    { type: "realtime", title : "Realtime Chart" },
+    { type: "dashboard", title : "Dashboard" },
+    { type: "topology", title : "Topology Map" },
+    { type: "bar", title : "Bar Chart" },
+    { type: "column", title : "Column Chart" },
+    { type: "pie", title : "Pie Chart" },
+    { type: "donut", title : "Donut Chart" },
+    { type: "bubble", title : "Bubble Chart" },
+    { type: "scatter", title : "Scatter Chart" },
+    { type: "area", title : "Area Chart" },
+    { type: "radar", title : "Radar Chart" },
+    { type: "line", title : "Line Chart" },
+    { type: "gauge", title : "Gauge Chart" },
+    { type: "stock", title : "Candle Stick Chart" }
 ];
 
 var code_list = [
-    // event handling
-    { type: "etc", title : "Set brush events",  description : "", code : "brush_event.js" },
-    { type: "etc", title : "Update axis data",  description : "", code : "brush_axis_value.js" },
-
-    // bar
-    { type: "bar", title : "Basic Bar", description : "", code : "bar.js" },
-    { type: "bar", title : "Stack Bar", description : "", code : "stack_bar.js", hide : true },
-    { type: "bar", title : "Active Stack Bar", description : "", code : "active_stack_bar.js" },
-    { type: "bar", title : "Full Stack Bar", description : "", code : "fullstackbar.js" },
-    { type: "bar", title : "Inner Bar", description : "", code : "inner_bar.js" },
-    { type: "bar", title : "Overlap Bar", description : "", code : "overlap_bar.js" },
-    { type: "bar", title : "Active Bar", description : "", code : "active_bar.js" },
-    { type: "bar", title : "Mini Bar", description : "", code : "mini_bar.js", hide : true },
-    { type: "bar", title : "Range Bar", description : "", code : "rangebar.js" },
-
-    // column
-    { type: "column", title : "Basic Column", description : "", code : "column.js" },
-    { type: "column", title : "Stack Column", description : "", code : "stack_column.js", hide : true },
-    { type: "column", title : "Active Stack Column", description : "", code : "active_stack_column.js" },
-    { type: "column", title : "Full Stack Column", description : "", code : "fullstack.js" },
-    { type: "column", title : "Inner Column", description : "", code : "inner_column.js" },
-    { type: "column", title : "Overlap Column", description : "", code : "overlap_column.js" },
-    { type: "column", title : "Active Column", description : "", code : "active_column.js" },
-    { type: "column", title : "Mini Column", description : "", code : "mini_column.js", hide : true },
-    { type: "column", title : "Range Column", description : "", code : "rangecolumn.js" },
-    { type: "column", title : "Equalizer", description : "", code : "equalizer.js" },
-    { type: "column", title : "Waterfall", description : "", code : "waterfall.js" },
-
-    // pie
-    { type: "pie", title : "Pie", description : "", code : "pie.js" },
-    { type: "pie", title : "Overlap Pie", description : "", code : "mini_pie.js" },
-
-    // donut
-    { type: "donut", title : "Donut", description : "", code : "donut.js" },
-    { type: "donut", title : "Overlap Donut", description : "", code : "mini_donut.js" },
-
-    // bubble
-    { type: "bubble", title : "Basic Bubble", description : "", code : "bubble.js" },
-    { type: "bubble", title : "Range Bubble", description : "", code : "range_bubble.js" },
-
-    // scatter
-    { type: "scatter", title : "Basic Scatter", description : "", code : "scatter.js" },
-    { type: "scatter", title : "Range Scatter", description : "", code : "range_scatter_cross.js" },
-    { type: "scatter", title : "Stack Scatter", description : "", code : "stack_scatter.js" },
-    { type: "scatter", title : "Scatter Path", description : "", code : "scatterpath.js" },
-
-    //area
-    { type: "area", title : "Basic Area", description : "", code : "area.js" },
-    { type: "area", title : "Stack Area", description : "", code : "stack_area.js" },
-    { type: "area", title : "Stack Curve Area", description : "", code : "stack_curve_area.js" },
-    { type: "area", title : "Stack Step Area", description : "", code : "stack_step_area.js" },
-    { type: "area", title : "Split Area", description : "", code : "split_area.js" },
-
-    // radar
-    { type: "radar", title : "Basic Radar", description : "", code : "radar.js" },
-    { type: "radar", title : "Circle Radar", description : "", code : "circle_radar.js" },
-
-    // line
-    { type: "line", title : "Basic Line", description : "", code : "line.js" },
-    { type: "line", title : "Curve Line", description : "", code : "curve_line.js" },
-    { type: "line", title : "Step Line", description : "", code : "step_line.js" },
-    { type: "line", title : "Active Line", description : "", code : "active_line.js" },
-    { type: "line", title : "Mini Line", description : "", code : "mini_line.js", hide : true },
-    { type: "line", title : "Range Line", description : "", code : "range_line.js" },
-    { type: "line", title : "Stack Line", description : "", code : "stack_line.js" },
-    { type: "line", title : "Multi Line", description : "", code : "line2.js" },
-    { type: "line", title : "Split Line", description : "", code : "split_line.js" },
-
-    // gauge
-    { type: "gauge", title : "Basic Gauge", description : "", code : "gauge.js", hide : true },
-    { type: "gauge", title : "Circle Gauge", description : "", code : "circle_gauge.js" },
-    { type: "gauge", title : "Fill Gauge", description : "", code : "fill_gauge.js", hide : true },
-    { type: "gauge", title : "Full Gauge", description : "", code : "full_gauge.js" },
-    { type: "gauge", title : "Stack Gauge", description : "", code : "stack_gauge.js", hide : true },
-    { type: "gauge", title : "Bar Gauge", description : "", code : "bar_gauge.js" },
-    { type: "gauge", title : "Fill Custom Gauge", description : "", code : "fill_custom_gauge.js", hide : true },
-
-    // candle stick
-    { type: "stock", title : "Candle Stick", description : "", code : "candlestick.js" },
-    { type: "stock", title : "Candle Stick with scroll", description : "", code : "candlestick_scroll.js" },
-    { type: "stock", title : "Candle Stick with zoom", description : "", code : "candlestick_zoom.js" },
-    { type: "stock", title : "OHLC", description : "", code : "ohlc.js" },
+    // basic
+    { type: "etc", title : "Set brush events",  code : "brush_event.js" },
+    { type: "etc", title : "Update axis data",  code : "brush_axis_value.js" },
 
     // combination chart
-    { type: "mixed", title : "Basic Combination",  description : "", code : "mixed1.js", hide : true },
-    { type: "mixed", title : "Multi Axis", description : "", code : "mixed2_multi_axis.js" },
-    { type: "mixed", title : "Compare Data", description : "", code : "bar_compare_layout.js" },
-    { type: "mixed", title : "Mixed daily and intra-day", description : "", code : "mixed4_linebar.js" },
-    { type: "mixed", title : "Sales Comparison", description : "", code : "mixed5.js" },
+    { type: "mixed", title : "Basic Combination",  code : "mixed1.js", hide : true },
+    { type: "mixed", title : "Multi Axis", code : "mixed2_multi_axis.js" },
+    { type: "mixed", title : "Compare Data", code : "bar_compare_layout.js" },
+    { type: "mixed", title : "Mixed daily and intra-day", code : "mixed4_linebar.js" },
+    { type: "mixed", title : "Sales Comparison", code : "mixed5.js" },
 
     // realtime chart
-    { type: "realtime", title : "Realtime Line",  description : "", code : "realtime_line.js" },
-    { type: "realtime", title : "Realtime Area",  description : "", code : "realtime_area.js" },
-    { type: "realtime", title : "Realtime Complex Line",  description : "", code : "realtime_line_complex.js" },
+    { type: "realtime", title : "Realtime Line",  code : "realtime_line.js" },
+    { type: "realtime", title : "Realtime Area",  code : "realtime_area.js" },
+    { type: "realtime", title : "Realtime Complex Line",  code : "realtime_line_complex.js" },
 
     // dashboard
-    { type: "dashboard", title : "Stock Dashboard", description : "", code : "mixed3_axis.js" },
-    { type: "dashboard", title : "Candle Stick Dashboard", description : "", code : "mixed3_axis_2.js" },
-    { type: "dashboard", title : "Multi Brushes", description : "", code : "dashboard.js", hide : true },
-    { type: "dashboard", title : "Beautiful Dashboard", description : "", code : "dashboard2.js" },
-    { type: "dashboard", title : "Company Performance", description : "", code : "dashboard3.js" },
-    { type: "dashboard", title : "Sales Overview", description : "", code : "dashboard4.js" },
-    { type: "dashboard", title : "Server Topologies", description : "", code : "topology.js", hide : true }
+    { type: "dashboard", title : "Stock Dashboard", code : "mixed3_axis.js" },
+    { type: "dashboard", title : "Candle Stick Dashboard", code : "mixed3_axis_2.js" },
+    { type: "dashboard", title : "Multi Brushes", code : "dashboard.js", hide : true },
+    { type: "dashboard", title : "Beautiful Dashboard", code : "dashboard2.js" },
+    { type: "dashboard", title : "Company Performance", code : "dashboard3.js" },
+    { type: "dashboard", title : "Sales Overview", code : "dashboard4.js" },
+
+    // topology map
+    { type: "topology", title : "Server Topologies", code : "topology.js" },
+    { type: "topology", title : "Server Topologies with image", code : "topology2.js" },
+
+    // bar
+    { type: "bar", title : "Basic Bar", code : "bar.js" },
+    { type: "bar", title : "Stack Bar", code : "stack_bar.js", hide : true },
+    { type: "bar", title : "Active Stack Bar", code : "active_stack_bar.js" },
+    { type: "bar", title : "Full Stack Bar", code : "fullstackbar.js" },
+    { type: "bar", title : "Inner Bar", code : "inner_bar.js" },
+    { type: "bar", title : "Overlap Bar", code : "overlap_bar.js" },
+    { type: "bar", title : "Active Bar", code : "active_bar.js" },
+    { type: "bar", title : "Mini Bar", code : "mini_bar.js", hide : true },
+    { type: "bar", title : "Range Bar", code : "rangebar.js" },
+
+    // column
+    { type: "column", title : "Basic Column", code : "column.js" },
+    { type: "column", title : "Stack Column", code : "stack_column.js", hide : true },
+    { type: "column", title : "Active Stack Column", code : "active_stack_column.js" },
+    { type: "column", title : "Full Stack Column", code : "fullstack.js" },
+    { type: "column", title : "Inner Column", code : "inner_column.js" },
+    { type: "column", title : "Overlap Column", code : "overlap_column.js" },
+    { type: "column", title : "Active Column", code : "active_column.js" },
+    { type: "column", title : "Mini Column", code : "mini_column.js", hide : true },
+    { type: "column", title : "Range Column", code : "rangecolumn.js" },
+    { type: "column", title : "Equalizer", code : "equalizer.js" },
+    { type: "column", title : "Waterfall", code : "waterfall.js" },
+
+    // pie
+    { type: "pie", title : "Pie", code : "pie.js" },
+    { type: "pie", title : "Overlap Pie", code : "mini_pie.js" },
+
+    // donut
+    { type: "donut", title : "Donut", code : "donut.js" },
+    { type: "donut", title : "Overlap Donut", code : "mini_donut.js" },
+
+    // bubble
+    { type: "bubble", title : "Basic Bubble", code : "bubble.js" },
+    { type: "bubble", title : "Range Bubble", code : "range_bubble.js" },
+
+    // scatter
+    { type: "scatter", title : "Basic Scatter", code : "scatter.js" },
+    { type: "scatter", title : "Range Scatter", code : "range_scatter_cross.js" },
+    { type: "scatter", title : "Stack Scatter", code : "stack_scatter.js" },
+    { type: "scatter", title : "Scatter Path", code : "scatterpath.js" },
+
+    //area
+    { type: "area", title : "Basic Area", code : "area.js" },
+    { type: "area", title : "Stack Area", code : "stack_area.js" },
+    { type: "area", title : "Stack Curve Area", code : "stack_curve_area.js" },
+    { type: "area", title : "Stack Step Area", code : "stack_step_area.js" },
+    { type: "area", title : "Split Area", code : "split_area.js" },
+
+    // radar
+    { type: "radar", title : "Basic Radar", code : "radar.js" },
+    { type: "radar", title : "Circle Radar", code : "circle_radar.js" },
+
+    // line
+    { type: "line", title : "Basic Line", code : "line.js" },
+    { type: "line", title : "Curve Line", code : "curve_line.js" },
+    { type: "line", title : "Step Line", code : "step_line.js" },
+    { type: "line", title : "Active Line", code : "active_line.js" },
+    { type: "line", title : "Mini Line", code : "mini_line.js", hide : true },
+    { type: "line", title : "Range Line", code : "range_line.js" },
+    { type: "line", title : "Stack Line", code : "stack_line.js" },
+    { type: "line", title : "Multi Line", code : "line2.js" },
+    { type: "line", title : "Split Line", code : "split_line.js" },
+
+    // gauge
+    { type: "gauge", title : "Basic Gauge", code : "gauge.js", hide : true },
+    { type: "gauge", title : "Circle Gauge", code : "circle_gauge.js" },
+    { type: "gauge", title : "Fill Gauge", code : "fill_gauge.js", hide : true },
+    { type: "gauge", title : "Full Gauge", code : "full_gauge.js" },
+    { type: "gauge", title : "Stack Gauge", code : "stack_gauge.js", hide : true },
+    { type: "gauge", title : "Bar Gauge", code : "bar_gauge.js" },
+    { type: "gauge", title : "Fill Custom Gauge", code : "fill_custom_gauge.js", hide : true },
+
+    // candle stick
+    { type: "stock", title : "Candle Stick", code : "candlestick.js" },
+    { type: "stock", title : "Candle Stick with scroll", code : "candlestick_scroll.js" },
+    { type: "stock", title : "Candle Stick with zoom", code : "candlestick_zoom.js" },
+    { type: "stock", title : "OHLC", code : "ohlc.js" }
 ];
+
+// 시작 위치 설정
+for(var i = 0; i < charts.length; i++) {
+    var c = charts[i];
+
+    for(var j = 0; j < code_list.length; j++) {
+        if(c.type == code_list[j].type && c.start == undefined) {
+            c.start = j;
+        }
+    }
+}
 
 function getTodayData() {
     var start = new Date(2014, 10, 7),

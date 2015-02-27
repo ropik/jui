@@ -18,13 +18,13 @@ chart("#chart", {
     },
     brush: {
         type: "topologynode",
-        nodeText: function(data) {
+        nodeImage: function(data) {
             if(data.type == "server") {
-                return "{server}";
+                return "../res/doc/chart/resource/ws.png";
             } else if(data.type == "was") {
-                return "{was}";
+                return "../res/doc/chart/resource/was.png";
             } else {
-                return "{db}";
+                return "../res/doc/chart/resource/db.png";
             }
         },
         nodeTitle: function(data) {
@@ -35,5 +35,8 @@ chart("#chart", {
         type: "topologyctrl",
         zoom: true,
         move: true
+    },
+    style: {
+        topologyNodeRadius: 20
     }
 });
