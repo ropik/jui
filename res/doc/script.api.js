@@ -58,7 +58,6 @@ jui.ready([ "util.base", "ui", "uix", "chart.builder", "chartx.realtime", "chart
             event: {
                 change: function(data, e) {
                     if(data.index == 1 && $("#axis").html() == "") {
-                        console.log(chart.axis(0));
                         juiApi(chart.axis(0), axisApi, _.template, null, "#axis");
                     } else if(data.index == 3 && $("#brush").html() == "") {
                         juiApiChart("brush", brushApi, _.template, null, "#brush", "brush");

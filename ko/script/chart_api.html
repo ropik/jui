@@ -378,7 +378,7 @@ var axisApi = {
             detail: "차트에 보여지는 요소 개수를 제한합니다."
         },
         shift: {
-            detail: "차트 빌더의 'prev' 또는 'next' 메소드를 호출했을 때, 그려지는 데이터의 쉬프팅 개수입니다."
+            detail: "'prev' 또는 'next' 메소드를 호출했을 때, 그려지는 데이터의 쉬프팅 개수입니다."
         },
         origin: {
             detail: "[읽기전용] 최초에 설정된 원본 데이터입니다."
@@ -391,6 +391,63 @@ var axisApi = {
         },
         end: {
             detail: "[읽기전용] 현재 그려진 데이터의 끝 인덱스입니다."
+        }
+    },
+    method: {
+        getValue: {
+            param: "data, fieldString, defaultValue",
+            ret: "value",
+            detail: "해당 키의 데이터 값을 가져오고, 값이 없을 경우에는 기본 값을 가져옵니다."
+        },
+        reload: {
+            param: "options",
+            ret: "none",
+            detail: "x, y, z 축을 다시 생성합니다."
+        },
+        getClipId: {
+            param: "none",
+            ret: "string",
+            detail: "엑시스 영역 바깥 쪽을 자르기 위한 클립 아이디를 가져옵니다."
+        },
+        area: {
+            param: "type",
+            ret: "integer | object",
+            detail: "엑시스의 width, height, x, y 값을 가져옵니다."
+        },
+        get: {
+            param: "type",
+            ret: "object",
+            detail: "엑시스의 grid 또는 area 정보를 가져옵니다."
+        },
+        updateGrid: {
+            param: "gridType, options",
+            ret: "none",
+            detail: "x, y, c 그리드의 옵션을 변경합니다."
+        },
+        update: {
+            param: "dataList",
+            ret: "none",
+            detail: "엑시스의 데이터를 갱신합니다."
+        },
+        screen: {
+            param: "pNo",
+            ret: "none",
+            detail: "해당 페이지의 데이터를 보여줍니다."
+        },
+        next: {
+            param: "none",
+            ret: "none",
+            detail: "다음 페이지의 데이터를 보여줍니다."
+        },
+        prev: {
+            param: "none",
+            ret: "none",
+            detail: "이전 페이지의 데이터를 보여줍니다."
+        },
+        zoom: {
+            param: "start, end",
+            ret: "none",
+            detail: "해당 인덱스 사이의 데이터를 보여줍니다."
         }
     }
 }
@@ -815,6 +872,31 @@ var brushApi = {
         },
         end: {
             detail: "포커스 끝 인덱스를 설정합니다."
+        }
+    },
+    pie: {
+        showText: {
+            detail: "파이의 데이터를 텍스트로 보이도록 설정합니다."
+        },
+        format: {
+            detail: "파이의 데이터 값의 포맷을 설정합니다."
+        },
+        "3d": {
+            detail: "파이를 3D 형태로 보이도록 설정합니다."
+        }
+    },
+    donut: {
+        showText: {
+            detail: "도넛의 데이터를 텍스트로 보이도록 설정합니다."
+        },
+        format: {
+            detail: "도넛의 데이터 값의 포맷을 설정합니다."
+        },
+        "3d": {
+            detail: "도넛을 3D 형태로 보이도록 설정합니다."
+        },
+        size: {
+            detail: "도넛의 크기를 설정합니다."
         }
     }
 };
