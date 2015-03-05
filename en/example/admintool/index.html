@@ -1,0 +1,295 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>JENNIFER UI: AdminTool Sample </title>
+    <link rel="shortcut icon" href="../../../res/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../../res/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../../res/index.css" />
+    <link rel="stylesheet" href="../../../lib/jui/jui.min.css" />
+    <script src="../../../lib/jquery-1.8.0.min.js"></script>
+    <script src="../../../lib/jui/jui.min.js"></script>
+    <meta name="title" content="JENNIFER UI: JENNIFER UI: HTML5 components and SVG charts" />
+    <meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart components." />
+    <meta name="keywords" content="HTML, CSS, JS, JavaScript, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+    <meta name="author" content="Alvin, Jayden and Yoha" />
+    <meta charset="UTF-8">
+    <meta property="og:title" content="JENNIFER UI: HTML5 components and SVG charts" />
+    <meta property="og:description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart components." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://seogi1004.github.io/jui/en/index.html" />
+    <meta property="og:image" content="http://seogi1004.github.io/jui/res/img/jui_link.jpg" />
+    <style type="text/css">
+
+        html,body {
+            background-color: #a5a5a5;
+            background-image: url('http://blog.jui.io/wp-content/uploads/2015/03/light-noise.png');
+            background-repeat: repeat;
+            background-position: top left;
+            background-attachment: scroll;
+        }
+
+        .header {
+            margin:0 auto;
+            width:970px;
+            height: 50px;
+        }
+
+        .header .logo {
+            position: relative;
+            float:left;
+            width: 160px;
+            height:100%;
+            z-index: 1;
+            padding: 0px 20px;
+            font-size: 20pt;
+            font-weight: bold;
+        }
+
+        .header .toolbar {
+            position: relative;
+            height:100%;
+            width:100%;
+            padding:0 0 0 200px;
+        }
+
+        .container {
+            margin:0 auto;
+            width:970px;
+            height:100%;
+            position: relative;
+        }
+
+        .container:after {
+            display: table;
+            clear: both;
+            content: "";
+        }
+
+        .container .menu {
+            position:relative;
+            float:left;
+            width: 200px;
+            height:100%;
+            max-height: 100%;
+            min-height: 100%;
+        }
+
+        .container .content {
+            padding: 0 0 0 200px;
+        }
+
+        .content-list {
+            position: relative;
+            padding:20px;
+        }
+
+        .dashboard-first {
+
+        }
+
+        .dashboard-first .col {
+            text-align:center;
+        }
+
+        .col-3 .card {
+            margin-right:20px;
+        }
+
+        .col-3:last-child .card {
+            margin-right:0px;
+        }
+
+        .card {
+            border:1px solid #ebebeb;
+            height:80px;
+            position: relative;
+            text-align: left;
+            border-bottom:2px solid gray;
+            background: white;
+        }
+
+        .card .img {
+            width:60px;
+            height:60px;
+            position: absolute;
+            left:10px;
+            top:10px;
+        }
+
+        .card .title {
+            position:absolute;
+            left:90px;
+            right:10px;
+            top:10px;
+            height:24px;
+        }
+
+        .card .value {
+            position:absolute;
+            left:90px;
+            right:10px;
+            top:40px;
+            bottom:10px;
+            font-size:28px;
+            color:#a9a9a9;
+        }
+
+        .panel>.head,
+        .panel>.body,
+        .panel>.footer {
+            border-radius: 0px !important;
+        }
+
+
+    </style>
+</head>
+<body class="jui">
+<div class="header">
+    <div class="logo">
+        <img src="../../../res/img/favicon.ico" height="100%" align="absmiddle" />
+        <span class="title">Tools</span>
+    </div>
+    <div class="toolbar">Toolbfdsafdsfar</div>
+</div>
+<div class="container">
+    <div class="menu">
+
+        <div class="vmenu vmenu-rect">
+            <a class="active"><i class="icon-dashboardlist" ></i> Dashboard</a>
+            <a><i class="icon-document"></i> Posts</a>
+            <a><i class="icon-user"></i> Users</a>
+            <a>Media</a>
+            <a><i class="icon-more"></i> Pages</a>
+            <a>Comments</a>
+            <a><i class="icon-edit"></i> Forum</a>
+            <ul class="submenu">
+                <li class="active"><a>Vertical Sub-Menu</a></li>
+                <li><a>Vertical Sub-Menu</a></li>
+                <li><a>Vertical Sub-Menu</a></li>
+            </ul>
+            <a>Topics</a>
+            <a>Replies</a>
+            <a>Appearance</a>
+            <a>Plugins</a>
+            <a>Tools</a>
+            <a>Settings</a>
+        </div>
+
+    </div>
+    <div class="content">
+
+        <div class="content-list">
+            <div class="dashboard-first">
+                <div class="col col-3">
+                    <div class="card">
+                        <img class="img" src="">
+                        <div class="title">Today's visitors</div>
+                        <div class="value">3,352</div>
+                    </div>
+                </div>
+                <div class="col col-3">
+                    <div class="card">
+                        <img class="img" src="">
+                        <div class="title">Today's visitors</div>
+                        <div class="value">3,352</div>
+                    </div>
+
+                </div>
+                <div class="col col-3">
+                    <div class="card">
+                        <img class="img" src="">
+                        <div class="title">Today's visitors</div>
+                        <div class="value">3,352</div>
+                    </div>
+
+                </div>
+                <div class="col col-3">
+                    <div class="card">
+                        <img class="img" src="">
+                        <div class="title">Today's visitors</div>
+                        <div class="value">3,352</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="panel" style="margin-top:20px;">
+                <div class="head">
+                    <i class="icon-left"></i>
+                    <strong>Traffic</strong>
+                </div>
+                <div class="body" style="height:300px;padding:0px;overflow:hidden;">
+                <div id="traffic_chart" style="width:100%;height:100%;"></div>
+                </div>
+            </div>
+
+            <div class="panel" style="margin-top:20px;">
+                <div class="head">
+                    <i class="icon-left"></i>
+                    <strong>Recent Order List</strong>
+                </div>
+                <div class="body" style="padding:0px;overflow:hidden;">
+                    <table class="table table-simple table-hover">
+                        <thead>
+                        <tr>
+                            <th>From</th><th>Contact</th><th>Amount</th><th>Status</th><th><a class="btn btn-base">All Orders</a></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Lion KC</td><td>Robin Van Persie</td><td>$245.00</td><td><span>Paid</span></td><td><i class="icon-search"></i> View</td>
+                        </tr>
+                        <tr>
+                            <td>A</td><td>B</td><td>C</td><td>D</td><td>E</td>
+                        </tr>
+                        <tr>
+                            <td>A</td><td>B</td><td>C</td><td>D</td><td>E</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<script>
+    var chart = jui.include("chart.builder");
+
+    chart("#traffic_chart", {
+        padding: {
+            right: 30
+        },
+        axis : {
+            x : {
+                type : "block",
+                domain : [ "2010", "2011", "2012", "2013" ],
+                line : true,
+                full : true
+            },
+            y : {
+                type : "range",
+                domain : function(d) {
+                    return Math.max(d.apple, d.microsoft, d.oracle);
+                },
+                step : 10
+            },
+            data : [
+                { apple : 26.1, microsoft : 24.86, oracle : 22.08 },
+                { apple : 43.83, microsoft : 25.14, oracle : 30.15 },
+                { apple : 55.03, microsoft : 24, oracle : 24.88 },
+                { apple : 72.95, microsoft : 25.39, oracle : 32.78 }
+            ]
+        },
+        brush : {
+            type : "line"
+        },
+        widget : [
+            { type : "title", text : "Line Sample" },
+            { type : "legend" }
+        ]
+    });
+</script>
+</body>
+</html>
