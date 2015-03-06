@@ -167,6 +167,11 @@
             color:#6836c4;
         }
 
+        .panel {
+            padding:0px !important;
+            margin:0px !important;
+        }
+
         .panel>.head,
         .panel>.body,
         .panel>.footer {
@@ -265,26 +270,17 @@
                 </div>
             </div>
 
-            <div class="panel" style="margin-top:20px;">
-                <div class="head">
-                    <i class="icon-left"></i>
-                    <strong>Traffic</strong>
-                </div>
-                <div class="body" style="height:400px;padding:0px;overflow:hidden;">
-                <div id="traffic_chart" style="width:100%;height:100%;"></div>
+            <div class="panel">
+                <div class="body" style="padding:0px;overflow:auto;">
+                    <h2 style="margin-left:36px;margin-top:48px">Analysis</h2>
+                    <div id="traffic_chart" style="width:100%;height:400px;"></div>
+                    <div style="margin-bottom:48px;"></div>
                 </div>
             </div>
 
-            <div class="panel" style="margin-top:20px;">
-                <div class="head">
-                    <i class="icon-left"></i>
-                    <strong>Today's Visits</strong>
-
-                    <div style="float: right;">
-                        <a class="btn-small"><i class="icon-close"></i></a>
-                    </div>
-                </div>
+            <div class="panel">
                 <div class="body" style="padding:10px;overflow:auto;">
+                    <h2 style="margin-left:36px;margin-top:48px">Analysis</h2>
                     <div class="row" style="height:150px;">
                         <div class="col col-7">
                             <div id="visit_chart" style="width:100%;height:100%;"></div>
@@ -340,51 +336,57 @@
                 </div>
             </div>
 
-            <div class="panel" style="margin-top:20px;">
-                <div class="head">
-                    <i class="icon-left"></i>
-                    <strong>Recent Order List</strong>
-                </div>
-                <div class="body" style="padding:0px;overflow:hidden;">
-                    <table class="table table-simple table-hover">
-                        <thead>
-                        <tr>
-                            <th>From</th><th>Contact</th><th>Amount</th><th>Status</th><th><a class="btn btn-base">All Orders</a></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>
-                              <i class="icon-stop" style="font-size:8.5px;color:red;"></i>
-                              Lion KC
-                            </td><td>Robin Van Persie</td><td>$245.00</td><td><span>Paid</span></td><td><i class="icon-search"></i> View</td>
-                        </tr>
-                        <tr>
-                            <td>
-                              <i class="icon-stop" style="font-size:8.5px;color:#fff860;"></i>
-                              Lion KC
-                            </td><td>Robin Van Persie</td><td>$245.00</td><td><span>Paid</span></td><td><i class="icon-search"></i> View</td>
-                        </tr>
-                        <tr>
-                            <td>
-                              <i class="icon-stop" style="font-size:8.5px;color:#fb32ff;"></i>
-                              Lion KC
-                            </td><td>Robin Van Persie</td><td>$245.00</td><td><span>Paid</span></td><td><i class="icon-search"></i> View</td>
-                        </tr>
-                        <tr>
-                            <td>
-                              <i class="icon-stop" style="font-size:8.5px;color:#68ff41;"></i>
-                              Lion KC
-                            </td><td>Robin Van Persie</td><td>$245.00</td><td><span>Paid</span></td><td><i class="icon-search"></i> View</td>
-                        </tr>
-                        <tr>
-                            <td>
-                              <i class="icon-stop" style="font-size:8.5px;color:#5d9cff;"></i>
-                              Lion KC
-                            </td><td>Robin Van Persie</td><td>$245.00</td><td><span>Paid</span></td><td><i class="icon-search"></i> View</td>
-                        </tr>
-                        </tbody>
-                    </table>
+            <div class="panel">
+                <div class="body" style="padding:0px;overflow:auto;">
+                    <h2 style="margin-left:36px;margin-top:48px">Analysis</h2>
+                    <div style="padding:20px;">
+
+                        <div class="panel" style="border:1px solid #ababab;">
+                            <div class="head">
+                                Recent Order List
+                            </div>
+                            <table class="table table-simple table-hover">
+                                <thead>
+                                <tr>
+                                    <th>From</th><th>Contact</th><th>Amount</th><th>Status</th><th><a class="btn btn-base">All Orders</a></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <i class="icon-stop" style="font-size:8.5px;color:red;"></i>
+                                        Lion KC
+                                    </td><td>Robin Van Persie</td><td>$245.00</td><td><span>Paid</span></td><td><i class="icon-search"></i> View</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i class="icon-stop" style="font-size:8.5px;color:#fff860;"></i>
+                                        Lion KC
+                                    </td><td>Robin Van Persie</td><td>$245.00</td><td><span>Paid</span></td><td><i class="icon-search"></i> View</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i class="icon-stop" style="font-size:8.5px;color:#fb32ff;"></i>
+                                        Lion KC
+                                    </td><td>Robin Van Persie</td><td>$245.00</td><td><span>Paid</span></td><td><i class="icon-search"></i> View</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i class="icon-stop" style="font-size:8.5px;color:#68ff41;"></i>
+                                        Lion KC
+                                    </td><td>Robin Van Persie</td><td>$245.00</td><td><span>Paid</span></td><td><i class="icon-search"></i> View</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i class="icon-stop" style="font-size:8.5px;color:#5d9cff;"></i>
+                                        Lion KC
+                                    </td><td>Robin Van Persie</td><td>$245.00</td><td><span>Paid</span></td><td><i class="icon-search"></i> View</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
