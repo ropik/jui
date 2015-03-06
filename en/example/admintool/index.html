@@ -30,7 +30,7 @@
 
         .header {
             margin:0 auto;
-            width:970px;
+            width:1200px;
             height: 70px;
         }
 
@@ -53,7 +53,7 @@
 
         .container {
             margin:0 auto;
-            width:970px;
+            width:1200px;
             height:100%;
             position: relative;
         }
@@ -74,6 +74,7 @@
         }
 
         .container .content {
+            background:#000000;
             padding: 0 0 0 200px;
         }
 
@@ -81,6 +82,11 @@
             position: relative;
             padding:20px;
             padding-top:0px;
+            background-color: #a5a5a5;
+            background-image: url('http://blog.jui.io/wp-content/uploads/2015/03/light-noise.png');
+            background-repeat: repeat;
+            background-position: top left;
+            background-attachment: scroll;
         }
 
         .dashboard-first {
@@ -250,6 +256,31 @@
             <div class="panel" style="margin-top:20px;">
                 <div class="head">
                     <i class="icon-left"></i>
+                    <strong>Today's Visits</strong>
+
+                    <div style="float: right;">
+                        <a class="btn-small"><i class="icon-close"></i></a>
+                    </div>
+                </div>
+                <div class="body" style="padding:0px;overflow:auto;">
+                    <div class="row" style="height:150px;">
+                        <div class="col col-7">
+                            <div id="visit_chart" style="width:100%;height:100%;"></div>
+                        </div>
+                        <div class="col col-5">
+                            <div id="gauge_chart" style="width:100%;height:100%;"></div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:10px;border-top:1px dashed #dedede;">
+                        <div class="col col-7"></div>
+                        <div class="col col-5"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel" style="margin-top:20px;">
+                <div class="head">
+                    <i class="icon-left"></i>
                     <strong>Recent Order List</strong>
                 </div>
                 <div class="body" style="padding:0px;overflow:hidden;">
@@ -302,6 +333,7 @@
 <script>
     var chart = jui.include("chart.builder");
 
+    // line chart sample
     chart("#traffic_chart", {
         padding: {
             right: 30
@@ -335,6 +367,109 @@
             { type : "legend" }
         ]
     });
+
+    // column chart sample
+    var data = [
+        { quarter : "0", sales : 50 },
+        { quarter : "1", sales : 50 },
+        { quarter : "2", sales : 20 },
+        { quarter : "3", sales : 10 },
+        { quarter : "4", sales : 30 },
+        { quarter : "5", sales : 44 },
+        { quarter : "6", sales : 22 },
+        { quarter : "7", sales : 21 },
+        { quarter : "8", sales : 36 },
+        { quarter : "9", sales : 56 },
+        { quarter : "10", sales : 30 },
+        { quarter : "11", sales : 32 },
+        { quarter : "12", sales : 25 },
+        { quarter : "13", sales : 25 },
+        { quarter : "14", sales : 50 },
+        { quarter : "15", sales : 25 },
+        { quarter : "16", sales : 10 },
+        { quarter : "17", sales : 25 },
+        { quarter : "18", sales : 30 },
+        { quarter : "19", sales : 30 },
+        { quarter : "20", sales : 15 },
+        { quarter : "21", sales : 30 },
+        { quarter : "22", sales : 30 },
+        { quarter : "23", sales : 30 },
+        { quarter : "24", sales : 30 },
+        { quarter : "25", sales : 30 },
+        { quarter : "26", sales : 30 },
+        { quarter : "27", sales : 30 },
+        { quarter : "28", sales : 30 },
+        { quarter : "29", sales : 30 },
+        { quarter : "30", sales : 30 },
+        { quarter : "31", sales : 30 },
+        { quarter : "32", sales : 30 },
+        { quarter : "33", sales : 25 },
+        { quarter : "34", sales : 25 },
+        { quarter : "35", sales : 25 },
+        { quarter : "36", sales : 25 }
+    ];
+
+    chart("#visit_chart", {
+        padding: 0,
+        axis : {
+            x : {
+                type : "block",
+                domain : "quarter",
+                line : true,
+                hide : true
+            },
+            y : {
+                type : "range",
+                domain : "sales",
+                step : 10,
+                line : true,
+                hide : true
+            },
+            data : data
+        },
+        brush : {
+            type : "column",
+            target : "sales",
+            active : 5,
+            colors : [4]
+        },
+        style : {
+            barBorderRadius : 0
+        }
+    });
+
+    // donut sample
+    var dataSource2 = [
+        { title : "Overall Visits", value : 192, max : 200, min : 0 },
+        { title : "New Visits", value : 66, max : 100, min : 0 },
+        { title : "Mobile Visits", value : 75, max : 100, min : 0 }
+    ];
+
+    chart("#gauge_chart", {
+        padding : { left : 0, top : 10, right : 0, bottom : 20 } ,
+        axis : {
+            c : {
+                type : "table",
+                rows : 1,
+                columns : 3
+            },
+            data : dataSource2
+        },
+        brush : {
+            type : "fullgauge",
+            size : 10,
+            titleY : 70,
+            format : function(value, index) {
+                if(index == 0) {
+                    return value + "k";
+                }
+
+                return value + "%";
+            }
+        }
+    });
+
+
 </script>
 </body>
 </html>
