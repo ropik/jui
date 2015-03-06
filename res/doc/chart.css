@@ -49,7 +49,7 @@ a > .icon-close {
 
 .CodeMirror {
     font-size: 12px;
-    font-family: "Helvetica", "Trebuchet MS", Dotum, Verdana, AppleGothic, sans-serif;
+    font-family: "Noto Sans", "sans-serif";
     max-height: 100%;
     height: 100%;
 }
