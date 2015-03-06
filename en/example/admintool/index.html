@@ -18,6 +18,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://seogi1004.github.io/jui/en/index.html" />
     <meta property="og:image" content="http://seogi1004.github.io/jui/res/img/jui_link.jpg" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <style type="text/css">
 
         html,body {
@@ -26,6 +27,7 @@
             background-repeat: repeat;
             background-position: top left;
             background-attachment: scroll;
+            font-family: Open Sans;
         }
 
         .header {
@@ -128,6 +130,7 @@
             right:10px;
             top:10px;
             height:24px;
+            font-weight: bold;
         }
 
         .card .value {
@@ -434,26 +437,26 @@
         axis : [{
             x : {
                 domain : "date",
-                color : "red"
+                color : 0
             },
             y : {
                 type : "range",
                 domain: [ 0, 100 ],
                 step : 5,
-                color : "red"
+                color : 0
             },
             data : dataSource
         }, {
             x : {
                 domain : "mr",
-                color : "green",
+                color : 0,
                 orient : "top"
             },
             y : {
                 type : "range",
                 domain : [ 0, 8000 ],
                 step : 5,
-                color : "green",
+                color : 1,
                 orient : "right",
                 format : function(d) {
                     if(typeof(d) == "number")
@@ -467,20 +470,20 @@
         brush : [{
             type : "column",
             target : [ "value1", "value2" ],
-            colors : [ "gray", "red" ],
+            colors : [ 0, 1 ],
             innerPadding : -20,
             outerPadding : 20
         }, {
             type : "line",
             target : [ "value1", "value2" ],
             axis : 1,
-            colors : [ "green", "gray" ],
+            colors : [ 1, 2  ],
             symbol : "curve"
         }, {
             type : "scatter",
             target : [ "value1", "value2" ],
             axis : 1,
-            colors : [ "green", "gray" ]
+            colors : [ 1, 2  ]
         }],
         widget : [{
             type : "title",
@@ -577,7 +580,7 @@
             type : "column",
             target : "sales",
             active : 5,
-            colors : [4]
+            colors : [0]
         },
         style : {
             barBorderRadius : 0
@@ -612,6 +615,9 @@
 
                 return value + "%";
             }
+        },
+        style : {
+            fontFamily : "Open Sans"
         }
     });
 
