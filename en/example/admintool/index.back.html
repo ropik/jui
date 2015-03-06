@@ -32,32 +32,30 @@
 
         .header {
             margin:0 auto;
-            width:1024px;
-            height: 58px;
-            background:#2d363e;
-            color:white;
+            width:1200px;
+            height: 70px;
         }
 
         .header .logo {
             position: relative;
             float:left;
-            width: 98px;
-            height:48px;
+            width: 160px;
+            height:100%;
             z-index: 1;
-            font-size:25px;
-            background:black;
-            text-align: center;
-            padding-top:10px;
+            padding: 0px 20px;
+            font-size: 20pt;
+            font-weight: bold;
         }
 
         .header .toolbar {
             position: relative;
             height:100%;
+            padding:10px 20px 0px 220px;
         }
 
         .container {
             margin:0 auto;
-            width:1024px;
+            width:1200px;
             height:100%;
             position: relative;
         }
@@ -71,34 +69,21 @@
         .container .menu {
             position:relative;
             float:left;
-            width: 98px;
+            width: 200px;
             height:100%;
             max-height: 100%;
             min-height: 100%;
         }
 
-        .vmenu > a {
-            display:block;
-            text-align:center !important;
-            padding-top:20px !important;
-            padding-bottom:20px !important;
-            color:#2d363e;
-
-        }
-
-        .vmenu > a > i {
-            display:block !important;
-            float:none !important;
-            font-size:24px;
-        }
-
         .container .content {
             background: #f3f3f3;
-            padding: 0 0 0 98px;
+            padding: 0 0 0 200px;
         }
 
         .content-list {
             position: relative;
+            padding:20px;
+            padding-top:0px;
             background-color: #a5a5a5;
             background-image: url('http://blog.jui.io/wp-content/uploads/2015/03/light-noise.png');
             background-repeat: repeat;
@@ -107,8 +92,7 @@
         }
 
         .dashboard-first {
-            overflow:auto;
-            border-bottom:1px solid #ebebeb;
+
         }
 
         .dashboard-first .col {
@@ -116,26 +100,20 @@
         }
 
         .col-3 .card {
-            height:98px;
+            margin-right:20px;
         }
 
         .col-3:last-child .card {
-
+            margin-right:0px;
         }
 
         .card {
-            border-right:1px solid #ebebeb;
+            border:1px solid #ebebeb;
             height:80px;
             position: relative;
             text-align: left;
-
-            background-color: #fff;
-            background-image: -moz-linear-gradient(top,#fff 0,#f7f7f7 100%);
-            background-image: linear-gradient(top,#fff 0,#f7f7f7 100%);
-            background-image: -webkit-linear-gradient(top,#fff 0,#f7f7f7 100%);
-            background-image: -o-linear-gradient(top,#fff 0,#f7f7f7 100%);
-            background-image: -ms-linear-gradient(top,#fff 0,#f7f7f7 100%);
-
+            border-bottom:2px solid gray;
+            background: white;
         }
 
         .card .img {
@@ -148,23 +126,21 @@
 
         .card .title {
             position:absolute;
-            left:30px;
+            left:90px;
             right:10px;
             top:10px;
             height:24px;
-            color: #333;
-            font-size:12px;
+            font-weight: bold;
         }
 
         .card .value {
             position:absolute;
-            left:30px;
+            left:90px;
             right:10px;
             top:40px;
             bottom:10px;
             font-size:28px;
-            font-weight: bold;
-            color:#6836c4;
+            color:#a9a9a9;
         }
 
         .panel>.head,
@@ -210,11 +186,32 @@
 <body class="jui">
 <div class="header">
     <div class="logo">
-        <i class="icon-menu icon-white"></i>
+        <img src="../../../res/img/favicon.ico" height="100%" align="absmiddle" />
+        <span class="title">Tools</span>
     </div>
     <div class="toolbar">
 
-        <span>Dashboard</span>
+      <div class="navbar navbar-white-flat" style="overflow: hidden;">
+        <div class="inline">
+          <div class="group">
+            <a class="btn btn-large">
+              <i class="icon-new-window"></i> AA
+            </a>
+            <a class="btn btn-large">
+              <i class="icon-gear"></i> BB
+            </a>
+            <a class="btn btn-large">
+              <i class="icon-calendar"></i> CC
+            </a>
+          </div>
+          
+        </div>
+        <div class="inline-right">
+          <a class="btn-large">Text1</a> <a class="btn-large">Text2</a> <a class="btn-large">Text3</a>
+        </div>
+      </div>      
+      
+      
 
     </div>
 </div>
@@ -222,13 +219,24 @@
     <div class="menu">
 
         <div class="vmenu vmenu-rect">
-            <a class="active"><i class="icon-monitoring" ></i> Dashboard</a>
-            <a><i class="icon-realtime"></i> Realtime</a>
-            <a><i class="icon-profile"></i> Analysis</a>
-            <a><i class="icon-chart"></i> Statistics</a>
-            <a><i class="icon-document"></i> Document</a>
-            <a><i class="icon-gear"></i> Management</a>
-            <a><i class="icon-user"></i> User</a>
+            <a class="active"><i class="icon-dashboardlist" ></i> Dashboard</a>
+            <a><i class="icon-document"></i> Posts</a>
+            <a><i class="icon-user"></i> Users</a>
+            <a>Media</a>
+            <a><i class="icon-more"></i> Pages</a>
+            <a>Comments</a>
+            <a><i class="icon-edit"></i> Forum</a>
+            <ul class="submenu">
+                <li class="active"><a>Vertical Sub-Menu</a></li>
+                <li><a>Vertical Sub-Menu</a></li>
+                <li><a>Vertical Sub-Menu</a></li>
+            </ul>
+            <a>Topics</a>
+            <a>Replies</a>
+            <a>Appearance</a>
+            <a>Plugins</a>
+            <a>Tools</a>
+            <a>Settings</a>
         </div>
 
     </div>
@@ -238,28 +246,32 @@
             <div class="dashboard-first">
                 <div class="col col-3">
                     <div class="card">
+                        <img class="img" src="">
                         <div class="title">Today's visitors</div>
                         <div class="value">3,352</div>
                     </div>
                 </div>
                 <div class="col col-3">
                     <div class="card">
-                        <div class="title">Time of operation of call </div>
-                        <div class="value">2,364,806</div>
+                        <img class="img" src="">
+                        <div class="title">Today's visitors</div>
+                        <div class="value">3,352</div>
                     </div>
 
                 </div>
                 <div class="col col-3">
                     <div class="card">
-                        <div class="title">Time of operation Number of EVENT</div>
-                        <div class="value">15,610</div>
+                        <img class="img" src="">
+                        <div class="title">Today's visitors</div>
+                        <div class="value">3,352</div>
                     </div>
 
                 </div>
                 <div class="col col-3">
                     <div class="card">
-                        <div class="title">Peak Time</div>
-                        <div class="value">10:00 ~ 11:00</div>
+                        <img class="img" src="">
+                        <div class="title">Today's visitors</div>
+                        <div class="value">3,352</div>
                     </div>
 
                 </div>
