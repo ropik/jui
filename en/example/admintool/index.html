@@ -35,7 +35,6 @@ html, body {
 
 .header {
   margin: 0 auto;
-  width: 1024px;
   height: 58px;
   background: #2d363e;
   color: white;
@@ -55,13 +54,12 @@ html, body {
 
 .header .toolbar {
   position: relative;
-  height: 100%;
-  kkl
+  padding:20px;
+  padding-left:120px;
 }
 
 .container {
   margin: 0 auto;
-  width: 1024px;
   height: 100%;
   position: relative;
 }
@@ -180,7 +178,7 @@ html, body {
   border-radius: 0px !important;
 }
 
-.panel > .body .title {
+.panel > .body > .title {
   margin-left: 36px;
   margin-top: 48px;
 
@@ -246,6 +244,9 @@ html, body {
   <div class="toolbar">
 
     <span>Dashboard</span>
+    <span style="float:right">
+      Sample <i class="icon-check"></i>
+    </span>
 
   </div>
 </div>
@@ -859,7 +860,7 @@ chart("#bar_gauge_sample_chart_2", {
     type: "bargauge",
     size: 25,
     format: function (value) {
-      return value;
+      return value + "%";
     }
   }
 });
