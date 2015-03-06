@@ -74,7 +74,7 @@
         }
 
         .container .content {
-            background:#000000;
+            background: #f3f3f3;
             padding: 0 0 0 200px;
         }
 
@@ -146,6 +146,37 @@
             border-radius: 0px !important;
         }
 
+        .visit_total {
+            font-size:15px;
+        }
+
+        .visit_total .title {
+            font-size:15px;
+            margin-bottom:4px;
+        }
+
+        .visit_total .number {
+            font-size:20px;
+        }
+
+        .visit_total .chart {
+            margin-top:5px;
+            height: 50px;
+            width: 100px;
+        }
+
+        .bargauge {
+            font-size:15px;
+        }
+
+        .bargauge .title {
+            padding: 16px;
+        }
+
+        .bargauge .chart {
+            height: 150px;
+            width: 80%;
+        }
 
     </style>
 </head>
@@ -262,7 +293,7 @@
                         <a class="btn-small"><i class="icon-close"></i></a>
                     </div>
                 </div>
-                <div class="body" style="padding:0px;overflow:auto;">
+                <div class="body" style="padding:10px;overflow:auto;">
                     <div class="row" style="height:150px;">
                         <div class="col col-7">
                             <div id="visit_chart" style="width:100%;height:100%;"></div>
@@ -272,8 +303,48 @@
                         </div>
                     </div>
                     <div class="row" style="margin-top:10px;border-top:1px dashed #dedede;">
-                        <div class="col col-7"></div>
-                        <div class="col col-5"></div>
+                        <div class="col col-7">
+                            <div style="font-weight: bold;margin-top:10px;margin-bottom:10px;"><strong style="font-size:25px;font-weight:bold;color:#255bff;">1,452,587</strong> people visited this site</div>
+                            <div style="border:1px solid #b5defd;padding:20px;padding-left:40px;">
+                                <div class="row visit_total">
+                                    <div class="col col-4">
+                                        <div class="title">Visits</div>
+                                        <div class="number"><strong>3,352</strong></div>
+                                        <div class="chart" id="line_sample_chart_1"></div>
+                                    </div>
+                                    <div class="col col-4">
+                                        <div class="title">Unique Visitors</div>
+                                        <div class="number"><strong>1,672</strong></div>
+                                        <div class="chart" id="line_sample_chart_2"></div>
+                                    </div>
+                                    <div class="col col-4">
+                                        <div class="title">Previews</div>
+                                        <div class="number"><strong>6,048</strong></div>
+                                        <div class="chart" id="line_sample_chart_3"></div>
+                                    </div>
+                                </div>
+                                <div class="row visit_total">
+                                    <div class="col col-4">
+                                        Pages per visit : <strong>1.78</strong>
+                                    </div>
+                                    <div class="col col-8">
+                                        Average Visit Duration : <strong>00:01:12</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-5">
+                            <div class="row bargauge">
+                                <div class="col col-6">
+                                    <div class="title">Visits by Browser </div>
+                                    <div class="chart" id="bar_gauge_sample_chart_1"></div>
+                                </div>
+                                <div class="col col-6">
+                                    <div class="title">Mobile Overview </div>
+                                    <div class="chart" id="bar_gauge_sample_chart_2"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -469,6 +540,186 @@
         }
     });
 
+    // line sample chart 1
+    var time = jui.include('util.time');
+
+    var stocks = {
+        apple : [ 50, 80.23, 81.23, 91.03, 90.77, 82.98, 79.35, 78.5, 79.34, 81.46, 73.7, 62.02, 55.03, 51.93, 55, 51.81, 52.29, 53.05, 45.61, 47.26, 47.57, 47.35, 47.99, 46.1, 43.83, 42.28, 40.89, 38.55, 33.03, 34.95, 34.18, 34.9, 35.47, 31.93, 27.8, 26.1 ].reverse(),
+        microsoft : [ 25.39,25.31,26.91,28.06,29.06,27.61,28.66,27.34,29.8,30.02,29.54,27.3,24,23.65,24.44,22.84,24.41,24.99,23.71,22.81,23.48,23,24.08,24.97,25.14,22.75,23.87,21.92,21.01,22.98,20.49,22.97,27.07,25.96,25.41,24.86 ].reverse(),
+        oracle : [ 32.78,31.48,30.4,30.71,30.9,29.48,28.93,25.79,28.64,28.35,28.44,27.43,24.88,30.41,31.79,27.82,27.18,29.61,31.81,33.07,34.75,32.25,31.74,30.9,30.15,26.05,28.3,25.81,21,22.73,20.59,21.65,24.82,24.62,23.6,22.08 ].reverse()
+    };
+    var start = new Date("2010/01/01"); // ~2012-12-31
+    var end = new Date("2012/12/31");
+
+    data = [];
+    for(var i = 0; i < stocks.apple.length; i++) {
+        data.push({
+            date : time.add(start, time.months, i),
+            apple : stocks.apple[i],
+            microsoft : stocks.microsoft[i],
+            oracle : stocks.oracle[i]
+        });
+    }
+
+    chart("#line_sample_chart_1", {
+        padding : 0,
+        series : {
+            apple : {
+                color : 0,
+                text : "Apple"
+            },
+            microsoft : {
+                color : 1,
+                text : "Microsoft"
+            },
+            oracle : {
+                color : 2,
+                text : "Oracle"
+            }
+        },
+        axis : {
+            x : {
+                type : "date",
+                domain : [ start, end ],
+                step : [ time.years, 1 ],
+                format : "yyyy",
+                key: "date",
+                hide: true
+            },
+            y : {
+                type : "range",
+                domain : "apple",
+                step : 10,
+                line : true,
+                hide : true
+            },
+            data : data
+        },
+        brush : {
+            type : "line",
+            target : [ "apple" ]
+        }
+    });
+
+    chart("#line_sample_chart_2", {
+        padding : 0,
+        series : {
+            apple : {
+                color : 0,
+                text : "Apple"
+            },
+            microsoft : {
+                color : 1,
+                text : "Microsoft"
+            },
+            oracle : {
+                color : 2,
+                text : "Oracle"
+            }
+        },
+        axis : {
+            x : {
+                type : "date",
+                domain : [ start, end ],
+                step : [ time.years, 1 ],
+                format : "yyyy",
+                key: "date",
+                hide: true
+            },
+            y : {
+                type : "range",
+                domain : "microsoft",
+                step : 10,
+                line : true,
+                hide : true
+            },
+            data : data
+        },
+        brush : {
+            type : "line",
+            target : [ "microsoft" ]
+        }
+    });
+
+    chart("#line_sample_chart_3", {
+        padding : 0,
+        series : {
+            apple : {
+                color : 0,
+                text : "Apple"
+            },
+            microsoft : {
+                color : 1,
+                text : "Microsoft"
+            },
+            oracle : {
+                color : 2,
+                text : "Oracle"
+            }
+        },
+        axis : {
+            x : {
+                type : "date",
+                domain : [ start, end ],
+                step : [ time.years, 1 ],
+                format : "yyyy",
+                key: "date",
+                hide: true
+            },
+            y : {
+                type : "range",
+                domain : "oracle",
+                step : 10,
+                line : true,
+                hide : true
+            },
+            data : data
+        },
+        brush : {
+            type : "line",
+            target : [ "oracle" ]
+        }
+    });
+
+    // bar gauge sample
+    chart("#bar_gauge_sample_chart_1", {
+        padding : { left : 20, top : 0, bottom : 0, right : 0 },
+        axis : {
+            data : [
+                { title : "Chrome", value : 54.1 },
+                { title : "Firefox", value : 26.6 },
+                { title : "Safari", value : 10.2 },
+                { title : "Internet Explorer", value : 5.7 },
+                { title : "Opera", value : 3 }
+            ]
+        },
+        brush : {
+            type: "bargauge",
+            size: 25,
+            format: function(value) {
+                return value + '%';
+            }
+        }
+    });
+
+    // bar gauge sample
+    chart("#bar_gauge_sample_chart_2", {
+        padding : { left : 20, top : 0, bottom : 0, right : 0 },
+        axis : {
+            data : [
+                { title : "Desktop", value : 89 },
+                { title : "Mobile", value : 6 },
+                { title : "Tablet", value : 5 }
+            ]
+        },
+        brush : {
+            type: "bargauge",
+            size: 25,
+            format: function(value) {
+                return value;
+            }
+        }
+    });
 
 </script>
 </body>
