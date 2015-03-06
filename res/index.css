@@ -2,7 +2,7 @@
 
 /* Base */
 body {
-	font-family: "Noto Sans", "sans-serif";
+	font-family: "Noto Sans", "sans-serif", "Dotum";
 	font-size: 14px;
 	margin: 0px;
 	overflow-x: hidden;
@@ -299,7 +299,7 @@ nav .container-4 {
 }
 
 nav .detail {
-	font-family: "Noto Sans", "sans-serif";
+	font-family: "Noto Sans", "sans-serif", "Dotum";
 	font-size: 1.3em;
 	font-weight: 400;
 	line-height: 1.75;
@@ -472,7 +472,7 @@ nav.bg-sub {
 
 nav.bg .msg {
 	position: absolute;
-	font-family: "Noto Sans", "sans-serif";
+	font-family: "Noto Sans", "sans-serif", "Dotum";
 	font-size: 11px;
 	width: 100%;
 	top: 54px;
