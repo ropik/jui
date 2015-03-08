@@ -7,6 +7,7 @@ var realtimeInterval = null;
 
 var charts = [
     { type: "etc", title : "Basic" },
+    { type: "3d", title : "3D Chart" },
     { type: "mixed", title : "Combination Chart" },
     { type: "realtime", title : "Realtime Chart" },
     { type: "dashboard", title : "Dashboard" },
@@ -28,6 +29,16 @@ var code_list = [
     // basic
     { type: "etc", title : "Set brush events",  code : "brush_event.js" },
     { type: "etc", title : "Update axis data",  code : "brush_axis_value.js" },
+
+    // 3d chart
+    { type: "3d", title : "Basic 3D Bar",  code : "bar3d.js" },
+    { type: "3d", title : "Stacked 3D Bar",  code : "stack_bar3d.js" },
+    { type: "3d", title : "Full Stacked 3D Bar",  code : "fullstackbar3d.js" },
+    { type: "3d", title : "Clustered 3D Bar",  code : "cluster_bar3d.js" },
+    { type: "3d", title : "Basic 3D Column",  code : "column3d.js" },
+    { type: "3d", title : "Stacked 3D Column",  code : "stack_column3d.js" },
+    { type: "3d", title : "Full Stacked 3D Column",  code : "fullstackcolumn3d.js" },
+    { type: "3d", title : "Clustered 3D Column",  code : "cluster_column3d.js" },
 
     // combination chart
     { type: "mixed", title : "Basic Combination",  code : "mixed1.js", hide : true },
@@ -55,9 +66,9 @@ var code_list = [
 
     // bar
     { type: "bar", title : "Basic Bar", code : "bar.js" },
-    { type: "bar", title : "Stack Bar", code : "stack_bar.js", hide : true },
-    { type: "bar", title : "Active Stack Bar", code : "active_stack_bar.js" },
-    { type: "bar", title : "Full Stack Bar", code : "fullstackbar.js" },
+    { type: "bar", title : "Stacked Bar", code : "stack_bar.js", hide : true },
+    { type: "bar", title : "Active Stacked Bar", code : "active_stack_bar.js" },
+    { type: "bar", title : "Full Stacked Bar", code : "fullstackbar.js" },
     { type: "bar", title : "Inner Bar", code : "inner_bar.js" },
     { type: "bar", title : "Overlap Bar", code : "overlap_bar.js" },
     { type: "bar", title : "Active Bar", code : "active_bar.js" },
@@ -67,8 +78,8 @@ var code_list = [
     // column
     { type: "column", title : "Basic Column", code : "column.js" },
     { type: "column", title : "Stack Column", code : "stack_column.js", hide : true },
-    { type: "column", title : "Active Stack Column", code : "active_stack_column.js" },
-    { type: "column", title : "Full Stack Column", code : "fullstack.js" },
+    { type: "column", title : "Active Stacked Column", code : "active_stack_column.js" },
+    { type: "column", title : "Full Stacked Column", code : "fullstack.js" },
     { type: "column", title : "Inner Column", code : "inner_column.js" },
     { type: "column", title : "Overlap Column", code : "overlap_column.js" },
     { type: "column", title : "Active Column", code : "active_column.js" },
