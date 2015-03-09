@@ -24,6 +24,7 @@ chart("#chart-content", {
     },
     brush : {
         type : "cylinder3d",
+        topRate : 0,
         outerPadding : 10,
         innerPadding : 5
     },

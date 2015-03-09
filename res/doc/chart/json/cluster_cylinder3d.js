@@ -24,6 +24,7 @@ chart("#chart-content", {
     },
     brush : {
         type : "clustercylinder3d",
+        topRate : 0.5,
         outerPadding : 25,
         innerPadding : 25
     },
