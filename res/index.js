@@ -87,7 +87,7 @@ var menuInfo = {
     },
     tips: {
     	title: "Third Party",
-    	msg: "Bootstrap, Pure and Skeleton support, Provides plug-in WYSIWYG editor.",
+    	msg: "Bootstrap support, Provides JUI Administrator Tool Samples.",
     	menu: {
     		common: "tips/common",
     		bootstrap: "tips/bootstrap",
