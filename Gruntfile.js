@@ -124,11 +124,11 @@ module.exports = function(grunt) {
                 all : {
                     title : "JENNIFER UI: ",
                     description : "JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart components.",
-                    keywords : "HTML, CSS, JS, JavaScript, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT",
+                    keywords : "HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT",
                     author : "Alvin, Jayden and Yoha"
                 },
                 index : {
-                    title : "JENNIFER UI: HTML5 components and SVG charts",
+                    title : "JENNIFER UI: HTML5 components and SVG charts (Node.js support)",
                     description : "JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart components.",
                     type : "website",
                     url : "http://seogi1004.github.io/jui/en/index.html",
@@ -139,11 +139,11 @@ module.exports = function(grunt) {
                 all : {
                     title : "JENNIFER UI: ",
                     description : "JENNIFER UI는 완전 무료입니다. 심플하며 빠르고 다양한 JUI는 올인원 데스크탑 UI 프레임워크입니다. 부트스트랩을 지원하고, 독립적으로 동작하는 스크립트와 스타일 컴포넌트 그리고 SVG 차트를 제공합니다.",
-                    keywords : "HTML, CSS, JS, JavaScript, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT",
+                    keywords : "HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT",
                     author : "Alvin, Jayden and Yoha"
                 },
                 index : {
-                    title : "JENNIFER UI: HTML5 기반의 컴포넌트 및 SVG 차트",
+                    title : "JENNIFER UI: HTML5 기반의 컴포넌트 및 SVG 차트 (Node.js 지원)",
                     description : "JENNIFER UI는 완전 무료입니다. 심플하며 빠르고 다양한 JUI는 올인원 데스크탑 UI 프레임워크입니다. 부트스트랩을 지원하고, 독립적으로 동작하는 스크립트와 스타일 컴포넌트 그리고 SVG 차트를 제공합니다.",
                     type : "website",
                     url : "http://seogi1004.github.io/jui/ko/index.html",
