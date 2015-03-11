@@ -167,3 +167,15 @@ html, body {
 .content-list > .panel > .body {
     border: 0px !important;
 }
+
+
+.container.hidden-menu {
+
+}
+.container.hidden-menu .menu{
+    display:none;
+}
+
+.container.hidden-menu .content {
+    padding: 0px;
+}
