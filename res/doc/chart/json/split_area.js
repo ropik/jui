@@ -35,7 +35,7 @@ chart("#chart", {
     }],
     widget : [{
         type : "title",
-        text : "Line Sample"
+        text : "Area Sample"
     }],
     style : {
         lineSplitBorderColor: "#929292"

@@ -116,6 +116,7 @@ var code_list = [
     { type: "area", title : "Stack Curve Area", code : "stack_curve_area.js" },
     { type: "area", title : "Stack Step Area", code : "stack_step_area.js" },
     { type: "area", title : "Split Area", code : "split_area.js" },
+    { type: "area", title : "Reverse Area", code : "reverse_area.js" },
 
     // radar
     { type: "radar", title : "Basic Radar", code : "radar.js" },
