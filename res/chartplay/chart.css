@@ -1,0 +1,187 @@
+/* Base */
+body {
+    font-family: "Noto Sans", "sans-serif", "Dotum";
+    font-size: 14px;
+    margin: 0px;
+    background-image: none !important;
+}
+
+.header {
+    position:absolute;
+    left: 0px;
+    top: 0px;
+    bottom:0px;
+    height:58px;
+    right:0px;
+}
+
+.header .logo {
+    width: 200px;
+    font-weight: 900;
+}
+
+.header .toolbar {
+    right:0px;
+    padding-left:220px;
+}
+
+.container {
+    position: absolute;
+    top:58px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    height:auto !important;
+}
+
+.vmenu > a > i {
+    display: inline-block !important;
+    font-size: 14px;
+}
+
+.vmenu > a {
+    display: inline-block;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    text-align: left !important;
+}
+
+
+.container .menu {
+    position: absolute;
+    width: 200px;
+    left:0px;
+    top:0px;
+    bottom:0px;
+    overflow: auto;
+}
+
+.container .content {
+    padding: 0 !important;
+    position:absolute;
+    top:0px;
+    right:0px;
+    left:200px;
+    bottom:0px;
+}
+
+
+.CodeMirror {
+    font-size: 12px;
+    font-family: "Noto Sans", "sans-serif", "Dotum";
+    max-height: 100%;
+    height: 100%;
+}
+.CodeMirror-scroll {
+    overflow: hidden;
+}
+
+.contents {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.chart_list {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 10px;
+    width: 250px;
+    overflow: auto;
+}
+
+.splitter {
+    width: 5px;
+    position: absolute;
+    background-color: #ddd;
+    left: 250px;
+    top: 0px;
+    bottom: 0px;
+}
+
+.splitter-2 {
+    width: 2px;
+    position: absolute;
+    background-color: #ddd;
+    left: 440px;
+    top: 0px;
+    bottom: 0px;
+}
+
+.chart_data {
+    position: absolute;
+    border-left:2px solid #ddd;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 440px;
+    overflow-y: auto;
+}
+
+.chart_data_main {
+    height: 100%;
+    width: 100%;
+}
+
+#tab_1 a {
+    padding: 10px 25px;
+}
+
+#tab_contents_1 {
+    background: #ddd;
+}
+
+#tab_contents_1 .panel {
+    height: 400px;
+    background: white;
+    padding: 5px;
+}
+
+#tab_contents_1 table {
+    margin-bottom: 20px;
+}
+
+.chart_view {
+    overflow: hidden;
+    position: absolute;
+    left: 442px;
+    top: 0px;
+    bottom: 0px;
+    right: 10px;
+    background-color: white;
+    z-index: 10;
+}
+
+.chart_view .chart-main {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+#chart-content-title {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 48px;
+    border-bottom: 1px solid #ddd;
+}
+
+#chart-content-title h2 {
+    text-align: left;
+    margin-left: 20px;
+}
+
+#chart-content-title .group {
+    float: right;
+    margin-right: 3px;
+}
+
+#chart-content {
+    position: absolute;
+    left: 50px;
+    right: 50px;
+    top: 100px;
+    bottom: 50px;
+}
