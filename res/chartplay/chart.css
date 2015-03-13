@@ -1,3 +1,5 @@
+@import url("http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic");
+
 /* Base */
 body {
     font-family: "Noto Sans", "sans-serif", "Dotum";
@@ -16,13 +18,18 @@ body {
 }
 
 .header .logo {
-    width: 200px;
+    width: 250px;
     font-weight: 900;
 }
 
+.header .logo > img {
+    max-height: 100%;
+    margin-top: -4px;
+}
+
 .header .toolbar {
-    right:0px;
-    padding-left:220px;
+    right: 0px;
+    padding-left: 270px;
 }
 
 .container {
@@ -49,7 +56,7 @@ body {
 
 .container .menu {
     position: absolute;
-    width: 200px;
+    width: 250px;
     left:0px;
     top:0px;
     bottom:0px;
@@ -61,7 +68,7 @@ body {
     position:absolute;
     top:0px;
     right:0px;
-    left:200px;
+    left:250px;
     bottom:0px;
 }
 
@@ -117,6 +124,7 @@ body {
     bottom: 0px;
     width: 440px;
     overflow-y: auto;
+    background: white;
 }
 
 .chart_data_main {
@@ -176,6 +184,7 @@ body {
 #chart-content-title .group {
     float: right;
     margin-right: 3px;
+    margin-top: -3px;
 }
 
 #chart-content {
