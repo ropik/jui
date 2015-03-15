@@ -98,10 +98,12 @@ var code_list = [
     // pie
     { type: "pie", title : "Pie", code : "pie.js" },
     { type: "pie", title : "Overlap Pie", code : "mini_pie.js" },
+    { type: "pie", title : "3D Pie", code : "3d_pie.js" },
 
     // donut
     { type: "donut", title : "Donut", code : "donut.js" },
     { type: "donut", title : "Overlap Donut", code : "mini_donut.js" },
+    { type: "donut", title : "3D Donut", code : "3d_donut.js" },
 
     // bubble
     { type: "bubble", title : "Basic Bubble", code : "bubble.js" },
