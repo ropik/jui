@@ -22,11 +22,15 @@ chart("#chart", {
             { apple : 72.95, microsoft : 25.39, oracle : 32.78 }
         ]
     },
-    brush : {
+    brush : [{
         type : "line"
-    },
+    }, {
+        type : "scatter",
+        hide : true
+    }],
     widget : [
     	{ type : "title", text : "Line Sample" },
-    	{ type : "legend" }
+    	{ type : "legend" },
+        { type : "tooltip", brush : 1 }
     ]
 });

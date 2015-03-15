@@ -7,7 +7,7 @@ var data = [
 ];
 
 var c = chart("#chart", {
-    axis : {
+    axis : [{
         x : {
             type : "block",
             domain : "quarter",
@@ -27,11 +27,11 @@ var c = chart("#chart", {
             step : 4,
             line : true
         }
-    },
-    brush : {
+    }],
+    brush : [{
         type : "bubble",
         target : [ "sales", "profit" ]
-    }
+    }]
 });
 
 // Data updated after rendering

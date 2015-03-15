@@ -81,7 +81,7 @@ var code_list = [
 
     // column
     { type: "column", title : "Basic Column", code : "column.js" },
-    { type: "column", title : "Stack Column", code : "stack_column.js", hide : true },
+    { type: "column", title : "Stacked Column", code : "stack_column.js", hide : true },
     { type: "column", title : "Active Stacked Column", code : "active_stack_column.js" },
     { type: "column", title : "Full Stacked Column", code : "fullstack.js" },
     { type: "column", title : "Inner Column", code : "inner_column.js" },
@@ -107,16 +107,17 @@ var code_list = [
     // scatter
     { type: "scatter", title : "Basic Scatter", code : "scatter.js" },
     { type: "scatter", title : "Range Scatter", code : "range_scatter_cross.js" },
-    { type: "scatter", title : "Stack Scatter", code : "stack_scatter.js" },
+    { type: "scatter", title : "Stacked Scatter", code : "stack_scatter.js" },
     { type: "scatter", title : "Scatter Path", code : "scatterpath.js" },
 
     //area
     { type: "area", title : "Basic Area", code : "area.js" },
-    { type: "area", title : "Stack Area", code : "stack_area.js" },
-    { type: "area", title : "Stack Curve Area", code : "stack_curve_area.js" },
-    { type: "area", title : "Stack Step Area", code : "stack_step_area.js" },
+    { type: "area", title : "Stacked Area 1", code : "stack_area.js" },
+    { type: "area", title : "Stacked Area 2", code : "stack_area2.js" },
+    { type: "area", title : "Stacked Curve Area", code : "stack_curve_area.js" },
+    { type: "area", title : "Stacked Step Area", code : "stack_step_area.js" },
     { type: "area", title : "Split Area", code : "split_area.js" },
-    { type: "area", title : "Reverse Area", code : "reverse_area.js" },
+    { type: "area", title : "Reverse Area", code : "reverse_area.js", hide : true },
 
     // radar
     { type: "radar", title : "Basic Radar", code : "radar.js" },
@@ -129,7 +130,7 @@ var code_list = [
     { type: "line", title : "Active Line", code : "active_line.js" },
     { type: "line", title : "Mini Line", code : "mini_line.js", hide : true },
     { type: "line", title : "Range Line", code : "range_line.js" },
-    { type: "line", title : "Stack Line", code : "stack_line.js" },
+    { type: "line", title : "Stacked Line", code : "stack_line.js" },
     { type: "line", title : "Multi Line", code : "line2.js" },
     { type: "line", title : "Split Line", code : "split_line.js" },
 
@@ -138,7 +139,7 @@ var code_list = [
     { type: "gauge", title : "Circle Gauge", code : "circle_gauge.js" },
     { type: "gauge", title : "Fill Gauge", code : "fill_gauge.js", hide : true },
     { type: "gauge", title : "Full Gauge", code : "full_gauge.js" },
-    { type: "gauge", title : "Stack Gauge", code : "stack_gauge.js", hide : true },
+    { type: "gauge", title : "Stacked Gauge", code : "stack_gauge.js", hide : true },
     { type: "gauge", title : "Bar Gauge", code : "bar_gauge.js" },
     { type: "gauge", title : "Fill Custom Gauge", code : "fill_custom_gauge.js", hide : true },
 

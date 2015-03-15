@@ -12,7 +12,7 @@ var showEventMessage = function(obj) {
 }
 
 var c = chart("#chart", {
-    axis : {
+    axis : [{
         x : {
             type : "block",
             domain : "quarter",
@@ -25,11 +25,11 @@ var c = chart("#chart", {
             line : true
         },
         data : data
-    },
-    brush : {
+    }],
+    brush : [{
         type : "column",
         target : [ "sales", "profit" ]
-    },
+    }],
     event : {
         click : function(obj, e) {
             showEventMessage(obj);

@@ -37,9 +37,6 @@ chart("#chart-content", {
         type : "stackarea",
         symbol : "curve"
     }, {
-        type : "stackline",
-        symbol : "curve"
-    }, {
         type : "stackscatter",
         size : 10
     }],

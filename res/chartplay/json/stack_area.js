@@ -36,8 +36,6 @@ chart("#chart-content", {
     brush : [{
         type : "stackarea"
     }, {
-        type : "stackline"
-    }, {
         type : "stackscatter",
         size : 10,
         symbol : "circle"

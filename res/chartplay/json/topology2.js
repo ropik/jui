@@ -20,11 +20,11 @@ chart("#chart", {
         type: "topologynode",
         nodeImage: function(data) {
             if(data.type == "server") {
-                return "../res/doc/chart/resource/ws.png";
+                return "resource/ws.png";
             } else if(data.type == "was") {
-                return "../res/doc/chart/resource/was.png";
+                return "resource/was.png";
             } else {
-                return "../res/doc/chart/resource/db.png";
+                return "resource/db.png";
             }
         },
         nodeTitle: function(data) {

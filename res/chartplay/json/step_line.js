@@ -23,12 +23,16 @@ chart("#chart", {
         },
         data : data
     },
-    brush : {
+    brush : [{
         type : "line",
         symbol : "step"
-    },
+    }, {
+        type : "scatter",
+        hide : true
+    }],
     widget : [
         { type : "title", text : "Line Sample" },
-        { type : "legend" }
+        { type : "legend" },
+        { type : "tooltip", brush : 1 }
     ]
 });

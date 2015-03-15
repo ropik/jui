@@ -1,9 +1,9 @@
 var chart = jui.include("chart.builder");
 var data = [
-    { sales : 2, profit : 6, dept : 7 },
-    { sales : 5, profit : 6, dept : 2 },
-    { sales : 8, profit : 4, dept : 5 },
-    { sales : 10, profit : 5, dept : 12 }
+    { sales : 2, profit : 6, sales2 : -10, profit2 : -5 },
+    { sales : 5, profit : 6, sales2 : -8, profit2 : -4 },
+    { sales : 8, profit : 4, sales2 : -5, profit2 : -6 },
+    { sales : 10, profit : 5, sales2 : -2, profit2 : -6 }
 ];
 
 chart("#chart-content", {
@@ -26,19 +26,20 @@ chart("#chart-content", {
         },
         y : {
             type: "range",
-            domain: function(data) {
-                return data.sales + data.profit + data.dept;
-            },
+            domain: [ -20, 20 ],
             step: 10
         },
         data : data
     },
     brush : [{
-        type : "stackarea"
+        type : "stackarea",
+        startZero : true,
+        target : [ "sales", "profit" ]
     }, {
-        type : "stackscatter",
-        size : 10,
-        symbol : "circle"
+        type : "stackarea",
+        startZero : true,
+        target : [ "sales2", "profit2" ],
+        colors : [ 3, 4 ]
     }],
     widget : [{
         type : "title",
@@ -46,7 +47,7 @@ chart("#chart-content", {
     }, {
         type : "legend",
         filter : true,
-        brush : [ 0, 1, 2 ],
+        brush : [ 0, 1 ],
         brushSync : true
     }]
 });

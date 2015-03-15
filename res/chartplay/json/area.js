@@ -21,9 +21,8 @@ chart("#chart-content", {
         ]
     },
 	brush : [{
-		type : "area"
-	}, {
-		type : "line"
+		type : "area",
+        line : false
 	}],
     widget : [{
         type : "title",
