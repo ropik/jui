@@ -28,6 +28,8 @@ var charts = [
 var code_list = [
     // basic
     { type: "etc", title : "Set brush events",  code : "brush_event.js" },
+    { type: "etc", title : "Set brush colors",  code : "brush_colors.js" },
+    { type: "etc", title : "Set theme styles",  code : "change_theme.js" },
     { type: "etc", title : "Update axis data",  code : "brush_axis_value.js" },
 
     // 3d chart
