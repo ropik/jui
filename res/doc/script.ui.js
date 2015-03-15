@@ -350,6 +350,16 @@ jui.ready([ "ui.button", "ui.combo", "ui.datepicker", "ui.dropdown", "ui.layout"
         align: "center"
     });
 
+    // With 팝오버
+    tooltip_5 = tooltip(".tooltip_5", {
+        position: "right",
+        width: 300,
+        align: "left",
+        tpl: {
+            item: $("#tpl_popover").html()
+        }
+    });
+
     // 아코디언
     accordion_1 = accordion(".accordion", {
         event: {

@@ -83,5 +83,44 @@
 	</p>
 </section>
 
+<section>
+    <h2>With Popover</h2>
+    <p>
+        툴팁 스타일만이 아닌 팝오버 스타일과도 함께 사용할 수 있습니다.
+        (<span class="tooltip_5" title="With Popover, With Popover, With Popover, With Popover, With Popover, With Popover">Over</span>)
+
+        <script id="tpl_popover" type="text/template">
+            <div class="popover popover-<!= position !> popover-<!= color !>">
+                <div class="head">Subject</div>
+                <div class="body">
+                    <div class="image"><i class="icon-caution"></i></div>
+                    <div class="message"><!= message !></div>
+                </div>
+            </div>
+        </script>
+
+<pre><code class="language-javascript">tooltip_5 = tooltip(".tooltip_5", {
+    position: "right",
+    width: 300,
+    align: "left",
+    tpl: {
+        item: $("#tpl_popover").html()
+    }
+});</code></pre>
+    </p>
+    <p class="br">
+        팝오버 스타일을 사용하기 위해서는 <strong>item</strong> 템플릿을 설정해야 합니다.
+<pre><code class="language-markup">&lt;script id="tpl_popover" type="text/template">
+    &lt;div class="popover popover-&lt;!= position !> popover-&lt;!= color !>">
+        &lt;div class="head">Subject&lt;/div>
+        &lt;div class="body">
+            &lt;div class="image">&lt;i class="icon-caution">&lt;/i>&lt;/div>
+            &lt;div class="message">&lt;!= message !>&lt;/div>
+        &lt;/div>
+    &lt;/div>
+&lt;/script></code></pre>
+    </p>
+</section>
+
 </body>
 </html>

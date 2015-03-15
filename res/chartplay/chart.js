@@ -31,6 +31,7 @@ var code_list = [
     { type: "etc", title : "Set brush colors",  code : "brush_colors.js" },
     { type: "etc", title : "Set theme styles",  code : "change_theme.js" },
     { type: "etc", title : "Update axis data",  code : "brush_axis_value.js" },
+    { type: "etc", title : "Use SVG Icons",  code : "use_svg_icons.js" },
 
     // 3d chart
     { type: "3d", title : "Basic 3D Bar",  code : "bar3d.js" },
