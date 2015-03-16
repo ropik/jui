@@ -23,7 +23,8 @@ chart("#chart", {
         ]
     },
     brush : [{
-        type : "line"
+        type : "line",
+        animate : true
     }, {
         type : "scatter",
         hide : true

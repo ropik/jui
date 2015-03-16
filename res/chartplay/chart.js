@@ -130,8 +130,8 @@ var code_list = [
 
     // line
     { type: "line", title : "Basic Line", code : "line.js" },
-    { type: "line", title : "Curve Line", code : "curve_line.js" },
-    { type: "line", title : "Step Line", code : "step_line.js" },
+    { type: "line", title : "Step Line ", code : "step_line.js" },
+    { type: "line", title : "Curve Line (+Dotted)", code : "curve_line.js" },
     { type: "line", title : "Active Line", code : "active_line.js" },
     { type: "line", title : "Mini Line", code : "mini_line.js", hide : true },
     { type: "line", title : "Range Line", code : "range_line.js" },

@@ -25,7 +25,8 @@ chart("#chart", {
     },
     brush : [{
         type : "line",
-        symbol : "step"
+        symbol : "step",
+        animate : true
     }, {
         type : "scatter",
         hide : true

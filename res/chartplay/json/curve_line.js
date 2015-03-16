@@ -25,7 +25,8 @@ chart("#chart", {
     },
     brush : [{
         type : "line",
-        symbol : "curve"
+        symbol : "curve",
+        animate : true
     }, {
         type : "scatter",
         hide : true
@@ -34,5 +35,8 @@ chart("#chart", {
         { type : "title", text : "Line Sample" },
         { type : "legend" },
         { type : "tooltip", brush : 1 }
-    ]
+    ],
+    style : {
+        lineBorderDashArray : "6, 3"
+    }
 });
