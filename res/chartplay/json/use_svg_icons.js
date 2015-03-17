@@ -2,13 +2,19 @@ var chart = jui.include("chart.builder");
 
 // The SVG icon of style components can be used in chart
 chart("#chart", {
+    /* When no load is 'jui.css' or Icon file of the other libraries /
+    icon: {
+        type: "jennifer",
+        path: null
+    },
+    /**/
     padding : 150,
     series : {
-        ie : { text : "{new-window} IE" },
-        ff : { text : "{gear} FireFox" },
-        chrome : { text : "{calendar} Chrome" },
-        safari : { text : "{download} Safari" },
-        other : { text : "{upload} Other" }
+        ie : { text : "IE" },
+        ff : { text : "FireFox" },
+        chrome : { text : "Chrome" },
+        safari : { text : "Safari" },
+        other : { text : "Other" }
     },
     axis : {
         data : [
@@ -30,7 +36,8 @@ chart("#chart", {
                 return this.icon("label") + v;
             }
         }, {
-            type : "legend"
+            type : "legend",
+            icon : "{chart}"
         }
     ]
 });
