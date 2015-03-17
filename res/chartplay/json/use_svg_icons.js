@@ -5,7 +5,7 @@ chart("#chart", {
     /* When no load is 'jui.css' or Icon file of the other libraries /
     icon: {
         type: "jennifer",
-        path: null
+        path: "../../img/icon-list.ttf"
     },
     /**/
     padding : 150,
