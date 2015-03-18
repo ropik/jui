@@ -104,20 +104,18 @@ function createDashboard() {
                 height : "40%"
             }
         }, {
-            data : dataSource,
             x : {
-                extend : 0,
                 hide : true
             },
             y : {
-                extend : 0,
                 domain : [ 0, 500 ],
                 orient : "right"
             },
             area : {
                 width : "65%",
                 height : "40%"
-            }
+            },
+            extend : 0
         }, {
             data : dataSource2,
             area : {
@@ -127,17 +125,15 @@ function createDashboard() {
             }
         }, {
             data : dataSource3,
-            x : {
-                extend : 0
-            },
             y : {
-                extend : 0,
                 domain : [ 0, 50000 ]
             },
             area : {
+                width : "100%",
                 height : "40%",
                 y : "60%"
-            }
+            },
+            extend : 0
         }],
         brush : [{
             type : "column",
