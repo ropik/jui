@@ -24,7 +24,9 @@ chart("#chart-content", {
     axis : [{
         x : {
             type : "range",
-            domain : function(d) { return [d.female, d.male]; },
+            domain : function(d) {
+                return Math.max(d.female, d.male);
+            },
             step : 10,
             line : true,
             reverse : true
@@ -39,17 +41,15 @@ chart("#chart-content", {
         }
     }, {
         x : {
-            extend : 0,
             reverse : false
         },
         y : {
-            extend : 0,
             orient : "right"
         },
-        data : data,
         area : {
             x : "50%", y : 0, width : "50%", height : "100%"
-        }
+        },
+        extend : 0
     }],
     brush : [{
         type : "bar",

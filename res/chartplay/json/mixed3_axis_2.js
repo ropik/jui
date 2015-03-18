@@ -83,7 +83,8 @@ chart("#chart", {
             line : true,
             orient : "right"
         },
-        area : { x : 0, y : 0, width : "100%", height : "70%" },
+        area : { x : 0, y : 0, width : "100%", height : "60%" },
+        buffer : 10,
         data : dataSource,
         keymap : {
             low : "l",
@@ -93,18 +94,13 @@ chart("#chart", {
         }
     }, {
         x : {
-            type : "block",
-            domain : "date",
             format : function(d, day_cnt) {
-                if(day_cnt % 7 == 0) {
-                    return time.format(d, "MM-dd");
-                }
-            }
+                return time.format(d, "MM-dd");
+            },
+            hide : false
         },
         y : {
-            type : "range",
             domain : "v",
-            step : 5,
             format : function(d) {
                 if(d > 10000) {
                     return Math.floor(d / 10000) + "M"
@@ -112,21 +108,27 @@ chart("#chart", {
 
                 return d;
             },
-            orient : "right"
+            line : false
         },
-        area : { x : 0, y : "75%", width : "100%", height : "25%" },
-        data : dataSource
+        area : { x : 0, y : "65%", width : "100%", height : "25%" },
+        extend : 0
     }],
     brush : [{
         type : "candlestick",
+        target : [ "l", "h", "o", "c" ],
         axis : 0
     }, {
         type : "column",
         target : "v",
         axis : 1
     }],
-    widget : {
+    widget : [{
         type : "tooltip",
         brush : 0
+    }, {
+        type : "scroll"
+    }],
+    style : {
+        scrollBackgroundSize : 10
     }
 });

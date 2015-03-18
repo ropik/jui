@@ -64,10 +64,10 @@ chart("#chart", {
             key: "date"
         },
         y : {
-            extend : 0,
             hide : true
         },
-        data : lineData
+        data : lineData,
+        extend : 0
     }],
     brush : [{
         type : "column",

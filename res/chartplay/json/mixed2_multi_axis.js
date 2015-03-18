@@ -35,13 +35,10 @@ chart("#chart", {
         data : data
     }, {
         x : {
-            extend : 0,
             hide : true
         },
         y : {
-            type : "range",
             domain : [ 1008, 1020 ],
-            step : 6,
             dist : 50,
             color : "#434348",
             format : function(value) {
@@ -49,23 +46,17 @@ chart("#chart", {
             },
             orient : "right"
         },
-        data : data
+        extend : 0
     }, {
-        x : {
-            extend : 0,
-            hide : true
-        },
         y : {
-            type: "range",
             domain: [ 5, 35 ],
-            step: 6,
+            dist : 0,
             color: "#90ed7d",
             format: function (value) {
                 return value + " ℃";
-            },
-            orient : "right"
+            }
         },
-        data : data
+        extend : 1
     }],
     brush : [
     	{ type : "column", target : "rainfall", colors : [ "#7cb5ec" ], outerPadding : 5 },

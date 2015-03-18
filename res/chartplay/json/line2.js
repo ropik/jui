@@ -36,7 +36,6 @@ chart("#chart", {
         data : data
     }, {
         x : {
-            extend : 0,
             hide : true
         },
         y : {
@@ -46,7 +45,7 @@ chart("#chart", {
             color : "#1d7fb3",
             orient : "right"
         },
-        data : data
+        extend : 0
     }],
     brush : [{
         type : "line", target : "visitor", colors : [ "#1db34f" ]
