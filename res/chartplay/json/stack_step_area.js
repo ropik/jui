@@ -47,7 +47,6 @@ chart("#chart-content", {
     }, {
         type : "legend",
         filter : true,
-        brush : [ 0, 1, 2 ],
         brushSync : true
     }]
 });
