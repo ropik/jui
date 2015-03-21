@@ -228,6 +228,10 @@ function createTopology() {
     ];
 
     chart_3 = chart(".main-chart-5 .chart", {
+        icon: {
+            type: "jennifer",
+            path: "lib/jui/img/icon-list.ttf"
+        },
         padding: 5,
         axis: {
             c: {
