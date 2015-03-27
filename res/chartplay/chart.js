@@ -62,6 +62,7 @@ var code_list = [
     // dashboard
     { type: "dashboard", title : "Stock Dashboard", code : "mixed3_axis.js" },
     { type: "dashboard", title : "Candle Stick Dashboard", code : "mixed3_axis_2.js" },
+    { type: "dashboard", title : "Candle Stick Dashboard (+Scroll)", code : "mixed3_axis_3.js" },
     { type: "dashboard", title : "Multi Brushes", code : "dashboard.js", hide : true },
     { type: "dashboard", title : "Beautiful Dashboard", code : "dashboard2.js" },
     { type: "dashboard", title : "Company Performance", code : "dashboard3.js" },
@@ -70,6 +71,7 @@ var code_list = [
     // topology map
     { type: "topology", title : "Server Topologies", code : "topology.js" },
     { type: "topology", title : "Server Topologies with image", code : "topology2.js" },
+    { type: "topology", title : "Inner Chart Topologies", code : "topology3.js" },
 
     // bar
     { type: "bar", title : "Basic Bar", code : "bar.js" },
@@ -97,11 +99,13 @@ var code_list = [
 
     // pie
     { type: "pie", title : "Basic Pie", code : "pie.js" },
+    { type: "pie", title : "Active Pie", code : "active_pie.js" },
     { type: "pie", title : "Pie (3D)", code : "3d_pie.js" },
     { type: "pie", title : "Overlap Pie", code : "mini_pie.js" },
 
     // donut
     { type: "donut", title : "Basic Donut", code : "donut.js" },
+    { type: "donut", title : "Active Donut", code : "active_donut.js" },
     { type: "donut", title : "Donut (3D)", code : "3d_donut.js" },
     { type: "donut", title : "Overlap Donut", code : "mini_donut.js" },
 
