@@ -1,4 +1,5 @@
 var editor;
+var comments;
 var currentChartIndex = 0;
 var table_1, table_2;
 var chart_1, chart_2, chart_3;
@@ -408,34 +409,13 @@ function loadChartList() {
                 break;
             }
 
-            var $a = $("<a />").data({
-                'index': index,
-                type : code.type,
-                fullscreen : code.fullscreen
-            }).attr({
-                'data-index' :  index,
-                id : 'chart-list-' + index
+            var $a = $("<a />").attr({
+                id : "chart-list-" + index,
+                href : "#" + index,
+                "data-type" : code.type
             }).html(code.title).on('click', function(e) {
-                e.preventDefault();
 
-                var index = $(this).data('index');
-                var type = $(this).data('type');
-                var fullscreen = $(this).data('fullscreen');
-                currentChartIndex = index;
-
-                viewCodeEditor();
-
-                $(".vmenu .active").removeClass("active");
-
-                $(this).parent().addClass('active');
-                $(".vmenu .chart-" + type).addClass('active');
-
-                if (fullscreen) {
-                    $(".chart_view").addClass('fullscreen').css({left : '255px' });
-                }
-
-                return false;
-            })
+            });
 
             if(!code.hide) {
                 $c = $("<li />").html($a);
@@ -447,6 +427,23 @@ function loadChartList() {
     }
 
     $(".menu").html($menu);
+
+    // 외부 URL 유입으로 인한 해쉬 이벤트 처리
+    $(window).hashchange(function() {
+        var hash = (location.hash.indexOf("#") != -1) ? location.hash : "#0",
+            index = parseInt(hash.substring(1)),
+            type = code_list[index].type;
+
+        currentChartIndex = index;
+        viewCodeEditor();
+
+        $(".vmenu .active").removeClass("active");
+        $("#chart-list-" + index).parent().addClass("active");
+        $(".vmenu .chart-" + type).addClass("active");
+    });
+
+    // 온-로드 시점에도 발생
+    $(window).hashchange();
 }
 
 function viewCodeEditor() {
@@ -462,18 +459,12 @@ function viewCodeEditor() {
             lineNumbers: true,
             styleActiveLine: true,
             matchBrackets: true,
-            theme : 'neo'
+            theme : "neo"
         });
 
-        editor.on('change', function(cm) {
-            var code = code_list[currentChartIndex].code;
-
+        editor.on("change", function(cm) {
             try {
-                if(code == "bar_compare.js") {
-                    $("#chart-content").html($("#tpl_compare").html());
-                } else {
-                    $("#chart-content").empty();
-                }
+                $("#chart-content").empty();
 
                 resetChart();
                 $.globalEval(cm.getValue());
@@ -489,17 +480,13 @@ function viewCodeEditor() {
     }
 
     $.ajax({
-        url : 'json/' + code.code,
-        dataType : 'text',
+        url : "json/" + code.code,
+        dataType : "text",
         success : function (data) {
-            if(code.code == "bar_compare.js") {
+            if (data.indexOf("#chart-content") > -1) {
                 editor.setValue(data);
-            } else {
-                if (data.indexOf("#chart-content") > -1) {
-                    editor.setValue(data);
-                } else if (data.indexOf("#chart") > -1) {
-                    editor.setValue(data.replace("#chart", "#chart-content"));
-                }
+            } else if (data.indexOf("#chart") > -1) {
+                editor.setValue(data.replace("#chart", "#chart-content"));
             }
 
             // 현재 데이터 적용
@@ -531,10 +518,10 @@ function setFunctions() {
     $el.on('click', function() {
         var $el = $(".chart_view");
 
-        if ($el.hasClass('fullscreen')) {
-            $el.removeClass('fullscreen').animate({ left : '442px' }, viewCodeEditor);
+        if ($el.hasClass("fullscreen")) {
+            $el.removeClass("fullscreen").animate({ left : "442px" }, viewCodeEditor);
         } else {
-            $el.addClass('fullscreen').animate({ left : '0px' }, viewCodeEditor);
+            $el.addClass("fullscreen").animate({ left : "0px" }, viewCodeEditor);
         }
     });
 
@@ -566,13 +553,19 @@ function setFunctions() {
     });
 }
 
-
-jui.ready([ "util.base" ], function(_) {
+jui.ready([ "util.base", "uix.window" ], function(_, uiWin) {
     editor = null;
 
     loadChartList();
     setFunctions();
     createTab();
+
+    // 댓글 모달 윈도우
+    comments = uiWin("#comments", {
+        width: "90%",
+        height: "90%",
+        modal: true
+    });
 
     // IE일 경우, 탭 제거
     if(_.browser.msie) {

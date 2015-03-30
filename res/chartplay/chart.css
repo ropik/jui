@@ -99,6 +99,12 @@ body {
     overflow: auto;
 }
 
+.chart_comments {
+    float: right;
+    text-decoration: none;
+    color: white;
+}
+
 .splitter {
     width: 5px;
     position: absolute;
