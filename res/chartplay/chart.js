@@ -564,7 +564,19 @@ jui.ready([ "util.base", "uix.window" ], function(_, uiWin) {
     comments = uiWin("#comments", {
         width: "90%",
         height: "90%",
-        modal: true
+        modal: true,
+        event : {
+          show : function() {
+            DISQUS.reset({
+              reload: true,
+              config: function () {
+                this.page.identifier = window.location.hash;
+                this.page.url = window.location.href;
+              }
+            });
+          }
+        
+        }
     });
 
     // IE일 경우, 탭 제거
