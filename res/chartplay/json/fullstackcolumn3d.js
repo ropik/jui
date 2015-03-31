@@ -35,9 +35,5 @@ chart("#chart", {
     }, {
         type : "title",
         text : "3D Column Sample"
-    }],
-    style : {
-        gridAxisBorderColor : "black",
-        gridBorderColor : "#dcdcdc"
-    }
+    }]
 });

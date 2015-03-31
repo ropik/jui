@@ -35,9 +35,5 @@ chart("#chart-content", {
     }, {
         type : "title",
         text : "3D Bar Sample"
-    }],
-    style : {
-        gridAxisBorderColor : "black",
-        gridBorderColor : "#dcdcdc"
-    }
+    }]
 });

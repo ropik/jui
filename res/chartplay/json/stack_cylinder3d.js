@@ -33,9 +33,5 @@ chart("#chart-content", {
     }, {
         type : "title",
         text : "3D Cylinder Sample"
-    }],
-    style : {
-        gridAxisBorderColor : "black",
-        gridBorderColor : "#dcdcdc"
-    }
+    }]
 });
