@@ -8,6 +8,7 @@ var realtimeInterval = null;
 
 var charts = [
     { type: "etc", title : "Basic" },
+    { type: "grid", title : "Grid Style" },
     { type: "3d", title : "3D Chart" },
     { type: "mixed", title : "Combination Chart" },
     { type: "realtime", title : "Realtime Chart" },
@@ -33,6 +34,17 @@ var code_list = [
     { type: "etc", title : "Set theme styles",  code : "change_theme.js" },
     { type: "etc", title : "Update axis data",  code : "brush_axis_value.js" },
     { type: "etc", title : "Use SVG Icons",  code : "use_svg_icons.js" },
+
+
+    // grid line style
+    { type: "grid", title : "Base Grid", code : "grid_base.js" },
+    { type: "grid", title : "Solid LIne", code : "grid_solid.js" },
+    { type: "grid", title : "Solid + Gradient", code : "grid_solid_gradient.js" },
+    { type: "grid", title : "Solid + Rectangle", code : "grid_solid_rect.js" },
+    { type: "grid", title : "Dashed Line", code : "grid_dashed.js" },
+    { type: "grid", title : "Dashed + Gradient", code : "grid_dashed_gradient.js" },
+    { type: "grid", title : "Dashed + Rect", code : "grid_dashed_rect.js" },
+
 
     // 3d chart
     { type: "3d", title : "Basic 3D Bar",  code : "bar3d.js" },
@@ -158,6 +170,7 @@ var code_list = [
     { type: "stock", title : "Candle Stick with scroll", code : "candlestick_scroll.js" },
     { type: "stock", title : "Candle Stick with zoom", code : "candlestick_zoom.js" },
     { type: "stock", title : "OHLC", code : "ohlc.js" }
+
 ];
 
 // 시작 위치 설정
