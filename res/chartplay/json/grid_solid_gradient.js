@@ -6,12 +6,12 @@ chart("#chart-content", {
             type : "range",
             domain : [ -40, 60 ],
             step : 10,
-            line : 'gradient'
+            line : "gradient"
         },
         y : {
             type : "block",
             domain : "quarter",
-            line : 'solid'
+            line : "solid"
         },
         data : [
             { quarter : "1Q", sales : 50, profit : 35 },

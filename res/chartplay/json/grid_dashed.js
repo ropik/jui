@@ -6,12 +6,12 @@ chart("#chart-content", {
             type : "range",
             domain : [ -40, 60 ],
             step : 10,
-            line : 'dashed'
+            line : "dashed"
         },
         y : {
             type : "block",
             domain : "quarter",
-            line : 'dashed' // 'solid' or true
+            line : "dashed" // 'solid' or true
         },
         data : [
             { quarter : "1Q", sales : 50, profit : 35 },

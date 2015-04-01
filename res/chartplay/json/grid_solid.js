@@ -6,7 +6,7 @@ chart("#chart-content", {
             type : "range",
             domain : [ -40, 60 ],
             step : 10,
-            line : 'solid'
+            line : "solid"
         },
         y : {
             type : "block",

@@ -6,12 +6,12 @@ chart("#chart-content", {
             type : "range",
             domain : [ -40, 60 ],
             step : 10,
-            line : 'dashed gradient' // dashed with gradient
+            line : "dashed gradient" // dashed with gradient
         },
         y : {
             type : "block",
             domain : "quarter",
-            line : 'dashed'
+            line : "dashed"
         },
         data : [
             { quarter : "1Q", sales : 50, profit : 35 },
