@@ -4761,7 +4761,7 @@
   text-decoration: none;
 }
 .jui .tab li > a {
-  color: #6633cc;
+  color: #6836c4;
   border: 1px solid #e6e6e6;
   background-color: #ffffff;
   background-image: -moz-linear-gradient(top, #ffffff 0%, #f4f4f4 100%);
@@ -4832,7 +4832,7 @@
   border-radius: 0 0 4px 4px;
 }
 .jui .tab-white li > a {
-  color: #6633cc;
+  color: #6836c4;
   border: 1px solid #e6e6e6;
   background-color: #ffffff;
   background-image: -moz-linear-gradient(top, #ffffff 0%, #f4f4f4 100%);
@@ -5523,15 +5523,33 @@
 .jui .row:after {
   display: table;
   content: " ";
-}
-.jui .row:after {
   clear: both;
+}
+.jui .row.gutter-4 .col {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.jui .row.gutter-8 .col {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.jui .row.gutter-12 .col {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.jui .row.gutter-20 .col {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.jui .row.gutter-24 .col {
+  padding-left: 24px;
+  padding-right: 24px;
 }
 .jui .col {
   position: relative;
   float: left;
-  width: 100%;
   min-height: 1px;
+  width: 8.333333333333332%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -5571,6 +5589,10 @@
 }
 .jui .col-1 {
   width: 8.333333333333332%;
+}
+.jui .outline,
+.jui .outline * {
+  outline: 1px solid #7fa5f6;
 }
 .jui .tooltip {
   position: absolute;
