@@ -37,7 +37,7 @@ var code_list = [
 
     // grid line style
     { type: "grid", title : "Base Grid", code : "grid_base.js" },
-    { type: "grid", title : "Solid Line", code : "grid_solid.js" },
+    { type: "grid", title : "Solid Line", code : "grid_solid.js", hide : true },
     { type: "grid", title : "Solid + Gradient", code : "grid_solid_gradient.js" },
     { type: "grid", title : "Solid + Rect", code : "grid_solid_rect.js" },
     { type: "grid", title : "Dashed Line", code : "grid_dashed.js" },
