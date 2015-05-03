@@ -9,6 +9,7 @@ var realtimeInterval = null;
 var charts = [
     { type: "etc", title : "Basic" },
     { type: "grid", title : "Grid Style" },
+    { type: "map", title : "Map Chart" },
     { type: "3d", title : "3D Chart" },
     { type: "mixed", title : "Combination Chart" },
     { type: "realtime", title : "Realtime Chart" },
@@ -42,6 +43,9 @@ var code_list = [
     { type: "grid", title : "Dashed Line", code : "grid_dashed.js" },
     { type: "grid", title : "Dashed + Gradient", code : "grid_dashed_gradient.js" },
     { type: "grid", title : "Dashed + Rect", code : "grid_dashed_rect.js" },
+
+    // map chart
+    { type: "map", title : "World Map 1",  code : "worldmap1.js" },
 
     // 3d chart
     { type: "3d", title : "Basic 3D Bar",  code : "bar3d.js" },
