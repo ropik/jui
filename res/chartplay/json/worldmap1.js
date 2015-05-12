@@ -39,7 +39,7 @@ chart("#chart", {
             path : "resource/worldFree.svg",
             width : 950,
             height : 620,
-            scale : 2
+            scale : 1
         },
         data : data
     }],
@@ -47,12 +47,12 @@ chart("#chart", {
         type : "map.bubble",
         color : function(d) {
             if(d.value > 70) {
-                return "red";
+                return "linear(top) #ff686c,0.9 #fa5559";
             } else if(d.value > 35) {
-                return "orange";
+                return "linear(top) #ff9d46,0.9 #ff7800";
             }
 
-            return "blue";
+            return "linear(top) #9694e0,0.9 #7977C2";
         }
     }, {
         type : "map.selector",

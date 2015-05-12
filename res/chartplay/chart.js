@@ -45,7 +45,8 @@ var code_list = [
     { type: "grid", title : "Dashed + Rect", code : "grid_dashed_rect.js" },
 
     // map chart
-    { type: "map", title : "World Map 1",  code : "worldmap1.js" },
+    { type: "map", title : "Population Maps",  code : "worldmap1.js" },
+    { type: "map", title : "Airplane Routes",  code : "worldmap2.js" },
 
     // 3d chart
     { type: "3d", title : "Basic 3D Bar",  code : "bar3d.js" },
