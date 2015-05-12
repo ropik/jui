@@ -564,7 +564,7 @@ function setFunctions() {
 
     $(".btn-image").on("click", function() {
         var chart = window.currentChart;
-        chart.svg.downloadImage("jui_image");
+        chart.svg.download("jui_image");
     });
 }
 

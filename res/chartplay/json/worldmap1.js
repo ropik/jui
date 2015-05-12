@@ -66,12 +66,12 @@ chart("#chart", {
         dy : 10
     }, {
         type : "map.tooltip",
-        format : function(d) {
-            if(d.id == "south korea") {
+        format : function(obj) {
+            if(obj.data.id == "south korea") {
                 return "Korea";
             }
 
-            return d.id;
+            return obj.data.id;
         }
     }]
 });
