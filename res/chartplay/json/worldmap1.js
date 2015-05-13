@@ -39,7 +39,7 @@ chart("#chart", {
             path : "resource/worldFree.svg",
             width : 950,
             height : 620,
-            scale : 1
+            scale : 1.5
         },
         data : data
     }],
