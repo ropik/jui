@@ -9,6 +9,7 @@ var realtimeInterval = null;
 var charts = [
     { type: "etc", title : "Basic" },
     { type: "grid", title : "Grid Style" },
+    { type: "grid2", title : "Grid Type" },
     { type: "map", title : "Map Chart" },
     { type: "3d", title : "3D Chart" },
     { type: "mixed", title : "Combination Chart" },
@@ -31,18 +32,22 @@ var charts = [
 var code_list = [
     // basic
     { type: "etc", title : "Set brush events",  code : "brush_event.js" },
+    { type: "etc", title : "Set brush events (with HTML)",  code : "brush_event_2.js" },
     { type: "etc", title : "Set brush colors",  code : "brush_colors.js" },
     { type: "etc", title : "Set theme styles",  code : "change_theme.js" },
     { type: "etc", title : "Update axis data",  code : "brush_axis_value.js" },
     { type: "etc", title : "Use SVG Icons",  code : "use_svg_icons.js" },
 
-    // grid line style
+    // grid style
     { type: "grid", title : "Solid Line", code : "grid_solid.js" },
     { type: "grid", title : "Solid + Gradient", code : "grid_solid_gradient.js" },
     { type: "grid", title : "Solid + Rect", code : "grid_solid_rect.js" },
     { type: "grid", title : "Dashed Line", code : "grid_dashed.js" },
     { type: "grid", title : "Dashed + Gradient", code : "grid_dashed_gradient.js" },
     { type: "grid", title : "Dashed + Rect", code : "grid_dashed_rect.js" },
+
+    // grid type
+    { type: "grid2", title : "Block & Range", code : "grid_type_1.js" },
 
     // map chart
     { type: "map", title : "Population Status",  code : "worldmap1.js" },
