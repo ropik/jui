@@ -7,7 +7,7 @@ var realtimeIndex = 0;
 var realtimeInterval = null;
 
 var charts = [
-    { type: "etc", title : "Basic" },
+    { type: "basic", title : "Basic" },
     { type: "grid", title : "Grid Style" },
     { type: "grid2", title : "Grid Type" },
     { type: "map", title : "Map Chart" },
@@ -31,12 +31,12 @@ var charts = [
 
 var code_list = [
     // basic
-    { type: "etc", title : "Set brush events",  code : "brush_event.js" },
-    { type: "etc", title : "Set brush events (with HTML)",  code : "brush_event_2.js" },
-    { type: "etc", title : "Set brush colors",  code : "brush_colors.js" },
-    { type: "etc", title : "Set theme styles",  code : "change_theme.js" },
-    { type: "etc", title : "Update axis data",  code : "brush_axis_value.js" },
-    { type: "etc", title : "Use SVG Icons",  code : "use_svg_icons.js" },
+    { type: "basic", title : "Set brush events", code : "brush_event.js" },
+    { type: "basic", title : "Set brush events (with HTML)", code : "brush_event_2.js" },
+    { type: "basic", title : "Set brush colors", code : "brush_colors.js" },
+    { type: "basic", title : "Set theme styles", code : "change_theme.js" },
+    { type: "basic", title : "Update axis data", code : "brush_axis_value.js" },
+    { type: "basic", title : "Use SVG Icons", code : "use_svg_icons.js" },
 
     // grid style
     { type: "grid", title : "Solid Line", code : "grid_solid.js" },
@@ -431,7 +431,7 @@ function loadChartList() {
 
             var $a = $("<a />").attr({
                 id : "chart-list-" + index,
-                href : "#" + index,
+                href : "#" + code.code,
                 "data-type" : code.type
             }).html(code.title).on('click', function(e) {
 
@@ -450,20 +450,31 @@ function loadChartList() {
 
     // 외부 URL 유입으로 인한 해쉬 이벤트 처리
     $(window).hashchange(function() {
-        var hash = (location.hash.indexOf("#") != -1) ? location.hash : "#0",
-            index = parseInt(hash.substring(1)),
-            type = code_list[index].type;
+        var index = getIndexByCode(location.hash);
+            code = code_list[index];
 
         currentChartIndex = index;
         viewCodeEditor();
 
         $(".vmenu .active").removeClass("active");
         $("#chart-list-" + index).parent().addClass("active");
-        $(".vmenu .chart-" + type).addClass("active");
+        $(".vmenu .chart-" + code.type).addClass("active");
     });
 
     // 온-로드 시점에도 발생
     $(window).hashchange();
+}
+
+function getIndexByCode(code) {
+    if(code == "") return 0;
+
+    for(var i = 0; i < code_list.length; i++) {
+        if("#" + code_list[i].code == code) {
+            return i;
+        }
+    }
+
+    return 0;
 }
 
 function viewCodeEditor() {
