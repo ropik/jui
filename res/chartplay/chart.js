@@ -8,8 +8,8 @@ var realtimeInterval = null;
 
 var charts = [
     { type: "basic", title : "Basic" },
-    { type: "grid", title : "Grid Style" },
-    { type: "grid2", title : "Grid Type" },
+    { type: "grid", title : "Grid Basic" },
+    { type: "grid2", title : "Grid Style" },
     { type: "map", title : "Map Chart" },
     { type: "3d", title : "3D Chart" },
     { type: "mixed", title : "Combination Chart" },
@@ -35,19 +35,23 @@ var code_list = [
     { type: "basic", title : "Set brush events (with HTML)", code : "brush_event_2.js" },
     { type: "basic", title : "Set brush colors", code : "brush_colors.js" },
     { type: "basic", title : "Set theme styles", code : "change_theme.js" },
+    { type: "basic", title : "Set chart padding", code : "chart_padding.js" },
     { type: "basic", title : "Update axis data", code : "brush_axis_value.js" },
     { type: "basic", title : "Use SVG Icons", code : "use_svg_icons.js" },
 
-    // grid style
-    { type: "grid", title : "Solid Line", code : "grid_solid.js" },
-    { type: "grid", title : "Solid + Gradient", code : "grid_solid_gradient.js" },
-    { type: "grid", title : "Solid + Rect", code : "grid_solid_rect.js" },
-    { type: "grid", title : "Dashed Line", code : "grid_dashed.js" },
-    { type: "grid", title : "Dashed + Gradient", code : "grid_dashed_gradient.js" },
-    { type: "grid", title : "Dashed + Rect", code : "grid_dashed_rect.js" },
+    // grid basic
+    { type: "grid", title : "Set domain", code : "grid_set_domain.js" },
+    { type: "grid", title : "Set domain as data", code : "grid_set_domain2.js" },
+    { type: "grid", title : "Set domain as callback", code : "grid_set_domain3.js" },
+    { type: "grid", title : "Set domain format", code : "grid_block_format.js" },
 
-    // grid type
-    { type: "grid2", title : "Block & Range", code : "grid_type_1.js" },
+    // grid style
+    { type: "grid2", title : "Solid + Tick style", code : "grid_solid.js" },
+    { type: "grid2", title : "Solid + Gradient", code : "grid_solid_gradient.js" },
+    { type: "grid2", title : "Solid + Rect", code : "grid_solid_rect.js" },
+    { type: "grid2", title : "Dashed Line", code : "grid_dashed.js" },
+    { type: "grid2", title : "Dashed + Gradient", code : "grid_dashed_gradient.js" },
+    { type: "grid2", title : "Dashed + Rect", code : "grid_dashed_rect.js" },
 
     // map chart
     { type: "map", title : "Population Status",  code : "worldmap1.js" },

@@ -60,5 +60,8 @@ chart("#chart", {
     }, {
         type : "tooltip",
         orient : "bottom"
-    }]
+    }],
+    style : {
+        gridTickPadding : 10
+    }
 });

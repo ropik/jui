@@ -19,5 +19,9 @@ chart("#chart-content", {
             { quarter : "3Q", sales : 10, profit : -5 },
             { quarter : "4Q", sales : 30, profit : 25 }
         ]
+    },
+    style : {
+        gridTickSize : 7,
+        gridTickPadding : 10
     }
 });
