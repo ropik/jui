@@ -464,6 +464,20 @@ function loadChartList() {
         $(".vmenu .active").removeClass("active");
         $("#chart-list-" + index).parent().addClass("active");
         $(".vmenu .chart-" + code.type).addClass("active");
+
+        // 리얼타임일 경우, 테마와 데이터 탭 제거
+        if(code.type == "realtime") {
+            $("#tab_1").find("li:not(:first-child)").hide();
+        } else if(code.type == "map") {
+            $("#tab_1").find("li:last-child").hide();
+            $("#tab_1").find("li:not(:last-child)").show();
+        } else {
+            $("#tab_1").find("li").show();
+
+            if(realtimeInterval != null) {
+                clearInterval(realtimeInterval);
+            }
+        }
     });
 
     // 온-로드 시점에도 발생
@@ -530,17 +544,6 @@ function viewCodeEditor() {
 
             // 현재 테마 적용
             changeTheme($("select").find("option:selected").val());
-
-            // 리얼타임일 경우, 테마와 데이터 탭 제거
-            if(code.type == "realtime") {
-                $("#tab_1").find("li:not(:first-child)").hide();
-            } else {
-                $("#tab_1").find("li").show();
-
-                if(realtimeInterval != null) {
-                    clearInterval(realtimeInterval);
-                }
-            }
         },
         error : function(data, error) {
             console.log(error);
