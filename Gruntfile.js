@@ -117,6 +117,62 @@ function initSitemap(grunt) {
     }
 }
 
+function initFonts(grunt) {
+    var fonts = grunt.config("fonts");
+
+    loopFiles(fonts.en, "./en");
+    loopFiles(fonts.ko, "./ko");
+
+    function loopFiles(link, path) {
+        var files = fs.readdirSync(path);
+
+        for(var i = 0; i < files.length; i++) {
+            var file = path + "/" + files[i],
+                stats = fs.statSync(file);
+
+            if(stats.isFile()) {
+                updateFile(link, file);
+            } else if(stats.isDirectory()) {
+                loopFiles(link, file);
+            }
+        }
+    }
+
+    function updateFile(link, path) {
+        var text = fs.readFileSync(path, "utf-8"),
+            buffer = [];
+
+        if(typeof(text) == "string") {
+            var rows = text.split("\n"),
+                title = "";
+
+            // 메타 태그 삭제
+            for(var i = 0; i < rows.length - 1; i++) {
+                var r = rows[i];
+
+                buffer.push(r);
+
+                if(r.toLowerCase().indexOf("<title>") != -1) {
+                    var r2 = rows[i + 1];
+
+                    if(r2 != getStyleTag(link)) {
+                        buffer.push(getStyleTag(link));
+                    }
+                }
+            }
+
+            fs.writeFileSync(path, buffer.join("\n"), "utf-8");
+            grunt.log.writeln("'" + path + "' updated");
+        }
+    }
+
+    function getStyleTag(link) {
+        return '<link rel="stylesheet" href="' + link + '" />';
+    }
+
+    grunt.log.writeln("Fonts style loaded");
+}
+
 module.exports = function(grunt) {
     grunt.initConfig({
         metatag : {
@@ -155,18 +211,26 @@ module.exports = function(grunt) {
             url : true,
             modify : false
         },
+        fonts : {
+            en : "http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic",
+            ko : "http://fonts.googleapis.com/earlyaccess/nanumgothic.css"
+        },
         pkg: grunt.file.readJSON("package.json")
     });
 
     require("load-grunt-tasks")(grunt);
 
-    grunt.registerTask("metatag", "Metadata Synchronized", function() {
+    grunt.registerTask("metatag", "Metadata synchronized", function() {
         initMetatag(grunt);
     });
 
-    grunt.registerTask("sitemap", "Sitemap Created", function() {
+    grunt.registerTask("sitemap", "Sitemap created", function() {
         initSitemap(grunt);
     });
 
-    grunt.registerTask("default", [ "metatag", "sitemap" ]);
+    grunt.registerTask("fonts", "Fonts style loaded", function() {
+        initFonts(grunt);
+    });
+
+    grunt.registerTask("default", [ "metatag", "sitemap", "fonts" ]);
 };
