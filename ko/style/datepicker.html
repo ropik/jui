@@ -25,9 +25,9 @@
     <h2>Default</h2>
 
     <p>
-        달력은 내부적으로 테이블로 구성되며, 각각의 상태에 따라 요소 별로 다른 스타일을 줄 수 있습니다.
+        달력 선택 컴포넌트는 내부적으로 테이블로 구성되며, 각각의 상태에 따라 요소 별로 다른 스타일을 줄 수 있습니다.
 
-        <div class="datepicker">
+        <div class="datepicker" style="width: 250px; height: 200px;">
             <div class="head">
                 <div class="prev"></div>
                 <div class="title">2013. 11</div>
@@ -41,7 +41,7 @@
                     <td class="none">27</td><td class="none">28</td><td class="none">29</td><td class="none">30</td><td class="none">31</td><td>1</td><td>2</td>
                 </tr>
                 <tr>
-                    <td>3</td><td>4</td><td>5</td><td class="today">6</td><td>7</td><td>8</td><td>9</td>
+                    <td>3</td><td>4</td><td>5</td><td class="now">6</td><td>7</td><td>8</td><td>9</td>
                 </tr>
                 <tr>
                     <td>10</td><td>11</td><td>12</td><td class="active">13</td><td>14</td><td>15</td><td>16</td>
@@ -53,7 +53,7 @@
                     <td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td>
                 </tr>
                 <tr>
-                    <td class="none">1</td><td class="none">2</td><td class="none">3</td><td class="none">4</td><td class="none">5</td><td class="none">6</td><td class="none">7</td>
+                    <td>31</td><td class="none">1</td><td class="none">2</td><td class="none">3</td><td class="none">4</td><td class="none">5</td><td class="none">6</td>
                 </tr>
             </table>
         </div>
@@ -61,7 +61,7 @@
 	<p class="br">
 		달력의 일자를 표시하는 <strong>td</strong> 태그는 3가지의 상태 스타일을 가지고 있습니다. (비활성화:<strong>none</strong>, 활성화:<strong>active</strong>, 현재:<strong>now</strong>)
 		
-<pre><code class="language-markup">&lt;div class="datepicker"&gt;
+<pre><code class="language-markup">&lt;div class="datepicker" style="width: 250px; height: 200px;"&gt;
     &lt;div class="head"&gt;
         &lt;div class="prev"&gt;&lt;/div&gt;
         &lt;div class="title"&gt;2013. 11&lt;/div&gt;
@@ -80,21 +80,8 @@
         	&lt;td&gt;1&lt;/td&gt;
         	&lt;td&gt;2&lt;/td&gt;
         &lt;/tr&gt;
-        &lt;tr&gt;
-        	...
-        &lt;/tr&gt;
-        &lt;tr&gt;
-        	...
-        &lt;/tr&gt;
-        &lt;tr&gt;
-        	...
-        &lt;/tr&gt;
-        &lt;tr&gt;
-        	...
-        &lt;/tr&gt;
-        &lt;tr&gt;
-        	...
-        &lt;/tr&gt;
+
+        ...
     &lt;/table&gt;
 &lt;/div&gt;</code></pre>
     </p>
@@ -104,7 +91,7 @@
     <h2>Large</h2>
 
     <p>
-        달력 컴포넌트를 구성하는 요소들의 크기를 다르게 할 수 있으며, 다른 형태의 달력으로도 활용할 수 있습니다.
+        달력 선택 컴포넌트를 구성하는 요소들의 크기를 다르게 할 수 있으며, 다른 형태의 달력으로도 활용할 수 있습니다.
         
         <div class="datepicker datepicker-large">
             <div class="head">
@@ -123,7 +110,7 @@
                     <td>2010</td><td>2011</td><td>2012</td>
                 </tr>
                 <tr>
-                    <td class="today">2013</td><td>2014</td><td>2015</td>
+                    <td class="now">2013</td><td>2014</td><td>2015</td>
                 </tr>
             </table>
         </div>
@@ -148,11 +135,109 @@
             &lt;td&gt;2010&lt;/td&gt;&lt;td&gt;2011&lt;/td&gt;&lt;td&gt;2012&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td class="today"&gt;2013&lt;/td&gt;&lt;td&gt;2014&lt;/td&gt;&lt;td&gt;2015&lt;/td&gt;
+            &lt;td class="now"&gt;2013&lt;/td&gt;&lt;td&gt;2014&lt;/td&gt;&lt;td&gt;2015&lt;/td&gt;
         &lt;/tr&gt;
     &lt;/table&gt;
 &lt;/div&gt;</code></pre>
     </p>
+</section>
+
+<section>
+    <h2>Calendar</h2>
+
+    <p>
+        일정 관리와 같은 화면을 구현하기 위한 달력 컴포넌트를 제공합니다.
+        기존의 컴포넌트와 마크업 룰은 동일하지만 클래스 이름만 <strong>calendar</strong>로 변경하면 됩니다.
+
+        <div class="calendar" style="height: 550px;">
+            <div class="head">
+                <div class="prev"></div>
+                <div class="title">June 2013</div>
+                <div class="next"></div>
+            </div>
+            <table class="body">
+                <tr>
+                    <th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th>
+                </tr>
+                <tr>
+                    <td class="none">26</td><td class="none">27</td><td class="none">28</td><td class="none">29</td><td class="none">30</td><td class="none">31</td><td>1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>
+                        <div>6</div>
+                        <div class="task">
+                            <span style="background: #ff847c;">Memorial Day</span>
+                            <span style="background: #28a7db;">2:00 Lunch</span>
+                        </div>
+                    </td>
+                    <td>7</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td class="active">13</td>
+                    <td>14</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>
+                        <div>17</div>
+                        <div class="task">
+                            <span style="background: #aa8bc6;">Interview</span>
+                        </div>
+                    </td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td>23</td><td class="now">24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td>
+                </tr>
+                <tr>
+                    <td>30</td><td class="none">1</td><td class="none">2</td><td class="none">3</td><td class="none">4</td><td class="none">5</td><td class="none">6</td>
+                </tr>
+            </table>
+        </div>
+	</p>
+	<p class="br">
+		달력 선택 컴포넌트와 다른 점이 있다면 <strong>td</strong> 태그 안에 일정을 추가할 수 있습니다.
+
+<pre><code class="language-markup">&lt;div class="calendar" style="height: 550px;"&gt;
+    &lt;div class="head"&gt;
+        ...
+    &lt;/div&gt;
+    &lt;table class="body"&gt;
+        &lt;tr&gt;
+           &lt;th&gt;SUN&lt;/th&gt;&lt;th&gt;MON&lt;/th&gt;&lt;th&gt;TUE&lt;/th&gt;&lt;th&gt;WED&lt;/th&gt;&lt;th&gt;THU&lt;/th&gt;&lt;th&gt;FRI&lt;/th&gt;&lt;th&gt;SAT&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td class="none"&gt;27&lt;/td&gt;
+            &lt;td class="none"&gt;28&lt;/td&gt;
+            &lt;td class="none"&gt;29&lt;/td&gt;
+            &lt;td class="none"&gt;30&lt;/td&gt;
+            &lt;td class="none"&gt;31&lt;/td&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;
+                &lt;div&gt;2&lt;/div&gt;
+                &lt;div class="task"&gt;
+                    &lt;span style="background: #28a7db;">2:00 Lunch&lt;/span>
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+
+        ...
+    &lt;/table&gt;
+&lt;/div&gt;</code></pre>
 </section>
 
 </body>

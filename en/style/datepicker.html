@@ -26,9 +26,9 @@
     <h2>Default</h2>
 
     <p>
-        Calendar is comprised of tables and the user can designate a different style for each element according to the state.
+        Datepicker is comprised of tables and the user can designate a different style for each element according to the state.
 
-        <div class="datepicker">
+        <div class="datepicker" style="width: 250px; height: 200px;">
             <div class="head">
                 <div class="prev"></div>
                 <div class="title">November 2013</div>
@@ -42,7 +42,7 @@
                     <td class="none">27</td><td class="none">28</td><td class="none">29</td><td class="none">30</td><td class="none">31</td><td>1</td><td>2</td>
                 </tr>
                 <tr>
-                    <td>3</td><td>4</td><td>5</td><td class="today">6</td><td>7</td><td>8</td><td>9</td>
+                    <td>3</td><td>4</td><td>5</td><td class="now">6</td><td>7</td><td>8</td><td>9</td>
                 </tr>
                 <tr>
                     <td>10</td><td>11</td><td>12</td><td class="active">13</td><td>14</td><td>15</td><td>16</td>
@@ -62,7 +62,7 @@
 	<p class="br">
 		<strong>td</strong> tag, which expresses the date of a calender, has 3 state styles (disabled: <strong>none</strong>, enabled: <strong>active</strong>, present: <strong>now</strong>)
 		
-<pre><code class="language-markup">&lt;div class=&quot;datepicker&quot;&gt;
+<pre><code class="language-markup">&lt;div class=&quot;datepicker&quot; style="width: 250px; height: 200px;"&gt;
     &lt;div class=&quot;head&quot;&gt;
         &lt;div class=&quot;prev&quot;&gt;&lt;/div&gt;
         &lt;div class=&quot;title&quot;&gt;2013. 11&lt;/div&gt;
@@ -81,21 +81,8 @@
         	&lt;td&gt;1&lt;/td&gt;
         	&lt;td&gt;2&lt;/td&gt;
         &lt;/tr&gt;
-        &lt;tr&gt;
-        	...
-        &lt;/tr&gt;
-        &lt;tr&gt;
-        	...
-        &lt;/tr&gt;
-        &lt;tr&gt;
-        	...
-        &lt;/tr&gt;
-        &lt;tr&gt;
-        	...
-        &lt;/tr&gt;
-        &lt;tr&gt;
-        	...
-        &lt;/tr&gt;
+
+        ...
     &lt;/table&gt;
 &lt;/div&gt;</code></pre>
     </p>
@@ -105,7 +92,7 @@
     <h2>Large</h2>
 
     <p>
-        It is possible to set the sizes of elements constituting a calender to suit each other, providing a calender with a different appearance.
+        It is possible to set the sizes of elements constituting a datepicker to suit each other, providing a calender with a different appearance.
         
         <div class="datepicker datepicker-large">
             <div class="head">
@@ -124,7 +111,7 @@
                     <td>2010</td><td>2011</td><td>2012</td>
                 </tr>
                 <tr>
-                    <td class="today">2013</td><td>2014</td><td>2015</td>
+                    <td class="now">2013</td><td>2014</td><td>2015</td>
                 </tr>
             </table>
         </div>
@@ -149,11 +136,109 @@
             &lt;td&gt;2010&lt;/td&gt;&lt;td&gt;2011&lt;/td&gt;&lt;td&gt;2012&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td class=&quot;today&quot;&gt;2013&lt;/td&gt;&lt;td&gt;2014&lt;/td&gt;&lt;td&gt;2015&lt;/td&gt;
+            &lt;td class=&quot;now&quot;&gt;2013&lt;/td&gt;&lt;td&gt;2014&lt;/td&gt;&lt;td&gt;2015&lt;/td&gt;
         &lt;/tr&gt;
     &lt;/table&gt;
 &lt;/div&gt;</code></pre>
     </p>
+</section>
+
+<section>
+    <h2>Calendar</h2>
+
+    <p>
+        It provides a calendar component for implementing functions such as schedule management.
+        The same as the existing markup rule, but only if you change the class name will be <strong> calendar </strong>.
+
+    <div class="calendar" style="height: 550px;">
+        <div class="head">
+            <div class="prev"></div>
+            <div class="title">June 2013</div>
+            <div class="next"></div>
+        </div>
+        <table class="body">
+            <tr>
+                <th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th>
+            </tr>
+            <tr>
+                <td class="none">26</td><td class="none">27</td><td class="none">28</td><td class="none">29</td><td class="none">30</td><td class="none">31</td><td>1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>
+                    <div>6</div>
+                    <div class="task">
+                        <span style="background: #ff847c;">Memorial Day</span>
+                        <span style="background: #28a7db;">2:00 Lunch</span>
+                    </div>
+                </td>
+                <td>7</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td class="active">13</td>
+                <td>14</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>
+                    <div>17</div>
+                    <div class="task">
+                        <span style="background: #aa8bc6;">Interview</span>
+                    </div>
+                </td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>23</td><td class="now">24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td>
+            </tr>
+            <tr>
+                <td>30</td><td class="none">1</td><td class="none">2</td><td class="none">3</td><td class="none">4</td><td class="none">5</td><td class="none">6</td>
+            </tr>
+        </table>
+    </div>
+    </p>
+    <p class="br">
+        If datepicker components and other points can be added to the calendar in the <strong>td</strong> tag.
+
+<pre><code class="language-markup">&lt;div class="calendar" style="height: 550px;"&gt;
+    &lt;div class="head"&gt;
+    ...
+    &lt;/div&gt;
+    &lt;table class="body"&gt;
+        &lt;tr&gt;
+            &lt;th&gt;SUN&lt;/th&gt;&lt;th&gt;MON&lt;/th&gt;&lt;th&gt;TUE&lt;/th&gt;&lt;th&gt;WED&lt;/th&gt;&lt;th&gt;THU&lt;/th&gt;&lt;th&gt;FRI&lt;/th&gt;&lt;th&gt;SAT&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td class="none"&gt;27&lt;/td&gt;
+            &lt;td class="none"&gt;28&lt;/td&gt;
+            &lt;td class="none"&gt;29&lt;/td&gt;
+            &lt;td class="none"&gt;30&lt;/td&gt;
+            &lt;td class="none"&gt;31&lt;/td&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;
+                &lt;div&gt;2&lt;/div&gt;
+                &lt;div class="task"&gt;
+                   &lt;span style="background: #28a7db;">2:00 Lunch&lt;/span>
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+
+    ...
+    &lt;/table&gt;
+&lt;/div&gt;</code></pre>
 </section>
 
 </body>
