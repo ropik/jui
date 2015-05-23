@@ -28,7 +28,7 @@
 <section>
 	<h2>Default</h2>
 	<p>
-		아래는 달력 컴포넌트의 기본 예제입니다.
+		아래는 달력 선택 컴포넌트의 기본 예제입니다.
 		
 		<div id="datepicker1" class="datepicker">
             <div class="head">
@@ -42,18 +42,36 @@
                 </tr>
             </table>
         </div>
-        
-        <script data-jui="#datepicker1" data-tpl="dates" type="text/template">
-            <tr>
-                <! for(var i = 0; i < dates.length; i++) { !>
-                <td><!= dates[i] !></td>
-                <! } !>
-            </tr>
-        </script>
 	</p>
+
+	<h2>Calendar</h2>
+	<p>
+		클래스 이름만 <strong>calendar</strong>로 변경하면 다른 스타일의 달력 컴포넌트를 사용할 수 있습니다.
+
+		<div id="calendar1" class="calendar" style="height: 550px;">
+			<div class="head">
+				<div class="prev"></div>
+				<div class="title"></div>
+				<div class="next"></div>
+			</div>
+			<table class="body">
+				<tr>
+					<th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th>
+				</tr>
+			</table>
+		</div>
+	</p>
+
+	<script id="tpl_dates" type="text/template">
+		<tr>
+			<! for(var i = 0; i < dates.length; i++) { !>
+			<td><!= dates[i] !></td>
+			<! } !>
+		</tr>
+	</script>
 	
 	<p class="br">
-		아래는 달력 컴포넌트의 템플릿이며, 요일 부분은 환경에 맞게 수정해서 사용할 수 있습니다.
+		아래는 달력 선택 컴포넌트의 템플릿이며, 요일 부분은 환경에 맞게 수정해서 사용할 수 있습니다.
 		
 <pre><code class="language-markup">&lt;div id="datepicker1" class="datepicker"&gt;
     &lt;div class="head"&gt;
@@ -66,10 +84,24 @@
             &lt;th&gt;S&lt;/th&gt;&lt;th&gt;M&lt;/th&gt;&lt;th&gt;T&lt;/th&gt;&lt;th&gt;W&lt;/th&gt;&lt;th&gt;T&lt;/th&gt;&lt;th&gt;F&lt;/th&gt;&lt;th&gt;S&lt;/th&gt;
         &lt;/tr&gt;
     &lt;/table&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+
+&lt;div id="calendar1" class="calendar" style="height: 550px;"&gt;
+	&lt;div class="head"&gt;
+		&lt;div class="prev"&gt;&lt;/div&gt;
+		&lt;div class="title"&gt;&lt;/div&gt;
+		&lt;div class="next"&gt;&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;table class="body"&gt;
+		&lt;tr&gt;
+			&lt;th&gt;SUN&lt;/th&gt;&lt;th&gt;MON&lt;/th&gt;&lt;th&gt;TUE&lt;/th&gt;&lt;th&gt;WED&lt;/th&gt;&lt;th&gt;THU&lt;/th&gt;&lt;th&gt;FRI&lt;/th&gt;&lt;th&gt;SAT&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
 	</p>
 	<p>
-<pre><code class="language-markup">&lt;script data-jui="#datepicker1" data-tpl="dates" type="text/template"&gt;
+<pre><code class="language-markup">&lt;script id="tpl_dates" type="text/template"&gt;
     &lt;tr&gt;
         &lt;! for(var i = 0; i &lt; dates.length; i++) { !&gt;
         &lt;td&gt;&lt;!= dates[i] !&gt;&lt;/td&gt;
@@ -82,19 +114,22 @@
 		아래는 달력 객체를 생성하는 코드입니다. 타이틀과 날짜 클릭시 발생되는 포맷을 옵션으로 설정할 수 있습니다.
 		
 <pre><code class="language-javascript">jui.ready([ "ui.datepicker" ], function(datepicker) {
-	datepicker1 = datepicker("#datepicker1", {
+	datepicker1 = datepicker("#datepicker1,.calendar", {
 	    titleFormat: "yyyy년 MM월",
 	    format: "yyyy/MM/dd",
 	    event: {
-	       select: function(date, e) {
-	           alert(date);
-	       },
-	       prev: function(e) {
-	           alert("prev");
-	       },
-	       next: function(e) {
-	           alert("next");
-	       }
+			select: function(date, e) {
+				alert(date);
+			},
+			prev: function(e) {
+				alert("prev");
+			},
+			next: function(e) {
+				alert("next");
+			},
+			tpl: {
+				dates: $("#tpl_dates").html()
+			}
 	    }
 	});
 });</code></pre>
@@ -104,7 +139,7 @@
 <section>
 	<h2>Monthly & Yearly</h2>
 	<p>
-		달력 컴포넌트는 월과 연도를 선택할 수 있는 타입도 제공합니다.
+		달력 선택 컴포넌트는 월과 연도를 선택할 수 있는 타입도 제공합니다.
 		
 		<div class="row">
 			<div class="col col-6">
@@ -193,5 +228,6 @@ datepicker3 = datepicker("#datepicker3", {
 });</code></pre>
 	</p>
 </section>
+
 </body>
 </html>

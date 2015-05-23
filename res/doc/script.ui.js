@@ -105,7 +105,7 @@ jui.ready([ "ui.button", "ui.combo", "ui.datepicker", "ui.dropdown", "ui.layout"
     });
 
     // 달력 기본형
-    datepicker1 = datepicker("#datepicker1", {
+    datepicker1 = datepicker("#datepicker1,#calendar1", {
         titleFormat: "yyyy년 MM월",
         format: "yyyy/MM/dd",
         event: {
@@ -119,7 +119,9 @@ jui.ready([ "ui.button", "ui.combo", "ui.datepicker", "ui.dropdown", "ui.layout"
                 alert("next");
             }
         },
-        animate: true
+        tpl: {
+            dates: $("#tpl_dates").html()
+        }
     });
 
     // 달력 월 선택
