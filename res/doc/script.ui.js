@@ -106,7 +106,7 @@ jui.ready([ "ui.button", "ui.combo", "ui.datepicker", "ui.dropdown", "ui.layout"
 
     // 달력 기본형
     datepicker1 = datepicker("#datepicker1,#calendar1", {
-        titleFormat: "yyyy년 MM월",
+        titleFormat: "yyyy. MM",
         format: "yyyy/MM/dd",
         event: {
             select: function(date, e) {
@@ -127,7 +127,7 @@ jui.ready([ "ui.button", "ui.combo", "ui.datepicker", "ui.dropdown", "ui.layout"
     // 달력 월 선택
     datepicker2 = datepicker("#datepicker2", {
         type: "monthly",
-        titleFormat: "yyyy년",
+        titleFormat: "yyyy",
         format: "yyyy/MM",
         event: {
             select: function(date, e) {
@@ -140,7 +140,7 @@ jui.ready([ "ui.button", "ui.combo", "ui.datepicker", "ui.dropdown", "ui.layout"
     // 달력 월 선택
     datepicker3 = datepicker("#datepicker3", {
         type: "yearly",
-        titleFormat: "연도 선택",
+        titleFormat: "",
         format: "yyyy",
         event: {
             select: function(date, e) {

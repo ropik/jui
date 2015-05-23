@@ -39,7 +39,7 @@
             </div>
             <table class="body">
                 <tr>
-                    <th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
+					<th>SU</th><th>MO</th><th>TU</th><th>WE</th><th>TH</th><th>FR</th><th>SA</th>
                 </tr>
             </table>
         </div>
@@ -82,7 +82,7 @@
     &lt;/div&gt;
     &lt;table class=&quot;body&quot;&gt;
         &lt;tr&gt;
-            &lt;th&gt;S&lt;/th&gt;&lt;th&gt;M&lt;/th&gt;&lt;th&gt;T&lt;/th&gt;&lt;th&gt;W&lt;/th&gt;&lt;th&gt;T&lt;/th&gt;&lt;th&gt;F&lt;/th&gt;&lt;th&gt;S&lt;/th&gt;
+			&lt;th&gt;SU&lt;/th&gt;&lt;th&gt;MO&lt;/th&gt;&lt;th&gt;TU&lt;/th&gt;&lt;th&gt;WE&lt;/th&gt;&lt;th&gt;TH&lt;/th&gt;&lt;th&gt;FR&lt;/th&gt;&lt;th&gt;SA&lt;/th&gt;
         &lt;/tr&gt;
     &lt;/table&gt;
 &lt;/div&gt;
@@ -116,7 +116,7 @@
 		
 <pre><code class="language-javascript">jui.ready([ &quot;ui.datepicker&quot; ], function(datepicker) {
 	datepicker1 = datepicker(&quot;#datepicker1&quot;, {
-	    titleFormat: &quot;yyyy MM&quot;,
+		titleFormat: "yyyy. MM",
 	    format: &quot;yyyy/MM/dd&quot;,
 	    event: {
 	       select: function(date, e) {
@@ -153,7 +153,7 @@
 		        <script data-jui="#datepicker2" data-tpl="dates" type="text/template">
 		            <tr>
 		                <! for(var i = 0; i < dates.length; i++) { !>
-		                <td><!= dates[i] !>월</td>
+		                <td><!= dates[i] !></td>
 		                <! } !>
 		            </tr>
 		        </script>
@@ -171,7 +171,7 @@
 		        <script data-jui="#datepicker3" data-tpl="dates" type="text/template">
 		            <tr>
 		                <! for(var i = 0; i < dates.length; i++) { !>
-		                <td><!= dates[i] !>년</td>
+		                <td><!= dates[i] !></td>
 		                <! } !>
 		            </tr>
 		        </script>
@@ -216,7 +216,6 @@
 
 datepicker3 = datepicker(&quot;#datepicker3&quot;, {
 	type: &quot;yearly&quot;,
-    titleFormat: &quot;Select a year&quot;,
     format: &quot;yyyy&quot;,
     event: {
     	select: function(date, e) {
