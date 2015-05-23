@@ -210,4 +210,6 @@ window.coreApi = {
         },
         animate: {
             detail: "Run the animation effect."
-        }
+        }
+    }
+};
