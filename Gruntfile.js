@@ -147,7 +147,7 @@ function initFonts(grunt) {
                 title = "";
 
             // 메타 태그 삭제
-            for(var i = 0; i < rows.length - 1; i++) {
+            for(var i = 0; i < rows.length; i++) {
                 var r = rows[i];
 
                 buffer.push(r);
