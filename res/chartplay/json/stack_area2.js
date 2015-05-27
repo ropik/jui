@@ -46,7 +46,6 @@ chart("#chart-content", {
         text : "Area Sample"
     }, {
         type : "legend",
-        filter : true,
-        brushSync : true
+        brush : [ 0, 1 ]
     }]
 });
