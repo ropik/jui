@@ -2,17 +2,17 @@
 <html>
 <head>
 <META charset="UTF-8">
-<title>JENNIFER UI: Chart Play</title>
+<title>JENNIFER UI: UI Play</title>
 
 <!-- social open graph -->
-<meta property="og:title" content="JENNIFER UI: Chart Play" />
+<meta property="og:title" content="JENNIFER UI: UI Play" />
 <meta property="og:description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart components." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://seogi1004.github.io/jui/en/index.html" />
 <meta property="og:image" content="http://seogi1004.github.io/jui/res/img/jui_info_4.jpg" />
 
 <!-- default meta tag -->
-<meta name="title" content="JENNIFER UI: Chart Play" />
+<meta name="title" content="JENNIFER UI: UI Play" />
 <meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart components." />
 <meta name="keywords" content="HTML, CSS, JS, JavaScript, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
 <meta name="author" content="Alvin, Jayden and Yoha" />
@@ -25,12 +25,12 @@
 
 <link rel="stylesheet" href="../../lib/jui/jui.min.css" />
 <link rel="stylesheet" href="../doc/admintool/admin.css" />
-<link rel="stylesheet" href="chart.css">
+<link rel="stylesheet" href="../chartplay/chart.css">
 
 <script type="text/javascript" src="../../lib/jquery-1.8.0.min.js" ></script>
 <script type="text/javascript" src="../../lib/jquery.ba-hashchange.min.js"></script>
 <script type="text/javascript" src="../../lib/jui/jui.min.js" ></script>
-<script src="chart.js" type="text/javascript"></script>
+<script src="component.js" type="text/javascript"></script>
 </head>
 <body class="jui">
 
@@ -39,17 +39,6 @@
         <img src="http://blog.jui.io/wp-content/uploads/2015/03/JUI_logo_150.png" align="absmiddle" onclick="location.href='../../index.html'" />
     </div>
     <div class="toolbar">
-        <span >
-			Themes
-			<select onchange="changeTheme(this.value)">
-                <option value="jennifer">Jennifer</option>
-                <option value="dark">Dark</option>
-                <option value="pastel">Pastel</option>
-                <option value="gradient">Gradient</option>
-                <option value="pattern">Pattern</option>
-            </select>
-        </span>
-
         <a href="javascript:comments.show();" class="chart_comments">Leave a comment</a>
     </div>
 </div>
@@ -63,10 +52,7 @@
                         <a href="#chart-code">Code</a>
                     </li>
                     <li>
-                        <a href="#chart-data">Data</a>
-                    </li>
-                    <li>
-                        <a href="#chart-style">Style</a>
+                        <a href="#chart-html">HTML</a>
                     </li>
                 </ul>
 
@@ -74,24 +60,8 @@
                     <div id="chart-code">
                         <textarea id="chart-code-text"></textarea>
                     </div>
-                    <div id="chart-data">
-                        <table id="table_1" class="table table-simple table-nowrap">
-                            <thead>
-                            <tr></tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                    <div id="chart-style">
-                        <table id="table_2" class="table table-simple table-nowrap">
-                            <thead>
-                            <tr>
-                                <th>Key</th>
-                                <th>Value</th>
-                            </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
+                    <div id="chart-html">
+                        <textarea id="chart-html-text"></textarea>
                     </div>
                 </div>
             </div>
@@ -105,11 +75,6 @@
 
                         <div class="group">
                             <a class='btn btn-flat btn-rect btn-api' title="Chart API" href="http://api.jui.io/" target="_blank">API</a>
-                        </div>
-
-                        <div class="group">
-                            <a class='btn btn-flat btn-rect btn-style' title="Show Styles"><i class='icon-edit'></i></a>
-                            <a class='btn btn-flat btn-rect btn-image' title="Download Image"><i class='icon-image'></i></a>
                             <a class='btn btn-flat btn-rect btn-fullscreen' title="Full Screen"><i class='icon-new-window'></i></a>
                         </div>
                     </h2>
