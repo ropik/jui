@@ -1,14 +1,15 @@
 var editor, editor2;
-var comments;
+var comments, tab_1;
 var currentChartIndex = 0;
 
 var charts = [
-    { type: "combo", title : "Combo Box" }
+    { type: "combo", title : "Combo Box" },
+    { type: "table", title : "Table" },
 ];
 
 var code_list = [
-    // basic
-    { type: "combo", title : "Basic", code : "combo_basic" }
+    { type: "combo", title : "Basic", code : "combo_basic" },
+    { type: "table", title : "Basic", code : "table_basic" }
 ];
 
 // 시작 위치 설정
@@ -20,13 +21,6 @@ for(var i = 0; i < charts.length; i++) {
             c.start = j;
         }
     }
-}
-
-function createTab() {
-    tab_1 = jui.create("uix.tab", "#tab_1", {
-        target: "#tab_contents_1",
-        index: 0
-    });
 }
 
 function modal_show() {
@@ -134,22 +128,36 @@ function getIndexByCode(code) {
 function viewCodeEditor() {
     var code = code_list[currentChartIndex];
 
-    if ($("#modal_1").css('display') == 'none') {
+    if ($("#modal_1").css("display") == "none") {
         modal_show();
     }
 
-    if (!editor) {
-        editor = CodeMirror.fromTextArea($("#chart-html-text")[0], {
-            mode: "htmlmixed",
+    if(!editor) {
+        editor = CodeMirror.fromTextArea($("#chart-code-text")[0], {
+            mode: "javascript",
             lineNumbers: true,
-            styleActiveLine: true,
-            matchBrackets: true,
             theme : "neo"
         });
 
         editor.on("change", function(cm) {
             try {
-                $("#chart-content").html(cm.getValue());
+                updateComponent();
+            } catch(e) {
+                console.log(e);
+            }
+        });
+    }
+
+    if(!editor2) {
+        editor2 = CodeMirror.fromTextArea($("#chart-html-text")[0], {
+            mode: "htmlmixed",
+            lineNumbers: true,
+            theme : "neo"
+        });
+
+        editor2.on("change", function(cm) {
+            try {
+                updateComponent();
             } catch(e) {
                 console.log(e);
             }
@@ -157,12 +165,25 @@ function viewCodeEditor() {
     }
 
     $.ajax({
-        url : "html/" + code.html,
-        dataType : "text",
-        success : function (data) {
+        url: "json/" + code.code + ".js",
+        dataType: "text",
+        success: function(data) {
+            tab_1.show(0);
             editor.setValue(data);
+
+            $.ajax({
+                url : "html/" + code.code + ".html",
+                dataType: "text",
+                success: function(data) {
+                    tab_1.show(1);
+                    editor2.setValue(data);
+                },
+                error: function(data, error) {
+                    console.log(error);
+                }
+            });
         },
-        error : function(data, error) {
+        error: function(data, error) {
             console.log(error);
         }
     });
@@ -175,11 +196,19 @@ function setFunctions() {
         var $el = $(".chart_view");
 
         if ($el.hasClass("fullscreen")) {
-            $el.removeClass("fullscreen").animate({ left : "442px" }, viewCodeEditor);
+            $el.removeClass("fullscreen").animate({ left : "50%" }, viewCodeEditor);
         } else {
-            $el.addClass("fullscreen").animate({ left : "0px" }, viewCodeEditor);
+            $el.addClass("fullscreen").animate({ left : "0%" }, viewCodeEditor);
         }
     });
+}
+
+function updateComponent() {
+    var code = editor.getValue(),
+        html = editor2.getValue();
+
+    $("#chart-content").html(html);
+    eval(code);
 }
 
 jui.ready([ "util.base", "uix.window" ], function(_, uiWin) {
@@ -187,7 +216,12 @@ jui.ready([ "util.base", "uix.window" ], function(_, uiWin) {
 
     loadChartList();
     setFunctions();
-    createTab();
+
+    // 탭 생성
+    tab_1 = jui.create("uix.tab", "#tab_1", {
+        target: "#tab_contents_1",
+        index: 0
+    });
 
     // 댓글 모달 윈도우
     comments = uiWin("#comments", {

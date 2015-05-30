@@ -1,0 +1,30 @@
+.splitter-2 {
+    width: 2px;
+    position: absolute;
+    background-color: #ddd;
+    left: 50%;
+    top: 0px;
+    bottom: 0px;
+}
+
+.chart_data {
+    position: absolute;
+    border-left:2px solid #ddd;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 50%;
+    overflow-y: auto;
+    background: white;
+}
+
+.chart_view {
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    top: 0px;
+    bottom: 0px;
+    right: 10px;
+    background-color: white;
+    z-index: 10;
+}
