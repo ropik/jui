@@ -3,13 +3,28 @@ var comments, tab_1;
 var currentChartIndex = 0;
 
 var charts = [
-    { type: "combo", title : "Combo Box" },
-    { type: "table", title : "Table" },
+    { type: "button", title: "Button" },
+    { type: "combo", title: "Combo Box" },
+    { type: "window", title: "Window" },
+    { type: "table", title: "Table" },
 ];
 
 var code_list = [
-    { type: "combo", title : "Basic", code : "combo_basic" },
-    { type: "table", title : "Basic", code : "table_basic" }
+    { type: "button", title: "Radio. Get selected value", code: "button_1" },
+    { type: "button", title: "Radio. Set to the index", code: "button_2" },
+    { type: "button", title: "Radio. Set to the value", code: "button_3" },
+    { type: "button", title: "Check. Set to the index", code: "button_4" },
+    { type: "button", title: "Check. Set to the value", code: "button_5" },
+    { type: "combo", title: "Get selected text", code: "combo_1" },
+    { type: "combo", title: "Set to the index", code: "combo_2" },
+    { type: "window", title: "Move & Resizing window", code: "win_1" },
+    { type: "window", title: "Modal window", code: "win_2" },
+    { type: "window", title: "Using a different style", code: "win_3" },
+    { type: "table", title: "Use the default table", code: "table_1" },
+    { type: "table", title: "Cell merge in row", code: "table_2" },
+    { type: "table", title: "Using the extended area", code: "table_3" },
+    { type: "table", title: "Scroll to rows", code: "table_4" },
+    { type: "table", title: "Select to multiple rows", code: "table_5" }
 ];
 
 // 시작 위치 설정
@@ -141,7 +156,7 @@ function viewCodeEditor() {
 
         editor.on("change", function(cm) {
             try {
-                updateComponent();
+                updateComponent(true);
             } catch(e) {
                 console.log(e);
             }
@@ -157,7 +172,7 @@ function viewCodeEditor() {
 
         editor2.on("change", function(cm) {
             try {
-                updateComponent();
+                updateComponent(false);
             } catch(e) {
                 console.log(e);
             }
@@ -165,18 +180,18 @@ function viewCodeEditor() {
     }
 
     $.ajax({
-        url: "json/" + code.code + ".js",
+        url : "html/" + code.code + ".html",
         dataType: "text",
         success: function(data) {
-            tab_1.show(0);
-            editor.setValue(data);
+            tab_1.show(1);
+            editor2.setValue(data);
 
             $.ajax({
-                url : "html/" + code.code + ".html",
+                url: "json/" + code.code + ".js",
                 dataType: "text",
                 success: function(data) {
-                    tab_1.show(1);
-                    editor2.setValue(data);
+                    tab_1.show(0);
+                    editor.setValue(data);
                 },
                 error: function(data, error) {
                     console.log(error);
@@ -203,12 +218,17 @@ function setFunctions() {
     });
 }
 
-function updateComponent() {
+function updateComponent(isCode) {
     var code = editor.getValue(),
         html = editor2.getValue();
 
-    $("#chart-content").html(html);
-    eval(code);
+    if(!isCode && html != "") {
+        $("#chart-content").html(html);
+    }
+
+    if(isCode && code != "") {
+        eval(code);
+    }
 }
 
 jui.ready([ "util.base", "uix.window" ], function(_, uiWin) {

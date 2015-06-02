@@ -183,6 +183,13 @@ function initMenuUrl(hash) {
 			initSubMenuUrl(hash);
 			break;
 		}
+
+		// 스크립트 메뉴 클릭시 ui play 링크 유도하기
+		if(hash[0] == "script" && hash[1] == "common") {
+			if(confirm("Click on the OK button to open the UI Play.")) {
+				window.open("../res/uiplay/index.html");
+			}
+		}
 	} else if(hash[0] == "chart") {
 		if(src) {
 			loadPage(src);
