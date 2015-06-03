@@ -7,6 +7,7 @@ var charts = [
     { type: "combo", title: "Combo Box" },
     { type: "window", title: "Window" },
     { type: "table", title: "Table" },
+    { type: "xtable", title: "X-Table" },
 ];
 
 var code_list = [
@@ -31,14 +32,19 @@ var code_list = [
     { type: "table", title: "Editing rows", code: "table_8" },
     { type: "table", title: "Right-click editing rows", code: "table_9" },
     { type: "table", title: "Remove row", code: "table_11" },
-    { type: "table", title: "Append data", code: "table_12" },
-    { type: "table", title: "Insert data", code: "table_13" },
+    { type: "table", title: "Append rows", code: "table_12" },
+    { type: "table", title: "Insert rows", code: "table_13" },
     { type: "table", title: "Hide & Show columns", code: "table_14" },
     { type: "table", title: "Export to CSV file", code: "table_15" },
     { type: "table", title: "Import to CSV file", code: "table_16" },
-    { type: "table", title: "Append/Insert tree data", code: "table_17" },
-    { type: "table", title: "Move/Remove/Modify tree data", code: "table_18" },
-    { type: "table", title: "Update tree data", code: "table_19" },
+    { type: "table", title: "Append/Insert tree rows", code: "table_17" },
+    { type: "table", title: "Move/Remove/Modify tree rows", code: "table_18" },
+    { type: "table", title: "Update tree rows", code: "table_19" },
+    { type: "xtable", title: "Data scrolling", code: "xtable_1" },
+    { type: "xtable", title: "Data paging", code: "xtable_2" },
+    { type: "xtable", title: "Data paging & scrolling", code: "xtable_3" },
+    { type: "xtable", title: "Data filters", code: "xtable_4" },
+    { type: "xtable", title: "Horizontal scroll bar", code: "xtable_5" },
 ];
 
 // 시작 위치 설정
