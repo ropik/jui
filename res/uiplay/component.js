@@ -10,6 +10,7 @@ var charts = [
     { type: "xtable", title: "X-Table" },
     { type: "dropdown", title: "Dropdown" },
     { type: "tab", title: "Tab" },
+    { type: "tooltip", title: "Tooltip" },
 ];
 
 var code_list = [
@@ -55,6 +56,8 @@ var code_list = [
     { type: "tab", title: "Bottom tabs", code: "tab_2" },
     { type: "tab", title: "Tab manipulation", code: "tab_3" },
     { type: "tab", title: "Tab dragging", code: "tab_4" },
+    { type: "tooltip", title: "Default tooltip", code: "tooltip_1" },
+    { type: "tooltip", title: "With popover style", code: "tooltip_2" },
 ];
 
 // 시작 위치 설정
