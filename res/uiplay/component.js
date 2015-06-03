@@ -24,7 +24,21 @@ var code_list = [
     { type: "table", title: "Cell merge in row", code: "table_2" },
     { type: "table", title: "Using the extended area", code: "table_3" },
     { type: "table", title: "Scroll to rows", code: "table_4" },
-    { type: "table", title: "Select to multiple rows", code: "table_5" }
+    { type: "table", title: "Select to multiple rows", code: "table_5" },
+    { type: "table", title: "Mouse right-click event", code: "table_6" },
+    { type: "table", title: "Sorting rows", code: "table_7" },
+    { type: "table", title: "Editing cell", code: "table_10" },
+    { type: "table", title: "Editing rows", code: "table_8" },
+    { type: "table", title: "Right-click editing rows", code: "table_9" },
+    { type: "table", title: "Remove row", code: "table_11" },
+    { type: "table", title: "Append data", code: "table_12" },
+    { type: "table", title: "Insert data", code: "table_13" },
+    { type: "table", title: "Hide & Show columns", code: "table_14" },
+    { type: "table", title: "Export to CSV file", code: "table_15" },
+    { type: "table", title: "Import to CSV file", code: "table_16" },
+    { type: "table", title: "Append/Insert tree data", code: "table_17" },
+    { type: "table", title: "Move/Remove/Modify tree data", code: "table_18" },
+    { type: "table", title: "Update tree data", code: "table_19" },
 ];
 
 // 시작 위치 설정

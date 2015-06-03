@@ -17,13 +17,13 @@ jui.ready([ "uix.table" ], function(table) {
         { name: "Jung", age: "30", location: "Seoul" },
         { name: "Park", age: "10", location: "Dangjin" }
     ]);
+
+    table_3_submit = function(index) {
+        var name = $(table_3.root).find(".name").val(),
+            age = $(table_3.root).find(".age").val(),
+            location = $(table_3.root).find(".location").val();
+
+        table_3.update(index, { name: name, age: age, location: location });
+        table_3.hideExpand();
+    }
 });
-
-function submit(index) {
-    var name = $(table_3.root).find(".name").val(),
-        age = $(table_3.root).find(".age").val(),
-        location = $(table_3.root).find(".location").val();
-
-    table_3.update(index, { name: name, age: age, location: location });
-    table_3.hideExpand();
-}
