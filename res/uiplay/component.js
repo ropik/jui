@@ -11,6 +11,7 @@ var charts = [
     { type: "dropdown", title: "Dropdown" },
     { type: "tab", title: "Tab" },
     { type: "tooltip", title: "Tooltip" },
+    { type: "modal", title: "Modal" },
 ];
 
 var code_list = [
@@ -58,6 +59,8 @@ var code_list = [
     { type: "tab", title: "Tab dragging", code: "tab_4" },
     { type: "tooltip", title: "Default tooltip", code: "tooltip_1" },
     { type: "tooltip", title: "With popover style", code: "tooltip_2" },
+    { type: "modal", title: "Global modal", code: "modal_1" },
+    { type: "modal", title: "Inside modal", code: "modal_2" },
 ];
 
 // 시작 위치 설정
@@ -69,36 +72,6 @@ for(var i = 0; i < charts.length; i++) {
             c.start = j;
         }
     }
-}
-
-function modal_show() {
-    var padding = 10;
-
-    $("#modal_1").css({
-        position : 'fixed',
-        'width' : $(window).width() - padding*2,
-        'height' : $(window).height() - padding*2,
-        left : padding,
-        top : padding
-    }).show().appendTo("body");
-
-    $("#modal_1").find(".close").on("click", function() {
-        $('#modal_1').hide();
-
-        return false;
-    });
-
-    $(window).resize(function ChartResize() {
-        var padding = 10;
-
-        $("#modal_1").css({
-            position : 'fixed',
-            'width' : $(window).width() - padding*2,
-            'height' : $(window).height() - padding*2,
-            left : padding,
-            top : padding
-        });
-    });
 }
 
 function loadChartList() {
@@ -175,10 +148,6 @@ function getIndexByCode(code) {
 
 function viewCodeEditor() {
     var code = code_list[currentChartIndex];
-
-    if ($("#modal_1").css("display") == "none") {
-        modal_show();
-    }
 
     if(!editor) {
         editor = CodeMirror.fromTextArea($("#chart-code-text")[0], {
