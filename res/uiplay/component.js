@@ -8,6 +8,7 @@ var charts = [
     { type: "window", title: "Window" },
     { type: "table", title: "Table" },
     { type: "xtable", title: "X-Table" },
+    { type: "dropdown", title: "Dropdown" },
 ];
 
 var code_list = [
@@ -45,6 +46,10 @@ var code_list = [
     { type: "xtable", title: "Data paging & scrolling", code: "xtable_3" },
     { type: "xtable", title: "Data filters", code: "xtable_4" },
     { type: "xtable", title: "Horizontal scroll bar", code: "xtable_5" },
+    { type: "dropdown", title: "Show & Hide dropdown", code: "dropdown_1" },
+    { type: "dropdown", title: "Auto Close prevention", code: "dropdown_2" },
+    { type: "dropdown", title: "Control by keyboard", code: "dropdown_3" },
+    { type: "dropdown", title: "Update list", code: "dropdown_4" },
 ];
 
 // 시작 위치 설정

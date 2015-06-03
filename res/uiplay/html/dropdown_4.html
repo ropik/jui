@@ -1,0 +1,19 @@
+<div class="navbar navbar-black" style="overflow: hidden;">
+    <div class="inline-right">
+        <a class="btn btn-black btn-small" onclick="dd_4_update();">
+            Update
+        </a>
+        <a class="btn btn-black btn-small" onclick="dd_4.show();">
+            Menu List <i class="icon-arrow1 icon-white"></i>
+        </a>
+
+        <div id="dd_4" class="dropdown dropdown-black">
+            <div class="anchor anchor-right"></div>
+            <ul style="width: 120px;"></ul>
+        </div>
+    </div>
+</div>
+
+<script data-jui="#dd_4" data-tpl="node" type="text/template">
+    <li value="<!= value !>"><!= text !></li>
+</script>
