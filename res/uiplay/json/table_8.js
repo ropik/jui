@@ -23,6 +23,9 @@ jui.ready([ "uix.table" ], function(table) {
                     }
                 }
             }
+        },
+        tpl: {
+            row: $("#tpl_row").html()
         }
     });
 });

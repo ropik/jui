@@ -1,7 +1,10 @@
 jui.ready([ "uix.table" ], function(table) {
     table_4 = table("#table_4", {
         scroll: true,
-        scrollHeight: 150
+        scrollHeight: 150,
+        tpl: {
+            row: $("#tpl_row").html()
+        }
     });
 
     table_4.update([

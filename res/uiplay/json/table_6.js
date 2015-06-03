@@ -27,6 +27,9 @@ jui.ready([ "ui.dropdown", "uix.table" ], function(dropdown, table) {
                 dd.move(pos.left, pos.top);
                 dd.show();
             }
+        },
+        tpl: {
+            row: $("#tpl_row").html()
         }
     });
 });

@@ -1,5 +1,9 @@
 jui.ready([ "uix.table" ], function(table) {
-    table_2 = table("#table_2");
+    table_2 = table("#table_2", {
+        tpl: {
+            row: $("#tpl_row").html()
+        }
+    });
 
     table_2.update([
         { name: "Hong", age: "20", location: "Ilsan" },

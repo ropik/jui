@@ -13,6 +13,10 @@ jui.ready([ "uix.table" ], function(table) {
             colmenu: function(column, e) {
                 this.showColumnMenu(e.pageX - 25);
             }
+        },
+        tpl: {
+            row: $("#tpl_row").html(),
+            menu: $("#tpl_menu").html()
         }
     });
 });

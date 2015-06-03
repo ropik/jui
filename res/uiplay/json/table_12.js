@@ -12,7 +12,10 @@ jui.ready([ "uix.table" ], function(table) {
             { name: "Hwang", age: "21", location: "Seoul" }
         ],
         scroll: true,
-        resize: true
+        resize: true,
+        tpl: {
+            row: $("#tpl_row").html()
+        }
     });
 
     table_12_submit = function() {

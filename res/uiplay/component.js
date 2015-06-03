@@ -12,6 +12,7 @@ var charts = [
     { type: "tab", title: "Tab" },
     { type: "tooltip", title: "Tooltip" },
     { type: "modal", title: "Modal" },
+    { type: "tree", title: "Tree" },
 ];
 
 var code_list = [
@@ -61,6 +62,9 @@ var code_list = [
     { type: "tooltip", title: "With popover style", code: "tooltip_2" },
     { type: "modal", title: "Global modal", code: "modal_1" },
     { type: "modal", title: "Inside modal", code: "modal_2" },
+    { type: "tree", title: "Append nodes", code: "tree_1" },
+    { type: "tree", title: "Move/Remove/Update node", code: "tree_2" },
+    { type: "tree", title: "Tree dragging", code: "tree_3" }
 ];
 
 // 시작 위치 설정

@@ -3,6 +3,10 @@ jui.ready([ "uix.table" ], function(table) {
         fields: [ "name", "age" ],
         resize: true,
         sort: true,
+        tpl: {
+            row: $("#tpl_row").html(),
+            none: $("#tpl_none").html()
+        }
     });
 
     $("#table_16_btn").change(function (e) {

@@ -7,6 +7,9 @@ jui.ready([ "uix.table" ], function(table) {
             select: function(row) {
                 alert("index(" + row.index + "), name(" + row.data.name + ")");
             }
+        },
+        tpl: {
+            row: $("#tpl_row").html()
         }
     });
 
