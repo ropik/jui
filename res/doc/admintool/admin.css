@@ -65,7 +65,7 @@ html, body {
     border: 1px solid #e5e5e5;
 }
 
-.container .menu {
+.container > .menu {
     position: relative;
     float: left;
     width: 98px;
@@ -74,7 +74,7 @@ html, body {
     min-height: 100%;
 }
 
-.container .content {
+.container > .content {
     background: #f3f3f3;
     padding: 0 0 0 98px;
 }

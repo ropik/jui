@@ -1,5 +1,5 @@
 var editor, editor2;
-var comments, tab_1;
+var comments, types;
 var currentChartIndex = 0;
 
 var charts = [
@@ -9,6 +9,7 @@ var charts = [
     { type: "table", title: "Table" },
     { type: "xtable", title: "X-Table" },
     { type: "dropdown", title: "Dropdown" },
+    { type: "tab", title: "Tab" },
 ];
 
 var code_list = [
@@ -50,6 +51,10 @@ var code_list = [
     { type: "dropdown", title: "Auto Close prevention", code: "dropdown_2" },
     { type: "dropdown", title: "Control by keyboard", code: "dropdown_3" },
     { type: "dropdown", title: "Update list", code: "dropdown_4" },
+    { type: "tab", title: "Top tabs", code: "tab_1" },
+    { type: "tab", title: "Bottom tabs", code: "tab_2" },
+    { type: "tab", title: "Tab manipulation", code: "tab_3" },
+    { type: "tab", title: "Tab dragging", code: "tab_4" },
 ];
 
 // 시작 위치 설정
@@ -208,14 +213,14 @@ function viewCodeEditor() {
         url : "html/" + code.code + ".html",
         dataType: "text",
         success: function(data) {
-            tab_1.show(1);
+            types.show(1);
             editor2.setValue(data);
 
             $.ajax({
                 url: "json/" + code.code + ".js",
                 dataType: "text",
                 success: function(data) {
-                    tab_1.show(0);
+                    types.show(0);
                     editor.setValue(data);
                 },
                 error: function(data, error) {
@@ -263,8 +268,8 @@ jui.ready([ "util.base", "uix.window" ], function(_, uiWin) {
     setFunctions();
 
     // 탭 생성
-    tab_1 = jui.create("uix.tab", "#tab_1", {
-        target: "#tab_contents_1",
+    types = jui.create("uix.tab", "#types", {
+        target: "#types_contents",
         index: 0
     });
 

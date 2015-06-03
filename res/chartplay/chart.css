@@ -55,7 +55,7 @@ body {
 }
 
 
-.container .menu {
+.container > .menu {
     position: absolute;
     width: 250px;
     left:0px;
@@ -64,7 +64,7 @@ body {
     overflow: auto;
 }
 
-.container .content {
+.container > .content {
     padding: 0 !important;
     position:absolute;
     top:0px;
