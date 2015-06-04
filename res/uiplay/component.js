@@ -14,6 +14,7 @@ var charts = [
     { type: "modal", title: "Modal" },
     { type: "tree", title: "Tree" },
     { type: "paging", title: "Paging" },
+    { type: "autocomplete", title: "Auto Complete" },
 ];
 
 var code_list = [
@@ -27,9 +28,9 @@ var code_list = [
     { type: "window", title: "Move & Resizing window", code: "win_1" },
     { type: "window", title: "Modal window", code: "win_2" },
     { type: "window", title: "Using a different style", code: "win_3" },
-    { type: "table", title: "Use the default table", code: "table_1" },
+    { type: "table", title: "Default table", code: "table_1" },
     { type: "table", title: "Cell merge in row", code: "table_2" },
-    { type: "table", title: "Using the extended area", code: "table_3" },
+    { type: "table", title: "Use the extended area", code: "table_3" },
     { type: "table", title: "Scroll to rows", code: "table_4" },
     { type: "table", title: "Select to multiple rows", code: "table_5" },
     { type: "table", title: "Mouse right-click event", code: "table_6" },
@@ -67,7 +68,9 @@ var code_list = [
     { type: "tree", title: "Move/Remove/Update node", code: "tree_2" },
     { type: "tree", title: "Tree dragging", code: "tree_3" },
     { type: "paging", title: "Default paging", code: "paging_1" },
-    { type: "paging", title: "Use the paging on the table", code: "paging_2" }
+    { type: "paging", title: "Use the paging on the table", code: "paging_2" },
+    { type: "autocomplete", title: "Default auto complete", code: "ac_1" },
+    { type: "autocomplete", title: "Update word list", code: "ac_2" },
 ];
 
 // 시작 위치 설정
