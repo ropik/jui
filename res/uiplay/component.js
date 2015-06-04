@@ -15,6 +15,7 @@ var charts = [
     { type: "tree", title: "Tree" },
     { type: "paging", title: "Paging" },
     { type: "autocomplete", title: "Auto Complete" },
+    { type: "datepicker", title: "Date Picker" },
 ];
 
 var code_list = [
@@ -71,6 +72,10 @@ var code_list = [
     { type: "paging", title: "Use the paging on the table", code: "paging_2" },
     { type: "autocomplete", title: "Default auto complete", code: "ac_1" },
     { type: "autocomplete", title: "Update word list", code: "ac_2" },
+    { type: "datepicker", title: "Daily date picker", code: "datepicker_1" },
+    { type: "datepicker", title: "Monthly date picker", code: "datepicker_2" },
+    { type: "datepicker", title: "Yearly date picker", code: "datepicker_3" },
+    { type: "datepicker", title: "Daily calendar", code: "datepicker_4" },
 ];
 
 // 시작 위치 설정
