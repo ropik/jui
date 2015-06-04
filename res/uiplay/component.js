@@ -17,6 +17,8 @@ var charts = [
     { type: "autocomplete", title: "Auto Complete" },
     { type: "datepicker", title: "Date Picker" },
     { type: "notify", title: "Notification" },
+    { type: "layout", title: "Layout" },
+    { type: "accordion", title: "Accordion" }
 ];
 
 var code_list = [
@@ -79,6 +81,9 @@ var code_list = [
     { type: "datepicker", title: "Daily calendar", code: "datepicker_4" },
     { type: "notify", title: "Notification to the top", code: "notify_1" },
     { type: "notify", title: "Notification to the bottom", code: "notify_2" },
+    { type: "layout", title: "Split Screens", code: "layout_1" },
+    { type: "accordion", title: "Default accordion", code: "accordion_1" },
+    { type: "accordion", title: "Close accordion", code: "accordion_2" },
 ];
 
 // 시작 위치 설정
