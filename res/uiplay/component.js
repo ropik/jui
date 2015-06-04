@@ -148,9 +148,12 @@ function loadChartList() {
         currentChartIndex = index;
         viewCodeEditor();
 
+        // 액티브 메뉴 및 스크롤 설정
         $(".vmenu .active").removeClass("active");
         $("#chart-list-" + index).parent().addClass("active");
-        $(".vmenu .chart-" + code.type).addClass("active");
+        var $group = $(".vmenu .chart-" + code.type);
+        $group.addClass("active");
+        $(".container > .menu").scrollTop($group.position().top);
     });
 
     // 온-로드 시점에도 발생

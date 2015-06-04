@@ -30,24 +30,22 @@ var menuInfo = {
         msg: "To represent data provides a variety of UI components.",
         menu: {
             common: "script/common",
-            button: "script/button",
-            combo: "script/combo",
-            window: "script/window",
-            table: "script/table",
-            xtable: "script/xtable",
-            dropdown: "script/dropdown",
-            tab: "script/tab",
-            tooltip: "script/tooltip",
-            modal: "script/modal",
-            tree: "script/tree",
-            paging: "script/paging",
-            autocomplete: "script/autocomplete",
-            datepicker: "script/datepicker",
-            notify: "script/notify",
-            layout: "script/layout",
-            accordion: "script/accordion",
-            chart: "script/chart",
-			realtime: "script/realtime"
+            button: "#button_1",
+            combo: "#combo_1",
+            window: "#win_1",
+            table: "#table_1",
+            xtable: "#xtable_1",
+            dropdown: "#dropdown_1",
+            tab: "#tab_1",
+            tooltip: "#tooltip_1",
+            modal: "#modal_1",
+            tree: "#tree_1",
+            paging: "#paging_1",
+            autocomplete: "#ac_1",
+            datepicker: "#datepicker_1",
+            notify: "#notify_1",
+            layout: "#layout_1",
+            accordion: "#accordion_1"
         }
     },
     style: {
@@ -183,13 +181,6 @@ function initMenuUrl(hash) {
 			initSubMenuUrl(hash);
 			break;
 		}
-
-		// 스크립트 메뉴 클릭시 ui play 링크 유도하기
-		if(hash[0] == "script" && hash[1] == "common") {
-			if(confirm("Click on the OK button to open the UI Play.")) {
-				window.open("../res/uiplay/index.html");
-			}
-		}
 	} else if(hash[0] == "chart") {
 		if(src) {
 			loadPage(src);
@@ -212,44 +203,18 @@ function initSubMenuUrl(hash) {
 	$target.find("a").removeClass("active");
 	$menu.addClass("active");
 	
-	if (src) {
+	if(src) {
 		if (hash[0] == "chart") {
 			loadPage(src);
 		} else {
-			loadIframe($target.find("iframe"), src);			
+			if(src.indexOf("script/common") == -1) {
+				var popup = window.open("../res/uiplay/index.html" + src, "uiplay");
+				popup.focus();
+			} else {
+				loadIframe($target.find("iframe"), src);
+			}
 		}
 	}
-
-
-	if(hash[0] == "script") {
-		initLeafMenuUrl(hash, src, $target, $menu);
-	}
-}
-
-function initLeafMenuUrl(hash, src, $target, $menu) {
-	var $submenu = $("#" + hash[0]).find(".submenu");
-
-	if(hash[1] == "common") {
-		$submenu.hide();
-		return;
-	}
-
-	// 서브메뉴 위치 설정
-	$submenu.insertAfter($menu);
-	$submenu.find("li").attr("data-key", hash[1]);		
-	$submenu.find("li").removeClass("active");
-	$submenu.find("li:first").addClass("active");
-	$submenu.show();
-	
-	// 클릭 이벤트 처리
-	$submenu.unbind("click").on("click", "li:not(.active)", function(e) {
-		var subkey = $(this).data("subkey");
-			
-		$submenu.find("li").removeClass("active");
-		$(this).addClass("active");	
-		
-		loadIframe($target.find("iframe"), src + subkey);
-	});
 }
 
 function initIFrameResize() {
