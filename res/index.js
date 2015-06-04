@@ -207,7 +207,7 @@ function initSubMenuUrl(hash) {
 		if (hash[0] == "chart") {
 			loadPage(src);
 		} else {
-			if(src.indexOf("script/common") == -1) {
+			if(hash[0] == "script" && src.indexOf("script/common") == -1) {
 				var popup = window.open("../res/uiplay/index.html" + src, "uiplay");
 				popup.focus();
 			} else {
