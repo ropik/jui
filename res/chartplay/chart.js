@@ -37,6 +37,8 @@ var code_list = [
     { type: "basic", title : "Set theme styles", code : "change_theme.js" },
     { type: "basic", title : "Set chart padding", code : "chart_padding.js" },
     { type: "basic", title : "Update axis data", code : "brush_axis_value.js" },
+    { type: "basic", title : "Update axis grid", code : "update_axis_grid.js" },
+    { type: "basic", title : "Set chart brushes", code : "update_brush.js" },
     { type: "basic", title : "Use SVG Icons", code : "use_svg_icons.js" },
 
     // grid basic
