@@ -1,47 +1,47 @@
 var chart = jui.include("chart.builder");
 
 var data = [{
-    id: "¼­¿ï",
+    id: "ì„œìš¸",
     temperature: 25,
     weather: "cloudy"
 }, {
-    id: "ÀÎÃµ",
+    id: "ì¸ì²œ",
     temperature: 28,
     weather: "sunny",
     x: 35,
     y: 150
 }, {
-    id: "°­¿ø",
+    id: "ê°•ì›",
     temperature: 25,
     weather: "rain"
 }, {
-    id: "ÃæºÏ",
+    id: "ì¶©ë¶",
     temperature: 26,
     weather: "rain",
     x: 195
 }, {
-    id: "Ãæ³²",
+    id: "ì¶©ë‚¨",
     temperature: 22,
     weather: "sunny"
 }, {
-    id: "ÀüºÏ",
+    id: "ì „ë¶",
     temperature: 26,
     weather: "murky"
 }, {
-    id: "Àü³²",
+    id: "ì „ë‚¨",
     temperature: 25,
     weather: "cloudy",
     x: 110
 }, {
-    id: "°æºÏ",
+    id: "ê²½ë¶",
     temperature: 25,
     weather: "sunny"
 }, {
-    id: "°æ³²",
+    id: "ê²½ë‚¨",
     temperature: 26,
     weather: "cloudy"
 }, {
-    id: "Á¦ÁÖ",
+    id: "ì œì£¼",
     temperature: 24,
     weather: "murky",
     x: 60,
@@ -61,10 +61,10 @@ chart("#chart", {
     brush : [{
         type : "map.weather",
         format : function(id) {
-            if(id == "¼­¿ï") {
-                return "¼­¿ï/°æ±â";
-            } else if(id == "ÀÎÃµ") {
-                return "¼­ÇØ5µµ";
+            if(id == "ì„œìš¸") {
+                return "ì„œìš¸/ê²½ê¸°";
+            } else if(id == "ì¸ì²œ") {
+                return "ì„œí•´5ë„";
             }
         }
     }],
