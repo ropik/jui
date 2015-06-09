@@ -10,6 +10,7 @@ var charts = [
     { type: "basic", title : "Basic" },
     { type: "grid", title : "Grid Basic" },
     { type: "grid2", title : "Grid Style" },
+    { type: "grid3", title : "Grid Type" },
     { type: "map", title : "Map Chart" },
     { type: "3d", title : "3D Chart" },
     { type: "mixed", title : "Combination Chart" },
@@ -54,6 +55,10 @@ var code_list = [
     { type: "grid2", title : "Dashed Line", code : "grid_dashed.js" },
     { type: "grid2", title : "Dashed + Gradient", code : "grid_dashed_gradient.js" },
     { type: "grid2", title : "Dashed + Rect", code : "grid_dashed_rect.js" },
+
+    // grid type
+    { type: "grid3", title : "Date Block + Range", code : "grid_dateblock_range.js" },
+    { type: "grid3", title : "Date + Range", code : "grid_date_range.js" },
 
     // map chart
     { type: "map", title : "Population Status",  code : "worldmap1.js" },

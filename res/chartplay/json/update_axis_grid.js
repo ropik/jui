@@ -10,7 +10,7 @@ var c = chart("#chart", {
         y: {
             type : "range",
             domain : [ 0, 10000 ],
-            //step : 4
+            step : 4
         },
         data: [
             { quarter : "1Q", sales : 2100, profit : 1800 },
@@ -34,6 +34,6 @@ setTimeout(function() {
     axis.updateGrid("x", {
         type : "range",
         domain : [ 0, 10000 ],
-        //step : 4
+        step : 4
     });
 }, 5000);
