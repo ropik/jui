@@ -1,44 +1,44 @@
 var chart = jui.include("chart.builder");
 
 var data = [{
-    id: "usa",
-    airport: "small"
-}, {
-    id: "britain",
-    routes: [ "usa", "iceland", "sweden", "lithuania", "portugal", "spain", "italy", "ukraine" ],
+    id: "KR",
     airport: "large"
 }, {
-    id: "iceland",
+    id: "GB",
+    airport: "large",
+    routes: [ "KR", "IE", "SE", "LT", "PT", "ES", "IT", "UA" ]
+}, {
+    id: "IE",
     airport: "small"
 }, {
-    id: "portugal",
+    id: "PT",
     airport: "small"
 }, {
-    id: "spain",
+    id: "ES",
     airport: "small"
 }, {
-    id: "france",
+    id: "FR",
     airport: "small"
 }, {
-    id: "sweden",
+    id: "SE",
     airport: "small"
 }, {
-    id: "ukraine",
+    id: "UA",
     airport: "small"
 }, {
-    id: "italy",
+    id: "IT",
     airport: "small"
 }, {
-    id: "ireland",
+    id: "IE",
     airport: "small"
 }, {
-    id: "norway",
+    id: "NO",
     airport: "small"
 }, {
-    id: "greece",
+    id: "GR",
     airport: "small"
 }, {
-    id: "lithuania",
+    id: "LT",
     airport: "large"
 }];
 
@@ -46,12 +46,12 @@ chart("#chart", {
     padding : 0,
     axis : [{
         map : {
-            path : "resource/worldFree2.svg",
-            width : 950,
-            height : 620,
+            path : "../../lib/jui/img/map/world-1040x630.svg",
+            width : 1040,
+            height : 630,
             scale : 2.5,
-            viewX : -200,
-            viewY : -300
+            viewX : -350,
+            viewY : -150
         },
         data : data
     }],
@@ -64,8 +64,8 @@ chart("#chart", {
         orient : "top",
         dx : 10,
         dy : 10,
-        minScale : 2,
-        maxScale : 4
+        minScale : 1,
+        maxScale : 3
     }],
     style : {
         mapPathBackgroundColor : "#FFCC00",

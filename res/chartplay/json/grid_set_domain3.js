@@ -4,7 +4,9 @@ chart("#chart-content", {
     axis : [{
         x : {
             type : "block",
-            domain : "quarter" // Not a callback
+            domain : function() {
+                return [ "1Q", "2Q", "3Q", "4Q" ]
+            }
         },
         y : {
             type : "range",
@@ -14,10 +16,10 @@ chart("#chart-content", {
             step : 5
         },
         data : [
-            { quarter : "1Q", sales : 50, profit : 35 },
-            { quarter : "2Q", sales : 20, profit : 30 },
-            { quarter : "3Q", sales : 10, profit : 5 },
-            { quarter : "4Q", sales : 30, profit : 25 }
+            { sales : 50, profit : 35 },
+            { sales : 20, profit : 30 },
+            { sales : 10, profit : 5 },
+            { sales : 30, profit : 25 }
         ]
     }],
     brush : [{

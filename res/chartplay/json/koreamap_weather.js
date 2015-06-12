@@ -3,13 +3,14 @@ var chart = jui.include("chart.builder");
 var data = [{
     id: "서울",
     temperature: 25,
-    weather: "cloudy"
+    weather: "cloudy",
+    dx: 10
 }, {
     id: "인천",
     temperature: 28,
     weather: "sunny",
-    x: 35,
-    y: 150
+    dx: -50,
+    dy: -25
 }, {
     id: "강원",
     temperature: 25,
@@ -18,7 +19,7 @@ var data = [{
     id: "충북",
     temperature: 26,
     weather: "rain",
-    x: 195
+    dx: 15
 }, {
     id: "충남",
     temperature: 22,
@@ -31,7 +32,7 @@ var data = [{
     id: "전남",
     temperature: 25,
     weather: "cloudy",
-    x: 110
+    dx: -20
 }, {
     id: "경북",
     temperature: 25,
@@ -44,8 +45,14 @@ var data = [{
     id: "제주",
     temperature: 24,
     weather: "murky",
-    x: 60,
-    y: 575
+    dx: -30,
+    dy: -30
+}, {
+    id: "울릉",
+    temperature: 25,
+    weather: "murky",
+    dx: -40,
+    dy: -20
 }];
 
 chart("#chart", {

@@ -1,40 +1,40 @@
 var chart = jui.include("chart.builder");
 
 var data = [{
-    id: "usa",
+    id: "US",
     flag: true
 }, {
-    id: "britain"
+    id: "GB"
 }, {
-    id: "spain",
+    id: "ES",
     flag: true
 }, {
-    id: "france"
+    id: "FR"
 }, {
-    id: "ukraine",
+    id: "UA",
     flag: true
 }, {
-    id: "italy",
+    id: "IT",
     flag: true
 }, {
-    id: "ireland"
+    id: "IE"
 }, {
     id: "norway",
     flag: true
 }, {
-    id: "greece",
+    id: "NO",
     flag: true
 }, {
-    id: "lithuania"
+    id: "LT"
 }];
 
 chart("#chart", {
     padding : 0,
     axis : [{
         map : {
-            path : "resource/worldFree2.svg",
-            width : 950,
-            height : 620
+            path : "../../lib/jui/img/map/world-1040x630.svg",
+            width : 1040,
+            height : 630
         },
         data : data
     }],
@@ -48,7 +48,7 @@ chart("#chart", {
             }
         },
         svg : function(d) {
-            if(d.id == "britain") {
+            if(d.id == "GB") {
                 return "<circle fill='#7977C2' r='6'></circle>"
             }
         }

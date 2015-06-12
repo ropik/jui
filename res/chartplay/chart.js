@@ -55,6 +55,7 @@ var code_list = [
     { type: "grid2", title : "Dashed Line", code : "grid_dashed.js" },
     { type: "grid2", title : "Dashed + Gradient", code : "grid_dashed_gradient.js" },
     { type: "grid2", title : "Dashed + Rect", code : "grid_dashed_rect.js" },
+    { type: "grid2", title : "Rotated Text + Tick style", code : "grid_text_rotate.js" },
 
     // grid type
     { type: "grid3", title : "Date Block + Range", code : "grid_dateblock_range.js" },

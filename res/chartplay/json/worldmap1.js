@@ -1,34 +1,22 @@
 var chart = jui.include("chart.builder");
 
 var data = [{
-    id: "south korea",
-    x: 790,
-    y: 205,
+    id: "KR",
     value: 10
 }, {
-    id: "china",
-    x: 730,
-    y: 220,
+    id: "CN",
     value: 100
 }, {
-    id: "usa",
-    x: 195,
-    y: 200,
+    id: "US",
     value: 70
 }, {
-    id: "france",
-    x: 460,
-    y: 195,
+    id: "FR",
     value: 50
 }, {
-    id: "brazil",
-    x: 310,
-    y: 370,
+    id: "BR",
     value: 80
 }, {
-    id: "australia",
-    x: 820,
-    y: 435,
+    id: "AU",
     value: 20
 }];
 
@@ -36,9 +24,9 @@ chart("#chart", {
     padding : 0,
     axis : [{
         map : {
-            path : "resource/worldFree.svg",
-            width : 950,
-            height : 620,
+            path : "../../lib/jui/img/map/world-1040x630.svg",
+            width : 1040,
+            height : 630,
             scale : 1.5
         },
         data : data
@@ -73,5 +61,8 @@ chart("#chart", {
 
             return obj.data.id;
         }
-    }]
+    }],
+    style: {
+        mapPathBorderWidth: 0.5
+    }
 });
