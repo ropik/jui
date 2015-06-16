@@ -33,7 +33,7 @@ chart("#chart", {
     }],
     brush : [{
         type : "map.bubble",
-        color : function(d) {
+        colors : function(d) {
             if(d.value > 70) {
                 return "linear(top) #ff686c,0.9 #fa5559";
             } else if(d.value > 35) {

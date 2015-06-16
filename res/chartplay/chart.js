@@ -151,8 +151,10 @@ var code_list = [
     // scatter
     { type: "scatter", title : "Basic Scatter", code : "scatter.js" },
     { type: "scatter", title : "Scatter with cross", code : "range_scatter_cross.js" },
+    { type: "scatter", title : "Scatter with zoom", code : "range_scatter_zoom.js" },
     { type: "scatter", title : "Scatter with drag-select", code : "range_scatter_dragselect.js" },
     { type: "scatter", title : "Stacked Scatter", code : "stack_scatter.js" },
+    { type: "scatter", title : "Active Scatter", code : "active_scatter.js" },
     { type: "scatter", title : "High-performance Scatter", code : "scatterpath.js" },
 
     //area

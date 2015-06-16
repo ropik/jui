@@ -53,7 +53,8 @@ chart("#chart", {
         type : "title",
         text : "Scatter Sample"
     }, {
-        type : "dragselect"
+        type : "dragselect",
+        dataType : "list" // or "area"
     }, {
         type : "tooltip"
     }],
