@@ -34,7 +34,8 @@ var code_list = [
     // basic
     { type: "basic", title : "Set brush events", code : "brush_event.js" },
     { type: "basic", title : "Set brush events (with HTML)", code : "brush_event_2.js" },
-    { type: "basic", title : "Set brush colors", code : "brush_colors.js" },
+    { type: "basic", title : "Set brush colors (array)", code : "brush_colors.js" },
+    { type: "basic", title : "Set brush colors (callback)", code : "brush_colors_callback.js" },
     { type: "basic", title : "Set theme styles", code : "change_theme.js" },
     { type: "basic", title : "Set chart padding", code : "chart_padding.js" },
     { type: "basic", title : "Update axis data", code : "brush_axis_value.js" },

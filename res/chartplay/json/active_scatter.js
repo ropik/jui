@@ -25,7 +25,7 @@ chart("#chart", {
     },
     brush : {
         type : "scatter",
-        display : "all",
+        display : "max",
         activeEvent : "click"
     },
     widget : [
