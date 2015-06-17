@@ -22,12 +22,13 @@ chart("#chart", {
     }],
     brush : [{
         type : "column",
-        target : [ "sales", "profit" ]
+        target : [ "sales", "profit" ],
+        colors : [ "red", "black" ]
     }],
     style : {
         fontSize : "13px",
         barBorderRadius : 0,
-        barBorderColor : "black",
+        barBorderColor : "transparent",
         barBorderOpacity : 0.5,
         barBorderWidth : 1
     }
