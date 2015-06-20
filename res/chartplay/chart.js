@@ -111,6 +111,7 @@ var code_list = [
 
     // bar
     { type: "bar", title : "Basic Bar", code : "bar.js" },
+    { type: "bar", title : "Fixed-Size Bar", code : "fixed_bar.js" },
     { type: "bar", title : "Stacked Bar", code : "stack_bar.js", hide : true },
     { type: "bar", title : "Active Stacked Bar", code : "active_stack_bar.js" },
     { type: "bar", title : "Full Stacked Bar", code : "fullstackbar.js" },
@@ -122,6 +123,7 @@ var code_list = [
 
     // column
     { type: "column", title : "Basic Column", code : "column.js" },
+    { type: "column", title : "Fixed-Size Column", code : "fixed_column.js" },
     { type: "column", title : "Stacked Column", code : "stack_column.js", hide : true },
     { type: "column", title : "Active Stacked Column", code : "active_stack_column.js" },
     { type: "column", title : "Full Stacked Column", code : "fullstack.js" },
