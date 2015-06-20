@@ -59,7 +59,7 @@ var code_list = [
     { type: "grid2", title : "Rotated Text + Tick style", code : "grid_text_rotate.js" },
 
     // grid type
-    { type: "grid3", title : "Date Block + Range", code : "grid_dateblock_range.js" },
+    //{ type: "grid3", title : "Date Block + Range", code : "grid_dateblock_range.js" },
     { type: "grid3", title : "Date + Range", code : "grid_date_range.js" },
 
     // map chart

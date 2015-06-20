@@ -7,7 +7,7 @@ chart("#chart", {
         x : {
             type : "date",
             domain : [ today.start, today.end ],
-            step : [ time.hours, 1 ],
+            interval : 1000 * 60 * 60, // 1hours
             format : "HH",
             key: "time"
         },

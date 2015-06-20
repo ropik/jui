@@ -58,7 +58,7 @@ chart("#chart", {
         x : {
             type : "date",
             domain : [ lineData[0].date, lineData[lineData.length - 1].date ],
-            step : [ time.days, 1 ],
+            interval : 1000 * 60 * 60 * 24, // 1day
             format : "MM-dd",
             textRotate : -20,
             key: "date"

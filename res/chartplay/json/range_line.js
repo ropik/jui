@@ -38,7 +38,7 @@ chart("#chart", {
 		x : {
 			type : "date",
 			domain : [ start, end ],
-			step : [ time.years, 1 ],
+			interval : 1000 * 60 * 60 * 24 * 365, // 1years
 			format : "yyyy",
 		    key: "date"
 		},

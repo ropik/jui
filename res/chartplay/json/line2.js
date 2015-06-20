@@ -22,7 +22,7 @@ chart("#chart", {
         x : {
             type : "date",
             domain : [ start, end ],
-            step : [ time.days, 1 ],
+            interval : 1000 * 60 * 60 * 24, // 1days
             format : "MM-dd",
             key : "date",
             line : true

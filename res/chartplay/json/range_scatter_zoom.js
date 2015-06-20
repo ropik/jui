@@ -18,7 +18,7 @@ chart("#chart", {
         x : {
             type : "date",
             domain : [ start, end ],
-            step : [ time.minutes, 10 ],
+            interval : 1000 * 60 * 10, // 1minutes
             format : "hh:mm",
             key: "time",
             line : true
@@ -49,16 +49,16 @@ chart("#chart", {
         text : "Scatter Sample"
     }, {
         type : "zoom",
-        dateStep : function(stime, etime) {
+        dateInterval : function(stime, etime) {
             var dist = etime - stime;
 
             if(dist < 1000 * 60) {
-                return [ time.seconds, 10 ];
+                return 1000 * 10; // 10seconds
             } else if(dist < 1000 * 60 * 10) {
-                return [ time.minutes, 1 ];
+                return 1000 * 60; // 1minutes
             }
 
-            return [ time.minutes, 10 ];
+            return 1000 * 60 * 10; // 10minutes
         },
         dateFormat : function(stime, etime) {
             var dist = etime - stime;

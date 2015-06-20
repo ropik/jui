@@ -6,7 +6,7 @@ chart("#chart", {
         x : {
             type : "date",
             domain : [ new Date("2015/01/01"), new Date("2015/01/02") ],
-            step : [ time.hours, 6 ],
+            interval : 1000 * 60 * 60 * 6,
             format : "MM/dd HH:mm",
             line : true
         },

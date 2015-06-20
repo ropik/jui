@@ -31,7 +31,7 @@ chart("#chart", {
         x : {
             type : "date",
             domain : [ start, end ],
-            step : [ time.hours, 1 ],
+            interval : 1000 * 60 * 60, // 1hours
             format : "hh:mm",
             key: "time",
             line : true

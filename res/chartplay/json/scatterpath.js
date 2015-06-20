@@ -10,14 +10,16 @@ chart("#chart", {
         x : {
             type : "date",  // default type is block
             domain : [ start, end ],
-            step : [ time.hours, 1 ],
+            interval : 1000 * 60 * 60, // 1hours
             format : "hh:00",
             key: "date",
             line : true
         },
         y : {
             type : "range",
-            domain : function(d) { return [d.q1, d.q2, d.q3]; },
+            domain : function(d) { 
+                return Math.max(d.q1, d.q2, d.q3);
+            },
             step : 10,
             line : true
         },
@@ -25,19 +27,19 @@ chart("#chart", {
         buffer : data.length
     },
     brush : [{
-        type : 'scatterpath',
+        type : "scatterpath",
         target : "q1",
         symbol : "circle",
         colors : [ 0 ],
         size : 3
     }, {
-        type : 'scatterpath',
+        type : "scatterpath",   
         target : "q2",
         symbol : "triangle",
         colors : [ 1 ],
         size : 3
     }, {
-        type : 'scatterpath',
+        type : "scatterpath",
         target : "q3",
         symbol : "rectangle",
         colors : [ 2 ],
