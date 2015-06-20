@@ -48,6 +48,7 @@ var code_list = [
     { type: "grid", title : "Set domain as data", code : "grid_set_domain2.js" },
     { type: "grid", title : "Set domain as callback", code : "grid_set_domain3.js" },
     { type: "grid", title : "Set domain format", code : "grid_block_format.js" },
+    { type: "grid", title : "Set axis colors", code : "grid_axis_colors.js" },
 
     // grid style
     { type: "grid2", title : "Solid + Tick style", code : "grid_solid.js" },

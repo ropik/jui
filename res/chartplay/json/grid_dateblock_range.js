@@ -5,7 +5,7 @@ chart("#chart", {
     axis : {
         x : {
             type : "dateblock",
-            domain : [ new Date(2015, 0, 1), new Date(2015, 0, 2) ],
+            domain : [ new Date("2015/01/01"), new Date("2015/01/02") ],
             interval : 1000 * 60 * 60 * 6, // 6hours
             format : "MM/dd HH:mm",
             line : true
