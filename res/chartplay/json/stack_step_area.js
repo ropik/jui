@@ -7,17 +7,6 @@ var data = [
 ];
 
 chart("#chart-content", {
-    series : {
-        sales : {
-            color : 0
-        },
-        profit : {
-            color : 1
-        },
-        dept : {
-            color : 2
-        }
-    },
     axis : {
         x : {
             type : "block",

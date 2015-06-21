@@ -19,11 +19,6 @@ chart("#chart", {
             { sales: 18, profit: 5, total: 20 }
         ]
     },
-    series : {
-        sales : { symbol : "rectangle" },
-        profit : { symbol : "cross" },
-        total : { symbol : "triangle" }
-    },
     brush : {
         type: "scatter",
         size: 10

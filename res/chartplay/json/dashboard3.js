@@ -27,20 +27,6 @@ chart("#chart", {
         top : 100
     },
     height : 400,
-    series : {
-        nike : {
-            text : "Nike"
-        },
-        adidas : {
-            text : "Adidas"
-        },
-        converse : {
-            text : "Converse"
-        },
-        puma : {
-            text : "Puma"
-        }
-    },
     axis : [{
         data : dataSource,
         area : {

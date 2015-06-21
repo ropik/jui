@@ -8,20 +8,6 @@ var activeIndex = 0,
     ];
 
 chart("#chart", {
-    series : {
-        samsung : {
-            color : 0,
-            text : "Samsung"
-        },
-        lg : {
-            color : 1,
-            text : "LG"
-        },
-        sony : {
-            color : 2,
-            text : "SONY"
-        }
-    },
     axis : {
         x : {
             type : "block",

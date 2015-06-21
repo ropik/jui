@@ -20,20 +20,6 @@ for(var i = 0; i < stocks.apple.length; i++) {
 }
 
 chart("#chart", {
-	series : {
-		apple : {
-			color : 0,
-			text : "Apple"
-		},
-		microsoft : {
-			color : 1,
-			text : "Microsoft"
-		},
-		oracle : {
-			color : 2,
-			text : "Oracle"
-		}
-	},
 	axis : {
 		x : {
 			type : "date",

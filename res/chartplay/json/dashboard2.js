@@ -57,14 +57,6 @@ chart("#chart", {
             y : "65%"
         }
     }],
-    series : {
-        value : {
-            color : 0
-        },
-        value2 : {
-            color : 1
-        }
-    },
     brush : [{
         type : "line",
         target : [ "value", "value2" ],

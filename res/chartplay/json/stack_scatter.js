@@ -7,11 +7,6 @@ var data = [
 ];
 
 chart("#chart", {
-    series : {
-        sales : { symbol : "rectangle" },
-        profit : { symbol : "cross" },
-        dept : { symbol : "triangle" }
-    },
     axis : {
         x : {
             type : "block",

@@ -22,11 +22,6 @@ chart("#chart", {
     padding : {
         left : 70
     },
-    series : {
-        sales : { symbol : "rectangle" },
-        profit : { symbol : "cross" },
-        total : { symbol : "triangle" }
-    },
     axis : {
         x : {
             type : "date",

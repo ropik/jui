@@ -2,13 +2,6 @@ var chart = jui.include("chart.builder");
 
 chart("#chart", {
     padding : 150,
-    series : {
-        ie : { text : "IE" },
-        ff : { text : "FireFox" },
-        chrome : { text : "Chrome" },
-        safari : { text : "Safari" },
-        other : { text : "Other" }
-    },
     axis : {
         c : {
             type : "overlap"
