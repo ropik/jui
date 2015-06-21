@@ -1,4 +1,11 @@
 var chart = jui.include("chart.builder");
+var names = {
+    ie: "IE",
+    ff: "Fire Fox",
+    chrome: "Chrome",
+    safari: "Safari",
+    other: "Others"
+};
 
 chart("#chart", {
     padding : 150,
@@ -9,11 +16,21 @@ chart("#chart", {
     },
     brush : {
         type : "pie",
-        showText : true
+        showText : true,
+        format : function(k, v) {
+            return names[k] + ": " + v;
+        }
     },
-    widget : [
-    	{ type : "title", text : "Pie Sample" },
-        { type : "tooltip", orient : "left" },
-    	{ type : "legend" }
-    ]
+    widget : [{
+        type : "title",
+        text : "Pie Sample"
+    }, {
+        type : "tooltip",
+        orient : "left"
+    }, {
+        type : "legend",
+        format : function(k) {
+            return names[k];
+        }
+    }]
 });

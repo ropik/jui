@@ -1,4 +1,11 @@
 var chart = jui.include("chart.builder");
+var names = {
+    ie: "IE",
+    ff: "Fire Fox",
+    chrome: "Chrome",
+    safari: "Safari",
+    other: "Others"
+};
 
 // The SVG icon of style components can be used in chart
 chart("#chart", {
@@ -16,6 +23,9 @@ chart("#chart", {
     },
     brush : {
         type : "pie",
+        format : function(k, v) {
+            return names[k] + ": " + v;
+        },
         showText : true
     },
     widget : [
@@ -30,7 +40,10 @@ chart("#chart", {
             }
         }, {
             type : "legend",
-            icon : "{chart}"
+            icon : "{chart}",
+            format : function(k) {
+                return names[k];
+            }
         }
     ]
 });

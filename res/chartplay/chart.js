@@ -160,6 +160,7 @@ var code_list = [
     { type: "scatter", title : "Stacked Scatter", code : "stack_scatter.js" },
     { type: "scatter", title : "Active Scatter", code : "active_scatter.js" },
     { type: "scatter", title : "High-performance Scatter", code : "scatterpath.js" },
+    { type: "scatter", title : "Image symbol in Scatter", code : "image_scatter.js" },
 
     //area
     { type: "area", title : "Basic Area", code : "area.js" },

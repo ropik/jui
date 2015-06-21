@@ -22,14 +22,18 @@ chart("#chart", {
     brush : {
         type : "scatter",
         symbol : function(k, v) {
-            if(k == "sales") return "circle";
-            else if(k =="profit") return "rectangle";
-            return "triangle";
+            if(k == "total") {
+                return "resource/star.png";
+            }
+
+            return "cross";
         },
-        size: 10
+        size : 10
     },
-    widget : [
-        { type : "title", text : "Scatter Sample"},
-        { type : "tooltip" }
-    ]
+    widget : [{
+        type : "title",
+        text : "Scatter Sample"
+    }, {
+        type : "tooltip"
+    }]
 });
