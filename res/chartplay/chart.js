@@ -62,6 +62,7 @@ var code_list = [
     // grid type
     { type: "grid3", title : "Date Block + Range", code : "grid_dateblock_range.js" },
     { type: "grid3", title : "Date + Range", code : "grid_date_range.js" },
+    { type: "grid3", title : "Block + Log", code : "grid_block_log.js" },
 
     // map chart
     { type: "map", title : "Population Status",  code : "worldmap1.js" },
