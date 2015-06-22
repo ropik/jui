@@ -17,28 +17,28 @@ chart("#chart", {
             { quarter : "12", sales : 25 }
         ],
         x : {
-            type : "block",
-            domain : "quarter",
-            line : true
-        },
-        y : {
             type : "range",
             domain : [ 0, 100 ],
             step : 10,
             line : true
+        },
+        y : {
+            type : "block",
+            domain : "quarter",
+            line : true
         }
     }],
     brush : {
-        type : "imagecolumn",
+        type : "imagebar",
         target : "sales",
-        width : 40,
-        height : 80,
+        width : 80,
+        height : 40,
         fixed : false,
         uri : "resource/man.svg"
     },
     widget : {
         type : "title",
-        text : "Image Column Sample",
+        text : "Image Bar Sample",
         align : "start"
     }
 });

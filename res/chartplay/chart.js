@@ -120,6 +120,9 @@ var code_list = [
     { type: "bar", title : "Active Bar", code : "active_bar.js" },
     { type: "bar", title : "Mini Bar", code : "mini_bar.js", hide : true },
     { type: "bar", title : "Range Bar", code : "rangebar.js" },
+    { type: "bar", title : "Image Bar", code : "imagebar.js", hide : true },
+    { type: "bar", title : "Fixed Image Bar", code : "fixed_imagebar.js" },
+    { type: "bar", title : "Pattern Bar", code : "patternbar.js" },
 
     // column
     { type: "column", title : "Basic Column", code : "column.js" },
@@ -135,6 +138,8 @@ var code_list = [
     { type: "column", title : "Equalizer", code : "equalizer.js" },
     { type: "column", title : "Waterfall", code : "waterfall.js" },
     { type: "column", title : "Image Column", code : "imagecolumn.js" },
+    { type: "column", title : "Fixed Image Column", code : "fixed_imagecolumn.js" },
+    { type: "column", title : "Pattern Column", code : "patterncolumn.js" },
 
     // pie
     { type: "pie", title : "Basic Pie", code : "pie.js" },
