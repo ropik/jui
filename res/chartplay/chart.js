@@ -68,6 +68,7 @@ var code_list = [
     { type: "map", title : "Population Status",  code : "worldmap1.js" },
     { type: "map", title : "Airplane Routes",  code : "worldmap2.js" },
     { type: "map", title : "Use External Markup",  code : "worldmap3.js" },
+    { type: "map", title : "Market growth comparison",  code : "worldmap4.js" },
     { type: "map", title : "Today's Weather",  code : "koreamap_weather.js" },
 
     // 3d chart
