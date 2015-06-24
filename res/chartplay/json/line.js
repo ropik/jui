@@ -3,10 +3,9 @@ var chart = jui.include("chart.builder");
 chart("#chart", {
     axis : {
         x : {
-            type : "block",
+            type : "fullblock",
             domain : [ "2010", "2011", "2012", "2013" ],
-            line : true,
-            full : true
+            line : true
         },
         y : {
             type : "range",

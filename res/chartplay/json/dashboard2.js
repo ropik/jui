@@ -26,9 +26,8 @@ chart("#chart", {
     height : 400,
     axis : [{
         x : {
-            type : "block",
-            domain : "date",
-            full : true
+            type : "fullblock",
+            domain : "date"
         },
         y : {
             type : "range",

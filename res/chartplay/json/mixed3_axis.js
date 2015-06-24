@@ -72,9 +72,8 @@ var data = [
 chart("#chart", {
     axis : [{
         x : {
-            type : "block",
+            type : "fullblock",
             domain : "date",
-            full : true,
             hide : true
         },
         y : {

@@ -35,9 +35,8 @@ chart("#chart", {
     }, {
         data : dataSource2,
         x : {
-            type : "block",
-            domain : "date",
-            full : true
+            type : "fullblock",
+            domain : "date"
         },
         y : {
             type : "range",
