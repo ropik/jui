@@ -465,9 +465,11 @@ function loadChartList() {
         // 리얼타임일 경우, 테마와 데이터 탭 제거
         if(code.type == "realtime") {
             $("#tab_1").find("li:not(:first-child)").hide();
+            /*/
         } else if(code.type == "map") {
             $("#tab_1").find("li:last-child").hide();
             $("#tab_1").find("li:not(:last-child)").show();
+            /**/
         } else {
             $("#tab_1").find("li").show();
 
