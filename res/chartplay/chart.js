@@ -105,6 +105,7 @@ var code_list = [
     { type: "dashboard", title : "Beautiful Dashboard", code : "dashboard2.js" },
     { type: "dashboard", title : "Company Performance", code : "dashboard3.js" },
     { type: "dashboard", title : "Sales Overview", code : "dashboard4.js" },
+    { type: "dashboard", title : "Charts in the World Map",  code : "chart_in_worldmap.js" },
 
     // topology map
     { type: "topology", title : "Server Topologies", code : "topology.js" },
