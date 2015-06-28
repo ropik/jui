@@ -66,6 +66,7 @@ var code_list = [
 
     // map chart
     { type: "map", title : "Population Status",  code : "worldmap1.js" },
+    { type: "map", title : "Population growth rate",  code : "worldmap6.js" },
     { type: "map", title : "Airplane Routes",  code : "worldmap2.js" },
     { type: "map", title : "Use External Markup",  code : "worldmap3.js" },
     { type: "map", title : "Market growth comparison",  code : "worldmap4.js" },
