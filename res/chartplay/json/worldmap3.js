@@ -59,8 +59,8 @@ chart("#chart", {
         orient : "top",
         dx : 10,
         dy : 10,
-        minScale : 1,
-        maxScale : 2
+        min : 1,
+        max : 2
     }],
     style : {
         mapPathBackgroundColor : "#15A892",
