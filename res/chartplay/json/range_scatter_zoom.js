@@ -49,7 +49,7 @@ chart("#chart", {
         text : "Scatter Sample"
     }, {
         type : "zoom",
-        dateInterval : function(stime, etime) {
+        interval : function(stime, etime) {
             var dist = etime - stime;
 
             if(dist < 1000 * 60) {
@@ -60,7 +60,7 @@ chart("#chart", {
 
             return 1000 * 60 * 10; // 10minutes
         },
-        dateFormat : function(stime, etime) {
+        format : function(stime, etime) {
             var dist = etime - stime;
 
             if(dist < 1000 * 60) {

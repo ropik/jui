@@ -49,6 +49,7 @@ var code_list = [
     { type: "grid", title : "Set domain as callback", code : "grid_set_domain3.js" },
     { type: "grid", title : "Set domain format", code : "grid_block_format.js" },
     { type: "grid", title : "Set axis colors", code : "grid_axis_colors.js" },
+    { type: "grid", title : "Use axis text with image", code : "grid_axis_image.js" },
 
     // grid style
     { type: "grid2", title : "Solid + Tick style", code : "grid_solid.js" },
