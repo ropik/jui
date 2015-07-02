@@ -122,7 +122,7 @@ var code_list = [
     { type: "bar", title : "Full Stacked Bar", code : "fullstackbar.js" },
     { type: "bar", title : "Inner Bar", code : "inner_bar.js" },
     { type: "bar", title : "Overlap Bar", code : "overlap_bar.js" },
-    { type: "bar", title : "Active Bar", code : "active_bar.js" },
+    { type: "bar", title : "Active Bar (+Focus)", code : "active_bar.js" },
     { type: "bar", title : "Mini Bar", code : "mini_bar.js", hide : true },
     { type: "bar", title : "Range Bar", code : "rangebar.js" },
     { type: "bar", title : "Image Bar", code : "imagebar.js", hide : true },
@@ -137,7 +137,7 @@ var code_list = [
     { type: "column", title : "Full Stacked Column", code : "fullstack.js" },
     { type: "column", title : "Inner Column", code : "inner_column.js" },
     { type: "column", title : "Overlap Column", code : "overlap_column.js" },
-    { type: "column", title : "Active Column", code : "active_column.js" },
+    { type: "column", title : "Active Column (+Focus)", code : "active_column.js" },
     { type: "column", title : "Mini Column", code : "mini_column.js", hide : true },
     { type: "column", title : "Range Column", code : "rangecolumn.js" },
     { type: "column", title : "Equalizer", code : "equalizer.js" },
@@ -173,7 +173,7 @@ var code_list = [
     { type: "scatter", title : "Image symbol in Scatter", code : "image_scatter.js" },
 
     //area
-    { type: "area", title : "Basic Area", code : "area.js" },
+    { type: "area", title : "Basic Area (+Focus)", code : "area.js" },
     { type: "area", title : "Stacked Area 1", code : "stack_area.js" },
     { type: "area", title : "Stacked Area 2", code : "stack_area2.js" },
     { type: "area", title : "Stacked Curve Area", code : "stack_curve_area.js" },

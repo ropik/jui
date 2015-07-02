@@ -20,6 +20,10 @@ chart("#chart-content", {
         ]
     },
 	brush : [{
+        type : "focus",
+        start : 1,
+        end : 2
+    }, {
 		type : "area",
         line : false
 	}],

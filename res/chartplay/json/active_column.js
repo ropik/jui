@@ -15,7 +15,7 @@ var data = [
 ];
 
 chart("#chart", {
-    axis : {
+    axis : [{
         x : {
             type : "block",
             domain : "quarter",
@@ -28,17 +28,21 @@ chart("#chart", {
             line : true
         },
         data : data
-    },
-    brush : {
+    }],
+    brush : [{
+        type : "focus",
+        start : 4,
+        end : 4
+    }, {
         type : "column",
         target : "sales",
         display : "max",
         active : 5,
         activeEvent : "mouseover",
         animate : true
-    },
-    widget : {
+    }],
+    widget : [{
         type : "title",
         text : "Column Sample"
-    }
+    }]
 });

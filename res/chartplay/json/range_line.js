@@ -20,7 +20,7 @@ for(var i = 0; i < stocks.apple.length; i++) {
 }
 
 chart("#chart", {
-	axis : {
+	axis : [{
 		x : {
 			type : "date",
 			domain : [ start, end ],
@@ -37,14 +37,17 @@ chart("#chart", {
 			line : true 
 		},
 		data : data
-	},
-	brush : {  
+	}],
+	brush : [{
 		type : "line",
 		target : [ "apple", "microsoft", "oracle" ],
 		animate : true
-	},
-    widget : [
-        { type : "title", text : "Line Sample" },
-        { type : "legend", filter : true }
-    ]
+	}],
+    widget : [{
+		type : "title",
+		text : "Line Sample"
+	}, {
+		type : "legend",
+		filter : true
+	}]
 });

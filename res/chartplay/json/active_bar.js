@@ -15,7 +15,7 @@ var data = [
 ];
 
 chart("#chart", {
-    axis : {
+    axis : [{
         x : {
             type : "range",
             domain : "sales",
@@ -28,18 +28,22 @@ chart("#chart", {
             line : true
         },
         data : data
-    },
-    brush : {
+    }],
+    brush : [{
+        type : "focus",
+        start : 4,
+        end : 4
+    }, {
         type : "bar",
         target : "sales",
         display : "max",
         active : 5,
         activeEvent : "mouseover",
         animate : true
-    },
-    widget : {
+    }],
+    widget : [{
         type : "title",
         text : "Bar Sample",
         align : "start"
-    }
+    }]
 });
