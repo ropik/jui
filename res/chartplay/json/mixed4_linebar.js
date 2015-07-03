@@ -49,8 +49,7 @@ chart("#chart", {
             domain : function(d) {
                 return d.value + 10;
             },
-            step : 5,
-            line : true
+            step : 5
         },
         data : columnData
     },
@@ -61,7 +60,8 @@ chart("#chart", {
             interval : 1000 * 60 * 60 * 24, // 1day
             format : "MM-dd",
             textRotate : -20,
-            key: "date"
+            key : "date",
+            hide : false
         },
         y : {
             hide : true

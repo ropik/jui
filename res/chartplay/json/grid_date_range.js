@@ -16,10 +16,7 @@ chart("#chart", {
             domain : [ 0, 50 ],
             step : 5,
             line : true,
-            orient : "right",
-            format : function(value, i) {
-                if(i > 0) return value;
-            }
+            orient : "right"
         },
         data : [
             { date : new Date("2015/01/01 00:00:00"), sales : 50, profit : 35 },

@@ -24,9 +24,6 @@ chart("#chart", {
             step : 10,
             base : 10,
             nice : true,
-            format : function(value) {
-                return Math.round(value);
-            },
             line : true
         },
         data : data

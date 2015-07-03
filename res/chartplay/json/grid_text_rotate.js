@@ -16,7 +16,7 @@ chart("#chart-content", {
         }
     }],
     style : {
-        gridTickSize : 7,
+        gridTickBorderSize : 7,
         gridTickPadding : 10
     }
 });
