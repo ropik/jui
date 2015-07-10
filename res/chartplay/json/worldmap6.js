@@ -71,6 +71,7 @@ chart("#chart", {
         mapPathBorderWidth: 0.5,
         mapControlButtonColor: "#ffcb2b",
         mapSelectorHoverColor: "rgb(255,255,255)",
-        mapSelectorActiveColor: "rgb(242,140,8)"
+        mapSelectorActiveColor: "rgb(242,140,8)",
+        tooltipBorderColor: "#a9a9a9"
     }
 });
