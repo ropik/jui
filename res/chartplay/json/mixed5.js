@@ -96,14 +96,18 @@ chart("#chart", {
         dy : -10
     }, {
         type : "tooltip",
-        format : function(k, v) {
-            return v;
+        format : function(data, k) {
+            return {
+                key : k,
+                value : data[k]
+            };
         },
         brush : [ 0, 2 ]
     }],
     style : {
         gridAxisBorderWidth : 2,
         titleFontSize : "11px",
-        titleFontWeight : "bold"
+        titleFontWeight : "bold",
+        tooltipBorderColor : "#dcdcdc"
     }
 });

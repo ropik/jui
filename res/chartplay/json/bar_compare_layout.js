@@ -20,6 +20,11 @@ var data = [
     { age : "5-4",   female : 54.2, male : 58.6 }
 ];
 
+var names = {
+    male : "Male",
+    female : "Female"
+};
+
 chart("#chart-content", {
     axis : [{
         x : {
@@ -62,8 +67,20 @@ chart("#chart-content", {
         colors : [ 2 ],
         axis : 1
     }],
-    widget : {
+    widget : [{
         type : "legend",
-        brush : [ 0, 1 ]
-    }
+        brush : [ 0, 1 ],
+        format : function(k) {
+            return names[k];
+        }
+    }, {
+        type : "tooltip",
+        brush : [ 0, 1 ],
+        format : function(data, k) {
+            return {
+                key : names[k],
+                value : data[k]
+            }
+        }
+    }]
 });

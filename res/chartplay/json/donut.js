@@ -26,7 +26,13 @@ chart("#chart", {
         text : "Donut Sample"
     }, {
         type : "tooltip",
-        orient : "left"
+        orient : "left",
+        format : function(data, k) {
+            return {
+                key: names[k],
+                value: data[k]
+            }
+        }
     }, {
         type : "legend",
         format : function(k) {

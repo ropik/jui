@@ -86,6 +86,7 @@ var code_list = [
     { type: "3d", title : "Stacked 3D Cylinder",  code : "stack_cylinder3d.js" },
     { type: "3d", title : "Full Stacked 3D Cylinder",  code : "fullstackcylinder3d.js" },
     { type: "3d", title : "Clustered 3D Cylinder",  code : "cluster_cylinder3d.js" },
+    { type: "3d", title : "3D Bubble",  code : "bubble3d.js" },
 
     // combination chart
     { type: "mixed", title : "Basic Combination",  code : "mixed1.js", hide : true },
