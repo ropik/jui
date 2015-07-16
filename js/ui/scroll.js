@@ -11,8 +11,7 @@ jui.defineUI("ui.scroll", [ "jquery", "util.base" ], function($, _) {
         var $xHandle = null,
             $yHandle = null,
             handleX = 0,
-            handleY = 0,
-            isBodyOut = false;
+            handleY = 0;
 
         function setContentScroll(self) {
             var handleSize = $yHandle.outerHeight(),
@@ -81,8 +80,6 @@ jui.defineUI("ui.scroll", [ "jquery", "util.base" ], function($, _) {
 
             self.addEvent("body", "mousemove", function(e) {
                 if(startY == 0) return;
-                if(isBodyOut) end(e);
-
                 moveY = handleY + e.pageY - startY;
 
                 if(moveY >= 0 && moveY <= maxHeight - handleSize) {
@@ -91,18 +88,14 @@ jui.defineUI("ui.scroll", [ "jquery", "util.base" ], function($, _) {
                 }
             });
 
-            self.addEvent("body", "mouseup", end);
-
-            function end(e) {
+            self.addEvent("body", "mouseup", function(e) {
                 if(startY == 0) return;
 
                 handleY = moveY;
                 startY = 0;
                 moveY = 0;
-                isBodyOut = false;
-
                 userSelectRootMarkup(self, false);
-            }
+            });
         }
 
         function setHorizontalHandleEvent(self) {
@@ -122,8 +115,6 @@ jui.defineUI("ui.scroll", [ "jquery", "util.base" ], function($, _) {
 
             self.addEvent("body", "mousemove", function(e) {
                 if(startX == 0) return;
-                if(isBodyOut) end(e);
-
                 moveX = handleX + e.pageX - startX;
 
                 if(moveX >= 0 && moveX <= maxWidth - handleSize) {
@@ -132,18 +123,14 @@ jui.defineUI("ui.scroll", [ "jquery", "util.base" ], function($, _) {
                 }
             });
 
-            self.addEvent("body", "mouseup", end);
-
-            function end(e) {
+            self.addEvent("body", "mouseup", function(e) {
                 if(startX == 0) return;
 
                 handleX = moveX;
                 startX = 0;
                 moveX = 0;
-                isBodyOut = false;
-
                 userSelectRootMarkup(self, false);
-            }
+            });
         }
 
         function setHandleScrollTop(self, y) {
@@ -193,24 +180,19 @@ jui.defineUI("ui.scroll", [ "jquery", "util.base" ], function($, _) {
             $(this.root).css("position", "relative");
 
             // 세로 스크롤 설정
-            if(_.typeCheck("integer", this.options.height)) {
+            if(_.typeCheck("integer", this.options.width)) {
                 setVerticalScroll(this);
                 setContentScroll(this);
             }
 
             // 가로 스크롤 설정
-            if(_.typeCheck("integer", this.options.width)) {
+            if(_.typeCheck("integer", this.options.height)) {
                 setHorizontalScroll(this);
             }
 
             // 핸들 위치 설정
             setHandleScrollTop(this, 0);
             setHandleScrollLeft(this, 0);
-
-            // body 태그 밖으로 나갔을 경우
-            this.addEvent("body", "mouseleave", function(e) {
-                isBodyOut = true;
-            });
         }
     }
 
