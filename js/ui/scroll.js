@@ -10,14 +10,15 @@ jui.defineUI("ui.scroll", [ "jquery", "util.base" ], function($, _) {
     var UI = function() {
         var $xHandle = null,
             $yHandle = null,
+            handleWidth = 0,
+            handleHeight = 0,
             handleX = 0,
             handleY = 0;
 
         function setContentScroll(self) {
-            var handleSize = $yHandle.outerHeight(),
-                maxHeight = self.options.height,
+            var maxHeight = self.options.height,
                 scrollHeight = $(self.root)[0].scrollHeight,
-                rate = scrollHeight / (maxHeight - handleSize);
+                rate = scrollHeight / (maxHeight - handleHeight);
 
             self.addEvent(self.root, "mousewheel", function(e) {
                 var top = $(this).scrollTop(),
@@ -46,6 +47,9 @@ jui.defineUI("ui.scroll", [ "jquery", "util.base" ], function($, _) {
                     "max-width": self.options.width
                 }).append($xHandle);
 
+                handleWidth = getHandleSize($xHandle.outerWidth(), self.options.width, $(self.root)[0].scrollWidth);
+                $xHandle.outerWidth(handleWidth);
+
                 setHorizontalHandleEvent(self);
             }
         }
@@ -59,15 +63,17 @@ jui.defineUI("ui.scroll", [ "jquery", "util.base" ], function($, _) {
                     "max-height": self.options.height
                 }).append($yHandle);
 
+                handleHeight = getHandleSize($yHandle.outerHeight(), self.options.height, $(self.root)[0].scrollHeight);
+                $yHandle.outerHeight(handleHeight);
+
                 setVerticalHandleEvent(self);
             }
         }
 
         function setVerticalHandleEvent(self) {
-            var handleSize = $yHandle.outerHeight(),
-                maxHeight = self.options.height,
+            var maxHeight = self.options.height,
                 scrollHeight = $(self.root)[0].scrollHeight,
-                rate = scrollHeight / (maxHeight - handleSize),
+                rate = scrollHeight / (maxHeight - handleHeight),
                 startY = 0,
                 moveY = 0;
 
@@ -82,7 +88,7 @@ jui.defineUI("ui.scroll", [ "jquery", "util.base" ], function($, _) {
                 if(startY == 0) return;
                 moveY = handleY + e.pageY - startY;
 
-                if(moveY >= 0 && moveY <= maxHeight - handleSize) {
+                if(moveY >= 0 && moveY <= maxHeight - handleHeight) {
                     $(self.root).scrollTop(rate * moveY);
                     setHandleScrollTop(self, moveY);
                 }
@@ -99,10 +105,9 @@ jui.defineUI("ui.scroll", [ "jquery", "util.base" ], function($, _) {
         }
 
         function setHorizontalHandleEvent(self) {
-            var handleSize = $xHandle.outerWidth(),
-                maxWidth = self.options.width,
+            var maxWidth = self.options.width,
                 scrollWidth = $(self.root)[0].scrollWidth,
-                rate = scrollWidth / (maxWidth - handleSize),
+                rate = scrollWidth / (maxWidth - handleWidth),
                 startX = 0,
                 moveX = 0;
 
@@ -117,7 +122,7 @@ jui.defineUI("ui.scroll", [ "jquery", "util.base" ], function($, _) {
                 if(startX == 0) return;
                 moveX = handleX + e.pageX - startX;
 
-                if(moveX >= 0 && moveX <= maxWidth - handleSize) {
+                if(moveX >= 0 && moveX <= maxWidth - handleWidth) {
                     $(self.root).scrollLeft(rate * moveX);
                     setHandleScrollLeft(self, moveX);
                 }
@@ -175,18 +180,35 @@ jui.defineUI("ui.scroll", [ "jquery", "util.base" ], function($, _) {
             })
         }
 
+        function getHandleSize(handleSize, maxSize, scrollSize) {
+            var rate = maxSize / scrollSize,
+                size = 0;
+
+            if(rate >= 1) {
+                return size;
+            } else {
+                size = maxSize * rate;
+
+                if(size < handleSize) {
+                    size = handleSize;
+                }
+            }
+
+            return size;
+        }
+
         this.init = function() {
             // 루트 포지션 설정
             $(this.root).css("position", "relative");
 
             // 세로 스크롤 설정
-            if(_.typeCheck("integer", this.options.width)) {
+            if(_.typeCheck("integer", this.options.height)) {
                 setVerticalScroll(this);
                 setContentScroll(this);
             }
 
             // 가로 스크롤 설정
-            if(_.typeCheck("integer", this.options.height)) {
+            if(_.typeCheck("integer", this.options.width)) {
                 setHorizontalScroll(this);
             }
 
