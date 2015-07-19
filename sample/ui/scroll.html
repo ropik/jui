@@ -20,6 +20,8 @@
 	.handle {
 		width: 10px;
 		height: 10px;
+		border-radius: 5px;
+		border: 1px solid transparent;
 		background: red;
 	}
 </style>
@@ -28,6 +30,13 @@ jui.ready([ "ui.scroll" ], function(scroll) {
 	window.s = scroll("#scroll", {
 		width: 500,
 		height: 200,
+		tpl: {
+			handle: "<div class='handle'></div>"
+		}
+	});
+
+	window.s2 = scroll("#dd_1 > ul", {
+		height: 100,
 		tpl: {
 			handle: "<div class='handle'></div>"
 		}
@@ -576,6 +585,25 @@ jui.ready([ "ui.scroll" ], function(scroll) {
 
 });
 </pre>
+
+<br/><br/><br/>
+<div id="dd_1" class="dropdown dropdown-large" style="display: block;">
+	<ul style="width: 200px;">
+		<li value="1">Dropdown 1</li>
+		<li class="divider"></li>
+		<li value="2">Dropdown 2</li>
+		<li value="3">Dropdown 3</li>
+		<li value="4">Dropdown 4</li>
+		<li value="4">Dropdown 4</li>
+		<li value="4">Dropdown 4</li>
+		<li value="4">Dropdown 4</li>
+		<li value="4">Dropdown 4</li>
+		<li value="4">Dropdown 4</li>
+		<li value="4">Dropdown 4</li>
+		<li value="4">Dropdown 4</li>
+		<li value="4">Dropdown 4</li>
+	</ul>
+</div>
 
 </body>
 </html>

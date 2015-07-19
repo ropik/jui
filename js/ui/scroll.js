@@ -199,7 +199,10 @@ jui.defineUI("ui.scroll", [ "jquery", "util.base" ], function($, _) {
 
         this.init = function() {
             // 루트 포지션 설정
-            $(this.root).css("position", "relative");
+            $(this.root).css({
+                "position": "relative",
+                "overflow": "hidden"
+            });
 
             // 세로 스크롤 설정
             if(_.typeCheck("integer", this.options.height)) {
