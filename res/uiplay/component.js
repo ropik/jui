@@ -3,6 +3,7 @@ var comments, types;
 var currentChartIndex = 0;
 
 var charts = [
+    { type: "style", title: "Styles" },
     { type: "button", title: "Button" },
     { type: "combo", title: "Combo Box" },
     { type: "window", title: "Window" },
@@ -22,6 +23,7 @@ var charts = [
 ];
 
 var code_list = [
+    // Scripts
     { type: "button", title: "Radio. Get selected value", code: "button_1" },
     { type: "button", title: "Radio. Set to the index", code: "button_2" },
     { type: "button", title: "Radio. Set to the value", code: "button_3" },
@@ -84,6 +86,30 @@ var code_list = [
     { type: "layout", title: "Split Screens", code: "layout_1" },
     { type: "accordion", title: "Default accordion", code: "accordion_1" },
     { type: "accordion", title: "Close accordion", code: "accordion_2" },
+
+    // Styles
+    { type: "style", title: "Typography", code: "typography" },
+    { type: "style", title: "Forms", code: "forms" },
+    { type: "style", title: "Icons", code: "icons" },
+    { type: "style", title: "Buttons", code: "buttons" },
+    { type: "style", title: "Vertical Menu", code: "vmenu" },
+    { type: "style", title: "Dropdown Menu", code: "dropdown" },
+    { type: "style", title: "Navgation Bar", code: "navbar" },
+    { type: "style", title: "Tables", code: "tables" },
+    { type: "style", title: "Tabs", code: "tabs" },
+    { type: "style", title: "Window", code: "window" },
+    { type: "style", title: "Message Box", code: "msgbox" },
+    { type: "style", title: "Tree Menu", code: "tree" },
+    { type: "style", title: "Paging", code: "paging" },
+    { type: "style", title: "Panel", code: "panel" },
+    { type: "style", title: "Bar Graph", code: "bargraph" },
+    { type: "style", title: "Date Picker", code: "datepicker" },
+    { type: "style", title: "Calendar", code: "calendar" },
+    { type: "style", title: "Notify", code: "notify" },
+    { type: "style", title: "Tooltip", code: "tooltip" },
+    { type: "style", title: "Popover", code: "popover" },
+    { type: "style", title: "Accordion", code: "accordion" },
+    { type: "style", title: "Grid", code: "grid" }
 ];
 
 // 시작 위치 설정
@@ -207,29 +233,47 @@ function viewCodeEditor() {
         });
     }
 
-    $.ajax({
-        url : "html/" + code.code + ".html",
-        dataType: "text",
-        success: function(data) {
-            types.show(1);
-            editor2.setValue(data);
+    if(code.type == "style") {
+        $("#types").find("li:first-child").hide();
 
-            $.ajax({
-                url: "json/" + code.code + ".js",
-                dataType: "text",
-                success: function(data) {
-                    types.show(0);
-                    editor.setValue(data);
-                },
-                error: function(data, error) {
-                    console.log(error);
-                }
-            });
-        },
-        error: function(data, error) {
-            console.log(error);
-        }
-    });
+        $.ajax({
+            url : "html.style/" + code.code + ".html",
+            dataType: "text",
+            success: function(data) {
+                types.show(1);
+                editor2.setValue(data);
+            },
+            error: function(data, error) {
+                console.log(error);
+            }
+        });
+    } else {
+        $("#types").find("li:first-child").show();
+
+        $.ajax({
+            url : "html/" + code.code + ".html",
+            dataType: "text",
+            success: function(data) {
+                types.show(1);
+                editor2.setValue(data);
+
+                $.ajax({
+                    url: "json/" + code.code + ".js",
+                    dataType: "text",
+                    success: function(data) {
+                        types.show(0);
+                        editor.setValue(data);
+                    },
+                    error: function(data, error) {
+                        console.log(error);
+                    }
+                });
+            },
+            error: function(data, error) {
+                console.log(error);
+            }
+        });
+    }
 }
 
 function setFunctions() {
