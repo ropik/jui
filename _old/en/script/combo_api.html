@@ -1,0 +1,129 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>JavaScript/Combo/API</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" />
+
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="api_core.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
+
+<script>
+var uiApi = {
+	method: {
+		setIndex: {
+			param: "index",
+			ret: "none",
+			detail: "Selects a button of a specified index."
+		},
+		setValue: {
+			param: "value",
+			ret: "none",
+			detail: "Selects a button having a specified value."
+		},
+		getData: {
+			param: "none",
+			ret: "object",
+			detail: "Gets the data of the button currently selected."
+		},
+		getValue: {
+			param: "none",
+			ret: "string",
+			detail: "Gets the value of the button currently selected."
+		},
+		getText: {
+			param: "none",
+			ret: "string",
+			detail: "Gets the markup text of the button currently selected."
+		},
+		reload: {
+			param: "none",
+			ret: "none",
+			detail: "Re-defines a combo box."
+		},
+		open: {
+			param: "none",
+			ret: "none",
+			detail: "Shows the element list of a combo box."
+		},
+		fold: {
+			param: "none",
+			ret: "none",
+			detail: "Hides the element list of a combo box."
+		}
+	},
+	opt: {
+		index: {
+			detail: "Determines an initial selection button with a specified index."
+		}, 
+		value: {
+			detail: "Determines an initial selection button with a specified value."
+		},
+		width: {
+			detail: "Determines the horizontal size of a combo box."
+		},
+		height: {
+			detail: "Determines an initial selection button with a specified value."
+		},
+		scroll: {
+			detail: "Determines an initial selection button with a specified value."
+		},
+        keydown: {
+            detail: "It is possible to select a node using the keyboard."
+        },
+		position: {
+			detail: "It is possible to determine an initial selection button with a specified value."
+		}
+	},
+	event: {
+		change: {
+			detail: "Event which occurs when selecting a combo box."
+		}
+	},
+	tpl: {
+	},
+	prop: {
+		type: {
+			detail: "State value showing whether a combo box is open or closed."
+		}
+	}
+};
+</script>
+<meta name="title" content="JENNIFER UI: JavaScript/Combo/API" />
+<meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart and map components." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Combo</h1>
+</div>
+
+<div class="hidden">
+	<div id="combo" class="combo combo-black">
+		<a class="btn btn-black btn-small">Select...</a>
+		<ul>
+			<li><a href="#" value="menu1">New</a></li>
+			<li><a href="#" value="menu2">Open</a></li>
+			<li><a href="#" value="menu3">Save</a></li>
+			<li><a href="#" value="menu4">Close</a></li>
+			<li><a href="#" value="menu5">Restart</a></li>
+			<li class="divider"></li>
+			<li><a href="#" value="menu6">Print</a></li>
+			<li class="divider"></li>
+			<li><a href="#" value="menu7">Exit</a></li>
+		</ul>
+		<a class="btn btn-black btn-small btn-toggle"><i class="icon-arrow2 icon-white"></i></a>
+	</div>
+</div>
+
+</body>
+</html>

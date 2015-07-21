@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>CSS/VMenu</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" />
+
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+<meta name="title" content="JENNIFER UI: CSS/VMenu" />
+<meta name="description" content="JENNIFER UI는 완전 무료입니다. 심플하며 빠르고 다양한 JUI는 올인원 데스크탑 UI 프레임워크입니다. 부트스트랩을 지원하고, 독립적으로 동작하는 스크립트와 스타일 컴포넌트 그리고 SVG 차트와 맵을 제공합니다." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Vertical Menu</h1>
+</div>
+
+<section>
+	<h2>Default</h2>
+	<p>
+		Vertical Menu는 앞서 설명한 Vertical Group의 속성을 상속받아 구현한 메뉴 스타일입니다.<br/>
+		색상은 화이트와 블랙 두가지를 제공하며, 크기는 노멀과 라지가 있습니다.
+		
+		<table class="table_s table-bordered table-striped" style="width: 100%;"><tr>
+			<td>
+				<div class="vmenu">
+					<a>Vertical Menu <i class="icon-chevron-right icon-gray icon-edge"></i></a>
+					<a class="active">Vertical Menu <i class="icon-chevron-right icon-gray icon-edge"></i></a>
+					<ul class="submenu">
+						<li class="active"><a>Vertical Sub-Menu</a></li>
+						<li><a>Vertical Sub-Menu</a></li>
+						<li><a>Vertical Sub-Menu</a></li>
+					</ul>
+					<a>Vertical Menu <i class="icon-chevron-right icon-gray icon-edge"></i></a>
+					<a>Vertical Menu <i class="icon-chevron-right icon-gray icon-edge"></i></a>
+				</div>
+			</td>
+			<td>
+				<div class="vmenu vmenu-black">
+					<a>Vertical Menu <i class="icon-chevron-right icon-white icon-edge"></i></a>
+					<a class="active">Vertical Menu <i class="icon-chevron-right icon-white icon-edge"></i></a>
+					<ul class="submenu">
+						<li class="active"><a>Vertical Sub-Menu</a></li>
+						<li><a>Vertical Sub-Menu</a></li>
+						<li><a>Vertical Sub-Menu</a></li>
+					</ul>
+					<a>Vertical Menu <i class="icon-chevron-right icon-white icon-edge"></i></a>
+					<a>Vertical Menu <i class="icon-chevron-right icon-white icon-edge"></i></a>
+				</div>
+			</td>
+			<td>
+				<div class="vmenu vmenu-flat">
+					<a>Vertical Menu</a>
+					<a class="active">Vertical Menu</a>
+					<ul class="submenu">
+						<li class="active"><a>Vertical Sub-Menu</a></li>
+						<li><a>Vertical Sub-Menu</a></li>
+						<li><a>Vertical Sub-Menu</a></li>
+					</ul>
+					<a>Vertical Menu</a>
+					<a>Vertical Menu</a>
+				</div>
+			</td>
+			<td>
+				<div class="vmenu vmenu-black vmenu-flat">
+					<a>Vertical Menu</a>
+					<a class="active">Vertical Menu</a>
+					<ul class="submenu">
+						<li class="active"><a>Vertical Sub-Menu</a></li>
+						<li><a>Vertical Sub-Menu</a></li>
+						<li><a>Vertical Sub-Menu</a></li>
+					</ul>
+					<a>Vertical Menu</a>
+					<a>Vertical Menu</a>
+				</div>
+			</td>
+		</table>
+	</p>
+
+	<p class="br">
+<pre><code class="language-markup">&lt;div class="vmenu"&gt;
+	&lt;a&gt;Vertical Menu &lt;i class="icon-gear icon-edge"&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;a class="active"&gt;Vertical Menu &lt;i class="icon-gear icon-edge"&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;ul class="submenu"&gt;
+		&lt;li class="active"&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;a&gt;Vertical Menu &lt;i class="icon-gear icon-edge"&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;a&gt;Vertical Menu &lt;i class="icon-gear icon-edge"&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class="vmenu vmenu-black"&gt;
+	&lt;a&gt;Vertical Menu &lt;i class="icon-gear icon-white icon-edge"&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;a class="active"&gt;Vertical Menu &lt;i class="icon-gear icon-white icon-edge"&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;ul class="submenu"&gt;
+		&lt;li class="active"&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;a&gt;Vertical Menu &lt;i class="icon-gear icon-white icon-edge"&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;a&gt;Vertical Menu &lt;i class="icon-gear icon-white icon-edge"&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class="vmenu vmenu-flat"&gt;
+	&lt;a&gt;Vertical Menu&lt;/a&gt;
+	&lt;a class="active"&gt;Vertical Menu&lt;/a&gt;
+	&lt;ul class="submenu"&gt;
+		&lt;li class="active"&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;a&gt;Vertical Menu&lt;/a&gt;
+	&lt;a&gt;Vertical Menu&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class="vmenu vmenu-black vmenu-flat"&gt;
+	&lt;a&gt;Vertical Menu&lt;/a&gt;
+	&lt;a class="active"&gt;Vertical Menu&lt;/a&gt;
+	&lt;ul class="submenu"&gt;
+		&lt;li class="active"&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a&gt;Vertical Sub-Menu&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;a&gt;Vertical Menu&lt;/a&gt;
+	&lt;a&gt;Vertical Menu&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+		<br/>
+	</p>
+	
+	<p class="br">
+		아래 예제는 위와 달리 크기가 더 크며, 직각 스타일인 <b>vmenu-rect</b>를 적용하였습니다.
+		
+		<table class="table_s table-bordered table-striped" style="width: 100%;"><tr>
+			<td>
+				<div class="vmenu vmenu-large vmenu-rect">
+					<a>Vertical Menu <i class="icon-chevron-right icon-gray icon-edge"></i></a>
+					<a class="active">Vertical Menu <i class="icon-chevron-right icon-gray icon-edge"></i></a>
+					<ul class="submenu">
+						<li class="active"><a>Vertical Sub-Menu</a></li>
+						<li><a>Vertical Sub-Menu</a></li>
+						<li><a>Vertical Sub-Menu</a></li>
+					</ul>
+					<a>Vertical Menu <i class="icon-chevron-right icon-gray icon-edge"></i></a>
+					<a>Vertical Menu <i class="icon-chevron-right icon-gray icon-edge"></i></a>
+				</div>
+			</td>
+			<td>
+				<div class="vmenu vmenu-large vmenu-black vmenu-rect">
+					<a>Vertical Menu <i class="icon-chevron-right icon-white icon-edge"></i></a>
+					<a class="active">Vertical Menu <i class="icon-chevron-right icon-white icon-edge"></i></a>
+					<ul class="submenu">
+						<li class="active"><a>Vertical Sub-Menu</a></li>
+						<li><a>Vertical Sub-Menu</a></li>
+						<li><a>Vertical Sub-Menu</a></li>
+					</ul>
+					<a>Vertical Menu <i class="icon-chevron-right icon-white icon-edge"></i></a>
+					<a>Vertical Menu <i class="icon-chevron-right icon-white icon-edge"></i></a>
+				</div>
+			</td>
+			<td>
+				<div class="vmenu vmenu-large vmenu-flat vmenu-rect">
+					<a>Vertical Menu</a>
+					<a class="active">Vertical Menu</a>
+					<ul class="submenu">
+						<li class="active"><a>Vertical Sub-Menu</a></li>
+						<li><a>Vertical Sub-Menu</a></li>
+						<li><a>Vertical Sub-Menu</a></li>
+					</ul>
+					<a>Vertical Menu</a>
+					<a>Vertical Menu</a>
+				</div>
+			</td>
+			<td>
+				<div class="vmenu vmenu-large vmenu-black vmenu-flat vmenu-rect">
+					<a>Vertical Menu</a>
+					<a class="active">Vertical Menu</a>
+					<ul class="submenu">
+						<li class="active"><a>Vertical Sub-Menu</a></li>
+						<li><a>Vertical Sub-Menu</a></li>
+						<li><a>Vertical Sub-Menu</a></li>
+					</ul>
+					<a>Vertical Menu</a>
+					<a>Vertical Menu</a>
+				</div>
+			</td>
+		</table>
+	</p>
+	<p class="br">
+<pre><code class="language-markup">&lt;div class="vmenu vmenu-large vmenu-rect"&gt;
+	&lt;...&gt;
+&lt;/div&gt;</code></pre>
+	</p>
+</section>
+</body>
+</html>

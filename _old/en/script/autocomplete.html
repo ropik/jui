@@ -1,0 +1,110 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>JavaScript/AutoComplete</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" />
+
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.uix.js"></script>
+<meta name="title" content="JENNIFER UI: JavaScript/AutoComplete" />
+<meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart and map components." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+
+<body class="jui">
+	
+<div class="page-header">
+	<h1>Auto Complete</h1>
+	<p class="br">
+		A UI component that shows a list of keywords containing the input value when inputting a string in a text box
+	</p>
+</div>
+	
+<section>
+	<h2>Default</h2>
+	<p>
+		If the input text is found among the keywords below, the keyword in question is displayed on the list.&nbsp; <span class="ac group">
+			<label class="label label-small"><i class="icon-search"></i></label>
+			<input type="text" class="input input-small" style="width: 100px" />
+		</span>
+		
+<pre><code class="language-javascript">var ac_words = [
+  &quot;ActionScript&quot;, &quot;AppleScript&quot;, &quot;Asp&quot;, &quot;BASIC&quot;, &quot;C&quot;, &quot;C++&quot;,
+  &quot;Clojure&quot;, &quot;COBOL&quot;, &quot;ColdFusion&quot;, &quot;Erlang&quot;, &quot;Fortran&quot;, &quot;Groovy&quot;,
+  &quot;Haskell&quot;, &quot;Java&quot;, &quot;JavaScript&quot;, &quot;Lisp&quot;, &quot;Perl&quot;, &quot;PHP&quot;,
+  &quot;Python&quot;, &quot;Ruby&quot;, &quot;Scala&quot;, &quot;Scheme&quot;
+];
+
+jui.ready([ &quot;uix.autocomplete&quot; ], function(autocomplete) {
+	ac_1 = autocomplete(&quot;.ac&quot;, {
+		target: &quot;input[type=text]&quot;,
+		words: ac_words,
+		event: {
+			change: function(text) {
+				alert(text);
+			}
+		}
+	});
+});</code></pre>
+	</p>
+	<p class="br">
+		Below is the markup and template of an autofill component. The selector is a group tag and the text box can be selected using the <strong>target </strong>option.<br/>
+
+<pre><code class="language-markup">&lt;span class=&quot;ac group&quot;&gt;
+	&lt;label class=&quot;label label-small&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt;&lt;/label&gt;
+	&lt;input type=&quot;text&quot; class=&quot;input input-small&quot; style=&quot;width: 100px&quot; /&gt;
+&lt;/span&gt;
+
+&lt;script data-jui=&quot;.ac&quot; data-tpl=&quot;words&quot; type=&quot;text/template&quot;&gt;
+	&lt;div class=&quot;dropdown&quot;&gt;
+		&lt;ul&gt;
+		&lt;! for(var i = 0; i &lt; words.length; i++) { !&gt;
+			&lt;li&gt;&lt;!= words[i] !&gt;&lt;/li&gt;
+		&lt;! } !&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/script&gt;</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Update</h2>
+	<p>
+		<a class="btn btn-gray btn-mini" href="javascript:ac_1[1].update(ac_words_hangul);">Run</a> - Changed into the word list shown below when you click the left button.&nbsp;
+		
+		<span class="ac group">
+			<label class="label label-small label-black"><i class="icon-search icon-white"></i></label>
+			<input type="text" class="input input-small input-black" style="width: 100px" />
+		</span>
+		
+<pre><code class="language-javascript">var ac_words_hangul = [
+	&quot;Standard Procedures for JAVA&quot;,
+	&quot;Passionate Lecture for C++&quot;,
+	&quot;Enjoyable Psychology&quot;
+];
+
+ac_1[1].update(ac_words_hangul);</code></pre>
+	</p>
+	
+	<script data-jui=".ac" data-tpl="words" type="text/template">
+		<div class="dropdown">
+			<ul>
+			<! for(var i = 0; i < words.length; i++) { !>
+				<li><!= words[i] !></li>
+			<! } !>
+			</ul>
+		</div>
+	</script>
+</section>
+
+</body>
+</html>

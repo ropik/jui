@@ -1,0 +1,149 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>JavaScript/Tab/API</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" />
+
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="api_core.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
+
+<script>
+var uiApi = {
+	prop: {},
+	method: {
+		update: {
+			param: "nodes",
+			ret: "none",
+			detail: "Changes the tab list. "
+		},
+		insert: {
+			param: "index, node",
+			ret: "none",
+			detail: "Adds a tab at a specified index."
+		},
+		append: {
+			param: "node",
+			ret: "none",
+			detail: "Adds a tab to the last node."
+		},
+		prepend: {
+			param: "node",
+			ret: "none",
+			detail: "Adds a tab to the first node."
+		},
+		remove: {
+			param: "index",
+			ret: "none",
+			detail: "Removes a tab at a specified index."
+		},
+		move: {
+			param: "index, targetIndex",
+			ret: "none",
+			detail: "Changes a specified tab to a tab at a target index."
+		},
+		show: {
+			param: "index",
+			ret: "none",
+			detail: "Enables the tab at a specified index."
+		},
+		activeIndex: {
+			param: "none",
+			ret: "int",
+			detail: "Gets the index of the currently enabled tab."
+		}
+	},
+	event: {
+		change: {
+			detail: "Event that occurs when a tab is enabled."
+		},
+		changemenu: {
+			detail: "Event that occurs when a dropdown is selected"
+		},
+		dragstart: {
+			detail: "Event that occurs when a tab starts to move"
+		},
+		dragend: {
+			detail: "Event that occurs when the movement of a tab is completed"
+		},
+        click: {
+            detail: "Event that occurs when clicking on a tab"
+        },
+        rclick: {
+            detail: "Event that occurs when right clicking on a tab"
+        }
+	},
+	tpl: {
+		menu: {
+			detail: "Sets the template of the dropdown UI used in a tab."
+		}
+	},
+	opt: {
+		target: {
+			detail: "Determines a selector in the area to become the content of a tab."
+		},
+		index: {
+			detail: "Sets an enabled tab."
+		},
+		drag: {
+			detail: "Changes the tab location through dragging."
+		},
+		nodes: {
+			detail: "Sets a tab list to data rather than markup."
+		}
+	}
+};
+</script>
+<meta name="title" content="JENNIFER UI: JavaScript/Tab/API" />
+<meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart and map components." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Tab</h1>
+</div>
+
+<div class="hidden">
+	<ul id="tab" class="tab tab-top">
+		<li>
+			<a href="#home">Home</a>
+		</li>
+		<li><a href="#css">CSS</a></li>
+		<li><a href="#script">Script</a></li>
+		<li class="menu">
+			<a href="#">Menu <i class="icon-arrow1"></i></a>
+		</li>
+	</ul>
+	
+	<div id="tab_contents_1" class="tab-contents" style="background: #dcdcdc;">
+		<div id="home">home</div>
+		<div id="css">css</div>
+		<div id="script">script</div>
+	</div>
+	
+	<script data-jui="#tab" data-tpl="menu" type="text/template">
+		<div class="dropdown">
+			<div class="anchor"></div>
+			
+			<ul style="width: 120px;">
+				<li>Dropdown 1</li>
+				<li class="divider"></li>
+				<li>Dropdown 2</li>
+				<li>Dropdown 3</li>
+				<li>Dropdown 4</li>
+			</ul>
+		</div>
+	</script>
+</div>
+
+</body>
+</html>

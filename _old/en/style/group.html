@@ -1,0 +1,210 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>CSS/Group</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" />
+
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+<meta name="title" content="JENNIFER UI: CSS/Group" />
+<meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart and map components." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Group</h1>
+</div>
+
+<section>
+	<h2>Default</h2>
+	<p>
+		Group can configure a new component by composing components. The round effect is applied to the first and the last child element. It is also possible to apply the rectangular effect by using the group-rect option.
+	</p>
+</section>
+
+<section>	
+	<h2>Button</h2>
+	<p>
+		<table class="table_s" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+					<p>
+						<div class="group">
+							<a class="btn btn-mini"><i class="icon-new-window"></i> AA</a> <a class="btn btn-mini"> BB</a> <a class="btn btn-mini"> CC</a>
+						</div>
+					</p>
+					<p>
+						<div class="group group-rect">
+							<a class="btn btn-gray btn-small">A</a> <a class="btn btn-gray btn-small"></a> <a class="btn btn-gray btn-small"> C</a> <a class="btn btn-gray btn-small"> D</a>
+						</div>
+					</p>
+					<p>
+						<div class="group">
+							<a class="btn btn-black">A</a> <a class="btn btn-black">B</a> <a class="btn btn-black"> C</a> <a class="btn btn-black"> D <a class="btn btn-black"> E</a>
+						</div>
+					</p>
+					<p>
+						<div class="group group-rect">
+							<a class="btn btn-purple btn-large">AA</a> <a class="btn btn-purple btn-large">BB</a> <a class="btn btn-purple btn-large"> AA</a> <a class="btn btn-purple btn-large"> BB</a> <a class="btn btn-purple btn-large"><i class="icon-upload icon-large"></i></a> <a class="btn btn-purple btn-large"><i class="icon-hide icon-large"></i></a>
+						</div>
+					</p>
+				</td>
+			</tr>
+		</table>
+	</p>
+	
+	<p class="br">
+<pre><code class="language-markup">&lt;div class=&quot;group&quot;&gt;
+	&lt;a class=&quot;btn btn-mini&quot;&gt;
+		&lt;i class=&quot;icon-new-window&quot;&gt;&lt;/i&gt; AA
+	&lt;/a&gt;
+	&lt;a class=&quot;btn btn-mini&quot;&gt;
+		&lt;i class=&quot;icon-gear&quot;&gt;&lt;/i&gt; BB
+	&lt;/a&gt;
+	&lt;a class=&quot;btn btn-mini&quot;&gt;
+		&lt;i class=&quot;icon-calendar&quot;&gt;&lt;/i&gt; CC
+	&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;group group-rect&quot;&gt;
+	&lt;a class=&quot;btn btn-mini&quot;&gt;
+		&lt;i class=&quot;icon-new-window&quot;&gt;&lt;/i&gt; AA
+	&lt;/a&gt;
+	&lt;a class=&quot;btn btn-mini&quot;&gt;
+		&lt;i class=&quot;icon-gear&quot;&gt;&lt;/i&gt; BB
+	&lt;/a&gt;
+	&lt;a class=&quot;btn btn-mini&quot;&gt;
+		&lt;i class=&quot;icon-calendar&quot;&gt;&lt;/i&gt; CC
+	&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Label + Input</h2>
+	<p>
+		<table class="table_s" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+					<p>
+						<div class="group">
+							<input type="text" class="input input-black input-mini" />
+							<label class="label label-black label-mini"><i class="icon-search icon-white"></i></label>		
+						</div>
+						<div class="group">
+							<input type="text" class="input input-black input-mini" />
+							<label class="label label-black label-mini"><i class="icon-search icon-white"></i></label>		
+						</div>
+					</p>
+					<p>
+						<div class="group group-rect">
+							<label class="label label-small"><i class="icon-search"></i></label>		
+							<input type="text" class="input input-small" />
+						</div>
+						<div class="group group-rect">
+							<label class="label label-small"><i class="icon-search"></i></label>		
+							<input type="text" class="input input-small" />
+						</div>
+					</p>
+					<p>
+						<div class="group">
+							<input type="text" class="input input-black" />
+							<label class="label label-black"><i class="icon-search icon-white"></i></label>		
+						</div>
+						<div class="group">
+							<input type="text" class="input input-black" />
+							<label class="label label-black"><i class="icon-search icon-white"></i></label>		
+						</div>
+					</p>
+					<p>
+						<div class="group group-rect">
+							<input type="text" class="input input-large" />
+							<label class="label label-large">Test</label>		
+							<input type="text" class="input input-large" />
+						</div>
+					</p>
+					<p>
+						<div class="group">
+							<label class="label label-black label-large"><i class="icon-search icon-white icon-large"></i></label>		
+							<input type="text" class="input input-black input-large" />
+							<label class="label label-black label-large">Test</label>		
+						</div>
+					</p>
+				</td>
+			</tr>
+		</table>
+	</p>
+
+	<p class="br">
+<pre><code class="language-markup">&lt;div class=&quot;group&quot;&gt;
+	&lt;label class=&quot;text text-small&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt;&lt;/label&gt;		
+	&lt;input type=&quot;text&quot; class=&quot;input input-small&quot; /&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;group group-rect&quot;&gt;
+	&lt;label class=&quot;text text-small&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt;&lt;/label&gt;		
+	&lt;input type=&quot;text&quot; class=&quot;input input-small&quot; /&gt;
+&lt;/div&gt;</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Button + Input</h2>
+	<p>
+		<table class="table_s" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+					<p>
+						<div class="group">
+							<a class="btn btn-small btn-gray"><i class="icon-search"></i></a>
+							<input type="text" class="input input-small" />
+						</div>
+						<div class="group">
+							<input type="text" class="input input-small" />
+							<a class="btn btn-small btn-gray"><i class="icon-search"></i></a>
+						</div>
+					</p>
+					<p>
+						<div class="group group-rect">
+							<a class="btn btn-black">TEST</a> <a class="btn btn-black btn-toggle"><i class="icon-arrow2 icon-white"></i></a>
+							<input type="text" class="input input-black">
+						</div>
+						<div class="group group-rect">
+							<input type="text" class="input input-black">
+							<a class="btn btn-black btn-toggle"><i class="icon-arrow2 icon-white"></i></a> <a class="btn btn-black">TEST</a>
+						</div>
+					</p>
+					<p>
+						<div class="group">
+							<a class="btn btn-black btn-large">TEST</a> <a class="btn btn-black btn-toggle btn-large"><i class="icon-arrow2 icon-white icon-large"></i></a>
+							<input type="text" class="input input-black input-large">
+						</div>
+					</p>
+				</td>
+			</tr>
+		</table>
+	</p>
+	
+	<p class="br">
+<pre><code class="language-markup">&lt;div class=&quot;group&quot;&gt;
+	&lt;a class=&quot;btn btn-black&quot; style=&quot;width: 43px;&quot;&gt;TEST&lt;/a&gt;
+	&lt;a class=&quot;btn btn-black btn-toggle&quot;&gt;&lt;i class=&quot;icon-arrow2 icon-white&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;input type=&quot;text&quot; class=&quot;input input-black&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;group group-rect&quot;&gt;
+	&lt;a class=&quot;btn btn-black&quot; style=&quot;width: 43px;&quot;&gt;TEST&lt;/a&gt;
+	&lt;a class=&quot;btn btn-black btn-toggle&quot;&gt;&lt;i class=&quot;icon-arrow2 icon-white&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;input type=&quot;text&quot; class=&quot;input input-black&quot;&gt;
+&lt;/div&gt;</code></pre>
+	</p>
+</section>
+</body>
+</html>

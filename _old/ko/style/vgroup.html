@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>CSS/VGroup</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" />
+
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+<meta name="title" content="JENNIFER UI: CSS/VGroup" />
+<meta name="description" content="JENNIFER UI는 완전 무료입니다. 심플하며 빠르고 다양한 JUI는 올인원 데스크탑 UI 프레임워크입니다. 부트스트랩을 지원하고, 독립적으로 동작하는 스크립트와 스타일 컴포넌트 그리고 SVG 차트와 맵을 제공합니다." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Vertical Group</h1>
+</div>
+
+<section>
+	<h2>Default</h2>
+	<p>
+		각각의 컴포넌트들을 수직 형태로 Grouping 할 수 있으며, 앞서 설명한 그룹의 특징과 비슷합니다.<br/>
+		하지만 Vertical Group은 Group과는 달리 요소들의 정렬 기능을 제공합니다.
+	
+		<table class="table_s table-bordered table-striped"><tr>
+			<td>
+				<div class="vgroup">
+					<button class="btn btn-gray">Vertical Group <i class="icon-gear" style="float: right; margin-top: 7px;"></i></button>
+					<button class="btn btn-gray">Vertical Group <i class="icon-gear" style="float: right; margin-top: 7px;"></i></button>
+					<button class="btn btn-gray">Vertical Group <i class="icon-gear" style="float: right; margin-top: 7px;"></i></button>
+				</div>
+				
+				<div class="vgroup vgroup-rect">
+					<button class="btn btn-gray">Vertical Group</button>
+					<button class="btn btn-gray">Vertical Group</button>
+					<button class="btn btn-gray">Vertical Group</button>
+				</div>
+			</td>
+			<td>
+				<div class="vgroup vgroup-center">
+					<button class="btn btn-black">Vertical Group</button>
+					<button class="btn btn-black">Vertical Group</button>
+					<button class="btn btn-black">Vertical Group</button>
+				</div>
+				
+				<div class="vgroup vgroup-center vgroup-rect">
+					<button class="btn btn-black">Vertical Group</i></button>
+					<button class="btn btn-black">Vertical Group</i></button>
+					<button class="btn btn-black">Vertical Group</i></button>
+				</div>
+			</td>
+			<td>
+				<div class="vgroup vgroup-right" style="width: 189px;">
+					<input type="text" class="input" placeholder="Vertical Group" />
+					<input type="text" class="input" placeholder="Vertical Group" />
+					<input type="text" class="input" placeholder="Vertical Group" />
+				</div>
+				
+				<div class="vgroup vgroup-right vgroup-rect" style="width: 189px;">
+					<label class="label">Vertical Group</label>
+					<label class="label">Vertical Group</label>
+					<label class="label">Vertical Group</label>
+				</div>
+			</td>
+		</tr></table>
+	</p>
+	
+	<p class="br">
+<pre><code class="language-markup">&lt;div class="vgroup"&gt;
+	&lt;button class="btn btn-gray"&gt;Vertical Group &lt;i class="icon-gear" style="float: right; margin-top: 7px;"&gt;&lt;/i&gt;&lt;/button&gt;
+	&lt;button class="btn btn-gray"&gt;Vertical Group &lt;i class="icon-gear" style="float: right; margin-top: 7px;"&gt;&lt;/i&gt;&lt;/button&gt;
+	&lt;button class="btn btn-gray"&gt;Vertical Group &lt;i class="icon-gear" style="float: right; margin-top: 7px;"&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="vgroup vgroup-rect"&gt;...&lt;/div&gt;
+&lt;div class="vgroup vgroup-left"&gt;...&lt;/div&gt;
+&lt;div class="vgroup vgroup-center"&gt;...&lt;/div&gt;
+&lt;div class="vgroup vgroup-right"&gt;...&lt;/div&gt;</code></pre>
+	</p>
+</section>
+</body>
+</html>

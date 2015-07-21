@@ -1,0 +1,1479 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>CSS/Icon</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" />
+
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+<meta name="title" content="JENNIFER UI: CSS/Icon" />
+<meta name="description" content="JENNIFER UI는 완전 무료입니다. 심플하며 빠르고 다양한 JUI는 올인원 데스크탑 UI 프레임워크입니다. 부트스트랩을 지원하고, 독립적으로 동작하는 스크립트와 스타일 컴포넌트 그리고 SVG 차트와 맵을 제공합니다." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Icon</h1>
+</div>
+
+<section>
+    <h2>Default</h2>
+    <p>
+        아이콘 컴포넌트는 폰트와 동일한 속성을 가지며, 아래 코드와 같이 크기와 색상을 설정할 수 있습니다. &nbsp;
+        <i class="icon-gear" style="font-size: 12px; color: red;"></i>
+        <i class="icon-gear" style="font-size: 15px; color: blue;"></i>
+        <i class="icon-gear" style="font-size: 18px; color: green;"></i>
+        <i class="icon-gear" style="font-size: 21px; color: black;"></i>
+
+        <pre><code class="language-markup">&lt;i class="icon-gear" style="font-size: 12px; color: red;"&gt;
+&lt;i class="icon-gear" style="font-size: 15px; color: blue;"&gt;
+&lt;i class="icon-gear" style="font-size: 18px; color: green;"&gt;
+&lt;i class="icon-gear" style="font-size: 21px; color: black;"&gt;</code></pre>
+    </p>
+
+	<p class="br">
+        JUI 라이브러리는 매우 다양한 아이콘을 제공하며, 아래 테이블을 참고하여 사용하시면 됩니다.
+
+        <table class="table_s" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+                <td width="20%">Name</td>
+                <td width="20%">Icon</td>
+                <td width="20%">Icon-White</td>
+                <td width="20%">Icon-Purple</td>
+                <td width="20%">Icon-Gray</td>
+            </tr>
+            <tr>
+                <td>new-window</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-new-window"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-new-window icon-white"></i></a>
+                </td>
+
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-new-window icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-new-window icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>gear</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-gear"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-gear icon-white"></i></a>
+                </td>
+
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-gear icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-gear icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>calendar</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-calendar"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-calendar icon-white"></i></a>
+                </td>
+
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-calendar icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-calendar icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>download</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-download"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-download icon-white"></i></a>
+                </td>
+
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-download icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-download icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>upload</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-upload"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-upload icon-white"></i></a>
+                </td>
+
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-upload icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-upload icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>hide</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-hide"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-hide icon-white"></i></a>
+                </td>
+
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-hide icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-hide icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>refresh</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-refresh"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-refresh icon-white"></i></a>
+                </td>
+
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-refresh icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-refresh icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>printer</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-printer"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-printer icon-white"></i></a>
+                </td>
+
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-printer icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-printer icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>search</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-search"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-search icon-white"></i></a>
+                </td>
+
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-search icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-search icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>home</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-home"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-home icon-white"></i></a>
+                </td>
+
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-home icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-home icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>pause</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-pause"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-pause icon-white"></i></a>
+                </td>
+
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-pause icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-pause icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>play</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-play"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-play icon-white"></i></a>
+                </td>
+
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-play icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-play icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>check</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-check"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-check icon-white"></i></a>
+                </td>
+
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-check icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-check icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>chevron-right</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chevron-right"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chevron-right icon-white"></i></a>
+                </td>
+
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chevron-right icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chevron-right icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>chevron-left</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chevron-left"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chevron-left icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chevron-left icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chevron-left icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>plus</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-plus"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-plus icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-plus icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-plus icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>minus</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-minus"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-minus icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-minus icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-minus icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>trashcan</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-trashcan"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-trashcan icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-trashcan icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-trashcan icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>edit</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-edit"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-edit icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-edit icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-edit icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>help</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-help"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-help icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-help icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-help icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>return</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-return"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-return icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-return icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-return icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>dashboardlist</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-dashboardlist"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-dashboardlist icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-dashboardlist icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-dashboardlist icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>realtime</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-realtime"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-realtime icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-realtime icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-realtime icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>arrow1</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-arrow1"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-arrow1 icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-arrow1 icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-arrow1 icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>arrow2</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-arrow2"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-arrow2 icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-arrow2 icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-arrow2 icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>arrow3</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-arrow3"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-arrow3 icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-arrow3 icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-arrow3 icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>close</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-close"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-close icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-close icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-close icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>left</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-left"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-left icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-left icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-left icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>right</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-right"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-right icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-right icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-right icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>resize</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-resize"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-resize icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-resize icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-resize icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>exit</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-exit"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-exit icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-exit icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-exit icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>more</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-more"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-more icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-more icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-more icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>chart</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chart"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chart icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chart icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chart icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>link</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-link"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-link icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-link icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-link icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>image</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-image"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-image icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-image icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-image icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>table</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-table"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-table icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-table icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-table icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>html</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-html"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-html icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-html icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-html icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>align-left</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-align-left"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-align-left icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-align-left icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-align-left icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>align-center</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-align-center"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-align-center icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-align-center icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-align-center icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>align-right</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-align-right"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-align-right icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-align-right icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-align-right icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>orderedlist</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-orderedlist"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-orderedlist icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-orderedlist icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-orderedlist icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>unorderedlist</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-unorderedlist"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-unorderedlist icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-unorderedlist icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-unorderedlist icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>textcolor</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-textcolor"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-textcolor icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-textcolor icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-textcolor icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>underline</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-underline"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-underline icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-underline icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-underline icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>italic</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-italic"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-italic icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-italic icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-italic icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>bold</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-bold"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-bold icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-bold icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-bold icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>text</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-text"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-text icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-text icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-text icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>preview</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-preview"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-preview icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-preview icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-preview icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>document</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-document"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-document icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-document icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-document icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>refresh2</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-refresh2"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-refresh2 icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-refresh2 icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-refresh2 icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>add-dir</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-add-dir"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-add-dir icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-add-dir icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-add-dir icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>add-dir2</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-add-dir2"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-add-dir2 icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-add-dir2 icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-add-dir2 icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>save</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-save"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-save icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-save icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-save icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>stop</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-stop"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-stop icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-stop icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-stop icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>loading</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-loading"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-loading icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-loading icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-loading icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>caution</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-caution"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-caution icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-caution icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-caution icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>caution2</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-caution2"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-caution2 icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-caution2 icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-caution2 icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>stoppage</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-stoppage"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-stoppage icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-stoppage icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-stoppage icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>checkmark</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-checkmark"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-checkmark icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-checkmark icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-checkmark icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>label</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-label"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-label icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-label icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-label icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>ws</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-ws"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-ws icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-ws icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-ws icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>was</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-was"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-was icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-was icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-was icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>db</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-db"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-db icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-db icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-db icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>report-link</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-report-link"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-report-link icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-report-link icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-report-link icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>report-build</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-report-build"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-report-build icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-report-build icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-report-build icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>tool</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-tool"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-tool icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-tool icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-tool icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>device</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-device"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-device icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-device icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-device icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>monitoring</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-monitoring"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-monitoring icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-monitoring icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-monitoring icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>profile</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-profile"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-profile icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-profile icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-profile icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>rule</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-rule"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-rule icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-rule icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-rule icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>user</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-user"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-user icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-user icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-user icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>jennifer-server</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-jennifer-server"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-jennifer-server icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-jennifer-server icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-jennifer-server icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>menu</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-menu"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-menu icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-menu icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-menu icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>dashboard</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-dashboard"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-dashboard icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-dashboard icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-dashboard icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>analysis</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-analysis"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-analysis icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-analysis icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-analysis icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>analysis2</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-analysis2"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-analysis2 icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-analysis2 icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-analysis2 icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>statistics</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-statistics"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-statistics icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-statistics icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-statistics icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>info-message</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-info-message"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-info-message icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-info-message icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-info-message icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>info</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-info"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-info icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-info icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-info icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>report</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-report"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-report icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-report icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-report icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>message</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-message"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-message icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-message icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-message icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>chart-bar</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chart-bar"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chart-bar icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chart-bar icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chart-bar icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>chart-column</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chart-column"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chart-column icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chart-column icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chart-column icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>chart-candle</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chart-candle"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chart-candle icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chart-candle icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chart-candle icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>chart-gauge</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chart-gauge"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chart-gauge icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chart-gauge icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chart-gauge icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>chart-line</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chart-line"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chart-line icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chart-line icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chart-line icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>chart-radar</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chart-radar"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chart-radar icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chart-radar icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chart-radar icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>chart-scatter</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chart-scatter"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chart-scatter icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chart-scatter icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chart-scatter icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>chart-area</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chart-area"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chart-area icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-chart-area icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-chart-area icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>etc</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-etc"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-etc icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-etc icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-etc icon-gray"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>connection</td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-connection"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-connection icon-white"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-connection icon-purple"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-black btn-small"><i class="icon-connection icon-gray"></i></a>
+                </td>
+            </tr>
+        </table>
+	</p>
+
+    <h2>Animation</h2>
+    <p>
+        아이콘 컴포넌트는 다양한 애니메이션 효과를 옵션으로 사용할 수 있습니다.
+
+        <pre><code class="language-markup">&lt;i class="icon-gear icon-spin"&gt;&lt;/i&gt;
+&lt;i class="icon-gear icon-flash"&gt;&lt;/i&gt;
+&lt;i class="icon-gear icon-bounce"&gt;&lt;/i&gt;
+&lt;i class="icon-gear icon-float"&gt;&lt;/i&gt;
+&lt;i class="icon-gear icon-pulse"&gt;&lt;/i&gt;</code></pre>
+</p>
+
+        <table class="table_s" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+                <td width="20%">Icon-Spin</td>
+                <td width="20%">Icon-Flash</td>
+                <td width="20%">Icon-Bounce</td>
+                <td width="20%">Icon-Float</td>
+                <td width="20%">Icon-Pulse</td>
+            </tr>
+            <tr>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-gear icon-spin"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-gear icon-flash"></i></a>
+                </td>
+
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-gear icon-bounce"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-gear icon-float"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-gray btn-small"><i class="icon-gear icon-pulse"></i></a>
+                </td>
+            </tr>
+        </table>
+    </p>
+
+    <h2>Deprecated</h2>
+    <p>
+        기본적으로 4가지의 색상을 옵션으로 제공하지만 최근에 아이콘 폰트로 변경되므로써 차후에는 제거될 옵션입니다.
+    </p>
+</section>
+
+</body>
+</html>

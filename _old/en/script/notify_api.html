@@ -1,0 +1,99 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>JavaScript/Notify/API</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" />
+
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="api_core.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
+
+<script>
+var uiApi = {
+	prop: {
+	},
+	method: {
+		add: {
+			param: "data, timeout",
+			ret: "none",
+			detail: "Adds a notice message. The value passed is the data object shown by the notice template."
+		},
+		reset: {
+			param: "none",
+			ret: "none",
+			detail: "Removes all notice messages that are enabled."
+		}
+	},
+	event: {
+		show: {
+			detail: "Event that occurs when a notice message is shown"
+		},
+		hide: {
+			detail: "Event that occurs when a notice message is hidden"
+		},
+		select: {
+			detail: "Event that occurs when a notice message is clicked"
+		},
+	},
+	tpl: {
+		alarm: {
+			detail: "Notice message template"
+		}
+	},
+	opt: {
+		position: {
+			detail: "Designates the location where a notice message is added. <br/> (top | top-left | top-right | bottom | bottom-left | bottom-right)"
+		},
+		padding: {
+			detail: "Determines the margin value of a notice message (the margin value may be in object form rather than a numeric value)."
+		},
+		distance: {
+			detail: "Determines each margin value when there are multiple notice messages."
+		},
+		timeout: {
+			detail: "Determines the duration for which a notice message is displayed (the message does not disappear when the value is 0)."
+		},
+		showDuration: {
+			detail: "Determines the duration of an effect when a notice message is shown."
+		},
+		hideDuration: {
+			detail: "Determines the duration of an effect when a notice message disappears."
+		},
+		showEasing: {
+			detail: "Determines an effect when a notice message is shown (see CSS3 specifications)."
+		},
+		hideEasing: {
+			detail: "Determines an effect when a notice message disappears (see CSS3 specifications)."
+		}
+	}
+};
+</script>
+<meta name="title" content="JENNIFER UI: JavaScript/Notify/API" />
+<meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart and map components." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Notify</h1>
+</div>
+
+<div id="notify" class="hidden">
+	<script id="tpl_notify" type="text/template">
+	    <div class="notify notify-<!= color !>">
+	        <div class="title"><!= title !></div>
+	        <div class="msg"><!= msg !></div>
+	    </div>
+	</script>
+</div>
+
+</body>
+</html>

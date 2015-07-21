@@ -1,0 +1,124 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>JavaScript/Tooltip</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" />
+	
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<link rel="stylesheet" href="../../res/doc/script.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.ui.js"></script>
+<meta name="title" content="JENNIFER UI: JavaScript/Tooltip" />
+<meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart and map components." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+
+<body class="jui">
+
+<div class="page-header">
+	<h1>Tooltip</h1>
+	<p class="br">
+		Tooltip can be applied to 4 locations, namely top/bottom/left/right, and a relate message can be entered in the <strong>title</strong> properties.
+
+<pre><code class="language-markup">&lt;span class=&quot;tooltip&quot; title=&quot;Tooltip Message&quot;&gt;Demo&lt;/span&gt;</code></pre>
+	</p>
+</div>
+
+<section>
+	<h2>Top</h2>
+	<p>
+		Sets the location of a tooltip to the top. The tooltip is shown in response to a mouseover motion (<span class="tooltip_1" title="Tooltip Top">Over</span>).
+		
+<pre><code class="language-javascript">jui.ready([ &quot;ui.tooltip&quot; ], function(tooltip) {
+	tooltip_1 = tooltip(&quot;.tooltip_1&quot;);
+});</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Bottom</h2>
+	<p>
+		Sets the location of a tooltip to the bottom. The color of a tooltip is set to gray and the tooltip is shown in response to a mouseover motion.</section>Tooltip Bottom
+		
+<pre><code class="language-javascript">tooltip_2 = tooltip(&quot;.tooltip_2&quot;, {
+	position: &quot;bottom&quot;,
+	color: &quot;gray&quot;,
+    showType: &quot;click&quot;
+});</code></pre>
+	</p>
+</section>
+	
+<section>
+	<h2>Left</h2>
+	<p>
+		Sets the location of a tooltip to the left. The tooltip is shown 1 second after the mouseover motion (<span class="tooltip_3" title="Tooltip left">Delay</span>).
+		
+<pre><code class="language-javascript">tooltip_3 = tooltip(&quot;.tooltip_3&quot;, {
+	position: &quot;left&quot;,
+	delay: 1000
+});</code></pre>
+	</p>
+</section>
+	
+<section>
+	<h2>Right</h2>
+	<p>
+		Sets the location of a tooltip to the right side and sets the max-width value to 300px. If the tooltip line reaches the end, it automatically breaks the line.<br/> The tooltip is center-aligned (<span class="tooltip_4" title="Tooltip right, Tooltip right, Tooltip right, Tooltip right, Tooltip right, Tooltip right">Over</span>).
+		
+<pre><code class="language-javascript">tooltip_4 = tooltip(&quot;.tooltip_4&quot;, {
+	position: &quot;right&quot;,
+	width: 300,
+	align: &quot;center&quot;
+});</code></pre>
+	</p>
+</section>
+
+<section>
+    <h2>With Popover</h2>
+    <p>
+        Tooltips can be used with pop-over style.
+        (<span class="tooltip_5" title="With Popover, With Popover, With Popover, With Popover, With Popover, With Popover">Over</span>)
+
+        <script id="tpl_popover" type="text/template">
+            <div class="popover popover-<!= position !> popover-<!= color !>">
+                <div class="head">Subject</div>
+                <div class="body">
+                    <div class="image"><i class="icon-caution"></i></div>
+                    <div class="message"><!= message !></div>
+                </div>
+            </div>
+        </script>
+
+<pre><code class="language-javascript">tooltip_5 = tooltip(".tooltip_5", {
+    position: "right",
+    width: 300,
+    align: "left",
+    tpl: {
+        item: $("#tpl_popover").html()
+    }
+});</code></pre>
+    </p>
+    <p class="br">
+        To use the pop-over style, you must set the <strong>item</strong> template.
+<pre><code class="language-markup">&lt;script id="tpl_popover" type="text/template">
+    &lt;div class="popover popover-&lt;!= position !> popover-&lt;!= color !>">
+        &lt;div class="head">Subject&lt;/div>
+        &lt;div class="body">
+            &lt;div class="image">&lt;i class="icon-caution">&lt;/i>&lt;/div>
+            &lt;div class="message">&lt;!= message !>&lt;/div>
+        &lt;/div>
+    &lt;/div>
+&lt;/script></code></pre>
+    </p>
+</section>
+
+</body>
+</html>

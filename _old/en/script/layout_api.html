@@ -1,0 +1,80 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>JavaScript/Modal/API</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" />
+	
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="api_core.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
+
+<script>
+var uiApi = {
+	method: {
+		resize: {
+			param: "none",
+			ret: "none",
+			detail: "Resets the layout."
+		}
+	},
+	event: {},
+	tpl: {},
+	opt: {
+		barColor: {
+			detail: "Determines the color of the resizing bar."
+		},
+		barSize: {
+			detail: "Determines the size of the resizing bar."
+		},
+		width: {
+			detail: "Determines the container area value."
+		},
+		height: {
+			detail: "Determines the container height value."
+		},
+		top: {
+			detail: "Configures options for the top area."
+		},
+		left: {
+			detail: "Configures options for the left area."
+		},
+		right: {
+			detail: "Configures options for the right area."
+		},
+		bottom: {
+			detail: "Configures options for the bottom area."
+		},
+		bottom: {
+			detail: "Configures options for the center area."
+		}
+	}
+};
+</script>
+<meta name="title" content="JENNIFER UI: JavaScript/Modal/API" />
+<meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart and map components." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Layout</h1>
+</div>
+
+<div class="hidden">
+	<div id="layout" style="display: none;">
+		<div class="left"><div class="title">Left</div></div>
+		<div class="center"><div class="title">Center</div></div>
+		<div class="right"><div class="title">Right</div></div>
+	</div>
+</div>
+
+</body>
+</html>

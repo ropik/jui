@@ -1,0 +1,180 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>JavaScript/Tree</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" />
+
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.uix.js"></script>
+<meta name="title" content="JENNIFER UI: JavaScript/Tree" />
+<meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart and map components." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+
+<body class="jui">
+
+<div class="page-header">
+	<h1>Tree</h1>
+</div>
+
+<section>
+	<p>
+		UI component which can be used when displaying data in a hierarchical structure, as in an explorer
+		
+		<div class="row">
+			<div class="col col-3">
+				<ul class="tree_1 tree tree-arrow"></ul>
+			</div>
+			<div class="col col-3">
+				<ul class="tree_1 tree tree-line"></ul>
+			</div>
+			<div class="col col-3">
+				<ul class="tree_1 tree tree-arrow-file"></ul>
+			</div>
+			<div class="col col-3">
+				<ul class="tree_1 tree tree-line-file"></ul>
+			</div>
+		</div>
+		
+		<script id="tpl_tree" data-tpl="node" type="text/template">
+			<li>
+				<div><i></i> <!= title !></div>
+				<ul></ul>
+			</li>
+		</script>
+		
+		<p class="br">
+<pre><code class="language-markup">&lt;ul class=&quot;tree_1 tree tree-arrow&quot;&gt;&lt;/ul&gt;
+&lt;ul class=&quot;tree_1 tree tree-line&quot;&gt;&lt;/ul&gt;
+&lt;ul class=&quot;tree_1 tree tree-arrow-file&quot;&gt;&lt;/ul&gt;
+&lt;ul class=&quot;tree_1 tree tree-line-file&quot;&gt;&lt;/ul&gt;</code></pre>
+
+<pre><code class="language-markup">&lt;script id=&quot;tpl_tree&quot; type=&quot;text/template&quot;&gt;
+	&lt;li&gt;
+		&lt;div&gt;&lt;i&gt;&lt;/i&gt; &lt;!= title !&gt;&lt;/div&gt;
+		&lt;ul&gt;&lt;/ul&gt;
+	&lt;/li&gt;
+&lt;/script&gt;</code></pre>
+		
+<pre><code class="language-javascript">jui.ready([ &quot;uix.tree&quot; ], function(tree) {
+	tree_1 = tree(&quot;.tree&quot;, {
+		root: { title: &quot;C:\\&quot; },
+		event: {
+			select: function(node) {
+				this.select(node.index); // selection effect
+				alert(&quot;index(&quot; + node.index + &quot;), title(&quot; + node.data.title + &quot;)&quot;);
+			}
+		},
+		tpl: {
+			node: $(&quot;#tpl_tree&quot;).html()
+		}
+	});
+});
+
+function addTreeData(tree) {
+	tree.append({ title: &quot;Windows&quot; });
+	tree.append({ title: &quot;Download&quot; });
+	tree.append({ title: &quot;Program Files&quot; });
+	tree.append({ title: &quot;Apache&quot; });
+	tree.append(&quot;0&quot;, { title: &quot;run.exe&quot; });
+	tree.append(&quot;0&quot;, { title: &quot;setting.conf&quot; });
+	tree.append(&quot;1&quot;, { title: &quot;jui.torrrent&quot; });
+	tree.insert(&quot;2.0&quot;, { title: &quot;Riot Games&quot; });
+	tree.insert(&quot;2.0.0&quot;, { title: &quot;lol.exe&quot; });
+	tree.append(&quot;3&quot;, { title: &quot;startup.bat&quot; });
+	tree.fold(&quot;0&quot;);
+	tree.fold(&quot;1&quot;);
+	tree.fold(&quot;3&quot;);
+}
+
+for(var i = 0; i &lt; tree_1.length; i++) {
+	addTreeData(tree_1[i]);
+}</code></pre>
+		</p>
+	</p>
+</section>
+	
+<section>
+	<h2>Move/Remove/Update Tree</h2>
+	<p>
+		<a class="btn btn-gray btn-mini" href="javascript:tree2RunA()">Move</a> <a class="btn btn-gray btn-mini" href="javascript:tree2RunB()">Remove</a> <a class="btn btn-gray btn-mini" href="javascript:tree2RunC()">Update</a> - Provides  methods to control a node. 
+		
+		<div class="row">
+			<ul class="tree tree-line-file"></ul>
+		</div>
+	</p>
+	
+	<p class="br">
+<pre><code class="language-javascript">function tree2RunA() {
+	alert(&quot;The Apache folder will be moved to the Program Files folder.&quot;);
+	tree_1[4].move(&quot;3&quot;, &quot;2.1&quot;);
+}
+
+function tree2RunB() {
+	alert(&quot;The Download folder will be deleted.&quot;);
+	tree_1[4].remove(&quot;1&quot;);
+}
+			
+function tree2RunC() {
+	alert(&quot;The Program Files folder will be renamed.&quot;);
+	tree_1[4].update(&quot;2&quot;, { title: &quot;Applications&quot; });
+}</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Move Node (+Drag)</h2>
+	<p>
+		Provides a method for drag each node with a mouse.
+		
+		<div class="row" style="width: 150px;">
+			<ul id="tree_2" class="tree tree-line-file  tree-etc"></ul>
+		</div>
+	</p>
+	
+	<p class="br">
+		
+<pre><code class="language-javascript">tree_2 = tree(&quot;#tree_2&quot;, {ging
+	root: { title: &quot;C:\\&quot; },
+	drag: true,
+	tpl: {
+		node: $(&quot;#tpl_tree&quot;).html()
+	}
+});</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Move Node (+Drag Child)</h2>
+	<p>
+		It is possible to prevent a target node being dragged from changing to a child of an opponent node if the <strong>dragChild</strong> option value is set to false.
+		
+		<div class="row" style="width: 150px;">
+			<ul id="tree_3" class="tree tree-line-file tree-etc"></ul>
+		</div>
+	</p>
+	
+	<p class="br">
+		
+<pre><code class="language-javascript">tree_3 = tree(&quot;#tree_3&quot;, {
+	root: { title: &quot;C:\\&quot; },
+	drag: true,
+	dragChild: false,
+	tpl: {
+		node: $(&quot;#tpl_tree&quot;).html()
+	}
+});</code></pre>
+	</p>
+</section>
+
+</body>
+</html>

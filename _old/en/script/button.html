@@ -1,0 +1,200 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>JavaScript/Button</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" />
+	
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.ui.js"></script>
+<meta name="title" content="JENNIFER UI: JavaScript/Button" />
+<meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart and map components." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+
+<body class="jui">
+
+<div class="page-header">
+	<h1>Button</h1>
+</div>
+
+<section>
+	<h2>Radio</h2>
+	<p>
+		The button component is a radio type in which only a single choice is available.
+		
+		<table class="table_s" width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="200px">View</td>
+				<td width="75px">Result</td>
+				<td>Test Code</td>
+				<td>Description</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="btn_radio_1" class="group">
+						<a class="btn btn-small btn-gray-purple" value="true">On</a> <a class="btn btn-small btn-gray-purple" value="false">Off</a>
+					</div>
+				</td>
+				<td>
+					<button class="btn btn-gray" onclick="alert(btn_radio_1.getValue())"><i class="icon-play"></i> Run</button>
+				</td>
+				<td>
+					alert(btn_radio_1.getValue());
+				</td>
+				<td>
+					Outputs the value of the button currently selected.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="btn_radio_2" class="group">
+						<a class="btn btn-mini btn-gray-black" value="a">A</a> <a class="btn btn-mini btn-gray-black" value="b">B</a> <a class="btn btn-mini btn-gray-black" value="c">C</a> <a class="btn btn-mini btn-gray-black" value="home"> Home</a> <a class="btn btn-mini btn-gray-black" value="gear"><i class="icon-gear"></i></a> <a class="btn btn-mini btn-gray-black" value="help"><i class="icon-help"></i></a>
+					</div>
+				</td>
+				<td>
+					<button class="btn btn-gray" onclick="btn_radio_2.setIndex(3);"><i class="icon-play"></i> Run</button>
+				</td>
+				<td>
+					btn_radio_2.setIndex(3);
+				</td>
+				<td>
+					Changes the button of an applicable index into a selected state.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="btn_radio_3" class="group">
+						<a class="btn btn-mini btn-black-gray" value="a">A</a> <a class="btn btn-mini btn-black-gray" value="b">B</a> <a class="btn btn-mini btn-black-gray" value="c">C</a> <a class="btn btn-mini btn-black-gray" value="home"><i class="icon-home icon-white"></i></a> <a class="btn btn-mini btn-black-gray" value="gear"><i class="icon-gear icon-white"></i></a> <a class="btn btn-mini btn-black-gray" value="help"><i class="icon-help icon-white"></i></a>
+					</div>
+				</td>
+				<td>
+					<button class="btn btn-gray" onclick="btn_radio_3.setValue('gear');"><i class="icon-play"></i> Run</button>
+				</td>
+				<td>
+					btn_radio_3.setValue(&quot;gear&quot;);
+				</td>
+				<td>
+					Changes the button of a specified value into a selected state.
+				</td>
+			</tr>
+		</table>
+	</p>
+	
+	<p class="br">
+		The code to create a radio button is as follows.
+		
+<pre><code class="language-markup">&lt;div id=&quot;btn_radio_1&quot; class=&quot;group&quot;&gt;
+	&lt;a class=&quot;btn btn-small btn-gray-purple&quot; value=&quot;true&quot;&gt;On&lt;/a&gt;
+	&lt;a class=&quot;btn btn-small btn-gray-purple&quot; value=&quot;false&quot;&gt;Off&lt;/a&gt;
+&lt;/div&gt;
+
+...</code></pre>
+<pre><code class="language-javascript">jui.ready([ &quot;ui.button&quot; ], function(button) {
+	var btn_radio_options = {
+		type: &quot;radio&quot;,
+		event: {
+			change: function(data) {
+				alert(&quot;index(&quot; + data.index + &quot;), value(&quot; + data.value + &quot;)&quot;);
+			}
+		}
+	};
+	
+	btn_radio_1 = button(&quot;#btn_radio_1&quot;, btn_radio_options);
+	btn_radio_2 = button(&quot;#btn_radio_2&quot;, btn_radio_options);
+	btn_radio_3 = button(&quot;#btn_radio_3&quot;, btn_radio_options);
+});</code></pre>
+	</p>
+</section> <section>
+	<h2>Check</h2>
+	<p>
+		The button component is a checkbox type in which multiple choices are available.
+	
+		<table class="table_s" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="170px">View</td>
+				<td width="75px">Result</td>
+				<td>Test Code</td>
+				<td>Description</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="btn_check" class="group">
+						<a class="btn btn-mini btn-gray-black" value="check"><i class="icon-check"></i></a> <a class="btn btn-mini btn-gray-black" value="plus"><i class="icon-plus"></i></a> <a class="btn btn-mini btn-gray-black" value="edit"><i class="icon-edit"></i></a> <a class="btn btn-mini btn-gray-black" value="home"><i class="icon-home"></i></a> <a class="btn btn-mini btn-gray-black" value="gear"><i class="icon-gear"></i></a>
+					</div>
+				</td>
+				<td>
+					<button class="btn btn-gray" onclick="btn_check.setIndex([ 3, 4 ]);"><i class="icon-play"></i> Run</button>
+				</td>
+				<td>
+					btn_check.setIndex([ 3, 4 ]);
+				</td>
+				<td>
+					Changes the buttons having an applicable index into a selected state.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="btn_check_2" class="group">
+						<a class="btn btn-mini btn-black-gray" value="check"><i class="icon-check icon-white"></i></a> <a class="btn btn-mini btn-black-gray" value="plus"><i class="icon-plus icon-white"></i></a> <a class="btn btn-mini btn-black-gray" value="edit"><i class="icon-edit icon-white"></i></a> <a class="btn btn-mini btn-black-gray" value="home"><i class="icon-home icon-white"></i></a> <a class="btn btn-mini btn-black-gray" value="gear"><i class="icon-gear icon-white"></i></a>
+					</div>
+				</td>
+				<td>
+					<button class="btn btn-gray" onclick="btn_check_2.setValue([ 'check', 'edit' ]);"><i class="icon-play"></i> Run</button>
+				</td>
+				<td>
+					btn_check_2.setValue([ 'check', 'edit' ]);
+				</td>
+				<td>
+					Changes the buttons with a specified value to the selected state.
+				</td>
+			</tr>
+		</table>
+	</p>
+	
+	<p class="br">
+		The code to create a check button is as follows.
+		
+<pre><code class="language-markup">&lt;div id=&quot;btn_check&quot; class=&quot;group&quot;&gt;
+	&lt;a class=&quot;btn btn-mini btn-gray-black&quot; value=&quot;check&quot;&gt;&lt;i class=&quot;icon-check&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;a class=&quot;btn btn-mini btn-gray-black&quot; value=&quot;plus&quot;&gt;&lt;i class=&quot;icon-plus&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;a class=&quot;btn btn-mini btn-gray-black&quot; value=&quot;edit&quot;&gt;&lt;i class=&quot;icon-edit&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;a class=&quot;btn btn-mini btn-gray-black&quot; value=&quot;home&quot;&gt;&lt;i class=&quot;icon-home&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;a class=&quot;btn btn-mini btn-gray-black&quot; value=&quot;gear&quot;&gt;&lt;i class=&quot;icon-gear&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+...</code></pre>
+
+<pre><code class="language-javascript">var btn_check_options = {
+	type: &quot;check&quot;,
+	event: {
+		change: function(data) {
+			var result = &quot;&quot;;
+			
+			for(var i = 0; i &lt; data.length; i++) {
+				if(data[i] != null) {
+					result += &quot;index(&quot; + data[i].index + &quot;), value(&quot; + data[i].value + &quot;)&quot; + &quot;\n&quot;;
+				}
+			}
+			
+			alert(result);
+		}
+	}
+};
+
+btn_check = button(&quot;#btn_check&quot;, btn_check_options);
+btn_check_2 = button(&quot;#btn_check_2&quot;, btn_check_options);</code></pre>
+
+	</p>
+</section>
+
+</body>
+</html>

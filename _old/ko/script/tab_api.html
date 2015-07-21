@@ -1,0 +1,148 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>JavaScript/Tab/API</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" />
+
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="api_core.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
+
+<script>
+var uiApi = {
+	prop: {},
+	method: {
+		update: {
+			param: "nodes",
+			ret: "none",
+			detail: "탭 리스트를 변경합니다. "
+		},
+		insert: {
+			param: "index, node",
+			ret: "none",
+			detail: "해당 인덱스에 탭을 추가합니다."
+		},
+		append: {
+			param: "node",
+			ret: "none",
+			detail: "마지막 노드로 탭을 추가합니다."
+		},
+		prepend: {
+			param: "node",
+			ret: "none",
+			detail: "첫번째 노드로 탭을 추가합니다."
+		},
+		remove: {
+			param: "index",
+			ret: "none",
+			detail: "해당 인덱스의 탭을 제거합니다."
+		},
+		move: {
+			param: "index, targetIndex",
+			ret: "none",
+			detail: "해당 탭을 대상 인덱스의 탭으로 변경합니다."
+		},
+		show: {
+			param: "index",
+			ret: "none",
+			detail: "해당 인덱스의 탭을 활성화 시킵니다."
+		},
+		activeIndex: {
+			param: "none",
+			ret: "int",
+			detail: "현재 활성화된 탭의 인덱스를 가져옵니다."
+		}
+	},
+	event: {
+		change: {
+			detail: "탭이 활성화 되었을 때, 발생하는 이벤트입니다."
+		},
+		changemenu: {
+			detail: "드롭다운이 선택될 때, 발생하는 이벤트입니다."
+		},
+		dragstart: {
+			detail: "탭 이동이 시작되었을 때, 발생하는 이벤트입니다."
+		},
+		dragend: {
+			detail: "탭 이동이 완료되었을 때, 발생하는 이벤트입니다."
+		},
+        click: {
+            detail: "탭을 클릭했을 때, 발생하는 이벤트입니다."
+        },
+        rclick: {
+            detail: "탭을 마우스 우측 클릭했을 때, 발생하는 이벤트입니다."
+        }
+	},
+	tpl: {
+		menu: {
+			detail: "탭에서 사용되는 드롭다운 UI의 템플릿을 설정합니다."
+		}
+	},
+	opt: {
+		target: {
+			detail: "탭의 컨텐츠가 될 영역의 셀렉터를 정합니다."
+		},
+		index: {
+			detail: "활성화 탭을 설정합니다."
+		},
+		drag: {
+			detail: "드래그를 통해 탭 위치를 변경합니다."
+		},
+		nodes: {
+			detail: "탭 리스트를 마크업이 아닌 데이터로 설정합니다."
+		}
+	}
+};
+</script>
+<meta name="title" content="JENNIFER UI: JavaScript/Tab/API" />
+<meta name="description" content="JENNIFER UI는 완전 무료입니다. 심플하며 빠르고 다양한 JUI는 올인원 데스크탑 UI 프레임워크입니다. 부트스트랩을 지원하고, 독립적으로 동작하는 스크립트와 스타일 컴포넌트 그리고 SVG 차트와 맵을 제공합니다." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Tab</h1>
+</div>
+
+<div class="hidden">
+	<ul id="tab" class="tab tab-top">
+		<li>
+			<a href="#home">Home</a>
+		</li>
+		<li><a href="#css">CSS</a></li>
+		<li><a href="#script">Script</a></li>
+		<li class="menu">
+			<a href="#">Menu <i class="icon-arrow1"></i></a>
+		</li>
+	</ul>
+	
+	<div id="tab_contents_1" class="tab-contents" style="background: #dcdcdc;">
+		<div id="home">home</div>
+		<div id="css">css</div>
+		<div id="script">script</div>
+	</div>
+	
+	<script data-jui="#tab" data-tpl="menu" type="text/template">
+		<div class="dropdown">
+			<div class="anchor"></div>
+			
+			<ul style="width: 120px;">
+				<li>Dropdown 1</li>
+				<li class="divider"></li>
+				<li>Dropdown 2</li>
+				<li>Dropdown 3</li>
+				<li>Dropdown 4</li>
+			</ul>
+		</div>
+	</script>
+</div>
+
+</body>
+</html>

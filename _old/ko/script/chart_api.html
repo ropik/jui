@@ -1,0 +1,1171 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>JavaScript/Chart/API</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" />
+	
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="api_core.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
+
+<script>
+var uiApi = {
+	prop: {
+		svg: {
+			detail: "SVG 유틸리티 객체를 참조합니다."
+		},
+        clipId: {
+            detail: "차트의 클립 영역의 아이디를 가져옵니다."
+        },
+        defs: {
+            detail: "차트에 추가된 'defs' 엘리먼트를 가져옵니다."
+        }
+	},
+	method: {
+        area: {
+            param: "type | none",
+            ret: "int",
+            detail: "계산된 차트 영역에 대한 값을 가져옵니다. (type: width, height, x, y, x2, y2)"
+        },
+        bindUI: {
+            param: "uiObject",
+            ret: "none",
+            detail: "uix.table 또는 uix.xtable에서 사용하는 데이터를 바인딩합니다."
+        },
+        text: {
+            param: "attributes, text | callback",
+            ret: "object",
+            detail: "테마가 적용된 텍스트 엘리먼트를 생성합니다."
+        },
+        theme: {
+            param: "key | isSelected, value1, value2",
+            ret: "int | string",
+            detail: "현재 차트에 적용된 테마 요소에 대한 값을 가져옵니다."
+        },
+        color: {
+            param: "index, colors",
+            ret: "string",
+            detail: "테마 또는 컬러셋에 정의된 색상을 가져옵니다."
+        },
+        padding: {
+            param: "type | none",
+            ret: "int",
+            detail: "상/하/좌/우 여백 값을 가져옵니다."
+        },
+        get: {
+            param: "type, name | none",
+            ret: "array | object",
+            detail: "해당 이름의 엑시스나 브러쉬, 위젯, 시리즈를 가져옵니다. (type: axis, brush, widget, series, padding, area)"
+        },
+        axis: {
+            param: "index | none",
+            ret: "array | object",
+            detail: "해당 인덱스의 엑시스 객체를 가져옵니다."
+        },
+        icon: {
+            param: "alias",
+            ret: "string",
+            detail: "해당 아이콘의 유니코드 문자열을 가져옵니다."
+        },
+        scale: {
+            param: "scale",
+            ret: "string",
+            detail: "차트의 스케일을 변경합니다."
+        },
+        view: {
+            param: "x, y",
+            ret: "int",
+            detail: "차트가 뷰 영역을 변경합니다."
+        },
+        view: {
+            param: "x, y",
+            ret: "object",
+            detail: "해당 아이콘의 유니코드 문자열을 가져옵니다."
+        },
+        createId: {
+            param: "key",
+            ret: "string",
+            detail: "차트 내에서 사용될 고유 키를 가져옵니다."
+        },
+        render: {
+            param: "none",
+            ret: "none",
+            detail: "모든 드로우 객체를 렌더링합니다."
+        },
+        update: {
+            param: "data",
+            ret: "none",
+            detail: "새로운 데이터를 기준으로 렌더링합니다."
+        },
+        page: {
+            param: "page | none",
+            ret: "none | object",
+            detail: "해당 페이지의 데이터를 기준으로 렌더링합니다."
+        },
+        next: {
+            param: "none",
+            ret: "none",
+            detail: "설정된 쉬프팅 개수만큼 다음 데이터를 렌더링합니다."
+        },
+        prev: {
+            param: "none",
+            ret: "none",
+            detail: "설정된 쉬프팅 개수만큼 이전 데이터를 렌더링합니다."
+        },
+        zoom: {
+            param: "start, end | none",
+            ret: "none | object",
+            detail: "해당 인덱스 범위의 데이터를 다시 렌더링합니다."
+        },
+        setSize: {
+            param: "width, height",
+            ret: "none",
+            detail: "해당 넓이와 높이로 차트 크기를 변경하여 렌더링합니다."
+        },
+        appendDefs: {
+            param: "element",
+            ret: "none",
+            detail: "defs 태그에 엘리먼트를 추가합니다."
+        },
+        addBrush: {
+            param: "brush",
+            ret: "none",
+            detail: "브러쉬를 추가하고 다시 렌더링합니다."
+        },
+        removeBrush: {
+            param: "brushIndex",
+            ret: "none",
+            detail: "해당 인덱스의 브러쉬를 삭제하고 다시 렌더링합니다."
+        },
+        updateBrush: {
+            param: "brushIndex, brush",
+            ret: "none",
+            detail: "해당 인덱스의 브러쉬를 업데이트하고 다시 렌더링합니다."
+        },
+        addWidget: {
+            param: "widget",
+            ret: "none",
+            detail: "위젯을 추가하고 다시 렌더링합니다.."
+        },
+        removeWidget: {
+            param: "widgetIndex",
+            ret: "none",
+            detail: "해당 인덱스의 위젯을 삭제하고 다시 렌더링합니다."
+        },
+        updateWidget: {
+            param: "widgetIndex, widget",
+            ret: "none",
+            detail: "해당 인덱스의 위젯을 업데이트하고 다시 렌더링합니다."
+        },
+        addAxis: {
+            param: "axis",
+            ret: "none",
+            detail: "그리드 그룹을 추가하고 다시 렌더링합니다.."
+        },
+        removeAxis: {
+            param: "axisIndex",
+            ret: "none",
+            detail: "해당 인덱스의 그리드 그룹을 삭제하고 다시 렌더링합니다."
+        },
+        updateAxis: {
+            param: "axisIndex, axis",
+            ret: "none",
+            detail: "해당 인덱스의 그리드 그룹을 업데이트하고 다시 렌더링합니다."
+        },
+        setTheme: {
+            param: "themeName | themeObject",
+            ret: "none",
+            detail: "해당 테마로 변경한 후에 차트를 다시 렌더링합니다."
+        },
+        setCsv: {
+            param: "csv",
+            ret: "none",
+            detail: "CSV 문자열을 기반으로 차트를 업데이트합니다."
+        },
+        setCsvFile: {
+            param: "file",
+            ret: "none",
+            detail: "CSV 파일을 기반으로 차트를 업데이트합니다."
+        },
+        format: {
+            param: "value",
+            ret: "value",
+            detail: "옵션의 정의된 포맷 콜백 함수를 통해 처리된 값을 반환합니다."
+        },
+        isRender: {
+            param: "none",
+            ret: "boolean",
+            detail: "렌더링 옵션의 값을 반환하며, 렌더링 옵션이 false일 경우에는 메소드 호출시에 차트를 다시 렌더링하지 않습니다."
+        },
+        isFullSize: {
+            param: "none",
+            ret: "boolean",
+            detail: "차트의 가로 또는 세로 크기가 100%인 경우에 true를 반환합니다."
+        }
+	},
+	event: {
+        click: {
+            detail: "브러쉬를 클릭하면 발생하는 이벤트입니다."
+        },
+        dblclick: {
+            detail: "브러쉬를 더블클릭하면 발생하는 이벤트입니다."
+        },
+        rclick: {
+            detail: "브러쉬에 마우스 오른쪽을 클릭하면 발생하는 이벤트입니다."
+        },
+        mouseover: {
+            detail: "브러쉬에 마우스를 올리면 발생하는 이벤트입니다."
+        },
+        mouseout: {
+            detail: "브러쉬에 마우스가 벗어나면 발생하는 이벤트입니다."
+        },
+        mousemove: {
+            detail: "브러쉬에 마우스가 이동하면 발생하는 이벤트입니다."
+        },
+        mousedown: {
+            detail: "브러쉬에 마우스 왼쪽을 누르면 발생하는 이벤트입니다."
+        },
+        mouseup: {
+            detail: "브러쉬에 마우스 왼쪽을 누른 후에 발생하는 이벤트입니다."
+        },
+        "chart.click": {
+            detail: "차트 영역을 클릭하면 발생하는 이벤트입니다."
+        },
+        "chart.dblclick": {
+            detail: "차트 영역을 더블클릭하면 발생하는 이벤트입니다."
+        },
+        "chart.rclick": {
+            detail: "차트 영역을 마우스 오른쪽을 클릭하면 발생하는 이벤트입니다."
+        },
+        "chart.mouseover": {
+            detail: "차트 영역을 마우스를 올리면 발생하는 이벤트입니다."
+        },
+        "chart.mouseout": {
+            detail: "차트 영역을 마우스가 벗어나면 발생하는 이벤트입니다."
+        },
+        "chart.mousemove": {
+            detail: "차트 영역을 마우스가 이동하면 발생하는 이벤트입니다."
+        },
+        "chart.mousedown": {
+            detail: "차트 영역을 마우스 왼쪽을 누르면 발생하는 이벤트입니다."
+        },
+        "chart.mouseup": {
+            detail: "차트 영역을 마우스 왼쪽을 누른 후에 발생하는 이벤트입니다."
+        },
+        "bg.click": {
+            detail: "차트 여백을 클릭하면 발생하는 이벤트입니다."
+        },
+        "bg.dblclick": {
+            detail: "차트 여백을 더블클릭하면 발생하는 이벤트입니다."
+        },
+        "bg.rclick": {
+            detail: "차트 여백에 마우스 오른쪽을 클릭하면 발생하는 이벤트입니다."
+        },
+        "bg.mouseover": {
+            detail: "차트 여백에 마우스를 올리면 발생하는 이벤트입니다."
+        },
+        "bg.mouseout": {
+            detail: "차트 여백에서 마우스가 벗어나면 발생하는 이벤트입니다."
+        },
+        "bg.mousemove": {
+            detail: "차트 여백에 마우스가 이동하면 발생하는 이벤트입니다."
+        },
+        "bg.mousedown": {
+            detail: "차트 여백에 마우스 왼쪽을 누르면 발생하는 이벤트입니다."
+        },
+        "bg.mouseup": {
+            detail: "차트 여백에 마우스 왼쪽을 누른 후에 발생하는 이벤트입니다."
+        },
+        "legend.filter": {
+            detail: "레전드 위젯의 필터 기능이 실행되면 발생하는 이벤트입니다."
+        },
+        "topology.nodeclick": {
+            detail: "토폴로지 노드를 클릭하면 발생하는 이벤트입니다."
+        },
+        "topology.edgeclick": {
+            detail: "토폴로지 연결 선을 클릭하면 발생하는 이벤트입니다."
+        }
+    },
+	tpl: {
+        tooltip: {
+            detail: ""
+        }
+    },
+	opt: {
+		width: {
+			detail: "차트 넓이를 정합니다."
+		},
+        height: {
+            detail: "차트 높이를 정합니다."
+        },
+        padding: {
+            detail: "차트 여백을 정합니다."
+        },
+        theme: {
+            detail: "차트 테마를 선택합니다."
+        },
+        data: {
+            detail: "차트 데이터를 설정합니다."
+        },
+        series: {
+            detail: "특정 데이터 프로퍼티의 추가 정보를 설정합니다."
+        },
+        grid: {
+            detail: "차트에서 사용할 그리드를 설정합니다."
+        },
+        axis: {
+            detail: "차트에서 사용할 그리드 그룹을 설정합니다."
+        },
+        axisIndex: {
+            detail: "차트에서 기본적으로 사용할 그리드 그룹의 인덱스를 설정합니다."
+        },
+        brush: {
+            detail: "차트에 추가할 브러쉬를 정합니다."
+        },
+        widget: {
+            detail: "차트에 추가할 위젯을 정합니다."
+        },
+        bufferCount: {
+            detail: "한 페이지에 보여줄 데이터 개수입니다."
+        },
+        shiftCount: {
+            detail: "쉬프팅 데이터 개수입니다."
+        },
+        bind: {
+            detail: "바인딩 할 컴포넌트 객체를 설정합니다."
+        },
+        format: {
+            detail: "그리드/브러쉬/위젯에서 기본적으로 사용하는 포맷 콜백 함수를 설정합니다."
+        },
+        style: {
+            detail: "현재 설정된 테마의 값을 임의로 변경합니다."
+        },
+        csv: {
+            detail: "CSV 문자열로 변환시에 보여지는 컬럼 키를 설정합니다."
+        },
+        csvNumber: {
+            detail: "CSV 문자열로 변환시에 숫자 타입으로 변경할 컬럼 키를 설정합니다."
+        },
+        render: {
+            detail: "false일 경우에 렌더링 관련 메소드를 호출했을 때, 차트를 다시 렌더링하지 않습니다. (단, render 메소드는 제외)"
+        },
+        icon: {
+            detail: "차트에서 사용할 아이콘 관련 설정입니다."
+        }
+	}
+};
+
+var axisApi = {
+    prop: {
+        x: {
+            detail: "X축 그리드를 설정합니다. (Grid 탭 참고)"
+        },
+        y: {
+            detail: "Y축 그리드를 설정합니다. (Grid 탭 참고)"
+        },
+        c: {
+            detail: "커스텀 그리드를 설정합니다. (Grid 탭 참고)"
+        },
+        data: {
+            detail: "차트를 구성하는 로우셋 데이터를 설정합니다."
+        },
+        buffer: {
+            detail: "차트에 보여지는 요소 개수를 제한합니다."
+        },
+        shift: {
+            detail: "'prev' 또는 'next' 메소드를 호출했을 때, 그려지는 데이터의 쉬프팅 개수입니다."
+        },
+        origin: {
+            detail: "[읽기전용] 최초에 설정된 원본 데이터입니다."
+        },
+        page: {
+            detail: "[읽기전용] 현재 그려진 데이터의 페이지 번호입니다."
+        },
+        start: {
+            detail: "[읽기전용] 현재 그려진 데이터의 시작 인덱스입니다."
+        },
+        end: {
+            detail: "[읽기전용] 현재 그려진 데이터의 끝 인덱스입니다."
+        }
+    },
+    method: {
+        getValue: {
+            param: "data, fieldString, defaultValue",
+            ret: "value",
+            detail: "해당 키의 데이터 값을 가져오고, 값이 없을 경우에는 기본 값을 가져옵니다."
+        },
+        reload: {
+            param: "options",
+            ret: "none",
+            detail: "x, y, z 축을 다시 생성합니다."
+        },
+        getClipId: {
+            param: "none",
+            ret: "string",
+            detail: "엑시스 영역 바깥 쪽을 자르기 위한 클립 아이디를 가져옵니다."
+        },
+        area: {
+            param: "type",
+            ret: "integer | object",
+            detail: "엑시스의 width, height, x, y 값을 가져옵니다."
+        },
+        get: {
+            param: "type",
+            ret: "object",
+            detail: "엑시스의 grid 또는 area 정보를 가져옵니다."
+        },
+        updateGrid: {
+            param: "gridType, options",
+            ret: "none",
+            detail: "x, y, c 그리드의 옵션을 변경합니다."
+        },
+        update: {
+            param: "dataList",
+            ret: "none",
+            detail: "엑시스의 데이터를 갱신합니다."
+        },
+        screen: {
+            param: "pNo",
+            ret: "none",
+            detail: "해당 페이지의 데이터를 보여줍니다."
+        },
+        next: {
+            param: "none",
+            ret: "none",
+            detail: "다음 페이지의 데이터를 보여줍니다."
+        },
+        prev: {
+            param: "none",
+            ret: "none",
+            detail: "이전 페이지의 데이터를 보여줍니다."
+        },
+        zoom: {
+            param: "start, end",
+            ret: "none",
+            detail: "해당 인덱스 사이의 데이터를 보여줍니다."
+        }
+    }
+}
+
+var brushApi = {
+    bar: {
+        outerPadding: {
+            detail: "바의 바깥쪽 여백을 정합니다."
+        },
+        innerPadding: {
+            detail: "바의 안쪽 여백을 정합니다."
+        },
+        active: {
+            detail: "해당 인덱스의 바를 활성화시킵니다."
+        },
+        activeEvent: {
+            detail: "설정된 이벤트가 발생하면 해당 바을 활성화시킵니다. (click, mouseover, ...)"
+        },
+        display: {
+            detail: "최소/최대 값의 바에 툴팁을 보여줍니다. (min, max)"
+        },
+        minValue: {
+            detail: "값이 0일 경우에는 바를 그릴 수 없기 때문에 최소 값을 설정합니다."
+        }
+    },
+    column: {
+        outerPadding: {
+            detail: "컬럼의 바깥쪽 여백을 정합니다."
+        },
+        innerPadding: {
+            detail: "컬럼의 바깥쪽 여백을 정합니다."
+        },
+        active: {
+            detail: "해당 인덱스의 컬럼을 활성화시킵니다."
+        },
+        activeEvent: {
+            detail: "설정된 이벤트가 발생하면 해당 컬럼을 활성화시킵니다. (click, mouseover, ...)"
+        },
+        display: {
+            detail: "최소/최대 값의 컬럼에 툴팁을 보여줍니다. (min, max)"
+        },
+        minValue: {
+            detail: "값이 0일 경우에는 컬럼을 그릴 수 없기 때문에 최소 값을 설정합니다."
+        }
+    },
+    bubble: {
+        min: {
+            detail: "버블의 최소 크기를 정합니다."
+        },
+        max: {
+            detail: "버블의 최대 크기를 정합니다."
+        }
+    },
+    donut: {
+        size: {
+            detail: "도넛의 크기를 정합니다."
+        }
+    },
+    equalizer: {
+        outerPadding: {
+            detail: "이퀄라이저의 바깥쪽 여백을 정합니다."
+        },
+        innerPadding: {
+            detail: "이퀄라이저의 안쪽 여백을 정합니다."
+        },
+        unit: {
+            detail: "값에 대한 색상을 표현하는 기준 값을 정합니다."
+        },
+        gap: {
+            detail: "하나의 색상으로 표현되는 이퀄라이저 안에서 나눠지는 컬럼의 개수를 정합니다."
+        }
+    },
+    fullstackbar: {
+        outerPadding: {
+            detail: " 풀스택 바의 바깥쪽 여백을 정합니다."
+        },
+        active: {
+            detail: "해당 인덱스의 풀스택 바를 활성화시킵니다."
+        },
+        activeEvent: {
+            detail: "설정된 이벤트가 발생하면 해당 풀스택 바를 활성화시킵니다. (click, mouseover, ...)"
+        },
+        showText: {
+            detail: "풀스택 바의 퍼센트 텍스트가 보이도록 설정합니다."
+        },
+        display: {
+            detail: "최소/최대 값의 풀스택 바에 툴팁을 보여줍니다. (min, max)"
+        },
+        minValue: {
+            detail: "값이 0일 경우에는 풀스택 바를 그릴 수 없기 때문에 최소 값을 설정합니다."
+        },
+        innerPadding: {
+            detail: "풀스택 바의 안쪽 여백을 정합니다."
+        }
+    },
+    fullstackcolumn: {
+        outerPadding: {
+            detail: " 풀스택 컬럼의 바깥쪽 여백을 정합니다."
+        },
+        active: {
+            detail: "해당 인덱스의 풀스택 컬럼을 활성화시킵니다."
+        },
+        activeEvent: {
+            detail: "설정된 이벤트가 발생하면 해당 풀스택 컬럼을 활성화시킵니다. (click, mouseover, ...)"
+        },
+        showText: {
+            detail: "풀스택 컬럼의 퍼센트 텍스트가 보이도록 설정합니다."
+        },
+        display: {
+            detail: "최소/최대 값의 풀스택 컬럼에 툴팁을 보여줍니다. (min, max)"
+        },
+        minValue: {
+            detail: "값이 0일 경우에는 풀스택 컬럼을 그릴 수 없기 때문에 최소 값을 설정합니다."
+        },
+        innerPadding: {
+            detail: "풀스택 컬럼의 안쪽 여백을 정합니다."
+        }
+    },
+    line: {
+        symbol: {
+            detail: "라인의 모양을 설정합니다. (normal, curve, step)"
+        },
+        active: {
+            detail: "해당 타겟의 라인을 활성화시킵니다."
+        },
+        activeEvent: {
+            detail: "설정된 이벤트가 발생하면 해당 라인을 활성화시킵니다. (click, mouseover, ...)"
+        },
+        display: {
+            detail: "최소/최대 값의 라인에 툴팁을 보여줍니다. (min, max)"
+        }
+    },
+    scatter: {
+        symbol: {
+            detail: "스카터의 모양을 설정합니다. (circle, rectangle, cross, triangle)"
+        },
+        size: {
+            detail: "스카터의 크기를 정합니다."
+        }
+    },
+    scatterpath: {
+        symbol: {
+            detail: "스카터의 모양을 설정합니다. (circle, rectangle, cross, triangle)"
+        },
+        size: {
+            detail: "스카터의 크기를 정합니다."
+        },
+        strokeWidth: {
+            detail: "스카터의 라인 굵기를 설정합니다."
+        }
+    },
+    stackbar: {
+        outerPadding: {
+            detail: "스택 바의 바깥쪽 여백을 정합니다."
+        },
+        active: {
+            detail: "해당 인덱스의 스택 바를 활성화시킵니다."
+        },
+        activeEvent: {
+            detail: "설정된 이벤트가 발생하면 해당 스택 바를 활성화시킵니다. (click, mouseover, ...)"
+        },
+        display: {
+            detail: "최소/최대 값의 스택 바에 툴팁을 보여줍니다. (min, max)"
+        },
+        minValue: {
+            detail: "값이 0일 경우에는 스택 바를 그릴 수 없기 때문에 최소 값을 설정합니다."
+        },
+        innerPadding: {
+            detail: "스택 바의 안쪽 여백을 정합니다."
+        }
+    },
+    stackcolumn: {
+        outerPadding: {
+            detail: "컬럼 바의 바깥쪽 여백을 정합니다."
+        },
+        active: {
+            detail: "해당 인덱스의 컬럼을 활성화시킵니다."
+        },
+        activeEvent: {
+            detail: "설정된 이벤트가 발생하면 해당 컬럼을 활성화시킵니다. (click, mouseover, ...)"
+        },
+        display: {
+            detail: "최소/최대 값의 스택 컬럼에 툴팁을 보여줍니다. (min, max)"
+        },
+        minValue: {
+            detail: "값이 0일 경우에는 스택 컬럼을 그릴 수 없기 때문에 최소 값을 설정합니다."
+        },
+        innerPadding: {
+            detail: "스택 컬럼의 안쪽 여백을 정합니다."
+        }
+    },
+    bargauge: {
+        cut: {
+            detail: "바 게이지의 간격을 정합니다."
+        },
+        size: {
+            detail: "바 게이지의 크기를 정합니다."
+        },
+        split: {
+            detail: "바 게이지의 퍼센트 값이 보여지게 합니다."
+        },
+        align: {
+            detail: "바 게이지의 시작점을 설정합니다. (left, right)"
+        },
+        title: {
+            detail: "바 게이지의 타이틀로 설정할 데이터 키를 설정합니다."
+        }
+    },
+    circlegauge: {
+        min: {
+            detail: "원의 최소 크기를 정합니다."
+        },
+        max: {
+            detail: "원의 최대 크기를 정합니다."
+        },
+        value: {
+            detail: "원 게이지의 값을 정합니다."
+        }
+    },
+    fillgauge: {
+        min: {
+            detail: "필 게이지의 최소 크기를 정합니다."
+        },
+        max: {
+            detail: "필 게이지의 최대 크기를 정합니다."
+        },
+        value: {
+            detail: "필 게이지의 값을 정합니다."
+        },
+        shape: {
+            detail: "필 게이지의 모양을 설정합니다. (circle, rectangle)"
+        },
+        direction: {
+            detail: "필 게이지가 채워지는 방향을 설정합니다. (vertical, horizontal)"
+        },
+        svg: {
+            detail: "해당 URL의 SVG 태그로 필 게이지의 모양을 설정합니다."
+        },
+        path: {
+            detail: "해당 패스 태그로 필 게이지의 모양을 설정합니다."
+        }
+    },
+    area: {
+        symbol: {
+            detail: "영역의 모양을 설정합니다. (normal, curve, step)"
+        },
+        active: {
+            detail: "해당 타겟의 영역을 활성화시킵니다."
+        },
+        activeEvent: {
+            detail: "설정된 이벤트가 발생하면 해당 영역을 활성화시킵니다. (click, mouseover, ...)"
+        },
+        display: {
+            detail: "최소/최대 값의 영역에 툴팁을 보여줍니다. (min, max)"
+        }
+    },
+    stackline: {
+        symbol: {
+            detail: "영역의 모양을 설정합니다. (normal, curve, step)"
+        },
+        active: {
+            detail: "해당 타겟의 라인을 활성화시킵니다."
+        },
+        activeEvent: {
+            detail: "설정된 이벤트가 발생하면 해당 라인을 활성화시킵니다. (click, mouseover, ...)"
+        },
+        display: {
+            detail: "최소/최대 값의 라인에 툴팁을 보여줍니다. (min, max)"
+        }
+    },
+    stackarea: {
+        symbol: {
+            detail: "영역의 모양을 설정합니다. (normal, curve, step)"
+        },
+        active: {
+            detail: "해당 타겟의 영역을 활성화시킵니다."
+        },
+        activeEvent: {
+            detail: "설정된 이벤트가 발생하면 해당 영역을 활성화시킵니다. (click, mouseover, ...)"
+        },
+        display: {
+            detail: "최소/최대 값의 영역에 툴팁을 보여줍니다. (min, max)"
+        }
+    },
+    stackscatter: {
+        symbol: {
+            detail: "영역의 모양을 설정합니다. (normal, curve, step)"
+        },
+        size: {
+            detail: "스카터의 크기를 정합니다."
+        },
+        display: {
+            detail: "최소/최대 값의 스카터만 보이게 설정합니다. (min, max)"
+        }
+    },
+    gauge: {
+        min: {
+            detail: "게이지의 최소 값을 정합니다."
+        },
+        max: {
+            detail: "게이지의 최대 값을 정합니다."
+        },
+        value: {
+            detail: "게이지의 값을 정합니다."
+        },
+        size: {
+            detail: "게이지 바의 크기를 정합니다."
+        },
+        startAngle: {
+            detail: "게이지의 시작 각도를 설정합니다."
+        },
+        endAngle: {
+            detail: "게이지의 끝 각도를 설정합니다."
+        },
+        arrow: {
+            detail: "게이지의 값을 가르키는 화살표 표시 여부를 정합니다."
+        },
+        unitText: {
+            detail: "게이지 하단의 텍스트를 설정합니다."
+        }
+    },
+    fullgauge: {
+        min: {
+            detail: "풀 게이지의 최소 값을 정합니다."
+        },
+        max: {
+            detail: "풀 게이지의 최대 값을 정합니다."
+        },
+        value: {
+            detail: "풀 게이지의 값을 정합니다."
+        },
+        size: {
+            detail: "풀 게이지 바의 크기를 정합니다."
+        },
+        startAngle: {
+            detail: "풀 게이지의 시작 각도를 설정합니다."
+        },
+        endAngle: {
+            detail: "풀 게이지의 끝 각도를 설정합니다."
+        },
+        text: {
+            detail: "값에 대한 텍스트 표시 여부를 정합니다."
+        },
+        unitText: {
+            detail: "풀 게이지 하단의 텍스트를 설정합니다."
+        }
+    },
+    stackgauge: {
+        min: {
+            detail: "스택 게이지의 최소 값을 정합니다."
+        },
+        max: {
+            detail: "스택 게이지의 최대 값을 정합니다."
+        },
+        cut: {
+            detail: "스택 게이지의 바 간격을 정합니다."
+        },
+        size: {
+            detail: "스택 게이지의 바 크기를 정합니다."
+        },
+        startAngle: {
+            detail: "스택 게이지의 시작 각도를 설정합니다."
+        },
+        endAngle: {
+            detail: "스택 게이지의 끝 각도를 설정합니다."
+        },
+        title: {
+            detail: "스택 게이지의 타이틀로 설정할 데이터 키를 설정합니다."
+        }
+    },
+    waterfall: {
+        line: {
+            detail: "워터폴의 컬럼 사이에 라인으로 연결합니다."
+        },
+        end: {
+            detail: "워터폴의 마지막 컬럼에 효과를 설정합니다."
+        },
+        outerPadding: {
+            detail: "워터폴의 바깥쪽 여백을 정합니다."
+        }
+    },
+    splitline: {
+        symbol: {
+            detail: "라인의 모양을 설정합니다. (normal, curve, step)"
+        },
+        split: {
+            detail: "해당 인덱스 값부터 라인의 스타일을 다르게 설정합니다."
+        }
+    },
+    splitarea: {
+        symbol: {
+            detail: "영역의 모양을 설정합니다. (normal, curve, step)"
+        },
+        split: {
+            detail: "해당 인덱스 값부터 영역의 스타일을 다르게 설정합니다."
+        }
+    },
+    rangecolumn: {
+        outerPadding: {
+            detail: "컬럼의 바깥쪽 여백을 정합니다."
+        },
+        innerPadding: {
+            detail: "컬럼의 안쪽 여백을 정합니다."
+        }
+    },
+    rangebar: {
+        outerPadding: {
+            detail: "바의 바깥쪽 여백을 정합니다."
+        },
+        innerPadding: {
+            detail: "바의 안쪽 여백을 정합니다."
+        }
+    },
+    pin: {
+        split: {
+            detail: "핀이 보여지는 위치(데이터 인덱스)를 설정합니다."
+        }
+    },
+    focus: {
+        start: {
+            detail: "포커스 시작 인덱스를 설정합니다."
+        },
+        end: {
+            detail: "포커스 끝 인덱스를 설정합니다."
+        }
+    },
+    pie: {
+        showText: {
+            detail: "파이의 데이터를 텍스트로 보이도록 설정합니다."
+        },
+        format: {
+            detail: "파이의 데이터 값의 포맷을 설정합니다."
+        },
+        "3d": {
+            detail: "파이를 3D 형태로 보이도록 설정합니다."
+        }
+    },
+    donut: {
+        showText: {
+            detail: "도넛의 데이터를 텍스트로 보이도록 설정합니다."
+        },
+        format: {
+            detail: "도넛의 데이터 값의 포맷을 설정합니다."
+        },
+        "3d": {
+            detail: "도넛을 3D 형태로 보이도록 설정합니다."
+        },
+        size: {
+            detail: "도넛의 크기를 설정합니다."
+        }
+    }
+};
+
+var widgetApi = {
+    tooltip: {
+        orient: {
+            detail: "툴팁이 보여지는 방향을 설정합니다. (top, bottom, left, right)"
+        },
+        all: {
+            detail: "로우 데이터의 모든 값을 보여줄지 정합니다."
+        },
+        brush: {
+            detail: "툴팁을 적용시킬 브러쉬의 인덱스를 설정합니다."
+        },
+        key: {
+            detail: "툴팁에 보여지는 값의 키를 설정합니다."
+        },
+        format: {
+            detail: "툴팁에 보여지는 값의 포맷을 설정합니다."
+        }
+    },
+    title: {
+        orient: {
+            detail: "타이틀이 보여지는 위치를 설정합니다. (top, bottom)"
+        },
+        align: {
+            detail: "타이틀 메시지를 정렬합니다. (center, start, end)"
+        },
+        text: {
+            detail: "타이틀 메시지를 설정합니다."
+        },
+        size: {
+            detail: "타이틀 메시지 크기를 설정합니다."
+        },
+        dx: {
+            detail: "차트가 그려진 위치에서 설정한 값만큼 x 좌표를 이동시킵니다."
+        },
+        dy: {
+            detail: "차트가 그려진 위치에서 설정한 값만큼 y 좌표를 이동시킵니다."
+        }
+    },
+    legend: {
+        orient: {
+            detail: "라벨이 보여지는 위치를 설정합니다. (top, bottom)"
+        },
+        align: {
+            detail: "라벨을 정렬합니다. (center, start, end)"
+        },
+        brush: {
+            detail: "라벨에 보여지는 값의 대상 브러쉬 인덱스를 설정합니다."
+        },
+        key: {
+            detail: "데이터의 키가 아닌 데이터의 특정 키 값을 라벨로 설정합니다."
+        },
+        filter: {
+            detail: "브러쉬에서 선택된 라벨만 보이도록 필터링합니다."
+        },
+        brushSync: {
+            detail: "필터 기능을 사용할 때, 모든 브러쉬를 동일하게 적용합니다."
+        }
+    },
+    cross: {
+        xFormat: {
+            detail: "툴팁에 보여지는 x축 값에 대한 포맷을 설정합니다."
+        },
+        yFormat: {
+            detail: "툴팁에 보여지는 y축 값에 대한 포맷을 설정합니다."
+        }
+    },
+    topologyctrl: {
+        move: {
+            detail: "토폴로지 맵의 보는 관점을 이동할 수 있도록 설정합니다."
+        },
+        zoom: {
+            detail: "토폴로지 맵을 줌인/줌아웃 할 수 있도록 설정합니다."
+        }
+    }
+};
+
+var gridApi = {
+    block: {
+        domain: {
+            detail: "축에 표시되는 값을 설정합니다."
+        },
+        max: {
+            detail: "축의 최대 값을 설정합니다."
+        },
+        reverse: {
+            detail: "축에 표시되는 값들을 반대로 보여지게 합니다."
+        },
+        full: {
+            detail: "기준 좌표를 전체 범위로 사용할지 정합니다."
+        }
+    },
+    date: {
+        domain: {
+            detail: "축에 표시되는 값을 설정합니다."
+        },
+        step: {
+            detail: "축에 표시되는 값의 간격을 설정합니다."
+        },
+        min: {
+            detail: "축의 최소 값을 설정합니다."
+        },
+        max: {
+            detail: "축의 최대 값을 설정합니다."
+        },
+        reverse: {
+            detail: "축에 표시되는 값들을 반대로 보여지게 합니다."
+        },
+        unit: {
+            detail: "축의 값을 해당 값의 배수로 보여지게 합니다."
+        },
+        key: {
+            detail: "해당 키의 값으로 실제 축의 값을 처리합니다."
+        },
+        realtime: {
+            detail: "리얼타임 그리드로 사용할지 정합니다."
+        }
+    },
+    dateblock: {
+        domain: {
+            detail: "축에 표시되는 값을 설정합니다."
+        },
+        step: {
+            detail: "축에 표시되는 값의 간격을 설정합니다."
+        },
+        min: {
+            detail: "축의 최소 값을 설정합니다."
+        },
+        max: {
+            detail: "축의 최대 값을 설정합니다."
+        },
+        reverse: {
+            detail: "축에 표시되는 값들을 반대로 보여지게 합니다."
+        }
+    },
+    radar: {
+        domain: {
+            detail: "축에 표시되는 값을 설정합니다."
+        },
+        step: {
+            detail: "축에 표시되는 값의 간격을 설정합니다."
+        },
+        max: {
+            detail: "축의 최대 값을 설정합니다."
+        },
+        reverse: {
+            detail: "축에 표시되는 값들을 반대로 보여지게 합니다."
+        },
+        hideText: {
+            detail: "그리드 전체에 표시되는 텍스트의 표시 여부를 정합니다."
+        },
+        extra: {
+            detail: "그리드 시작점에 어느 정도의 공백을 두고 공백만큼 라인을 표시합니다."
+        },
+        shape: {
+            detail: "그리드의 모양을 설정합니다. (radial, circle)"
+        }
+    },
+    range: {
+        domain: {
+            detail: "축에 표시되는 값을 설정합니다."
+        },
+        step: {
+            detail: "축에 표시되는 값의 간격을 설정합니다."
+        },
+        min: {
+            detail: "축의 최소 값을 설정합니다."
+        },
+        max: {
+            detail: "축의 최대 값을 설정합니다."
+        },
+        reverse: {
+            detail: "축에 표시되는 값들을 반대로 보여지게 합니다."
+        },
+        unit: {
+            detail: "축의 값을 해당 값의 배수로 보여지게 합니다."
+        },
+        key: {
+            detail: "해당 키의 값으로 실제 축의 값을 처리합니다."
+        },
+        hideText: {
+            detail: "축에 표시되는 텍스트의 표시 여부를 정합니다."
+        },
+        nice: {
+            detail: "특정 구간의 값을 자동으로 설정합니다."
+        }
+    },
+    rule: {
+        domain: {
+            detail: "축에 표시되는 값을 설정합니다."
+        },
+        step: {
+            detail: "축에 표시되는 값의 간격을 설정합니다."
+        },
+        min: {
+            detail: "축의 최소 값을 설정합니다."
+        },
+        max: {
+            detail: "축의 최대 값을 설정합니다."
+        },
+        reverse: {
+            detail: "축에 표시되는 값들을 반대로 보여지게 합니다."
+        },
+        unit: {
+            detail: "축의 값을 해당 값의 배수로 보여지게 합니다."
+        },
+        key: {
+            detail: "해당 키의 값으로 실제 축의 값을 처리합니다."
+        },
+        hideZero: {
+            detail: "축에 표시되는 '0'을 표시 여부를 정합니다."
+        },
+        hideText: {
+            detail: "축에 표시되는 텍스트의 표시 여부를 정합니다."
+        },
+        nice: {
+            detail: "특정 구간의 값을 자동으로 설정합니다."
+        },
+        center: {
+            detail: "기준 축의 위치를 가운데로 설정합니다."
+        }
+    },
+    table: {
+        outerPadding: {
+            detail: "축의 바깥쪽 여백을 설정합니다."
+        },
+        column: {
+            detail: "해당 컬럼 인덱스 위치에 축을 그립니다."
+        },
+        row: {
+            detail: "해당 로우 인덱스 위치에 축을 그립니다."
+        }
+    }
+}
+</script>
+<meta name="title" content="JENNIFER UI: JavaScript/Chart/API" />
+<meta name="description" content="JENNIFER UI는 완전 무료입니다. 심플하며 빠르고 다양한 JUI는 올인원 데스크탑 UI 프레임워크입니다. 부트스트랩을 지원하고, 독립적으로 동작하는 스크립트와 스타일 컴포넌트 그리고 SVG 차트와 맵을 제공합니다." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui chart">
+
+<div class="page-header">
+	<h1>Chart</h1>
+</div>
+
+<ul id="chart_tab" class="tab tab-top">
+    <li><a href="#builder">Builder</a></li>
+    <li><a href="#axis">Axis</a></li>
+    <li><a href="#grid">Grid</a></li>
+    <li><a href="#brush">Brush</a></li>
+    <li><a href="#widget">Widget</a></li>
+</ul>
+
+<div id="chart_tab_contents" class="tab-contents">
+    <div id="builder"></div>
+    <div id="axis"></div>
+    <div id="grid"></div>
+    <div id="brush"></div>
+    <div id="widget"></div>
+</div>
+
+<div class="hidden">
+	<div id="chart"></div>
+</div>
+
+</body>
+</html>

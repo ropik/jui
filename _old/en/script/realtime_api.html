@@ -1,0 +1,116 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>JavaScript/Realtime/API</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" />
+	
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui/jui.js"></script>
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="api_core.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
+
+<script>
+var uiApi = {
+	prop: {
+		chart: {
+			detail: "Refers to the chart builder object."
+		}
+	},
+	method: {
+        update: {
+            param: "data",
+            ret: "none",
+            detail: "Renders with the new data."
+        },
+        clear: {
+            param: "none",
+            ret: "none",
+            detail: "Removes all charts drawn."
+        },
+        reset: {
+            param: "data",
+            ret: "none",
+            detail: "Removes all data and elements of a real-time chart."
+        },
+        append: {
+            param: "data",
+            ret: "none",
+            detail: "Adds a real-time data record (does not render separately)"
+        },
+        start: {
+            param: "none",
+            ret: "none",
+            detail: "Starts a real-time chart."
+        },
+        stop: {
+            param: "none",
+            ret: "none",
+            detail: "Stops a real-time chart."
+        }
+	},
+	opt: {
+		width: {
+			detail: "Determines the chart area."
+		},
+        height: {
+            detail: "Determines the chart height."
+        },
+        padding: {
+            detail: "Determines the chart margins."
+        },
+        theme: {
+            detail: "Determines the chart theme."
+        },
+        data: {
+            detail: "Sets the chart data."
+        },
+        series: {
+            detail: "Sets additional information for a specific data property."
+        },
+        grid: {
+            detail: "Sets a grid to be used in a chart."
+        },
+        brush: {
+            detail: "Determines a brush to be added to a chart."
+        },
+        widget: {
+            detail: "Determines a widget to be added to a chart."
+        },
+        style: {
+            detail: "Randomly changes the value of the theme currently set."
+        },
+        interval: {
+            detail: "Determines the updating interval of a real-time chart (unit: seconds)."
+        },
+        period: {
+            detail: "Displays real-time data from the present to a set value (unit: minutes)."
+        },
+        axis: {
+            detail: "Sets a grid group to be used in a chart."
+        }
+	}
+};
+</script>
+<meta name="title" content="JENNIFER UI: JavaScript/Realtime/API" />
+<meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart and map components." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Realtime</h1>
+</div>
+
+<div class="hidden">
+	<div id="realtime"></div>
+</div>
+
+</body>
+</html>

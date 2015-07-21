@@ -1,0 +1,523 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>JavaScript/XTable/API</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" />
+	
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="api_core.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
+
+<script>
+var uiApi = {
+	prop: {
+		uit: {
+			detail: "Instance of a class handling the table data"
+		},
+		bind: {
+			detail: "Instance of the jBinder, which is a data binding library"
+		}
+	},
+	method: {
+		update: {
+			param: "dataList | index, data",
+			ret: "none",
+			detail: "Updates the list of rows or modifies the rowat a specified index."
+		},
+		append: {
+			param: "data | index, data",
+			ret: "none",
+			detail: "Add a row or add a child row at a specified index."
+		},
+		insert: {
+			param: "index, data",
+			ret: "none",
+			detail: "Adds a row at a specified index."
+		},
+		select: {
+			param: "index",
+			ret: "UIRow",
+			detail: "Applies the selection effect to the row at a specified index and gets an instance of the specified row."
+		},
+		remove: {
+			param: "index",
+			ret: "none",
+			detail: "Remove a row at a specified index."
+		},
+		reset: {
+			param: "none",
+			ret: "none",
+			detail: "Removes all rows."
+		},
+		move: {
+			param: "index, targetRowIndex",
+			ret: "none",
+			detail: "Moves a row at a specified index to the target index."
+		},
+		sort: {
+			param: "columnIndex | columnName, order",
+			ret: "none",
+			detail: "Sorts on a specified column index (or column name)."
+		},
+		scroll: {
+			param: "height",
+			ret: "none",
+			detail: "Sets the scroll based on the height of a table."
+		},
+		size: {
+			param: "none",
+			ret: "none",
+			detail: "Gets the row size of a table."
+		},
+		count: {
+			param: "none",
+			ret: "none",
+			detail: "Gets the number of rows in a table."
+		},
+		list: {
+			param: "none",
+			ret: "array",
+			detail: "Gets all the rows of a table."
+		},
+		listAll: {
+			param: "none",
+			ret: "array",
+			detail: "Gets all the rows of a table including child rows."
+		},
+		listColumn: {
+			param: "none",
+			ret: "array",
+			detail: "Gets all columns."
+		},
+		listData: {
+			param: "none",
+			ret: "array",
+			detail: "Gets all data."
+		},
+		get: {
+			param: "index",
+			ret: "UIRow",
+			detail: "Gets a row at a specified index."
+		},
+		getAll: {
+			param: "index",
+			ret: "array",
+			detail: "Gets all teh rows at a specified index including child rows."
+		},
+		getColumn: {
+			param: "columnIndex | columnName",
+			ret: "UIColumn",
+			detail: "Gets the column at a specified index."
+		},
+		showColumn: {
+			param: "columnIndex | columnName",
+			ret: "none",
+			detail: "Shows the column index (or column name)."
+		},
+		hideColumn: {
+			param: "columnIndex | columnName",
+			ret: "none",
+			detail: "Hides the column index (or column name)."
+		},
+		initColumns: {
+			param: "columnIndexes | columnNames",
+			ret: "none",
+			detail: "It is possible to determine the index or name of the column to be shown in an array."
+		},
+        showColumnMenu: {
+            param: "x",
+            ret: "none",
+            detail: "Shows the Show/Hide Column menu at a specified coordinate."
+        },
+        hideColumnMenu: {
+            param: "none",
+            ret: "none",
+            detail: "Hides the Show/Hide Column menu."
+        },
+        toggleColumnMenu: {
+            param: "x",
+            ret: "none",
+            detail: "Shows or hides the Show/Hide Column menu."
+        },
+		showExpand: {
+			param: "index",
+			ret: "none",
+			detail: "Shows the extended row area of a specified index."
+		},
+		hideExpand: {
+			param: "index",
+			ret: "none",
+			detail: "Hides the extended row area of a specified index."
+		},
+		getExpand: {
+			param: "none",
+			ret: "none",
+			detail: "Get a row in which the extended area is currently activated."
+		},
+		setCsv: {
+			param: "csv or key, csv",
+			ret: "none",
+			detail: "Updates a table using a CVS string."
+		},
+		setCsvFile: {
+			param: "file or key, file",
+			ret: "none",
+			detail: "Updates a table using a CVS file."
+		},
+		getCsv: {
+			param: "isTree",
+			ret: "string",
+			detail: "Gets the data of a table as a CSV string."
+		},
+		getCsvBase64: {
+			param: "isTree",
+			ret: "base64",
+			detail: "Gets the data of a table as a CSV string encoded with as base64."
+		},
+        downloadCsv: {
+            param: "fileName",
+            ret: "none",
+            detail: "Downloads the data of a table as a CSV file."
+        },
+		next: {
+			param: "none",
+			ret: "none",
+			detail: "Changes to the next page."
+		},
+		page: {
+			param: "index",
+			ret: "none",
+			detail: "Changes to the page of at a specified index."
+		},
+		filter: {
+			param: "columnIndex, keyword, callback",
+			ret: "none",
+			detail: "Filters columns at a specified to locate rows that contain keywords in the cell value."
+		},
+        rollback: {
+            param: "none",
+            ret: "none",
+            detail: "Returns filtered rows to the original state."
+        },
+		rowFunc: {
+			param: "funcType, columnIndex, callback",
+			ret: "number",
+			detail: "Ir is possible to use a function for all row data applicable to the column (or column name) of a specified column (or column name). Currently only SUM and AVG are supported."
+		},
+		clear: {
+			param: "none",
+			ret: "none",
+			detail: "Deletes all rows in the table."
+		},
+		resize: {
+			param: "none",
+			ret: "none",
+			detail: "Resizes a column in a table."
+		},
+		height: {
+			param: "height",
+			ret: "none",
+			detail: "Sets the height of a table."
+		},
+		getData: {
+			param: "index",
+			ret: "data",
+			detail: "Gets the data at the specified index from among the whole entire data."
+		},
+		showLoading: {
+			param: "delay",
+			ret: "none",
+			detail: "Shows the loading screen for the specified delay time."
+		},
+		hideLoading: {
+			param: "none",
+			ret: "none",
+			detail: "Hides the loading screen."
+		},
+		getPage: {
+			param: "none",
+			ret: "none",
+			detail: "Gets the current page of a table."
+		},
+		activeIndex: {
+			param: "none",
+			ret: "int",
+			detail: "Gets teh index of a row that is activated in an extended/modified/selected state."
+		}
+	},
+	event: {
+		select: {
+			detail: "Event that occurs when a row is selected"
+		},
+		sort: {
+			detail: "Event that occurs when the table is sorted."
+		},
+		scroll: {
+			detail: "Event that occurs when the scroll of a table is located at the lowermost position."
+		},
+		rowmenu: {
+			detail: "Event that occurs when a row is right clicked."
+		},
+        colclick: {
+            detail: "Event that occurs when a column is clicked."
+        },
+        coldblclick: {
+            detail: "Event that occurs when a column is double clicked."
+        },
+		colmenu: {
+			detail: "Event that occurs when a column is right clicked. "
+		},
+		colshow: {
+			detail: "Event that occurs when Show Column is selected"
+		},
+		colhide: {
+			detail: "Event that occurs when Hide Column is selected."
+		},
+		colresize: {
+			detail: "Event that occurs when the column resizing is activated."
+		},
+		editcell: {
+			detail: "Event that occurs when a cell is in a modification state"
+		},
+		editrow: {
+			detail: "Event that occurs when a row is in a modification state"
+		},
+		expand: {
+			detail: "Event that occurs when the extended row area is enabled."
+		},
+		expandend: {
+			detail: "Event that occurs when the extended row area is disabled."
+		}
+	},
+	tpl: {
+		row: {
+			detail: "Row template markup of a table."
+		},
+		menu: {
+			detail: "Template markup of the Show/Hide Column menu."
+		},
+		expand: {
+			detail: "Template markup of extended row markup"
+		},
+		none: {
+			detail: "Template markup that is shown when there is no data."
+		}
+	},
+	opt: {
+		fields: {
+			detail: "Sets the name of columns in the order of being displayed on the table screen."
+		},
+		csv: {
+			detail: "Sets the column shown when converted to a CSV string."
+		},
+        csvNumber: {
+            detail: "Sets the column key to be changed to a number when it is converted into a CSV string."
+        },
+		csvNames: {
+			detail: "Sets the name of a column shown when converting to a CSV string, which must be defined in the same order as the CSV option."
+		},
+		csvCount: {
+			detail: "Sets the maximum number of rows when creating a CSV string."
+		},
+        data: {
+            detail: "Sets the initial row list of a table."
+        },
+        rows: {
+            detail: "Sets the initial row list of a table (@Deprecated)."
+        },
+		colshow: {
+			detail: "Sets a column index shown when the Show/Hide Column menu is enabled."
+		},
+		scroll: {
+			detail: "Determines whether to use a table scroll."
+		},
+		scrollHeight: {
+			detail: "Sets the reference height of a body area when using a table scroll."
+		},
+		scrollWidth: {
+			detail: "Sets the reference height of a body area when using the horizontal table scroll."
+		},
+		width: {
+			detail: "Sets the area of a table."
+		},
+		expand: {
+			detail: "Determines whether to use an extended row area."
+		},
+		expandEvent: {
+			detail: "Shows the extended area automatically when clicking on a row."
+		},
+		resize: {
+			detail: "Determines whether to use the column resizing function."
+		},
+
+		buffer: {
+			detail: "Sets the buffer type of a table."
+		},
+		bufferCount: {
+			detail: "Sets the number of rows per page."
+		},
+		sort: {
+			detail: "Determines whether to use the table sort function."
+		},
+		sortCache: {
+			detail: "Configures settings to ensure that the sort state can be maintained even when the table is updated."
+		},
+		sortLoading: {
+			detail: "Determines whether to show the loading screen when sorting a table."
+		},
+		sortIndex: {
+			detail: "Sets a column index to be automatically sorted when a table is updated."
+		},
+		sortOrder: {
+			detail: "Sets a column index to be automatically sorted when a table is updated."
+		},
+        sortEvent: {
+            detail: "Determines whether to use the sort function when you click on a column."
+        },
+		vo: {
+			detail: "Uses data binding on a table."
+		}
+	}
+};
+</script>
+<meta name="title" content="JENNIFER UI: JavaScript/XTable/API" />
+<meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart and map components." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Row</h1>
+</div>
+
+<section>
+	<h2>Properties</h2>
+	<p>
+		It is possible to directly refer to a row object and row.data in a row template.
+		
+		<table width="100%" class="table_s" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="120px">Name</td>
+				<td>Description</td>
+			</tr>	
+			<tr>
+				<td>type</td>
+				<td>State value that indicates whether a child row is shown or hidden.</td>
+			</tr>
+			<tr>
+				<td>data</td>
+				<td>Data of a specified row</td>
+			</tr>	
+			<tr>
+				<td>rownum</td>
+				<td>The unique number of a child row under the specified parent row if a parent row exists.</td>
+			</tr>	
+			<tr>
+				<td>index</td>
+				<td>Index of a specified row. In the case of a tree structure, a depth is given.</td>
+			</tr>	
+			<tr>
+				<td>element</td>
+				<td>TR element of a specified row</td>
+			</tr>	
+			<tr>
+				<td>list</td>
+				<td>List of TD elements of a specified row</td>
+			</tr>	
+			<tr>
+				<td>parent</td>
+				<td>Variable that refers to the parent row</td>
+			</tr>	
+			<tr>
+				<td>children</td>
+				<td>List of child rows.</td>
+			</tr>	
+			<tr>
+				<td>depth</td>
+				<td>The depth of the current row in the case of a tree structure</td>
+			</tr>	
+		</table>
+	</p>
+</section>
+
+<div class="page-header" style="margin-top: 100px;">
+	<h1>Column</h1>
+</div>
+
+<section>
+	<h2>Properties</h2>
+	<p>
+		<table width="100%" class="table_s" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="120px">Name</td>
+				<td>Description</td>
+			</tr>	
+			<tr>
+				<td>element</td>
+				<td>TH element of a specified column</td>
+			</tr>	
+			<tr>
+				<td>list</td>
+				<td>TD element of all rows belonging to a specified column</td>
+			</tr>	
+			<tr>
+				<td>order</td>
+				<td>Column sort state</td>
+			</tr>	
+			<tr>
+				<td>name</td>
+				<td>Column name</td>
+			</tr>	
+			<tr>
+				<td>data</td>
+				<td>Data from all rows for a specified column</td>
+			</tr>	
+			<tr>
+				<td>index</td>
+				<td>Column index</td>
+			</tr>	
+			<tr>
+				<td>type</td>
+				<td>The current column state (Show/Hide/Resize)</td>
+			</tr>	
+		</table>
+	</p>
+</section>
+
+<div class="page-header" style="margin-top: 100px;">
+	<h1>X-Table</h1>
+</div>
+
+<div class="hidden">
+	<div id="xtable" class="xtable">
+		<table class="table table-simple table-headline">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Location</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+	</div>
+	
+	<script data-jui="#xtable" data-tpl="row" type="text/template">
+		<tr>
+			<td><!= name !></td>
+			<td><!= age !></td>
+			<td><!= location !></td>
+		</tr>
+	</script>
+</div>
+
+</body>
+</html>

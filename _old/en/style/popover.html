@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>CSS/Popover</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" />
+
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+<style>
+    .popover i {
+        font-size: 16px;
+    }
+    .popover {
+        width: 350px;
+    }
+    .example {
+        position: relative;
+        height: 230px;
+        margin-top: 20px;
+    }
+</style>
+<meta name="title" content="JENNIFER UI: CSS/Popover" />
+<meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart and map components." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Popover</h1>
+</div>
+
+<section>
+	<h2>Default</h2>
+
+	<p>
+        Popover is comprised of two colors and anchors on the left/right side and at the top/bottom.
+    </p>
+    <div class="example">
+        <div class="popover popover-top">
+            <div class="head">Title</div>
+            <div class="body">
+                <div class="image"><i class="icon-caution"></i></div>
+                <div class="message">Message Message Message Message Message Message Message</div>
+            </div>
+        </div>
+
+        <div class="popover popover-bottom popover-black" style="right: 0px;">
+            <div class="head">Title</div>
+            <div class="body">
+                <div class="image"><i class="icon-caution"></i></div>
+                <div class="message">Message Message Message Message Message Message Message</div>
+            </div>
+        </div>
+
+        <div class="popover popover-left" style="top: 125px;">
+            <div class="head">Title</div>
+            <div class="body">
+                <div class="image"><i class="icon-caution"></i></div>
+                <div class="message">Message Message Message Message Message Message Message</div>
+            </div>
+        </div>
+
+        <div class="popover popover-right popover-black" style="top: 125px; right: 0px;">
+            <div class="head">Title</div>
+            <div class="body">
+                <div class="image"><i class="icon-caution"></i></div>
+                <div class="message">Message Message Message Message Message Message Message</div>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+    <p class="br">
+        The <strong>image</strong> class tag can be used as options where necessary.
+
+<pre><code class="language-markup">&lt;div class="popover popover-top">
+    &lt;div class="head">Title&lt;/div>
+    &lt;div class="body">
+        &lt;div class="image">&lt;i class="icon-caution">&lt;/i>&lt;/div>
+        &lt;div class="message">Message Message Message Message Message Message Message&lt;/div>
+    &lt;/div>
+&lt;/div></code></pre>
+    </p>
+</section>
+
+</body>
+</html>

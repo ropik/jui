@@ -53,29 +53,28 @@ var menuInfo = {
         msg: "Fundamental HTML Elements styled and enhanced with extensible classes.",
         menu: {
             common: "style/common",
-            typography: "style/typography",
-            form: "style/form",
-            icon: "style/icon",
-            button: "style/button",
-            group: "style/group",
-            vgroup: "style/vgroup",
-            vmenu: "style/vmenu",
-            dropdown: "style/dropdown",
-            navbar: "style/navbar",
-            table: "style/table",
-            tab: "style/tab",
-            window: "style/window",
-            msgbox: "style/msgbox",
-            grid: "style/grid",
-            tree: "style/tree",
-            paging: "style/paging",
-            panel: "style/panel",
-            bargraph: "style/bargraph",
-            datepicker: "style/datepicker",
-            notify: "style/notify",
-            tooltip: "style/tooltip",
-            popover: "style/popover",
-            accordion: "style/accordion"
+            typography: "#typography",
+            form: "#forms",
+            icon: "#icons",
+            button: "#buttons",
+            vmenu: "#vmenu",
+            dropdown: "#dropdown",
+            navbar: "#navbar",
+            table: "#tables",
+            tab: "#tabs",
+            window: "#window",
+            msgbox: "#msgbox",
+            grid: "#grid",
+            tree: "#tree",
+            paging: "#paging",
+            panel: "#panel",
+            bargraph: "#bargraph",
+            datepicker: "#datepicker",
+            calendar: "#calendar",
+            notify: "#notify",
+            tooltip: "#tooltip",
+            popover: "#popover",
+            accordion: "#accordion"
         }
     },
     chart: {
@@ -207,7 +206,9 @@ function initSubMenuUrl(hash) {
 		if (hash[0] == "chart") {
 			loadPage(src);
 		} else {
-			if(hash[0] == "script" && src.indexOf("script/common") == -1) {
+			if( (hash[0] == "script" && src.indexOf("script/common") == -1) ||
+				(hash[0] == "style" && src.indexOf("style/common") == -1) ) {
+
 				var popup = window.open("../res/uiplay/index.html" + src, "jui.uiplay");
 				popup.focus();
 			} else {

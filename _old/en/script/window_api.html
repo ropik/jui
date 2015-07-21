@@ -1,0 +1,142 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>JavaScript/Window/API</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" />
+
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="api_core.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
+
+<script>
+var uiApi = {
+	prop: {
+		type: {
+			detail: "State value that indicates whether the window is shown or hidden"
+		}
+	},
+	method: {
+		show: {
+			param: "x, y",
+			ret: "none",
+			detail: "Shows a window at specified coordinates."
+		},
+		move: {
+			param: "x, y",
+			ret: "none",
+			detail: "Moves a window at specified coordinates."
+		},
+		hide: {
+			param: "none",
+			ret: "none",
+			detail: "Hides a window."
+		},
+		update: {
+			param: "html",
+			ret: "none",
+			detail: "Changes the markup in the body area of a window."
+		},
+		setTitle: {
+			param: "text",
+			ret: "none",
+			detail: "Changes the markup of the title tag in the head area of a window."
+		},
+		setSize: {
+			param: "width, height",
+			ret: "none",
+			detail: "Changes the horizontal/vertical size of a window."
+		},
+		resize: {
+			param: "none",
+			ret: "none",
+			detail: "Designates a scroll area if there is a lot of content in the window body area."
+		},
+        resizeModal: {
+            param: "none",
+            ret: "none",
+            detail: "Re-adjust the location of a modal window."
+        }
+	},
+	event: {
+		show: {
+			detail: "Event that occurs when a window is shown"
+		},
+		hide: {
+			detail: "Event that occurs when a window is hidden"
+		},
+		resize: {
+			detail: "Event that occurs when a window is resized"
+		},
+		move: {
+			detail: "Event that occurs when a window is moved"
+		}
+	},
+	tpl: {},
+	opt: {
+		width: {
+			detail: "Determines the horizontal size of a window."
+		},
+		height: {
+			detail: "Determines the height of a window."
+		},
+		left: {
+			detail: "Determines the X coordinate of a window."
+		},
+		top: {
+			detail: "Determines the Y coordinate of a window."
+		},
+		right: {
+			detail: "Determines the X coordinate based on the right side of a window."
+		},
+		bottom: {
+			detail: "Determines the Y coordinate based on the bottom side of a window."
+		},
+		modal: {
+			detail: "Applies a modal UI to a window."
+		},
+		modalIndex: {
+			detail: "Determines the z-index property of a modal UI."
+		},
+		move: {
+			detail: "It is possible to move a window."
+		},
+		resize: {
+			detail: "It is possible to resize a window."
+		}
+	}
+};
+</script>
+<meta name="title" content="JENNIFER UI: JavaScript/Window/API" />
+<meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart and map components." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Window</h1>
+</div>
+
+<div class="hidden">
+	<div id="window" class="window">
+		<div class="head">
+			<div class="left">HOME</div>
+			<div class="right">
+				<a href="javascript:alert('plus');"><i class="icon-plus icon-white"></i></a> <a href="javascript:alert('search');"><i class="icon-search icon-white"></i></a> <a href="#" class='close'><i class='icon-exit icon-white'></i></a>
+			</div>
+	    </div>
+		<div class="body">
+			Contents...<br/>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

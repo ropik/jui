@@ -1,0 +1,186 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>CSS/BarGraph</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" />
+	
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+<meta name="title" content="JENNIFER UI: CSS/BarGraph" />
+<meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart and map components." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Bar Graph</h1>
+</div>
+
+<section>
+	<h2>Default</h2>
+	<p>
+		Bar Graph is a style implemented by inheriting from a group and is an ordinary bar graph.
+		
+		<div class="bargraph" style="width: 100%;">
+			<div style="width: 30%">
+				<div class="title">Front</div>
+				<div class="info">
+					<div class="line">&nbsp;</div>
+					<div class="data">3.0</div>
+				</div>
+			</div>
+			<div class="active" style="width: 30%">
+				<div class="title">Network</div>
+				<div class="info">
+					<div class="line">&nbsp;</div>
+					<div class="data">3.0</div>
+				</div>
+			</div>
+			<div style="width: 20%">
+				<div class="title">DNS</div>
+				<div class="info">
+					<div class="line">&nbsp;</div>
+					<div class="data">2.0</div>
+				</div>
+			</div>
+			<div style="width: 20%">
+				<div class="title">Server</div>
+				<div class="info">
+					<div class="line">&nbsp;</div>
+					<div class="data">2.0</div>
+				</div>
+			</div>
+		</div>
+	</p>
+	<p class="br">
+		A graph is comprised of <strong>title</strong>, <strong>line</strong> and <strong>data</strong>.
+		
+<pre><code class="language-markup">&lt;div class=&quot;bargraph&quot; style=&quot;width: 100%;&quot;&gt;
+	&lt;div style=&quot;width: 30%&quot;&gt;
+		&lt;div class=&quot;title&quot;&gt;Front&lt;/div&gt;
+		&lt;div class=&quot;info&quot;&gt;;
+			&lt;div class=&quot;line&quot;&gt;&nbsp;&lt;/div&gt;
+			&lt;div class=&quot;data&quot;&gt;3.0&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;active&quot; style=&quot;width: 30%&quot;&gt;
+		&lt;div class=&quot;title&quot;&gt;Network&lt;/div&gt;
+		&lt;div class=&quot;info&quot;&gt;;
+			&lt;div class=&quot;line&quot;&gt;&nbsp;&lt;/div&gt;
+			&lt;div class=&quot;data&quot;&gt;3.0&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div style=&quot;width: 20%&quot;&gt;
+		&lt;div class=&quot;title&quot;&gt;DNS&lt;/div&gt;
+		&lt;div class=&quot;info&quot;&gt;;
+			&lt;div class=&quot;line&quot;&gt;&nbsp;&lt;/div&gt;
+			&lt;div class=&quot;data&quot;&gt;2.0&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div style=&quot;width: 20%&quot;&gt;
+		&lt;div class=&quot;title&quot;&gt;Server&lt;/div&gt;
+		&lt;div class=&quot;info&quot;&gt;;
+			&lt;div class=&quot;line&quot;&gt;&nbsp;&lt;/div&gt;
+			&lt;div class=&quot;data&quot;&gt;2.0&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Size</h2>
+	<p>
+		Bar Graph provides the <strong>bargraph-small</strong> option in a smaller size.
+	
+		<div class="bargraph bargraph-small" style="width: 100%;">
+			<div style="width: 30%">
+				<div class="title">Front</div>
+				<div class="info">
+					<div class="line">&nbsp;</div>
+					<div class="data">3.0</div>
+				</div>
+			</div>
+			<div class="active" style="width: 30%">
+				<div class="title">Network</div>
+				<div class="info">
+					<div class="line">&nbsp;</div>
+					<div class="data">3.0</div>
+				</div>
+			</div>
+			<div style="width: 20%">
+				<div class="title">DNS</div>
+				<div class="info">
+					<div class="line">&nbsp;</div>
+					<div class="data">2.0</div>
+				</div>
+			</div>
+			<div style="width: 20%">
+				<div class="title">Server</div>
+				<div class="info">
+					<div class="line">&nbsp;</div>
+					<div class="data">2.0</div>
+				</div>
+			</div>
+		</div>
+	</p>
+	
+	<p class="br">
+<pre><code class="language-markup">&lt;div class=&quot;bargraph bargraph-small&quot; style=&quot;width: 100%;&quot;&gt;
+	...
+&lt;/div&gt;</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Color</h2>
+	<p>
+		Bar Graph provides an option to configure the colors of the bars separately (purple, blue, yellow).
+		
+		<div class="bargraph bargraph-small" style="width: 100%;">
+			<div class="purple" style="width: 33%">
+				<div class="title">Front</div>
+				<div class="info">
+					<div class="line">&nbsp;</div>
+					<div class="data">3.3</div>
+				</div>
+			</div>
+			<div class="blue" style="width: 33%">
+				<div class="title">Network</div>
+				<div class="info">
+					<div class="line">&nbsp;</div>
+					<div class="data">3.3</div>
+				</div>
+			</div>
+			<div class="yellow active" style="width: 34%">
+				<div class="title">Server</div>
+				<div class="info">
+					<div class="line">&nbsp;</div>
+					<div class="data">3.4</div>
+				</div>
+			</div>
+		</div>
+	</p>
+	
+	<p class="br">
+<pre><code class="language-markup">&lt;div class=&quot;bargraph bargraph-small&quot; style=&quot;width: 100%;&quot;&gt;
+	&lt;div class=&quot;purple&quot; style=&quot;width: 33%&quot;&gt;
+		...
+	&lt;/div&gt;
+	&lt;div class=&quot;blue&quot; style=&quot;width: 33%&quot;&gt;
+		...
+	&lt;/div&gt;
+	&lt;div class=&quot;yellow active&quot; style=&quot;width: 34%&quot;&gt;
+		...
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+	</p>
+</section>
+
+</body>
+</html>

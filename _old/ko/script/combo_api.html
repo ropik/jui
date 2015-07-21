@@ -1,0 +1,128 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>JavaScript/Combo/API</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" />
+
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="api_core.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
+
+<script>
+var uiApi = {
+	method: {
+		setIndex: {
+			param: "index",
+			ret: "none",
+			detail: "해당 인덱스의 버튼을 선택합니다."
+		},
+		setValue: {
+			param: "value",
+			ret: "none",
+			detail: "해당 값을 가지는 버튼을 선택합니다."
+		},
+		getData: {
+			param: "none",
+			ret: "object",
+			detail: "현재 선택된 버튼의 데이터를 가져옵니다."
+		},
+		getValue: {
+			param: "none",
+			ret: "string",
+			detail: "현재 선택된 버튼의 값을 가져옵니다."
+		},
+		getText: {
+			param: "none",
+			ret: "string",
+			detail: "현재 선택된 버튼의 마크업 텍스트를 가져옵니다."
+		},
+		reload: {
+			param: "none",
+			ret: "none",
+			detail: "콤보박스를 다시 정의합니다."
+		},
+		open: {
+			param: "none",
+			ret: "none",
+			detail: "콤보박스의 요소 목록을 보입니다."
+		},
+		fold: {
+			param: "none",
+			ret: "none",
+			detail: "콤보박스의 요소 목록을 숨깁니다."
+		}
+	},
+	opt: {
+		index: {
+			detail: "초기 선택 버튼을 해당 인덱스로 정합니다."
+		}, 
+		value: {
+			detail: "초기 선택 버튼을 해당 값으로 정합니다."
+		},
+		width: {
+			detail: "콤보박스의 가로 크기를 정합니다."
+		},
+		height: {
+			detail: "초기 선택 버튼을 해당 값으로 정합니다."
+		},
+		scroll: {
+			detail: "초기 선택 버튼을 해당 값으로 정합니다."
+		},
+        keydown: {
+            detail: "키보드로 노드를 선택할 수 있습니다."
+        },
+		position: {
+			detail: "초기 선택 버튼을 해당 값으로 정할 수 있습니다."
+		}
+	},
+	event: {
+		change: {
+			detail: "콤보박스를 선택하면 발생되는 이벤트입니다."
+		}
+	},
+	tpl: {
+	},
+	prop: {
+		type: {
+			detail: "콤보박스가 열렸는지 닫혔는지에 대한 상태 값입니다."
+		}
+	}
+};
+</script>
+<meta name="title" content="JENNIFER UI: JavaScript/Combo/API" />
+<meta name="description" content="JENNIFER UI는 완전 무료입니다. 심플하며 빠르고 다양한 JUI는 올인원 데스크탑 UI 프레임워크입니다. 부트스트랩을 지원하고, 독립적으로 동작하는 스크립트와 스타일 컴포넌트 그리고 SVG 차트와 맵을 제공합니다." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Combo</h1>
+</div>
+
+<div class="hidden">
+	<div id="combo" class="combo combo-black">
+		<a class="btn btn-black btn-small">Select...</a>
+		<ul>
+			<li><a href="#" value="menu1">New</a></li>
+			<li><a href="#" value="menu2">Open</a></li>
+			<li><a href="#" value="menu3">Save</a></li>
+			<li><a href="#" value="menu4">Close</a></li>
+			<li><a href="#" value="menu5">Restart</a></li>
+			<li class="divider"></li>
+			<li><a href="#" value="menu6">Print</a></li>
+			<li class="divider"></li>
+			<li><a href="#" value="menu7">Exit</a></li>
+		</ul>
+		<a class="btn btn-black btn-small btn-toggle"><i class="icon-arrow2 icon-white"></i></a>
+	</div>
+</div>
+
+</body>
+</html>

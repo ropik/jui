@@ -1,0 +1,105 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>JavaScript/Paging/API</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" />
+	
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="api_core.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
+
+<script>
+var uiApi = {
+	prop: {},
+	method: {
+		reload: {
+			param: "count | none",
+			ret: "none",
+			detail: "Reloads the number of specified data records, or reloads the initially configured number of data records if there is no parameter."
+		},
+		page: {
+			param: "pNo | none",
+			ret: "none",
+			detail: "Changes to a specified page number, and gets the currently enabled page number if there is no parameter."
+		},
+		next: {
+			param: "none",
+			ret: "none",
+			detail: "Changes to the next page."
+		},
+		prev: {
+			param: "none",
+			ret: "none",
+			detail: "Changes to the previous page."
+		},
+		first: {
+			param: "none",
+			ret: "none",
+			detail: "Changes to the first page."
+		},
+		last: {
+			param: "none",
+			ret: "none",
+			detail: "Changes to the last page."
+		}
+	},
+	event: {
+		page: {
+			detail: "Event that occurs when the page is changed"
+		},
+		reload: {
+			detail: "Event that occurs when the paging is reloaded"
+		}
+	},
+	tpl: {
+		pages: {
+			detail: "Template for page configuration"
+		}
+	},
+	opt: {
+		count: {
+			detail: "Total number of data records subject to paging)"
+		},
+		pageCount: {
+			detail: "Number of data records per page"
+		},
+		screenCount: {
+			detail: "Number of pages shown on the paging screen"
+		}
+	}
+};
+</script>
+<meta name="title" content="JENNIFER UI: JavaScript/Paging/API" />
+<meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart and map components." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Paging</h1>
+</div>
+
+<div class="hidden">
+	<div id="paging" class="paging" style="width: 100%; margin-top: 3px;">
+		<a href="#" class="prev">Previous</a>
+		<div class="list"></div>
+		<a href="#" class="next">Next</a>
+	</div>
+	
+	<script data-jui="#paging" data-tpl="pages" type="text/template">
+		<! for(var i = 0; i < pages.length; i++) { !>
+			<a href="#" class="page"><!= pages[i] !></a>
+		<! } !>
+	</script>
+</div>
+
+</body>
+</html>

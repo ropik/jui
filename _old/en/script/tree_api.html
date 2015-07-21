@@ -1,0 +1,224 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>JavaScript/Tree/API</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" />
+	
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="api_core.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
+
+<script>
+var uiApi = {
+	prop: {
+		uit: {
+			detail: "Instance of a class handling tree data"
+		}
+	},
+	method: {
+		update: {
+			param: "index, data",
+			ret: "none",
+			detail: "Changes to the node at a specified index."
+		},
+		append: {
+			param: "data | index, data",
+			ret: "none",
+			detail: "Adds to a child node at a specified index."
+		},
+		insert: {
+			param: "index, data",
+			ret: "none",
+			detail: "Adds a node at a specified index."
+		},
+		select: {
+			param: "index",
+			ret: "UINode",
+			detail: "Applies the selection effect to the node at a specified index and returns the specified node."
+		},
+		unselect: {
+			param: "none",
+			ret: "UINode",
+			detail: "Removes the 'active' class from a selected node and gets an instance of the specifiednode."
+		},
+		remove: {
+			param: "index",
+			ret: "none",
+			detail: "Deletes a node at a specified index."
+		},
+		reset: {
+			param: "none",
+			ret: "none",
+			detail: "Deletes all child nodes except for a root."
+		},
+		move: {
+			param: "index, targetIndex",
+			ret: "none",
+			detail: "Moves a node at a specified index to the target index."
+		},
+		list: {
+			param: "none",
+			ret: "array",
+			detail: "Returns the node at a specified index."
+		},
+		listAll: {
+			param: "none",
+			ret: "array",
+			detail: "Returns all child nodes at a specified index."
+		},
+		listParents: {
+			param: "index",
+			ret: "array",
+			detail: "Returns all parent nodes at a specified index."
+		},
+		get: {
+			param: "index",
+			ret: "UINode",
+			detail: "Gets a node at a specified index."
+		},
+		getAll: {
+			param: "index",
+			ret: "array",
+			detail: "Gets all nodes at a specified index including child nodes."
+		},
+		open: {
+			param: "index",
+			ret: "none",
+			detail: "Shows a child node at a specified index."
+		},
+		openAll: {
+			param: "index",
+			ret: "none",
+			detail: "Shows all child nodes at a specified index."
+		},
+		fold: {
+			param: "index",
+			ret: "none",
+			detail: "Folds up a child node at a specified index."
+		},
+		foldAll: {
+			param: "index",
+			ret: "none",
+			detail: "Folds up all child nodes at a specified index."
+		}
+	},
+	event: {
+		select: {
+			detail: "Event that occurs when a node is selected"
+		},
+		open: {
+			detail: "Event that occurs when a node is shown"
+		},
+		fold: {
+			detail: "Event that occurs when a node is hidden"
+		},
+		dragstart: {
+			detail: "Event that occurs when a node starts to move",
+		},
+		dragend: {
+			detail: "Event that occurs when the movement of a node is completed",
+		}
+	},
+	tpl: {
+		node: {
+			detail: "Template markup of a node"
+		}
+	},
+	opt: {
+		root: {
+			detail: "Adds a root node (required)."
+		},
+		rootHide: {
+			detail: "Hides a root node."
+		},
+		rootFold: {
+			detail: "Folds up a root node."
+		},
+		drag: {
+			detail: "It is possible to drag the movement of a node."
+		},
+		dragChild: {
+			detail: "It is possible to drag the node movement but the node is not changed to a child node of the target node."
+		}
+	}
+};
+</script>
+<meta name="title" content="JENNIFER UI: JavaScript/Tree/API" />
+<meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart and map components." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Node</h1>
+</div>
+
+<section>
+	<h2>Properties</h2>
+	<p>
+		<table width="100%" class="table_s" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="120px">Name</td>
+				<td>Description</td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>State value that indicates whether a child node is shown or hidden.</td>
+			</tr>		
+			<tr>
+				<td>data</td>
+				<td>Data of a specifiednode</td>
+			</tr>	
+			<tr>
+				<td>element</td>
+				<td>LI element of a specified node</td>
+			</tr>	
+			<tr>
+				<td>index</td>
+				<td>Index of a specified node</td>
+			</tr>	
+			<tr>
+				<td>nodenum</td>
+				<td>Unique number of a specifiede node at the current depth.</td>
+			</tr>	
+			<tr>
+				<td>parent</td>
+				<td>Variable that refers to the parent of the current node</td>
+			</tr>	
+			<tr>
+				<td>children</td>
+				<td>List of child nodes of a specified node</td>
+			</tr>	
+			<tr>
+				<td>depth</td>
+				<td>Depth of a specified node</td>
+			</tr>	
+		</table>
+	</p>
+</section>
+
+<div class="page-header" style="margin-top: 100px;">
+	<h1>Tree</h1>
+</div>
+
+<div class="hidden">
+	<ul id="tree" class="tree tree-arrow"></ul>
+	
+	<script data-jui="#tree" data-tpl="node" type="text/template">
+		<li>
+			<div><i></i> <!= title !></div>
+			<ul></ul>
+		</li>
+	</script>
+</div>
+
+</body>
+</html>

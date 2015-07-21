@@ -1,0 +1,522 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>JavaScript/XTable/API</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" />
+	
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="api_core.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
+
+<script>
+var uiApi = {
+	prop: {
+		uit: {
+			detail: "테이블 데이터를 핸들링하는 클래스의 인스턴스입니다."
+		},
+		bind: {
+			detail: "데이터 바인딩 라이브러리인 jBinder의 인스턴스입니다."
+		}
+	},
+	method: {
+		update: {
+			param: "dataList | index, data",
+			ret: "none",
+			detail: "로우 목록을 갱신하거나 해당 인덱스의 로우를 수정합니다."
+		},
+		append: {
+			param: "data | index, data",
+			ret: "none",
+			detail: "로우를 추가하거나 해당 인덱스의 자식 로우로 추가합니다."
+		},
+		insert: {
+			param: "index, data",
+			ret: "none",
+			detail: "로우를 해당 인덱스에 추가합니다."
+		},
+		select: {
+			param: "index",
+			ret: "UIRow",
+			detail: "해당 인덱스의 로우에 선택 효과를 주고, 해당 로우 인스턴스를 가져옵니다."
+		},
+		remove: {
+			param: "index",
+			ret: "none",
+			detail: "해당 인덱스의 로우를 삭제합니다."
+		},
+		reset: {
+			param: "none",
+			ret: "none",
+			detail: "모든 로우를 삭제합니다."
+		},
+		move: {
+			param: "index, targetRowIndex",
+			ret: "none",
+			detail: "해당 인덱스의 로우를 타겟 인덱스로 이동시킵니다."
+		},
+		sort: {
+			param: "columnIndex | columnName, order",
+			ret: "none",
+			detail: "해당 컬럼 인덱스(or 컬럼 이름)를 기준으로 정렬합니다."
+		},
+		scroll: {
+			param: "height",
+			ret: "none",
+			detail: "테이블의 height 값의 높이를 기준으로 스크롤을 설정합니다."
+		},
+		size: {
+			param: "none",
+			ret: "none",
+			detail: "테이블의 전체 로우 크기를 가져옵니다."
+		},
+		count: {
+			param: "none",
+			ret: "none",
+			detail: "테이블의 전체 로우 개수를 가져옵니다."
+		},
+		list: {
+			param: "none",
+			ret: "array",
+			detail: "테이블의 전체 로우를 가져옵니다."
+		},
+		listAll: {
+			param: "none",
+			ret: "array",
+			detail: "자식 로우를 포함한 테이블의 전체 로우를 가져옵니다."
+		},
+		listColumn: {
+			param: "none",
+			ret: "array",
+			detail: "전체 컬럼을 가져옵니다."
+		},
+		listData: {
+			param: "none",
+			ret: "array",
+			detail: "전체 데이터를 가져옵니다."
+		},
+		get: {
+			param: "index",
+			ret: "UIRow",
+			detail: "해당 인덱스의 로우를 가져옵니다."
+		},
+		getAll: {
+			param: "index",
+			ret: "array",
+			detail: "해당 인덱스의 로우의 자식을 포함한 모든 로우를 가져옵니다."
+		},
+		getColumn: {
+			param: "columnIndex | columnName",
+			ret: "UIColumn",
+			detail: "해당 인덱스의 컬럼을 가져옵니다."
+		},
+		showColumn: {
+			param: "columnIndex | columnName",
+			ret: "none",
+			detail: "해당 컬럼 인덱스(or 컬럼 이름)을 보이게 합니다."
+		},
+		hideColumn: {
+			param: "columnIndex | columnName",
+			ret: "none",
+			detail: "해당 컬럼 인덱스(or 컬럼 이름)을 숨깁니다."
+		},
+		initColumns: {
+			param: "columnIndexes | columnNames",
+			ret: "none",
+			detail: "보여질 컬럼의 인덱스나 이름을 배열 형태로 정할 수 있습니다."
+		},
+        showColumnMenu: {
+            param: "x",
+            ret: "none",
+            detail: "컬럼 보이기/숨기기 메뉴를 해당 좌표에 보여줍니다."
+        },
+        hideColumnMenu: {
+            param: "none",
+            ret: "none",
+            detail: "컬럼 보이기/숨기기 메뉴를 숨깁니다."
+        },
+        toggleColumnMenu: {
+            param: "x",
+            ret: "none",
+            detail: "컬럼 보이기/숨기기 메뉴를 보여주거나 숨깁니다."
+        },
+		showExpand: {
+			param: "index",
+			ret: "none",
+			detail: "해당 인덱스의 로우 확장 영역을 보이게 합니다."
+		},
+		hideExpand: {
+			param: "index",
+			ret: "none",
+			detail: "해당 인덱스의 로우 확장 영역을 숨깁니다."
+		},
+		getExpand: {
+			param: "none",
+			ret: "none",
+			detail: "현재 확장 영역을 활성화하고 있는 로우를 가져옵니다."
+		},
+		setCsv: {
+			param: "csv or key, csv",
+			ret: "none",
+			detail: "CSV 문자열을 기반으로 테이블을 업데이트합니다."
+		},
+		setCsvFile: {
+			param: "file or key, file",
+			ret: "none",
+			detail: "CSV 파일을 기반으로 테이블을 업데이트합니다."
+		},
+		getCsv: {
+			param: "isTree",
+			ret: "string",
+			detail: "테이블의 데이터를 CSV 문자열로 가져옵니다."
+		},
+		getCsvBase64: {
+			param: "isTree",
+			ret: "base64",
+			detail: "테이블의 데이터를 Base64로 인코딩된 CSV 문자열을 가져옵니다."
+		},
+        downloadCsv: {
+            param: "fileName",
+            ret: "none",
+            detail: "테이블의 데이터를 CSV 파일로 다운로드합니다."
+        },
+		next: {
+			param: "none",
+			ret: "none",
+			detail: "다음 페이지로 변경합니다."
+		},
+		page: {
+			param: "index",
+			ret: "none",
+			detail: "해당 인덱스의 페이지로 변경합니다."
+		},
+		filter: {
+			param: "columnIndex, keyword, callback",
+			ret: "none",
+			detail: "해당 인덱스의 컬럼을 셀 값에 키워드가 포함된 로우들만 필터링합니다."
+		},
+        rollback: {
+            param: "none",
+            ret: "none",
+            detail: "필터링 된 로우들을 원래대로 되돌립니다."
+        },
+		rowFunc: {
+			param: "funcType, columnIndex, callback",
+			ret: "number",
+			detail: "해당 인덱스의 컬럼(or 컬럼 이름)에 해당하는 모든 로우 데이터에 대한 함수를 사용할 수 있습니다. (현재는 SUM과 AVG만 지원함)"
+		},
+		clear: {
+			param: "none",
+			ret: "none",
+			detail: "테이블의 모든 로우를 삭제합니다."
+		},
+		resize: {
+			param: "none",
+			ret: "none",
+			detail: "테이블의 컬럼 리사이징을 실행합니다."
+		},
+		height: {
+			param: "height",
+			ret: "none",
+			detail: "테이블의 높이를 설정합니다."
+		},
+		getData: {
+			param: "index",
+			ret: "data",
+			detail: "전체 데이터 중에서 해당 인덱스의 데이터를 가져옵니다."
+		},
+		showLoading: {
+			param: "delay",
+			ret: "none",
+			detail: "로딩 화면을 딜레이 시간만큼 보여줍니다."
+		},
+		hideLoading: {
+			param: "none",
+			ret: "none",
+			detail: "로딩 화면을 숨깁니다."
+		},
+		getPage: {
+			param: "none",
+			ret: "none",
+			detail: "테이블의 현재 페이지를 가져옵니다."
+		},
+		activeIndex: {
+			param: "none",
+			ret: "int",
+			detail: "활성화된 확장/수정/선택 상태의 로우 인덱스를 가져옵니다."
+		}
+	},
+	event: {
+		select: {
+			detail: "로우가 선택되었을 때, 발생하는 이벤트입니다."
+		},
+		sort: {
+			detail: "테이블이 정렬되었을 때, 발생하는 이벤트입니다."
+		},
+		scroll: {
+			detail: "테이블의 스크롤이 최하단으로 갔을 때, 발생하는 이벤트입니다."
+		},
+		rowmenu: {
+			detail: "로우에 마우스 우클릭 되었을 때, 발생하는 이벤트입니다."
+		},
+        colclick: {
+            detail: "컬럼에 마우스 클릭 되었을 때, 발생하는 이벤트입니다."
+        },
+        coldblclick: {
+            detail: "컬럼에 마우스 더블클릭 되었을 때, 발생하는 이벤트입니다."
+        },
+		colmenu: {
+			detail: "컬럼에 마우스 우클릭 되었을 때, 발생하는 이벤트입니다. "
+		},
+		colshow: {
+			detail: "컬럼 보이기 상태가 되었을 때, 발생하는 이벤트입니다."
+		},
+		colhide: {
+			detail: "컬럼 숨기기 상태가 되었을 때, 발생하는 이벤트입니다."
+		},
+		colresize: {
+			detail: "컬럼 리사이징 상태가 되었을 때, 발생하는 이벤트입니다."
+		},
+		editcell: {
+			detail: "셀 수정 상태가 되었을 때, 발생하는 이벤트입니다."
+		},
+		editrow: {
+			detail: "로우 수정 상태가 되었을 때, 발생하는 이벤트입니다."
+		},
+		expand: {
+			detail: "로우 확장 영역이 활성화 되었을 때, 발생하는 이벤트입니다."
+		},
+		expandend: {
+			detail: "로우 확장 영역이 비활성화 되었을 때, 발생하는 이벤트입니다."
+		}
+	},
+	tpl: {
+		row: {
+			detail: "테이블의 로우 템플릿 마크업입니다."
+		},
+		menu: {
+			detail: "컬럼 보이기/숨기기 메뉴의 템플릿 마크업입니다."
+		},
+		expand: {
+			detail: "로우 확장 영역의 템플릿 마크업입니다."
+		},
+		none: {
+			detail: "데이터가 없을 경우에 보여지는 템플릿 마크업입니다."
+		}
+	},
+	opt: {
+		fields: {
+			detail: "테이블 화면에 보이는 순서대로 컬럼 이름을 설정합니다."
+		},
+		csv: {
+			detail: "CSV 문자열로 변환시에 보여지는 컬럼을 설정합니다."
+		},
+        csvNumber: {
+            detail: "CSV 문자열로 변환시에 숫자 타입으로 변경할 컬럼 키를 설정합니다."
+        },
+		csvNames: {
+			detail: "CSV 문자열로 변환시에 보여지는 컬럼 이름을 설정하며, csv 옵션과 동일한 순서로 정의해야 합니다."
+		},
+		csvCount: {
+			detail: "CSV 문자열을 생성할 때, 최대 로우 개수를 설정합니다."
+		},
+        data: {
+            detail: "테이블의 초기 로우 목록을 설정합니다."
+        },
+        rows: {
+            detail: "테이블의 초기 로우 목록을 설정합니다. (@Deprecated)"
+        },
+		colshow: {
+			detail: "컬럼 보이기/숨기기 메뉴가 활성화 되었을 경우, 보이는 컬럼 인덱스를 설정합니다."
+		},
+		scroll: {
+			detail: "테이블 스크롤 사용 유무를 설정합니다."
+		},
+		scrollHeight: {
+			detail: "테이블 스크롤 사용 시에 바디 영역의 기준 높이를 설정합니다."
+		},
+		scrollWidth: {
+			detail: "테이블 가로 스크롤 사용 시에 테이블 영역의 기준 넓이를 설정합니다."
+		},
+		width: {
+			detail: "테이블 넓이를 설정합니다."
+		},
+		expand: {
+			detail: "로우 확장 영역의 사용 유무를 설정합니다."
+		},
+		expandEvent: {
+			detail: "로우 클릭시 자동으로 확장 영역을 보이게 하는 설정입니다."
+		},
+		resize: {
+			detail: "컬럼 리사이징 기능의 사용 유무를 설정합니다."
+		},
+
+		buffer: {
+			detail: "테이블의 버퍼 타입을 설정합니다."
+		},
+		bufferCount: {
+			detail: "페이지당 로우 개수를 설정합니다."
+		},
+		sort: {
+			detail: "테이블 정렬 기능의 사용 유무를 설정합니다."
+		},
+		sortCache: {
+			detail: "테이블이 업데이트 되어도 정렬 상태를 유지할 수 있도록 설정합니다."
+		},
+		sortLoading: {
+			detail: "테이블이 정렬할 때, 로딩 화면을 보여줄지 설정합니다."
+		},
+		sortIndex: {
+			detail: "테이블이 갱신될 때, 자동으로 정렬할 컬럼 인덱스를 설정합니다."
+		},
+		sortOrder: {
+			detail: "테이블이 갱신될 때, 자동으로 정렬할 컬럼 인덱스를 설정합니다."
+		},
+        sortEvent: {
+            detail: "컬럼 클릭시 정렬 기능 사용 유무를 설정합니다."
+        },
+		vo: {
+			detail: "테이블에 데이터 바인딩을 사용합니다."
+		}
+	}
+};
+</script>
+<meta name="title" content="JENNIFER UI: JavaScript/XTable/API" />
+<meta name="description" content="JENNIFER UI는 완전 무료입니다. 심플하며 빠르고 다양한 JUI는 올인원 데스크탑 UI 프레임워크입니다. 부트스트랩을 지원하고, 독립적으로 동작하는 스크립트와 스타일 컴포넌트 그리고 SVG 차트와 맵을 제공합니다." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Row</h1>
+</div>
+
+<section>
+	<h2>Properties</h2>
+	<p>
+		참고로 <strong>row</strong> 템플릿 안에서 <strong>row</strong> 객체와 <strong>row.data</strong>를 직접 참조할 수 있습니다.
+		
+		<table width="100%" class="table_s" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="120px">Name</td>
+				<td>Description</td>
+			</tr>	
+			<tr>
+				<td>type</td>
+				<td>자식 로우가 보여지는지 숨겨져 있는지에 대한 상태 값입니다.</td>
+			</tr>
+			<tr>
+				<td>data</td>
+				<td>해당 로우의 데이터입니다.</td>
+			</tr>	
+			<tr>
+				<td>rownum</td>
+				<td>부모 로우가 있을 경우, 해당 부모 로우의 자식 노드 고유 번호입니다.</td>
+			</tr>	
+			<tr>
+				<td>index</td>
+				<td>해당 로우의 인덱스입니다. 트리 구조일 경우, 깊이가 존재합니다.</td>
+			</tr>	
+			<tr>
+				<td>element</td>
+				<td>해당 로우의 TR 엘리먼트입니다.</td>
+			</tr>	
+			<tr>
+				<td>list</td>
+				<td>해당 로우의 TD 엘리먼트 목록입니다.</td>
+			</tr>	
+			<tr>
+				<td>parent</td>
+				<td>부모 로우를 참조하는 변수입니다.</td>
+			</tr>	
+			<tr>
+				<td>children</td>
+				<td>자식 로우 목록입니다.</td>
+			</tr>	
+			<tr>
+				<td>depth</td>
+				<td>트리 구조일 경우, 현재 로우의 깊이입니다.</td>
+			</tr>	
+		</table>
+	</p>
+</section>
+
+<div class="page-header" style="margin-top: 100px;">
+	<h1>Column</h1>
+</div>
+
+<section>
+	<h2>Properties</h2>
+	<p>
+		<table width="100%" class="table_s" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="120px">Name</td>
+				<td>Description</td>
+			</tr>	
+			<tr>
+				<td>element</td>
+				<td>해당 컬럼의 TH 엘리먼트입니다.</td>
+			</tr>	
+			<tr>
+				<td>list</td>
+				<td>해당 컬럼에 속한 모든 로우의 TD 엘리먼트입니다.</td>
+			</tr>	
+			<tr>
+				<td>order</td>
+				<td>컬럼 정렬 상태입니다.</td>
+			</tr>	
+			<tr>
+				<td>name</td>
+				<td>컬럼 이름입니다.</td>
+			</tr>	
+			<tr>
+				<td>data</td>
+				<td>해당 컬럼에 속한 모든 로우의 데이터입니다.</td>
+			</tr>	
+			<tr>
+				<td>index</td>
+				<td>컬럼 인덱스입니다.</td>
+			</tr>	
+			<tr>
+				<td>type</td>
+				<td>현재 컬럼의 상태입니다. (보이기/숨기기/리사이즈)</td>
+			</tr>	
+		</table>
+	</p>
+</section>
+
+<div class="page-header" style="margin-top: 100px;">
+	<h1>X-Table</h1>
+</div>
+
+<div class="hidden">
+	<div id="xtable" class="xtable">
+		<table class="table table-simple table-headline">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Location</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+	</div>
+	
+	<script data-jui="#xtable" data-tpl="row" type="text/template">
+		<tr>
+			<td><!= name !></td>
+			<td><!= age !></td>
+			<td><!= location !></td>
+		</tr>
+	</script>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>CSS/Form</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" />
+	
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+<meta name="title" content="JENNIFER UI: CSS/Form" />
+<meta name="description" content="JENNIFER UI는 완전 무료입니다. 심플하며 빠르고 다양한 JUI는 올인원 데스크탑 UI 프레임워크입니다. 부트스트랩을 지원하고, 독립적으로 동작하는 스크립트와 스타일 컴포넌트 그리고 SVG 차트와 맵을 제공합니다." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Form</h1>
+</div>
+
+<section>
+	<h2>Label</h2>
+	<p>
+		라벨은 6가지의 색상과 4가지의 크기, 라운드 효과를 직각으로 바꿀 수 있는 옵션을 제공합니다.
+		
+		<table class="table_s" width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="170px">View</td>
+				<td width="230px">Class</td>
+				<td>Description</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="label label-mini"><i class="icon-gear"></i> Label</span>
+				</td>
+				<td>
+					label label-mini
+				</td>
+				<td>회색 텍스트박스 (Mini)</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="label label-small label-black"><i class="icon-gear icon-white"></i> Label</span>
+				</td>
+				<td>
+					label label-small label-black
+				</td>
+				<td>흑색 텍스트박스 (Small)</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="label label-blue"><i class="icon-gear icon-white"></i> Label</span>
+				</td>
+				<td>
+					label label-blue
+				</td>
+				<td>청색 텍스트박스 (Normal)</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="label label-large label-red"><i class="icon-gear icon-white icon-large"></i> Label</span>
+				</td>
+				<td>
+					label label-large label-red
+				</td>
+				<td>적색 텍스트박스 (Large)</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="label label-mini label-green">Label</span>
+				</td>
+				<td>
+					label label-mini label-green
+				</td>
+				<td>녹색 텍스트박스 (Mini)</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="label label-purple label-rect">Label</span>
+				</td>
+				<td>
+					label label-purple label-rect
+				</td>
+				<td>보라색 직각 텍스트박스 (Normal)</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="label label-orange label-rect">Label</span>
+				</td>
+				<td>
+					label label-orange label-rect
+				</td>
+				<td>주황색 직각 텍스트박스 (Normal)</td>
+			</tr>
+		</table>
+	</p>
+</section>
+
+<section>
+	<h2>Input</h2>
+	<p>
+		입력박스는 2가지의 색상과 4가지의 크기, 라운드 효과를 직각으로 바꿀 수 있는 옵션을 제공합니다.
+		
+		<table class="table_s" width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="170px">View</td>
+				<td width="230px">Class</td>
+				<td>Description</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" class="input input-mini input-rect" />
+				</td>
+				<td>
+					input input-mini input-rect
+				</td>
+				<td>백색 텍스트박스 (Mini)</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" class="input input-mini input-black" />
+				</td>
+				<td>
+					input input-mini input-black
+				</td>
+				<td>흑색 텍스트박스 (Mini)</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" class="input input-small input-rect" />
+				</td>
+				<td>
+					input input-small input-rect
+				</td>
+				<td>백색 텍스트박스 (Small)</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" class="input input-small input-black" />
+				</td>
+				<td>
+					input input-small input-black
+				</td>
+				<td>흑색 텍스트박스 (Small)</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" class="input input-rect" />
+				</td>
+				<td>
+					input input-rect
+				</td>
+				<td>백색 텍스트박스 (Default)</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" class="input input-black" />
+				</td>
+				<td>
+					input input-black
+				</td>
+				<td>흑색 텍스트박스 (Default)</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" class="input input-large input-rect" />
+				</td>
+				<td>
+					input input-large input-rect
+				</td>
+				<td>백색 텍스트박스 (Large)</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" class="input input-large input-black" />
+				</td>
+				<td>
+					input input-large input-black
+				</td>
+				<td>흑색 텍스트박스 (Large)</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" class="input input-rect" disabled />
+				</td>
+				<td>
+					input input-rect disabled
+				</td>
+				<td>백색 텍스트박스 (Disabled)</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" class="input input-black" disabled />
+				</td>
+				<td>
+					input input-black disabled
+				</td>
+				<td>흑색 텍스트박스 (Disabled)</td>
+			</tr>
+		</table>
+	</p>
+</section>
+	
+<section>
+	<h2>Number / Email</h2>
+	<p>
+		HTML5 기반의 폼이며, 색상과 크기는 텍스트박스랑 동일합니다.
+		
+		<table class="table_s" width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="175px">View</td>
+				<td width="120px">Type</td>
+				<td width="140px">Class</td>
+				<td>Description</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="number" class="input input-rect" />
+				</td>
+				<td>
+					number
+				</td>
+				<td>
+					input input-rect
+				</td>
+				<td>백색 넘버박스</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="number" class="input input-black" />
+				</td>
+				<td>
+					number
+				</td>
+				<td>
+					input input-black
+				</td>
+				<td>흑색 넘버박스</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="email" class="input input-rect" placeholder="jui@jennifer.com" />
+				</td>
+				<td>
+					email
+				</td>
+				<td>
+					input input-rect
+				</td>
+				<td>백색 이메일박스</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="email" class="input input-black" placeholder="jui@jennifer.com" />
+				</td>
+				<td>
+					email
+				</td>
+				<td>
+					input input-black
+				</td>
+				<td>흑색 이메일박스</td>
+			</tr>
+		</table>
+	</p>
+</section>
+
+<section>
+    <h2>Textarea</h2>
+    <p>
+        텍스트필드와 동일하며 크기에 대한 옵션은 지원하지 않습니다.
+
+    <table class="table_s" width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="175px">View</td>
+            <td width="120px">Tag</td>
+            <td width="140px">Class</td>
+            <td>Description</td>
+        </tr>
+        <tr>
+            <td>
+                <textarea class="input input-rect" style="height: 50px;"></textarea>
+            </td>
+            <td>
+                textarea
+            </td>
+            <td>
+                input input-rect
+            </td>
+            <td>백색 텍스트영역</td>
+        </tr>
+        <tr>
+            <td>
+                <textarea class="input input-black" style="height: 50px;"></textarea>
+            </td>
+            <td>
+                textarea
+            </td>
+            <td>
+                input input-black
+            </td>
+            <td>흑색 텍스트영역</td>
+        </tr>
+        <tr>
+            <td>
+                <textarea class="input" style="height: 50px;"></textarea>
+            </td>
+            <td>
+                textarea
+            </td>
+            <td>
+                input
+            </td>
+            <td>백색 텍스트영역</td>
+        </tr>
+        <tr>
+            <td>
+                <textarea class="input input-black" style="height: 50px;" disabled></textarea>
+            </td>
+            <td>
+                textarea
+            </td>
+            <td>
+                input input-black
+            </td>
+            <td>흑색 텍스트영역 (Disabled)</td>
+        </tr>
+    </table>
+    </p>
+</section>
+
+</body>
+</html>

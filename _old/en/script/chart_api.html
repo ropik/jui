@@ -1,0 +1,1085 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>Javascript/Chart/API</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" />
+	
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jquery.binder.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<link rel="stylesheet" href="../../res/manual.css" />
+<script src="api_core.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.api.js"></script>
+
+<script>
+var uiApi = {
+	prop: {
+		svg: {
+			detail: "Refers to an SVG utility object."
+		},
+        clipId: {
+            detail: "Gets an ID in the clip area of a chart."
+        },
+        defs: {
+            detail: "Gets the 'defs' element added to a chart."
+        }
+	},
+	method: {
+        area: {
+            param: "type | none",
+            ret: "int",
+            detail: "Gets a calculated value for a chart area (type: width, height, x, y, x2, y2))."
+        },
+        bindUI: {
+            param: "uiObject",
+            ret: "none",
+            detail: "Binds data used in a uix.table or the uix.xtable."
+        },
+        text: {
+            param: "attributes, text | callback",
+            ret: "object",
+            detail: "Creates a text element to which a theme is applied."
+        },
+        theme: {
+            param: "key | isSelected, value1, value2",
+            ret: "int | string",
+            detail: "Gets a value for the theme element applied to the current chart."
+        },
+        color: {
+            param: "index, colors",
+            ret: "string",
+            detail: "Gets a color defined in the theme or the color set."
+        },
+        padding: {
+            param: "type | none",
+            ret: "int",
+            detail: "Gets the top, bottom, left and right margin values."
+        },
+        get: {
+            param: "type, name | none",
+            ret: "array | object",
+            detail: "Gets a named axis, brush, widget or series (type: axis, brush, widget, series, padding, area)"
+        },
+        axis: {
+            param: "index | none",
+            ret: "array | object",
+            detail: "Gets the axis object of that index."
+        },
+        icon: {
+            param: "alias",
+            ret: "string",
+            detail: "Gets the unicode string of the icon."
+        },
+        scale: {
+            param: "scale",
+            ret: "string",
+            detail: "Change the scale of the chart."
+        },
+        view: {
+            param: "x, y",
+            ret: "int",
+            detail: "Change the view of the chart."
+        },
+        createId: {
+            param: "key",
+            ret: "string",
+            detail: "Gets a unique key to be used in a chart."
+        },
+        render: {
+            param: "none",
+            ret: "none",
+            detail: "Renders all draw objects."
+        },
+        update: {
+            param: "data",
+            ret: "none",
+            detail: "Renders based on the new data."
+        },
+        page: {
+            param: "page | none",
+            ret: "none | object",
+            detail: "Renders based on the data on the page in question."
+        },
+        next: {
+            param: "none",
+            ret: "none",
+            detail: "Renders following data using the shifti value set."
+        },
+        prev: {
+            param: "none",
+            ret: "none",
+            detail: "Renders preceding data using the shift value set."
+        },
+        zoom: {
+            param: "start, end | none",
+            ret: "none | object",
+            detail: "Renders the data again within the range of an applicable index."
+        },
+        setSize: {
+            param: "width, height",
+            ret: "none",
+            detail: "Changes the size of a chart to the specified area and height then performs rendering."
+        },
+        appendDefs: {
+            param: "element",
+            ret: "none",
+            detail: "Add the child element in defs tag."
+        },
+        addBrush: {
+            param: "brush",
+            ret: "none",
+            detail: "Adds a brush and performs rendering again."
+        },
+        removeBrush: {
+            param: "brushIndex",
+            ret: "none",
+            detail: "Deletes the brush of a specified index and performs rendering again."
+        },
+        updateBrush: {
+            param: "brushIndex, brush",
+            ret: "none",
+            detail: "Updates the brush of a specified index and performs rendering again."
+        },
+        addWidget: {
+            param: "widget",
+            ret: "none",
+            detail: "Adds a widget and performs rendering again."
+        },
+        removeWidget: {
+            param: "widgetIndex",
+            ret: "none",
+            detail: "Deletes the widget of a specified index and performs rendering again."
+        },
+        updateWidget: {
+            param: "widgetIndex, widget",
+            ret: "none",
+            detail: "Updates the widget of a specified index and performs rendering again"
+        },
+        addAxis: {
+            param: "axis",
+            ret: "none",
+            detail: "Adds a grid group and performs rendering again."
+        },
+        removeAxis: {
+            param: "axisIndex",
+            ret: "none",
+            detail: "Deletes the grid group of a specified index and performs rendering again."
+        },
+        updateAxis: {
+            param: "axisIndex, axis",
+            ret: "none",
+            detail: "Updates the grid group of a specified index and performs rendering again."
+        },
+        setTheme: {
+            param: "themeName | themeObject",
+            ret: "none",
+            detail: "Changes a chart to a specified theme and renders the chart again."
+        },
+        setCsv: {
+            param: "csv",
+            ret: "none",
+            detail: "Updates a chart using a CVS string."
+        },
+        setCsvFile: {
+            param: "file",
+            ret: "none",
+            detail: "Updates a chart using a CVS file."
+        },
+        format: {
+            param: "value",
+            ret: "value",
+            detail: "Returns a value from the format callback function of a defined option."
+        },
+        isRender: {
+            param: "none",
+            ret: "boolean",
+            detail: "Returns the values of rendering options and, if the rendering option is false, does not render the chart again when a method is called."
+        },
+        isFullSize: {
+            param: "none",
+            ret: "boolean",
+            detail: "Returns true if the horizontal or vertical size of the chart is 100%."
+        }
+	},
+	event: {
+        click: {
+            detail: "Event that occurs when clicking on the brush."
+        },
+        dblclick: {
+            detail: "Event that occurs when double clicking on the brush."
+        },
+        rclick: {
+            detail: "Event that occurs when right clicking on the brush."
+        },
+        mouseover: {
+            detail: "Event that occurs when placing the mouse over the brush."
+        },
+        mouseout: {
+            detail: "Event that occurs when moving the mouse out of the brush."
+        },
+        mousemove: {
+            detail: "Event that occurs when moving the mouse over the brush."
+        },
+        mousedown: {
+            detail: "Event that occurs when left clicking on the brush."
+        },
+        mouseup: {
+            detail: "Event that occurs after left clicking on the brush."
+        },
+        "chart.click": {
+            detail: "Event that occurs when clicking on the chart area."
+        },
+        "chart.dblclick": {
+            detail: "Event that occurs when double clicking on the chart area."
+        },
+        "chart.rclick": {
+            detail: "Event that occurs when right clicking on the chart area."
+        },
+        "chart.mouseover": {
+            detail: "Event that occurs when placing the mouse over the chart area."
+        },
+        "chart.mouseout": {
+            detail: "Event that occurs when placing the mouse over the chart area."
+        },
+        "chart.mousemove": {
+            detail: "Event that occurs when moving the mouse over the chart area."
+        },
+        "chart.mousedown": {
+            detail: "Event that occurs when left clicking on the chart are.a"
+        },
+        "chart.mouseup": {
+            detail: "Event that occurs after left clicking on the chart area."
+        },
+        "bg.click": {
+            detail: "Event that occurs when clicking on the chart area."
+        },
+        "bg.dblclick": {
+            detail: "Event that occurs when clicking on a chart margin."
+        },
+        "bg.rclick": {
+            detail: "Event that occurs when right clicking on a chart margin."
+        },
+        "bg.mouseover": {
+            detail: "Event that occurs when placing the mouse over a chart margin."
+        },
+        "bg.mouseout": {
+            detail: "Event that occurs when moving the mouse out of a chart margin."
+        },
+        "bg.mousemove": {
+            detail: "Event that occurs when moving the mouse over a chart margin."
+        },
+        "bg.mousedown": {
+            detail: "Event that occurs when left clicking on a chart margin."
+        },
+        "bg.mouseup": {
+            detail: "Event that occurs after left clicking on a chart margin."
+        },
+        "legend.filter": {
+            detail: "Event that occurs when the filter function of the legend widget is activated."
+        },
+        "topology.nodeclick": {
+            detail: "Event that occurs when click on the topology node."
+        },
+        "topology.edgeclick": {
+            detail: "Event that occurs when click on the topology edge."
+        }
+    },
+	tpl: {
+        tooltip: {
+            detail: ""
+        }
+    },
+	opt: {
+		width: {
+			detail: "Determines the chart area."
+		},
+        height: {
+            detail: "Determines the chart height."
+        },
+        padding: {
+            detail: "Determines the chart margins."
+        },
+        theme: {
+            detail: "Determines the chart theme."
+        },
+        data: {
+            detail: "Sets the chart data."
+        },
+        series: {
+            detail: "Sets additional information for a specific data property."
+        },
+        grid: {
+            detail: "Sets a grid to be used in a chart."
+        },
+        axis: {
+            detail: "Sets a grid group to be used in a chart."
+        },
+        axisIndex: {
+            detail: "Sets the index of the grid group to be used by default in a chart."
+        },
+        brush: {
+            detail: "Determines a brush to be added to a chart."
+        },
+        widget: {
+            detail: "Determines a widget to be added to a chart."
+        },
+        bufferCount: {
+            detail: "Number of data to be shown on a single page."
+        },
+        shiftCount: {
+            detail: "Shift data count"
+        },
+        bind: {
+            detail: "Sets a component objects to be bound."
+        },
+        format: {
+            detail: "Sets a format callback function to be used in a grid/brush/widget."
+        },
+        style: {
+            detail: "Randomly changes the value of the theme currently set."
+        },
+        csv: {
+            detail: "Sets the column key shown when converted into a CSV string."
+        },
+        csvNumber: {
+            detail: "Changes the column keys from numbers  to a CSV string."
+        },
+        render: {
+            detail: "Does not render a chart when a rendering-related method is called with false (although the render method is not included)."
+        },
+        icon: {
+            detail: "Icon-related settings available in the chart."
+        }
+	}
+};
+
+var axisApi = {
+    prop: {
+        x: {
+            detail: "Sets a grid on the X axis (see the grid tab)."
+        },
+        y: {
+            detail: "Sets a grid on the Y axis (see the grid tab)."
+        },
+        c: {
+            detail: "Sets a custom grid (see the grid tab)."
+        },
+        data: {
+            detail: "Sets the row set data which constitute a chart."
+        },
+        buffer: {
+            detail: "Limits the number of elements shown on a chart."
+        },
+        shift: {
+            detail: "Data shift count for the 'prev' or 'next' method of the chart builder."
+        },
+        origin: {
+            detail: "[Fore read only] Original data initially set."
+        },
+        page: {
+            detail: "[For read only] Page number of the data currently drawn."
+        },
+        start: {
+            detail: "[For read only] Start index of the data currently drawn."
+        },
+        end: {
+            detail: "[For read only] End index of the data currently drawn."
+        }
+    }
+}
+
+var brushApi = {
+    bar: {
+        outerPadding: {
+            detail: "Determines the outer margin of a bar."
+        },
+        innerPadding: {
+            detail: "Determines the inner margin of a bar."
+        },
+        active: {
+            detail: "Activates the bar of an applicable index."
+        },
+        activeEvent: {
+            detail: "Activates the bar in question when a configured event occurs (click, mouseover, ...)."
+        },
+        display: {
+            detail: "Shows a tool tip on the bar for the minimum/maximum value."
+        },
+        minValue: {
+            detail: "Sets the minimum value as it is not possible to draw a bar when the value is 0."
+        }
+    },
+    column: {
+        outerPadding: {
+            detail: "Determines the outer margin of a column."
+        },
+        innerPadding: {
+            detail: "Determines the outer margin of a column."
+        },
+        active: {
+            detail: "Activates the column of a specified index."
+        },
+        activeEvent: {
+            detail: "Activates the specified column when a configured event occurs (click, mouseover, ...)."
+        },
+        display: {
+            detail: "Shows a tool tip on the column of the minimum/maximum value (min, max)."
+        },
+        minValue: {
+            detail: "Sets the minimum value as it is not possible to draw a column when the value is 0."
+        }
+    },
+    bubble: {
+        min: {
+            detail: "Determines the minimum size of a bubble."
+        },
+        max: {
+            detail: "Determines the maximum size of a bubble."
+        }
+    },
+    donut: {
+        size: {
+            detail: "Determines the size of a donut."
+        }
+    },
+    equalizer: {
+        outerPadding: {
+            detail: "Determines the outer margin of an equalizer."
+        },
+        innerPadding: {
+            detail: "Determines the inner margin of an equalizer."
+        },
+        unit: {
+            detail: "Determines  the reference value that represents the color."
+        },
+        gap: {
+            detail: "Determines the number of columns in an equalizer - expressed as a color."
+        }
+    },
+    fullstackbar: {
+        outerPadding: {
+            detail: " Determines the outer margin of a full stack bar."
+        },
+        active: {
+            detail: "Activates the full stack bar of a specified index."
+        },
+        activeEvent: {
+            detail: "Activates the applicable full stack bar when a configured event occurs (click, mouseover, ...)."
+        },
+        showText: {
+            detail: "Configures settings to let the percent text of a full stack bar revealed."
+        },
+        display: {
+            detail: "Shows a tool tip on the full stack bar of the minimum/maximum value (min, max)."
+        },
+        minValue: {
+            detail: "Sets the minimum value as it is not possible to draw a full stack bar when the value is 0."
+        },
+        innerPadding: {
+            detail: "Determines the inner margin of a full stack bar."
+        }
+    },
+    fullstackcolumn: {
+        outerPadding: {
+            detail: " Determines the outer margin of a full stack column."
+        },
+        active: {
+            detail: "Activates the full stack column of a specified index."
+        },
+        activeEvent: {
+            detail: "Activates the specified full stack column when a configured event occurs (click, mouseover, ...)."
+        },
+        showText: {
+            detail: "Configures the percentage of the text to be revealed."
+        },
+        display: {
+            detail: "Shows a tool tip on the full stack column of the minimum/maximum value (min, max)."
+        },
+        minValue: {
+            detail: "Sets the minimum value as it is not possible to draw a full stack column when the value is 0."
+        },
+        innerPadding: {
+            detail: "Determines the inner margin of a full stack column."
+        }
+    },
+    line: {
+        symbol: {
+            detail: "Sets the shape of a line (normal, curve, step)."
+        },
+        active: {
+            detail: "Activates the line of a specified target."
+        },
+        activeEvent: {
+            detail: "Activates the applicable line when a configured event occurs (click, mouseover, ...)."
+        },
+        display: {
+            detail: "Shows a tool tip on the line of the minimum/maximum value (min, max)."
+        }
+    },
+    scatter: {
+        symbol: {
+            detail: "Determines the shape of a (circle, rectangle, cross, triangle)."
+        },
+        size: {
+            detail: "Determines the size of a starter."
+        }
+    },
+    scatterpath: {
+        symbol: {
+            detail: "Determines the shape of a starter (circle, rectangle, cross, triangle)."
+        },
+        size: {
+            detail: "Determines the size of a starter."
+        },
+        strokeWidth: {
+            detail: "Set the line thickness of a starter."
+        }
+    },
+    stackbar: {
+        outerPadding: {
+            detail: "Determines the outer margin of a stack bar."
+        },
+        active: {
+            detail: "Activates the stack bar of an applicable index."
+        },
+        activeEvent: {
+            detail: "Activates the specified stack bar when a configured event occurs (click, mouseover, ...)."
+        },
+        display: {
+            detail: "Shows a tool tip on the stack bar of the minimum/maximum value (min, max)."
+        },
+        minValue: {
+            detail: "Sets the minimum value as it is not possible to draw a stack bar when the value is 0."
+        },
+        innerPadding: {
+            detail: "Determines the outer margin of a stack bar."
+        }
+    },
+    stackcolumn: {
+        outerPadding: {
+            detail: "Determines the outer margin of a column bar."
+        },
+        active: {
+            detail: "Activates the column of an applicable index."
+        },
+        activeEvent: {
+            detail: "Activates the specified column when a configured event occurs (click, mouseover, ...)."
+        },
+        display: {
+            detail: "Shows a tool tip on the stack column of the minimum/maximum value (min, max)."
+        },
+        minValue: {
+            detail: "Sets the minimum value as it is not possible to draw a stack column when the value is 0."
+        },
+        innerPadding: {
+            detail: "Determines the inner margin of a stack column."
+        }
+    },
+    bargauge: {
+        cut: {
+            detail: "Determines the spacing of a bar gauge."
+        },
+        size: {
+            detail: "Determines the size of a bar gauge."
+        },
+        split: {
+            detail: "Reveals the percentage value of a bar gauge."
+        },
+        align: {
+            detail: "Sets the start point of a bar gauge."
+        },
+        title: {
+            detail: "Sets a data key to be configured as the title of a bar gauge."
+        }
+    },
+    circlegauge: {
+        min: {
+            detail: "Determines the minimum size of a circle."
+        },
+        max: {
+            detail: "Determines the maximum size of a circle."
+        },
+        value: {
+            detail: "Determines the value of a circle gauge."
+        }
+    },
+    fillgauge: {
+        min: {
+            detail: "Determines the minimum size of a fill gauge."
+        },
+        max: {
+            detail: "Determines the maximum size of a fill gauge."
+        },
+        value: {
+            detail: "Determines the value of a fill gauge."
+        },
+        shape: {
+            detail: "Determines the shape of a fill gauge (circle, rectangle)."
+        },
+        direction: {
+            detail: "Determines the direction in which a fill gauge is to be filled (vertical, horizontal)."
+        },
+        svg: {
+            detail: "Sets the shape of a fill gauge with a specified URL as an SVG tag."
+        },
+        path: {
+            detail: "Sets the shape of a fill gauge with a specified pass tag."
+        }
+    },
+    area: {
+        symbol: {
+            detail: "Sets the shape of an area (normal, curve, step)."
+        },
+        active: {
+            detail: "Activates the area of a specified target."
+        },
+        activeEvent: {
+            detail: "Activates the specified area when a configured event occurs (click, mouseover, ...)."
+        },
+        display: {
+            detail: "Shows a tool tip in the area of the minimum/maximum value (min, max)."
+        }
+    },
+    stackline: {
+        symbol: {
+            detail: "Sets the shape of an area (normal, curve, step)."
+        },
+        active: {
+            detail: "Activates the line of a specified target."
+        },
+        activeEvent: {
+            detail: "Activates the specified line when a configured event occurs (click, mouseover, ...)."
+        },
+        display: {
+            detail: "Shows a tool tip on the line of the minimum/maximum value (min, max)."
+        }
+    },
+    stackarea: {
+        symbol: {
+            detail: "Sets the shape of an area (normal, curve, step)."
+        },
+        active: {
+            detail: "Activates the area of a specified target."
+        },
+        activeEvent: {
+            detail: "Activates the specified area when a configured event occurs (click, mouseover, ...)."
+        },
+        display: {
+            detail: "Shows a tool tip on the area of the minimum/maximum value (min, max)."
+        }
+    },
+    stackscatter: {
+        symbol: {
+            detail: "Sets the shape of an area (normal, curve, step)."
+        },
+        size: {
+            detail: "Determines the size of a starter."
+        },
+        display: {
+            detail: "Shows a tool tip on the area of the minimum/maximum value (min, max)."
+        }
+    },
+    gauge: {
+        min: {
+            detail: "Determines the minimum value of a gauge."
+        },
+        max: {
+            detail: "Determines the maximum value of a gauge."
+        },
+        value: {
+            detail: "Determines the value of a gauge."
+        },
+        size: {
+            detail: "Determines the size of a gauge."
+        },
+        startAngle: {
+            detail: "Determines the start angle of a gauge."
+        },
+        endAngle: {
+            detail: "Determines the end angle of a gauge."
+        },
+        arrow: {
+            detail: "Determines whether to show an arrow pointing at the value of a gauge."
+        },
+        unitText: {
+            detail: "Sets the text at the bottom of a gauge."
+        }
+    },
+    fullgauge: {
+        min: {
+            detail: "Determines the minimum value of a full gauge."
+        },
+        max: {
+            detail: "Determines the maximum value of a full gauge."
+        },
+        value: {
+            detail: "Determines the value of a full gauge."
+        },
+        size: {
+            detail: "Determines the size of a full gauge bar."
+        },
+        startAngle: {
+            detail: "Determines the start angle of a full gauge."
+        },
+        endAngle: {
+            detail: "Determines the start angle of a full gauge."
+        },
+        text: {
+            detail: "Determines whether to display a text for a value."
+        },
+        unitText: {
+            detail: "Sets the text at the bottom of a full gauge."
+        }
+    },
+    stackgauge: {
+        min: {
+            detail: "Determines the minimum value of a stack gauge."
+        },
+        max: {
+            detail: "Determines the maximum value of a stack gauge."
+        },
+        cut: {
+            detail: "Determines the bar spacing of a stack gauge."
+        },
+        size: {
+            detail: "Determines the bar size of a stack gauge."
+        },
+        startAngle: {
+            detail: "Determines the start angle of a stack gauge."
+        },
+        endAngle: {
+            detail: "Determines the end angle of a stack gauge."
+        },
+        title: {
+            detail: "Sets a data key to be configured as the title of a stack gauge."
+        }
+    },
+    waterfall: {
+        line: {
+            detail: "Connects with a line between columns of a waterfall."
+        },
+        end: {
+            detail: "Sets effects for the last column of a waterfall."
+        },
+        outerPadding: {
+            detail: "Determines the outer margin of a waterfall."
+        }
+    },
+    splitline: {
+        symbol: {
+            detail: "Sets the shape of a line (normal, curve, step)."
+        },
+        split: {
+            detail: "Sets the style of a line of a specified index value."
+        }
+    },
+    splitarea: {
+        symbol: {
+            detail: "Sets the shape of an area (normal, curve, step)."
+        },
+        split: {
+            detail: "Sets the style of an area of a specified index value."
+        }
+    },
+    rangecolumn: {
+        outerPadding: {
+            detail: "Determines the outer margin of a column."
+        },
+        innerPadding: {
+            detail: "Determines the inner margin of a column."
+        }
+    },
+    rangebar: {
+        outerPadding: {
+            detail: "Determines the outer margin of a bar."
+        },
+        innerPadding: {
+            detail: "Determines the inner margin of a bar."
+        }
+    },
+    pin: {
+        split: {
+            detail: "Determines a location where a pin is displayed (data index)."
+        }
+    },
+    focus: {
+        start: {
+            detail: "Sets a focus start index."
+        },
+        end: {
+            detail: "Sets a focus end index."
+        }
+    }
+};
+
+var widgetApi = {
+    tooltip: {
+        orient: {
+            detail: "Determines the side on which the tool tip is displayed (top, bottom, left, right)."
+        },
+        all: {
+            detail: "Determines whether to show all values of row data."
+        },
+        brush: {
+            detail: "Sets the index of a brush to which the tool tip is applied."
+        },
+        key: {
+            detail: "Sets the key for the value that is displayed on the tool tip."
+        },
+        format: {
+            detail: "Sets the format of the value that is displayed on the tool tip."
+        }
+    },
+    title: {
+        orient: {
+            detail: "Sets the location where the title is displayed (top, bottom)."
+        },
+        align: {
+            detail: "Aligns the title message (center, start, end)."
+        },
+        text: {
+            detail: "Sets the title message."
+        },
+        size: {
+            detail: "Sets the title message size."
+        },
+        dx: {
+            detail: "Moves the x coordinate by a set value from the location where the chart is drawn."
+        },
+        dy: {
+            detail: "Moves the y coordinate by a set value from the location where the chart is drawn."
+        }
+    },
+    legend: {
+        orient: {
+            detail: "Sets the location where the label is displayed (top, bottom)."
+        },
+        align: {
+            detail: "Aligns the label (center, start, end)."
+        },
+        brush: {
+            detail: "Sets the target brush index to the value shown in a label."
+        },
+        key: {
+            detail: "Sets a specific key value of the data, rather than the data key, using a label."
+        },
+        filter: {
+            detail: "Performs filtering so that only label(s) selected by the brush can be shown."
+        },
+        brushSync: {
+            detail: "Applies all brushes equally when using a filter function."
+        }
+    },
+    cross: {
+        xFormat: {
+            detail: "Sets the format for the value on the X axis shown on the tooltip."
+        },
+        yFormat: {
+            detail: "Sets the format for the value on the Y axis shown on the tooltip."
+        }
+    },
+    topologyctrl: {
+        move: {
+            detail: "Set to be moved to see the point of view of the topology map."
+        },
+        zoom: {
+            detail: "Set the zoom-in / zoom-out features of the topology map."
+        }
+    }
+};
+
+var gridApi = {
+    block: {
+        domain: {
+            detail: "Sets the value displayed on an axis."
+        },
+        max: {
+            detail: "Sets the maximum value of an axis."
+        },
+        reverse: {
+            detail: "Switches the value on the X axis with the value on the Y axis."
+        },
+        full: {
+            detail: "Determines whether to expand the reference coordinates to the entire range."
+        }
+    },
+    date: {
+        domain: {
+            detail: "Sets the value displayed on an axis."
+        },
+        step: {
+            detail: "Sets the interval of the scale displayed on an axis."
+        },
+        min: {
+            detail: "Sets the minimum value of an axis."
+        },
+        max: {
+            detail: "Sets the maximum value of an axis."
+        },
+        reverse: {
+            detail: "Switches the value on the X axis with the value on the Y axis."
+        },
+        unit: {
+            detail: "Multiplies the axis value to be displayed."
+        },
+        key: {
+            detail: "Sets the value on the axis to the value for the specified key."
+        },
+        realtime: {
+            detail: "Determines whether to use as a real-time grid."
+        }
+    },
+    dateblock: {
+        domain: {
+            detail: "Sets the value displayed on an axis."
+        },
+        step: {
+            detail: "Sets the interval of the scale displayed on an axis."
+        },
+        min: {
+            detail: "Sets the minimum value of an axis."
+        },
+        max: {
+            detail: "Sets the maximum value of an axis."
+        },
+        reverse: {
+            detail: "Switches the value on the X axis with the value on the Y axis."
+        }
+    },
+    radar: {
+        domain: {
+            detail: "Sets the value displayed on an axis."
+        },
+        step: {
+            detail: "Sets the interval of the scale displayed on an axis."
+        },
+        max: {
+            detail: "Sets the maximum value of an axis."
+        },
+        reverse: {
+            detail: "Switches the value on the X axis with the value on the Y axis."
+        },
+        hideText: {
+            detail: "Determines whether to show text across the grid."
+        },
+        extra: {
+            detail: "Leaves a certain spacing distance from the grid start point and displays a line where the spacing ends."
+        },
+        shape: {
+            detail: "Determines the shape of a grid (radial, circle)."
+        }
+    },
+    range: {
+        domain: {
+            detail: "Sets the value displayed on an axis."
+        },
+        step: {
+            detail: "Sets the interval of the scale displayed on an axis."
+        },
+        min: {
+            detail: "Sets the minimum value of an axis."
+        },
+        max: {
+            detail: "Sets the maximum value of an axis."
+        },
+        reverse: {
+            detail: "Switches the value on the X axis with the value on the Y axis."
+        },
+        unit: {
+            detail: "Multiplies the axis value to be displayed."
+        },
+        key: {
+            detail: "Sets the value on the axis to the value for the specified key."
+        },
+        hideText: {
+            detail: "Determines whether to show text on an axis."
+        },
+        nice: {
+            detail: "Automatically sets the value of a specific section."
+        }
+    },
+    rule: {
+        domain: {
+            detail: "Sets the value displayed on an axis."
+        },
+        step: {
+            detail: "Sets the interval of the scale displayed on an axis."
+        },
+        min: {
+            detail: "Sets the minimum value of an axis."
+        },
+        max: {
+            detail: "Sets the maximum value of an axis."
+        },
+        reverse: {
+            detail: "Switches the value on the X axis with the value on the Y axis."
+        },
+        unit: {
+            detail: "Multiplies the axis value to be displayed."
+        },
+        key: {
+            detail: "Sets the value on the axis to the value for the specified key."
+        },
+        hideZero: {
+            detail: "Determines whether to show '0' displayed on the axis."
+        },
+        hideText: {
+            detail: "Determines whether to show text displayed on an axis."
+        },
+        nice: {
+            detail: "Automatically sets the value of a specific section."
+        },
+        center: {
+            detail: "Place the reference axis in the middle."
+        }
+    },
+    table: {
+        outerPadding: {
+            detail: "Determines the outer margin of an axis."
+        },
+        column: {
+            detail: "Draws an axis at the index location of an applicable column."
+        },
+        row: {
+            detail: "Draws an axis at the index location of an applicable row."
+        }
+    }
+}
+</script>
+<meta name="title" content="JENNIFER UI: Javascript/Chart/API" />
+<meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart and map components." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui chart">
+
+<div class="page-header">
+	<h1>Chart</h1>
+</div>
+
+<ul id="chart_tab" class="tab tab-top">
+    <li><a href="#builder">Builder</a></li>
+    <li><a href="#axis">Axis</a></li>
+    <li><a href="#grid">Grid</a></li>
+    <li><a href="#brush">Brush</a></li>
+    <li><a href="#widget">Widget</a></li>
+</ul>
+
+<div id="chart_tab_contents" class="tab-contents">
+    <div id="builder"></div>
+    <div id="axis"></div>
+    <div id="grid"></div>
+    <div id="brush"></div>
+    <div id="widget"></div>
+</div>
+
+<div class="hidden">
+	<div id="chart"></div>
+</div>
+
+</body>
+</html>

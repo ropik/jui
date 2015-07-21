@@ -1,0 +1,110 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>JavaScript/Modal</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" />
+
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/jui/jui.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+<script src="../../res/doc/script.ui.js"></script>
+<meta name="title" content="JENNIFER UI: JavaScript/Modal" />
+<meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart and map components." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+
+<body class="jui">
+	
+<div class="page-header">
+	<h1>Modal</h1>
+	<p class="br">
+		Developed as a separate component so that the modal, which is used in UI components such as window or loading, can be used more universally.
+	</p>
+</div>
+
+<section>
+	<h2>Global</h2>
+	<p>
+		<a class="btn btn-gray btn-mini" href="javascript:modal_1.show();">Run</a> - Provides a global modal function located in the center of the screen.
+		
+<pre><code class="language-javascript">jui.ready([ &quot;ui.modal&quot; ], function(modal) {
+	modal_1 = modal(&quot;#modal_1&quot;, {
+		color: &quot;black&quot;
+	});
+});</code></pre>
+		
+		<div id="modal_1" class="msgbox" style="display: none;">
+			<div class="head">
+				Title
+		    </div>
+			<div class="body">
+				Contents...<br/>
+				
+				<div style="text-align: center; margin-top: 45px;">
+					<a href="#" class="btn btn-purple btn-small">Save</a> <a href="#" class="btn btn-gray btn-small">Close</a>
+				</div>
+			</div>
+		</div>
+	</p>
+</section>
+
+<section>
+	<h2>Inner</h2>
+	<p>
+		<a class="btn btn-gray btn-mini" href="javascript:modal_2.show()">Run</a> - Provides a function that enables the modal function to be used not only on the entire screen but in a specific tag internally.
+		
+		<table id="modal_2" class="table table-classic table-stripeless">
+			<thead>
+				<tr>
+					<th>No</th>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Location</th>
+				</tr>
+			</thead>
+			<tbody style="max-height: 200px; width: 700px;"><tr>
+				<td style="width: 164px;">0</td>
+				<td style="width: 164px;">Hong</td>
+				<td style="width: 164px;">20</td>
+				<td style="width: 153px;">Ilsan</td>
+			</tr><tr>
+				<td>1</td>
+				<td>Jung</td>
+				<td>30</td>
+				<td>Seoul</td>
+			</tr><tr>
+				<td>2</td>
+				<td>Park</td>
+				<td>15</td>
+				<td>Yeosu</td>
+			</tbody>
+		</table> 
+
+		<div id="modal_2_msg" style="display: none; font-size: 20px; color: red;">
+			NOW LOADING...
+		</div>
+	</p>
+	
+	<p class="br">
+<pre><code class="language-javascript">modal_2 = modal(&quot;#modal_2_msg&quot;, {
+	target: &quot;#modal_2&quot;,
+	opacity: 0.5,
+	color: 'white'
+});</code></pre>
+
+<pre><code class="language-markup">
+&lt;div id=&quot;modal_2_msg&quot; style=&quot;display: none; font-size: 20px; color: red;&quot;&gt;
+	NOW LOADING...
+&lt;/div&gt;</code></pre>
+	</p>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>CSS/Tab</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" />
+
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+<meta name="title" content="JENNIFER UI: CSS/Tab" />
+<meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart and map components." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Tab</h1>
+</div>
+
+<section>
+	<h2>Tap, top</h2>
+	<p>
+		The first style below is the most generally used tab style. It is necessary to specify the <strong>tab-top</strong> class when using it.
+		
+		<ul class="tab tab-top">
+			<li class="active">
+				<a href="#"><i class="icon-home"></i> Home</a>
+			</li>
+			<li><a href="#">CSS</a></li>
+			<li><a href="#">Script</a></li>
+			<li class="menu menu-keep">
+				<a href="#">Menu <i class="icon-arrow1 icon-white"></i></a>
+			</li>
+		</ul>
+	</p>
+	<p class="br">
+<pre><code class="language-markup">&lt;ul class=&quot;tab tab-top&quot;&gt;
+	&lt;li class=&quot;active&quot;&gt;
+		&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;CSS&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Script&lt;/a&gt;&lt;/li&gt;
+	&lt;li class=&quot;menu menu-keep&quot;&gt;
+		&lt;a href=&quot;#&quot;&gt;Menu &lt;i class=&quot;icon-arrow1 icon-white&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Tab, bottom</h2>
+	<p>
+		A tab style that is used when the content area is located in the upper part.
+		
+<pre><code class="language-markup">&lt;ul class=&quot;tab tab-bottom&quot;&gt;
+	&lt;li class=&quot;active&quot;&gt;
+		&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;CSS&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Script&lt;/a&gt;&lt;/li&gt;
+	&lt;li class=&quot;menu menu-keep&quot;&gt;
+		&lt;a href=&quot;#&quot;&gt;Menu &lt;i class=&quot;icon-arrow1 icon-white&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+	</p>
+	<p class="br">
+		<ul class="tab tab-bottom">
+			<li class="active">
+				<a href="#">Home</a>
+			</li>
+			<li><a href="#">CSS</a></li>
+			<li><a href="#">Script</a></li>
+			<li class="menu menu-keep">
+				<a href="#">Menu <i class="icon-arrow1 icon-white"></i></a>
+			</li>
+		</ul>
+	</p>
+</section>
+
+<section>
+	<h2>Pill</h2>
+	<p>
+		A UI component with use that is similar to a tab
+
+		<ul class="pill">
+			<li class="active">
+				<a href="#"><i class="icon-home"></i> Home</a>
+			</li>
+			<li><a href="#">CSS</a></li>
+			<li><a href="#">Script</a></li>
+			<li class="menu">
+				<a href="#">Menu <i class="icon-arrow1"></i></a>
+			</li>
+		</ul>
+	</p>
+	<p class="br">
+<pre><code class="language-markup">&lt;ul class=&quot;tab tab-bottom&quot;&gt;
+	&lt;li class=&quot;active&quot;&gt;
+		&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;CSS&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Script&lt;/a&gt;&lt;/li&gt;
+	&lt;li class=&quot;menu menu-keep&quot;&gt;
+		&lt;a href=&quot;#&quot;&gt;Menu &lt;i class=&quot;icon-arrow1 icon-white&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Pill, top</h2>
+	<p>
+		As in a tab, a line that distinguishes the current content area is displayed at the bottom.
+
+		<ul class="pill pill-top">
+			<li class="active">
+				<a href="#">Home</a>
+				<div class="anchor"></div>
+			</li>
+			<li><a href="#">CSS</a></li>
+			<li><a href="#">Script</a></li>
+			<li class="menu">
+				<a href="#">Menu <i class="icon-arrow1"></i></a>
+			</li>
+		</ul>
+	</p>
+	
+	<p class="br">
+<pre><code class="language-markup">&lt;ul class=&quot;pill pill-top&quot;&gt;
+	&lt;li class=&quot;active&quot;&gt;
+		&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;
+		&lt;div class=&quot;anchor&quot;&gt;&lt;/div&gt;
+	&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;CSS&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Script&lt;/a&gt;&lt;/li&gt;
+	&lt;li class=&quot;menu&quot;&gt;
+		&lt;a href=&quot;#&quot;&gt;Menu &lt;i class=&quot;icon-arrow1 icon-white&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+	</p>
+</section>
+
+<section>
+	<h2>Pill, bottom</h2>
+	<p>
+		As in a tab, a line that distinguishes the current content area is displayed at the top.
+
+<pre><code class="language-markup">&lt;ul class=&quot;pill pill-bottom&quot;&gt;
+	&lt;li class=&quot;active&quot;&gt;
+		&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;
+		&lt;div class=&quot;anchor&quot;&gt;&lt;/div&gt;
+	&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;CSS&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Script&lt;/a&gt;&lt;/li&gt;
+	&lt;li class=&quot;menu&quot;&gt;
+		&lt;a href=&quot;#&quot;&gt;Menu &lt;i class=&quot;icon-arrow1 icon-white&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+	</p>
+	<p class="br">
+		<ul class="pill pill-bottom">
+			<li class="active">
+				<a href="#">Home</a>
+				<div class="anchor"></div>
+			</li>
+			<li><a href="#">CSS</a></li>
+			<li><a href="#">Script</a></li>
+			<li class="menu">
+				<a href="#">Menu <i class="icon-arrow1"></i></a>
+			</li>
+		</ul>
+	</p>
+</section>
+</body>
+</html>

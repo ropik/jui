@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>CSS/Tooltip</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" />
+
+<link rel="stylesheet" href="../../res/manual.css" />
+<link rel="stylesheet" href="../../lib/jui/jui.min.css" />
+<link rel="stylesheet" href="../../lib/prism.css" />
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/prism.js"></script>
+<script src="../../res/manual.js"></script>
+<style>
+	.notify { margin-bottom: 5px; }
+</style>
+<meta name="title" content="JENNIFER UI: CSS/Tooltip" />
+<meta name="description" content="JENNIFER UI는 완전 무료입니다. 심플하며 빠르고 다양한 JUI는 올인원 데스크탑 UI 프레임워크입니다. 부트스트랩을 지원하고, 독립적으로 동작하는 스크립트와 스타일 컴포넌트 그리고 SVG 차트와 맵을 제공합니다." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, Node.js, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+</head>
+<body class="jui">
+
+<div class="page-header">
+	<h1>Tooltip</h1>
+</div>
+
+<section>
+    <h2>Default</h2>
+
+    <p>
+        툴팁은 타이틀과 <strong>left</strong>, <strong>right</strong>, <strong>top</strong>, <strong>bottom</strong> 위치의 앵커로 구성됩니다.
+
+		<div class="tooltip">
+            <div class="anchor"></div>
+            <div class="message">Title contents</div>
+		</div>
+
+        <div class="tooltip tooltip-left" style="left: 150px;">
+            <div class="anchor"></div>
+            <div class="message">Title contents</div>
+        </div>
+
+        <div class="tooltip tooltip-right" style="left: 300px;">
+            <div class="anchor"></div>
+            <div class="message">Title contents</div>
+        </div>
+
+        <div class="tooltip tooltip-top" style="left: 450px;">
+            <div class="anchor"></div>
+            <div class="message">Title contents</div>
+        </div>
+
+        <div class="tooltip tooltip-top" style="left: 600px;">
+            <div class="anchor"></div>
+            <div class="message">Title contents</div>
+        </div>
+    </p>
+    <br/>
+	<p class="br">
+<pre><code class="language-markup">&lt;div class="tooltip"&gt;
+    &lt;div class="anchor"&gt;&lt;/div&gt;
+    &lt;div class="message"&gt;Title contents&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="tooltip tooltip-left"&gt;...&lt;/div&gt;
+&lt;div class="tooltip tooltip-right"&gt;...&lt;/div&gt;
+&lt;div class="tooltip tooltip-top"&gt;...&lt;/div&gt;
+&lt;div class="tooltip tooltip-bottom"&gt;...&lt;/div&gt;</code></pre>
+    </p>
+</section>
+
+<section>
+    <h2>Colors</h2>
+
+    <p>
+        툴팁은 기본 색상과 회색 스타일을 추가로 제공합니다.
+
+    <div class="tooltip tooltip-gray">
+        <div class="anchor"></div>
+        <div class="message">Title contents</div>
+    </div>
+
+    <div class="tooltip tooltip-left tooltip-gray" style="left: 150px;">
+        <div class="anchor"></div>
+        <div class="message">Title contents</div>
+    </div>
+
+    <div class="tooltip tooltip-right tooltip-gray" style="left: 300px;">
+        <div class="anchor"></div>
+        <div class="message">Title contents</div>
+    </div>
+
+    <div class="tooltip tooltip-top tooltip-gray" style="left: 450px;">
+        <div class="anchor"></div>
+        <div class="message">Title contents</div>
+    </div>
+
+    <div class="tooltip tooltip-top tooltip-gray" style="left: 600px;">
+        <div class="anchor"></div>
+        <div class="message">Title contents</div>
+    </div>
+    </p>
+    <br/>
+    <p class="br">
+<pre><code class="language-markup">&lt;div class="tooltip tooltip-gray"&gt;
+    &lt;div class="anchor"&gt;&lt;/div&gt;
+    &lt;div class="message"&gt;Title contents&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="tooltip tooltip-left tooltip-gray"&gt;...&lt;/div&gt;
+&lt;div class="tooltip tooltip-right tooltip-gray"&gt;...&lt;/div&gt;
+&lt;div class="tooltip tooltip-top tooltip-gray"&gt;...&lt;/div&gt;
+&lt;div class="tooltip tooltip-bottom tooltip-gray"&gt;...&lt;/div&gt;</code></pre>
+    </p>
+</section>
+
+</body>
+</html>
