@@ -146,12 +146,6 @@ html, body {
     display: block !important;
 }
 
-.panel > .head,
-.panel > .body,
-.panel > .footer {
-    border-radius: 0px !important;
-}
-
 .panel > .body > .title {
     margin-left: 36px;
     margin-top: 48px;

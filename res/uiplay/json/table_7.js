@@ -18,8 +18,8 @@ jui.ready([ "uix.table" ], function(table) {
         event: {
             sort: function(column, e) {
                 var className = {
-                    "desc": "icon-arrow1 icon-white",
-                    "asc": "icon-arrow3 icon-white"
+                    "desc": "icon-arrow1",
+                    "asc": "icon-arrow3"
                 }[column.order];
 
                 $(column.element).children("i").remove();

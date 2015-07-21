@@ -54,6 +54,10 @@ body {
     text-align: left !important;
 }
 
+.vmenu > a:first-child {
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+}
 
 .container > .menu {
     position: absolute;

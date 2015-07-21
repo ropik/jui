@@ -350,7 +350,7 @@ jui.ready([ "util.base", "ui.dropdown", "uix.table", "uix.xtable", "uix.autocomp
         }
     });
 
-    // 탭, tab-top
+    // 탭, top
     tab_1 = tab("#tab_1", {
         event: {
             change: function(data) {
@@ -394,7 +394,7 @@ jui.ready([ "util.base", "ui.dropdown", "uix.table", "uix.xtable", "uix.autocomp
         }
     });
 
-    // 탭, tab-top
+    // 탭, top
     tab_3 = tab("#tab_3", {
         event: {
             change: function(data) {
@@ -571,8 +571,8 @@ jui.ready([ "util.base", "ui.dropdown", "uix.table", "uix.xtable", "uix.autocomp
         event: {
             sort: function(column, e) {
                 var className = {
-                    "desc": "icon-arrow1 icon-white",
-                    "asc": "icon-arrow3 icon-white"
+                    "desc": "icon-arrow1",
+                    "asc": "icon-arrow3"
                 }[column.order];
 
                 $(column.element).children("i").remove();
