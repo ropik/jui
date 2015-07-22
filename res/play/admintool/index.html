@@ -4,7 +4,8 @@
 <title>JENNIFER UI: AdminTool Sample </title>
 <link rel="shortcut icon" href="../../../res/img/favicon.ico" type="image/x-icon">
 <link rel="icon" href="../../../res/img/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="../../../lib/jui/jui.min.css"/>
+<link rel="stylesheet" href="../../../lib/jui.new/jui.min.css"/>
+<link rel="stylesheet" href="../../../lib/jui.new/jennifer.theme.min.css"/>
 <script src="../../../lib/jquery-1.8.0.min.js"></script>
 <script src="../../../lib/jui/jui.min.js"></script>
 <script src="admin.js" type="text/javascript"></script>
@@ -24,13 +25,12 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 <link href="admin.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
-  /* Base */
-  body {
-    font-size: 14px;
-    margin: 0px;
-    overflow-x: hidden;
-  }
-
+/* Base */
+body {
+  font-size: 14px;
+  margin: 0px;
+  overflow-x: hidden;
+}
 
 .visit_total {
   font-size: 15px;
@@ -72,7 +72,6 @@
   border-top: 1px dashed #e5e5e5;
 
 }
-
 </style>
 </head>
 <body class="jui">
@@ -92,7 +91,7 @@
 <div class="container">
   <div class="menu">
 
-    <div class="vmenu vmenu-rect">
+    <div class="vmenu ">
       <a class="active"><i class="icon-monitoring"></i> Dashboard</a>
       <a href="realtime.html"><i class="icon-realtime"></i> Realtime</a>
       <a href="analysis.html"><i class="icon-profile"></i> Analysis</a>
@@ -550,7 +549,7 @@ chart("#line_sample_chart_1", {
     x: {
       type: "date",
       domain: [ start, end ],
-      step: [ time.years, 1 ],
+      interval: 1000 * 60 * 24 * 365,
       format: "yyyy",
       key: "date",
       hide: true
@@ -576,7 +575,7 @@ chart("#line_sample_chart_2", {
     x: {
       type: "date",
       domain: [ start, end ],
-      step: [ time.years, 1 ],
+      interval: 1000 * 60 * 24 * 365,
       format: "yyyy",
       key: "date",
       hide: true
@@ -602,7 +601,7 @@ chart("#line_sample_chart_3", {
     x: {
       type: "date",
       domain: [ start, end ],
-      step: [ time.years, 1 ],
+      interval: 1000 * 60 * 24 * 365,
       format: "yyyy",
       key: "date",
       hide: true

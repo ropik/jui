@@ -1,187 +1,187 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>JENNIFER UI: AdminTool Sample </title>
-    <link rel="shortcut icon" href="../../../res/img/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="../../../res/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../../../res/index.css" />
-    <link rel="stylesheet" href="../../../lib/jui/jui.min.css" />
-    <script src="../../../lib/jquery-1.8.0.min.js"></script>
-    <script src="../../../lib/jui/jui.min.js"></script>
-    <meta name="title" content="JENNIFER UI: JENNIFER UI: HTML5 components and SVG charts" />
-    <meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart components." />
-    <meta name="keywords" content="HTML, CSS, JS, JavaScript, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
-    <meta name="author" content="Alvin, Jayden and Yoha" />
-    <meta charset="UTF-8">
-    <meta property="og:title" content="JENNIFER UI: HTML5 components and SVG charts" />
-    <meta property="og:description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart components." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://seogi1004.github.io/jui/en/index.html" />
-    <meta property="og:image" content="http://seogi1004.github.io/jui/res/img/jui_link.jpg" />
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <style type="text/css">
+<title>JENNIFER UI: AdminTool Sample </title>
+<link rel="shortcut icon" href="../../../res/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="../../../res/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="../../../res/index.css" />
+<link rel="stylesheet" href="../../../lib/jui.new/jui.min.css"/>
+<link rel="stylesheet" href="../../../lib/jui.new/jennifer.theme.min.css"/>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/jui/jui.min.js"></script>
+<meta name="title" content="JENNIFER UI: JENNIFER UI: HTML5 components and SVG charts" />
+<meta name="description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart components." />
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, SVG, chart, framework, bootstrap, front-end, frontend, web development, free, MIT" />
+<meta name="author" content="Alvin, Jayden and Yoha" />
+<meta charset="UTF-8">
+<meta property="og:title" content="JENNIFER UI: HTML5 components and SVG charts" />
+<meta property="og:description" content="JENNIFER UI is all free. a simple, fast, many: JUI is all-in-one desktop UI framework. Bootstrap support, Independent style & script components, SVG-based chart components." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://seogi1004.github.io/jui/en/index.html" />
+<meta property="og:image" content="http://seogi1004.github.io/jui/res/img/jui_link.jpg" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<style type="text/css">
 
-        html,body {
-            background-color: #a5a5a5;
-            background-image: url('http://blog.jui.io/wp-content/uploads/2015/03/light-noise.png');
-            background-repeat: repeat;
-            background-position: top left;
-            background-attachment: scroll;
-            font-family: Open Sans;
-        }
+    html,body {
+        background-color: #a5a5a5;
+        background-image: url('http://blog.jui.io/wp-content/uploads/2015/03/light-noise.png');
+        background-repeat: repeat;
+        background-position: top left;
+        background-attachment: scroll;
+        font-family: Open Sans;
+    }
 
-        .header {
-            margin:0 auto;
-            width:1200px;
-            height: 70px;
-        }
+    .header {
+        margin:0 auto;
+        width:1200px;
+        height: 70px;
+    }
 
-        .header .logo {
-            position: relative;
-            float:left;
-            width: 160px;
-            height:100%;
-            z-index: 1;
-            padding: 0px 20px;
-            font-size: 20pt;
-            font-weight: bold;
-        }
+    .header .logo {
+        position: relative;
+        float:left;
+        width: 160px;
+        height:100%;
+        z-index: 1;
+        padding: 0px 20px;
+        font-size: 20pt;
+        font-weight: bold;
+    }
 
-        .header .toolbar {
-            position: relative;
-            height:100%;
-            padding:10px 20px 0px 220px;
-        }
+    .header .toolbar {
+        position: relative;
+        height:100%;
+        padding:10px 20px 0px 220px;
+    }
 
-        .container {
-            margin:0 auto;
-            width:1200px;
-            height:100%;
-            position: relative;
-        }
+    .container {
+        margin:0 auto;
+        width:1200px;
+        height:100%;
+        position: relative;
+    }
 
-        .container:after {
-            display: table;
-            clear: both;
-            content: "";
-        }
+    .container:after {
+        display: table;
+        clear: both;
+        content: "";
+    }
 
-        .container .menu {
-            position:relative;
-            float:left;
-            width: 200px;
-            height:100%;
-            max-height: 100%;
-            min-height: 100%;
-        }
+    .container .menu {
+        position:relative;
+        float:left;
+        width: 200px;
+        height:100%;
+        max-height: 100%;
+        min-height: 100%;
+    }
 
-        .container .content {
-            background: #f3f3f3;
-            padding: 0 0 0 200px;
-        }
+    .container .content {
+        background: #f3f3f3;
+        padding: 0 0 0 200px;
+    }
 
-        .content-list {
-            position: relative;
-            padding:20px;
-            padding-top:0px;
-            background-color: #a5a5a5;
-            background-image: url('http://blog.jui.io/wp-content/uploads/2015/03/light-noise.png');
-            background-repeat: repeat;
-            background-position: top left;
-            background-attachment: scroll;
-        }
+    .content-list {
+        position: relative;
+        padding:20px;
+        padding-top:0px;
+        background-color: #a5a5a5;
+        background-image: url('http://blog.jui.io/wp-content/uploads/2015/03/light-noise.png');
+        background-repeat: repeat;
+        background-position: top left;
+        background-attachment: scroll;
+    }
 
-        .dashboard-first {
+    .dashboard-first {
 
-        }
+    }
 
-        .dashboard-first .col {
-            text-align:center;
-        }
+    .dashboard-first .col {
+        text-align:center;
+    }
 
-        .col-3 .card {
-            margin-right:20px;
-        }
+    .col-3 .card {
+        margin-right:20px;
+    }
 
-        .col-3:last-child .card {
-            margin-right:0px;
-        }
+    .col-3:last-child .card {
+        margin-right:0px;
+    }
 
-        .card {
-            border:1px solid #ebebeb;
-            height:80px;
-            position: relative;
-            text-align: left;
-            border-bottom:2px solid gray;
-            background: white;
-        }
+    .card {
+        border:1px solid #ebebeb;
+        height:80px;
+        position: relative;
+        text-align: left;
+        border-bottom:2px solid gray;
+        background: white;
+    }
 
-        .card .img {
-            width:60px;
-            height:60px;
-            position: absolute;
-            left:10px;
-            top:10px;
-        }
+    .card .img {
+        width:60px;
+        height:60px;
+        position: absolute;
+        left:10px;
+        top:10px;
+    }
 
-        .card .title {
-            position:absolute;
-            left:90px;
-            right:10px;
-            top:10px;
-            height:24px;
-            font-weight: bold;
-        }
+    .card .title {
+        position:absolute;
+        left:90px;
+        right:10px;
+        top:10px;
+        height:24px;
+        font-weight: bold;
+    }
 
-        .card .value {
-            position:absolute;
-            left:90px;
-            right:10px;
-            top:40px;
-            bottom:10px;
-            font-size:28px;
-            color:#a9a9a9;
-        }
+    .card .value {
+        position:absolute;
+        left:90px;
+        right:10px;
+        top:40px;
+        bottom:10px;
+        font-size:28px;
+        color:#a9a9a9;
+    }
 
-        .panel>.head,
-        .panel>.body,
-        .panel>.footer {
-            border-radius: 0px !important;
-        }
+    .panel>.head,
+    .panel>.body,
+    .panel>.footer {
+        border-radius: 0px !important;
+    }
 
-        .visit_total {
-            font-size:15px;
-        }
+    .visit_total {
+        font-size:15px;
+    }
 
-        .visit_total .title {
-            font-size:15px;
-            margin-bottom:4px;
-        }
+    .visit_total .title {
+        font-size:15px;
+        margin-bottom:4px;
+    }
 
-        .visit_total .number {
-            font-size:20px;
-        }
+    .visit_total .number {
+        font-size:20px;
+    }
 
-        .visit_total .chart {
-            margin-top:5px;
-            height: 50px;
-            width: 100px;
-        }
+    .visit_total .chart {
+        margin-top:5px;
+        height: 50px;
+        width: 100px;
+    }
 
-        .bargauge {
-            font-size:15px;
-        }
+    .bargauge {
+        font-size:15px;
+    }
 
-        .bargauge .title {
-            padding: 16px;
-        }
+    .bargauge .title {
+        padding: 16px;
+    }
 
-        .bargauge .chart {
-            height: 150px;
-            width: 80%;
-        }
-
-    </style>
+    .bargauge .chart {
+        height: 150px;
+        width: 80%;
+    }
+</style>
 </head>
 <body class="jui">
 <div class="header">
@@ -191,23 +191,23 @@
     </div>
     <div class="toolbar">
 
-      <div class="navbar navbar-white-flat" style="overflow: hidden;">
+      <div class="navbar flat" style="overflow: hidden;">
         <div class="inline">
           <div class="group">
-            <a class="btn btn-large">
+            <a class="btn large">
               <i class="icon-new-window"></i> AA
             </a>
-            <a class="btn btn-large">
+            <a class="btn large">
               <i class="icon-gear"></i> BB
             </a>
-            <a class="btn btn-large">
+            <a class="btn large">
               <i class="icon-calendar"></i> CC
             </a>
           </div>
           
         </div>
-        <div class="inline-right">
-          <a class="btn-large">Text1</a> <a class="btn-large">Text2</a> <a class="btn-large">Text3</a>
+        <div class="inline right">
+          <a class="large">Text1</a> <a class="large">Text2</a> <a class="large">Text3</a>
         </div>
       </div>      
       
@@ -218,7 +218,7 @@
 <div class="container">
     <div class="menu">
 
-        <div class="vmenu vmenu-rect">
+        <div class="vmenu ">
             <a class="active"><i class="icon-dashboardlist" ></i> Dashboard</a>
             <a><i class="icon-document"></i> Posts</a>
             <a><i class="icon-user"></i> Users</a>
@@ -293,7 +293,7 @@
                     <strong>Today's Visits</strong>
 
                     <div style="float: right;">
-                        <a class="btn-small"><i class="icon-close"></i></a>
+                        <a class="btn small"><i class="icon-close"></i></a>
                     </div>
                 </div>
                 <div class="body" style="padding:10px;overflow:auto;">

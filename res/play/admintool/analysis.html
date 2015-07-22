@@ -5,7 +5,8 @@
 <link rel="shortcut icon" href="../../../res/img/favicon.ico" type="image/x-icon">
 <link rel="icon" href="../../../res/img/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="../../../res/index.css"/>
-<link rel="stylesheet" href="../../../lib/jui/jui.min.css"/>
+<link rel="stylesheet" href="../../../lib/jui.new/jui.min.css"/>
+<link rel="stylesheet" href="../../../lib/jui.new/jennifer.theme.min.css"/>
 <script src="../../../lib/jquery-1.8.0.min.js"></script>
 <script src="../../../lib/jui/jui.min.js"></script>
 <script src="admin.js" type="text/javascript"></script>
@@ -42,7 +43,7 @@
 <div class="container">
   <div class="menu">
 
-    <div class="vmenu vmenu-rect">
+    <div class="vmenu ">
       <a href="index.html"><i class="icon-monitoring"></i> Dashboard</a>
       <a href="realtime.html"><i class="icon-realtime"></i> Realtime</a>
       <a class="active"><i class="icon-profile"></i> Analysis</a>
@@ -172,11 +173,6 @@ var c = chart("#realtime_chart_1", {
   brush : {
     type : "line",
     target : [ "s1", "s2", "s3" ]
-  },
-  series : {
-    "s1" : { text : "Apple" },
-    "s2" : { text : "Google" },
-    "s3" : { text : "Microsoft" }
   },
   widget : [{
     type : "title",

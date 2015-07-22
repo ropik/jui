@@ -57,7 +57,7 @@ html, body {
     padding-bottom: 20px !important;
     color: #2d363e;
     border-right: 0px !important;
-
+    border-radius: 0px !important;
 }
 
 .content-list {
