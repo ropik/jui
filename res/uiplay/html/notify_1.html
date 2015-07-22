@@ -2,16 +2,16 @@
     <button class="btn small" onclick="notify_top_submit(1, '')">
         Top-Right
     </button>
-    <button class="btn small" onclick="notify_top_submit(2, 'red')">
+    <button class="btn small" onclick="notify_top_submit(2, 'danger')">
         Top-Left
     </button>
-    <button class="btn small" onclick="notify_top_submit(3, 'orange')">
+    <button class="btn small" onclick="notify_top_submit(3, 'warning')">
         Top
     </button>
 </div>
 
 <script id="tpl_alarm" type="text/template">
-    <div class="notify notify-<!= color !>">
+    <div class="notify <!= color !>">
         <div class="title"><!= title !></div>
         <div class="message"><!= message !></div>
     </div>

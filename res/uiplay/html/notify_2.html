@@ -1,11 +1,11 @@
 <div class="group">
-    <button class="btn small" onclick="notify_bottom_submit(4, 'green')">
+    <button class="btn small" onclick="notify_bottom_submit(4, 'success')">
         Bottom
     </button>
-    <button class="btn small" onclick="notify_bottom_submit(5, 'blue')">
+    <button class="btn small" onclick="notify_bottom_submit(5, 'info')">
         Bottom-Left
     </button>
-    <button class="btn small" onclick="notify_bottom_submit(6, 'orange')">
+    <button class="btn small" onclick="notify_bottom_submit(6, 'warning')">
         Bottom-Right
     </button>
 </div>
@@ -22,7 +22,7 @@
 </style>
 
 <script id="tpl_alarm" type="text/template">
-    <div class="notify notify-<!= color !>">
+    <div class="notify <!= color !>">
         <div class="title"><!= title !></div>
         <div class="message"><!= message !></div>
     </div>

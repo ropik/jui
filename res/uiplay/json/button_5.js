@@ -1,6 +1,7 @@
 jui.ready([ "ui.button" ], function(button) {
     button_5 = button("#button_5", {
         type: "check",
+        value: [ "plus", "edit" ],
         event: {
             change: function(data) {
                 var result = "";

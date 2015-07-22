@@ -3,7 +3,6 @@ jui.ready([ "ui.tooltip" ], function(tooltip) {
 
     tooltip_2 = tooltip("#tooltip_2", {
         position: "bottom",
-        color: "gray",
         showType: "click"
     });
 
