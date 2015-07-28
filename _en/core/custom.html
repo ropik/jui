@@ -55,14 +55,14 @@ jui.ready(function(ui, uix, _) {
 <div class="page-header">
 	<h1>Custom</h1>
 	<p class="br">
-		JUI library provides a send box method that facilitates the development of UI components. There are two types of UIs that can be added. A file is created in the <strong>js/ui </strong>or <strong>js/uix</strong> folder depending on the characteristics of the new component. That is to say, a <strong>ui</strong> component is not dependent on other components, while a <strong>uix</strong> component  is created using combinations of other components.
+		JUI library provides a send box method that facilitates the development of UI components.
 	</p>
 </div>
 
 <section>
 	<h2>Define</h2>
 	<p>
-		Assuming a component file exists in the js/ui or js/ui folder, use the method as follows.
+		To define a new component module must set the parameters in the following order. (New module name, Using module name, Module object handler)
 		<pre><code class="language-javascript">jui.defineUI(&quot;ui.test&quot;, [ &quot;util.base&quot; ], function(_) {
 	var UI = function() {
 		this.init = function() {
@@ -86,16 +86,7 @@ jui.ready(function(ui, uix, _) {
 	</p>
 	
 	<p class="br">
-		The setting imethod defines the option(s) to be used in connection with a component, and init is a method that is initially run when a component object is created. These two methods must be defined when adding a new UI component.<br/><br/>
-		
-		If a user wants to add a new uix component that uses the dropdown component, configure the component as follows;
-		<pre><code class="language-javascript">jui.defineUI(&quot;uix.test&quot;, [ &quot;ui.dropdown&quot;, &quot;util.base&quot; ], function(dropdown, _) {
-	var UI = function() {
-		// same as above
-	}
-	
-	return UI;
-}, &quot;core&quot;);</code></pre>
+		The <strong>UI.setup</strong> method defines the option(s) to be used in connection with a component, and init is a method that is initially run when a component object is created. These two methods must be defined when adding a new UI component.<br/><br/>
 	</p>
 </section>
 
