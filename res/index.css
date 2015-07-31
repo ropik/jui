@@ -537,6 +537,11 @@ footer .msg {
 	line-height: 1.8em;
 }
 
+footer .msg > a {
+	color: #a9a9a9;
+	text-decoration: none;
+}
+
 footer .link {
 	text-align: right;
 	font-size: 14px;
