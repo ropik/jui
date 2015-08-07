@@ -53,7 +53,7 @@ jui.define("chart.axis", [ "jquery", "util.base" ], function($, _) {
         }
 
         function drawGridType(axis, k) {
-            if((k == "x" || k == "y") && !_.typeCheck("object", axis[k])) return null;
+            if((k == "x" || k == "y" || k == 'z') && !_.typeCheck("object", axis[k])) return null;
 
             // 축 위치 설정
             axis[k] = axis[k]  || {};
@@ -62,12 +62,17 @@ jui.define("chart.axis", [ "jquery", "util.base" ], function($, _) {
                 axis[k].orient = axis[k].orient == "top" ? "top" : "bottom";
             } else if (k == "y") {
                 axis[k].orient = axis[k].orient == "right" ? "right" : "left";
+            } else if (k == "z") {
+                axis[k].orient = axis[k].orient == "right" ? "right" : "left";                
             } else if (k == "c") {
                 axis[k].type = axis[k].type || "panel";
                 axis[k].orient = "custom";
             }
 
             axis[k].type = axis[k].type || "block";
+            if (k == 'z') {
+                axis[k].hide = true;        // z 축은 기본적으로 hide 상태 
+            }
             var Grid = jui.include("chart.grid." + axis[k].type);
 
             // 그리드 기본 옵션과 사용자 옵션을 합침
@@ -345,6 +350,7 @@ jui.define("chart.axis", [ "jquery", "util.base" ], function($, _) {
             _.extend(this, {
                 x : options.x,
                 y : options.y,
+                z : options.z,
                 c : options.c,
                 map : options.map
             });
@@ -365,6 +371,7 @@ jui.define("chart.axis", [ "jquery", "util.base" ], function($, _) {
 
             this.x = drawGridType(this, "x");
             this.y = drawGridType(this, "y");
+            this.z = drawGridType(this, "z");
             this.c = drawGridType(this, "c");
             this.map = drawMapType(this, "map");
         }
@@ -526,6 +533,8 @@ jui.define("chart.axis", [ "jquery", "util.base" ], function($, _) {
             x: null,
             /** @cfg {chart.grid.core} [y=null]  Sets a grid on the Y axis (see the grid tab). */
             y: null,
+            /** @cfg {chart.grid.core} [z=null]  Sets a grid on the Z axis for 3D (see the grid tab). */
+            z: null,            
             /** @cfg {chart.grid.core} [c=null] Sets a grid on the C axis (see the grid tab). */
             c: null,
             /** @cfg {chart.map.core} [map=null] Sets a map on the Map axis */
