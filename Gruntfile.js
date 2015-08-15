@@ -53,6 +53,7 @@ module.exports = function(grunt) {
         "js/chart/draw.js",
         "js/chart/axis.js",
         "js/chart/map.js",
+        "js/chart/polygon.js",
         "js/chart/builder.js",
 
         // chart.theme
@@ -147,6 +148,9 @@ module.exports = function(grunt) {
         "js/chart/brush/map.flightroute.js",
         "js/chart/brush/map.marker.js",
         "js/chart/brush/map.weather.js",
+
+        // polygon brush
+        "js/chart/brush/polygon.js",
 
         // chart.widget
         "js/chart/widget/core.js",

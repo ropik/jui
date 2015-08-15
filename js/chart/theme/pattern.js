@@ -115,7 +115,6 @@ jui.define("chart.theme.pattern", [], function() {
         pinFontSize : 10,
         pinBorderColor : "#FF7800",
         pinBorderWidth : 0.7,
-
         topologyNodeRadius : 12.5,
         topologyNodeFontSize : 14,
         topologyNodeFontColor : "white",
@@ -130,9 +129,11 @@ jui.define("chart.theme.pattern", [], function() {
         topologyTooltipBorderColor : "#ccc",
         topologyTooltipFontSize : 11,
         topologyTooltipFontColor : "#333",
+        polygonBorderColor: "#7977C2",
+        polygonBorderWidth: 0.5,
+        polygonBackgroundColor: "#7BBAE7",
 
         // widget styles
-
         titleFontColor : "#333",
         titleFontSize : 13,
         titleFontWeight : "normal",

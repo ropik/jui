@@ -440,7 +440,12 @@ jui.define("chart.axis", [ "jquery", "util.base" ], function($, _) {
             this.start = 0;
             this.end = 0;
 
-            this.screen(1);
+            if(_.typeCheck("array", data)) {
+                this.screen(1);
+            } else {
+                this.data = data;
+                if(chart.isRender()) chart.render();
+            }
         }
 
         /**

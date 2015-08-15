@@ -2572,12 +2572,12 @@ jui.define("util.math", [], function() {
 	return self;
 });
 
-jui.define("util.transform", [ "util.matrix", "util.math" ], function(matrix, math) {
+jui.define("util.transform", [ "util.math" ], function(math) {
     var Transform = function(points) {
 
         function calculate(m) {
             for(var i = 0, count = points.length; i < count; i++) {
-                points[i] = matrix(m, points[i]);
+                points[i] = math.matrix(m, points[i]);
             }
 
             return points;

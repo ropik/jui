@@ -142,6 +142,9 @@ jui.define("chart.theme.jennifer", [], function() {
         topologyTooltipBorderColor : "#ccc",
         topologyTooltipFontSize : 11,
         topologyTooltipFontColor : "#333",
+        polygonBorderColor: "#7977C2",
+        polygonBorderWidth: 0.5,
+        polygonBackgroundColor: "#7BBAE7",
 
         // Widget styles
         titleFontColor : "#333",

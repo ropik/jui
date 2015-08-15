@@ -2572,12 +2572,12 @@ jui.define("util.math", [], function() {
 	return self;
 });
 
-jui.define("util.transform", [ "util.matrix", "util.math" ], function(matrix, math) {
+jui.define("util.transform", [ "util.math" ], function(math) {
     var Transform = function(points) {
 
         function calculate(m) {
             for(var i = 0, count = points.length; i < count; i++) {
-                points[i] = matrix(m, points[i]);
+                points[i] = math.matrix(m, points[i]);
             }
 
             return points;
@@ -14297,7 +14297,12 @@ jui.define("chart.axis", [ "jquery", "util.base" ], function($, _) {
             this.start = 0;
             this.end = 0;
 
-            this.screen(1);
+            if(_.typeCheck("array", data)) {
+                this.screen(1);
+            } else {
+                this.data = data;
+                if(chart.isRender()) chart.render();
+            }
         }
 
         /**
@@ -14841,6 +14846,12 @@ jui.define("chart.map", [ "jquery", "util.base", "util.math", "util.svg" ], func
 
     return Map;
 }, "chart.draw"); 
+jui.define("chart.polygon.core", [], function() {
+    var PolygonCore = function() {
+    }
+
+    return PolygonCore;
+});
 jui.defineUI("chart.builder", [ "jquery", "util.base", "util.svg", "util.color", "chart.axis" ],
     function($, _, SVGUtil, ColorUtil, Axis) {
 
@@ -16211,6 +16222,9 @@ jui.define("chart.theme.jennifer", [], function() {
         topologyTooltipBorderColor : "#ccc",
         topologyTooltipFontSize : 11,
         topologyTooltipFontColor : "#333",
+        polygonBorderColor: "#7977C2",
+        polygonBorderWidth: 0.5,
+        polygonBackgroundColor: "#7BBAE7",
 
         // Widget styles
         titleFontColor : "#333",
@@ -16411,7 +16425,6 @@ jui.define("chart.theme.gradient", [], function() {
         pinFontSize : 10,
         pinBorderColor : "#FF7800",
         pinBorderWidth : 0.7,
-
         topologyNodeRadius : 12.5,
         topologyNodeFontSize : 14,
         topologyNodeFontColor : "white",
@@ -16426,6 +16439,9 @@ jui.define("chart.theme.gradient", [], function() {
         topologyTooltipBorderColor : "#ccc",
         topologyTooltipFontSize : 11,
         topologyTooltipFontColor : "#333",
+        polygonBorderColor: "#7977C2",
+        polygonBorderWidth: 0.5,
+        polygonBackgroundColor: "#7BBAE7",
 
         // widget styles
         titleFontColor : "#333",
@@ -16624,7 +16640,6 @@ jui.define("chart.theme.dark", [], function() {
         pinFontSize : 10,
         pinBorderColor : "#FF7800",
         pinBorderWidth : 0.7,
-
         topologyNodeRadius : 12.5,
         topologyNodeFontSize : 14,
         topologyNodeFontColor : "#c5c5c5",
@@ -16639,6 +16654,9 @@ jui.define("chart.theme.dark", [], function() {
         topologyTooltipBorderColor : "#ccc",
         topologyTooltipFontSize : 11,
         topologyTooltipFontColor : "#c5c5c5",
+        polygonBorderColor: "#7977C2",
+        polygonBorderWidth: 0.5,
+        polygonBackgroundColor: "#7BBAE7",
 
         // widget styles
         titleFontColor : "#ffffff",
@@ -16834,7 +16852,6 @@ jui.define("chart.theme.pastel", [], function() {
 		pinFontSize : 10,
 		pinBorderColor : "#FF7800",
 		pinBorderWidth : 0.7,
-
         topologyNodeRadius : 12.5,
         topologyNodeFontSize : 14,
         topologyNodeFontColor : "white",
@@ -16849,6 +16866,9 @@ jui.define("chart.theme.pastel", [], function() {
         topologyTooltipBorderColor : "#ccc",
         topologyTooltipFontSize : 11,
         topologyTooltipFontColor : "#333",
+		polygonBorderColor: "#7977C2",
+		polygonBorderWidth: 0.5,
+		polygonBackgroundColor: "#7BBAE7",
 
         // widget styles
         titleFontColor : "#333",
@@ -17043,7 +17063,6 @@ jui.define("chart.theme.pattern", [], function() {
         pinFontSize : 10,
         pinBorderColor : "#FF7800",
         pinBorderWidth : 0.7,
-
         topologyNodeRadius : 12.5,
         topologyNodeFontSize : 14,
         topologyNodeFontColor : "white",
@@ -17058,9 +17077,11 @@ jui.define("chart.theme.pattern", [], function() {
         topologyTooltipBorderColor : "#ccc",
         topologyTooltipFontSize : 11,
         topologyTooltipFontColor : "#333",
+        polygonBorderColor: "#7977C2",
+        polygonBorderWidth: 0.5,
+        polygonBackgroundColor: "#7BBAE7",
 
         // widget styles
-
         titleFontColor : "#333",
         titleFontSize : 13,
         titleFontWeight : "normal",
@@ -27079,6 +27100,101 @@ jui.define("chart.brush.map.weather", [ "util.base" ], function(_) {
 	return MapWeatherBrush;
 }, "chart.brush.map.core");
 
+jui.define("chart.brush.polygon", [], function() {
+    var PolygonBrush = function() {
+        this.drawPath = function(g) {
+            var path = this.chart.svg.path({
+                stroke: this.chart.theme("polygonBorderColor"),
+                "stroke-width": this.chart.theme("polygonBorderWidth")
+            });
+
+            for(var i = 0, len = this.faces.length; i < len; i++) {
+                var face = this.faces[i]
+
+                for (var j = 0, len2 = face.length; j < len2; j++) {
+                    var targetPoint = this.cache[face[j]];
+
+                    if (targetPoint) {
+                        var x = targetPoint[0],
+                            y = targetPoint[1];
+
+                        if (j == 0) {
+                            path.MoveTo(x, y);
+                        } else {
+                            if(j == face.length - 1) {
+                                var firstPoint = this.cache[face[0]],
+                                    x = firstPoint[0],
+                                    y = firstPoint[1];
+
+                                path.LineTo(x, y);
+                            } else {
+                                path.LineTo(x, y);
+                            }
+                        }
+                    }
+                }
+            }
+
+            g.append(path);
+        }
+
+        this.drawPolygon = function(g) {
+            for(var i = 0, len = this.faces.length; i < len; i++) {
+                var polygon = this.chart.svg.polygon({
+                    fill: this.chart.theme("polygonBackgroundColor")
+                });
+
+                var face = this.faces[i]
+
+                for (var j = 0, len2 = face.length; j < len2; j++) {
+                    var targetPoint = this.cache[face[j]];
+
+                    if (targetPoint) {
+                        var x = targetPoint[0],
+                            y = targetPoint[1];
+
+                        polygon.point(x, y);
+                    }
+                }
+
+                g.append(polygon);
+            }
+        }
+
+        this.drawBefore = function() {
+            var model = this.axis.data;
+
+            this.vertices = model.vertices || [];
+            this.faces = model.faces || [];
+            this.cache = [];
+
+            for(var i = 0, len = this.vertices.length; i < len; i++) {
+                var vertex = this.vertices[i];
+                this.cache.push(new Float32Array([ this.axis.x(vertex[0]), this.axis.y(vertex[1]) ]));
+            }
+        }
+
+        this.draw = function() {
+            var g = this.chart.svg.group();
+
+            if(this.brush.fill) {
+                this.drawPolygon(g);
+            }
+
+            this.drawPath(g);
+
+            return g;
+        }
+    }
+
+    PolygonBrush.setup = function() {
+        return {
+            fill: false
+        }
+    }
+
+    return PolygonBrush;
+}, "chart.brush.core");
 jui.define("chart.widget.core", [ "jquery", "util.base" ], function($, _) {
 
 

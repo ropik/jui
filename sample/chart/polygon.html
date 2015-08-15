@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="charset=utf-8;"/>
+    <script src="../../lib/jquery-1.8.0.min.js"></script>
+    <script src="../../dist/jui.js"></script>
+    <script src="resource/airplane.js"></script>
+</head>
+<body >
+
+<div id="chart"></div>
+
+<script id="script_code">
+    jui.ready([ "chart.builder", "chart.polygon.airplane" ], function(chart, Model) {
+        var data = new Model(),
+            xMax = data.max[0],
+            yMax = data.max[1] * 1.5;
+
+        var c = chart("#chart", {
+            width: 800,
+            height : 800,
+            axis : [
+                {
+                    x : {
+                        type : "range",
+                        domain : [ -xMax, xMax ]
+                    },
+                    y : {
+                        type : "range",
+                        domain : [ -yMax, yMax ]
+                    }
+                }
+            ],
+            brush : {
+                type : "polygon",
+                fill : true
+            }
+        });
+
+        console.log(data);
+        c.axis(0).update(data);
+	})
+</script>
+
+</body>
+</html>
