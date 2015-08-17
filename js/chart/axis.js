@@ -53,7 +53,8 @@ jui.define("chart.axis", [ "jquery", "util.base" ], function($, _) {
         }
 
         function drawGridType(axis, k) {
-            if((k == "x" || k == "y") && !_.typeCheck("object", axis[k])) return null;
+            if((k == "x" || k == "y" || k == "z") && !_.typeCheck("object", axis[k]))
+                return null;
 
             // 축 위치 설정
             axis[k] = axis[k]  || {};
@@ -62,6 +63,8 @@ jui.define("chart.axis", [ "jquery", "util.base" ], function($, _) {
                 axis[k].orient = axis[k].orient == "top" ? "top" : "bottom";
             } else if (k == "y") {
                 axis[k].orient = axis[k].orient == "right" ? "right" : "left";
+            } else if (k == "z") {
+                axis[k].orient = "custom";
             } else if (k == "c") {
                 axis[k].type = axis[k].type || "panel";
                 axis[k].orient = "custom";
@@ -531,6 +534,8 @@ jui.define("chart.axis", [ "jquery", "util.base" ], function($, _) {
             x: null,
             /** @cfg {chart.grid.core} [y=null]  Sets a grid on the Y axis (see the grid tab). */
             y: null,
+            /** @cfg {chart.grid.core} [z=null]  Sets a grid on the Z axis (see the grid tab). */
+            z: null,
             /** @cfg {chart.grid.core} [c=null] Sets a grid on the C axis (see the grid tab). */
             c: null,
             /** @cfg {chart.map.core} [map=null] Sets a map on the Map axis */

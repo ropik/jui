@@ -119,7 +119,7 @@ jui.define("util.transform", [ "util.math" ], function(math) {
                 m = this.matrix.apply(this, a[0]);
 
             for(var i = 1; i < a.length; i++) {
-                m = matrix(m, this.matrix.apply(this, a[i]));
+                m = math.matrix(m, this.matrix.apply(this, a[i]));
             }
 
             return calculate(m);

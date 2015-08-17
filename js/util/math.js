@@ -1,4 +1,4 @@
-jui.define("util.math", [], function() {
+jui.define("util.math", [ "util.base" ], function(_) {
 
 	/**
 	 * @class util.math
@@ -174,7 +174,7 @@ jui.define("util.math", [], function() {
 			}
 		},
 
-		matrix : function(a, b) {
+		matrix : function(m1, m2) {
 			// 2x1 or 3x1 or ?x1 형태의 매트릭스 연산
 			function _matrix(a, b) {
 				var m = [];
@@ -209,7 +209,7 @@ jui.define("util.math", [], function() {
 				}
 
 				for(var i = 0, len = m.length; i < len; i++) {
-					var mm = matrix(a, m[i]);
+					var mm = _matrix(a, m[i]);
 
 					for(var j = 0, len2 = mm.length; j < len2; j++) {
 						nm[j].push(mm[j]);
@@ -219,11 +219,11 @@ jui.define("util.math", [], function() {
 				return nm;
 			}
 
-			if(_.typeCheck("array", b[0])) {
-				return _deepMatrix(a, b);
+			if(_.typeCheck("array", m2[0])) {
+				return _deepMatrix(m1, m2);
 			}
 
-			return _matrix(a, b);
+			return _matrix(m1, m2);
 		}
 	}
 

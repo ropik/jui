@@ -152,6 +152,9 @@ module.exports = function(grunt) {
         // polygon brush
         "js/chart/brush/polygon.js",
 
+        // full 3d brush
+        "js/chart/brush/columnfull3d.js",
+
         // chart.widget
         "js/chart/widget/core.js",
         "js/chart/widget/tooltip.js",
